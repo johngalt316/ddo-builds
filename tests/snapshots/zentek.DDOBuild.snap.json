@@ -1,0 +1,210 @@
+{
+  "notes": "",
+  "warnings": [
+    "14 Epic/Legendary levels detected (level 21+) — only heroic classes are shown."
+  ],
+  "build": {
+    "version": 1,
+    "name": "Imported Build",
+    "raceId": "eladrin",
+    "alignment": "CN",
+    "classes": [
+      {
+        "classId": "artificer",
+        "levels": 3
+      },
+      {
+        "classId": "favored_soul",
+        "levels": 17
+      }
+    ],
+    "abilityScores": {
+      "STR": 8,
+      "DEX": 8,
+      "CON": 18,
+      "INT": 12,
+      "WIS": 8,
+      "CHA": 18
+    },
+    "skillRanks": {},
+    "feats": [
+      {
+        "slotIndex": 0,
+        "featId": "Point Blank Shot"
+      },
+      {
+        "slotIndex": 1,
+        "featId": "Rapid Shot"
+      },
+      {
+        "slotIndex": 2,
+        "featId": "Follower of the Sovereign Host"
+      },
+      {
+        "slotIndex": 3,
+        "featId": "Grace of Battle"
+      },
+      {
+        "slotIndex": 4,
+        "featId": "Child of Faith"
+      },
+      {
+        "slotIndex": 5,
+        "featId": "Precise Shot"
+      },
+      {
+        "slotIndex": 6,
+        "featId": "Energy Absorption: Fire"
+      },
+      {
+        "slotIndex": 7,
+        "featId": "Precision"
+      },
+      {
+        "slotIndex": 8,
+        "featId": "Unyielding Sovereignty"
+      },
+      {
+        "slotIndex": 9,
+        "featId": "Stout of Heart"
+      },
+      {
+        "slotIndex": 10,
+        "featId": "Improved Critical: Ranged Weapons"
+      },
+      {
+        "slotIndex": 11,
+        "featId": "Energy Absorption: Cold"
+      },
+      {
+        "slotIndex": 12,
+        "featId": "Quicken Spell"
+      },
+      {
+        "slotIndex": 13,
+        "featId": "Beloved of the Divine"
+      },
+      {
+        "slotIndex": 14,
+        "featId": "Empower Healing Spell"
+      },
+      {
+        "slotIndex": 15,
+        "featId": "Energy Absorption: Acid"
+      },
+      {
+        "slotIndex": 16,
+        "featId": "Patience"
+      },
+      {
+        "slotIndex": 17,
+        "featId": "Holy Strike"
+      },
+      {
+        "slotIndex": 18,
+        "featId": "Combat Archery"
+      },
+      {
+        "slotIndex": 19,
+        "featId": "Doubleshot"
+      },
+      {
+        "slotIndex": 20,
+        "featId": "Overwhelming Critical"
+      },
+      {
+        "slotIndex": 21,
+        "featId": "Harbinger of Chaos"
+      },
+      {
+        "slotIndex": 22,
+        "featId": "Watchful Eye"
+      },
+      {
+        "slotIndex": 23,
+        "featId": "Scion of the Ethereal Plane"
+      },
+      {
+        "slotIndex": 24,
+        "featId": "Legendary Aim"
+      },
+      {
+        "slotIndex": 25,
+        "featId": "Trick Shot"
+      },
+      {
+        "slotIndex": 26,
+        "featId": "Titan's Blood"
+      }
+    ],
+    "enhancements": [],
+    "destinyEnhancements": [],
+    "selectedEnhancementTrees": [
+      "Eladrin",
+      "Angel of Vengeance",
+      "Beacon of Hope",
+      "War Soul",
+      "Arcanotechnician",
+      "Battle Engineer",
+      "Renegade Mastermaker"
+    ],
+    "gearSets": [
+      {
+        "name": "Standard",
+        "items": []
+      }
+    ],
+    "activeGearSet": "Standard",
+    "activeStances": [],
+    "levelClasses": [
+      "artificer",
+      "artificer",
+      "artificer",
+      "favored_soul",
+      "favored_soul",
+      "favored_soul",
+      "favored_soul",
+      "favored_soul",
+      "favored_soul",
+      "favored_soul",
+      "favored_soul",
+      "favored_soul",
+      "favored_soul",
+      "favored_soul",
+      "favored_soul",
+      "favored_soul",
+      "favored_soul",
+      "favored_soul",
+      "favored_soul",
+      "favored_soul"
+    ],
+    "abilityTomes": {
+      "STR": 8,
+      "DEX": 8,
+      "CON": 8,
+      "INT": 8,
+      "WIS": 8,
+      "CHA": 8
+    },
+    "skillTomes": {},
+    "levelUps": {
+      "4": "STR",
+      "8": "STR",
+      "12": "STR",
+      "16": "STR",
+      "20": "STR",
+      "24": "STR",
+      "28": "STR",
+      "32": "STR",
+      "36": "STR",
+      "40": "STR"
+    },
+    "specialFeats": [
+      {
+        "featId": "Past Life: Ranger",
+        "type": "HeroicPastLife",
+        "rank": 3
+      }
+    ]
+  }
+}

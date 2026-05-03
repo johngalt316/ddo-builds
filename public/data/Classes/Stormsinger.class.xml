@@ -1,0 +1,570 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Classes>
+  <Class>
+    <Name>Stormsinger</Name>
+    <BaseClass>Bard</BaseClass>
+    <Description>Stormsinger is a variant Bard archetype that gives up some musical skills in favor
+of spell DPS. Introduced in Update 56.</Description>
+    <SmallIcon>Bard_Small</SmallIcon>
+    <LargeIcon>Bard</LargeIcon>
+    <SkillPoints>6</SkillPoints>
+    <HitPoints>8</HitPoints>
+    <ClassSkill>Balance</ClassSkill>
+    <ClassSkill>Bluff</ClassSkill>
+    <ClassSkill>Concentration</ClassSkill>
+    <ClassSkill>Diplomacy</ClassSkill>
+    <ClassSkill>Haggle</ClassSkill>
+    <ClassSkill>Hide</ClassSkill>
+    <ClassSkill>Jump</ClassSkill>
+    <ClassSkill>Listen</ClassSkill>
+    <ClassSkill>Move Silently</ClassSkill>
+    <ClassSkill>Perform</ClassSkill>
+    <ClassSkill>Spellcraft</ClassSkill>
+    <ClassSkill>Swim</ClassSkill>
+    <ClassSkill>Tumble</ClassSkill>
+    <ClassSkill>Use Magic Device</ClassSkill>
+    <Alignment>Neutral Good</Alignment>
+    <Alignment>True Neutral</Alignment>
+    <Alignment>Chaotic Neutral</Alignment>
+    <Alignment>Chaotic Good</Alignment>
+    <Fortitude>Type1</Fortitude>
+    <Reflex>Type2</Reflex>
+    <Will>Type2</Will>
+    <SpellPointsPerLevel size="21">0 50 75 100 125 150 175 200 225 250 275 300 325 350 375 400 425 450 475 500 525</SpellPointsPerLevel>
+    <AutoBuySkill>Perform</AutoBuySkill>
+    <AutoBuySkill>Use Magic Device</AutoBuySkill>
+    <CastingStat>Charisma</CastingStat>
+    <Level1 size="6">1 0 0 0 0 0</Level1>
+    <Level2 size="6">2 0 0 0 0 0</Level2>
+    <Level3 size="6">3 0 0 0 0 0</Level3>
+    <Level4 size="6">3 2 0 0 0 0</Level4>
+    <Level5 size="6">4 3 0 0 0 0</Level5>
+    <Level6 size="6">4 3 0 0 0 0</Level6>
+    <Level7 size="6">4 4 2 0 0 0</Level7>
+    <Level8 size="6">4 4 3 0 0 0</Level8>
+    <Level9 size="6">4 4 3 0 0 0</Level9>
+    <Level10 size="6">4 4 4 2 0 0</Level10>
+    <Level11 size="6">4 4 4 3 0 0</Level11>
+    <Level12 size="6">4 4 4 3 0 0</Level12>
+    <Level13 size="6">4 4 4 4 2 0</Level13>
+    <Level14 size="6">4 4 4 4 3 0</Level14>
+    <Level15 size="6">4 4 4 4 3 0</Level15>
+    <Level16 size="6">5 4 4 4 4 2</Level16>
+    <Level17 size="6">5 5 4 4 4 3</Level17>
+    <Level18 size="6">5 5 5 4 4 3</Level18>
+    <Level19 size="6">5 5 5 5 4 4</Level19>
+    <Level20 size="6">5 5 5 5 5 4</Level20>
+    <BAB size="21">0 0.75 1.50 2.25 3.00 3.75 4.50 5.25 6.00 6.75 7.50 8.25 9.0 9.75 10.50 11.25 12.00 12.75 13.50 14.25 15.00</BAB>
+    <!--Level 1 Spells-->
+    <ClassSpell>
+      <Name>Cause Fear</Name>
+      <Cost>6</Cost>
+      <Level>1</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Charm Person</Name>
+      <Level>1</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Color Spray</Name>
+      <Level>1</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Cure Light Wounds</Name>
+      <Cost>6</Cost>
+      <Level>1</Level>
+      <MaxCasterLevel>5</MaxCasterLevel>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Detect Secret Doors</Name>
+      <Cost>10</Cost>
+      <Level>1</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Expeditious Retreat</Name>
+      <Level>1</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Feather Fall</Name>
+      <Level>1</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Focusing Chant</Name>
+      <Level>1</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Grease</Name>
+      <Level>1</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Hypnotism</Name>
+      <Level>1</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Master's Touch</Name>
+      <Level>1</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Merfolk's Blessing</Name>
+      <Level>1</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Otto's Resistible Dance</Name>
+      <Cost>10</Cost>
+      <Level>1</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Remove Fear</Name>
+      <Level>1</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Shocking Grasp</Name>
+      <Level>1</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Sleep</Name>
+      <Level>1</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Sonic Blast</Name>
+      <Cost>4</Cost>
+      <Level>1</Level>
+      <MaxCasterLevel>5</MaxCasterLevel>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Summon Monster I</Name>
+      <Level>1</Level>
+    </ClassSpell>
+    <!--Level 2 Spells-->
+    <ClassSpell>
+      <Name>Blindness</Name>
+      <Cost>10</Cost>
+      <Level>2</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Blur</Name>
+      <Level>2</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Cat's Grace</Name>
+      <Level>2</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Cure Moderate Wounds</Name>
+      <Cost>12</Cost>
+      <Level>2</Level>
+      <MaxCasterLevel>10</MaxCasterLevel>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Daze Monster</Name>
+      <Level>2</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Eagle's Splendor</Name>
+      <Level>2</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Electric Loop</Name>
+      <Level>2</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Fox's Cunning</Name>
+      <Level>2</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Glitterdust</Name>
+      <Level>2</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Heroism</Name>
+      <Level>2</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Hold Person</Name>
+      <Cost>15</Cost>
+      <Level>2</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Hypnotic Pattern</Name>
+      <Level>2</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Invisibility</Name>
+      <Level>2</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Rage</Name>
+      <Cost>10</Cost>
+      <Level>2</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Scare</Name>
+      <Level>2</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Soundburst</Name>
+      <Level>2</Level>
+      <MaxCasterLevel>15</MaxCasterLevel>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Suggestion</Name>
+      <Level>2</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Summon Monster II</Name>
+      <Level>2</Level>
+    </ClassSpell>
+    <!--Level 3 Spells-->
+    <ClassSpell>
+      <Name>Charm Monster</Name>
+      <Level>3</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Crushing Despair</Name>
+      <Cost>20</Cost>
+      <Level>3</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Cure Serious Wounds</Name>
+      <Cost>16</Cost>
+      <Level>3</Level>
+      <MaxCasterLevel>15</MaxCasterLevel>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Deep Slumber</Name>
+      <Level>3</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Dispel Magic</Name>
+      <Cost>15</Cost>
+      <Level>3</Level>
+      <MaxCasterLevel>10</MaxCasterLevel>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Displacement</Name>
+      <Level>3</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Fear</Name>
+      <Cost>20</Cost>
+      <Level>3</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Good Hope</Name>
+      <Level>3</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Haste</Name>
+      <Level>3</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Lightning Bolt</Name>
+      <Level>3</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Remove Curse</Name>
+      <Cost>20</Cost>
+      <Level>3</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>See Invisibility</Name>
+      <Cost>15</Cost>
+      <Level>3</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Slow</Name>
+      <Cost>10</Cost>
+      <Level>3</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Summon Monster III</Name>
+      <Level>3</Level>
+    </ClassSpell>
+    <!--Level 4 Spells-->
+    <ClassSpell>
+      <Name>Ball Lightning</Name>
+      <Level>4</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Break Enchantment</Name>
+      <Cost>25</Cost>
+      <Level>4</Level>
+      <MaxCasterLevel>15</MaxCasterLevel>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Cure Critical Wounds</Name>
+      <Cost>20</Cost>
+      <Level>4</Level>
+      <MaxCasterLevel>20</MaxCasterLevel>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Dimension Door</Name>
+      <Level>4</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Dominate Person</Name>
+      <Level>4</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Freedom of Movement</Name>
+      <Level>4</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Hold Monster</Name>
+      <Level>4</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Neutralize Poison</Name>
+      <Level>4</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Otto's Sphere of Dancing</Name>
+      <Level>4</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Shout</Name>
+      <Cost>8</Cost>
+      <Level>4</Level>
+      <MaxCasterLevel>15</MaxCasterLevel>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Sleet Storm</Name>
+      <Level>4</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Summon Monster IV</Name>
+      <Level>4</Level>
+    </ClassSpell>
+    <!--Level 5 Spells-->
+    <ClassSpell>
+      <Name>Chain Lightning</Name>
+      <Level>5</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Cure Light Wounds, Mass</Name>
+      <Cost>25</Cost>
+      <Level>5</Level>
+      <MaxCasterLevel>25</MaxCasterLevel>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Greater Dispel Magic</Name>
+      <Cost>30</Cost>
+      <Level>5</Level>
+      <MaxCasterLevel>20</MaxCasterLevel>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Greater Heroism</Name>
+      <Level>5</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Mind Fog</Name>
+      <Level>5</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Shadow Walk</Name>
+      <Level>5</Level>
+      <MaxCasterLevel>20</MaxCasterLevel>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Suggestion, Mass</Name>
+      <Level>5</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Summon Monster V</Name>
+      <Level>5</Level>
+    </ClassSpell>
+    <!--Level 6 Spells-->
+    <ClassSpell>
+      <Name>Cat's Grace, Mass</Name>
+      <Level>6</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Charm Monster, Mass</Name>
+      <Level>6</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Cure Moderate Wounds, Mass</Name>
+      <Level>6</Level>
+      <MaxCasterLevel>30</MaxCasterLevel>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Eagle's Splendor, Mass</Name>
+      <Level>6</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Fox's Cunning, Mass</Name>
+      <Level>6</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Greater Shout</Name>
+      <Cost>15</Cost>
+      <Level>6</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Heroes' Feast</Name>
+      <Level>6</Level>
+      <MaxCasterLevel>20</MaxCasterLevel>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Otto's Irresistible Dance</Name>
+      <Level>6</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Summon Monster VI</Name>
+      <Level>6</Level>
+    </ClassSpell>
+    <ClassSpell>
+      <Name>Thunderstroke</Name>
+      <Level>6</Level>
+    </ClassSpell>
+    <!--Automatic Feats-->
+     <AutomaticFeats>
+        <Level>1</Level>
+        <Feats>Arcane Lore</Feats>
+        <Feats>Bardic Ballad</Feats>
+        <Feats>Dismiss Charm</Feats>
+        <Feats>Fascinate</Feats>
+        <Feats>Light Armor Proficiency</Feats>
+        <Feats>Magical Training</Feats>
+        <Feats>Martial Weapon Proficiency: Longsword</Feats>
+        <Feats>Martial Weapon Proficiency: Rapier</Feats>
+        <Feats>Martial Weapon Proficiency: Shortbow</Feats>
+        <Feats>Martial Weapon Proficiency: Shortsword</Feats>
+        <Feats>Religious Lore</Feats>
+        <Feats>Shield Proficiency (General)</Feats>
+        <Feats>Simple Weapon Proficiency: Club</Feats>
+        <Feats>Simple Weapon Proficiency: Dagger</Feats>
+        <Feats>Simple Weapon Proficiency: Dart</Feats>
+        <Feats>Simple Weapon Proficiency: Heavy Crossbow</Feats>
+        <Feats>Simple Weapon Proficiency: Heavy Mace</Feats>
+        <Feats>Simple Weapon Proficiency: Light Crossbow</Feats>
+        <Feats>Simple Weapon Proficiency: Light Mace</Feats>
+        <Feats>Simple Weapon Proficiency: Morningstar</Feats>
+        <Feats>Simple Weapon Proficiency: Quarterstaff</Feats>
+        <Feats>Simple Weapon Proficiency: Sickle</Feats>
+        <Feats>Simple Weapon Proficiency: Throwing Dagger</Feats>
+        <Feats>Simple Weapon Proficiency: Unarmed</Feats>
+        <Feats>Wilderness Lore</Feats>
+     </AutomaticFeats>
+     <AutomaticFeats>
+        <Level>2</Level>
+        <Feats>Arcane Lore</Feats>
+     </AutomaticFeats>
+     <AutomaticFeats>
+        <Level>3</Level>
+        <Feats>Arcane Lore</Feats>
+        <Feats>Bardic Inspiration</Feats>
+        <Feats>Religious Lore</Feats>
+        <Feats>Wilderness Lore</Feats>
+     </AutomaticFeats>
+     <AutomaticFeats>
+        <Level>4</Level>
+        <Feats>Arcane Lore</Feats>
+     </AutomaticFeats>
+     <AutomaticFeats>
+        <Level>5</Level>
+        <Feats>Arcane Lore</Feats>
+        <Feats>Religious Lore</Feats>
+        <Feats>Wilderness Lore</Feats>
+     </AutomaticFeats>
+     <AutomaticFeats>
+        <Level>6</Level>
+        <Feats>Arcane Lore</Feats>
+        <Feats>Suggestion</Feats>
+     </AutomaticFeats>
+     <AutomaticFeats>
+        <Level>7</Level>
+        <Feats>Arcane Lore</Feats>
+        <Feats>Religious Lore</Feats>
+        <Feats>Wilderness Lore</Feats>
+     </AutomaticFeats>
+     <AutomaticFeats>
+        <Level>8</Level>
+        <Feats>Arcane Lore</Feats>
+        <Feats>Soothing Song</Feats>
+     </AutomaticFeats>
+     <AutomaticFeats>
+        <Level>9</Level>
+        <Feats>Arcane Lore</Feats>
+        <Feats>Ballad Melody: Greatness</Feats>
+        <Feats>Religious Lore</Feats>
+        <Feats>Wilderness Lore</Feats>
+     </AutomaticFeats>
+     <AutomaticFeats>
+        <Level>10</Level>
+        <Feats>Arcane Lore</Feats>
+     </AutomaticFeats>
+     <AutomaticFeats>
+        <Level>11</Level>
+        <Feats>Arcane Lore</Feats>
+        <Feats>Religious Lore</Feats>
+        <Feats>Wilderness Lore</Feats>
+     </AutomaticFeats>
+     <AutomaticFeats>
+        <Level>12</Level>
+        <Feats>Arcane Lore</Feats>
+        <Feats>Song of Freedom</Feats>
+     </AutomaticFeats>
+     <AutomaticFeats>
+        <Level>13</Level>
+        <Feats>Arcane Lore</Feats>
+        <Feats>Religious Lore</Feats>
+        <Feats>Wilderness Lore</Feats>
+     </AutomaticFeats>
+     <AutomaticFeats>
+        <Level>14</Level>
+        <Feats>Arcane Lore</Feats>
+        <Feats>Improved Inspire Courage</Feats>
+     </AutomaticFeats>
+     <AutomaticFeats>
+        <Level>15</Level>
+        <Feats>Arcane Lore</Feats>
+        <Feats>Inspire Heroics</Feats>
+        <Feats>Religious Lore</Feats>
+        <Feats>Wilderness Lore</Feats>
+     </AutomaticFeats>
+     <AutomaticFeats>
+        <Level>16</Level>
+        <Feats>Arcane Lore</Feats>
+     </AutomaticFeats>
+     <AutomaticFeats>
+        <Level>17</Level>
+        <Feats>Arcane Lore</Feats>
+        <Feats>Religious Lore</Feats>
+        <Feats>Wilderness Lore</Feats>
+     </AutomaticFeats>
+     <AutomaticFeats>
+        <Level>18</Level>
+        <Feats>Arcane Lore</Feats>
+     </AutomaticFeats>
+     <AutomaticFeats>
+        <Level>19</Level>
+        <Feats>Arcane Lore</Feats>
+        <Feats>Religious Lore</Feats>
+        <Feats>Wilderness Lore</Feats>
+     </AutomaticFeats>
+     <AutomaticFeats>
+        <Level>20</Level>
+        <Feats>Arcane Lore</Feats>
+     </AutomaticFeats>
+    <!--Feats-->
+    <Feat>
+      <Name>Past Life: Bard - Stormsinger</Name>
+      <Description>You were a Stormsinger in a past life.
+You occasionally find yourself wishing for some thunderstorms.
+Each time you acquire this feat you gain +5 Electric and Sonic Spell Power.
+This feat can be stacked up to three times.</Description>
+      <MaxTimesAcquire>3</MaxTimesAcquire>
+      <Acquire>HeroicPastLife</Acquire>
+      <Icon>PastLifeBard</Icon>
+      <Effect>
+        <Type>SpellPower</Type>
+        <Bonus>Feat</Bonus>
+        <AType>Simple</AType>
+        <Item>Electric</Item>
+        <Item>Sonic</Item>
+        <Amount size="1">5</Amount>
+      </Effect>
+    </Feat>
+  </Class>
+</Classes>

@@ -1,0 +1,86 @@
+.container {
+  margin-bottom: 1.25rem;
+  padding: 0.6rem 0.85rem;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: var(--color-surface);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.filter {
+  flex: 1;
+  min-width: 160px;
+  padding: 0.3rem 0.55rem;
+  border-radius: 4px;
+  border: 1px solid var(--color-border);
+  background: rgba(0,0,0,0.15);
+  color: var(--color-text);
+  font: inherit;
+  font-size: 0.85rem;
+}
+.filter:focus { outline: none; border-color: var(--color-gold); }
+
+.activeCount {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+}
+
+.linkBtn, .inlineBtn {
+  background: none;
+  border: none;
+  color: var(--color-gold);
+  font: inherit;
+  font-size: 0.78rem;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline dashed;
+}
+.linkBtn:hover, .inlineBtn:hover { color: var(--color-text); }
+
+.group { margin-top: 0.6rem; }
+.groupHeading {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+  margin: 0 0 0.3rem;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.chip, .chipActive {
+  padding: 0.25rem 0.6rem;
+  font: inherit;
+  font-size: 0.78rem;
+  border-radius: 4px;
+  border: 1px solid var(--color-border);
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: border-color 0.12s, color 0.12s, background 0.12s;
+}
+.chip:hover { color: var(--color-text); border-color: var(--color-text-muted); }
+.chipActive {
+  background: rgba(201,162,39,0.15);
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+  font-weight: 600;
+}
+
+.hint, .empty {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+}

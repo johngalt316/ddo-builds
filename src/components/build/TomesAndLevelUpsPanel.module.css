@@ -1,0 +1,102 @@
+.panel {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 0.75rem;
+  margin-top: 1rem;
+}
+
+.heading {
+  margin: 0 0 0.6rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.col {}
+
+.colHeading {
+  margin: 0 0 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.tomeTable, .levelTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+
+.tomeTable td, .levelTable td {
+  padding: 0.25rem 0.4rem;
+  border-bottom: 1px dashed rgba(255,255,255,0.04);
+}
+.tomeTable tr:last-child td, .levelTable tr:last-child td {
+  border-bottom: none;
+}
+
+.tomeName, .levelLabel {
+  color: var(--color-text);
+}
+
+.tomeControls {
+  text-align: right;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.3rem;
+}
+
+.tomeValue {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  color: var(--color-gold);
+  min-width: 2ch;
+  text-align: center;
+}
+
+.btn {
+  width: 24px;
+  height: 22px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 3px;
+  color: var(--color-text);
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  transition: border-color 0.12s, background 0.12s, color 0.12s;
+}
+.btn:hover:not(:disabled) {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+}
+.btn:disabled { opacity: 0.3; cursor: not-allowed; }
+
+.select {
+  width: 100%;
+  padding: 0.2rem 0.35rem;
+  border-radius: 3px;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+  color: var(--color-text);
+  font: inherit;
+  font-size: 0.82rem;
+}
+.select:focus { outline: none; border-color: var(--color-gold); }
+.select:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.dimRow td { opacity: 0.5; }

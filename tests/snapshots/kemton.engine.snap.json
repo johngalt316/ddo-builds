@@ -1,0 +1,293 @@
+{
+  "diagnostics": {
+    "unmatchedFeats": [],
+    "unmatchedTrees": [],
+    "unmatchedEnhancements": [],
+    "unmatchedItemBuffs": [],
+    "unmatchedSets": [],
+    "unmodeledAmountTypes": {
+      "SpellInfo": 2,
+      "Slider": 3,
+      "SliderValue": 4
+    },
+    "requirementsFailedCount": 42,
+    "totalSourcedEffects": 336,
+    "totalAppliedBonuses": 382
+  },
+  "abilityScores": {
+    "STR": {
+      "total": 17,
+      "appliedCount": 2,
+      "dominatedCount": 1,
+      "sources": [
+        {
+          "source": "base + racial",
+          "bonusType": "(untyped)",
+          "value": 16
+        },
+        {
+          "source": "[PL] Past Life: Half-Orc ×3",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "Strength"
+        }
+      ]
+    },
+    "DEX": {
+      "total": 25,
+      "appliedCount": 2,
+      "dominatedCount": 4,
+      "sources": [
+        {
+          "source": "base + racial",
+          "bonusType": "(untyped)",
+          "value": 24
+        },
+        {
+          "source": "[PL] Past Life: Shifter ×3",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "Dexterity"
+        }
+      ]
+    },
+    "CON": {
+      "total": 41,
+      "appliedCount": 3,
+      "dominatedCount": 1,
+      "sources": [
+        {
+          "source": "base + racial",
+          "bonusType": "(untyped)",
+          "value": 26
+        },
+        {
+          "source": "[G] Helmet: Legendary Helm of Workplace Safety (AbilityBonus: Constitution)",
+          "bonusType": "Enhancement",
+          "value": 14,
+          "target": "Constitution"
+        },
+        {
+          "source": "[PL] Past Life: Dwarf ×3",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "Constitution"
+        }
+      ]
+    },
+    "INT": {
+      "total": 37,
+      "appliedCount": 2,
+      "dominatedCount": 1,
+      "sources": [
+        {
+          "source": "base + racial",
+          "bonusType": "(untyped)",
+          "value": 36
+        },
+        {
+          "source": "[PL] Past Life: Drow ×3",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "Intelligence"
+        }
+      ]
+    },
+    "WIS": {
+      "total": 15,
+      "appliedCount": 2,
+      "dominatedCount": 1,
+      "sources": [
+        {
+          "source": "base + racial",
+          "bonusType": "(untyped)",
+          "value": 14
+        },
+        {
+          "source": "[PL] Past Life: Aasimar ×3",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "Wisdom"
+        }
+      ]
+    },
+    "CHA": {
+      "total": 15,
+      "appliedCount": 2,
+      "dominatedCount": 2,
+      "sources": [
+        {
+          "source": "base + racial",
+          "bonusType": "(untyped)",
+          "value": 14
+        },
+        {
+          "source": "[PL] Past Life: Half-Elf ×3",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "Charisma"
+        }
+      ]
+    }
+  },
+  "hitPoints": {
+    "total": 320,
+    "appliedCount": 1,
+    "dominatedCount": 0,
+    "sources": [
+      {
+        "source": "class hit dice + CON",
+        "bonusType": "(untyped)",
+        "value": 320
+      }
+    ]
+  },
+  "saves": {
+    "Fortitude": {
+      "total": 21,
+      "appliedCount": 3,
+      "dominatedCount": 1,
+      "sources": [
+        {
+          "source": "class save progression + ability mod",
+          "bonusType": "(untyped)",
+          "value": 14
+        },
+        {
+          "source": "[G] Ring1: The Autumn Equinox (Resistance)",
+          "bonusType": "Insightful",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[PL] Past Life: Aasimar Scourge",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "Fortitude"
+        }
+      ]
+    },
+    "Reflex": {
+      "total": 25,
+      "appliedCount": 2,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "class save progression + ability mod",
+          "bonusType": "(untyped)",
+          "value": 19
+        },
+        {
+          "source": "[G] Ring1: The Autumn Equinox (Resistance)",
+          "bonusType": "Insightful",
+          "value": 6,
+          "target": "All"
+        }
+      ]
+    },
+    "Will": {
+      "total": 17,
+      "appliedCount": 3,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "class save progression + ability mod",
+          "bonusType": "(untyped)",
+          "value": 8
+        },
+        {
+          "source": "[G] Ring1: The Autumn Equinox (Resistance)",
+          "bonusType": "Insightful",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[PL] Past Life: Razorclaw Shifter ×3",
+          "bonusType": "Feat",
+          "value": 3,
+          "target": "Will"
+        }
+      ]
+    }
+  },
+  "meleePower": {
+    "total": 9,
+    "appliedCount": 2,
+    "dominatedCount": 0,
+    "sources": [
+      {
+        "source": "Scion of the Ethereal Plane",
+        "bonusType": "Feat",
+        "value": 5
+      },
+      {
+        "source": "[PL] Inherent Melee Power ×4",
+        "bonusType": "Inherent",
+        "value": 4
+      }
+    ]
+  },
+  "rangedPower": {
+    "total": 9,
+    "appliedCount": 2,
+    "dominatedCount": 0,
+    "sources": [
+      {
+        "source": "Scion of the Ethereal Plane",
+        "bonusType": "Feat",
+        "value": 5
+      },
+      {
+        "source": "[PL] Inherent Ranged Power ×4",
+        "bonusType": "Inherent",
+        "value": 4
+      }
+    ]
+  },
+  "doublestrike": {
+    "total": 8,
+    "appliedCount": 1,
+    "dominatedCount": 0,
+    "sources": [
+      {
+        "source": "[G] Ring1: The Autumn Equinox (Doublestrike)",
+        "bonusType": "Insightful",
+        "value": 8
+      }
+    ]
+  },
+  "doubleshot": {
+    "total": 15,
+    "appliedCount": 3,
+    "dominatedCount": 0,
+    "sources": [
+      {
+        "source": "Doubleshot",
+        "bonusType": "Feat",
+        "value": 10
+      },
+      {
+        "source": "Watchful Eye: Shiradi Champion: Pierce Deception + Watchful Eye",
+        "bonusType": "Destiny",
+        "value": 0
+      },
+      {
+        "source": "[G] Ring1: The Autumn Equinox (Doubleshot)",
+        "bonusType": "Insightful",
+        "value": 5
+      }
+    ]
+  },
+  "healingAmp": {
+    "total": 30,
+    "appliedCount": 1,
+    "dominatedCount": 1,
+    "sources": [
+      {
+        "source": "[PL] Past Life: Paladin ×3",
+        "bonusType": "Feat",
+        "value": 30
+      }
+    ]
+  }
+}

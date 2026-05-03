@@ -1,0 +1,269 @@
+[
+  {
+    "id": "toughness",
+    "name": "Toughness",
+    "description": "+3 hit points, plus 1 additional hit point per character level.",
+    "type": "general",
+    "prerequisites": [],
+    "stackable": true
+  },
+  {
+    "id": "power_attack",
+    "name": "Power Attack",
+    "description": "Trade up to your BAB in attack bonus for double that as a damage bonus on melee attacks.",
+    "type": "general",
+    "prerequisites": [{ "type": "stat", "stat": "STR", "value": 13 }],
+    "stackable": false
+  },
+  {
+    "id": "weapon_focus_slashing",
+    "name": "Weapon Focus (Slashing)",
+    "description": "+1 to hit with slashing weapons.",
+    "type": "general",
+    "prerequisites": [{ "type": "bab", "value": 1 }],
+    "stackable": false
+  },
+  {
+    "id": "weapon_focus_bludgeoning",
+    "name": "Weapon Focus (Bludgeoning)",
+    "description": "+1 to hit with bludgeoning weapons.",
+    "type": "general",
+    "prerequisites": [{ "type": "bab", "value": 1 }],
+    "stackable": false
+  },
+  {
+    "id": "weapon_focus_piercing",
+    "name": "Weapon Focus (Piercing)",
+    "description": "+1 to hit with piercing weapons.",
+    "type": "general",
+    "prerequisites": [{ "type": "bab", "value": 1 }],
+    "stackable": false
+  },
+  {
+    "id": "weapon_focus_ranged",
+    "name": "Weapon Focus (Ranged)",
+    "description": "+1 to hit with ranged weapons.",
+    "type": "general",
+    "prerequisites": [{ "type": "bab", "value": 1 }],
+    "stackable": false
+  },
+  {
+    "id": "dodge",
+    "name": "Dodge",
+    "description": "+1 dodge bonus to Armor Class.",
+    "type": "general",
+    "prerequisites": [{ "type": "stat", "stat": "DEX", "value": 13 }],
+    "stackable": false
+  },
+  {
+    "id": "mobility",
+    "name": "Mobility",
+    "description": "+4 dodge bonus to AC against attacks of opportunity.",
+    "type": "general",
+    "prerequisites": [{ "type": "feat", "id": "dodge" }],
+    "stackable": false
+  },
+  {
+    "id": "spring_attack",
+    "name": "Spring Attack",
+    "description": "Move before and after an attack without provoking attacks of opportunity.",
+    "type": "general",
+    "prerequisites": [
+      { "type": "feat", "id": "dodge" },
+      { "type": "feat", "id": "mobility" },
+      { "type": "bab", "value": 4 }
+    ],
+    "stackable": false
+  },
+  {
+    "id": "two_weapon_fighting",
+    "name": "Two Weapon Fighting",
+    "description": "Reduces the penalty for fighting with two weapons.",
+    "type": "general",
+    "prerequisites": [{ "type": "stat", "stat": "DEX", "value": 15 }],
+    "stackable": false
+  },
+  {
+    "id": "improved_two_weapon_fighting",
+    "name": "Improved Two Weapon Fighting",
+    "description": "Grants an additional off-hand attack.",
+    "type": "general",
+    "prerequisites": [
+      { "type": "feat", "id": "two_weapon_fighting" },
+      { "type": "stat", "stat": "DEX", "value": 17 },
+      { "type": "bab", "value": 6 }
+    ],
+    "stackable": false
+  },
+  {
+    "id": "greater_two_weapon_fighting",
+    "name": "Greater Two Weapon Fighting",
+    "description": "Grants a third off-hand attack.",
+    "type": "general",
+    "prerequisites": [
+      { "type": "feat", "id": "improved_two_weapon_fighting" },
+      { "type": "stat", "stat": "DEX", "value": 19 },
+      { "type": "bab", "value": 11 }
+    ],
+    "stackable": false
+  },
+  {
+    "id": "cleave",
+    "name": "Cleave",
+    "description": "After dropping a foe, gain a free attack against a nearby enemy.",
+    "type": "general",
+    "prerequisites": [
+      { "type": "feat", "id": "power_attack" },
+      { "type": "bab", "value": 1 }
+    ],
+    "stackable": false
+  },
+  {
+    "id": "great_cleave",
+    "name": "Great Cleave",
+    "description": "Cleave with no limit per round.",
+    "type": "general",
+    "prerequisites": [
+      { "type": "feat", "id": "cleave" },
+      { "type": "bab", "value": 4 }
+    ],
+    "stackable": false
+  },
+  {
+    "id": "empower_spell",
+    "name": "Empower Spell",
+    "description": "Spells deal 50% more damage (costs +2 spell levels).",
+    "type": "metamagic",
+    "prerequisites": [],
+    "stackable": false
+  },
+  {
+    "id": "maximize_spell",
+    "name": "Maximize Spell",
+    "description": "Spells deal maximum damage (costs +3 spell levels).",
+    "type": "metamagic",
+    "prerequisites": [],
+    "stackable": false
+  },
+  {
+    "id": "heighten_spell",
+    "name": "Heighten Spell",
+    "description": "Increases the effective spell level for purposes of saving throws.",
+    "type": "metamagic",
+    "prerequisites": [],
+    "stackable": false
+  },
+  {
+    "id": "quicken_spell",
+    "name": "Quicken Spell",
+    "description": "Spells cast in a fraction of the normal time (costs +4 spell levels).",
+    "type": "metamagic",
+    "prerequisites": [],
+    "stackable": false
+  },
+  {
+    "id": "spell_focus_evocation",
+    "name": "Spell Focus (Evocation)",
+    "description": "+1 to the DC of saving throws against Evocation spells.",
+    "type": "general",
+    "prerequisites": [],
+    "stackable": false
+  },
+  {
+    "id": "greater_spell_focus_evocation",
+    "name": "Greater Spell Focus (Evocation)",
+    "description": "+1 to the DC of saving throws against Evocation spells (stacks with Spell Focus).",
+    "type": "general",
+    "prerequisites": [{ "type": "feat", "id": "spell_focus_evocation" }],
+    "stackable": false
+  },
+  {
+    "id": "spell_penetration",
+    "name": "Spell Penetration",
+    "description": "+2 bonus on caster level checks to overcome spell resistance.",
+    "type": "general",
+    "prerequisites": [],
+    "stackable": false
+  },
+  {
+    "id": "improved_critical_slashing",
+    "name": "Improved Critical (Slashing)",
+    "description": "Doubles the threat range of slashing weapons.",
+    "type": "general",
+    "prerequisites": [{ "type": "bab", "value": 8 }],
+    "stackable": false
+  },
+  {
+    "id": "improved_critical_bludgeoning",
+    "name": "Improved Critical (Bludgeoning)",
+    "description": "Doubles the threat range of bludgeoning weapons.",
+    "type": "general",
+    "prerequisites": [{ "type": "bab", "value": 8 }],
+    "stackable": false
+  },
+  {
+    "id": "improved_critical_piercing",
+    "name": "Improved Critical (Piercing)",
+    "description": "Doubles the threat range of piercing weapons.",
+    "type": "general",
+    "prerequisites": [{ "type": "bab", "value": 8 }],
+    "stackable": false
+  },
+  {
+    "id": "improved_critical_ranged",
+    "name": "Improved Critical (Ranged)",
+    "description": "Doubles the threat range of ranged weapons.",
+    "type": "general",
+    "prerequisites": [{ "type": "bab", "value": 8 }],
+    "stackable": false
+  },
+  {
+    "id": "combat_expertise",
+    "name": "Combat Expertise",
+    "description": "Trade up to 5 attack bonus for an equal dodge bonus to AC.",
+    "type": "general",
+    "prerequisites": [{ "type": "stat", "stat": "INT", "value": 13 }],
+    "stackable": false
+  },
+  {
+    "id": "whirlwind_attack",
+    "name": "Whirlwind Attack",
+    "description": "Make a single melee attack against every enemy within melee reach.",
+    "type": "general",
+    "prerequisites": [
+      { "type": "feat", "id": "combat_expertise" },
+      { "type": "feat", "id": "dodge" },
+      { "type": "feat", "id": "mobility" },
+      { "type": "feat", "id": "spring_attack" },
+      { "type": "bab", "value": 4 }
+    ],
+    "stackable": false
+  },
+  {
+    "id": "point_blank_shot",
+    "name": "Point Blank Shot",
+    "description": "+1 to hit and damage with ranged attacks against targets within 30 feet.",
+    "type": "general",
+    "prerequisites": [],
+    "stackable": false
+  },
+  {
+    "id": "precise_shot",
+    "name": "Precise Shot",
+    "description": "No penalty for shooting into melee.",
+    "type": "general",
+    "prerequisites": [{ "type": "feat", "id": "point_blank_shot" }],
+    "stackable": false
+  },
+  {
+    "id": "rapid_shot",
+    "name": "Rapid Shot",
+    "description": "Gain an extra ranged attack per round at the cost of -2 to all ranged attacks.",
+    "type": "general",
+    "prerequisites": [
+      { "type": "feat", "id": "point_blank_shot" },
+      { "type": "stat", "stat": "DEX", "value": 13 }
+    ],
+    "stackable": false
+  }
+]

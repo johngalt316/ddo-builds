@@ -1,0 +1,124 @@
+.panel {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.heading {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.levelInfo {
+  font-size: 0.8rem;
+  color: var(--color-gold);
+  font-weight: 600;
+}
+
+.levelOver {
+  font-size: 0.8rem;
+  color: #e05555;
+  font-weight: 600;
+}
+
+.classList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.classRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.classIcon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  flex-shrink: 0;
+  border-radius: 3px;
+}
+
+.classSelect {
+  flex: 1;
+  padding: 0.35rem 0.5rem;
+  border-radius: 4px;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.levelControls {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.btn {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn:hover:not(:disabled) { background: var(--color-surface-hover); }
+.btn:disabled { opacity: 0.35; cursor: not-allowed; }
+
+.levelBadge {
+  min-width: 28px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.removeBtn {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  border: 1px solid #6b2020;
+  background: transparent;
+  color: #e05555;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.removeBtn:hover { background: rgba(224, 85, 85, 0.1); }
+
+.addBtn {
+  margin-top: 0.5rem;
+  width: 100%;
+  padding: 0.35rem;
+  border-radius: 4px;
+  border: 1px dashed var(--color-border);
+  background: transparent;
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+}
+.addBtn:hover {
+  color: var(--color-text);
+  border-color: var(--color-gold);
+}

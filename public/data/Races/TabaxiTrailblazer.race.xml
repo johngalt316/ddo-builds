@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Races>
+  <Race>
+    <Name>Tabaxi Trailblazer</Name>
+    <ShortName>Trailblazer</ShortName>
+    <Description>Tabaxi Trailblazer is a playable iconic hero race, a catlike humanoid with supernatural
+powers. It was introduced in U54: The Isle of Dread expansion. You can buy it
+from the DDO Store for 1395 DDO points, or from DDO Market as part of the ultimate
+the Isle of Dread bundle.
+
+Starts with 1 level of: Monk</Description>
+    <StartingWorld>Eberron</StartingWorld>
+    <BuildPoints size="4">28 32 34 36</BuildPoints>
+    <IconicClass>Monk</IconicClass>
+    <Dexterity>+2</Dexterity>
+    <GrantedFeat>Feline Agility</GrantedFeat>
+    <GrantedFeat>Tabaxi Traits</GrantedFeat>
+    <Feat>
+      <Name>Past Life: Tabaxi Trailblazer</Name>
+      <Description>Iconic Past Life Stance: Iconic Past Life Stance: +1 to Trip DCs per stack of this Past Life.
+Passive Bonus: +1 to Saving Throws vs. Traps per stack of this Past Life</Description>
+      <Stance>
+        <Name>Tabaxi Trailblazer </Name>
+        <Icon>IconicPastLifeTabaxi</Icon>
+        <Description>Iconic Past Life Stance: Iconic Past Life Stance: +1 to Trip DCs per stack of this Past Life.</Description>
+        <Group>Iconic</Group>
+      </Stance>
+      <MaxTimesAcquire>3</MaxTimesAcquire>
+      <Acquire>IconicPastLife</Acquire>
+      <Icon>IconicPastLifeTabaxi</Icon>
+      <Effect>
+        <Type>SaveBonus</Type>
+        <Bonus>Feat</Bonus>
+        <AType>Simple</AType>
+        <Amount size="1">1</Amount>
+        <Item>Traps</Item>
+      </Effect>
+      <Effect>
+        <Type>TacticalDC</Type>
+        <Bonus>Feat</Bonus>
+        <AType>Simple</AType>
+        <Amount size="1">1</Amount>
+        <Item>Trip</Item>
+        <Requirements>
+          <Requirement>
+            <Type>Stance</Type>
+            <Item>Tabaxi Trailblazer </Item>
+          </Requirement>
+        </Requirements>
+      </Effect>
+    </Feat>
+  </Race>
+</Races>

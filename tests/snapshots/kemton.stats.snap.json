@@ -1,0 +1,177 @@
+{
+  "raceResolved": "human",
+  "charLevel": 20,
+  "pointBuySpent": 36,
+  "effectiveScores": {
+    "STR": 8,
+    "DEX": 16,
+    "CON": 16,
+    "INT": 18,
+    "WIS": 8,
+    "CHA": 8
+  },
+  "modifiers": {
+    "STR": -1,
+    "DEX": 3,
+    "CON": 3,
+    "INT": 4,
+    "WIS": -1,
+    "CHA": -1
+  },
+  "bab": 0,
+  "hitPoints": 60,
+  "saves": {
+    "fortitude": 3,
+    "reflex": 3,
+    "will": -1
+  },
+  "skillBonuses": {
+    "balance": {
+      "total": 3,
+      "ranks": 0,
+      "abilityMod": 3,
+      "isClassSkill": false,
+      "maxRanks": 11
+    },
+    "bluff": {
+      "total": -1,
+      "ranks": 0,
+      "abilityMod": -1,
+      "isClassSkill": false,
+      "maxRanks": 11
+    },
+    "concentration": {
+      "total": 3,
+      "ranks": 0,
+      "abilityMod": 3,
+      "isClassSkill": false,
+      "maxRanks": 11
+    },
+    "diplomacy": {
+      "total": -1,
+      "ranks": 0,
+      "abilityMod": -1,
+      "isClassSkill": false,
+      "maxRanks": 11
+    },
+    "disable_device": {
+      "total": 4,
+      "ranks": 0,
+      "abilityMod": 4,
+      "isClassSkill": false,
+      "maxRanks": 11
+    },
+    "haggle": {
+      "total": -1,
+      "ranks": 0,
+      "abilityMod": -1,
+      "isClassSkill": false,
+      "maxRanks": 11
+    },
+    "heal": {
+      "total": -1,
+      "ranks": 0,
+      "abilityMod": -1,
+      "isClassSkill": false,
+      "maxRanks": 11
+    },
+    "hide": {
+      "total": 3,
+      "ranks": 0,
+      "abilityMod": 3,
+      "isClassSkill": false,
+      "maxRanks": 11
+    },
+    "intimidate": {
+      "total": -1,
+      "ranks": 0,
+      "abilityMod": -1,
+      "isClassSkill": false,
+      "maxRanks": 11
+    },
+    "jump": {
+      "total": -1,
+      "ranks": 0,
+      "abilityMod": -1,
+      "isClassSkill": false,
+      "maxRanks": 11
+    },
+    "listen": {
+      "total": -1,
+      "ranks": 0,
+      "abilityMod": -1,
+      "isClassSkill": false,
+      "maxRanks": 11
+    },
+    "move_silently": {
+      "total": 3,
+      "ranks": 0,
+      "abilityMod": 3,
+      "isClassSkill": false,
+      "maxRanks": 11
+    },
+    "open_lock": {
+      "total": 3,
+      "ranks": 0,
+      "abilityMod": 3,
+      "isClassSkill": false,
+      "maxRanks": 11
+    },
+    "perform": {
+      "total": -1,
+      "ranks": 0,
+      "abilityMod": -1,
+      "isClassSkill": false,
+      "maxRanks": 11
+    },
+    "repair": {
+      "total": 4,
+      "ranks": 0,
+      "abilityMod": 4,
+      "isClassSkill": false,
+      "maxRanks": 11
+    },
+    "search": {
+      "total": 4,
+      "ranks": 0,
+      "abilityMod": 4,
+      "isClassSkill": false,
+      "maxRanks": 11
+    },
+    "spellcraft": {
+      "total": 4,
+      "ranks": 0,
+      "abilityMod": 4,
+      "isClassSkill": false,
+      "maxRanks": 11
+    },
+    "spot": {
+      "total": -1,
+      "ranks": 0,
+      "abilityMod": -1,
+      "isClassSkill": false,
+      "maxRanks": 11
+    },
+    "swim": {
+      "total": -1,
+      "ranks": 0,
+      "abilityMod": -1,
+      "isClassSkill": false,
+      "maxRanks": 11
+    },
+    "tumble": {
+      "total": 3,
+      "ranks": 0,
+      "abilityMod": 3,
+      "isClassSkill": false,
+      "maxRanks": 11
+    },
+    "use_magic_device": {
+      "total": -1,
+      "ranks": 0,
+      "abilityMod": -1,
+      "isClassSkill": false,
+      "maxRanks": 11
+    }
+  }
+}

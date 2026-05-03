@@ -1,0 +1,22 @@
+{
+  "totalItems": 8200,
+  "bySlot": {
+    "Weapon1": 3608,
+    "Weapon2": 2598,
+    "Armor": 1062,
+    "Ring": 421,
+    "Gloves": 246,
+    "Cloak": 353,
+    "Trinket": 357,
+    "Goggles": 212,
+    "Bracers": 256,
+    "Necklace": 328,
+    "Belt": 242,
+    "Boots": 220,
+    "Helmet": 358,
+    "Quiver": 13
+  },
+  "itemBuffTypes": 1726,
+  "parseErrors": 0,
+  "skippedCosmetic": 277
+}

@@ -1,0 +1,200 @@
+{
+  "diagnostics": {
+    "unmatchedFeats": [],
+    "unmatchedTrees": [],
+    "unmatchedEnhancements": [],
+    "unmatchedItemBuffs": [],
+    "unmatchedSets": [],
+    "unmodeledAmountTypes": {
+      "Slider": 1,
+      "SliderValue": 1,
+      "SpellInfo": 3
+    },
+    "requirementsFailedCount": 21,
+    "totalSourcedEffects": 109,
+    "totalAppliedBonuses": 165
+  },
+  "abilityScores": {
+    "STR": {
+      "total": 26,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "base + racial",
+          "bonusType": "(untyped)",
+          "value": 26
+        }
+      ]
+    },
+    "DEX": {
+      "total": 18,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "base + racial",
+          "bonusType": "(untyped)",
+          "value": 18
+        }
+      ]
+    },
+    "CON": {
+      "total": 26,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "base + racial",
+          "bonusType": "(untyped)",
+          "value": 26
+        }
+      ]
+    },
+    "INT": {
+      "total": 22,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "base + racial",
+          "bonusType": "(untyped)",
+          "value": 22
+        }
+      ]
+    },
+    "WIS": {
+      "total": 16,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "base + racial",
+          "bonusType": "(untyped)",
+          "value": 16
+        }
+      ]
+    },
+    "CHA": {
+      "total": 26,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "base + racial",
+          "bonusType": "(untyped)",
+          "value": 26
+        }
+      ]
+    }
+  },
+  "hitPoints": {
+    "total": 320,
+    "appliedCount": 1,
+    "dominatedCount": 0,
+    "sources": [
+      {
+        "source": "class hit dice + CON",
+        "bonusType": "(untyped)",
+        "value": 320
+      }
+    ]
+  },
+  "saves": {
+    "Fortitude": {
+      "total": 19,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "class save progression + ability mod",
+          "bonusType": "(untyped)",
+          "value": 19
+        }
+      ]
+    },
+    "Reflex": {
+      "total": 15,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "class save progression + ability mod",
+          "bonusType": "(untyped)",
+          "value": 15
+        }
+      ]
+    },
+    "Will": {
+      "total": 16,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "class save progression + ability mod",
+          "bonusType": "(untyped)",
+          "value": 16
+        }
+      ]
+    }
+  },
+  "meleePower": {
+    "total": 5,
+    "appliedCount": 1,
+    "dominatedCount": 0,
+    "sources": [
+      {
+        "source": "Scion of the Ethereal Plane",
+        "bonusType": "Feat",
+        "value": 5
+      }
+    ]
+  },
+  "rangedPower": {
+    "total": 5,
+    "appliedCount": 1,
+    "dominatedCount": 0,
+    "sources": [
+      {
+        "source": "Scion of the Ethereal Plane",
+        "bonusType": "Feat",
+        "value": 5
+      }
+    ]
+  },
+  "doublestrike": {
+    "total": 2,
+    "appliedCount": 1,
+    "dominatedCount": 0,
+    "sources": [
+      {
+        "source": "Harbinger of Chaos",
+        "bonusType": "Feat",
+        "value": 2
+      }
+    ]
+  },
+  "doubleshot": {
+    "total": 10,
+    "appliedCount": 2,
+    "dominatedCount": 1,
+    "sources": [
+      {
+        "source": "Doubleshot",
+        "bonusType": "Feat",
+        "value": 10
+      },
+      {
+        "source": "Watchful Eye: Shiradi Champion: Pierce Deception + Watchful Eye",
+        "bonusType": "Destiny",
+        "value": 0
+      }
+    ]
+  },
+  "healingAmp": {
+    "total": 0,
+    "appliedCount": 0,
+    "dominatedCount": 0,
+    "sources": []
+  }
+}

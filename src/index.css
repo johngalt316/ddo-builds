@@ -1,0 +1,52 @@
+/* ── Design Tokens ─────────────────────────────────── */
+:root {
+  --color-bg:           #111118;
+  --color-surface:      #1a1a24;
+  --color-surface-hover:#222230;
+  --color-border:       #2e2e40;
+  --color-text:         #e8e8f0;
+  --color-text-muted:   #8888aa;
+  --color-gold:         #c9a227;
+  --color-gold-light:   #e0b83a;
+
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--color-text);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Reset ─────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+h1, h2, h3, h4 {
+  line-height: 1.2;
+  margin: 0 0 0.75rem;
+}
+
+a {
+  color: var(--color-gold);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+select, input, button {
+  color: inherit;
+}
+
+/* ── Scrollbar ─────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--color-bg); }
+::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-text-muted); }

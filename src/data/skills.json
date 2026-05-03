@@ -1,0 +1,23 @@
+[
+  { "id": "balance",         "name": "Balance",          "keyAbility": "DEX", "armorCheckPenalty": true,  "trainedOnly": false },
+  { "id": "bluff",           "name": "Bluff",             "keyAbility": "CHA", "armorCheckPenalty": false, "trainedOnly": false },
+  { "id": "concentration",   "name": "Concentration",     "keyAbility": "CON", "armorCheckPenalty": false, "trainedOnly": false },
+  { "id": "diplomacy",       "name": "Diplomacy",         "keyAbility": "CHA", "armorCheckPenalty": false, "trainedOnly": false },
+  { "id": "disable_device",  "name": "Disable Device",    "keyAbility": "INT", "armorCheckPenalty": false, "trainedOnly": true  },
+  { "id": "haggle",          "name": "Haggle",            "keyAbility": "CHA", "armorCheckPenalty": false, "trainedOnly": false },
+  { "id": "heal",            "name": "Heal",              "keyAbility": "WIS", "armorCheckPenalty": false, "trainedOnly": false },
+  { "id": "hide",            "name": "Hide",              "keyAbility": "DEX", "armorCheckPenalty": true,  "trainedOnly": false },
+  { "id": "intimidate",      "name": "Intimidate",        "keyAbility": "CHA", "armorCheckPenalty": false, "trainedOnly": false },
+  { "id": "jump",            "name": "Jump",              "keyAbility": "STR", "armorCheckPenalty": true,  "trainedOnly": false },
+  { "id": "listen",          "name": "Listen",            "keyAbility": "WIS", "armorCheckPenalty": false, "trainedOnly": false },
+  { "id": "move_silently",   "name": "Move Silently",     "keyAbility": "DEX", "armorCheckPenalty": true,  "trainedOnly": false },
+  { "id": "open_lock",       "name": "Open Lock",         "keyAbility": "DEX", "armorCheckPenalty": false, "trainedOnly": true  },
+  { "id": "perform",         "name": "Perform",           "keyAbility": "CHA", "armorCheckPenalty": false, "trainedOnly": false },
+  { "id": "repair",          "name": "Repair",            "keyAbility": "INT", "armorCheckPenalty": false, "trainedOnly": false },
+  { "id": "search",          "name": "Search",            "keyAbility": "INT", "armorCheckPenalty": false, "trainedOnly": false },
+  { "id": "spellcraft",      "name": "Spellcraft",        "keyAbility": "INT", "armorCheckPenalty": false, "trainedOnly": true  },
+  { "id": "spot",            "name": "Spot",              "keyAbility": "WIS", "armorCheckPenalty": false, "trainedOnly": false },
+  { "id": "swim",            "name": "Swim",              "keyAbility": "STR", "armorCheckPenalty": true,  "trainedOnly": false },
+  { "id": "tumble",          "name": "Tumble",            "keyAbility": "DEX", "armorCheckPenalty": true,  "trainedOnly": false },
+  { "id": "use_magic_device","name": "Use Magic Device",  "keyAbility": "CHA", "armorCheckPenalty": false, "trainedOnly": true  }
+]

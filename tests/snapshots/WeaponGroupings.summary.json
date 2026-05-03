@@ -1,0 +1,97 @@
+{
+  "count": 23,
+  "groupSizes": [
+    {
+      "name": "Martial",
+      "weaponCount": 19
+    },
+    {
+      "name": "Simple",
+      "weaponCount": 11
+    },
+    {
+      "name": "Exotic",
+      "weaponCount": 9
+    },
+    {
+      "name": "One Handed",
+      "weaponCount": 21
+    },
+    {
+      "name": "Two Handed",
+      "weaponCount": 6
+    },
+    {
+      "name": "Melee",
+      "weaponCount": 28
+    },
+    {
+      "name": "Light",
+      "weaponCount": 9
+    },
+    {
+      "name": "Ranged",
+      "weaponCount": 8
+    },
+    {
+      "name": "Thrown",
+      "weaponCount": 5
+    },
+    {
+      "name": "All Ranged",
+      "weaponCount": 12
+    },
+    {
+      "name": "Finesseable",
+      "weaponCount": 13
+    },
+    {
+      "name": "Shield",
+      "weaponCount": 4
+    },
+    {
+      "name": "Axe",
+      "weaponCount": 5
+    },
+    {
+      "name": "Bow",
+      "weaponCount": 2
+    },
+    {
+      "name": "Crossbow",
+      "weaponCount": 3
+    },
+    {
+      "name": "RepeatingCrossbow",
+      "weaponCount": 2
+    },
+    {
+      "name": "Centered",
+      "weaponCount": 6
+    },
+    {
+      "name": "Slashing",
+      "weaponCount": 15
+    },
+    {
+      "name": "Bludgeoning",
+      "weaponCount": 11
+    },
+    {
+      "name": "Piercing",
+      "weaponCount": 5
+    },
+    {
+      "name": "Swashbuckling",
+      "weaponCount": 16
+    },
+    {
+      "name": "SwashbucklingOffhand",
+      "weaponCount": 2
+    },
+    {
+      "name": "Single Weapon",
+      "weaponCount": 21
+    }
+  ]
+}

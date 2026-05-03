@@ -1,0 +1,15 @@
+{
+  "count": 30,
+  "groups": [
+    "Auto"
+  ],
+  "autoControlledCount": 30,
+  "withRequirements": 30,
+  "first5Names": [
+    "Two Weapon Fighting",
+    "Two Handed Fighting",
+    "Ranged Combat",
+    "Single Weapon Fighting",
+    "Unarmed"
+  ]
+}

@@ -1,0 +1,865 @@
+{
+  "notes": "",
+  "warnings": [
+    "14 Epic/Legendary levels detected (level 21+) — only heroic classes are shown."
+  ],
+  "build": {
+    "version": 1,
+    "name": "Kemton",
+    "raceId": "bladeforged",
+    "alignment": "TN",
+    "classes": [
+      {
+        "classId": "arcane_trickster",
+        "levels": 20
+      }
+    ],
+    "abilityScores": {
+      "STR": 8,
+      "DEX": 16,
+      "CON": 16,
+      "INT": 18,
+      "WIS": 8,
+      "CHA": 8
+    },
+    "skillRanks": {},
+    "feats": [
+      {
+        "slotIndex": 0,
+        "featId": "Rapid Reload"
+      },
+      {
+        "slotIndex": 1,
+        "featId": "Point Blank Shot"
+      },
+      {
+        "slotIndex": 2,
+        "featId": "Minion of the Eldritch"
+      },
+      {
+        "slotIndex": 3,
+        "featId": "Maximize Spell"
+      },
+      {
+        "slotIndex": 4,
+        "featId": "Rapid Shot"
+      },
+      {
+        "slotIndex": 5,
+        "featId": "Past Life: Arcane Initiate"
+      },
+      {
+        "slotIndex": 6,
+        "featId": "Empower Spell"
+      },
+      {
+        "slotIndex": 7,
+        "featId": "Improved Critical: Ranged Weapons"
+      },
+      {
+        "slotIndex": 8,
+        "featId": "Precise Shot"
+      },
+      {
+        "slotIndex": 9,
+        "featId": "Quicken Spell"
+      },
+      {
+        "slotIndex": 10,
+        "featId": "Precision"
+      },
+      {
+        "slotIndex": 11,
+        "featId": "Epic Spell Power: Force"
+      },
+      {
+        "slotIndex": 12,
+        "featId": "Intensify Spell"
+      },
+      {
+        "slotIndex": 13,
+        "featId": "Doubleshot"
+      },
+      {
+        "slotIndex": 14,
+        "featId": "Patience"
+      },
+      {
+        "slotIndex": 15,
+        "featId": "Arcane Warrior"
+      },
+      {
+        "slotIndex": 16,
+        "featId": "Scion of the Ethereal Plane"
+      },
+      {
+        "slotIndex": 17,
+        "featId": "Enhanced Minion of the Eldritch"
+      },
+      {
+        "slotIndex": 18,
+        "featId": "Overwhelming Critical"
+      },
+      {
+        "slotIndex": 19,
+        "featId": "Legendary Aim"
+      },
+      {
+        "slotIndex": 20,
+        "featId": "Watchful Eye"
+      },
+      {
+        "slotIndex": 21,
+        "featId": "Epic Spell Power: Positive"
+      }
+    ],
+    "enhancements": [
+      {
+        "treeId": "Eladrin",
+        "enhancements": []
+      }
+    ],
+    "destinyEnhancements": [],
+    "selectedEnhancementTrees": [
+      "Bladeforged",
+      "Arcane Trickster",
+      "Mechanic",
+      "Thief-Acrobat"
+    ],
+    "gearSets": [
+      {
+        "name": "Standard",
+        "items": []
+      },
+      {
+        "name": "DPS",
+        "items": [
+          {
+            "slot": "Helmet",
+            "name": "Legendary Helm of Workplace Safety",
+            "icon": "Helmet_2",
+            "dropLocation": "The Covered Culvert, end chest",
+            "minLevel": 33,
+            "material": "Gem (material)",
+            "buffs": [
+              {
+                "type": "AbilityBonus",
+                "value1": 14,
+                "bonusType": "Enhancement",
+                "item": "Constitution",
+                "description1": "Constitution"
+              },
+              {
+                "type": "PhysicalSheltering",
+                "value1": 37,
+                "bonusType": "Enhancement"
+              },
+              {
+                "type": "PhysicalSheltering",
+                "value1": 18,
+                "bonusType": "Insightful"
+              },
+              {
+                "type": "Absorption",
+                "value1": 16,
+                "bonusType": "Enhancement",
+                "item": "Force",
+                "description1": "Force"
+              }
+            ]
+          },
+          {
+            "slot": "Goggles",
+            "name": "Legendary Scientist's Sights",
+            "icon": "Goggles_24",
+            "description": "These lenses slightly magnify small details, a fine bit of magic for the aspiring\r\ntinkerer.",
+            "dropLocation": "Locked Away (Part One), end chest",
+            "minLevel": 34,
+            "material": "Steel",
+            "buffs": [
+              {
+                "type": "Potency",
+                "value1": 27,
+                "bonusType": "Quality"
+              },
+              {
+                "type": "TrueSeeing"
+              }
+            ]
+          },
+          {
+            "slot": "Gloves",
+            "name": "Legendary Darstil's Gloves",
+            "icon": "Gloves_7k",
+            "description": "The gloves of Darstil Vurusk, Grand Arcanist of the Night Brigade, intricately\r\nsewn to allow the free flow of spellcasting.",
+            "dropLocation": "The Wizard's Labyrinth, end chest",
+            "minLevel": 33,
+            "material": "Leather",
+            "buffs": [
+              {
+                "type": "SpellFocusMastery",
+                "value1": 3,
+                "bonusType": "Insightful"
+              },
+              {
+                "type": "Potency",
+                "value1": 26,
+                "bonusType": "Quality"
+              },
+              {
+                "type": "SpellLore",
+                "value1": 13,
+                "bonusType": "Equipment"
+              },
+              {
+                "type": "SpellPenetration",
+                "value1": 9,
+                "bonusType": "Equipment"
+              }
+            ]
+          },
+          {
+            "slot": "Boots",
+            "name": "Legendary Windriders",
+            "icon": "Boots_8",
+            "description": "Ride the wind.",
+            "dropLocation": "Needle in a Fey Stack, End chest",
+            "minLevel": 29,
+            "material": "Cloth",
+            "setBonus": "Eminence of Autumn",
+            "buffs": [
+              {
+                "type": "Freedom of Movement"
+              },
+              {
+                "type": "Speed",
+                "value1": 30,
+                "value2": 15,
+                "bonusType": "Enhancement"
+              },
+              {
+                "type": "Whirlwind Ward"
+              },
+              {
+                "type": "Dodge",
+                "value1": 13,
+                "bonusType": "Enhancement"
+              }
+            ]
+          },
+          {
+            "slot": "Bracers",
+            "name": "Thayan Pactmage's Bangle",
+            "icon": "Bracers_5c",
+            "description": "The mandatory mark of a Thayan Warlock.",
+            "dropLocation": "Threats Old and New, Raid Warded chest",
+            "minLevel": 33,
+            "material": "Steel",
+            "buffs": [
+              {
+                "type": "Impulse",
+                "value1": 162,
+                "bonusType": "Equipment"
+              },
+              {
+                "type": "KineticLore",
+                "value1": 24,
+                "bonusType": "Equipment"
+              },
+              {
+                "type": "Power in Pact",
+                "value1": 3,
+                "bonusType": "Enhancement"
+              }
+            ]
+          },
+          {
+            "slot": "Armor",
+            "name": "Legendary Red Dragonscale Docent",
+            "icon": "Docent_4",
+            "description": "This docent was forged from the scales of the Red Dragon, Velah. This suit of\r\narmor can be repaired by a smith knowledgable in blue dragonscale repair techniques.",
+            "dropLocation": "Legendary version of Epic Red Dragonscale Docent",
+            "minLevel": 30,
+            "material": "Gem (material)",
+            "setBonus": "Legendary Soul of the Red Dragon",
+            "buffs": [
+              {
+                "type": "ArmorEnchantment",
+                "value1": 15,
+                "bonusType": "Armor Enhancement"
+              },
+              {
+                "type": "Dripping with Magma"
+              },
+              {
+                "type": "FireLore",
+                "value1": 22,
+                "bonusType": "Equipment"
+              },
+              {
+                "type": "Combustion",
+                "value1": 151,
+                "bonusType": "Equipment"
+              },
+              {
+                "type": "EnergyResistance",
+                "value1": 54,
+                "bonusType": "Enhancement",
+                "item": "Fire",
+                "description1": "Fire"
+              },
+              {
+                "type": "Fire Guard II"
+              },
+              {
+                "type": "Incineration Guard"
+              },
+              {
+                "type": "Construct Fortification (10%)"
+              }
+            ]
+          },
+          {
+            "slot": "Ring1",
+            "name": "The Autumn Equinox",
+            "icon": "Ring_21g",
+            "description": "Power evenly divided between the Sun and Moon, the power of Autumn at its fullest\r\nis channeled here.",
+            "dropLocation": "Voices of the Dead, end chest (rare)",
+            "minLevel": 33,
+            "material": "Leather",
+            "buffs": [
+              {
+                "type": "AlchemicalEarthAttunement"
+              },
+              {
+                "type": "Bloody Thorns"
+              },
+              {
+                "type": "Resistance",
+                "value1": 6,
+                "bonusType": "Insightful"
+              },
+              {
+                "type": "Doublestrike",
+                "value1": 8,
+                "bonusType": "Insightful"
+              },
+              {
+                "type": "Doubleshot",
+                "value1": 5,
+                "bonusType": "Insightful"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "activeGearSet": "DPS",
+    "activeStances": [],
+    "levelClasses": [
+      "arcane_trickster",
+      "arcane_trickster",
+      "arcane_trickster",
+      "arcane_trickster",
+      "arcane_trickster",
+      "arcane_trickster",
+      "arcane_trickster",
+      "arcane_trickster",
+      "arcane_trickster",
+      "arcane_trickster",
+      "arcane_trickster",
+      "arcane_trickster",
+      "arcane_trickster",
+      "arcane_trickster",
+      "arcane_trickster",
+      "arcane_trickster",
+      "arcane_trickster",
+      "arcane_trickster",
+      "arcane_trickster",
+      "arcane_trickster"
+    ],
+    "abilityTomes": {
+      "STR": 8,
+      "DEX": 8,
+      "CON": 8,
+      "INT": 8,
+      "WIS": 8,
+      "CHA": 8
+    },
+    "skillTomes": {},
+    "levelUps": {
+      "4": "INT",
+      "8": "INT",
+      "12": "INT",
+      "16": "INT",
+      "20": "INT",
+      "24": "INT",
+      "28": "INT",
+      "32": "INT",
+      "36": "INT",
+      "40": "INT"
+    },
+    "specialFeats": [
+      {
+        "featId": "Divine Crusader",
+        "type": "EpicDestinyTree",
+        "rank": 1
+      },
+      {
+        "featId": "Draconic Incarnation",
+        "type": "EpicDestinyTree",
+        "rank": 1
+      },
+      {
+        "featId": "Exalted Angel",
+        "type": "EpicDestinyTree",
+        "rank": 1
+      },
+      {
+        "featId": "Fatesinger",
+        "type": "EpicDestinyTree",
+        "rank": 1
+      },
+      {
+        "featId": "Fury of the Wild",
+        "type": "EpicDestinyTree",
+        "rank": 1
+      },
+      {
+        "featId": "Grandmaster of Flowers",
+        "type": "EpicDestinyTree",
+        "rank": 1
+      },
+      {
+        "featId": "Inherent Fate Point",
+        "type": "Special",
+        "rank": 3
+      },
+      {
+        "featId": "Inherent Melee Power",
+        "type": "Special",
+        "rank": 4
+      },
+      {
+        "featId": "Inherent Racial Action Point",
+        "type": "Special",
+        "rank": 2
+      },
+      {
+        "featId": "Inherent Racial Action Point",
+        "type": "Cheap Shot (level 15)",
+        "rank": 1
+      },
+      {
+        "featId": "Inherent Universal Action Point",
+        "type": "Special",
+        "rank": 2
+      },
+      {
+        "featId": "Inherent Universal Action Point",
+        "type": "SpecialAnniversary Party, Turn in 40",
+        "rank": 1
+      },
+      {
+        "featId": "Legendary Dreadnought",
+        "type": "EpicDestinyTree",
+        "rank": 1
+      },
+      {
+        "featId": "Machrotechnic",
+        "type": "EpicDestinyTree",
+        "rank": 1
+      },
+      {
+        "featId": "Magus of the Eclipse",
+        "type": "EpicDestinyTree",
+        "rank": 1
+      },
+      {
+        "featId": "Past Life: Aasimar",
+        "type": "RacialPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Aasimar Scourge",
+        "type": "IconicPastLife",
+        "rank": 1
+      },
+      {
+        "featId": "Past Life: Aasimar Scourge",
+        "type": "",
+        "rank": 1
+      },
+      {
+        "featId": "Past Life: Arcane Sphere: Enchant Weapon",
+        "type": "Critical Befouling 2",
+        "rank": 1
+      },
+      {
+        "featId": "Past Life: Arcane Sphere: Enchant Weapon",
+        "type": "",
+        "rank": 1
+      },
+      {
+        "featId": "Past Life: Arcane Sphere: Enchant Weapon",
+        "type": "EpicPastLife",
+        "rank": 1
+      },
+      {
+        "featId": "Past Life: Arcane Sphere: Energy Criticals",
+        "type": "",
+        "rank": 1
+      },
+      {
+        "featId": "Past Life: Arcane Sphere: Energy Criticals",
+        "type": "EpicPastLife",
+        "rank": 2
+      },
+      {
+        "featId": "Past Life: Artificer",
+        "type": "HeroicPastLife",
+        "rank": 1
+      },
+      {
+        "featId": "Past Life: Barbarian",
+        "type": "HeroicPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Bard - Stormsinger",
+        "type": "HeroicPastLife",
+        "rank": 1
+      },
+      {
+        "featId": "Past Life: Bladeforged",
+        "type": "IconicPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Cleric",
+        "type": "HeroicPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Deep Gnome",
+        "type": "IconicPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Divine Sphere: Ancient Blessings",
+        "type": "EpicPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Divine Sphere: Block Energy",
+        "type": "EpicPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Divine Sphere: Brace",
+        "type": "EpicPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Divine Sphere: Power Over Life and Death",
+        "type": "EpicPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Drow",
+        "type": "RacialPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Druid - Blight Caster",
+        "type": "HeroicPastLife",
+        "rank": 1
+      },
+      {
+        "featId": "Past Life: Dwarf",
+        "type": "RacialPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Favored Soul",
+        "type": "HeroicPastLife",
+        "rank": 1
+      },
+      {
+        "featId": "Past Life: Fighter",
+        "type": "HeroicPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Gnome",
+        "type": "RacialPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Half-Elf",
+        "type": "RacialPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Half-Orc",
+        "type": "RacialPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Human",
+        "type": "RacialPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Martial Sphere: Ancient Tactics",
+        "type": "EpicPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Martial Sphere: Doublestrike",
+        "type": "EpicPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Martial Sphere: Skill Mastery",
+        "type": "EpicPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Monk",
+        "type": "HeroicPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Morninglord",
+        "type": "IconicPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Paladin",
+        "type": "HeroicPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Primal Sphere: Ancient Power",
+        "type": "EpicPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Primal Sphere: Colors of the Queen",
+        "type": "EpicPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Primal Sphere: Doubleshot",
+        "type": "EpicPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Primal Sphere: Fast Healing",
+        "type": "EpicPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Purple Dragon Knight",
+        "type": "IconicPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Ranger - Dark Hunter",
+        "type": "HeroicPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Rogue",
+        "type": "HeroicPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Shifter",
+        "type": "RacialPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Sorcerer",
+        "type": "HeroicPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Tiefling",
+        "type": "RacialPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Warforged",
+        "type": "RacialPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Warlock",
+        "type": "HeroicPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Wizard",
+        "type": "HeroicPastLife",
+        "rank": 2
+      },
+      {
+        "featId": "Primal Avatar",
+        "type": "EpicDestinyTree",
+        "rank": 1
+      },
+      {
+        "featId": "Shadowdancer",
+        "type": "EpicDestinyTree",
+        "rank": 1
+      },
+      {
+        "featId": "Shiradi Champion",
+        "type": "EpicDestinyTree",
+        "rank": 1
+      },
+      {
+        "featId": "Tome of Destiny",
+        "type": "Special",
+        "rank": 3
+      },
+      {
+        "featId": "Unyielding Sentinel",
+        "type": "EpicDestinyTree",
+        "rank": 1
+      },
+      {
+        "featId": "Past Life: Arcane Sphere: Ancient Knowledge",
+        "type": "EpicPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Dragonborn",
+        "type": "RacialPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Eladrin",
+        "type": "RacialPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Eladrin Chaosmancer",
+        "type": "IconicPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Elf",
+        "type": "RacialPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Fighter - Dragon Lord",
+        "type": "HeroicPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Halfling",
+        "type": "RacialPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Martial Sphere: Fortification",
+        "type": "EpicPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Martial Sphere: Trap Damage Absorption",
+        "type": "EpicPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Razorclaw Shifter",
+        "type": "IconicPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Shadar-Kai",
+        "type": "IconicPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Tabaxi",
+        "type": "RacialPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Tabaxi Trailblazer",
+        "type": "IconicPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Arcane Sphere: Eclipse Power",
+        "type": "EpicPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Arcane Sphere: Arcane Alacrity",
+        "type": "EpicPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Ranger",
+        "type": "HeroicPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Paladin - Sacred Fist",
+        "type": "HeroicPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Monk - Dragon Disciple",
+        "type": "HeroicPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Inherent Physical Resistance",
+        "type": "Special",
+        "rank": 2
+      },
+      {
+        "featId": "Inherent Magical Resistance",
+        "type": "Special",
+        "rank": 2
+      },
+      {
+        "featId": "Past Life: Dhampir",
+        "type": "RacialPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Inherent Spell Power",
+        "type": "Special",
+        "rank": 4
+      },
+      {
+        "featId": "Inherent Ranged Power",
+        "type": "Special",
+        "rank": 4
+      },
+      {
+        "featId": "Past Life: Dark Bargainer",
+        "type": "IconicPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Alchemist",
+        "type": "HeroicPastLife",
+        "rank": 1
+      },
+      {
+        "featId": "Past Life: Sorcerer - Wild Mage",
+        "type": "HeroicPastLife",
+        "rank": 1
+      }
+    ]
+  }
+}

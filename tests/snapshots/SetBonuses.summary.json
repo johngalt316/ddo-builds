@@ -1,0 +1,35 @@
+{
+  "count": 264,
+  "withBuffs": 264,
+  "maxBuffsPerSet": 10,
+  "totalEffects": 738,
+  "unknownEffectTypes": [],
+  "first3": [
+    {
+      "type": "Inevitable Balance",
+      "buffCount": 1,
+      "firstBuffEquippedCount": 2,
+      "firstBuffEffectTypes": [
+        "MeleePower",
+        "Doublestrike"
+      ]
+    },
+    {
+      "type": "Legendary Inevitable Balance",
+      "buffCount": 1,
+      "firstBuffEquippedCount": 2,
+      "firstBuffEffectTypes": [
+        "MeleePower",
+        "Doublestrike"
+      ]
+    },
+    {
+      "type": "Anger's Wrath",
+      "buffCount": 1,
+      "firstBuffEquippedCount": 2,
+      "firstBuffEffectTypes": [
+        "Weapon_Attack"
+      ]
+    }
+  ]
+}

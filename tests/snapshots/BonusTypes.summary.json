@@ -1,0 +1,49 @@
+{
+  "count": 73,
+  "stackingValues": [
+    "Always",
+    "Highest Only"
+  ],
+  "first10": [
+    {
+      "name": "Action Boost",
+      "stacking": "Highest Only"
+    },
+    {
+      "name": "Alchemical",
+      "stacking": "Highest Only"
+    },
+    {
+      "name": "Artifact",
+      "stacking": "Highest Only"
+    },
+    {
+      "name": "Armor",
+      "stacking": "Highest Only"
+    },
+    {
+      "name": "Armor Enhancement",
+      "stacking": "Always"
+    },
+    {
+      "name": "Base",
+      "stacking": "Highest Only"
+    },
+    {
+      "name": "Centered",
+      "stacking": "Highest Only"
+    },
+    {
+      "name": "Circumstance",
+      "stacking": "Highest Only"
+    },
+    {
+      "name": "Class",
+      "stacking": "Highest Only"
+    },
+    {
+      "name": "Combat Style",
+      "stacking": "Highest Only"
+    }
+  ]
+}

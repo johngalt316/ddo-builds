@@ -1,0 +1,50 @@
+{
+  "name": "ddo-builds",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "lint": "eslint src --max-warnings 0",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "import-items": "node scripts/buildItemIndex.mjs",
+    "gen-effect-types": "node scripts/genEffectTypes.mjs",
+    "verify": "node scripts/dev.mjs verify",
+    "verify:full": "node scripts/dev.mjs verify:full",
+    "snapshots:reset": "node scripts/dev.mjs snapshots:reset",
+    "debug:fixture": "node scripts/dev.mjs debug:fixture"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "lz-string": "^1.5.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^7.0.0",
+    "zustand": "^5.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/react": "^16.3.2",
+    "@types/lz-string": "^1.5.0",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^4.3.0",
+    "@vitest/coverage-v8": "^2.0.0",
+    "eslint": "^9.0.0",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.0",
+    "globals": "^15.0.0",
+    "happy-dom": "^20.9.0",
+    "typescript": "^5.6.0",
+    "typescript-eslint": "^8.0.0",
+    "vite": "^6.0.0",
+    "vitest": "^2.0.0"
+  }
+}

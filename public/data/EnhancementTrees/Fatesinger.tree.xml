@@ -1,0 +1,1583 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Enhancements>
+  <EnhancementTree>
+    <Name>Fatesinger</Name>
+    <Version>1</Version>
+    <Icon>Fatesinger</Icon>
+    <Background>DestinyArcane</Background>
+    <Requirements>
+      <Requirement>
+        <Type>Feat</Type>
+        <Item>Fatesinger</Item>
+      </Requirement>
+    </Requirements>
+    <IsEpicDestiny />
+    <!--tree core items-->
+    <EnhancementTreeItem>
+      <Name>Fatesinger: Fate Singer's Repertoire</Name>
+      <InternalName>U51FatesingerCore1</InternalName>
+      <Description>You gain the Magical Training feat.
+
+Each Core Ability in this tree, including this one, grants the following:
+
++1 Epic Bonus to all spell DCs
++15 Maximum Hit points
++25 Maximum Spell Points
++5 Melee Power
++5 Ranged Power
++5 Positive, Sonic and Universal Spell Power</Description>
+      <Icon>FateSingersRepertoire</Icon>
+      <XPosition>0</XPosition>
+      <YPosition>0</YPosition>
+      <CostPerRank size="1">1</CostPerRank>
+      <Ranks>1</Ranks>
+      <MinSpent>0</MinSpent>
+      <Requirements>
+        <Requirement>
+          <Type>Level</Type>
+          <Value>20</Value>
+        </Requirement>
+      </Requirements>
+      <Effect>
+        <Type>GrantFeat</Type>
+        <Bonus>Enhancement</Bonus>
+        <Item>Magical Training</Item>
+        <AType>NotNeeded</AType>
+      </Effect>
+      <Effect>
+        <DisplayName>Fatesinger: Epic Spell DCs</DisplayName>
+        <Type>SpellDC</Type>
+        <Bonus>Epic</Bonus>
+        <AType>Simple</AType>
+        <Amount size="1">1</Amount>
+        <Item>All</Item>
+        <ApplyAsItemEffect />
+      </Effect>
+      <Effect>
+        <Type>Hitpoints</Type>
+        <Bonus>Destiny</Bonus>
+        <AType>Simple</AType>
+        <Amount size="1">15</Amount>
+      </Effect>
+      <Effect>
+        <Type>SpellPoints</Type>
+        <Bonus>Destiny</Bonus>
+        <AType>Simple</AType>
+        <Amount size="1">25</Amount>
+      </Effect>
+      <Effect>
+        <Type>MeleePower</Type>
+        <Bonus>Destiny</Bonus>
+        <AType>Simple</AType>
+        <Amount size="1">5</Amount>
+      </Effect>
+      <Effect>
+        <Type>RangedPower</Type>
+        <Bonus>Destiny</Bonus>
+        <AType>Simple</AType>
+        <Amount size="1">5</Amount>
+      </Effect>
+      <Effect>
+        <Type>SpellPower</Type>
+        <Bonus>Destiny</Bonus>
+        <AType>Simple</AType>
+        <Amount size="1">5</Amount>
+        <Item>Positive</Item>
+        <Item>Sonic</Item>
+      </Effect>
+      <Effect>
+        <Type>UniversalSpellPower</Type>
+        <Bonus>Destiny</Bonus>
+        <AType>Simple</AType>
+        <Amount size="1">5</Amount>
+      </Effect>
+    </EnhancementTreeItem>
+    <EnhancementTreeItem>
+      <Name>Fatesinger: Intoxicating Presence</Name>
+      <InternalName>U51FatesingerCore2</InternalName>
+      <Description>Enemies that strike you have a 5% chance of becoming Fascinated for 12 seconds,
+with no saving throw.</Description>
+      <Icon>IntoxicatingPresence</Icon>
+      <XPosition>1</XPosition>
+      <YPosition>0</YPosition>
+      <CostPerRank size="1">1</CostPerRank>
+      <Ranks>1</Ranks>
+      <MinSpent>5</MinSpent>
+      <Requirements>
+        <Requirement>
+          <Type>Level</Type>
+          <Value>23</Value>
+        </Requirement>
+        <Requirement>
+          <Type>Enhancement</Type>
+          <Item>U51FatesingerCore1</Item>
+        </Requirement>
+      </Requirements>
+      <Effect>
+        <DisplayName>Fatesinger: Epic Spell DCs</DisplayName>
+        <Type>SpellDC</Type>
+        <Bonus>Epic</Bonus>
+        <AType>Simple</AType>
+        <Amount size="1">1</Amount>
+        <Item>All</Item>
+        <ApplyAsItemEffect />
+      </Effect>
+      <Effect>
+        <Type>Hitpoints</Type>
+        <Bonus>Destiny</Bonus>
+        <AType>Simple</AType>
+        <Amount size="1">15</Amount>
+      </Effect>
+      <Effect>
+        <Type>SpellPoints</Type>
+        <Bonus>Destiny</Bonus>
+        <AType>Simple</AType>
+        <Amount size="1">25</Amount>
+      </Effect>
+      <Effect>
+        <Type>MeleePower</Type>
+        <Bonus>Destiny</Bonus>
+        <AType>Simple</AType>
+        <Amount size="1">5</Amount>
+      </Effect>
+      <Effect>
+        <Type>RangedPower</Type>
+        <Bonus>Destiny</Bonus>
+        <AType>Simple</AType>
+        <Amount size="1">5</Amount>
+      </Effect>
+      <Effect>
+        <Type>SpellPower</Type>
+        <Bonus>Destiny</Bonus>
+        <AType>Simple</AType>
+        <Amount size="1">5</Amount>
+        <Item>Positive</Item>
+        <Item>Sonic</Item>
+      </Effect>
+      <Effect>
+        <Type>UniversalSpellPower</Type>
+        <Bonus>Destiny</Bonus>
+        <AType>Simple</AType>
+        <Amount size="1">5</Amount>
+      </Effect>
+    </EnhancementTreeItem>
+    <EnhancementTreeItem>
+      <Name>Fatesinger: Glitter of Fame</Name>
+      <InternalName>U51FatesingerCore3</InternalName>
+      <Description>+1 to all Ability scores and Saves.</Description>
+      <Icon>GlitterOfFame</Icon>
+      <XPosition>2</XPosition>
+      <YPosition>0</YPosition>
+      <CostPerRank size="1">1</CostPerRank>
+      <Ranks>1</Ranks>
+      <MinSpent>10</MinSpent>
+      <Requirements>
+        <Requirement>
+          <Type>Level</Type>
+          <Value>26</Value>
+        </Requirement>
+        <Requirement>
+          <Type>Enhancement</Type>
+          <Item>U51FatesingerCore2</Item>
+        </Requirement>
+      </Requirements>
+      <Effect>
+        <Type>AbilityBonus</Type>
+        <Bonus>Destiny</Bonus>
+        <AType>Simple</AType>
+        <Amount size="1">1</Amount>
+        <Item>All</Item>
+      </Effect>
+      <Effect>
+        <Type>SaveBonus</Type>
+        <Bonus>Destiny</Bonus>
+        <AType>Simple</AType>
+        <Amount size="1">1</Amount>
+        <Item>All</Item>
+      </Effect>
+      <Effect>
+        <DisplayName>Fatesinger: Epic Spell DCs</DisplayName>
+        <Type>SpellDC</Type>
+        <Bonus>Epic</Bonus>
+        <AType>Simple</AType>
+        <Amount size="1">1</Amount>
+        <Item>All</Item>
+        <ApplyAsItemEffect />
+      </Effect>
+      <Effect>
+        <Type>Hitpoints</Type>
+        <Bonus>Destiny</Bonus>
+        <AType>Simple</AType>
+        <Amount size="1">15</Amount>
+      </Effect>
+      <Effect>
+        <Type>SpellPoints</Type>
+        <Bonus>Destiny</Bonus>
+        <AType>Simple</AType>
+        <Amount size="1">25</Amount>
+      </Effect>
+      <Effect>
+        <Type>MeleePower</Type>
+        <Bonus>Destiny</Bonus>
+        <AType>Simple</AType>
+        <Amount size="1">5</Amount>
+      </Effect>
+      <Effect>
+        <Type>RangedPower</Type>
+        <Bonus>Destiny</Bonus>
+        <AType>Simple</AType>
+        <Amount size="1">5</Amount>
+      </Effect>
+      <Effect>
+        <Type>SpellPower</Type>
+        <Bonus>Destiny</Bonus>
+        <AType>Simple</AType>
+        <Amount size="1">5</Amount>
+        <Item>Positive</Item>
+        <Item>Sonic</Item>
+      </Effect>
+      <Effect>
+        <Type>UniversalSpellPower</Type>
+        <Bonus>Destiny</Bonus>
+        <AType>Simple</AType>
+        <Amount size="1">5</Amount>
+      </Effect>
+    </EnhancementTreeItem>
+    <EnhancementTreeItem>
+      <Name>Fatesinger: Hear my Voice Friend</Name>
+      <InternalName>U51FatesingerCore4</InternalName>
+      <Description>Greatest Shout, Great Shout, Shout, and Echoes of Discord spells now target
+allies inside their areas of effect and heal them for 10% of the damage potential
+of the spell.</Description>
+      <Icon>HearMyVoiceFriend</Icon>
+      <XPosition>3</XPosition>
+      <YPosition>0</YPosition>
+      <CostPerRank size="1">1</CostPerRank>
+      <Ranks>1</Ranks>
+      <MinSpent>20</MinSpent>
+      <Requirements>
+        <Requirement>
+          <Type>Level</Type>
+          <Value>26</Value>
+        </Requirement>
+        <Requirement>
+          <Type>Enhancement</Type>
+          <Item>U51FatesingerCore3</Item>
+        </Requirement>
+      </Requirements>
+      <Effect>
+        <DisplayName>Fatesinger: Epic Spell DCs</DisplayName>
+        <Type>SpellDC</Type>
+        <Bonus>Epic</Bonus>
+        <AType>Simple</AType>
+        <Amount size="1">1</Amount>
+        <Item>All</Item>
+        <ApplyAsItemEffect />
+      </Effect>
+      <Effect>
+        <Type>Hitpoints</Type>
+        <Bonus>Destiny</Bonus>
+        <AType>Simple</AType>
+        <Amount size="1">15</Amount>
+      </Effect>
+      <Effect>
+        <Type>SpellPoints</Type>
+        <Bonus>Destiny</Bonus>
+        <AType>Simple</AType>
+        <Amount size="1">25</Amount>
+      </Effect>
+      <Effect>
+        <Type>MeleePower</Type>
+        <Bonus>Destiny</Bonus>
+        <AType>Simple</AType>
+        <Amount size="1">5</Amount>
+      </Effect>
+      <Effect>
+        <Type>RangedPower</Type>
+        <Bonus>Destiny</Bonus>
+        <AType>Simple</AType>
+        <Amount size="1">5</Amount>
+      </Effect>
+      <Effect>
+        <Type>SpellPower</Type>
+        <Bonus>Destiny</Bonus>
+        <AType>Simple</AType>
+        <Amount size="1">5</Amount>
+        <Item>Positive</Item>
+        <Item>Sonic</Item>
+      </Effect>
+      <Effect>
+        <Type>UniversalSpellPower</Type>
+        <Bonus>Destiny</Bonus>
+        <AType>Simple</AType>
+        <Amount size="1">5</Amount>
+      </Effect>
+    </EnhancementTreeItem>
+    <!--Tier 1-->
+    <EnhancementTreeItem>
+      <Name>Fatesinger: Music of the Spider Queen</Name>
+      <InternalName>U51FatesingerMusicOfTheSpiderQueen</InternalName>
+      <Description>You gain +[3/6/10] Universal Spell Power.
+Rank 3: If you have Fascinate it now gains the power to mesmerize Vermin and if
+you have Bardic Inspiration it now Neutralizes Poison.</Description>
+      <Icon>MusicOfTheSpiderQueen</Icon>
+      <XPosition>0</XPosition>
+      <YPosition>1</YPosition>
+      <CostPerRank size="1">1</CostPerRank>
+      <Ranks>3</Ranks>
+      <MinSpent>1</MinSpent>
+      <Requirements>
+        <Requirement>
+          <Type>Level</Type>
+          <Value>20</Value>
+        </Requirement>
+      </Requirements>
+      <Effect>
+        <Type>UniversalSpellPower</Type>
+        <Bonus>Destiny</Bonus>
+        <AType>Stacks</AType>
+        <Amount size="3">3 6 10</Amount>
+      </Effect>
+    </EnhancementTreeItem>
+    <EnhancementTreeItem>
+      <Name>Fatesinger: Jack of all trades</Name>
+      <InternalName>U51FatesingerJackOfAlltrades</InternalName>
+      <Description>+[1/2/3] to all Skills.
+Rank 3: Inspire Competence now grants an additional +3 bonus to all skills.</Description>
+      <Icon>JackOfAlltrades</Icon>
+      <XPosition>1</XPosition>
+      <YPosition>1</YPosition>
+      <CostPerRank size="1">1</CostPerRank>
+      <Ranks>3</Ranks>
+      <MinSpent>1</MinSpent>
+      <Requirements>
+        <Requirement>
+          <Type>Level</Type>
+          <Value>20</Value>
+        </Requirement>
+      </Requirements>
+      <Effect>
+        <Type>SkillBonus</Type>
+        <Bonus>Destiny</Bonus>
+        <AType>Stacks</AType>
+        <Amount size="3">1 2 3</Amount>
+        <Item>All</Item>
+      </Effect>
+    </EnhancementTreeItem>
+    <EnhancementTreeItem>
+      <Name>Fatesinger: Epic Strike</Name>
+      <InternalName>U51FatesingerEpicStrike</InternalName>
+      <Description>Select an Epic Strike</Description>
+      <Icon>FateEpicStrike</Icon>
+      <XPosition>2</XPosition>
+      <YPosition>1</YPosition>
+      <CostPerRank size="1">2</CostPerRank>
+      <Ranks>1</Ranks>
+      <MinSpent>1</MinSpent>
+      <Clickie />
+      <ArrowUp />
+      <Requirements>
+        <Requirement>
+          <Type>Level</Type>
+          <Value>20</Value>
+        </Requirement>
+      </Requirements>
+      <Selector>
+        <EnhancementSelection>
+          <Name>Strike a Chord</Name>
+          <Description>Epic Strike: Blasts a single target with a random note of music for 1d6+3 Sonic
+damage per Character Level. On use, you gain a stack of Chords of Fate. Chords
+of Fate stacks last 30 seconds and stack up to 3 times.
+Cooldown: 2 seconds
+Cost: 2 spell points
+
+Every Epic strike shares a cooldown with every other Epic Strike. Using this
+ability will put every Epic Strike onto this ability's cooldown.</Description>
+          <Icon>FateEpicStrike</Icon>
+          <CostPerRank size="1">2</CostPerRank>
+          <Clickie />
+        </EnhancementSelection>
+        <EnhancementSelection>
+          <Name>The Pluck of a String</Name>
+          <Description>Deals +30% Damage
++4 Critical Threat Range
+Epic Strike: Ranged Attack: Your weapon sings with the power of song, causing an
+additional 2d10 Sonic Damage per Character Level that scales with 200% Ranged
+Power. Critical Hits cause the target to be stunned for 2 seconds, no save. On
+Use, you gain a stack of Chords of Fate. Chords of Fate stacks last 30 seconds
+and stack up to 3 times.
+Cooldown: 5 seconds
+
+Every Epic strike shares a cooldown with every other Epic Strike. Using this
+ability will put every Epic Strike onto this ability's cooldown.</Description>
+          <Icon>FateEpicStrike</Icon>
+          <CostPerRank size="1">2</CostPerRank>
+          <Clickie />
+        </EnhancementSelection>
+        <EnhancementSelection>
+          <Name>The Sword Sings</Name>
+          <Description>Deals +50% Damage
++4 Critical Threat Range
+Epic Strike: Melee Attack: Your weapon sings with the power of song, causing an
+additional 2d10 Sonic Damage per Character Level that scales with 200% Melee
+Power. Critical Hits cause the target to be stunned for 2 seconds, no save. On
+Use, you gain a stack of Chords of Fate. Chords of Fate stacks last 30 seconds
+and stack up to 3 times.
+Cooldown: 4 seconds
+
+Every Epic strike shares a cooldown with every other Epic Strike. Using this
+ability will put every Epic Strike onto this ability's cooldown.</Description>
+          <Icon>FateEpicStrike</Icon>
+          <CostPerRank size="1">2</CostPerRank>
+          <Clickie />
+        </EnhancementSelection>
+      </Selector>
+    </EnhancementTreeItem>
+    <EnhancementTreeItem>
+      <Name>Fatesinger: Harmonic Resonance</Name>
+      <InternalName>U51FatesingerHarmonicResonance</InternalName>
+      <Description>Your weapon attacks and offensive spells have a 20% chance to build up a stack of
+Harmonic Resonance on your enemies.
+
+Harmonic Resonance: Each stack increases the creatures vulnerability to Sonic
+Damage by 10% and reduces their Armor Class by 5. This stacks up to 3 times and
+each stack lasts up to 20 seconds.</Description>
+      <Icon>U51HarmonicResonance</Icon>
+      <XPosition>3</XPosition>
+      <YPosition>1</YPosition>
+      <CostPerRank size="1">2</CostPerRank>
+      <Ranks>1</Ranks>
+      <MinSpent>1</MinSpent>
+      <Requirements>
+        <Requirement>
+          <Type>Level</Type>
+          <Value>20</Value>
+        </Requirement>
+      </Requirements>
+    </EnhancementTreeItem>
+    <EnhancementTreeItem>
+      <Name>Fatesinger: Tune of the Weave</Name>
+      <InternalName>U51FatesingerTuneOfTheWeave</InternalName>
+      <Description>You gain [2/4/6] Magical Resistance Rating and +[10/20/30] Maximum Spell Points.</Description>
+      <Icon>TuneOfTheWeave</Icon>
+      <XPosition>4</XPosition>
+      <YPosition>1</YPosition>
+      <CostPerRank size="1">1</CostPerRank>
+      <Ranks>3</Ranks>
+      <MinSpent>1</MinSpent>
+      <Requirements>
+        <Requirement>
+          <Type>Level</Type>
+          <Value>20</Value>
+        </Requirement>
+      </Requirements>
+      <Effect>
+        <Type>MRR</Type>
+        <Bonus>Destiny</Bonus>
+        <AType>Stacks</AType>
+        <Amount size="3">2 4 6</Amount>
+      </Effect>
+      <Effect>
+        <Type>SpellPoints</Type>
+        <Bonus>Destiny</Bonus>
+        <AType>Stacks</AType>
+        <Amount size="3">10 20 30</Amount>
+      </Effect>
+    </EnhancementTreeItem>
+    <!--Tier 2-->
+    <EnhancementTreeItem>
+      <Name>Fatesinger: Pianissimo</Name>
+      <InternalName>U51FatesingerPianissimo</InternalName>
+      <Description>You generate [15/25/35]% less threat with all sources, and gain  +[5/10/15] Positive
+Spell Power.</Description>
+      <Icon>Pianissimo</Icon>
+      <XPosition>0</XPosition>
+      <YPosition>2</YPosition>
+      <CostPerRank size="1">1</CostPerRank>
+      <Ranks>3</Ranks>
+      <MinSpent>5</MinSpent>
+      <Requirements>
+        <Requirement>
+          <Type>Level</Type>
+          <Value>20</Value>
+        </Requirement>
+      </Requirements>
+      <Effect>
+        <Type>ThreatBonusMelee</Type>
+        <Type>ThreatBonusRanged</Type>
+        <Type>ThreatBonusSpell</Type>
+        <Bonus>Destiny</Bonus>
+        <AType>Stacks</AType>
+        <Amount size="3">-15 -25 -35</Amount>
+      </Effect>
+      <Effect>
+        <Type>SpellPower</Type>
+        <Bonus>Destiny</Bonus>
+        <AType>Stacks</AType>
+        <Amount size="3">5 10 15</Amount>
+        <Item>Positive</Item>
+      </Effect>
+    </EnhancementTreeItem>
+    <EnhancementTreeItem>
+      <Name>Fatesinger: Mantle of Sound and Fury</Name>
+      <InternalName>U51FatesingerMantleOfSoundAndFury</InternalName>
+      <Description>Fatesinger Destiny Mantle: All your attacks and spells have a chance to cause
+a swirl of music notes to surround you causing 1d6+6 Sonic Damage per Character
+Level to all nearby foes. Scales with the highest of Sonic, or 200% of Melee or
+Ranged Power. This damage does not affect Fascinated targets. When this occurs
+you gain 6 Temporary Hit Points per Character Level. This can only occur once
+every 10 seconds.</Description>
+      <Icon>MantleOfSoundAndFury</Icon>
+      <XPosition>1</XPosition>
+      <YPosition>2</YPosition>
+      <CostPerRank size="1">2</CostPerRank>
+      <Ranks>1</Ranks>
+      <MinSpent>5</MinSpent>
+      <Clickie />
+      <Requirements>
+        <Requirement>
+          <Type>Level</Type>
+          <Value>20</Value>
+        </Requirement>
+      </Requirements>
+      <Stance>
+        <Name>Mantle of Sound and Fury</Name>
+        <Icon>MantleOfSoundAndFury</Icon>
+        <Description>Fatesinger Destiny Mantle: All your attacks and spells have a chance to cause
+a swirl of music notes to surround you causing 1d6+6 Sonic Damage per Character
+Level to all nearby foes. Scales with the highest of Sonic, or 200% of Melee or
+Ranged Power. This damage does not affect Fascinated targets. When this occurs
+you gain 6 Temporary Hit Points per Character Level. This can only occur once
+every 10 seconds.</Description>
+        <Group>Mantle</Group>
+      </Stance>
+    </EnhancementTreeItem>
+    <EnhancementTreeItem>
+      <Name>Fatesinger: Discord</Name>
+      <InternalName>U51FatesingerDiscord</InternalName>
+      <Description>Manifest Discord against your enemies</Description>
+      <Icon>Discord</Icon>
+      <XPosition>2</XPosition>
+      <YPosition>2</YPosition>
+      <CostPerRank size="1">2</CostPerRank>
+      <Ranks>1</Ranks>
+      <MinSpent>5</MinSpent>
+      <Clickie />
+      <Requirements>
+        <Requirement>
+          <Type>Level</Type>
+          <Value>20</Value>
+        </Requirement>
+        <Requirement>
+          <Type>Enhancement</Type>
+          <Item>U51FatesingerEpicStrike</Item>
+        </Requirement>
+      </Requirements>
+      <Selector>
+        <EnhancementSelection>
+          <Name>Arrow of Discord</Name>
+          <Description>Deals +20% Damage
++2 Critical Threat Range
+AOE Ranged Attack: Consumes all Chords of Fate: Fire a single discordant shot,
+hitting every enemy in an area around where the shot hits. Enemies must make a
+Fortitude saving throw (DC 20 + Highest Ability Mod + Stunning Bonuses) or be
+stunned for 1 second per Chord of Fate consumed. Releasing 3 Chords of Fate
+Restores 10 Spell Points.
+Cooldown: 15 seconds</Description>
+          <Icon>Discord</Icon>
+          <CostPerRank size="1">2</CostPerRank>
+          <Clickie />
+        </EnhancementSelection>
+        <EnhancementSelection>
+          <Name>Blade of Discord</Name>
+          <Description>Deals +30% Damage
++2 Critical Threat Range
+Cleave Attack: Consumes all Chords of Fate: You cleave your enemies with the
+power of music.  Enemies must also make a Fortitude saving throw (DC 20 +
+Highest Ability Mod + Stunning Bonuses) or be stunned for 1 second per Chord of
+Fate consumed. Releasing 3 Chords of Fate Restores 10 Spell Points.
+Cooldown: 15 seconds</Description>
+          <Icon>Discord</Icon>
+          <CostPerRank size="1">2</CostPerRank>
+          <Clickie />
+        </EnhancementSelection>
+        <EnhancementSelection>
+          <Name>Echoes of Discord</Name>
+          <Description>Consumes all Chords of Fate: Creates a blast of music on the target that strikes
+nearby enemies for 1d6+1 Sonic Damage per Character Level, scaling with Sonic
+Spell Power. Each Chord of Fate you have increases this damage by 1d6+1 per
+Character Level. Enemies must also make a Fortitude saving throw (DC 20 + Highest
+of Int/Wis/Cha Mod + Evocation bonuses) or be stunned for 1 second per Chord of
+Fate consumed. Releasing 3 Chords of Fate Restores 10 Spell Points.
+Cooldown: 15 seconds</Description>
+          <Icon>Discord</Icon>
+          <CostPerRank size="1">2</CostPerRank>
+          <Clickie />
+        </EnhancementSelection>
+      </Selector>
+    </EnhancementTreeItem>
+    <EnhancementTreeItem>
+      <Name>Fatesinger: Grandeur</Name>
+      <InternalName>U51FatesingerGrandeur</InternalName>
+      <Description>Your friendly spells now apply Grandeur.
+
+Grandeur: +3 Armor Class and Physical Resistance Rating. Maximum of 2 stacks,
+lasts for 10 seconds.</Description>
+      <Icon>Grandeur</Icon>
+      <XPosition>3</XPosition>
+      <YPosition>2</YPosition>
+      <CostPerRank size="1">2</CostPerRank>
+      <Ranks>1</Ranks>
+      <MinSpent>5</MinSpent>
+      <Requirements>
+        <Requirement>
+          <Type>Level</Type>
+          <Value>20</Value>
+        </Requirement>
+      </Requirements>
+    </EnhancementTreeItem>
+    <EnhancementTreeItem>
+      <Name>Fatesinger: A Little bit of Music</Name>
+      <InternalName>U51FatesingerALittleBitOfMusic</InternalName>
+      <Description>Grants the Bardic Inspire Courage Feat if you do not already have it. +3 Bard Songs
+and +1 Spell Penetration.</Description>
+      <Icon>ALittleBitOfMusic</Icon>
+      <XPosition>4</XPosition>
+      <YPosition>2</YPosition>
+      <CostPerRank size="1">2</CostPerRank>
+      <Ranks>1</Ranks>
+      <MinSpent>5</MinSpent>
+      <Requirements>
+        <Requirement>
+          <Type>Level</Type>
+          <Value>20</Value>
+        </Requirement>
+      </Requirements>
+      <Effect>
+        <Type>GrantFeat</Type>
+        <Bonus>Enhancement</Bonus>
+        <Item>Bardic Inspiration</Item>
+        <AType>NotNeeded</AType>
+      </Effect>
+      <Effect>
+        <Type>SongCount</Type>
+        <Bonus>Destiny</Bonus>
+        <AType>Simple</AType>
+        <Amount size="1">3</Amount>
+      </Effect>
+      <Effect>
+        <Type>SpellPenetrationBonus</Type>
+        <Bonus>Destiny</Bonus>
+        <AType>Simple</AType>
+        <Amount size="1">1</Amount>
+      </Effect>
+    </EnhancementTreeItem>
+    <!--Tier 3-->
+    <EnhancementTreeItem>
+      <Name>Fatesinger: Master the Acoustics</Name>
+      <InternalName>U51FatesingerMasterTheAcoustics</InternalName>
+      <Description>+[5/10/15] Sonic Spell Power.
+Rank 3: The damage of the spells Sonic Blast and Reverberate are increased by 50%.
+The Sonic damage of your Epic Strikes from this tree is Doubled.</Description>
+      <Icon>MasterTheAcoustics</Icon>
+      <XPosition>0</XPosition>
+      <YPosition>3</YPosition>
+      <CostPerRank size="1">1</CostPerRank>
+      <Ranks>3</Ranks>
+      <MinSpent>10</MinSpent>
+      <Requirements>
+        <Requirement>
+          <Type>Level</Type>
+          <Value>23</Value>
+        </Requirement>
+      </Requirements>
+      <Effect>
+        <Type>SpellPower</Type>
+        <Bonus>Destiny</Bonus>
+        <AType>Stacks</AType>
+        <Amount size="3">5 10 15</Amount>
+        <Item>Sonic</Item>
+      </Effect>
+    </EnhancementTreeItem>
+    <EnhancementTreeItem>
+      <Name>Fatesinger: The Rhythm to Reign</Name>
+      <InternalName>U51FatesingerReign</InternalName>
+      <Description>+[1/2/3] to Hit. On a Vorpal Strike, you unleash a thunderclap, dealing [7/9/11]d20
+Sonic and [7/9/11]d20 Electric Damage. Scales with Spell Power.</Description>
+      <Icon>U51Reign</Icon>
+      <XPosition>1</XPosition>
+      <YPosition>3</YPosition>
+      <CostPerRank size="1">1</CostPerRank>
+      <Ranks>3</Ranks>
+      <MinSpent>10</MinSpent>
+      <Requirements>
+        <Requirement>
+          <Type>Level</Type>
+          <Value>23</Value>
+        </Requirement>
+      </Requirements>
+      <Effect>
+        <Type>Weapon_Attack</Type>
+        <Bonus>Destiny</Bonus>
+        <AType>Stacks</AType>
+        <Amount size="3">1 2 3</Amount>
+        <Item>All</Item>
+      </Effect>
+    </EnhancementTreeItem>
+    <EnhancementTreeItem>
+      <Name>Fatesinger: Spell Focus</Name>
+      <InternalName>U51FatesingerTheMagicOfMusic</InternalName>
+      <Description>Choose a spell school to enhance</Description>
+      <Icon>TheMagicOfMusic</Icon>
+      <XPosition>2</XPosition>
+      <YPosition>3</YPosition>
+      <CostPerRank size="1">1</CostPerRank>
+      <Ranks>3</Ranks>
+      <MinSpent>10</MinSpent>
+      <Requirements>
+        <Requirement>
+          <Type>Level</Type>
+          <Value>23</Value>
+        </Requirement>
+      </Requirements>
+      <Selector>
+        <EnhancementSelection>
+          <Name>Abjuration</Name>
+          <Description>+[1/2/3] Abjuration DC</Description>
+          <Icon>TheMagicOfMusic</Icon>
+          <CostPerRank size="1">1</CostPerRank>
+          <Effect>
+            <Type>SpellDC</Type>
+            <Bonus>Destiny</Bonus>
+            <AType>Stacks</AType>
+            <Amount size="3">1 2 3</Amount>
+            <Item>Abjuration</Item>
+          </Effect>
+          <Requirements>
+            <Requirement>
+              <Type>Exclusive</Type>
+              <Item>U51FatesingerTheMagicOfMusic</Item>
+              <Item>Destiny Abjuration</Item>
+            </Requirement>
+          </Requirements>
+          <Effect>
+            <Type>ExclusionGroup</Type>
+            <Bonus>Destiny</Bonus>
+            <AType>NotNeeded</AType>
+            <Item>U51FatesingerTheMagicOfMusic</Item>
+            <Item>Destiny Abjuration</Item>
+          </Effect>
+        </EnhancementSelection>
+        <EnhancementSelection>
+          <Name>Enchantment</Name>
+          <Description>+[1/2/3] Enchantment DC</Description>
+          <Icon>TheMagicOfMusic</Icon>
+          <CostPerRank size="1">1</CostPerRank>
+          <Effect>
+            <Type>SpellDC</Type>
+            <Bonus>Destiny</Bonus>
+            <AType>Stacks</AType>
+            <Amount size="3">1 2 3</Amount>
+            <Item>Enchantment</Item>
+          </Effect>
+          <Requirements>
+            <Requirement>
+              <Type>Exclusive</Type>
+              <Item>U51FatesingerTheMagicOfMusic</Item>
+              <Item>Destiny Enchantment</Item>
+            </Requirement>
+          </Requirements>
+          <Effect>
+            <Type>ExclusionGroup</Type>
+            <Bonus>Destiny</Bonus>
+            <AType>NotNeeded</AType>
+            <Item>U51FatesingerTheMagicOfMusic</Item>
+            <Item>Destiny Enchantment</Item>
+          </Effect>
+        </EnhancementSelection>
+        <EnhancementSelection>
+          <Name>Evocation</Name>
+          <Description>+[1/2/3] Evocation DC</Description>
+          <Icon>TheMagicOfMusic</Icon>
+          <CostPerRank size="1">1</CostPerRank>
+          <Effect>
+            <Type>SpellDC</Type>
+            <Bonus>Destiny</Bonus>
+            <AType>Stacks</AType>
+            <Amount size="3">1 2 3</Amount>
+            <Item>Evocation</Item>
+          </Effect>
+          <Requirements>
+            <Requirement>
+              <Type>Exclusive</Type>
+              <Item>U51FatesingerTheMagicOfMusic</Item>
+              <Item>Destiny Evocation</Item>
+            </Requirement>
+          </Requirements>
+          <Effect>
+            <Type>ExclusionGroup</Type>
+            <Bonus>Destiny</Bonus>
+            <AType>NotNeeded</AType>
+            <Item>U51FatesingerTheMagicOfMusic</Item>
+            <Item>Destiny Evocation</Item>
+          </Effect>
+        </EnhancementSelection>
+        <EnhancementSelection>
+          <Name>Illusion</Name>
+          <Description>+[1/2/3] Illusion DC</Description>
+          <Icon>TheMagicOfMusic</Icon>
+          <CostPerRank size="1">1</CostPerRank>
+          <Effect>
+            <Type>SpellDC</Type>
+            <Bonus>Destiny</Bonus>
+            <AType>Stacks</AType>
+            <Amount size="3">1 2 3</Amount>
+            <Item>Illusion</Item>
+          </Effect>
+          <Requirements>
+            <Requirement>
+              <Type>Exclusive</Type>
+              <Item>U51FatesingerTheMagicOfMusic</Item>
+              <Item>Destiny Illusion</Item>
+            </Requirement>
+          </Requirements>
+          <Effect>
+            <Type>ExclusionGroup</Type>
+            <Bonus>Destiny</Bonus>
+            <AType>NotNeeded</AType>
+            <Item>U51FatesingerTheMagicOfMusic</Item>
+            <Item>Destiny Illusion</Item>
+          </Effect>
+        </EnhancementSelection>
+      </Selector>
+    </EnhancementTreeItem>
+    <EnhancementTreeItem>
+      <Name>Fatesinger: The Sonata to Serve</Name>
+      <InternalName>U51FatesingerTheSonataToServe</InternalName>
+      <Description>+[1/2/3] Spell Penetration and [3/6/9]% Fortification Bypass.
+
+Rank 3: While in your Fatesinger Destiny Mantle, you no longer have Arcane Spell
+Failure.</Description>
+      <Icon>TheSonataToServe</Icon>
+      <XPosition>3</XPosition>
+      <YPosition>3</YPosition>
+      <CostPerRank size="1">1</CostPerRank>
+      <Ranks>3</Ranks>
+      <MinSpent>10</MinSpent>
+      <Requirements>
+        <Requirement>
+          <Type>Level</Type>
+          <Value>23</Value>
+        </Requirement>
+      </Requirements>
+      <Effect>
+        <Type>SpellPenetrationBonus</Type>
+        <Bonus>Destiny</Bonus>
+        <AType>Stacks</AType>
+        <Amount size="3">1 2 3</Amount>
+      </Effect>
+      <Effect>
+        <Type>FortificationBypass</Type>
+        <Bonus>Destiny</Bonus>
+        <AType>Stacks</AType>
+        <Amount size="3">3 6 9</Amount>
+      </Effect>
+      <Effect>
+        <Type>ArcaneSpellFailure</Type>
+        <Bonus>Enhancement</Bonus>
+        <AType>Simple</AType>
+        <Amount size="1">-100</Amount>
+        <Requirements>
+          <Requirement>
+            <Type>Stance</Type>
+            <Item>Mantle of Sound and Fury</Item>
+          </Requirement>
+        </Requirements>
+      </Effect>
+    </EnhancementTreeItem>
+    <EnhancementTreeItem>
+      <Name>Fatesinger: Masquerade</Name>
+      <InternalName>U51FatesingerMasquerade</InternalName>
+      <Description>Reduces the cost of you spells by [3/6/10]%.</Description>
+      <Icon>Masquerade</Icon>
+      <XPosition>4</XPosition>
+      <YPosition>3</YPosition>
+      <CostPerRank size="1">1</CostPerRank>
+      <Ranks>3</Ranks>
+      <MinSpent>10</MinSpent>
+      <Requirements>
+        <Requirement>
+          <Type>Level</Type>
+          <Value>23</Value>
+        </Requirement>
+      </Requirements>
+      <Effect>
+        <Type>SpellPointCostPercent</Type>
+        <Bonus>Destiny</Bonus>
+        <AType>Stacks</AType>
+        <Amount size="3">3 6 10</Amount>
+      </Effect>
+    </EnhancementTreeItem>
+    <!--Tier 4-->
+    <EnhancementTreeItem>
+      <Name>Fatesinger: Great Ballads of War</Name>
+      <InternalName>U51FatesingerGreatBalladsOfWar</InternalName>
+      <Description>+[1/2/3] Attack and Damage. If you have the Bardic Ballad Feat this also applies
+to your Ballad's bonus to others.</Description>
+      <Icon>GreatBalladsOfWar</Icon>
+      <XPosition>0</XPosition>
+      <YPosition>4</YPosition>
+      <CostPerRank size="1">1</CostPerRank>
+      <Ranks>3</Ranks>
+      <MinSpent>20</MinSpent>
+      <Requirements>
+        <Requirement>
+          <Type>Level</Type>
+          <Value>26</Value>
+        </Requirement>
+      </Requirements>
+      <Effect>
+        <Type>Weapon_AttackAndDamage</Type>
+        <Bonus>Destiny</Bonus>
+        <AType>Stacks</AType>
+        <Amount size="3">1 2 3</Amount>
+        <Item>All</Item>
+      </Effect>
+    </EnhancementTreeItem>
+    <EnhancementTreeItem>
+      <Name>Fatesinger: Majesty</Name>
+      <InternalName>U51FatesingerMajesty</InternalName>
+      <Description>You are immune to Charisma stat damage.
+
+When you play any Bardic Song while using the Fatesinger Destiny Mantle you heal
+yourself and nearby allies for 1d2 Hit Points per Character Level (scaling with
+Positive Spell Power) and apply the Restoration spell.</Description>
+      <Icon>Majesty</Icon>
+      <XPosition>1</XPosition>
+      <YPosition>4</YPosition>
+      <CostPerRank size="1">2</CostPerRank>
+      <Ranks>1</Ranks>
+      <MinSpent>20</MinSpent>
+      <Requirements>
+        <Requirement>
+          <Type>Level</Type>
+          <Value>26</Value>
+        </Requirement>
+      </Requirements>
+      <Effect>
+        <Type>Immunity</Type>
+        <Bonus>Destiny</Bonus>
+        <Item>Charisma Damage</Item>
+        <AType>NotNeeded</AType>
+      </Effect>
+    </EnhancementTreeItem>
+    <EnhancementTreeItem>
+      <Name>Fatesinger: Resonance of Fate</Name>
+      <InternalName>U51FatesingerResonanceOfFate</InternalName>
+      <Description>Select a Resonation</Description>
+      <Icon>ResonanceOfFate</Icon>
+      <XPosition>2</XPosition>
+      <YPosition>4</YPosition>
+      <CostPerRank size="1">2</CostPerRank>
+      <Ranks>1</Ranks>
+      <MinSpent>20</MinSpent>
+      <Requirements>
+        <Requirement>
+          <Type>Level</Type>
+          <Value>26</Value>
+        </Requirement>
+      </Requirements>
+      <Selector>
+        <EnhancementSelection>
+          <Name>Arcane Resonance</Name>
+          <Description>+1 to Intelligence, Wisdom and Charisma. When using your Fatesinger Destiny Mantle,
+gain +10 Universal Spell Power, +2 Spell Penetration, +4 Use Magic Device, and
++10% to your Fire, Cold, Acid and Electric Absorption.</Description>
+          <Icon>ResonanceOfFate</Icon>
+          <CostPerRank size="1">2</CostPerRank>
+          <Effect>
+            <Type>AbilityBonus</Type>
+            <Bonus>Destiny</Bonus>
+            <Item>Intelligence</Item>
+            <Item>Wisdom</Item>
+            <Item>Charisma</Item>
+            <AType>Simple</AType>
+            <Amount size="1">1</Amount>
+          </Effect>
+          <Effect>
+            <Type>UniversalSpellPower</Type>
+            <Bonus>Destiny</Bonus>
+            <AType>Simple</AType>
+            <Amount size="1">10</Amount>
+            <Requirements>
+              <Requirement>
+                <Type>Stance</Type>
+                <Item>Mantle of Sound and Fury</Item>
+              </Requirement>
+            </Requirements>
+          </Effect>
+          <Effect>
+            <Type>SpellPenetrationBonus</Type>
+            <Bonus>Destiny</Bonus>
+            <AType>Simple</AType>
+            <Amount size="1">2</Amount>
+            <Requirements>
+              <Requirement>
+                <Type>Stance</Type>
+                <Item>Mantle of Sound and Fury</Item>
+              </Requirement>
+            </Requirements>
+          </Effect>
+          <Effect>
+            <Type>SkillBonus</Type>
+            <Bonus>Destiny</Bonus>
+            <AType>Simple</AType>
+            <Amount size="1">4</Amount>
+            <Item>Use Magic Device</Item>
+            <Requirements>
+              <Requirement>
+                <Type>Stance</Type>
+                <Item>Mantle of Sound and Fury</Item>
+              </Requirement>
+            </Requirements>
+          </Effect>
+          <Effect>
+            <Type>EnergyAbsorbance</Type>
+            <Bonus>Destiny</Bonus>
+            <AType>Simple</AType>
+            <Amount size="1">10</Amount>
+            <Item>Acid</Item>
+            <Item>Cold</Item>
+            <Item>Electric</Item>
+            <Item>Fire</Item>
+            <Requirements>
+              <Requirement>
+                <Type>Stance</Type>
+                <Item>Mantle of Sound and Fury</Item>
+              </Requirement>
+            </Requirements>
+          </Effect>
+        </EnhancementSelection>
+        <EnhancementSelection>
+          <Name>Divine Resonance</Name>
+          <Description>+1 to Strength, Charisma and Wisdom. When using your Fatesinger Destiny Mantle,
+you gain +1 Attack, Damage, and Critical Hit Confirmation, +5 Physical Resistance
+Rating, and +15 Positive and Negative Spell Power.</Description>
+          <Icon>DivineResonance</Icon>
+          <CostPerRank size="1">2</CostPerRank>
+          <Effect>
+            <Type>AbilityBonus</Type>
+            <Bonus>Destiny</Bonus>
+            <Item>Strength</Item>
+            <Item>Charisma</Item>
+            <Item>Wisdom</Item>
+            <AType>Simple</AType>
+            <Amount size="1">1</Amount>
+          </Effect>
+          <Effect>
+            <Type>Weapon_AttackAndDamage</Type>
+            <Type>Weapon_AttackCritical</Type>
+            <Bonus>Destiny</Bonus>
+            <AType>Simple</AType>
+            <Amount size="1">1</Amount>
+            <Item>All</Item>
+            <Requirements>
+              <Requirement>
+                <Type>Stance</Type>
+                <Item>Mantle of Sound and Fury</Item>
+              </Requirement>
+            </Requirements>
+          </Effect>
+          <Effect>
+            <Type>PRR</Type>
+            <Bonus>Destiny</Bonus>
+            <AType>Simple</AType>
+            <Amount size="1">5</Amount>
+            <Requirements>
+              <Requirement>
+                <Type>Stance</Type>
+                <Item>Mantle of Sound and Fury</Item>
+              </Requirement>
+            </Requirements>
+          </Effect>
+          <Effect>
+            <Type>SpellPower</Type>
+            <Bonus>Destiny</Bonus>
+            <AType>Simple</AType>
+            <Amount size="1">15</Amount>
+            <Item>Positive</Item>
+            <Item>Negative</Item>
+            <Requirements>
+              <Requirement>
+                <Type>Stance</Type>
+                <Item>Mantle of Sound and Fury</Item>
+              </Requirement>
+            </Requirements>
+          </Effect>
+        </EnhancementSelection>
+        <EnhancementSelection>
+          <Name>Martial Resonance</Name>
+          <Description>+1 to Strength, Dexterity and Constitution. When using your Fatesinger Destiny Mantle,
+you gain +5 Physical and Magical Resistance Rating, +5 Armor Class, and +10 Melee
+and Ranged Power</Description>
+          <Icon>MartialResonance</Icon>
+          <CostPerRank size="1">2</CostPerRank>
+          <Effect>
+            <Type>AbilityBonus</Type>
+            <Bonus>Destiny</Bonus>
+            <Item>Strength</Item>
+            <AType>Simple</AType>
+            <Amount size="1">1</Amount>
+          </Effect>
+          <Effect>
+            <Type>AbilityBonus</Type>
+            <Bonus>Destiny</Bonus>
+            <Item>Dexterity</Item>
+            <AType>Simple</AType>
+            <Amount size="1">1</Amount>
+          </Effect>
+          <Effect>
+            <Type>AbilityBonus</Type>
+            <Bonus>Destiny</Bonus>
+            <Item>Constitution</Item>
+            <AType>Simple</AType>
+            <Amount size="1">1</Amount>
+          </Effect>
+          <Effect>
+            <Type>PRR</Type>
+            <Bonus>Destiny</Bonus>
+            <AType>Simple</AType>
+            <Amount size="1">5</Amount>
+            <Requirements>
+              <Requirement>
+                <Type>Stance</Type>
+                <Item>Mantle of Sound and Fury</Item>
+              </Requirement>
+            </Requirements>
+          </Effect>
+          <Effect>
+            <Type>MRR</Type>
+            <Bonus>Destiny</Bonus>
+            <AType>Simple</AType>
+            <Amount size="1">5</Amount>
+            <Requirements>
+              <Requirement>
+                <Type>Stance</Type>
+                <Item>Mantle of Sound and Fury</Item>
+              </Requirement>
+            </Requirements>
+          </Effect>
+          <Effect>
+            <Type>ACBonus</Type>
+            <Bonus>Destiny</Bonus>
+            <AType>Simple</AType>
+            <Amount size="1">5</Amount>
+            <Requirements>
+              <Requirement>
+                <Type>Stance</Type>
+                <Item>Mantle of Sound and Fury</Item>
+              </Requirement>
+            </Requirements>
+          </Effect>
+          <Effect>
+            <Type>MeleePower</Type>
+            <Bonus>Destiny</Bonus>
+            <AType>Simple</AType>
+            <Amount size="1">10</Amount>
+            <Requirements>
+              <Requirement>
+                <Type>Stance</Type>
+                <Item>Mantle of Sound and Fury</Item>
+              </Requirement>
+            </Requirements>
+          </Effect>
+          <Effect>
+            <Type>RangedPower</Type>
+            <Bonus>Destiny</Bonus>
+            <AType>Simple</AType>
+            <Amount size="1">10</Amount>
+            <Requirements>
+              <Requirement>
+                <Type>Stance</Type>
+                <Item>Mantle of Sound and Fury</Item>
+              </Requirement>
+            </Requirements>
+          </Effect>
+        </EnhancementSelection>
+        <EnhancementSelection>
+          <Name>Primal Resonance</Name>
+          <Description>+1 to Strength, Constitution and Wisdom. When using your Fatesinger Destiny Mantle,
+you gain +25 Maximum Hit Points, +10 Spell Resistance, +10 Healing Amplification,
+and an additional +3 Strength while Raging.</Description>
+          <Icon>PrimalResonance</Icon>
+          <CostPerRank size="1">2</CostPerRank>
+          <Effect>
+            <Type>AbilityBonus</Type>
+            <Bonus>Destiny</Bonus>
+            <Item>Strength</Item>
+            <AType>Simple</AType>
+            <Amount size="1">1</Amount>
+          </Effect>
+          <Effect>
+            <Type>AbilityBonus</Type>
+            <Bonus>Destiny</Bonus>
+            <Item>Wisdom</Item>
+            <AType>Simple</AType>
+            <Amount size="1">1</Amount>
+          </Effect>
+          <Effect>
+            <Type>AbilityBonus</Type>
+            <Bonus>Destiny</Bonus>
+            <Item>Constitution</Item>
+            <AType>Simple</AType>
+            <Amount size="1">1</Amount>
+          </Effect>
+          <Effect>
+            <Type>Hitpoints</Type>
+            <Bonus>Destiny</Bonus>
+            <AType>Simple</AType>
+            <Amount size="1">25</Amount>
+          </Effect>
+          <Effect>
+            <Type>SpellResistance</Type>
+            <Bonus>Destiny</Bonus>
+            <AType>Simple</AType>
+            <Amount size="1">10</Amount>
+          </Effect>
+          <Effect>
+            <Type>HealingAmplification</Type>
+            <Bonus>Destiny</Bonus>
+            <AType>Simple</AType>
+            <Amount size="1">10</Amount>
+          </Effect>
+          <Effect>
+            <Type>AbilityBonus</Type>
+            <Bonus>Destiny</Bonus>
+            <AType>Simple</AType>
+            <Amount size="1">3</Amount>
+            <Item>Strength</Item>
+            <Requirements>
+              <Requirement>
+                <Type>Stance</Type>
+                <Item>Rage</Item>
+              </Requirement>
+            </Requirements>
+          </Effect>
+          <Effect>
+            <Type>RangedPower</Type>
+            <Bonus>Destiny</Bonus>
+            <AType>Simple</AType>
+            <Amount size="1">10</Amount>
+            <Requirements>
+              <Requirement>
+                <Type>Stance</Type>
+                <Item>Mantle of Sound and Fury</Item>
+              </Requirement>
+            </Requirements>
+          </Effect>
+        </EnhancementSelection>
+      </Selector>
+    </EnhancementTreeItem>
+    <EnhancementTreeItem>
+      <Name>Fatesinger: Shout it out</Name>
+      <InternalName>U51FatesingerShoutItout</InternalName>
+      <Description>Increase your ability to Shout</Description>
+      <Icon>ShoutItout</Icon>
+      <XPosition>3</XPosition>
+      <YPosition>4</YPosition>
+      <CostPerRank size="1">2</CostPerRank>
+      <Ranks>1</Ranks>
+      <MinSpent>20</MinSpent>
+      <Clickie />
+      <Requirements>
+        <Requirement>
+          <Type>Level</Type>
+          <Value>26</Value>
+        </Requirement>
+      </Requirements>
+      <Selector>
+        <EnhancementSelection>
+          <Name>Greatest Shout</Name>
+          <Description>You may cast the spell Greater Shout as a Spell-like ability with an increased DC.
+
+Emits an ear-splitting yell that deals 1d6+3 Sonic damage per caster level and
+stuns targets in its path. A successful Fortitude save (DC:20 + Highest of
+Int/Wis/Chat Mod + Evocation bonuses) halves the damage and negates the stun.
+Cooldown: 6 seconds.
+Costs 6 Spell Points. </Description>
+          <Icon>ShoutItout</Icon>
+          <Clickie />
+          <CostPerRank size="1">2</CostPerRank>
+          <Effect>
+            <Type>SpellLikeAbility</Type>
+            <Bonus>Destiny</Bonus>
+            <Item>Greater Shout</Item>
+            <Item>None</Item>
+            <AType>SpellInfo</AType>
+            <Amount size="4">0 6 20 6</Amount>
+          </Effect>
+        </EnhancementSelection>
+        <EnhancementSelection>
+          <Name>Very Very Vocal</Name>
+          <Description>The damage of the Shout spell is increased by 50%.
+
+The damage of the spells Greater Shout and Horn of thunder are increased by 100%.
+
+Your Discord abilities stun for an additional 3 seconds when you have 3 Chords
+of Fate.</Description>
+          <Icon>VeryVeryVocal</Icon>
+          <CostPerRank size="1">2</CostPerRank>
+        </EnhancementSelection>
+      </Selector>
+    </EnhancementTreeItem>
+    <EnhancementTreeItem>
+      <Name>Fatesinger: Metamagics Attunement</Name>
+      <InternalName>U51FatesingerMetamagicsAttunement</InternalName>
+      <Description>Choose a Metamagic feat which you can use with no cost.</Description>
+      <Icon>MetamagicsAttunement</Icon>
+      <XPosition>4</XPosition>
+      <YPosition>4</YPosition>
+      <CostPerRank size="1">1</CostPerRank>
+      <Ranks>1</Ranks>
+      <MinSpent>20</MinSpent>
+      <Requirements>
+        <Requirement>
+          <Type>Level</Type>
+          <Value>26</Value>
+        </Requirement>
+      </Requirements>
+      <Selector>
+        <EnhancementSelection>
+          <Name>Enlarge</Name>
+          <Description>Like Enlarge Spell, your spells have twice the range. This does not increase
+their Spell Point cost.</Description>
+          <Icon>Enlarge</Icon>
+          <CostPerRank size="1">1</CostPerRank>
+          <Effect>
+            <Type>GrantFeat</Type>
+            <Bonus>Enhancement</Bonus>
+            <Item>Enlarge Spell</Item>
+            <AType>NotNeeded</AType>
+          </Effect>
+        </EnhancementSelection>
+        <EnhancementSelection>
+          <Name>Eschew</Name>
+          <Description>Like Eschew Materials, your spells no longer need common material components.
+This does not increase their Spell Point cost.</Description>
+          <Icon>Eschew</Icon>
+          <CostPerRank size="1">1</CostPerRank>
+          <Effect>
+            <Type>GrantFeat</Type>
+            <Bonus>Enhancement</Bonus>
+            <Item>Eschew Materials </Item>
+            <AType>NotNeeded</AType>
+          </Effect>
+        </EnhancementSelection>
+        <EnhancementSelection>
+          <Name>Extend</Name>
+          <Description>Like Extend Spell, your spells last twice as long.
+This does not increase their Spell Point cost.</Description>
+          <Icon>Extend</Icon>
+          <CostPerRank size="1">1</CostPerRank>
+          <Effect>
+            <Type>GrantFeat</Type>
+            <Bonus>Enhancement</Bonus>
+            <Item>Extend Spell</Item>
+            <AType>NotNeeded</AType>
+          </Effect>
+        </EnhancementSelection>
+      </Selector>
+    </EnhancementTreeItem>
+    <!--Tier 5-->
+    <EnhancementTreeItem>
+      <Name>Fatesinger: Ballad of the ages</Name>
+      <InternalName>U51FatesingerBalladOfTheAges</InternalName>
+      <Description>You gain +2 damage and benefit from the True Seeing spell. If you have Bardic
+Ballad, Inspire Transcendence is added to it.
+
+Inspire Transcendence: +1 to all Spell DCs, +1 to the DC of all Tactical Feats,
+and True Seeing.</Description>
+      <Icon>BalladOfTheAges</Icon>
+      <XPosition>0</XPosition>
+      <YPosition>5</YPosition>
+      <CostPerRank size="1">1</CostPerRank>
+      <Ranks>1</Ranks>
+      <MinSpent>30</MinSpent>
+      <Tier5 />
+      <Requirements>
+        <Requirement>
+          <Type>Level</Type>
+          <Value>30</Value>
+        </Requirement>
+      </Requirements>
+      <Effect>
+        <Type>TrueSeeing</Type>
+        <Bonus>Destiny</Bonus>
+        <AType>Simple</AType>
+        <Amount size="1">1</Amount>
+        <Item>All</Item>
+      </Effect>
+      <Effect>
+        <Type>Weapon_Damage</Type>
+        <Bonus>Destiny</Bonus>
+        <AType>Simple</AType>
+        <Amount size="1">2</Amount>
+        <Item>All</Item>
+      </Effect>
+    </EnhancementTreeItem>
+    <EnhancementTreeItem>
+      <Name>Fatesinger: Mastering the Strings</Name>
+      <InternalName>U51FatesingerMasteringTheStrings</InternalName>
+      <Description>+[1/2/3] to all Spell DCs</Description>
+      <Icon>MasteringTheStrings</Icon>
+      <XPosition>1</XPosition>
+      <YPosition>5</YPosition>
+      <CostPerRank size="1">1</CostPerRank>
+      <Ranks>3</Ranks>
+      <MinSpent>30</MinSpent>
+      <Tier5 />
+      <Requirements>
+        <Requirement>
+          <Type>Level</Type>
+          <Value>30</Value>
+        </Requirement>
+      </Requirements>
+      <Effect>
+        <Type>SpellDC</Type>
+        <Bonus>Destiny</Bonus>
+        <AType>Stacks</AType>
+        <Amount size="3">1 2 3</Amount>
+        <Item>All</Item>
+      </Effect>
+    </EnhancementTreeItem>
+    <EnhancementTreeItem>
+      <Name>Fatesinger: Blade Song</Name>
+      <InternalName>U51FatesingerBladeSong</InternalName>
+      <Description>+1 Critical Damage Multiplier on a roll of 19-20 (unless you are in Animal Form
+or using Handwraps).</Description>
+      <Icon>U51BladeSong</Icon>
+      <XPosition>2</XPosition>
+      <YPosition>5</YPosition>
+      <CostPerRank size="1">1</CostPerRank>
+      <Ranks>1</Ranks>
+      <MinSpent>30</MinSpent>
+      <Tier5 />
+      <Requirements>
+        <Requirement>
+          <Type>Level</Type>
+          <Value>30</Value>
+        </Requirement>
+      </Requirements>
+      <Effect>
+        <Type>Weapon_CriticalMultiplier19To20</Type>
+        <Bonus>Destiny</Bonus>
+        <AType>Simple</AType>
+        <Amount size="1">1</Amount>
+        <Item>Bastard Sword</Item>
+        <Item>Battle Axe</Item>
+        <Item>Club</Item>
+        <Item>Dagger</Item>
+        <Item>Dwarven Axe</Item>
+        <Item>Falchion</Item>
+        <Item>Great Axe</Item>
+        <Item>Great Club</Item>
+        <Item>Great Sword</Item>
+        <Item>Hand Axe</Item>
+        <Item>Heavy Mace</Item>
+        <Item>Heavy Pick</Item>
+        <Item>Kama</Item>
+        <Item>Khopesh</Item>
+        <Item>Kukri</Item>
+        <Item>Light Hammer</Item>
+        <Item>Light Mace</Item>
+        <Item>Light Pick</Item>
+        <Item>Longsword</Item>
+        <Item>Maul</Item>
+        <Item>Morningstar</Item>
+        <Item>Quarterstaff</Item>
+        <Item>Rapier</Item>
+        <Item>Scimitar</Item>
+        <Item>Shortsword</Item>
+        <Item>Sickle</Item>
+        <Item>Warhammer</Item>
+        <Requirements>
+          <RequiresNoneOf>
+            <Requirement>
+              <Type>Stance</Type>
+              <Item>Wolf</Item>
+            </Requirement>
+            <Requirement>
+              <Type>Stance</Type>
+              <Item>Winter Wolf</Item>
+            </Requirement>
+            <Requirement>
+              <Type>Stance</Type>
+              <Item>Plague Wolf</Item>
+            </Requirement>
+            <Requirement>
+              <Type>Stance</Type>
+              <Item>Blighted Wolf</Item>
+            </Requirement>
+            <Requirement>
+              <Type>Stance</Type>
+              <Item>Bear</Item>
+            </Requirement>
+            <Requirement>
+              <Type>Stance</Type>
+              <Item>Dire Bear</Item>
+            </Requirement>
+          </RequiresNoneOf>
+        </Requirements>
+      </Effect>
+    </EnhancementTreeItem>
+    <EnhancementTreeItem>
+      <Name>Fatesinger: Turn the Tide</Name>
+      <InternalName>U51FatesingerTurnTheTide</InternalName>
+      <Description>Epic Moment: The trumpets herald your heroic call! For 20 seconds you and your party
+gain full Base Attack Bonus, +10% to Weapon Damage, +10% Uncapped Dodge,
++100 Universal Spell Power, and +25% to Spell Costs Reduction.
+Cooldown: 5 minutes</Description>
+      <Icon>TurnTheTide</Icon>
+      <XPosition>3</XPosition>
+      <YPosition>5</YPosition>
+      <CostPerRank size="1">1</CostPerRank>
+      <Ranks>1</Ranks>
+      <MinSpent>30</MinSpent>
+      <Clickie />
+      <Tier5 />
+      <Requirements>
+        <Requirement>
+          <Type>Level</Type>
+          <Value>30</Value>
+        </Requirement>
+      </Requirements>
+    </EnhancementTreeItem>
+    <EnhancementTreeItem>
+      <Name>Fatesinger: Cut the Strings</Name>
+      <InternalName>U51FatesingerCutTheStrings</InternalName>
+      <Description>Spell Like Ability: Strike a note to reveal the strings of fate so you might cut them.
+All monsters within a wide radius around you are forced to dance (Will vs
+DC:20 + Highest Ability Score Mod + Enchantment) pulled by the strings of fate
+for 10 seconds. In addition, for 10 seconds, your character gains the ability to
+cut their strings with any weapon strike or spell at a rate of once per second,
+instantly killing them. Bosses if they fail their save do not dance but will
+take an additional 300 Sonic Damage that scales with Spell Power when struck for
+the duration of the effect.
+Cooldown: 60 seconds.</Description>
+      <Icon>CutTheStrings</Icon>
+      <XPosition>4</XPosition>
+      <YPosition>5</YPosition>
+      <CostPerRank size="1">1</CostPerRank>
+      <Ranks>1</Ranks>
+      <MinSpent>30</MinSpent>
+      <Clickie />
+      <Tier5 />
+      <Requirements>
+        <Requirement>
+          <Type>Level</Type>
+          <Value>30</Value>
+        </Requirement>
+      </Requirements>
+    </EnhancementTreeItem>
+  </EnhancementTree>
+</Enhancements>

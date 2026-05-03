@@ -1,0 +1,41 @@
+.section {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: 0.25rem;
+}
+.header:hover .title { color: var(--color-text); }
+
+.chevron,
+.chevronOpen {
+  display: inline-block;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  transition: transform 0.15s;
+}
+.chevronOpen { transform: rotate(90deg); }
+
+.title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  transition: color 0.12s;
+}
+
+.body {
+  padding-top: 0.5rem;
+}

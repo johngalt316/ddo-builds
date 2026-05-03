@@ -1,0 +1,114 @@
+.panel {
+  padding: 1rem 0;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+  gap: 0.6rem;
+}
+
+.count {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.addBtn {
+  padding: 0.35rem 0.85rem;
+  background: rgba(201,162,39,0.15);
+  border: 1px solid var(--color-gold);
+  border-radius: 4px;
+  color: var(--color-gold);
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.12s;
+}
+.addBtn:hover { background: rgba(201,162,39,0.28); }
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  margin-left: auto;
+  opacity: 0;
+  transition: opacity 0.12s;
+}
+.feat:hover .actions { opacity: 1; }
+
+.actionBtn, .removeBtn {
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  font: inherit;
+  font-size: 0.95rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0.15rem 0.35rem;
+  border-radius: 3px;
+}
+.actionBtn:hover { background: rgba(201,162,39,0.15); color: var(--color-gold); }
+.removeBtn:hover { background: rgba(220,80,80,0.15); color: #f88; }
+
+.iconWrap {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+.empty {
+  padding: 3rem 1rem;
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.4rem;
+}
+
+.feat {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 0.75rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  cursor: default;
+  transition: border-color 0.12s;
+}
+
+.feat:hover {
+  border-color: var(--color-gold);
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  flex-shrink: 0;
+  border-radius: 3px;
+}
+
+.iconPlaceholder {
+  width: 32px;
+  height: 32px;
+  background: var(--color-bg);
+  border-radius: 3px;
+  flex-shrink: 0;
+  border: 1px solid var(--color-border);
+}
+
+.name {
+  font-size: 0.82rem;
+  color: var(--color-text);
+  line-height: 1.3;
+}

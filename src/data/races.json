@@ -1,0 +1,72 @@
+[
+  {
+    "id": "human",
+    "name": "Human",
+    "description": "Versatile and ambitious, humans receive a bonus feat at first level and extra skill points.",
+    "abilityBonuses": { "any": 2 },
+    "skillBonuses": {},
+    "racialTraits": ["bonus_feat", "bonus_skills", "action_boost"],
+    "hitPointBonus": 0,
+    "availableAlignments": ["LG","LN","LE","NG","TN","NE","CG","CN","CE"]
+  },
+  {
+    "id": "dwarf",
+    "name": "Dwarf",
+    "description": "Hardy and stout, dwarves excel at survivability with bonuses to Constitution and saving throws.",
+    "abilityBonuses": { "CON": 2, "CHA": -2 },
+    "skillBonuses": {},
+    "racialTraits": ["dwarven_stability", "stonecunning", "dwarven_waraxe_proficiency", "giant_evasion", "poison_save_bonus", "spell_save_bonus"],
+    "hitPointBonus": 0,
+    "availableAlignments": ["LG","LN","LE","NG","TN","NE","CG","CN","CE"]
+  },
+  {
+    "id": "elf",
+    "name": "Elf",
+    "description": "Graceful and perceptive, elves have innate magic resistance and keen senses.",
+    "abilityBonuses": { "DEX": 2, "CON": -2 },
+    "skillBonuses": { "listen": 2, "search": 2, "spot": 2 },
+    "racialTraits": ["elven_keen_senses", "immunity_sleep", "enchantment_save_bonus", "elven_weapon_proficiency"],
+    "hitPointBonus": 0,
+    "availableAlignments": ["LG","LN","LE","NG","TN","NE","CG","CN","CE"]
+  },
+  {
+    "id": "halfling",
+    "name": "Halfling",
+    "description": "Small and nimble, halflings are adept at avoiding danger and are naturally lucky.",
+    "abilityBonuses": { "DEX": 2, "STR": -2 },
+    "skillBonuses": { "hide": 4, "listen": 2, "move_silently": 2 },
+    "racialTraits": ["halfling_luck", "fearless", "good_aim", "small_size"],
+    "hitPointBonus": 0,
+    "availableAlignments": ["LG","LN","LE","NG","TN","NE","CG","CN","CE"]
+  },
+  {
+    "id": "half_elf",
+    "name": "Half-Elf",
+    "description": "Blending human adaptability and elven grace, half-elves are natural diplomats with the Dilettante feat.",
+    "abilityBonuses": {},
+    "skillBonuses": { "diplomacy": 2, "listen": 1, "search": 1, "spot": 1 },
+    "racialTraits": ["dilettante", "elven_keen_senses", "immunity_sleep", "enchantment_save_bonus"],
+    "hitPointBonus": 0,
+    "availableAlignments": ["LG","LN","LE","NG","TN","NE","CG","CN","CE"]
+  },
+  {
+    "id": "half_orc",
+    "name": "Half-Orc",
+    "description": "Powerful and intimidating, half-orcs have great physical strength at the cost of intellect.",
+    "abilityBonuses": { "STR": 2, "INT": -2, "CHA": -2 },
+    "skillBonuses": {},
+    "racialTraits": ["orcish_fury", "orcish_resilience"],
+    "hitPointBonus": 0,
+    "availableAlignments": ["LG","LN","LE","NG","TN","NE","CG","CN","CE"]
+  },
+  {
+    "id": "warforged",
+    "name": "Warforged",
+    "description": "Living constructs created for war, warforged are immune to many biological afflictions but are less spiritually attuned.",
+    "abilityBonuses": { "CON": 2, "WIS": -2, "CHA": -2 },
+    "skillBonuses": {},
+    "racialTraits": ["construct_immunities", "natural_armor", "self_sufficient", "light_fortification"],
+    "hitPointBonus": 0,
+    "availableAlignments": ["LG","LN","LE","NG","TN","NE","CG","CN","CE"]
+  }
+]

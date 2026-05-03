@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\Owner\\\\git\\\\ddo-builds\" -Recurse -Force)",
+      "Bash(Select-Object FullName, PSIsContainer)",
+      "Bash(Sort-Object FullName)",
+      "Bash(npm --version)",
+      "Bash(docker --version)",
+      "PowerShell(npm *)",
+      "Bash(npm install *)",
+      "PowerShell(Get-ChildItem *)",
+      "PowerShell(ls -File \"C:\\\\Users\\\\Owner\\\\git\\\\DDOBuilderV2\" | Select-Object Name, @{Name='Size\\(KB\\)'; Expression={[math]::Round\\($_.Length / 1024, 2\\)}})",
+      "PowerShell(head *)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\Owner\\\\git\\\\DDOBuilderV2\" -File | Select-Object Name, @{Name='Size\\(KB\\)'; Expression={[math]::Round\\($_.Length / 1024, 2\\)}} | Sort-Object Name)",
+      "PowerShell(ls -File \"C:\\\\Users\\\\Owner\\\\git\\\\DDOBuilderV2\" | ForEach-Object { [PSCustomObject]@{Name=$_.Name; Size_KB=[math]::Round\\($_.Length / 1024, 2\\)} })",
+      "Bash(npm run *)",
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\Owner\\\\git\\\\DDOBuilderV2\\\\DDOBuilder\" -Recurse -File -Filter \"*.cpp\" -ErrorAction SilentlyContinue)",
+      "Bash(Select-Object -First 30)",
+      "Bash(xargs -I {} basename \"{}\")",
+      "Bash(awk '/<LevelTraining>/,/<\\\\/LevelTraining>/')",
+      "Bash(grep -rA15 \"<Name>Minion of the Eldritch</Name>\" \"C:/Users/Owner/git/ddo-builds/public/data/Classes/\")",
+      "Bash(grep -rA15 \"<Name>Past Life: Arcane Initiate</Name>\" \"C:/Users/Owner/git/ddo-builds/public/data/Classes/\")",
+      "Bash(grep -rA25 \"<Name>Minion of the Eldritch<\" \"C:/Users/Owner/git/ddo-builds/public/data/\")",
+      "Bash(grep -rA25 \"<Name>Enhanced Minion of the Eldritch<\" \"C:/Users/Owner/git/ddo-builds/public/data/\")",
+      "Bash(node *)",
+      "Bash(sort -t'>' -k2 -n)",
+      "Bash(sort -k2 -n)",
+      "Bash(grep -E \"Pane\\\\.h$|Dialog\\\\.h$|View\\\\.h$|Window\\\\.h$\")",
+      "Bash(grep -v \"\\\\.cpp$\")",
+      "Bash(grep -iE \"\\\\.DDOBuild$\")",
+      "Bash(npm test *)",
+      "Bash(xargs -I{} sh -c 'echo \"=== {} ===\" && grep -A 1 \"<EquipmentSlot>\" \"{}\" | head -10')",
+      "Bash(grep -c \"\\\\\\\\[PL\\\\\\\\]\" tests/snapshots/kemton.engine.snap.json)",
+      "Bash(grep \"\\\\\\\\[PL\\\\\\\\]\" tests/snapshots/kemton.engine.snap.json)",
+      "Bash(grep \"totalSourcedEffects\\\\|totalAppliedBonuses\\\\|\\\\\\\\[PL\\\\\\\\]\" tests/snapshots/kemton.engine.snap.json)"
+    ]
+  }
+}

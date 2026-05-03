@@ -1,0 +1,154 @@
+.panel {
+  padding: 1rem 0;
+}
+
+.meta {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin: 0 0 0.75rem;
+}
+
+.budget {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  margin: 0 0 0.75rem;
+  padding: 0.4rem 0.75rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+}
+.budgetSpacer { opacity: 0.4; }
+.budgetSpent { color: var(--color-text); font-weight: 600; }
+.budgetRemaining { color: var(--color-gold); font-weight: 600; }
+.budgetOver { color: #f88; font-weight: 600; }
+
+.tableWrapper {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.table th,
+.table td {
+  padding: 0.35rem 0.6rem;
+  text-align: left;
+}
+
+.table thead tr {
+  background: var(--color-bg);
+  border-bottom: 2px solid var(--color-border);
+}
+
+.table th {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.thName   { min-width: 160px; }
+.thAbility { width: 90px; }
+.thNum    { width: 80px; text-align: right; }
+.thControls { width: 72px; }
+
+.tdControls {
+  display: flex;
+  gap: 0.2rem;
+  justify-content: flex-start;
+}
+
+.rankBtn {
+  width: 28px;
+  height: 24px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 3px;
+  color: var(--color-text);
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  transition: border-color 0.12s, background 0.12s, color 0.12s;
+}
+.rankBtn:hover:not(:disabled) {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+}
+.rankBtn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.table tbody tr {
+  border-bottom: 1px solid var(--color-border);
+  transition: background 0.1s;
+}
+
+.table tbody tr:hover {
+  background: var(--color-surface-hover);
+}
+
+.rowActive { color: var(--color-text); }
+.rowClass  { color: var(--color-text-muted); }
+.rowCross  { color: var(--color-text-muted); opacity: 0.6; }
+
+.tdName {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.tdAbility { color: var(--color-text-muted); }
+.tdNum     { text-align: right; }
+.tdMax     { text-align: right; color: var(--color-text-muted); font-size: 0.78rem; }
+.total     { font-weight: 700; color: var(--color-gold); }
+
+.badge,
+.badgeT {
+  font-size: 0.6rem;
+  font-weight: 700;
+  padding: 1px 4px;
+  border-radius: 3px;
+  line-height: 1.4;
+}
+
+.badge  { background: rgba(201,162,39,0.2); color: var(--color-gold); }
+.badgeT { background: rgba(136,136,170,0.2); color: var(--color-text-muted); }
+
+.legend {
+  margin: 0.75rem 0 0;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.badgeLegend {
+  font-size: 0.6rem;
+  font-weight: 700;
+  padding: 1px 4px;
+  border-radius: 3px;
+  background: rgba(201,162,39,0.2);
+  color: var(--color-gold);
+}
+
+.badgeTLegend {
+  font-size: 0.6rem;
+  font-weight: 700;
+  padding: 1px 4px;
+  border-radius: 3px;
+  background: rgba(136,136,170,0.2);
+  color: var(--color-text-muted);
+}

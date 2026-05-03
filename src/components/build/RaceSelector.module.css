@@ -1,0 +1,57 @@
+.panel {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.heading {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+}
+
+.select {
+  width: 100%;
+  padding: 0.4rem 0.5rem;
+  border-radius: 4px;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+}
+
+.description {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin: 0 0 0.4rem;
+  line-height: 1.4;
+}
+
+.bonuses {
+  font-size: 0.8rem;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.bonuses strong {
+  color: var(--color-gold);
+}
+
+.raceInfo {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+}
+
+.raceIcon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  flex-shrink: 0;
+  border-radius: 4px;
+}

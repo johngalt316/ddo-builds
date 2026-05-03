@@ -1,0 +1,4098 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Augments>
+   <!--Myth Drannor Sun and Moon Augments-->
+   <!--Heroic Versions-->
+  <Augment>
+    <Name>Solar Gem of Strength (Heroic)</Name>
+    <Description>+2 Artifact Bonus to Strength
+Drops in: The House of Gems, end chest
+Dinosaur Crisis, optional chest
+Cold Snap, Althea's chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>AbilityBonus</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+      <Item>Strength</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Strength (Heroic)</Name>
+    <Description>+2 Profane Bonus to Strength
+Drops in: Seeds of Decay, end chest
+Rats in a Cage, end chest
+The Proper Authorities, end chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>AbilityBonus</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+      <Item>Strength</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Dexterity (Heroic)</Name>
+    <Description>+2 Artifact Bonus to Dexterity
+Drops in: Portal to Below, end chest
+Dinosaur Crisis, optional chest
+Locked Away (Part One), Asylum Otyugh's chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>AbilityBonus</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+      <Item>Dexterity</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Dexterity (Heroic)</Name>
+    <Description>+2 Profane Bonus to Dexterity
+Drops in: Voices of the Dead, end chest
+The Knife's Edge, end chest
+Locked Away (Part Two), end chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>AbilityBonus</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+      <Item>Dexterity</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Constitution (Heroic)</Name>
+    <Description>+2 Artifact Bonus to Constitution
+Drops in: Seeds of Decay, end chest
+Toil and Trouble, optional chest
+Locked Away (Part One), end chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>AbilityBonus</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+      <Item>Constitution</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Constitution (Heroic)</Name>
+    <Description>+2 Profane Bonus to Constitution
+Drops in: Oghma's Song, end chest
+Rats in a Cage, end chest
+Beneath the City Streets, end chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>AbilityBonus</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+      <Item>Constitution</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Intelligence (Heroic)</Name>
+    <Description>+2 Artifact Bonus to Intelligence
+Drops in: Oghma's Song, end chest
+Dinosaur Crisis, optional chest
+Snowfall and Sunlight, end chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>AbilityBonus</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+      <Item>Intelligence</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Intelligence (Heroic)</Name>
+    <Description>+2 Profane Bonus to Intelligence
+Drops in: The House of Gems, end chest
+Rats in a Cage, end chest
+The Wizard's Labyrinth, end chest
+Locked Away (Part Two), end chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>AbilityBonus</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+      <Item>Intelligence</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Wisdom (Heroic)</Name>
+    <Description>+2 Artifact Bonus to Wisdom
+Drops in: The Safehold, end chest
+Toil and Trouble, optional chest
+A Miner Sacrifice, end chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>AbilityBonus</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+      <Item>Wisdom</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Wisdom (Heroic)</Name>
+    <Description>+2 Profane Bonus to Wisdom
+Drops in: Ettercap Incursion, end chest
+The Darkness and the Light, end chest
+Land of Lamordia, Vornir Frosthelm's chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>AbilityBonus</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+      <Item>Wisdom</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Charisma (Heroic)</Name>
+    <Description>+2 Artifact Bonus to Charisma
+Drops in: Ettercap Incursion, end chest
+Toil and Trouble, optional chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>AbilityBonus</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+      <Item>Charisma</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Charisma (Heroic)</Name>
+    <Description>+2 Profane Bonus to Charisma
+Drops in: Death Hosts This Banquet, end chest
+Rats in a Cage, end chest
+The Wizard's Labyrinth, end chest
+Beneath the City Streets, Dead Man's Wrath's chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>AbilityBonus</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+      <Item>Charisma</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Enduring (Heroic)</Name>
+    <Description>+5% Legendary Bonus to Maximum Hit Points.
+Drops in: Secrets of the Red Wizards, end chest (rare)
+Magic of Myth Drannor (Heroic), Elite and True Elite
+Rats in a Cage, end chest (rare)
+Sleeping with the Fishes, end chest (rare)
+The Proper Authorities, end chest (rare)
+The Chill of Ravenloft (Heroic), any difficulty</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>Hitpoints</Type>
+      <Bonus>Legendary</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">5</Amount>
+      <Percent/>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Fortification Bypass (Heroic)</Name>
+    <Description>+10% Artifact Bonus to Fortification Bypass.
+Drops in: Magic of Myth Drannor (Heroic), Elite and True Elite
+Ruins of Myth Drannor, Goranathanil rare encounter chest (rare)
+The Knife's Edge, end chest (rare)
+Dinosaur Crisis, end chest (rare)</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>FortificationBypass</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">10</Amount>
+      <Percent/>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Dodge (Heroic)</Name>
+    <Description>+3% Artifact Bonus to Dodge.
+Drops in: The House of Gems, end chest
+Dinosaur Crisis, end chest
+Ends and Means, end chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>DodgeBonus</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">3</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Melee Power (Heroic)</Name>
+    <Description>+5 Artifact Bonus to Melee Power.
+Drops in: The Key to the Mythal, end chest
+A Miner Sacrifice, optional chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>MeleePower</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">5</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Melee Power (Heroic)</Name>
+    <Description>+5 Profane Bonus to Melee Power.
+Drops in: The Zulkir's Plan, end chest
+Cold Snap, end chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>MeleePower</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">5</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Healing Amplification (Heroic)</Name>
+    <Description>+10 Artifact Bonus to Healing Amplification.
+Drops in: The Zulkir's Plan, end chest
+The Cerulean Hills, Romira and Juvian's chest (requires completion of Sleeping with the Fishes)
+Ruins of Myth Drannor, Romira and Juvian's right chest (requires completion of Sleeping with the Fishes)
+The Wish, unknown optional chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>HealingAmplification</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">10</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Healing Amplification (Heroic)</Name>
+    <Description>+10 Profane Bonus to Healing Amplification.
+Drops in: Ruins of Myth Drannor (Yegora's chest)
+Romira and Juvian's right chest (requires completion of Sleeping with the Fishes)
+The Darkness and the Light, end chest
+Special Delivery, Max Entsetzen's chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>HealingAmplification</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">10</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Imbuement (Heroic)</Name>
+    <Description>+1 Artifact Bonus to Imbue Dice.
+Drops in: Magic of Myth Drannor (Heroic), Elite and True Elite
+Voices of the Dead, end chest (rare)
+Toil and Trouble, end chest (rare)
+Snowfall and Sunlight, end chest (rare)
+The Chill of Ravenloft (Heroic), any difficulty</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>ImbueDice</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">1</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Cruelty (Heroic)</Name>
+    <Description>+5% Artifact Bonus to Damage to helpless enemies.
+Drops in: Magic of Myth Drannor (Heroic), Elite and True Elite
+Oghma's Song, end chest (rare)
+A Miner Sacrifice, end chest
+The Chill of Ravenloft (Heroic), any difficulty</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>HelplessDamage</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">5</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Weapon Damage (Heroic)</Name>
+    <Description>+1 Profane Bonus to Weapon Damage.
+Drops in: Secrets of the Red Wizards, end chest
+The Knife's Edge, end chest
+Zoo Creeper, end chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>Weapon_Damage</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">1</Amount>
+      <Item>All</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Doubleshot (Heroic)</Name>
+    <Description>+5% Artifact Bonus to Doubleshot.
+Drops in: Portal to Below, end chest
+The Knife's Edge, end chest
+Sleeping with the Fishes, end chest
+Snowfall and Sunlight, Potion Paw's chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>Doubleshot</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">5</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Accuracy (Heroic)</Name>
+    <Description>+1 Profane Bonus to Weapon Attacks.
+Drops in: The Safehold, end chest
+Rats in a Cage, end chest
+The Covered Culvert, end chest
+Land of Lamordia, Vornir Frosthelm's chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>Weapon_Attack</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">1</Amount>
+      <Item>All</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Magical Resistance Rating (Heroic)</Name>
+    <Description>+10 Artifact Bonus to Magical Resistance Rating.
+Drops in: The Darkness and the Light, end chest
+The Safehold, end chest
+The Covered Culvert, optional chest
+Cold Snap, Althea's chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>MRR</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">10</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Magical Resistance Rating Cap (Heroic)</Name>
+    <Description>+10 Artifact Bonus to Magical Resistance Rating Cap.
+Drops in: Magic of Myth Drannor (Heroic), Elite and True Elite
+Ruins of Myth Drannor, Any red-named rare encounter chest (rare)
+The Covered Culvert, end chest (rare)
+Locked Away (Part One), end chest (rare)
+The Chill of Ravenloft (Heroic), any difficulty</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>MRRCap</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">10</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Magical Protection (Heroic)</Name>
+    <Description>+10 Profane Bonus to Magical Resistance Rating.
+Drops in: Book Burning, end chest
+Toil and Trouble, end chest
+A Light in the Attic, secret area chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>MRR</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">10</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Doublestrike (Heroic)</Name>
+    <Description>+5% Artifact Bonus to Doublestrike.
+Drops in: Ettercap Incursion, end chest
+Rats in a Cage, end chest
+Toil and Trouble, optional chest
+Locked Away (Part Two), end chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>Doublestrike</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">5</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Sneak Attack Damage (Heroic)</Name>
+    <Description>+1 Artifact Bonus to Sneak Attack Damage.
+Drops in: Death Hosts This Banquet, end chest
+The Knife's Edge, end chest
+A Miner Sacrifice, end chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SneakAttackDamage</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">1</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Sneak Attack Dice (Heroic)</Name>
+    <Description>+1 Artifact Bonus to Sneak Attack Dice.
+Drops in: Magic of Myth Drannor (Heroic), Elite and True Elite
+Ruins of Myth Drannor, Goranathanil or any red-named rare encounter chest (rare)
+The Knife's Edge, end chest (rare)
+The Covered Culvert, optional chest (rare)</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SneakAttackDice</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">1</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Swift Charging (Heroic)</Name>
+    <Description>+5% Artifact Bonus to Rune Arm Charge Speed.
+Drops in: Magic of Myth Drannor (Heroic), Elite and True Elite
+The Safehold, end chest (rare)
+The Covered Culvert, end chest (rare)</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>RuneArmChargeRate</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">5</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Swift Charging (Heroic)</Name>
+    <Description>+5% Profane Bonus to Rune Arm Charge Speed.
+Drops in: Book Burning, end chest
+Beneath the City Streets, Dead Man's Wrath's chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>RuneArmChargeRate</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">5</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Repair Amplification (Heroic)</Name>
+    <Description>+10 Profane Bonus to Repair Amplification.
+Drops in: Ruins of Myth Drannor (Yegora's chest)
+Sleeping with the Fishes, House Lyrandar uprising optional chest
+Snowfall and Sunlight, locked chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>RepairAmplification</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">10</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Repair Amplification (Heroic)</Name>
+    <Description>+10 Artifact Bonus to Repair Amplification.
+Drops in: Voices of the Dead, end chest
+The Body Snatchers, end chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>RepairAmplification</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">10</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Physical Resistance Rating (Heroic)</Name>
+    <Description>+10 Artifact Bonus to Physical Resistance Rating.
+Drops in: Secrets of the Red Wizards, end chest
+The Darkness and the Light, end chest
+The Covered Culvert, optional chest
+Zoo Creeper, end chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>PRR</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">10</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Physical Protection (Heroic)</Name>
+    <Description>+10 Profane Bonus to Physical Resistance Rating.
+Drops in: Portal to Below, end chest
+The Covered Culvert, end chest
+A Miner Sacrifice, end chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>PRR</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">10</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Spell DCs (Heroic)</Name>
+    <Description>+1 Artifact Bonus to Spell DCs.
+Drops in: Portal to Below, end chest
+Cold Snap, end chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SpellDC</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">1</Amount>
+      <Item>All</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Spell Difficulty (Heroic)</Name>
+    <Description>+1 Profane Bonus to Spell DCs.
+Drops in: Seeds of Decay, end chest
+The Wizard's Labyrinth, end chest
+Toil and Trouble, end chest
+The Body Snatchers, cookbook optional chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SpellDC</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">1</Amount>
+      <Item>All</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Spellpower (Heroic)</Name>
+    <Description>+15 Profane Bonus to Spellpower.
+Drops in: The Key to the Mythal, end chest
+Toil and Trouble, end chest
+A Light in the Attic, secret area chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SpellPower</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">15</Amount>
+      <Item>All</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Ranged Power (Heroic)</Name>
+    <Description>+5 Artifact Bonus to Ranged Power.
+Drops in: Seeds of Decay, end chest
+Land of Lamordia, Fangs of Winter's chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>RangedPower</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">5</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Negative Amplification (Heroic)</Name>
+    <Description>+10 Artifact Bonus to Negative Healing Amplification.
+Drops in: Secrets of the Red Wizards, end chest
+Special Delivery, end chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>NegativeHealingAmplification</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">10</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Spell Penetration (Heroic)</Name>
+    <Description>+3 Artifact Bonus to Spell Penetration.
+Drops in: Times Long Past, end chest
+Snowfall and Sunlight, end chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SpellPenetrationBonus</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">3</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Spell Critical Damage (Heroic)</Name>
+    <Description>+5% Legendary Bonus to Spell Critical Damage.
+Drops in: The Zulkir's Plan, end chest
+The Cerulean Hills, Romira and Juvian's chest (requires completion of Sleeping with the Fishes)
+Ruins of Myth Drannor, Romira and Juvian's right chest (requires completion of Sleeping with the Fishes)
+Special Delivery, end chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SpellCriticalDamage</Type>
+      <Bonus>Legendary</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">5</Amount>
+      <Item>All</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Natural Armor (Heroic)</Name>
+    <Description>+5 Profane Bonus to Natural Armor.
+Drops in: Ettercap Incursion, end chest
+The Covered Culvert, end chest
+A Miner Sacrifice, optional chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>NaturalArmor</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">5</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Armor Layers (Heroic)</Name>
+    <Description>+5% Artifact Bonus to Armor Class.
+Drops in: Voices of the Dead, end chest
+Sleeping with the Fishes, House Lyrandar uprising optional chest
+The Body Snatchers, cookbook optional chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>ACBonus</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">5</Amount>
+      <Percent/>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Reflex (Heroic)</Name>
+    <Description>+1 Artifact Bonus to Reflex Save.
+Drops in: Book Burning, end chest
+Dinosaur Crisis, optional chest
+The Cerulean Hills, Romira and Juvian's chest (requires completion of Sleeping with the Fishes)
+Ruins of Myth Drannor, Romira and Juvian's right chest (requires completion of Sleeping with the Fishes)
+Snowfall and Sunlight, locked chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SaveBonus</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">1</Amount>
+      <Item>Reflex</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Will (Heroic)</Name>
+    <Description>+1 Artifact Bonus to Will Save.
+Drops in: Death Hosts This Banquet, end chest
+The Cerulean Hills, Romira and Juvian's chest (requires completion of Sleeping with the Fishes)
+Ruins of Myth Drannor, Romira and Juvian's right chest (requires completion of Sleeping with the Fishes)
+Beneath the City Streets, end chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SaveBonus</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">1</Amount>
+      <Item>Will</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Assassination (Heroic)</Name>
+    <Description>+1 Artifact Bonus to Assassinate DCs.
+Drops in: Book Burning, end chest
+Beneath the City Streets, end chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>TacticalDC</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">1</Amount>
+      <Item>Assassinate</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Threat Decrease (Heroic)</Name>
+    <Description>+10% Artifact Bonus to Melee Threat Reduction.
+Drops in: Ruins of Myth Drannor, Yegora rare encounter chest
+Romira and Juvian's right chest (requires completion of Sleeping with the Fishes)
+Snowfall and Sunlight, Potion Paw's chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>ThreatBonusMelee</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">-10</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Strikethrough (Heroic)</Name>
+    <Description>+5% Artifact Bonus to Strikethrough.
+Drops in: Death Hosts This Banquet, end chest (rare)
+Magic of Myth Drannor (Heroic), Elite and True Elite
+Rats in a Cage, end chest (rare)
+Dinosaur Crisis, end chest (rare)
+Cold Snap, end chest (rare)
+The Chill of Ravenloft (Heroic), any difficulty</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>Strikethrough</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">5</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Tactical DCs (Heroic)</Name>
+    <Description>+1 Artifact Bonus to Tactical DCs.
+Drops in: The Key to the Mythal, end chest
+Dinosaur Crisis, end chest
+The Body Snatchers, end chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>TacticalDC</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">1</Amount>
+      <Item>Stun</Item>
+      <Item>Sunder</Item>
+      <Item>Trip</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Threat Increase (Heroic)</Name>
+    <Description>+50% Artifact Bonus to Melee Threat Increase.
+Drops in: Ruins of Myth Drannor, Goranathanil or Yegora rare encounter chest
+Romira and Juvian's right chest (requires completion of Sleeping with the Fishes)
+Sleeping with the Fishes, House Lyrandar uprising optional chest
+Land of Lamordia, Fangs of Winter's chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>ThreatBonusMelee</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">50</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Ranged Power (Heroic)</Name>
+    <Description>+5 Profane Bonus to Ranged Power.
+Drops in: Times Long Past, end chest
+Sleeping with the Fishes, end chest
+Snowfall and Sunlight, Potion Paw's chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>RangedPower</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">5</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Negative Amplification (Heroic)</Name>
+    <Description>+10 Enhancement Bonus to Negative Healing Amplification.
+Drops in: Ruins of Myth Drannor (Goranathanil's chest)
+Sleeping with the Fishes, end chest
+Zoo Creeper, end chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>NegativeHealingAmplification</Type>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">10</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Spell Critical Chance (Heroic)</Name>
+    <Description>+2% Artifact Bonus to Spell Critical Chance.
+Drops in: Magic of Myth Drannor (Heroic), Elite and True Elite
+Ruins of Myth Drannor, Yegora rare encounter chest (rare)
+Romira and Juvian's right chest (rare, requires completion of Sleeping with the Fishes)
+The Wizard's Labyrinth, end chest (rare)
+Toil and Trouble, end chest (rare)</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SpellLore</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+      <Item>All</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Spellpower (Heroic)</Name>
+    <Description>+15 Artifact Bonus to Spellpower.
+Drops in: Oghma's Song, end chest
+The Wizard's Labyrinth, end chest
+The Covered Culvert, optional chest
+A Miner Sacrifice, optional chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SpellPower</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">15</Amount>
+      <Item>All</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Fortitude (Heroic)</Name>
+    <Description>+1 Artifact Bonus to Fortitude Save.
+Drops in: Times Long Past, end chest
+Sleeping with the Fishes, House Lyrandar uprising optional chest
+The Wish, end chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SaveBonus</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">1</Amount>
+      <Item>Fortitude</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Necromancy (Heroic)</Name>
+    <Description>+2 Profane Bonus to Necromancy DCs
+Drops in: A Light in the Attic, end chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SpellDC</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+      <Item>Necromancy</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Illusion (Heroic)</Name>
+    <Description>+2 Profane Bonus to Illusion DCs
+Drops in: Cold Snap, Althea's chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SpellDC</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+      <Item>Illusion</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Linguistics (Heroic)</Name>
+    <Description>+2 Profane Bonus to Diplomacy, Intimidate and Bluff
+Drops in: The Body Snatchers, end chest (rare)</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+      <Item>Diplomacy</Item>
+      <Item>Intimidate</Item>
+      <Item>Bluff</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Enchantment (Heroic)</Name>
+    <Description>+2 Profane Bonus to Enchantment DCs
+Drops in: A Light in the Attic, end chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SpellDC</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+      <Item>Enchantment</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Blast Dice (Heroic)</Name>
+    <Description>+1 Profane Bonus to Eldritch Blast Dice.
+Drops in: A Light in the Attic, secret area chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>EldritchBlastD8</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">1</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Pact Dice (Heroic)</Name>
+    <Description>Profane Power in Pact +1
+Drops in: Snowfall and Sunlight, locked chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>EldritchBlastD6</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">1</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Abjuration (Heroic)</Name>
+    <Description>+2 Profane Bonus to Abjuration DCs
+Drops in: The Proper Authorities, end chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SpellDC</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+      <Item>Abjuration</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Balance and Tumble (Heroic)</Name>
+    <Description>+2 Profane Bonus to Balance and Tumble
+Drops in: Locked Away (Part One), Asylum Otyugh's chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+      <Item>Balance</Item>
+      <Item>Tumble</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Conjuration (Heroic)</Name>
+    <Description>+2 Profane Bonus to Conjuration DCs
+Drops in: The Wish, end chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SpellDC</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+      <Item>Conjuration</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Disable Device and Open Lock (Heroic)</Name>
+    <Description>+2 Profane Bonus to Disable Device and Open Lock
+Drops in: Beneath the City Streets, Dead Man's Wrath's chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+      <Item>Disable Device</Item>
+      <Item>Open Lock</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Evocation (Heroic)</Name>
+    <Description>+2 Profane Bonus to Evocation DCs
+Drops in: ?</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SpellDC</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+      <Item>Evocation</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Haggle and Perform (Heroic)</Name>
+    <Description>+2 Profane Bonus to Haggle and Perform
+Drops in: Land of Lamordia, Fangs of Winter's chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+      <Item>Haggle</Item>
+      <Item>Perform</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Hide and Move Silently (Heroic)</Name>
+    <Description>+2 Profane Bonus to Hide and Move Silently
+Drops in: Ends and Means, end chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+      <Item>Hide</Item>
+      <Item>Move Silently</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Jump and Swim (Heroic)</Name>
+    <Description>+2 Profane Bonus to Jump and Swim
+Drops in: Cold Snap, end chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+      <Item>Jump</Item>
+      <Item>Swim</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Peace (Heroic)</Name>
+    <Description>+2 Profane Bonus to Heal, Listen and Concentration
+Drops in: Land of Lamordia, Experiment Y's chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+      <Item>Heal</Item>
+      <Item>Listen</Item>
+      <Item>Concentration</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Repair and Use Magic Device (Heroic)</Name>
+    <Description>+2 Profane Bonus to Repair and Use Magic Device
+Drops in: Special Delivery, Max Entsetzen's chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+      <Item>Repair</Item>
+      <Item>Use Magic Device</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Search and Spot (Heroic)</Name>
+    <Description>+2 Profane Bonus to Search and Spot
+Drops in: Snowfall and Sunlight, end chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+      <Item>Search</Item>
+      <Item>Spot</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Transmutation (Heroic)</Name>
+    <Description>+2 Profane Bonus to Transmutation DCs
+Drops in: Ends and Means, end chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SpellDC</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+      <Item>Transmutation</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Balance and Tumble (Heroic)</Name>
+    <Description>+2 Artifact bonus to Balance and Tumble
+Drops in: The Body Snatchers, cookbook optional chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+      <Item>Balance</Item>
+      <Item>Tumble</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Search and Spot (Heroic)</Name>
+    <Description>+2 Artifact bonus to Search and Spot
+Drops in: Special Delivery, Max Entsetzen's chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+      <Item>Search</Item>
+      <Item>Spot</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Disable Device and Open Lock (Heroic)</Name>
+    <Description>+2 Artifact bonus to Disable Device and open Lock
+Drops in: Land of Lamordia, Experiment Y's chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+      <Item>Disable Device</Item>
+      <Item>Open Lock</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Haggle and Perform (Heroic)</Name>
+    <Description>+2 Artifact bonus to Haggle and Perform
+Drops in: The Wish, end chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+      <Item>Haggle</Item>
+      <Item>Perform</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Repair and Use Magic Device (Heroic)</Name>
+    <Description>+2 Artifact bonus to Repair and Use Magic Device
+Drops in: Land of Lamordia, Experiment Y's chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+      <Item>Repair</Item>
+      <Item>Use Magic Device</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Peace (Heroic)</Name>
+    <Description>+2 Artifact bonus to Heal, Listen and Concentration
+Drops in: Land of Lamordia, Experiment Y's chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+      <Item>Heal</Item>
+      <Item>Listen</Item>
+      <Item>Concentration</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Jump and Swim (Heroic)</Name>
+    <Description>+2 Artifact bonus to Jump and Swim
+Drops in: Special Delivery, end chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+      <Item>Jump</Item>
+      <Item>Swim</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Hide and Move Silently (Heroic)</Name>
+    <Description>+2 Artifact bonus to Hide and Move Silently
+Drops in: The Wish, end chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+      <Item>Hide</Item>
+      <Item>Move Silently</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Linguistics (Heroic)</Name>
+    <Description>+2 Artifact bonus to Diplomacy, Intimidate and Bluff
+Drops in: A Light in the Attic, end chest (rare)</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+      <Item>Diplomacy</Item>
+      <Item>Intimidate</Item>
+      <Item>Bluff</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Pact Dice (Heroic)</Name>
+    <Description>Artifact Power in Pact +1
+Drops in: A Light in the Attic, end chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>EldritchBlastD6</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">1</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Force Absorption (Heroic)</Name>
+    <Description>Artifact Force Absorption +2%
+Drops in: Snowfall and Sunlight, end chest (rare)</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>EnergyAbsorbance</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+       <Item>Force</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Conjuration (Heroic)</Name>
+    <Description>Artifact Conjuration Focus +2
+Drops in: A Light in the Attic, end chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SpellDC</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+       <Item>Conjuration</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Necromancy (Heroic)</Name>
+    <Description>Artifact Necromancy Focus +2
+Drops in: The Body Snatchers, end chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SpellDC</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+       <Item>Necromancy</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Transmutation (Heroic)</Name>
+    <Description>Artifact Transmutation Focus +2
+Drops in: Special Delivery, end chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SpellDC</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+       <Item>Transmutation</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Elemental Absorption (Heroic)</Name>
+    <Description>+3% Artifact Bonus to Fire, Cold, Electric, and Acid Absorption.
+Drops in: Land of Lamordia, Vornir Frosthelm's chest (rare)</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>EnergyAbsorbance</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">3</Amount>
+       <Item>Acid</Item>
+       <Item>Cold</Item>
+       <Item>Electric</Item>
+       <Item>Fire</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Critical Confirmation (Heroic)</Name>
+    <Description>Artifact Seeker +2
+Drops in: ?</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>Weapon_AttackAndDamageCritical</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+       <Item>All</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Blast Dice (Heroic)</Name>
+    <Description>+1 Artifact Bonus to Eldritch Blast Dice.
+Drops in: Cold Snap, end chest (rare)
+The Chill of Ravenloft (Heroic), any difficulty</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>EldritchBlastD8</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">1</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Rune Arm DCs (Heroic)</Name>
+    <Description>+1 Artifact bonus to Rune Arm DCs.
+Drops in: Ends and Means, end chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SpellDC</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">1</Amount>
+      <Item>Rune Arm</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Abjuration (Heroic)</Name>
+    <Description>Artifact Abjuration Focus +2
+Drops in: ?</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SpellDC</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+       <Item>Abjuration</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Enchantment (Heroic)</Name>
+    <Description>Artifact Enchantment Focus +2
+Drops in: ?</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SpellDC</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+       <Item>Enchantment</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Evocation (Heroic)</Name>
+    <Description>Artifact Evocation Focus +2
+Drops in: ?</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SpellDC</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+       <Item>Evocation</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Illusion (Heroic)</Name>
+    <Description>Artifact Illusion Focus +2
+Drops in: ?</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SpellDC</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+       <Item>Illusion</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Attack (Heroic)</Name>
+    <Description>Artifact Accuracy +2
+Drops in: Zoo Creeper, end chest</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>Weapon_Attack</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+       <Item>All</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Dodge Cap (Heroic)</Name>
+    <Description>+1% Legendary Bonus to Dodge Cap.
+Drops in: Special Delivery, end chest (rare)
+The Chill of Ravenloft (Legendary), any difficulty</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>DodgeCapBonus</Type>
+      <Bonus>Legendary</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">1</Amount>
+       <Item>All</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Arcane Endurance (Heroic)</Name>
+    <Description>+3% Legendary Bonus to Maximum Spell Points.
+Drops in: A Miner Sacrifice, end chest (rare)
+The Chill of Ravenloft (Heroic), any difficulty</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SpellPoints</Type>
+      <Bonus>Legendary</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">3</Amount>
+      <Percent/>
+    </Effect>
+  </Augment>
+   <!--Epic Versions-->
+  <Augment>
+    <Name>Solar Gem of Strength (Epic)</Name>
+    <Description>+3 Artifact Bonus to Strength
+Drops in: Dinosaur Crisis, optional chest</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>AbilityBonus</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">3</Amount>
+      <Item>Strength</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Strength (Epic)</Name>
+    <Description>+3 Profane Bonus to Strength</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>AbilityBonus</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">3</Amount>
+      <Item>Strength</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Dexterity (Epic)</Name>
+    <Description>+3 Artifact Bonus to Dexterity
+Drops in: Dinosaur Crisis, optional chest</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>AbilityBonus</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">3</Amount>
+      <Item>Dexterity</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Dexterity (Epic)</Name>
+    <Description>+3 Profane Bonus to Dexterity</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>AbilityBonus</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">3</Amount>
+      <Item>Dexterity</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Constitution (Epic)</Name>
+    <Description>+3 Artifact Bonus to Constitution
+Drops in: Toil and Trouble, optional chest</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>AbilityBonus</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">3</Amount>
+      <Item>Constitution</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Constitution (Epic)</Name>
+    <Description>+3 Profane Bonus to Constitution</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>AbilityBonus</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">3</Amount>
+      <Item>Constitution</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Intelligence (Epic)</Name>
+    <Description>+3 Artifact Bonus to Intelligence
+Drops in: Dinosaur Crisis, optional chest</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>AbilityBonus</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">3</Amount>
+      <Item>Intelligence</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Intelligence (Epic)</Name>
+    <Description>+3 Profane Bonus to Intelligence</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>AbilityBonus</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">3</Amount>
+      <Item>Intelligence</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Wisdom (Epic)</Name>
+    <Description>+3 Artifact Bonus to Wisdom
+Drops in: Toil and Trouble, optional chest</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>AbilityBonus</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">3</Amount>
+      <Item>Wisdom</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Wisdom (Epic)</Name>
+    <Description>+3 Profane Bonus to Wisdom</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>AbilityBonus</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">3</Amount>
+      <Item>Wisdom</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Charisma (Epic)</Name>
+    <Description>+3 Artifact Bonus to Charisma
+Drops in: Toil and Trouble, optional chest</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>AbilityBonus</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">3</Amount>
+      <Item>Charisma</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Charisma (Epic)</Name>
+    <Description>+3 Profane Bonus to Charisma</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>AbilityBonus</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">3</Amount>
+      <Item>Charisma</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Enduring (Epic)</Name>
+    <Description>+?% Legendary Bonus to Maximum Hit Points.</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>Hitpoints</Type>
+      <Bonus>Legendary</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">7</Amount>
+      <Percent/>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Fortification Bypass (Epic)</Name>
+    <Description>+20% Artifact Bonus to Fortification Bypass.
+Drops in: Dinosaur Crisis, end chest (rare)</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>FortificationBypass</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">20</Amount>
+      <Percent/>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Dodge (Epic)</Name>
+    <Description>+6% Artifact Bonus to Dodge.
+Drops in: Dinosaur Crisis, end chest</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>DodgeBonus</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">6</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Melee Power (Epic)</Name>
+    <Description>+10 Artifact Bonus to Melee Power.</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>MeleePower</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">10</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Melee Power (Epic)</Name>
+    <Description>+10 Profane Bonus to Melee Power.</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>MeleePower</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">10</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Healing Amplification (Epic)</Name>
+    <Description>+20 Artifact Bonus to Healing Amplification.</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>HealingAmplification</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">20</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Healing Amplification (Epic)</Name>
+    <Description>+20 Profane Bonus to Healing Amplification.</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>HealingAmplification</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">20</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Imbuement (Epic)</Name>
+    <Description>+2 Artifact Bonus to Imbue Dice.
+Drops in: Toil and Trouble, end chest (rare)</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>ImbueDice</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Cruelty (Epic)</Name>
+    <Description>+10% Artifact Bonus to Damage to helpless enemies.</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>HelplessDamage</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">10</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Weapon Damage (Heroic)</Name>
+    <Description>+1 Artifact Bonus to Weapon Damage.
+Drops in: The Wish, end chest (rare)
+The Chill of Ravenloft (Heroic), any difficulty</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>Weapon_Damage</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">1</Amount>
+      <Item>All</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Weapon Damage (Epic)</Name>
+    <Description>+? Artifact Bonus to Weapon Damage.</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>Weapon_Damage</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+      <Item>All</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Weapon Damage (Epic)</Name>
+    <Description>+? Profane Bonus to Weapon Damage.</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>Weapon_Damage</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+      <Item>All</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Doubleshot (Epic)</Name>
+    <Description>+10% Artifact Bonus to Doubleshot.</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>Doubleshot</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">10</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Accuracy (Epic)</Name>
+    <Description>+? Profane Bonus to Weapon Attacks.</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>Weapon_Attack</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+      <Item>All</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Magical Resistance Rating (Epic)</Name>
+    <Description>+20 Artifact Bonus to Magical Resistance Rating.</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>MRR</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">20</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Magical Resistance Rating Cap (Epic)</Name>
+    <Description>+20 Artifact Bonus to Magical Resistance Rating Cap.</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>MRRCap</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">20</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Magical Protection (Epic)</Name>
+    <Description>+20 Profane Bonus to Magical Resistance Rating.
+Drops in: Toil and Trouble, end chest</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>MRR</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">20</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Doublestrike (Epic)</Name>
+    <Description>+10% Artifact Bonus to Doublestrike.
+Drops in: Toil and Trouble, optional chest</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>Doublestrike</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">10</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Sneak Attack (Epic)</Name>
+    <Description>+2 Artifact Bonus to Sneak Attack Damage.</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SneakAttackDamage</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Sneak Attack Dice (Epic)</Name>
+    <Description>+2 Artifact Bonus to Sneak Attack Dice.</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SneakAttackDice</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Swift Charging (Epic)</Name>
+    <Description>+10% Artifact Bonus to Rune Arm Charge Speed.</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>RuneArmChargeRate</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">10</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Swift Charging (Epic)</Name>
+    <Description>+10% Profane Bonus to Rune Arm Charge Speed.</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>RuneArmChargeRate</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">10</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Repair Amplification (Epic)</Name>
+    <Description>+20 Profane Bonus to Repair Amplification.</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>RepairAmplification</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">20</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Repair Amplification (Epic)</Name>
+    <Description>+20 Artifact Bonus to Repair Amplification.</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>RepairAmplification</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">20</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Physical Resistance Rating (Epic)</Name>
+    <Description>+20 Artifact Bonus to Physical Resistance Rating.</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>PRR</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">20</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Physical Protection (Epic)</Name>
+    <Description>+20 Profane Bonus to Physical Resistance Rating.</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>PRR</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">20</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Spell DCs (Epic)</Name>
+    <Description>+2 Artifact Bonus to Spell DCs.</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SpellDC</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+      <Item>All</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Spell Difficulty (Epic)</Name>
+    <Description>+2 Profane Bonus to Spell DCs.
+Drops in: Toil and Trouble, end chest</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SpellDC</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+      <Item>All</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Spellpower (Epic)</Name>
+    <Description>+20 Profane Bonus to Spellpower.
+Drops in: Toil and Trouble, end chest</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SpellPower</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">20</Amount>
+      <Item>All</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Ranged Power (Epic)</Name>
+    <Description>+10 Artifact Bonus to Ranged Power.</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>RangedPower</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">10</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Negative Amplification (Epic)</Name>
+    <Description>+20 Artifact Bonus to Negative Healing Amplification.</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>NegativeHealingAmplification</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">20</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Spell Penetration (Epic)</Name>
+    <Description>+6 Artifact Bonus to Spell Penetration.</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SpellPenetrationBonus</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">6</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Spell Critical Damage (Epic)</Name>
+    <Description>+10% Legendary Bonus to Spell Critical Damage.</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SpellCriticalDamage</Type>
+      <Bonus>Legendary</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">10</Amount>
+      <Item>All</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Natural Armor (Epic)</Name>
+    <Description>+? Profane Bonus to Natural Armor.</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>NaturalArmor</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">7</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Armor Layers (Epic)</Name>
+    <Description>+10% Artifact Bonus to Armor Class.</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>ACBonus</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">10</Amount>
+      <Percent/>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Reflex (Epic)</Name>
+    <Description>+2 Artifact Bonus to Reflex Save.
+Drops in; Dinosaur Crisis, optional chest</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SaveBonus</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+      <Item>Reflex</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Will (Epic)</Name>
+    <Description>+2 Artifact Bonus to Will Save.</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SaveBonus</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+      <Item>Will</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Assassination (Epic)</Name>
+    <Description>+2 Artifact Bonus to Assassinate DCs.</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>TacticalDC</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+      <Item>Assassinate</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Threat Decrease (Epic)</Name>
+    <Description>+15% Artifact Bonus to Melee Threat Reduction.</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>ThreatBonusMelee</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">-15</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Strikethrough (Epic)</Name>
+    <Description>+10% Artifact Bonus to Strikethrough.
+Drops in: Dinosaur Crisis, end chest (rare)</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>Strikethrough</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">10</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Tactical DCs (Epic)</Name>
+    <Description>+2 Artifact Bonus to Tactical DCs.
+Drops in: Dinosaur Crisis, end chest</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>TacticalDC</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+      <Item>Stun</Item>
+      <Item>Sunder</Item>
+      <Item>Trip</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Threat Increase (Epic)</Name>
+    <Description>+75% Artifact Bonus to Melee Threat Increase.</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>ThreatBonusMelee</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">75</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Ranged Power (Epic)</Name>
+    <Description>+10 Profane Bonus to Ranged Power.</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>RangedPower</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">10</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Negative Amplification (Epic)</Name>
+    <Description>+20 Enhancement Bonus to Negative Healing Amplification.</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>NegativeHealingAmplification</Type>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">20</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Spell Critical Chance (Epic)</Name>
+    <Description>+4% Artifact Bonus to Spell Critical Chance.
+Drops in: Toil and Trouble, end chest (rare)</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SpellLore</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">4</Amount>
+      <Item>All</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Spellpower (Epic)</Name>
+    <Description>+20 Artifact Bonus to Spellpower.</Description>
+    <MinLevel>20</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SpellPower</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">20</Amount>
+      <Item>All</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Fortitude (Epic)</Name>
+    <Description>+2 Artifact Bonus to Fortitude Save.</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SaveBonus</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+      <Item>Fortitude</Item>
+    </Effect>
+  </Augment>
+   <!--Legendary Versions-->
+  <Augment>
+    <Name>Solar Gem of Sneak Attack Dice (Legendary)</Name>
+    <Description>+3 Artifact Bonus to Sneak Attack Dice.
+Drops in: Magic of Myth Drannor (Heroic), Elite and True Elite
+Ruins of Myth Drannor, Goranathanil or any red-named rare encounter chest (rare)
+The Knife's Edge, end chest (rare)
+The Covered Culvert, optional chest (rare)</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SneakAttackDice</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">3</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Repair Amplification (Legendary)</Name>
+    <Description>+30 Artifact Bonus to Repair Amplification.
+Drops in: Voices of the Dead, end chest
+The Body Snatchers, end chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>RepairAmplification</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">30</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Strength (Legendary)</Name>
+    <Description>+4 Artifact Bonus to Strength
+Drops in: The House of Gems, end chest
+Dinosaur Crisis, optional chest
+Cold Snap, Althea's chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>AbilityBonus</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">4</Amount>
+      <Item>Strength</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Strength (Legendary)</Name>
+    <Description>+4 Profane Bonus to Strength
+Drops in: Seeds of Decay, end chest
+Rats in a Cage, end chest
+The Proper Authorities, end chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>AbilityBonus</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">4</Amount>
+      <Item>Strength</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Dexterity (Legendary)</Name>
+    <Description>+4 Artifact Bonus to Dexterity
+Drops in: Portal to Below, end chest
+Dinosaur Crisis, optional chest
+Locked Away (Part One), Asylum Otyugh's chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>AbilityBonus</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">4</Amount>
+      <Item>Dexterity</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Dexterity (Legendary)</Name>
+    <Description>+4 Profane Bonus to Dexterity
+Drops in: Voices of the Dead, end chest
+The Knife's Edge, end chest
+Locked Away (Part Two), end chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>AbilityBonus</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">4</Amount>
+      <Item>Dexterity</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Constitution (Legendary)</Name>
+    <Description>+4 Artifact Bonus to Constitution
+Drops in: Seeds of Decay, end chest
+Toil and Trouble, optional chest
+Locked Away (Part One), end chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>AbilityBonus</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">4</Amount>
+      <Item>Constitution</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Constitution (Legendary)</Name>
+    <Description>+4 Profane Bonus to Constitution
+Drops in: Oghma's Song, end chest
+Rats in a Cage, end chest
+Beneath the City Streets, end chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>AbilityBonus</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">4</Amount>
+      <Item>Constitution</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Intelligence (Legendary)</Name>
+    <Description>+4 Artifact Bonus to Intelligence
+Drops in: Oghma's Song, end chest
+Dinosaur Crisis, optional chest
+Snowfall and Sunlight, end chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>AbilityBonus</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">4</Amount>
+      <Item>Intelligence</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Intelligence (Legendary)</Name>
+    <Description>+4 Profane Bonus to Intelligence
+Drops in: The House of Gems, end chest
+Rats in a Cage, end chest
+The Wizard's Labyrinth, end chest
+Locked Away (Part Two), end chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>AbilityBonus</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">4</Amount>
+      <Item>Intelligence</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Wisdom (Legendary)</Name>
+    <Description>+4 Artifact Bonus to Wisdom
+Drops in: The Safehold, end chest
+Toil and Trouble, optional chest
+A Miner Sacrifice, end chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>AbilityBonus</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">4</Amount>
+      <Item>Wisdom</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Wisdom (Legendary)</Name>
+    <Description>+4 Profane Bonus to Wisdom
+Drops in: Ettercap Incursion, end chest
+The Darkness and the Light, end chest
+Land of Lamordia, Vornir Frosthelm's chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>AbilityBonus</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">4</Amount>
+      <Item>Wisdom</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Charisma (Legendary)</Name>
+    <Description>+4 Artifact Bonus to Charisma
+Drops in: Ettercap Incursion, end chest
+Toil and Trouble, optional chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>AbilityBonus</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">4</Amount>
+      <Item>Charisma</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Charisma (Legendary)</Name>
+    <Description>+4 Profane Bonus to Charisma
+Drops in: Death Hosts This Banquet, end chest
+Rats in a Cage, end chest
+The Wizard's Labyrinth, end chest
+Beneath the City Streets, Dead Man's Wrath's chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>AbilityBonus</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">4</Amount>
+      <Item>Charisma</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Enduring (Legendary)</Name>
+    <Description>+10% Legendary Bonus to Maximum Hit Points.
+Drops in: Secrets of the Red Wizards, end chest (rare)
+Magic of Myth Drannor (Legendary), Elite and True Elite
+Rats in a Cage, end chest (rare)
+Sleeping with the Fishes, end chest (rare)
+The Proper Authorities, end chest (rare)
+The Chill of Ravenloft (Legendary), any difficulty</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>Hitpoints</Type>
+      <Bonus>Legendary</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">10</Amount>
+      <Percent/>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Fortification Bypass (Legendary)</Name>
+    <Description>+30% Artifact Bonus to Fortification Bypass.
+Drops in: Magic of Myth Drannor (Heroic), Elite and True Elite
+Ruins of Myth Drannor, Goranathanil rare encounter chest (rare)
+The Knife's Edge, end chest (rare)
+Dinosaur Crisis, end chest (rare)</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>FortificationBypass</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">30</Amount>
+      <Percent/>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Dodge (Legendary)</Name>
+    <Description>+10% Artifact Bonus to Dodge.
+Drops in: The House of Gems, end chest
+Dinosaur Crisis, end chest
+Ends and Means, end chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>DodgeBonus</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">10</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Melee Power (Legendary)</Name>
+    <Description>+15 Artifact Bonus to Melee Power.
+Drops in: The Key to the Mythal, end chest
+A Miner Sacrifice, optional chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>MeleePower</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">15</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Melee Power (Legendary)</Name>
+    <Description>+15 Profane Bonus to Melee Power.
+Drops in: The Zulkir's Plan, end chest
+Cold Snap, end chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>MeleePower</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">15</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Healing Amplification (Legendary)</Name>
+    <Description>+30 Artifact Bonus to Healing Amplification.
+Drops in: The Zulkir's Plan, end chest
+The Cerulean Hills, Romira and Juvian's chest (requires completion of Sleeping with the Fishes)
+Ruins of Myth Drannor, Romira and Juvian's right chest (requires completion of Sleeping with the Fishes)
+The Wish, unknown optional chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>HealingAmplification</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">30</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Healing Amplification (Legendary)</Name>
+    <Description>+30 Profane Bonus to Healing Amplification.
+Drops in: Ruins of Myth Drannor (Yegora's chest)
+Romira and Juvian's right chest (requires completion of Sleeping with the Fishes)
+The Darkness and the Light, end chest
+Special Delivery, Max Entsetzen's chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>HealingAmplification</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">30</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Imbuement (Legendary)</Name>
+    <Description>+3 Artifact Bonus to Imbue Dice.
+Drops in: Voices of the Dead</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>ImbueDice</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">3</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Cruelty (Legendary)</Name>
+    <Description>+15% Artifact Bonus to Damage to helpless enemies.
+Drops in: Magic of Myth Drannor (Legendary), Elite and True Elite
+Oghma's Song, end chest (rare)
+A Miner Sacrifice, end chest
+The Chill of Ravenloft (Legendary), any difficulty</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>HelplessDamage</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">15</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Weapon Damage (Legendary)</Name>
+    <Description>+4 Artifact Bonus to Weapon Damage.
+Drops in: The Wish, end chest (rare)
+The Chill of Ravenloft (Legendary), any difficulty</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>Weapon_Damage</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">4</Amount>
+      <Item>All</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Weapon Damage (Legendary)</Name>
+    <Description>+4 Profane Bonus to Weapon Damage.
+Drops in: Secrets of the Red Wizards, end chest
+The Knife's Edge, end chest
+Zoo Creeper, end chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>Weapon_Damage</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">4</Amount>
+      <Item>All</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Doubleshot (Legendary)</Name>
+    <Description>+15% Artifact Bonus to Doubleshot.
+Drops in: Portal to Below, end chest
+The Knife's Edge, end chest
+Sleeping with the Fishes, end chest
+Snowfall and Sunlight, Potion Paw's chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>Doubleshot</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">15</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Accuracy (Legendary)</Name>
+    <Description>+4 Profane Bonus to Weapon Attacks.
+Drops in: The Safehold, end chest
+Rats in a Cage, end chest
+The Covered Culvert, end chest
+Land of Lamordia, Vornir Frosthelm's chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>Weapon_Attack</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">4</Amount>
+      <Item>All</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Magical Resistance Rating (Legendary)</Name>
+    <Description>+30 Artifact Bonus to Magical Resistance Rating.
+Drops in: The Darkness and the Light, end chest
+The Safehold, end chest
+The Covered Culvert, optional chest
+Cold Snap, Althea's chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>MRR</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">30</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Magical Resistance Rating Cap (Legendary)</Name>
+    <Description>+30 Artifact Bonus to Magical Resistance Rating Cap.
+Drops in: Magic of Myth Drannor (Heroic), Elite and True Elite
+Ruins of Myth Drannor, Any red-named rare encounter chest (rare)
+The Covered Culvert, end chest (rare)
+Locked Away (Part One), end chest (rare)
+The Chill of Ravenloft (Heroic), any difficulty</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>MRRCap</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">30</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Magical Protection (Legendary)</Name>
+    <Description>+30 Profane Bonus to Magical Resistance Rating.
+Drops in: Book Burning, end chest
+A Light in the Attic, secret area chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>MRR</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">30</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Doublestrike (Legendary)</Name>
+    <Description>+15% Artifact Bonus to Doublestrike.
+Drops in: Ettercap Incursion, end chest
+Rats in a Cage, end chest
+Toil and Trouble, optional chest
+Locked Away (Part Two), end chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>Doublestrike</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">15</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Sneak Attack Damage (Legendary)</Name>
+    <Description>+3 Artifact Bonus to Sneak Attack Damage.
+Drops in: Death Hosts This Banquet, end chest
+The Knife's Edge, end chest
+A Miner Sacrifice, end chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SneakAttackDamage</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">3</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Swift Charging (Legendary)</Name>
+    <Description>+15% Artifact Bonus to Rune Arm Charge Speed.
+Drops in: Magic of Myth Drannor (Heroic), Elite and True Elite
+The Safehold, end chest (rare)
+The Covered Culvert, end chest (rare)</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>RuneArmChargeRate</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">15</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Swift Charging (Legendary)</Name>
+    <Description>+15% Profane Bonus to Rune Arm Charge Speed.
+Drops in: Book Burning, end chest
+Beneath the City Streets, Dead Man's Wrath's chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>RuneArmChargeRate</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">15</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Repair Amplification (Legendary)</Name>
+    <Description>+30 Profane Bonus to Repair Amplification.
+Drops in: Ruins of Myth Drannor (Yegora's chest)
+Romira and Juvian's right chest (requires completion of Sleeping with the Fishes)
+Sleeping with the Fishes, House Lyrandar uprising optional chest
+Snowfall and Sunlight, locked chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>RepairAmplification</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">30</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Physical Resistance Rating (Legendary)</Name>
+    <Description>+30 Artifact Bonus to Physical Resistance Rating.
+Drops in: Secrets of the Red Wizards, end chest
+The Darkness and the Light, end chest
+The Covered Culvert, optional chest
+Zoo Creeper, end chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>PRR</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">30</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Physical Protection (Legendary)</Name>
+    <Description>+30 Profane Bonus to Physical Resistance Rating.
+Drops in: Portal to Below, end chest
+The Covered Culvert, end chest
+A Miner Sacrifice, end chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>PRR</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">30</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Spell DCs (Legendary)</Name>
+    <Description>+3 Artifact Bonus to Spell DCs.
+Drops in: Portal to Below, end chest
+Cold Snap, end chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SpellDC</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">3</Amount>
+      <Item>All</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Spell Difficulty (Legendary)</Name>
+    <Description>+3 Profane Bonus to Spell DCs.
+Drops in: Seeds of Decay, end chest
+The Wizard's Labyrinth, end chest
+The Body Snatchers, cookbook optional chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SpellDC</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">3</Amount>
+      <Item>All</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Spellpower (Legendary)</Name>
+    <Description>+25 Artifact Bonus to Spellpower.
+Drops in: Oghma's Song, end chest
+The Wizard's Labyrinth, end chest
+The Covered Culvert, optional chest
+A Miner Sacrifice, optional chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SpellPower</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">25</Amount>
+      <Item>All</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Spellpower (Legendary)</Name>
+    <Description>+25 Profane Bonus to Spellpower.
+Drops in: The Key to the Mythal, end chest
+A Light in the Attic, secret area chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SpellPower</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">25</Amount>
+      <Item>All</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Ranged Power (Legendary)</Name>
+    <Description>+15 Artifact Bonus to Ranged Power.
+Drops in: Seeds of Decay, end chest
+Land of Lamordia, Fangs of Winter's chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>RangedPower</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">15</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Ranged Power (Legendary)</Name>
+    <Description>+15 Profane Bonus to Ranged Power.
+Drops in: Times Long Past, end chest
+Sleeping with the Fishes, end chest
+Snowfall and Sunlight, Potion Paw's chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>RangedPower</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">15</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Negative Amplification (Legendary)</Name>
+    <Description>+30 Artifact Bonus to Negative Healing Amplification.
+Drops in: Secrets of the Red Wizards, end chest
+Special Delivery, end chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>NegativeHealingAmplification</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">30</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Negative Amplification (Legendary)</Name>
+    <Description>+30 Enhancement Bonus to Negative Healing Amplification.
+Drops in: Ruins of Myth Drannor (Goranathanil's chest)
+Sleeping with the Fishes, end chest
+Zoo Creeper, end chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>NegativeHealingAmplification</Type>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">30</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Spell Penetration (Legendary)</Name>
+    <Description>+10 Artifact Bonus to Spell Penetration.
+Drops in: Times Long Past, end chest
+Snowfall and Sunlight, end chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SpellPenetrationBonus</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">10</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Spell Critical Damage (Legendary)</Name>
+    <Description>+15% Legendary Bonus to Spell Critical Damage.
+Drops in: The Zulkir's Plan, end chest
+Ruins of Myth Drannor, Romira and Juvian's right chest (requires completion of Sleeping with the Fishes)
+Special Delivery, end chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SpellCriticalDamage</Type>
+      <Bonus>Legendary</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">15</Amount>
+      <Item>All</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Spell Critical Chance (Legendary)</Name>
+    <Description>+6% Artifact Bonus to Spell Critical Chance.
+Drops in: Magic of Myth Drannor (Heroic), Elite and True Elite
+Ruins of Myth Drannor, Yegora rare encounter chest (rare)
+Romira and Juvian's right chest (rare, requires completion of Sleeping with the Fishes)
+The Wizard's Labyrinth, end chest (rare)
+Toil and Trouble, end chest (rare)</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SpellLore</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">6</Amount>
+      <Item>All</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Natural Armor (Legendary)</Name>
+    <Description>+10 Profane Bonus to Natural Armor.
+Drops in: Ettercap Incursion, end chest
+The Covered Culvert, end chest
+A Miner Sacrifice, optional chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>NaturalArmor</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">10</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Armor Layers (Legendary)</Name>
+    <Description>+15% Artifact Bonus to Armor Class.
+Drops in: Voices of the Dead, end chest
+Sleeping with the Fishes, House Lyrandar uprising optional chest
+The Body Snatchers, cookbook optional chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>ACBonus</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">15</Amount>
+      <Percent/>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Reflex (Legendary)</Name>
+    <Description>+3 Artifact Bonus to Reflex Save.
+Drops in: Book Burning, end chest
+Dinosaur Crisis, optional chest
+The Cerulean Hills, Romira and Juvian's chest (requires completion of Sleeping with the Fishes)
+Ruins of Myth Drannor, Romira and Juvian's right chest (requires completion of Sleeping with the Fishes)
+Snowfall and Sunlight, locked chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SaveBonus</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">3</Amount>
+      <Item>Reflex</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Fortitude (Legendary)</Name>
+    <Description>+3 Artifact Bonus to Fortitude Save.
+Drops in: Times Long Past, end chest
+Sleeping with the Fishes, House Lyrandar uprising optional chest
+The Wish, end chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SaveBonus</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">3</Amount>
+      <Item>Fortitude</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Will (Legendary)</Name>
+    <Description>+3 Artifact Bonus to Will Save.
+Drops in: Death Hosts This Banquet, end chest
+The Cerulean Hills, Romira and Juvian's chest (requires completion of Sleeping with the Fishes)
+Ruins of Myth Drannor, Romira and Juvian's right chest (requires completion of Sleeping with the Fishes)
+Beneath the City Streets, end chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SaveBonus</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">3</Amount>
+      <Item>Will</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Assassination (Legendary)</Name>
+    <Description>+3 Artifact Bonus to Assassinate DCs.
+Drops in: Book Burning, end chest
+Beneath the City Streets, end chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>TacticalDC</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">3</Amount>
+      <Item>Assassinate</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Threat Decrease (Legendary)</Name>
+    <Description>+20% Artifact Bonus to Melee Threat Reduction.
+Drops in: Ruins of Myth Drannor, Yegora rare encounter chest
+Romira and Juvian's right chest (requires completion of Sleeping with the Fishes)
+Snowfall and Sunlight, Potion Paw's chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>ThreatBonusMelee</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">-20</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Strikethrough (Legendary)</Name>
+    <Description>+15% Artifact Bonus to Strikethrough.
+Drops in: Death Hosts This Banquet, end chest (rare)
+Magic of Myth Drannor (Legendary), Elite and True Elite
+Rats in a Cage, end chest (rare)
+Dinosaur Crisis, end chest (rare)
+Cold Snap, end chest (rare)
+The Chill of Ravenloft (Legendary), any difficulty</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>Strikethrough</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">15</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Tactical DCs (Legendary)</Name>
+    <Description>+3 Artifact Bonus to Tactical DCs.
+Drops in: The Key to the Mythal, end chest
+Dinosaur Crisis, end chest
+The Body Snatchers, end chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>TacticalDC</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">3</Amount>
+      <Item>Stun</Item>
+      <Item>Sunder</Item>
+      <Item>Trip</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Threat Increase (Legendary)</Name>
+    <Description>+100% Artifact Bonus to Melee Threat Increase.
+Drops in: Ruins of Myth Drannor, Goranathanil or Yegora rare encounter chest
+Romira and Juvian's right chest (requires completion of Sleeping with the Fishes)
+Sleeping with the Fishes, House Lyrandar uprising optional chest
+Land of Lamordia, Fangs of Winter's chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>ThreatBonusMelee</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">100</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Necromancy (Legendary)</Name>
+    <Description>+4 Profane Bonus to Necromancy DCs
+Drops in: A Light in the Attic, end chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SpellDC</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">4</Amount>
+      <Item>Necromancy</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Illusion (Legendary)</Name>
+    <Description>+4 Profane Bonus to Illusion DCs
+Drops in: Cold Snap, Althea's chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SpellDC</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">4</Amount>
+      <Item>Illusion</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Linguistics (Legendary)</Name>
+    <Description>+6 Profane Bonus to Diplomacy, Intimidate and Bluff
+Drops in: The Body Snatchers, end chest (rare)</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">6</Amount>
+      <Item>Diplomacy</Item>
+      <Item>Intimidate</Item>
+      <Item>Bluff</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Enchantment (Legendary)</Name>
+    <Description>+4 Profane Bonus to Enchantment DCs
+Drops in: A Light in the Attic, end chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SpellDC</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">4</Amount>
+      <Item>Enchantment</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Blast Dice (Legendary)</Name>
+    <Description>+3 Profane Bonus to Eldritch Blast Dice.
+Drops in: A Light in the Attic, secret area chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>EldritchBlastD8</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">3</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Pact Dice (Legendary)</Name>
+    <Description>Profane Power in Pact +3
+Drops in: Snowfall and Sunlight, locked chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>EldritchBlastD6</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">3</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Abjuration (Legendary)</Name>
+    <Description>+4 Profane Bonus to Abjuration DCs
+Drops in: The Proper Authorities, end chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SpellDC</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">4</Amount>
+      <Item>Abjuration</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Balance and Tumble (Legendary)</Name>
+    <Description>+6 Profane Bonus to Balance and Tumble
+Drops in: Locked Away (Part One), Asylum Otyugh's chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">6</Amount>
+      <Item>Balance</Item>
+      <Item>Tumble</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Conjuration (Legendary)</Name>
+    <Description>+4 Profane Bonus to Conjuration DCs
+Drops in: The Wish, end chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SpellDC</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">4</Amount>
+      <Item>Conjuration</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Disable Device and Open Lock (Legendary)</Name>
+    <Description>+6 Profane Bonus to Disable Device and Open Lock
+Drops in: Beneath the City Streets, Dead Man's Wrath's chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">6</Amount>
+      <Item>Disable Device</Item>
+      <Item>Open Lock</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Evocation (Legendary)</Name>
+    <Description>+4 Profane Bonus to Evocation DCs
+Drops in: ?</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SpellDC</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">4</Amount>
+      <Item>Evocation</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Haggle and Perform (Legendary)</Name>
+    <Description>+4 Profane Bonus to Haggle and Perform
+Drops in: Land of Lamordia, Fangs of Winter's chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">4</Amount>
+      <Item>Haggle</Item>
+      <Item>Perform</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Hide and Move Silently (Legendary)</Name>
+    <Description>+6 Profane Bonus to Hide and Move Silently
+Drops in: Ends and Means, end chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">6</Amount>
+      <Item>Hide</Item>
+      <Item>Move Silently</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Jump and Swim (Legendary)</Name>
+    <Description>+6 Profane Bonus to Jump and Swim
+Drops in: Cold Snap, end chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">6</Amount>
+      <Item>Jump</Item>
+      <Item>Swim</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Peace (Legendary)</Name>
+    <Description>+6 Profane Bonus to Heal, Listen and Concentration
+Drops in: Land of Lamordia, Experiment Y's chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">6</Amount>
+      <Item>Heal</Item>
+      <Item>Listen</Item>
+      <Item>Concentration</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Repair and Use Magic Device (Legendary)</Name>
+    <Description>+6 Profane Bonus to Repair and Use Magic Device
+Drops in: Special Delivery, Max Entsetzen's chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">6</Amount>
+      <Item>Repair</Item>
+      <Item>Use Magic Device</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Search and Spot (Legendary)</Name>
+    <Description>+6 Profane Bonus to Search and Spot
+Drops in: Snowfall and Sunlight, end chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">6</Amount>
+      <Item>Search</Item>
+      <Item>Spot</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lunar Gem of Transmutation (Legendary)</Name>
+    <Description>+4 Profane Bonus to Transmutation DCs
+Drops in: Ends and Means, end chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Moon</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SpellDC</Type>
+      <Bonus>Profane</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">4</Amount>
+      <Item>Transmutation</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Balance and Tumble (Legendary)</Name>
+    <Description>+6 Artifact bonus to Balance and Tumble
+Drops in: The Body Snatchers, cookbook optional chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">6</Amount>
+      <Item>Balance</Item>
+      <Item>Tumble</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Search and Spot (Legendary)</Name>
+    <Description>+6 Artifact bonus to Search and Spot
+Drops in: Special Delivery, Max Entsetzen's chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">6</Amount>
+      <Item>Search</Item>
+      <Item>Spot</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Disable Device and Open Lock (Legendary)</Name>
+    <Description>+6 Artifact bonus to Disable Device and open Lock
+Drops in: Land of Lamordia, Experiment Y's chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">6</Amount>
+      <Item>Disable Device</Item>
+      <Item>Open Lock</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Haggle and Perform (Legendary)</Name>
+    <Description>+6 Artifact bonus to Haggle and Perform
+Drops in: The Wish, end chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">6</Amount>
+      <Item>Haggle</Item>
+      <Item>Perform</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Repair and Use Magic Device (Legendary)</Name>
+    <Description>+6 Artifact bonus to Repair and Use Magic Device
+Drops in: Land of Lamordia, Experiment Y's chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">6</Amount>
+      <Item>Repair</Item>
+      <Item>Use Magic Device</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Peace (Legendary)</Name>
+    <Description>+6 Artifact bonus to Heal, Listen and Concentration
+Drops in: Land of Lamordia, Experiment Y's chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">6</Amount>
+      <Item>Heal</Item>
+      <Item>Listen</Item>
+      <Item>Concentration</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Jump and Swim (Legendary)</Name>
+    <Description>+6 Artifact bonus to Jump and Swim
+Drops in: Special Delivery, end chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">6</Amount>
+      <Item>Jump</Item>
+      <Item>Swim</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Hide and Move Silently (Legendary)</Name>
+    <Description>+6 Artifact bonus to Hide and Move Silently
+Drops in: The Wish, end chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">6</Amount>
+      <Item>Hide</Item>
+      <Item>Move Silently</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Linguistics (Legendary)</Name>
+    <Description>+6 Artifact bonus to Diplomacy, Intimidate and Bluff
+Drops in: A Light in the Attic, end chest (rare)</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">6</Amount>
+      <Item>Diplomacy</Item>
+      <Item>Intimidate</Item>
+      <Item>Bluff</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Pact Dice (Legendary)</Name>
+    <Description>Artifact Power in Pact +3
+Drops in: A Light in the Attic, end chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>EldritchBlastD6</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">3</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Force Absorption (Legendary)</Name>
+    <Description>Artifact Force Absorption +6%
+Drops in: Snowfall and Sunlight, end chest (rare)</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>EnergyAbsorbance</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">6</Amount>
+       <Item>Force</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Conjuration (Legendary)</Name>
+    <Description>Artifact Conjuration Focus +4
+Drops in: A Light in the Attic, end chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SpellDC</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">4</Amount>
+       <Item>Conjuration</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Necromancy (Legendary)</Name>
+    <Description>Artifact Necromancy Focus +4
+Drops in: The Body Snatchers, end chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SpellDC</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">4</Amount>
+       <Item>Necromancy</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Transmutation (Legendary)</Name>
+    <Description>Artifact Transmutation Focus +4
+Drops in: Special Delivery, end chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SpellDC</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">4</Amount>
+       <Item>Transmutation</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Elemental Absorption (Legendary)</Name>
+    <Description>+10% Artifact Bonus to Fire, Cold, Electric, and Acid Absorption.
+Drops in: Land of Lamordia, Vornir Frosthelm's chest (rare)</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>EnergyAbsorbance</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">10</Amount>
+       <Item>Acid</Item>
+       <Item>Cold</Item>
+       <Item>Electric</Item>
+       <Item>Fire</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Critical Confirmation (Legendary)</Name>
+    <Description>Artifact Seeker +4
+Drops in: ?</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>Weapon_AttackAndDamageCritical</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">4</Amount>
+       <Item>All</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Blast Dice (Legendary)</Name>
+    <Description>+3 Artifact Bonus to Eldritch Blast Dice.
+Drops in: Cold Snap, end chest (rare)
+The Chill of Ravenloft (Legendary), any difficulty</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>EldritchBlastD8</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">3</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Rune Arm DCs (Legendary)</Name>
+    <Description>+3 Artifact bonus to Rune Arm DCs.
+Drops in: Ends and Means, end chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SpellDC</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">3</Amount>
+      <Item>Rune Arm</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Abjuration (Legendary)</Name>
+    <Description>Artifact Abjuration Focus +4
+Drops in: ?</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SpellDC</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">4</Amount>
+       <Item>Abjuration</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Enchantment (Legendary)</Name>
+    <Description>Artifact Enchantment Focus +4
+Drops in: ?</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SpellDC</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">4</Amount>
+       <Item>Enchantment</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Evocation (Legendary)</Name>
+    <Description>Artifact Evocation Focus +4
+Drops in: ?</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SpellDC</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">4</Amount>
+       <Item>Evocation</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Illusion (Legendary)</Name>
+    <Description>Artifact Illusion Focus +4
+Drops in: ?</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SpellDC</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">4</Amount>
+       <Item>Illusion</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Attack (Legendary)</Name>
+    <Description>Artifact Accuracy +4
+Drops in: Zoo Creeper, end chest</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>Weapon_Attack</Type>
+      <Bonus>Artifact</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">4</Amount>
+       <Item>All</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Dodge Cap (Legendary)</Name>
+    <Description>+3% Legendary Bonus to Dodge Cap.
+Drops in: Special Delivery, end chest (rare)
+The Chill of Ravenloft (Legendary), any difficulty</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>DodgeCapBonus</Type>
+      <Bonus>Legendary</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">3</Amount>
+       <Item>All</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Solar Gem of Arcane Endurance (Legendary)</Name>
+    <Description>+10% Legendary Bonus to Maximum Spell Points.
+Drops in: A Miner Sacrifice, end chest (rare)
+The Chill of Ravenloft (Legendary), any difficulty</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Sun</Type>
+    <Icon>HistoryBookWhite</Icon>
+    <Effect>
+      <Type>SpellPoints</Type>
+      <Bonus>Legendary</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">10</Amount>
+      <Percent/>
+    </Effect>
+  </Augment>
+</Augments>

@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Augments>
+  <Augment>
+    <Name> No Augment</Name>
+    <Description>Clears the current augment selection</Description>
+    <MinLevel>1</MinLevel>
+     <Icon>NoAugment</Icon>
+  </Augment>
+  <!--Trace of Madness Augments-->
+  <Augment>
+    <Name>Melodic Guard</Name>
+    <Description>Melodic Guard: When being hit there is a chance for the opponent to dance.</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Trace of Madness</Type>
+    <Icon>Mania</Icon>
+  </Augment>
+  <Augment>
+    <Name>Hysteria</Name>
+    <Description>Hysteria Guard: When being hit there is a chance for the opponent to have Bestowe Curse cast on them.</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Trace of Madness</Type>
+    <Icon>Hysteria</Icon>
+  </Augment>
+  <Augment>
+    <Name>Obsession</Name>
+    <Description>Obsession Attack Proc: 100% extra threat for 15 seconds.</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Trace of Madness</Type>
+    <Icon>Obsession</Icon>
+  </Augment>
+  <Augment>
+    <Name>Paranoia</Name>
+    <Description>Paranoia Attack Proc: Half threat for 15 seconds.</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Trace of Madness</Type>
+    <Icon>Paranoia</Icon>
+  </Augment>
+  <Augment>
+    <Name>Delirium</Name>
+    <Description>Delirium Guard: Displacement for 15 seconds.</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Trace of Madness</Type>
+    <Icon>Delirium</Icon>
+  </Augment>
+  <Augment>
+    <Name>Solipsism</Name>
+    <Description>Solipsism Attack Proc: Dazed for 6 seconds.</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Trace of Madness</Type>
+    <Icon>Solipsism</Icon>
+  </Augment>
+  <Augment>
+    <Name>Alien Mind</Name>
+    <Description>Will Save +10: This item gives a +10 Resistance bonus to your Will saves.</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Trace of Madness</Type>
+    <Icon>AlienMind</Icon>
+    <Effect>
+      <Type>SaveBonus</Type>
+      <Bonus>Resistance</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">10</Amount>
+      <Item>Will</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Uncanny Awareness</Name>
+    <Description>Reflex Save +10: This item gives a +10 Resistance bonus to your Reflex saves.</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Trace of Madness</Type>
+    <Icon>UncannyAwareness</Icon>
+    <Effect>
+      <Type>SaveBonus</Type>
+      <Bonus>Resistance</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">10</Amount>
+      <Item>Reflex</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Subtle Ambition</Name>
+    <Description>+2 to the DC of your Conjuration and Illusion spells</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Trace of Madness</Type>
+    <Icon>SubtleAmbition</Icon>
+    <Effect>
+      <Type>SpellDC</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+      <Item>Conjuration</Item>
+    </Effect>
+    <Effect>
+      <Type>SpellDC</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+      <Item>Illusion</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Chaotic Ambition </Name>
+    <Description>All of your spells gain a 1% Equipment bonus to their chance to critical hit.</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Trace of Madness</Type>
+    <Icon>ChaoticAmbition</Icon>
+    <Effect>
+      <Type>SpellLore</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">1</Amount>
+      <Item>All</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Dismagicka</Name>
+    <Description>Adds Shattermantle to weapon attacks.
+When a Shattermantle weapon strikes a foe that has spell resistance, the value of that
+spell resistance is reduced by 3 for 9 seconds. A fe can only have its SR reduced by
+one Shattermantle effect at a time.</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Orange</Type>
+    <Icon>MeridianFragment</Icon>
+  </Augment>
+  <Augment>
+    <Name>Feareater</Name>
+    <Description>Upgrade an item to provide a Sovereign Nightmares.
+On Vorpal Hit: If your target has below 5,000 Hit Points, a burst of pure terror
+emanates from this weapon, snuffing out its life as if it were the subject of a
+Phantasmal Killer spell. If your target has above 5,000 Hit Points, they instead
+take significant Force damage.</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Purple</Type>
+    <Icon>PurpleAugment</Icon>
+  </Augment>
+</Augments>

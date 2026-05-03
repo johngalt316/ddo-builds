@@ -1,0 +1,146 @@
+{
+  "totalFeats": 351,
+  "featsWithEffects": 296,
+  "totalEffects": 668,
+  "unknownEffectTypes": [],
+  "sampleFeat": {
+    "name": "Adamantine Body",
+    "description": "Docents you equip provide armor equivalent to Full Plate. This is treated\r\nas metallic heavy armor. You have damage reduction 2/Adamantine, a 35% arcane\r\nspell failure chance, -5 armor check penalty to certain skills and a +1 maximum\r\ndexterity bonus.",
+    "icon": "WarforgedFeat",
+    "groups": [
+      "Standard",
+      "Epic Feat"
+    ],
+    "acquire": "Train",
+    "maxTimesAcquire": 1,
+    "requirements": {
+      "allOf": [],
+      "oneOf": [
+        [
+          {
+            "type": "Race",
+            "item": "Warforged"
+          },
+          {
+            "type": "Race",
+            "item": "Bladeforged"
+          }
+        ]
+      ],
+      "noneOf": [
+        [
+          {
+            "type": "Feat",
+            "item": "Druidic Oath"
+          }
+        ],
+        [
+          {
+            "type": "Feat",
+            "item": "Mithral Body"
+          }
+        ]
+      ]
+    },
+    "hasSubItems": false,
+    "effects": [
+      {
+        "types": [
+          "ACBonus"
+        ],
+        "bonus": "Armor",
+        "amountType": "Simple",
+        "amount": [
+          8
+        ],
+        "items": [],
+        "requirements": {
+          "allOf": [],
+          "oneOf": [],
+          "noneOf": []
+        },
+        "values": []
+      },
+      {
+        "displayName": "Adamantine Body Damage Reduction",
+        "types": [
+          "DR",
+          "DR",
+          "DR",
+          "DR"
+        ],
+        "bonus": "Feat",
+        "amountType": "Stacks",
+        "amount": [
+          1,
+          2,
+          3,
+          2,
+          3,
+          4,
+          5
+        ],
+        "items": [
+          "Adamantine"
+        ],
+        "requirements": {
+          "allOf": [],
+          "oneOf": [],
+          "noneOf": []
+        },
+        "values": []
+      },
+      {
+        "types": [
+          "ArcaneSpellFailure"
+        ],
+        "bonus": "Feat",
+        "amountType": "Simple",
+        "amount": [
+          35
+        ],
+        "items": [],
+        "requirements": {
+          "allOf": [],
+          "oneOf": [],
+          "noneOf": []
+        },
+        "values": []
+      },
+      {
+        "types": [
+          "ArmorCheckPenalty"
+        ],
+        "bonus": "Feat",
+        "amountType": "Simple",
+        "amount": [
+          -5
+        ],
+        "items": [],
+        "requirements": {
+          "allOf": [],
+          "oneOf": [],
+          "noneOf": []
+        },
+        "values": []
+      },
+      {
+        "types": [
+          "MaxDexBonus"
+        ],
+        "bonus": "Feat",
+        "amountType": "Simple",
+        "amount": [
+          1
+        ],
+        "items": [],
+        "requirements": {
+          "allOf": [],
+          "oneOf": [],
+          "noneOf": []
+        },
+        "values": []
+      }
+    ]
+  }
+}
