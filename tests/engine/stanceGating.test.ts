@@ -53,7 +53,7 @@ function loadGameData() {
   const idx = readJson<{ name: string; setBonus?: string }[]>('items/index.json');
   for (const i of idx) if (i.setBonus) itemSetIndex[i.name] = i.setBonus;
 
-  return { classes, races, feats, bonusTypes, enhancementTrees, itemBuffs, setBonuses, itemSetIndex };
+  return { classes, races, feats, bonusTypes, enhancementTrees, itemBuffs, setBonuses, itemSetIndex, augments: [], filigrees: [], filigreeSetBonuses: [], selfPartyBuffs: [] };
 }
 
 const gameData = loadGameData();

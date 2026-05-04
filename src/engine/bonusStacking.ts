@@ -32,6 +32,20 @@ export interface Bonus {
   target?: string;
   /** EffectType this bonus contributes to ("AbilityBonus", "MeleePower", …). Set by the evaluator; breakdowns filter on it. */
   effectType?: string;
+  /**
+   * `<Percent/>` flag — `value` is a percentage of the running breakdown
+   * total instead of a flat amount. `stackBonuses` applies all flat bonuses
+   * first, then layers percentages on top of the flat subtotal.
+   */
+  isPercent?: boolean;
+  /**
+   * Set when the source is gear-like (item buff, augment, set bonus,
+   * filigree, or an effect tagged `<ApplyAsItemEffect/>`). DDOBuilderV2
+   * only applies Highest-Only stacking to these; non-item effects (most
+   * feats, enhancements, destinies, reaper) stack freely regardless of
+   * bonusType. Mirrors the `m_effects` vs `m_itemEffects` split.
+   */
+  isItemEffect?: boolean;
 }
 
 export interface AppliedBonus extends Bonus {
@@ -60,61 +74,89 @@ export function buildStackingRules(bonusTypes: DDOBonusType[]): StackingRules {
 }
 
 export function stackBonuses(bonuses: Bonus[], rules: StackingRules): BreakdownResult {
-  // Group by bonusType (lowercased). Keep insertion order for stable display.
-  const groups = new Map<string, Bonus[]>();
-  for (const b of bonuses) {
-    const key = (b.bonusType || '').trim().toLowerCase();
-    const arr = groups.get(key);
-    if (arr) arr.push(b);
-    else groups.set(key, [b]);
-  }
+  // Two passes: flat bonuses first, percentage bonuses (`isPercent`) layer
+  // on top of the flat subtotal. Percent bonuses still go through the
+  // normal grouped stacking — same-bonusType percents compete just like flats.
+  const flat = bonuses.filter(b => !b.isPercent);
+  const pct  = bonuses.filter(b => b.isPercent);
 
-  const contributors: AppliedBonus[] = [];
-  let total = 0;
+  const stackGroup = (
+    list: Bonus[],
+    apply: (val: number) => number,
+  ): { contributors: AppliedBonus[]; total: number } => {
+    const groups = new Map<string, Bonus[]>();
+    for (const b of list) {
+      const key = (b.bonusType || '').trim().toLowerCase();
+      const arr = groups.get(key);
+      if (arr) arr.push(b);
+      else groups.set(key, [b]);
+    }
 
-  for (const [key, group] of groups) {
-    // Empty key means untyped — always stacks.
-    const mode = key === '' ? 'always' : (rules.get(key) ?? 'always');
+    const contributors: AppliedBonus[] = [];
+    let total = 0;
 
-    if (mode === 'always') {
-      for (const b of group) {
+    for (const [key, group] of groups) {
+      const declaredMode = key === '' ? 'always' : (rules.get(key) ?? 'always');
+
+      // DDOBuilderV2 only enforces Highest-Only competition between gear/item
+      // effects (m_itemEffects). Non-item effects in the same group all stack.
+      // Split the group: item effects compete with each other, non-item all
+      // apply.
+      const itemEffects = group.filter(b => b.isItemEffect);
+      const nonItem    = group.filter(b => !b.isItemEffect);
+
+      // Non-item effects always apply.
+      for (const b of nonItem) {
         contributors.push({ ...b, applied: true });
-        total += b.value;
+        total += apply(b.value);
       }
-      continue;
-    }
 
-    // 'highest': among positives of this type, only the max applies.
-    // All penalties (negative values) apply unconditionally.
-    const positives = group.filter(b => b.value > 0);
-    const negatives = group.filter(b => b.value < 0);
-    const zeros = group.filter(b => b.value === 0);
+      // Item effects: respect declared mode.
+      if (declaredMode === 'always' || itemEffects.length === 0) {
+        for (const b of itemEffects) {
+          contributors.push({ ...b, applied: true });
+          total += apply(b.value);
+        }
+        continue;
+      }
 
-    let winner: Bonus | undefined;
-    for (const p of positives) {
-      if (!winner || p.value > winner.value) winner = p;
-    }
+      const positives = itemEffects.filter(b => b.value > 0);
+      const negatives = itemEffects.filter(b => b.value < 0);
+      const zeros     = itemEffects.filter(b => b.value === 0);
 
-    for (const p of positives) {
-      if (p === winner) {
-        contributors.push({ ...p, applied: true });
-        total += p.value;
-      } else {
-        contributors.push({ ...p, applied: false, dominatedBy: winner?.source });
+      let winner: Bonus | undefined;
+      for (const p of positives) {
+        if (!winner || p.value > winner.value) winner = p;
+      }
+      for (const p of positives) {
+        if (p === winner) {
+          contributors.push({ ...p, applied: true });
+          total += apply(p.value);
+        } else {
+          contributors.push({ ...p, applied: false, dominatedBy: winner?.source });
+        }
+      }
+      for (const n of negatives) {
+        contributors.push({ ...n, applied: true });
+        total += apply(n.value);
+      }
+      for (const z of zeros) {
+        contributors.push({ ...z, applied: false });
       }
     }
-    for (const n of negatives) {
-      contributors.push({ ...n, applied: true });
-      total += n.value;
-    }
-    // Zeros don't contribute and don't dominate; show them as not-applied
-    // for transparency.
-    for (const z of zeros) {
-      contributors.push({ ...z, applied: false });
-    }
-  }
+    return { contributors, total };
+  };
 
-  return { total, contributors };
+  const flatResult = stackGroup(flat, v => v);
+  // Percent bonuses are computed against the flat subtotal (Math.round to
+  // match DDO's integer HP display).
+  const flatSubtotal = flatResult.total;
+  const pctResult = stackGroup(pct, v => Math.round(flatSubtotal * v / 100));
+
+  return {
+    total: flatResult.total + pctResult.total,
+    contributors: [...flatResult.contributors, ...pctResult.contributors],
+  };
 }
 
 /**

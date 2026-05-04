@@ -42,23 +42,101 @@
   gap: 0.4rem;
 }
 
+.headerRow {
+  display: grid;
+  grid-template-columns: 110px minmax(170px, 1fr) 50px 130px 70px;
+  gap: 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid var(--color-border);
+}
+.headerLabel { text-align: center; }
+
 .row {
   display: grid;
-  grid-template-columns: 110px 1fr 40px 60px;
+  grid-template-columns: 110px minmax(170px, 1fr) 50px 130px 70px;
   align-items: center;
   gap: 0.5rem;
   font-size: 0.875rem;
 }
 
 .label {
-  color: var(--color-text-muted);
+  color: var(--color-text);
+  font-weight: 500;
 }
 
 .controls {
   display: flex;
   align-items: center;
   gap: 0.35rem;
+  justify-content: center;
 }
+
+.tomeValue {
+  min-width: 30px;
+  text-align: center;
+  font-weight: 700;
+  color: var(--color-gold);
+}
+
+.levelUpCount {
+  text-align: center;
+  font-weight: 700;
+  color: var(--color-gold);
+  font-variant-numeric: tabular-nums;
+}
+.levelUpCountEmpty {
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
+.subHeading {
+  margin: 1rem 0 0.2rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+.subHint {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  margin: 0 0 0.5rem;
+}
+.levelUpGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr));
+  gap: 0.4rem;
+}
+.levelUpRow, .levelUpRowDim {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.4rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--color-border);
+  border-radius: 3px;
+  font-size: 0.78rem;
+}
+.levelUpRowDim { opacity: 0.4; }
+.levelUpLabel {
+  font-weight: 700;
+  color: var(--color-gold);
+  font-size: 0.72rem;
+  font-variant-numeric: tabular-nums;
+}
+.select {
+  flex: 1;
+  font: inherit;
+  font-size: 0.78rem;
+  padding: 0.2rem 0.3rem;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 3px;
+  color: var(--color-text);
+}
+.select:focus { outline: none; border-color: var(--color-gold); }
 
 .btn {
   width: 24px;

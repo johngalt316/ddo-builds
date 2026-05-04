@@ -67,7 +67,11 @@ const RACIAL_BONUSES: Record<string, Partial<Record<string, number>>> = {
 
 export function ddoRaceDataToRace(r: DDORaceData): Race {
   const id = nameToId(r.name);
-  const bonuses = RACIAL_BONUSES[id] ?? {};
+  // Prefer the parsed XML mods. Fall back to the hand-coded table only
+  // when the race XML didn't include any <Strength>/<Dexterity>/etc. tags
+  // (extra safety; in practice every race file carries them).
+  const parsed = r.abilityMods ?? {};
+  const bonuses = Object.keys(parsed).length > 0 ? parsed : (RACIAL_BONUSES[id] ?? {});
   return {
     id,
     name: r.name,
@@ -76,6 +80,7 @@ export function ddoRaceDataToRace(r: DDORaceData): Race {
     skillBonuses: {},
     racialTraits: [],
     hitPointBonus: 0,
+    bonusSkillPoints: r.bonusSkillPoints ?? 0,
     availableAlignments: [],
   };
 }

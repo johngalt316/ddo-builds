@@ -7,19 +7,89 @@
 import type { Build } from '@/types/build';
 import type {
   DDOClassData, DDOFeatData, DDORaceData, DDOBonusType,
-  EnhancementTreeData, ItemBuffCatalog, DDOSetBonusData,
+  EnhancementTreeData, ItemBuffCatalog, DDOSetBonusData, DDOAugmentData,
+  DDOFiligreeData, DDOFiligreeSetBonus, DDOOptionalBuff, DDOGuildBuff,
 } from '@/types/ddoData';
-import { applyRacialBonuses, applyAbilityTomes, applyLevelUps, calculateBAB, calculateHitPoints, calculateSaves } from '@/engine';
+import { applyRacialBonuses, applyAbilityTomes, applyLevelUps, calculateBAB, classHitPoints, calculateSaves } from '@/engine';
 import { ddoClassDataToEngineClass, ddoRaceDataToRace } from '@/utils/classAdapter';
-import { collectEffects, buildBuildContext } from './collectEffects';
+import { collectEffects, buildBuildContext, collectAvailableStances, type AvailableStance } from './collectEffects';
 import { evaluateEffect } from './evaluateEffect';
 import { buildStackingRules, type Bonus, type BreakdownResult } from './bonusStacking';
 import {
   breakdownAbilityScore, breakdownHitPoints, breakdownSave,
   breakdownDoublestrike, breakdownDoubleshot,
-  breakdownMeleePower, breakdownRangedPower, breakdownHealingAmp,
+  breakdownMeleePower, breakdownRangedPower,
+  breakdownHealingAmp, breakdownNegativeHealingAmp, breakdownRepairAmp,
+  breakdownAC, breakdownDodge, breakdownPRR, breakdownMRR, breakdownSpellResistance,
+  breakdownMeleeSpeed, breakdownRangedSpeed,
+  breakdownArcaneSpellFailure,
+  breakdownSpellPower, breakdownSpellCriticalChance, breakdownSpellCriticalDamage,
+  breakdownSpellDC, breakdownSpellPenetration, breakdownCasterLevel,
+  SPELL_SCHOOLS, SPELL_DAMAGE_TYPES, type SpellSchool, type SpellDamageType,
 } from './breakdowns';
+import { abilityModifier } from './abilityScores';
 import type { Stat } from '@/types/build';
+
+/**
+ * A spell-like ability granted by a feat, enhancement, destiny, item, or set
+ * bonus. Surfaced separately from `Bonus[]` because SLAs aren't numeric
+ * stat contributions — they're a list of cast-able abilities with their own
+ * cost / max-caster-level / cooldown metadata.
+ *
+ * Each SpellLikeAbility effect is its own entry — same-named SLAs from
+ * different sources (e.g. Past Life Magic Missile + ArchMage Magic Missile)
+ * aren't merged because they scale on different caster levels.
+ */
+export type SLACategory = 'feat' | 'enhancement' | 'gear' | 'other';
+
+export interface CollectedSLA {
+  /** Spell name being granted (e.g. "Shield", "Magic Missile"). */
+  name: string;
+  /** Casting class for DC + caster level (e.g. "Wizard"). May be empty when
+   *  the granting source doesn't specify one. */
+  castingClass: string;
+  /** SP cost per cast (Amount[1]). Falls back to 0 when unset. */
+  cost: number;
+  /** Max caster level cap (Amount[2]). 0 = no cap (uses class CL). */
+  maxCasterLevel: number;
+  /** Cooldown in seconds between casts (Amount[3]). */
+  cooldown: number;
+  /** Where it came from — full source label including prefix. */
+  source: string;
+  /** Bucketed source category, derived from the source-label prefix. Used
+   *  by the UI to split feat-granted SLAs onto their own tab. */
+  category: SLACategory;
+}
+
+/** Map a SourcedEffect.source label prefix → category bucket. */
+function categorizeSLASource(source: string): SLACategory {
+  // Enhancement-tree prefixes: heroic [E], destiny [D], reaper [R].
+  if (/^\[[EDR]\] /.test(source)) return 'enhancement';
+  // Gear-side: items [G], augments [A], item set [S], filigrees [F]/[FA]/[FS].
+  if (/^\[(G|A|S|F|FA|FS)\] /.test(source)) return 'gear';
+  // Past-life feats use [PL]; selected/class autofeats have no bracket prefix.
+  if (source.startsWith('[PL] ') || !source.startsWith('[')) return 'feat';
+  return 'other';
+}
+
+/**
+ * Resolve which "class" controls an SLA's caster-level scaling. The data
+ * isn't always honest about this — e.g. Past Life: Arcane Initiate's Magic
+ * Missile lists `<Item>Wizard</Item>` but actually scales on character
+ * level, not Wizard class level. Apply heuristics:
+ *
+ *   - Source mentions "Past Life:" (heroic past life stored as a special
+ *     feat with [PL] prefix, OR epic past life trained as a regular feat)
+ *     → always "Character" (universal CL scaling).
+ *   - "None" / empty Item[1] → "Character" (typical for destiny SLAs and
+ *     class autofeats that don't tie scaling to a specific casting stat).
+ *   - Anything else → use Item[1] as the casting class.
+ */
+function resolveSLACastingClass(rawClass: string, source: string): string {
+  if (source.includes('Past Life:')) return 'Character';
+  if (!rawClass || rawClass === 'None') return 'Character';
+  return rawClass;
+}
 
 export interface EngineResult {
   abilityScores: Record<Stat, BreakdownResult>;
@@ -29,13 +99,37 @@ export interface EngineResult {
   rangedPower: BreakdownResult;
   doublestrike: BreakdownResult;
   doubleshot: BreakdownResult;
+  meleeSpeed: BreakdownResult;
+  rangedSpeed: BreakdownResult;
   healingAmp: BreakdownResult;
+  negativeHealingAmp: BreakdownResult;
+  repairAmp: BreakdownResult;
+  ac: BreakdownResult;
+  dodge: BreakdownResult;
+  prr: BreakdownResult;
+  mrr: BreakdownResult;
+  spellResistance: BreakdownResult;
+  arcaneSpellFailure: BreakdownResult;
+  spellDCs: Record<SpellSchool, BreakdownResult>;
+  spellPenetration: BreakdownResult;
+  casterLevel: BreakdownResult;
+  spellPowers: Record<SpellDamageType, BreakdownResult>;
+  spellCriticalChance: Record<SpellDamageType, BreakdownResult>;
+  spellCriticalDamage: Record<SpellDamageType, BreakdownResult>;
+  /** All spell-like abilities granted by feats / enhancements / items. */
+  slas: CollectedSLA[];
+  /** Toggleable stances + mantles available to the build. The UI uses this
+   *  to render the Stances/Mantles tab. */
+  availableStances: AvailableStance[];
   diagnostics: {
     unmatchedFeats: string[];
     unmatchedTrees: string[];
     unmatchedEnhancements: string[];
     unmatchedItemBuffs: string[];
     unmatchedSets: string[];
+    unmatchedAugments: string[];
+    unmatchedFiligrees: string[];
+    unmatchedFiligreeSets: string[];
     /** AmountType strings the evaluator skipped, with effect-source counts. */
     unmodeledAmountTypes: Record<string, number>;
     requirementsFailedCount: number;
@@ -54,6 +148,11 @@ interface RunEngineInput {
   itemBuffs: ItemBuffCatalog;
   setBonuses: DDOSetBonusData[];
   itemSetIndex: Record<string, string>;
+  augments: DDOAugmentData[];
+  filigrees: DDOFiligreeData[];
+  filigreeSetBonuses: DDOFiligreeSetBonus[];
+  selfPartyBuffs: DDOOptionalBuff[];
+  guildBuffs?: DDOGuildBuff[];
 }
 
 const STATS: Stat[] = ['STR','DEX','CON','INT','WIS','CHA'];
@@ -61,7 +160,8 @@ const STATS: Stat[] = ['STR','DEX','CON','INT','WIS','CHA'];
 export function runEngine(input: RunEngineInput): EngineResult {
   const {
     build, classes, races, feats, bonusTypes, enhancementTrees,
-    itemBuffs, setBonuses, itemSetIndex,
+    itemBuffs, setBonuses, itemSetIndex, augments,
+    filigrees, filigreeSetBonuses, selfPartyBuffs, guildBuffs,
   } = input;
 
   // ── Seeds (pre-effect baseline) ────────────────────────────────────
@@ -82,7 +182,10 @@ export function runEngine(input: RunEngineInput): EngineResult {
   );
 
   const seedBab = calculateBAB(build.classes, engineClasses);
-  const seedHp = calculateHitPoints(build.classes, engineClasses, effectiveScores.CON, build.feats);
+  // Class-only seed; CON contribution is added as a synthetic 'Hitpoints'
+  // bonus AFTER the CON breakdown is final, so gear/augment/set CON bonuses
+  // feed into HP exactly like DDOBuilderV2's BreakdownItemHitpoints does.
+  const seedHp = classHitPoints(build.classes, engineClasses, build.epicLevels);
   const seedSaves = calculateSaves(
     build.classes, engineClasses,
     effectiveScores.CON, effectiveScores.DEX, effectiveScores.WIS,
@@ -101,16 +204,43 @@ export function runEngine(input: RunEngineInput): EngineResult {
     unmatchedEnhancements,
     unmatchedItemBuffs,
     unmatchedSets,
+    unmatchedAugments,
+    unmatchedFiligrees,
+    unmatchedFiligreeSets,
   } = collectEffects({
     build, feats, classes, races, enhancementTrees,
-    itemBuffs, setBonuses, itemSetIndex,
+    itemBuffs, setBonuses, itemSetIndex, augments,
+    filigrees, filigreeSetBonuses, selfPartyBuffs, guildBuffs,
   });
 
   const allBonuses: Bonus[] = [];
   const unmodeled: Record<string, number> = {};
   let reqFailed = 0;
+  /** SLA accumulator — one entry per granting source (no name-deduping). */
+  const slas: CollectedSLA[] = [];
 
   for (const { effect, source, rankCount } of sourced) {
+    const isSLA = effect.types.includes('SpellLikeAbility');
+    if (isSLA) {
+      // Item[0] = spell name; Item[1] = casting class. Amount[1..3] = cost,
+      // maxCasterLevel, cooldown. Amount[0] is reserved/unused upstream.
+      const name = effect.items?.[0] ?? '';
+      if (name) {
+        slas.push({
+          name,
+          castingClass: resolveSLACastingClass(effect.items?.[1] ?? '', source),
+          cost:           effect.amount?.[1] ?? 0,
+          maxCasterLevel: effect.amount?.[2] ?? 0,
+          cooldown:       effect.amount?.[3] ?? 0,
+          source,
+          category: categorizeSLASource(source),
+        });
+      }
+      // Don't fall into evaluateEffect — SLAs use AType=SpellInfo which the
+      // numeric evaluator treats as unmodeled and that would inflate the
+      // unmodeled-amount-type diagnostic with non-issues.
+      continue;
+    }
     const result = evaluateEffect(effect, ctx, source, rankCount);
     if (result.skipped === 'unmodeled-amount-type' && result.unmodeledAmountType) {
       unmodeled[result.unmodeledAmountType] = (unmodeled[result.unmodeledAmountType] ?? 0) + 1;
@@ -119,6 +249,8 @@ export function runEngine(input: RunEngineInput): EngineResult {
     }
     allBonuses.push(...result.bonuses);
   }
+  slas.sort((a, b) =>
+    a.name.localeCompare(b.name) || a.source.localeCompare(b.source));
 
   // ── Stack into per-stat breakdowns ─────────────────────────────────
   const rules = buildStackingRules(bonusTypes);
@@ -126,6 +258,115 @@ export function runEngine(input: RunEngineInput): EngineResult {
   const abilityScores = Object.fromEntries(
     STATS.map(s => [s, breakdownAbilityScore(s, effectiveScores[s], allBonuses, rules)] as const),
   ) as Record<Stat, BreakdownResult>;
+
+  // Synthetic HP bonus from CON-mod × total level. Mirrors DDOBuilderV2's
+  // BreakdownItemHitpoints which reads the final CON breakdown total. This
+  // has to happen AFTER abilityScores has been computed, so gear/augment/PL
+  // CON bonuses (already in allBonuses) feed through.
+  {
+    const totalLvl = build.classes.reduce((s, c) => s + c.levels, 0) + (build.epicLevels ?? 0);
+    const conMod = abilityModifier(abilityScores.CON.total);
+    const conHp = conMod * totalLvl;
+    if (conHp !== 0) {
+      allBonuses.push({
+        effectType: 'Hitpoints',
+        bonusType: 'Stacking',
+        value: conHp,
+        source: `Constitution mod (${conMod >= 0 ? '+' : ''}${conMod}) × ${totalLvl} levels`,
+      });
+    }
+  }
+
+  // Combat-Style HP bonus (Heroic Durability description): each style feat
+  // (TWF, THF, S&B, SWF, etc.) grants +25% of class HP, capped at 100%.
+  // DDOBuilderV2's BreakdownItemHitpoints sums all `HitpointsStyleBonus`
+  // effects to count style feats, then `0.25 * min(4, count) * classHP`.
+  {
+    const styleFeatCount = allBonuses
+      .filter(b => b.effectType === 'HitpointsStyleBonus')
+      .reduce((s, b) => s + b.value, 0);
+    if (styleFeatCount > 0) {
+      // Class HP excluding Epic/Legendary: DDOBuilderV2 counts those at
+      // half value for the style multiplier (line 81-82 of BreakdownItemHitpoints.cpp).
+      const heroicClassHp = classHitPoints(build.classes, engineClasses, 0);
+      const epicClassHp = classHitPoints([], engineClasses, build.epicLevels ?? 0);
+      const eligibleClassHp = heroicClassHp + Math.floor(epicClassHp / 2);
+      const multiplier = 0.25 * Math.min(4, styleFeatCount);
+      const styleHp = Math.floor(eligibleClassHp * multiplier);
+      if (styleHp > 0) {
+        allBonuses.push({
+          effectType: 'Hitpoints',
+          bonusType: 'Stacking',
+          value: styleHp,
+          source: `Combat Style (${Math.min(4, styleFeatCount)} style feat${styleFeatCount === 1 ? '' : 's'} × 25% of class HP)`,
+        });
+      }
+    }
+  }
+
+  // Fate-points HP bonus: 2 HP per Fate Point at character level 20+.
+  // Mirrors DDOBuilderV2's BreakdownItemHitpoints lines 87-105.
+  {
+    const charLvl = build.classes.reduce((s, c) => s + c.levels, 0) + (build.epicLevels ?? 0);
+    if (charLvl >= 20) {
+      const fatePoints = allBonuses
+        .filter(b => b.effectType === 'FatePoint')
+        .reduce((s, b) => s + b.value, 0);
+      if (fatePoints > 0) {
+        allBonuses.push({
+          effectType: 'Hitpoints',
+          bonusType: 'Stacking',
+          value: 2 * fatePoints,
+          source: `Fate Points (×2 HP each, ${fatePoints} fate points)`,
+        });
+      }
+    }
+  }
+
+  // Casting-stat mod for the per-school spell DC seed. Each casting class
+  // uses its own primary stat (Wizard/AT → Int, Sorcerer/Bard/FvS → Cha,
+  // Cleric/Druid/Paladin/Ranger → Wis, Artificer/Alchemist → Int). When
+  // the build has multiple casting classes we take the highest mod since
+  // the user is most likely to cast with that class's spells.
+  //
+  // The mod uses the stat's *final* breakdown total (post-effect, including
+  // gear bonuses + past-life stacks + ability tomes), not the seed score.
+  const STAT_NAMES_LC: Record<string, Stat> = {
+    strength: 'STR', dexterity: 'DEX', constitution: 'CON',
+    intelligence: 'INT', wisdom: 'WIS', charisma: 'CHA',
+  };
+  const totalLevel = build.classes.reduce((s, c) => s + c.levels, 0)
+                   + (build.epicLevels ?? 0);
+  let bestCastingStatMod = 0;
+  for (const cl of build.classes) {
+    if (cl.levels <= 0) continue;
+    // Read the raw catalog DDOClassData (which carries `castingStat`) since
+    // the engine-side DDOClass type doesn't include it.
+    const cdata = classes.find(c =>
+      c.name.toLowerCase().replace(/[\s']+/g, '_').replace(/-/g, '_') === cl.classId);
+    if (!cdata?.castingStat) continue;
+    const stat = STAT_NAMES_LC[cdata.castingStat.toLowerCase()];
+    if (!stat) continue;
+    const mod = abilityModifier(abilityScores[stat].total);
+    if (mod > bestCastingStatMod) bestCastingStatMod = mod;
+  }
+
+  const spellDCs = Object.fromEntries(
+    SPELL_SCHOOLS.map(school => [
+      school,
+      breakdownSpellDC(school, bestCastingStatMod, allBonuses, rules),
+    ] as const),
+  ) as Record<SpellSchool, BreakdownResult>;
+
+  const spellPowers = Object.fromEntries(
+    SPELL_DAMAGE_TYPES.map(t => [t, breakdownSpellPower(t, allBonuses, rules)] as const),
+  ) as Record<SpellDamageType, BreakdownResult>;
+  const spellCriticalChance = Object.fromEntries(
+    SPELL_DAMAGE_TYPES.map(t => [t, breakdownSpellCriticalChance(t, allBonuses, rules)] as const),
+  ) as Record<SpellDamageType, BreakdownResult>;
+  const spellCriticalDamage = Object.fromEntries(
+    SPELL_DAMAGE_TYPES.map(t => [t, breakdownSpellCriticalDamage(t, allBonuses, rules)] as const),
+  ) as Record<SpellDamageType, BreakdownResult>;
 
   const result: EngineResult = {
     abilityScores,
@@ -135,17 +376,38 @@ export function runEngine(input: RunEngineInput): EngineResult {
       Reflex:    breakdownSave('Reflex',    seedSaves.reflex,    allBonuses, rules),
       Will:      breakdownSave('Will',      seedSaves.will,      allBonuses, rules),
     },
-    meleePower:   breakdownMeleePower(allBonuses, rules),
-    rangedPower:  breakdownRangedPower(allBonuses, rules),
-    doublestrike: breakdownDoublestrike(allBonuses, rules),
-    doubleshot:   breakdownDoubleshot(allBonuses, rules),
-    healingAmp:   breakdownHealingAmp(allBonuses, rules),
+    meleePower:        breakdownMeleePower(allBonuses, rules),
+    rangedPower:       breakdownRangedPower(allBonuses, rules),
+    doublestrike:      breakdownDoublestrike(allBonuses, rules),
+    doubleshot:        breakdownDoubleshot(allBonuses, rules),
+    meleeSpeed:        breakdownMeleeSpeed(allBonuses, rules),
+    rangedSpeed:       breakdownRangedSpeed(allBonuses, rules),
+    healingAmp:        breakdownHealingAmp(allBonuses, rules),
+    negativeHealingAmp: breakdownNegativeHealingAmp(allBonuses, rules),
+    repairAmp:         breakdownRepairAmp(allBonuses, rules),
+    ac:                breakdownAC(allBonuses, rules),
+    dodge:             breakdownDodge(allBonuses, rules),
+    prr:               breakdownPRR(allBonuses, rules),
+    mrr:               breakdownMRR(allBonuses, rules),
+    spellResistance:   breakdownSpellResistance(allBonuses, rules),
+    arcaneSpellFailure: breakdownArcaneSpellFailure(allBonuses, rules),
+    spellDCs,
+    spellPenetration:  breakdownSpellPenetration(allBonuses, rules),
+    casterLevel:       breakdownCasterLevel(totalLevel, allBonuses, rules),
+    spellPowers, spellCriticalChance, spellCriticalDamage,
+    slas,
+    availableStances: collectAvailableStances({
+      build, feats, classes, enhancementTrees,
+    }),
     diagnostics: {
       unmatchedFeats: [...new Set(unmatchedFeats)].sort(),
       unmatchedTrees: unmatchedTrees.sort(),
       unmatchedEnhancements: unmatchedEnhancements.sort(),
       unmatchedItemBuffs: unmatchedItemBuffs,
       unmatchedSets: unmatchedSets,
+      unmatchedAugments: unmatchedAugments,
+      unmatchedFiligrees: unmatchedFiligrees,
+      unmatchedFiligreeSets: unmatchedFiligreeSets,
       unmodeledAmountTypes: unmodeled,
       requirementsFailedCount: reqFailed,
       totalSourcedEffects: sourced.length,

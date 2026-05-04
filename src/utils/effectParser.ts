@@ -127,6 +127,8 @@ export function parseEffect(el: Element): DDOEffect {
   const displayName = textOf(el, 'DisplayName');
   const bonus = textOf(el, 'Bonus');
   const description = textOf(el, 'Description');
+  const isPercent = firstChild(el, 'Percent') !== null;
+  const isApplyAsItemEffect = firstChild(el, 'ApplyAsItemEffect') !== null;
 
   return {
     displayName: displayName || undefined,
@@ -138,6 +140,8 @@ export function parseEffect(el: Element): DDOEffect {
     requirements: parseRequirements(reqBlock),
     values,
     description: description || undefined,
+    ...(isPercent && { isPercent: true }),
+    ...(isApplyAsItemEffect && { isApplyAsItemEffect: true }),
   };
 }
 

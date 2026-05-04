@@ -1,5 +1,7 @@
 import { useState, useMemo } from 'react';
-import { useBuildStore, MAX_DESTINY_TREES, MAX_DESTINY_AP } from '@/store/buildStore';
+import {
+  useBuildStore, apSpent, MAX_DESTINY_TREES, MAX_DESTINY_AP,
+} from '@/store/buildStore';
 import { useGameDataStore } from '@/store/gameDataStore';
 import { EnhancementTreeGrid } from './EnhancementTreeGrid';
 import styles from './DestiniesTab.module.css';
@@ -17,9 +19,11 @@ export function DestiniesTab() {
     [allTrees],
   );
 
-  const totalAP = build.destinyEnhancements.reduce(
-    (sum, t) => sum + t.enhancements.reduce((s, e) => s + e.rank, 0),
-    0,
+  // Use the cost-aware AP calc so multi-AP-per-rank destiny enhancements
+  // (e.g. some Tier-5 abilities cost 2 AP/rank) are reported correctly.
+  const totalAP = useMemo(
+    () => apSpent(build.destinyEnhancements, allTrees),
+    [build.destinyEnhancements, allTrees],
   );
 
   // Selected destiny tree objects (from selectedEnhancementTrees that are destiny trees)
@@ -94,7 +98,7 @@ export function DestiniesTab() {
       ) : (
         <div className={styles.treePanels}>
           {selectedDestinyTrees.map(tree => (
-            <EnhancementTreeGrid key={tree.name} tree={tree} destinyMode />
+            <EnhancementTreeGrid key={tree.name} tree={tree} treeKind="destiny" />
           ))}
         </div>
       )}

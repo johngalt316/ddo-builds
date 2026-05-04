@@ -18,6 +18,8 @@ export interface Race {
   skillBonuses: Partial<Record<string, number>>;
   racialTraits: string[];
   hitPointBonus: number;
+  /** Bonus skill points granted per character level (Human/Half-Elf = 1, others 0). Optional — older stub data may omit it. */
+  bonusSkillPoints?: number;
   availableAlignments: Alignment[];
 }
 

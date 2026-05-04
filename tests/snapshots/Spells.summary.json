@@ -1,0 +1,119 @@
+{
+  "count": 707,
+  "schools": [
+    "",
+    "Abjuration",
+    "Conjuration",
+    "Divination",
+    "Enchantment",
+    "Evocation",
+    "Illusion",
+    "Necromancy",
+    "Transmutation"
+  ],
+  "withDamage": 261,
+  "withDC": 245,
+  "withEffects": 106,
+  "metamagicCounts": {
+    "enlarge": 290,
+    "quicken": 567,
+    "extend": 154,
+    "accelerate": 56,
+    "empower": 229,
+    "empowerHealing": 32,
+    "maximize": 234,
+    "heighten": 237,
+    "embolden": 165,
+    "intensify": 161
+  },
+  "sample": {
+    "magicMissile": {
+      "name": "Magic Missile",
+      "description": "A missile of magical energy darts forth and unerringly strikes its target inflicting\r\n1d2+3 force damage. For every 2 caster levels beyond first you gain an\r\nadditional missile, up to a maximum of 5 missiles at 9th level and higher.",
+      "icon": "MagicMissile",
+      "school": "Evocation",
+      "metamagic": {
+        "empower": true,
+        "enlarge": true,
+        "intensify": true,
+        "maximize": true,
+        "quicken": true
+      },
+      "damages": [
+        {
+          "damageType": "Force",
+          "spellPower": "Force",
+          "dice": {
+            "number": 1,
+            "sides": 2,
+            "bonus": 3,
+            "perCasterLevels": 2
+          }
+        }
+      ],
+      "dcs": [],
+      "effects": [],
+      "maxCasterLevel": 20
+    },
+    "sleep": {
+      "name": "Sleep",
+      "description": "Induces a magical slumber, rendering creatures Helpless until attacked. Ineffective on Undead,\r\nConstructs, or Oozes. A successful Will save negates this effect.",
+      "icon": "Sleep",
+      "school": "Enchantment",
+      "metamagic": {
+        "enlarge": true,
+        "heighten": true,
+        "quicken": true
+      },
+      "damages": [],
+      "dcs": [
+        {
+          "dcType": "Negates",
+          "dcVersus": "Will",
+          "schools": [
+            "Enchantment"
+          ],
+          "castingStatMod": true
+        }
+      ],
+      "effects": []
+    },
+    "sonicBlast": {
+      "name": "Sonic Blast",
+      "description": "Blasts an enemy with loud high-pitched sounds, dealing 1d6+1 Sonic damage per caster level.\r\n(Maximum damage 10d6+10.) The target must make a successful Will save to avoid\r\nbe Dazed for a short period of time, or until they take damage.",
+      "icon": "SonicBlast",
+      "school": "Evocation",
+      "metamagic": {
+        "embolden": true,
+        "empower": true,
+        "heighten": true,
+        "intensify": true,
+        "maximize": true,
+        "quicken": true
+      },
+      "damages": [
+        {
+          "damageType": "Sonic",
+          "spellPower": "Sonic",
+          "dice": {
+            "number": 1,
+            "sides": 6,
+            "bonus": 1
+          }
+        }
+      ],
+      "dcs": [
+        {
+          "dcType": "Daze",
+          "dcVersus": "Will",
+          "schools": [
+            "Evocation"
+          ],
+          "castingStatMod": true
+        }
+      ],
+      "effects": [],
+      "maxCasterLevel": 5
+    }
+  }
+}

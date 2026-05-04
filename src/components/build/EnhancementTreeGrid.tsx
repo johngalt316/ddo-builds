@@ -1,47 +1,121 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import type { EnhancementTreeData, EnhancementItemData } from '@/types/ddoData';
 import {
   useBuildStore,
   apSpentInTree,
   apSpent,
-  MAX_HEROIC_AP,
+  apSpentByCategory, applyAPOverflow, specialFeatBonusAP, treeAPCategory,
+  BASE_RACIAL_AP, BASE_UNIVERSAL_AP,
   MAX_DESTINY_AP,
+  MAX_REAPER_AP,
 } from '@/store/buildStore';
+import { useGameDataStore } from '@/store/gameDataStore';
 import { iconUrl } from '@/utils/ddoXmlParser';
+import { SelectionPickerDialog } from './SelectionPickerDialog';
 import styles from './EnhancementTreeGrid.module.css';
 
 const COLS    = 6;
 const MAX_TIER = 5;
 
+export type TreeKind = 'enhancement' | 'destiny' | 'reaper';
+
 interface Props {
   tree: EnhancementTreeData;
-  /** When true, reads/writes destinyEnhancements instead of enhancements */
+  /** Which tree-spend pool the grid reads/writes. */
+  treeKind?: TreeKind;
+  /** Deprecated alias kept for back-compat: equivalent to treeKind="destiny". */
   destinyMode?: boolean;
 }
 
-export function EnhancementTreeGrid({ tree, destinyMode = false }: Props) {
+export function EnhancementTreeGrid({ tree, treeKind, destinyMode = false }: Props) {
+  // Resolve treeKind: explicit prop wins; legacy destinyMode falls back to "destiny";
+  // default is "enhancement" (heroic).
+  const kind: TreeKind = treeKind ?? (destinyMode ? 'destiny' : 'enhancement');
   const build = useBuildStore(s => s.build);
 
-  const spendHeroic   = useBuildStore(s => s.spendEnhancement);
-  const revokeHeroic  = useBuildStore(s => s.revokeEnhancement);
-  const resetHeroic   = useBuildStore(s => s.resetTree);
-  const spendDestiny  = useBuildStore(s => s.spendDestinyEnhancement);
-  const revokeDestiny = useBuildStore(s => s.revokeDestinyEnhancement);
-  const resetDestiny  = useBuildStore(s => s.resetDestinyTree);
+  const spendHeroic    = useBuildStore(s => s.spendEnhancement);
+  const revokeHeroic   = useBuildStore(s => s.revokeEnhancement);
+  const resetHeroic    = useBuildStore(s => s.resetTree);
+  const spendDestiny   = useBuildStore(s => s.spendDestinyEnhancement);
+  const revokeDestiny  = useBuildStore(s => s.revokeDestinyEnhancement);
+  const resetDestiny   = useBuildStore(s => s.resetDestinyTree);
+  const spendReaper    = useBuildStore(s => s.spendReaperEnhancement);
+  const revokeReaper   = useBuildStore(s => s.revokeReaperEnhancement);
+  const resetReaper    = useBuildStore(s => s.resetReaperTree);
 
-  const spend     = destinyMode ? spendDestiny  : spendHeroic;
-  const revoke    = destinyMode ? revokeDestiny : revokeHeroic;
-  const resetFn   = destinyMode ? resetDestiny  : resetHeroic;
+  const spend   = kind === 'destiny' ? spendDestiny   : kind === 'reaper' ? spendReaper   : spendHeroic;
+  const revoke  = kind === 'destiny' ? revokeDestiny  : kind === 'reaper' ? revokeReaper  : revokeHeroic;
+  const resetFn = kind === 'destiny' ? resetDestiny   : kind === 'reaper' ? resetReaper   : resetHeroic;
 
-  const pool        = destinyMode ? build.destinyEnhancements : build.enhancements;
-  const treeAP      = apSpentInTree(tree.name, pool);
-  const totalAP     = apSpent(pool);
-  const cap         = destinyMode ? MAX_DESTINY_AP : MAX_HEROIC_AP;
-  const remaining   = cap - totalAP;
+  const pool      = kind === 'destiny' ? build.destinyEnhancements
+                  : kind === 'reaper'  ? build.reaperEnhancements
+                  : build.enhancements;
+  // For heroic trees, AP is split across three pools (Standard / Racial /
+  // Universal) using each enhancement item's `costPerRank` table. Racial
+  // and universal spend over their caps spills into the standard pool.
+  // Destiny / reaper still use a single global cap.
+  const heroicTrees = useGameDataStore(s => s.enhancementTrees);
+  const allFeats    = useGameDataStore(s => s.feats);
+  // All trees (heroic / destiny / reaper) live in the same store array;
+  // pass it for every kind so apSpentInTree can resolve item costPerRank
+  // (and selection-level overrides) instead of falling back to rank=cost.
+  const treeAP    = apSpentInTree(tree.name, pool, heroicTrees);
+  let totalAP: number;
+  let cap: number;
+  if (kind === 'destiny') {
+    totalAP = apSpent(pool, heroicTrees);
+    cap = MAX_DESTINY_AP;
+  } else if (kind === 'reaper') {
+    totalAP = apSpent(pool, heroicTrees);
+    cap = MAX_REAPER_AP;
+  } else {
+    const apCat = treeAPCategory(tree);
+    const tomes = build.enhancementTomes ?? {};
+    const racialCap    = BASE_RACIAL_AP    + specialFeatBonusAP(build.specialFeats, allFeats, 'RAPBonus') + (tomes.racial ?? 0);
+    const universalCap = BASE_UNIVERSAL_AP + specialFeatBonusAP(build.specialFeats, allFeats, 'UAPBonus') + (tomes.universal ?? 0);
+    const byCategory = apSpentByCategory(pool, heroicTrees);
+    const pools = applyAPOverflow(byCategory, racialCap, universalCap);
+    // For racial/universal trees we still bind the cap to the pool, but
+    // additional spending is allowed (overflow flows into Standard). To
+    // make the cell-level "totalAPLeft > 0" check honest across all three
+    // pools, compute remaining as: (this pool's room) + (Standard's room).
+    const standardRoom = pools.standard.cap - pools.standard.spent;
+    if (apCat === 'standard') {
+      totalAP = pools.standard.spent;
+      cap     = pools.standard.cap;
+    } else {
+      // For racial/universal: the *displayed* cap is the dedicated pool.
+      // The user can keep spending past it as long as Standard has room.
+      totalAP = pools[apCat].spent;
+      cap     = pools[apCat].cap + Math.max(0, standardRoom);
+    }
+  }
+  const remaining = cap - totalAP;
 
   const treeEntry = pool.find(e => e.treeId === tree.name);
   function ranksFor(internalName: string): number {
     return treeEntry?.enhancements.find(e => e.enhancementId === internalName)?.rank ?? 0;
+  }
+  function selectionFor(internalName: string): string | undefined {
+    return treeEntry?.enhancements.find(e => e.enhancementId === internalName)?.selection;
+  }
+
+  // Selector dialog state. When an enhancement with a <Selector> is clicked
+  // for the first time (rank 0), we open the picker rather than spending
+  // directly — otherwise the per-selection effects (e.g. Stolen Spells'
+  // SLA grants) are never wired through. To re-pick a selection, the user
+  // right-clicks to revoke and then re-takes it.
+  const [selectorPicker, setSelectorPicker] = useState<EnhancementItemData | null>(null);
+
+  function trySpend(item: EnhancementItemData) {
+    const hasSelector = (item.selector?.length ?? 0) > 0;
+    const currentSel = selectionFor(item.internalName);
+    if (hasSelector && !currentSel) {
+      setSelectorPicker(item);
+      return;
+    }
+    spend(tree.name, item.internalName, item.ranks, currentSel);
   }
 
   const coreItems = useMemo(() => tree.items.filter(i => i.isCore), [tree]);
@@ -104,7 +178,11 @@ export function EnhancementTreeGrid({ tree, destinyMode = false }: Props) {
           {rows.map((row, rowIdx) => {
             const yPos      = MAX_TIER - rowIdx;
             const threshold = tierThresholds[yPos] ?? 0;
-            const unlocked  = treeAP >= threshold && remaining > 0;
+            // "Unlocked" means the tier-AP-spent prerequisite is met. Pool
+            // exhaustion is checked separately (canSpend in the cell), so
+            // already-purchased enhancements stay at full brightness when
+            // the cap is reached.
+            const unlocked  = treeAP >= threshold;
             return (
               <div key={yPos} className={styles.tierRow}>
                 {row.map((item, col) => (
@@ -114,7 +192,7 @@ export function EnhancementTreeGrid({ tree, destinyMode = false }: Props) {
                     ranks={item ? ranksFor(item.internalName) : 0}
                     unlocked={unlocked}
                     totalAPLeft={remaining}
-                    onSpend={() => item && spend(tree.name, item.internalName, item.ranks)}
+                    onSpend={() => item && trySpend(item)}
                     onRevoke={() => item && revoke(tree.name, item.internalName)}
                     core={false}
                   />
@@ -132,9 +210,9 @@ export function EnhancementTreeGrid({ tree, destinyMode = false }: Props) {
               key={col}
               item={item}
               ranks={item ? ranksFor(item.internalName) : 0}
-              unlocked={item ? treeAP >= item.minSpent && remaining > 0 : false}
+              unlocked={item ? treeAP >= item.minSpent : false}
               totalAPLeft={remaining}
-              onSpend={() => item && spend(tree.name, item.internalName, item.ranks)}
+              onSpend={() => item && trySpend(item)}
               onRevoke={() => item && revoke(tree.name, item.internalName)}
               core={true}
             />
@@ -152,6 +230,19 @@ export function EnhancementTreeGrid({ tree, destinyMode = false }: Props) {
           Reset
         </button>
       </div>
+
+      <SelectionPickerDialog
+        open={selectorPicker !== null}
+        title={selectorPicker?.name ?? ''}
+        selections={selectorPicker?.selector ?? []}
+        current={selectorPicker ? selectionFor(selectorPicker.internalName) : undefined}
+        onClose={() => setSelectorPicker(null)}
+        onPick={(name) => {
+          if (!selectorPicker) return;
+          spend(tree.name, selectorPicker.internalName, selectorPicker.ranks, name);
+          setSelectorPicker(null);
+        }}
+      />
     </div>
   );
 }
@@ -165,15 +256,18 @@ export function EnhancementTreeGrid({ tree, destinyMode = false }: Props) {
 //   ArrowLeft  → toward col-1, same row
 
 const CELL_SIZE = 46;   // approximate cell width/height in px
-const CELL_GAP  = 3;    // gap between cells
-const CELL_STEP = CELL_SIZE + CELL_GAP;
+const COL_GAP   = 3;    // horizontal gap between cells (within a row)
+const ROW_GAP   = 8;    // vertical gap between tier rows — keep in sync
+                        // with .tierGrid `gap` in EnhancementTreeGrid.module.css
+const COL_STEP  = CELL_SIZE + COL_GAP;
+const ROW_STEP  = CELL_SIZE + ROW_GAP;
 const GRID_PAD  = 4;    // tierGrid padding
 
 function cellCenterX(col: number): number {
-  return GRID_PAD + col * CELL_STEP + CELL_SIZE / 2;
+  return GRID_PAD + col * COL_STEP + CELL_SIZE / 2;
 }
 function cellCenterY(rowIndex: number): number {
-  return rowIndex * CELL_STEP + CELL_SIZE / 2;
+  return rowIndex * ROW_STEP + CELL_SIZE / 2;
 }
 
 interface ArrowDef {
@@ -183,8 +277,8 @@ interface ArrowDef {
 
 function DependencyArrows({ rows }: { rows: (EnhancementItemData | null)[][] }) {
   const totalRows = rows.length;
-  const svgH = totalRows * CELL_STEP;
-  const svgW = COLS * CELL_STEP + GRID_PAD * 2;
+  const svgH = totalRows * ROW_STEP;
+  const svgW = COLS * COL_STEP + GRID_PAD * 2;
 
   const arrows = useMemo<ArrowDef[]>(() => {
     const result: ArrowDef[] = [];
@@ -262,7 +356,22 @@ interface CellProps {
   core: boolean;
 }
 
+// Show-delay before the tooltip appears, in ms. Lower = snappier feel,
+// higher = fewer accidental flashes when sweeping the cursor across.
+const TOOLTIP_DELAY_MS = 150;
+
 function EnhancementCell({ item, ranks, unlocked, totalAPLeft, onSpend, onRevoke, core }: CellProps) {
+  // Always-called hooks (must be at top level — early-returning a `null` cell
+  // before the hooks would violate React's rules-of-hooks).
+  const cellRef = useRef<HTMLDivElement>(null);
+  const [showTip, setShowTip] = useState(false);
+  const [tipPos, setTipPos] = useState<{ top: number; left: number }>({ top: 0, left: 0 });
+  const showTimer = useRef<number | null>(null);
+
+  useEffect(() => () => {
+    if (showTimer.current !== null) window.clearTimeout(showTimer.current);
+  }, []);
+
   if (!item) return <div className={core ? styles.emptyCoreCell : styles.emptyCell} />;
 
   const purchased = ranks > 0;
@@ -272,25 +381,40 @@ function EnhancementCell({ item, ranks, unlocked, totalAPLeft, onSpend, onRevoke
     ? (item.selector[0]?.icon ?? item.icon)
     : item.icon;
 
+  // Class layering rule: `.locked` applies a heavy dim filter that visually
+  // overrides `.purchased`'s blue outline. Don't apply it when the cell is
+  // purchased — once you've paid for an enhancement, it stays lit even if
+  // the next-tier prereq isn't met or the AP cap is reached.
   const cellClass = [
     core ? styles.coreCell : styles.cell,
     purchased ? styles.purchased : '',
-    !unlocked ? styles.locked : '',
+    (!purchased && !unlocked) ? styles.locked : '',
+    !purchased && unlocked ? styles.untaken : '',   // grayscale until taken
     canSpend ? styles.available : '',
   ].filter(Boolean).join(' ');
 
-  const tooltip = [
-    item.name,
-    item.ranks > 1 ? `Rank ${ranks}/${item.ranks}` : '',
-    item.description.slice(0, 150),
-  ].filter(Boolean).join('\n');
+  function handleEnter() {
+    if (!cellRef.current) return;
+    const rect = cellRef.current.getBoundingClientRect();
+    setTipPos({ top: rect.top, left: rect.left + rect.width / 2 });
+    showTimer.current = window.setTimeout(() => setShowTip(true), TOOLTIP_DELAY_MS);
+  }
+  function handleLeave() {
+    if (showTimer.current !== null) {
+      window.clearTimeout(showTimer.current);
+      showTimer.current = null;
+    }
+    setShowTip(false);
+  }
 
   return (
     <div
+      ref={cellRef}
       className={cellClass}
-      title={tooltip}
       onClick={canSpend ? onSpend : undefined}
       onContextMenu={e => { e.preventDefault(); if (purchased) onRevoke(); }}
+      onMouseEnter={handleEnter}
+      onMouseLeave={handleLeave}
     >
       <img
         src={iconUrl(iconName, 'Enhancement')}
@@ -298,10 +422,31 @@ function EnhancementCell({ item, ranks, unlocked, totalAPLeft, onSpend, onRevoke
         className={core ? styles.coreIcon : styles.icon}
         onError={e => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
       />
-      {item.ranks > 1 && ranks > 0 && (
+      {purchased && (
         <span className={styles.rankBadge}>{ranks}/{item.ranks}</span>
       )}
-      {purchased && <div className={styles.purchasedOverlay} />}
+      {showTip && createPortal(
+        <div
+          className={styles.tooltip}
+          role="tooltip"
+          style={{
+            // Position the tooltip's bottom-center 4px above the cell's top-center.
+            // The CSS class applies the centering transform.
+            top: tipPos.top - 4,
+            left: tipPos.left,
+          }}
+        >
+          <div className={styles.tooltipName}>{item.name}</div>
+          <div className={styles.tooltipRank}>
+            Rank {ranks}/{item.ranks}
+            {item.ranks > 1 && item.minSpent > 0 && ` · ${item.minSpent} AP min`}
+          </div>
+          {item.description && (
+            <div className={styles.tooltipDesc}>{item.description}</div>
+          )}
+        </div>,
+        document.body,
+      )}
     </div>
   );
 }

@@ -87,4 +87,35 @@ describe('calculateSkillPointBudget', () => {
       0,
     )).toBe(0);
   });
+
+  it('Human +1 SP/level: fighter L20 INT 10 + racial 1 = 65', () => {
+    // perLevel = max(1, 2 + 0 + 1) = 3; total = 3 × 20 + 3 × 3 = 60 + 9 = 69
+    expect(calculateSkillPointBudget(
+      [{ classId: 'fighter', levels: 20 }],
+      [fighter],
+      0,
+      1,
+    )).toBe(69);
+  });
+
+  it('racial bonus also benefits negative-INT clamp boundary', () => {
+    // With INT 4 (mod -3) and racial +1, perLevel = max(1, 2 + (-3) + 1) = 1
+    // (still hits the floor); total = 1 + 1 × 3 = 4
+    expect(calculateSkillPointBudget(
+      [{ classId: 'fighter', levels: 1 }],
+      [fighter],
+      -3,
+      1,
+    )).toBe(4);
+  });
+
+  it('racial bonus stacks with high INT: rogue L20 INT 18 racial +1 = 13/level', () => {
+    // perLevel = max(1, 8 + 4 + 1) = 13; total = 13 × 20 + 13 × 3 = 260 + 39 = 299
+    expect(calculateSkillPointBudget(
+      [{ classId: 'rogue', levels: 20 }],
+      [rogue],
+      4,
+      1,
+    )).toBe(299);
+  });
 });

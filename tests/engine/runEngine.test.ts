@@ -20,12 +20,13 @@ import { resolve } from 'node:path';
 import { parseDDOBuildFile } from '@/utils/ddoBuildParser';
 import {
   parseClassXml, parseRaceXml, parseFeatsXml, parseBonusTypesXml,
-  parseEnhancementTreeXml, parseSetBonusesXml,
+  parseEnhancementTreeXml, parseSetBonusesXml, parseAugmentsXml,
+  parseFiligreesXml, parseGuildBuffsXml,
 } from '@/utils/ddoXmlParser';
 import { runEngine } from '@/engine/runEngine';
 import type { Build } from '@/types/build';
 import type { BreakdownResult } from '@/engine/bonusStacking';
-import type { DDOClassData, DDORaceData, DDOFeatData, EnhancementTreeData, ItemBuffCatalog } from '@/types/ddoData';
+import type { DDOClassData, DDORaceData, DDOFeatData, EnhancementTreeData, ItemBuffCatalog, DDOAugmentData, DDOFiligreeData, DDOFiligreeSetBonus } from '@/types/ddoData';
 
 const FIXTURES = resolve(__dirname, '../fixtures');
 const SNAPSHOTS = resolve(__dirname, '../snapshots');
@@ -88,9 +89,30 @@ function loadGameData() {
   const idx = readJson<{ name: string; setBonus?: string }[]>('items/index.json');
   for (const i of idx) if (i.setBonus) itemSetIndex[i.name] = i.setBonus;
 
+  // Augments: 31 small XML files. Parse all, flatten.
+  const augmentFiles = readJson<string[]>('augments.json');
+  const augments: DDOAugmentData[] = [];
+  for (const f of augmentFiles) {
+    augments.push(...parseAugmentsXml(readData(`Augments/${f}`)));
+  }
+
+  // Filigrees: 65 small XML files; each defines both a set bonus and individual filigrees.
+  const filigreeFiles = readJson<string[]>('filigreeSets.json');
+  const filigrees: DDOFiligreeData[] = [];
+  const filigreeSetBonuses: DDOFiligreeSetBonus[] = [];
+  for (const f of filigreeFiles) {
+    const parsed = parseFiligreesXml(readData(`FiligreeSets/${f}`));
+    filigrees.push(...parsed.filigrees);
+    filigreeSetBonuses.push(...parsed.setBonuses);
+  }
+
+  const guildBuffsXml = readData('GuildBuffs.xml');
+  const guildBuffs = parseGuildBuffsXml(guildBuffsXml);
+
   return {
     classes, races, feats, bonusTypes, enhancementTrees,
-    itemBuffs, setBonuses, itemSetIndex,
+    itemBuffs, setBonuses, itemSetIndex, augments,
+    filigrees, filigreeSetBonuses, guildBuffs,
   };
 }
 
@@ -117,59 +139,73 @@ function summarizeBreakdown(b: BreakdownResult) {
   };
 }
 
+function engineSummary(build: Build, gameData: ReturnType<typeof loadGameData>) {
+  const r = runEngine({ build, ...gameData });
+  return {
+    diagnostics: r.diagnostics,
+    abilityScores: Object.fromEntries(
+      Object.entries(r.abilityScores).map(([k, v]) => [k, summarizeBreakdown(v)]),
+    ),
+    hitPoints: summarizeBreakdown(r.hitPoints),
+    saves: {
+      Fortitude: summarizeBreakdown(r.saves.Fortitude),
+      Reflex:    summarizeBreakdown(r.saves.Reflex),
+      Will:      summarizeBreakdown(r.saves.Will),
+    },
+    meleePower:      summarizeBreakdown(r.meleePower),
+    rangedPower:     summarizeBreakdown(r.rangedPower),
+    doublestrike:    summarizeBreakdown(r.doublestrike),
+    doubleshot:      summarizeBreakdown(r.doubleshot),
+    meleeSpeed:      summarizeBreakdown(r.meleeSpeed),
+    rangedSpeed:     summarizeBreakdown(r.rangedSpeed),
+    healingAmp:      summarizeBreakdown(r.healingAmp),
+    negativeHealingAmp: summarizeBreakdown(r.negativeHealingAmp),
+    repairAmp:       summarizeBreakdown(r.repairAmp),
+    ac:              summarizeBreakdown(r.ac),
+    dodge:           summarizeBreakdown(r.dodge),
+    prr:             summarizeBreakdown(r.prr),
+    mrr:             summarizeBreakdown(r.mrr),
+    spellResistance: summarizeBreakdown(r.spellResistance),
+    arcaneSpellFailure: summarizeBreakdown(r.arcaneSpellFailure),
+    casterLevel:     summarizeBreakdown(r.casterLevel),
+    spellPenetration: summarizeBreakdown(r.spellPenetration),
+    spellDCs: Object.fromEntries(
+      Object.entries(r.spellDCs).map(([k, v]) => [k, summarizeBreakdown(v)]),
+    ),
+    spellPowers: Object.fromEntries(
+      Object.entries(r.spellPowers).map(([k, v]) => [k, summarizeBreakdown(v)]),
+    ),
+    spellCriticalChance: Object.fromEntries(
+      Object.entries(r.spellCriticalChance).map(([k, v]) => [k, summarizeBreakdown(v)]),
+    ),
+    spellCriticalDamage: Object.fromEntries(
+      Object.entries(r.spellCriticalDamage).map(([k, v]) => [k, summarizeBreakdown(v)]),
+    ),
+    slas: r.slas.map(s => ({
+      name: s.name, castingClass: s.castingClass, category: s.category,
+      cost: s.cost, maxCasterLevel: s.maxCasterLevel, cooldown: s.cooldown,
+      source: s.source,
+    })),
+  };
+}
+
 describe('runEngine snapshots', () => {
   // Load game data once per test file; it's shared and stable.
   const gameData = loadGameData();
 
-  it('kemton engine output is stable', async () => {
-    const build = loadBuild('kemton.DDOBuild');
-    const r = runEngine({ build, ...gameData });
+  const cases: { name: string; fixture: string; snapshot: string }[] = [
+    { name: 'kemton',   fixture: 'kemton.DDOBuild',                       snapshot: 'kemton.engine.snap.json' },
+    { name: 'zentek',   fixture: 'zentek.DDOBuild',                       snapshot: 'zentek.engine.snap.json' },
+    { name: 'maetrim',  fixture: 'Maetrim_EndGameHandwrapsMonk.DDOBuild', snapshot: 'maetrim.engine.snap.json' },
+    { name: 'yings',    fixture: 'YingsMonk.DDOBuild',                    snapshot: 'yings.engine.snap.json' },
+  ];
 
-    const summary = {
-      diagnostics: r.diagnostics,
-      abilityScores: Object.fromEntries(
-        Object.entries(r.abilityScores).map(([k, v]) => [k, summarizeBreakdown(v)]),
-      ),
-      hitPoints: summarizeBreakdown(r.hitPoints),
-      saves: {
-        Fortitude: summarizeBreakdown(r.saves.Fortitude),
-        Reflex:    summarizeBreakdown(r.saves.Reflex),
-        Will:      summarizeBreakdown(r.saves.Will),
-      },
-      meleePower:   summarizeBreakdown(r.meleePower),
-      rangedPower:  summarizeBreakdown(r.rangedPower),
-      doublestrike: summarizeBreakdown(r.doublestrike),
-      doubleshot:   summarizeBreakdown(r.doubleshot),
-      healingAmp:   summarizeBreakdown(r.healingAmp),
-    };
-
-    await expect(JSON.stringify(summary, null, 2))
-      .toMatchFileSnapshot(resolve(SNAPSHOTS, 'kemton.engine.snap.json'));
-  });
-
-  it('zentek engine output is stable', async () => {
-    const build = loadBuild('zentek.DDOBuild');
-    const r = runEngine({ build, ...gameData });
-
-    const summary = {
-      diagnostics: r.diagnostics,
-      abilityScores: Object.fromEntries(
-        Object.entries(r.abilityScores).map(([k, v]) => [k, summarizeBreakdown(v)]),
-      ),
-      hitPoints: summarizeBreakdown(r.hitPoints),
-      saves: {
-        Fortitude: summarizeBreakdown(r.saves.Fortitude),
-        Reflex:    summarizeBreakdown(r.saves.Reflex),
-        Will:      summarizeBreakdown(r.saves.Will),
-      },
-      meleePower:   summarizeBreakdown(r.meleePower),
-      rangedPower:  summarizeBreakdown(r.rangedPower),
-      doublestrike: summarizeBreakdown(r.doublestrike),
-      doubleshot:   summarizeBreakdown(r.doubleshot),
-      healingAmp:   summarizeBreakdown(r.healingAmp),
-    };
-
-    await expect(JSON.stringify(summary, null, 2))
-      .toMatchFileSnapshot(resolve(SNAPSHOTS, 'zentek.engine.snap.json'));
-  });
+  for (const c of cases) {
+    it(`${c.name} engine output is stable`, async () => {
+      const build = loadBuild(c.fixture);
+      const summary = engineSummary(build, gameData);
+      await expect(JSON.stringify(summary, null, 2))
+        .toMatchFileSnapshot(resolve(SNAPSHOTS, c.snapshot));
+    });
+  }
 });

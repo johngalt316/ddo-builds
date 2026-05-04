@@ -2,6 +2,12 @@ import { create } from 'zustand';
 import type {
   DDOClassData, DDORaceData, DDOFeatData, EnhancementTreeData,
   DDOBonusType, DDOStanceData, DDOWeaponGroup, DDOSetBonusData,
+  DDOAugmentData,
+  DDOFiligreeData,
+  DDOFiligreeSetBonus,
+  DDOSpellData,
+  DDOOptionalBuff,
+  DDOGuildBuff,
   ItemBuffCatalog,
 } from '@/types/ddoData';
 import {
@@ -14,6 +20,11 @@ import {
   parseStancesXml,
   parseWeaponGroupsXml,
   parseSetBonusesXml,
+  parseAugmentsXml,
+  parseFiligreesXml,
+  parseSpellsXml,
+  parseSelfPartyBuffsXml,
+  parseGuildBuffsXml,
 } from '@/utils/ddoXmlParser';
 
 type LoadStatus = 'idle' | 'loading' | 'ready' | 'error';
@@ -32,6 +43,19 @@ interface GameDataState {
   setBonuses: DDOSetBonusData[];
   /** Canonical item-buff template catalog (Phase 1 preprocess output). */
   itemBuffs: ItemBuffCatalog;
+  /** All augment definitions (Ruby of X, Topaz of Y, etc.) — used by the gear augment picker. */
+  augments: DDOAugmentData[];
+  /** All filigree definitions (sentient weapon / artifact filigrees). */
+  filigrees: DDOFiligreeData[];
+  /** Filigree set bonuses (one per set, tiered buffs). */
+  filigreeSetBonuses: DDOFiligreeSetBonus[];
+  /** Global spell catalog from Spells.xml. Class linkage lives on each
+   *  DDOClassData.spells (joined by spell name). */
+  spells: DDOSpellData[];
+  /** Toggleable self/party buffs from SelfAndPartyBuffs.xml. */
+  selfPartyBuffs: DDOOptionalBuff[];
+  /** Guild buffs from GuildBuffs.xml — auto-applied based on build.guildLevel. */
+  guildBuffs: DDOGuildBuff[];
   /**
    * Item name → set name lookup, derived from public/data/items/index.json.
    * .DDOBuild files often omit `<SetBonus>` even for items that belong to a
@@ -79,6 +103,12 @@ export const useGameDataStore = create<GameDataState>((set, get) => ({
   setBonuses: [],
   itemBuffs: {},
   itemSetIndex: {},
+  augments: [],
+  filigrees: [],
+  filigreeSetBonuses: [],
+  spells: [],
+  selfPartyBuffs: [],
+  guildBuffs: [],
   featIcons: {},
 
   loadGameData: async () => {
@@ -89,7 +119,9 @@ export const useGameDataStore = create<GameDataState>((set, get) => ({
       const [
         classManifest, raceManifest, featsXml, treeListRes,
         bonusTypesXml, stancesXml, weaponGroupsXml, setBonusesXml,
-        itemBuffsJson, itemIndexJson,
+        itemBuffsJson, itemIndexJson, augmentManifest, filigreeManifest, spellsXml,
+        selfPartyBuffsXml,
+        guildBuffsXml,
       ] = await Promise.all([
         fetchXml('/data/classes.json'),
         fetchXml('/data/races.json'),
@@ -101,6 +133,11 @@ export const useGameDataStore = create<GameDataState>((set, get) => ({
         fetchXml('/data/SetBonuses.xml'),
         fetchXml('/data/items/itemBuffs.json'),
         fetchXml('/data/items/index.json'),
+        fetchXml('/data/augments.json'),
+        fetchXml('/data/filigreeSets.json'),
+        fetchXml('/data/Spells.xml'),
+        fetchXml('/data/SelfAndPartyBuffs.xml'),
+        fetchXml('/data/GuildBuffs.xml'),
       ]);
 
       const classFiles: string[] = classManifest ? (JSON.parse(classManifest) as string[]) : [];
@@ -177,10 +214,42 @@ export const useGameDataStore = create<GameDataState>((set, get) => ({
         } catch { /* keep empty; sets just won't fire from name fallback */ }
       }
 
+      // Augment definitions: 31 small XML files. Fetch in parallel.
+      const augmentFiles: string[] = augmentManifest ? (JSON.parse(augmentManifest) as string[]) : [];
+      const augmentXmls = await Promise.all(
+        augmentFiles.map(f => fetchXml(`/data/Augments/${f}`)),
+      );
+      const augments: DDOAugmentData[] = [];
+      for (const xml of augmentXmls) {
+        if (xml) augments.push(...parseAugmentsXml(xml));
+      }
+
+      // Filigrees: 65 small XML files, each defines both a set bonus and
+      // its individual filigrees. Fetch in parallel.
+      const filigreeFiles: string[] = filigreeManifest ? (JSON.parse(filigreeManifest) as string[]) : [];
+      const filigreeXmls = await Promise.all(
+        filigreeFiles.map(f => fetchXml(`/data/FiligreeSets/${f}`)),
+      );
+      const filigrees: DDOFiligreeData[] = [];
+      const filigreeSetBonuses: DDOFiligreeSetBonus[] = [];
+      for (const xml of filigreeXmls) {
+        if (xml) {
+          const parsed = parseFiligreesXml(xml);
+          filigrees.push(...parsed.filigrees);
+          filigreeSetBonuses.push(...parsed.setBonuses);
+        }
+      }
+
+      const spells: DDOSpellData[] = spellsXml ? parseSpellsXml(spellsXml) : [];
+      const selfPartyBuffs: DDOOptionalBuff[] = selfPartyBuffsXml
+        ? parseSelfPartyBuffsXml(selfPartyBuffsXml) : [];
+      const guildBuffs: DDOGuildBuff[] = guildBuffsXml ? parseGuildBuffsXml(guildBuffsXml) : [];
+
       set({
         status: 'ready',
         classes, races, feats, enhancementTrees, featIcons,
         bonusTypes, stances, weaponGroups, setBonuses, itemBuffs, itemSetIndex,
+        augments, filigrees, filigreeSetBonuses, spells, selfPartyBuffs, guildBuffs,
       });
     } catch (e) {
       set({ status: 'error', error: String(e) });

@@ -49,6 +49,16 @@ export interface GearBuff {
   description1?: string;
 }
 
+/** A single augment slot on a gear item. `slotType` is the colour/category
+ *  ("Green", "Yellow", "Colorless", "Mythic", etc.); `selectedAugment` is the
+ *  name of the augment currently equipped (or undefined). `selectedLevelIndex`
+ *  picks a tier for scaling augments (e.g. Doublestrike at index 19 = ML34). */
+export interface ItemAugmentSlot {
+  slotType: string;
+  selectedAugment?: string;
+  selectedLevelIndex?: number;
+}
+
 export interface GearItem {
   slot: GearSlot;
   name: string;
@@ -59,11 +69,24 @@ export interface GearItem {
   material?: string;
   setBonus?: string;
   buffs: GearBuff[];
+  augmentSlots?: ItemAugmentSlot[];
+}
+
+/** A single filigree slot. `name` is the filigree's name (empty/undefined =
+ *  empty slot). `rare` is the unlocked rare-effect flag — when true, the
+ *  filigree's `<Rare/>`-gated effects fire in addition to the base ones. */
+export interface FiligreeSlot {
+  name?: string;
+  rare?: boolean;
 }
 
 export interface GearSet {
   name: string;
   items: GearItem[];
+  /** Sentient-weapon filigree slots, up to MAX_FILIGREE (10). Sparse: empty slots have no `name`. */
+  filigrees?: FiligreeSlot[];
+  /** Artifact filigree slots, up to MAX_ARTIFACT_FILIGREE (5). */
+  artifactFiligrees?: FiligreeSlot[];
 }
 
 export interface Build {
@@ -77,8 +100,18 @@ export interface Build {
   feats: SelectedFeat[];
   enhancements: EnhancementSelection[];
   destinyEnhancements: EnhancementSelection[];
+  /** Reaper tree spends. Same shape as enhancements; max MAX_REAPER_TREES (3) trees. */
+  reaperEnhancements: EnhancementSelection[];
   /** Names of the up-to-6 heroic enhancement trees the player has selected */
   selectedEnhancementTrees: string[];
+  /**
+   * True once the user has explicitly toggled a tree (via `toggleTree`) or
+   * imported a build with selected trees. While false, the EnhancementsTab
+   * auto-derives the selection from race + top class on every change.
+   * Once flipped to true, the selection is locked in and only changes via
+   * explicit user action.
+   */
+  treesManuallyOverridden?: boolean;
   /** Equipped gear sets (typically named "Standard", "Leveling", etc.) */
   gearSets: GearSet[];
   /** Name of the currently active gear set */
@@ -118,6 +151,50 @@ export interface Build {
    * each rank as a separate Effect application.
    */
   specialFeats?: { featId: string; type: string; rank: number }[];
+  /**
+   * Trained spells per casting class, per spell level. The user picks N
+   * names per spell-level row up to the slot count from the class XML's
+   * <LevelK> table. Spell-level keys are stringified ("1".."9") for stable
+   * JSON shape. Sparse: missing class/level = no spells trained there yet.
+   */
+  trainedSpells?: Record<string, Record<string, string[]>>;
+  /**
+   * Globally-active metamagic toggles ("Empower", "Maximize", "Quicken",
+   * "Heighten", "Empower Healing", "Intensify", "Embolden", "Enlarge",
+   * "Extend", "Accelerate"). When enabled, the engine applies the
+   * metamagic's cost/effect to compatible spells.
+   */
+  activeMetamagics?: string[];
+  /**
+   * Currently-active self/party buffs (Haste, Bless, Recitation, Prayer, …).
+   * Names match `DDOOptionalBuff.name`. Each enabled buff fires its effects
+   * through the engine.
+   */
+  activePartyBuffs?: string[];
+  /**
+   * Action point tomes per pool. Standard AP has no in-game tome and isn't
+   * tracked. Racial / Universal each accept up to +3 from tomes (caps in
+   * buildStore: MAX_*_AP_TOME).
+   */
+  enhancementTomes?: { racial?: number; universal?: number };
+  /**
+   * Epic / Legendary character levels (DDO post-heroic levels 21+). Stored
+   * separately from `classes` because Epic and Legendary are pseudo-classes
+   * that don't grant class features — only HP, BAB, and ability progression.
+   * Engine adds (epicLevels × 10) HP and CON-mod-per-epic-level to the HP seed.
+   */
+  epicLevels?: number;
+  /**
+   * Character's guild level (1–200). Each guild buff in GuildBuffs.xml has a
+   * `<Level>N</Level>` threshold; the engine fires buffs whose threshold ≤
+   * guildLevel when `applyGuildBuffs` is on.
+   */
+  guildLevel?: number;
+  /**
+   * If true, guild buffs are applied (the player's guild has them ON).
+   * If false, no guild buffs apply regardless of guildLevel.
+   */
+  applyGuildBuffs?: boolean;
 }
 
 export const DEFAULT_ABILITY_SCORES: AbilityScores = {
@@ -140,6 +217,7 @@ export const DEFAULT_BUILD: Build = {
   feats: [],
   enhancements: [],
   destinyEnhancements: [],
+  reaperEnhancements: [],
   selectedEnhancementTrees: [],
   gearSets: [],
   activeGearSet: '',

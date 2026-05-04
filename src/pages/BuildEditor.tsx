@@ -2,14 +2,15 @@ import { useEffect, useState } from 'react';
 import { RaceSelector } from '@/components/build/RaceSelector';
 import { ClassSelector } from '@/components/build/ClassSelector';
 import { LevelGrid } from '@/components/build/LevelGrid';
-import { TomesAndLevelUpsPanel } from '@/components/build/TomesAndLevelUpsPanel';
 import { AbilityScorePanel } from '@/components/build/AbilityScorePanel';
 import { ImportBuildButton } from '@/components/build/ImportBuildButton';
 import { FeatsTab } from '@/components/build/FeatsTab';
 import { EnhancementsTab } from '@/components/build/EnhancementsTab';
 import { DestiniesTab } from '@/components/build/DestiniesTab';
+import { ReaperEnhancementsTab } from '@/components/build/ReaperEnhancementsTab';
 import { SkillsTab } from '@/components/build/SkillsTab';
 import { SpecialFeatsTab } from '@/components/build/SpecialFeatsTab';
+import { SpellsTab } from '@/components/build/SpellsTab';
 import { BreakdownsTab } from '@/components/build/BreakdownsTab';
 import { BuildSection } from '@/components/build/BuildSection';
 import { StatsSection } from '@/components/stats/StatsSection';
@@ -26,7 +27,9 @@ const TABS = [
   { id: 'specialFeats', label: 'Past Lives' },
   { id: 'enhancements', label: 'Enhancements' },
   { id: 'destinies',    label: 'Epic Destinies' },
+  { id: 'reaper',       label: 'Reaper' },
   { id: 'skills',       label: 'Skills' },
+  { id: 'spells',       label: 'Spells' },
   { id: 'breakdowns',   label: 'Breakdowns' },
 ];
 
@@ -87,16 +90,15 @@ export function BuildEditor() {
               <div className={styles.fullWidth}>
                 <AbilityScorePanel />
               </div>
-              <div className={styles.fullWidth}>
-                <TomesAndLevelUpsPanel />
-              </div>
             </div>
           )}
           {activeTab === 'feats'        && <FeatsTab />}
           {activeTab === 'specialFeats' && <SpecialFeatsTab />}
           {activeTab === 'enhancements' && <EnhancementsTab />}
           {activeTab === 'destinies'    && <DestiniesTab />}
+          {activeTab === 'reaper'       && <ReaperEnhancementsTab />}
           {activeTab === 'skills'       && <SkillsTab />}
+          {activeTab === 'spells'       && <SpellsTab />}
           {activeTab === 'breakdowns'   && <BreakdownsTab />}
         </div>
       </BuildSection>

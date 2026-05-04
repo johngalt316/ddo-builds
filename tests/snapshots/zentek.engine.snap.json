@@ -5,14 +5,16 @@
     "unmatchedEnhancements": [],
     "unmatchedItemBuffs": [],
     "unmatchedSets": [],
+    "unmatchedAugments": [],
+    "unmatchedFiligrees": [],
+    "unmatchedFiligreeSets": [],
     "unmodeledAmountTypes": {
       "Slider": 1,
-      "SliderValue": 1,
-      "SpellInfo": 3
+      "SliderValue": 1
     },
-    "requirementsFailedCount": 21,
-    "totalSourcedEffects": 109,
-    "totalAppliedBonuses": 165
+    "requirementsFailedCount": 28,
+    "totalSourcedEffects": 333,
+    "totalAppliedBonuses": 516
   },
   "abilityScores": {
     "STR": {
@@ -52,14 +54,14 @@
       ]
     },
     "INT": {
-      "total": 22,
+      "total": 20,
       "appliedCount": 1,
       "dominatedCount": 0,
       "sources": [
         {
           "source": "base + racial",
           "bonusType": "(untyped)",
-          "value": 22
+          "value": 20
         }
       ]
     },
@@ -89,76 +91,356 @@
     }
   },
   "hitPoints": {
-    "total": 320,
-    "appliedCount": 1,
+    "total": 679,
+    "appliedCount": 11,
     "dominatedCount": 0,
     "sources": [
       {
-        "source": "class hit dice + CON",
+        "source": "class hit dice",
         "bonusType": "(untyped)",
-        "value": 320
+        "value": 300
+      },
+      {
+        "source": "Stout of Heart: Stout of Heart: Favored Soul Levels",
+        "bonusType": "Feat",
+        "value": 0
+      },
+      {
+        "source": "Stout of Heart: Stout of Heart: Epic Levels",
+        "bonusType": "Feat",
+        "value": 0
+      },
+      {
+        "source": "Stout of Heart: Stout of Heart: Legendary Levels",
+        "bonusType": "Feat",
+        "value": 0
+      },
+      {
+        "source": "Improved Heroic Durability (Favored Soul 5)",
+        "bonusType": "Feat",
+        "value": 5
+      },
+      {
+        "source": "Improved Heroic Durability (Favored Soul 10)",
+        "bonusType": "Feat",
+        "value": 5
+      },
+      {
+        "source": "Improved Heroic Durability (Favored Soul 15)",
+        "bonusType": "Feat",
+        "value": 5
+      },
+      {
+        "source": "Heroic Durability",
+        "bonusType": "Feat",
+        "value": 30
+      },
+      {
+        "source": "Harbinger of Chaos: Harbinger of Chaos / Scarred by Chaos",
+        "bonusType": "Destiny",
+        "value": 0
+      },
+      {
+        "source": "Constitution mod (+8) × 34 levels",
+        "bonusType": "Stacking",
+        "value": 272
+      },
+      {
+        "source": "Titan's Blood",
+        "bonusType": "Legendary",
+        "value": 10
       }
     ]
   },
   "saves": {
     "Fortitude": {
-      "total": 19,
-      "appliedCount": 1,
+      "total": 24,
+      "appliedCount": 6,
       "dominatedCount": 0,
       "sources": [
         {
           "source": "class save progression + ability mod",
           "bonusType": "(untyped)",
           "value": 19
+        },
+        {
+          "source": "Epic 2: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
         }
       ]
     },
     "Reflex": {
-      "total": 15,
-      "appliedCount": 1,
+      "total": 20,
+      "appliedCount": 6,
       "dominatedCount": 0,
       "sources": [
         {
           "source": "class save progression + ability mod",
           "bonusType": "(untyped)",
           "value": 15
+        },
+        {
+          "source": "Epic 2: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
         }
       ]
     },
     "Will": {
-      "total": 16,
-      "appliedCount": 1,
+      "total": 21,
+      "appliedCount": 6,
       "dominatedCount": 0,
       "sources": [
         {
           "source": "class save progression + ability mod",
           "bonusType": "(untyped)",
           "value": 16
+        },
+        {
+          "source": "Epic 2: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
         }
       ]
     }
   },
   "meleePower": {
-    "total": 5,
-    "appliedCount": 1,
+    "total": 89,
+    "appliedCount": 15,
     "dominatedCount": 0,
     "sources": [
       {
         "source": "Scion of the Ethereal Plane",
         "bonusType": "Feat",
         "value": 5
+      },
+      {
+        "source": "Epic 1: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 2: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 3: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 4: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 5: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 6: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 7: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 8: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 9: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 10: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Legendary 1: Legendary Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Legendary 2: Legendary Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Legendary 3: Legendary Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Legendary 4: Legendary Power",
+        "bonusType": "Feat",
+        "value": 6
       }
     ]
   },
   "rangedPower": {
-    "total": 5,
-    "appliedCount": 1,
+    "total": 89,
+    "appliedCount": 15,
     "dominatedCount": 0,
     "sources": [
       {
         "source": "Scion of the Ethereal Plane",
         "bonusType": "Feat",
         "value": 5
+      },
+      {
+        "source": "Epic 1: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 2: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 3: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 4: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 5: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 6: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 7: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 8: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 9: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 10: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Legendary 1: Legendary Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Legendary 2: Legendary Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Legendary 3: Legendary Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Legendary 4: Legendary Power",
+        "bonusType": "Feat",
+        "value": 6
       }
     ]
   },
@@ -175,14 +457,19 @@
     ]
   },
   "doubleshot": {
-    "total": 10,
-    "appliedCount": 2,
-    "dominatedCount": 1,
+    "total": 12,
+    "appliedCount": 3,
+    "dominatedCount": 0,
     "sources": [
       {
         "source": "Doubleshot",
         "bonusType": "Feat",
         "value": 10
+      },
+      {
+        "source": "Harbinger of Chaos",
+        "bonusType": "Feat",
+        "value": 2
       },
       {
         "source": "Watchful Eye: Shiradi Champion: Pierce Deception + Watchful Eye",
@@ -191,10 +478,1529 @@
       }
     ]
   },
+  "meleeSpeed": {
+    "total": 0,
+    "appliedCount": 0,
+    "dominatedCount": 0,
+    "sources": []
+  },
+  "rangedSpeed": {
+    "total": 0,
+    "appliedCount": 0,
+    "dominatedCount": 0,
+    "sources": []
+  },
   "healingAmp": {
     "total": 0,
     "appliedCount": 0,
     "dominatedCount": 0,
     "sources": []
-  }
+  },
+  "negativeHealingAmp": {
+    "total": 0,
+    "appliedCount": 0,
+    "dominatedCount": 0,
+    "sources": []
+  },
+  "repairAmp": {
+    "total": 0,
+    "appliedCount": 0,
+    "dominatedCount": 0,
+    "sources": []
+  },
+  "ac": {
+    "total": 10,
+    "appliedCount": 1,
+    "dominatedCount": 0,
+    "sources": [
+      {
+        "source": "Attack: Base AC",
+        "bonusType": "Base",
+        "value": 10
+      }
+    ]
+  },
+  "dodge": {
+    "total": 0,
+    "appliedCount": 0,
+    "dominatedCount": 0,
+    "sources": []
+  },
+  "prr": {
+    "total": 0,
+    "appliedCount": 1,
+    "dominatedCount": 0,
+    "sources": [
+      {
+        "source": "Harbinger of Chaos: Harbinger of Chaos / Scarred by Chaos",
+        "bonusType": "Destiny",
+        "value": 0
+      }
+    ]
+  },
+  "mrr": {
+    "total": 0,
+    "appliedCount": 4,
+    "dominatedCount": 0,
+    "sources": [
+      {
+        "source": "Quicken Spell: Magus of the Eclipse: Lunar Studies",
+        "bonusType": "Destiny",
+        "value": 0
+      },
+      {
+        "source": "Quicken Spell: Magus of the Eclipse: Lunar Studies",
+        "bonusType": "Destiny",
+        "value": 0
+      },
+      {
+        "source": "Empower Healing Spell: Magus of the Eclipse: Lunar Studies",
+        "bonusType": "Destiny",
+        "value": 0
+      },
+      {
+        "source": "Empower Healing Spell: Magus of the Eclipse: Lunar Studies",
+        "bonusType": "Destiny",
+        "value": 0
+      }
+    ]
+  },
+  "spellResistance": {
+    "total": 0,
+    "appliedCount": 4,
+    "dominatedCount": 0,
+    "sources": [
+      {
+        "source": "Quicken Spell: Magus of the Eclipse: Lunar Studies",
+        "bonusType": "Destiny",
+        "value": 0
+      },
+      {
+        "source": "Quicken Spell: Magus of the Eclipse: Lunar Studies",
+        "bonusType": "Destiny",
+        "value": 0
+      },
+      {
+        "source": "Empower Healing Spell: Magus of the Eclipse: Lunar Studies",
+        "bonusType": "Destiny",
+        "value": 0
+      },
+      {
+        "source": "Empower Healing Spell: Magus of the Eclipse: Lunar Studies",
+        "bonusType": "Destiny",
+        "value": 0
+      }
+    ]
+  },
+  "arcaneSpellFailure": {
+    "total": 0,
+    "appliedCount": 0,
+    "dominatedCount": 0,
+    "sources": []
+  },
+  "casterLevel": {
+    "total": 167,
+    "appliedCount": 134,
+    "dominatedCount": 0,
+    "sources": [
+      {
+        "source": "character level (34)",
+        "bonusType": "(untyped)",
+        "value": 34
+      },
+      {
+        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Acolyte of the Skin",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Acolyte of the Skin"
+      },
+      {
+        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Alchemist",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Alchemist"
+      },
+      {
+        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Arcane Trickster",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Arcane Trickster"
+      },
+      {
+        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Artificer",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Artificer"
+      },
+      {
+        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Bard",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Bard"
+      },
+      {
+        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Blight Caster",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Blight Caster"
+      },
+      {
+        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Stormsinger",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Stormsinger"
+      },
+      {
+        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Cleric",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Cleric"
+      },
+      {
+        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Dark Apostate",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Dark Apostate"
+      },
+      {
+        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Dark Hunter",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Dark Hunter"
+      },
+      {
+        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Druid",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Druid"
+      },
+      {
+        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Favored Soul",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Favored Soul"
+      },
+      {
+        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Paladin",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Paladin"
+      },
+      {
+        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Sacred Fist",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Sacred Fist"
+      },
+      {
+        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Ranger",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Ranger"
+      },
+      {
+        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Sorcerer",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Sorcerer"
+      },
+      {
+        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Warlock",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Warlock"
+      },
+      {
+        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Wild Mage",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Wild Mage"
+      },
+      {
+        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Wizard",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Wizard"
+      },
+      {
+        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Acolyte of the Skin",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Acolyte of the Skin"
+      },
+      {
+        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Alchemist",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Alchemist"
+      },
+      {
+        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Arcane Trickster",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Arcane Trickster"
+      },
+      {
+        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Artificer",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Artificer"
+      },
+      {
+        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Bard",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Bard"
+      },
+      {
+        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Blight Caster",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Blight Caster"
+      },
+      {
+        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Stormsinger",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Stormsinger"
+      },
+      {
+        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Cleric",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Cleric"
+      },
+      {
+        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Dark Apostate",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Dark Apostate"
+      },
+      {
+        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Dark Hunter",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Dark Hunter"
+      },
+      {
+        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Druid",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Druid"
+      },
+      {
+        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Favored Soul",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Favored Soul"
+      },
+      {
+        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Paladin",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Paladin"
+      },
+      {
+        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Sacred Fist",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Sacred Fist"
+      },
+      {
+        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Ranger",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Ranger"
+      },
+      {
+        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Sorcerer",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Sorcerer"
+      },
+      {
+        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Warlock",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Warlock"
+      },
+      {
+        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Wild Mage",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Wild Mage"
+      },
+      {
+        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Wizard",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Wizard"
+      },
+      {
+        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Acolyte of the Skin",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Acolyte of the Skin"
+      },
+      {
+        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Alchemist",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Alchemist"
+      },
+      {
+        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Arcane Trickster",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Arcane Trickster"
+      },
+      {
+        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Artificer",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Artificer"
+      },
+      {
+        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Bard",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Bard"
+      },
+      {
+        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Blight Caster",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Blight Caster"
+      },
+      {
+        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Stormsinger",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Stormsinger"
+      },
+      {
+        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Cleric",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Cleric"
+      },
+      {
+        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Dark Apostate",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Dark Apostate"
+      },
+      {
+        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Dark Hunter",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Dark Hunter"
+      },
+      {
+        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Druid",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Druid"
+      },
+      {
+        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Favored Soul",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Favored Soul"
+      },
+      {
+        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Paladin",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Paladin"
+      },
+      {
+        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Sacred Fist",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Sacred Fist"
+      },
+      {
+        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Ranger",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Ranger"
+      },
+      {
+        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Sorcerer",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Sorcerer"
+      },
+      {
+        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Warlock",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Warlock"
+      },
+      {
+        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Wild Mage",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Wild Mage"
+      },
+      {
+        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Wizard",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Wizard"
+      },
+      {
+        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Acolyte of the Skin",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Acolyte of the Skin"
+      },
+      {
+        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Alchemist",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Alchemist"
+      },
+      {
+        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Arcane Trickster",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Arcane Trickster"
+      },
+      {
+        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Artificer",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Artificer"
+      },
+      {
+        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Bard",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Bard"
+      },
+      {
+        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Blight Caster",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Blight Caster"
+      },
+      {
+        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Stormsinger",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Stormsinger"
+      },
+      {
+        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Cleric",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Cleric"
+      },
+      {
+        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Dark Apostate",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Dark Apostate"
+      },
+      {
+        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Dark Hunter",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Dark Hunter"
+      },
+      {
+        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Druid",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Druid"
+      },
+      {
+        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Favored Soul",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Favored Soul"
+      },
+      {
+        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Paladin",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Paladin"
+      },
+      {
+        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Sacred Fist",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Sacred Fist"
+      },
+      {
+        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Ranger",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Ranger"
+      },
+      {
+        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Sorcerer",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Sorcerer"
+      },
+      {
+        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Warlock",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Warlock"
+      },
+      {
+        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Wild Mage",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Wild Mage"
+      },
+      {
+        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Wizard",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Wizard"
+      },
+      {
+        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Acolyte of the Skin",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Acolyte of the Skin"
+      },
+      {
+        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Alchemist",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Alchemist"
+      },
+      {
+        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Arcane Trickster",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Arcane Trickster"
+      },
+      {
+        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Artificer",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Artificer"
+      },
+      {
+        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Bard",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Bard"
+      },
+      {
+        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Blight Caster",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Blight Caster"
+      },
+      {
+        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Stormsinger",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Stormsinger"
+      },
+      {
+        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Cleric",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Cleric"
+      },
+      {
+        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Dark Apostate",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Dark Apostate"
+      },
+      {
+        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Dark Hunter",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Dark Hunter"
+      },
+      {
+        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Druid",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Druid"
+      },
+      {
+        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Favored Soul",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Favored Soul"
+      },
+      {
+        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Paladin",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Paladin"
+      },
+      {
+        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Sacred Fist",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Sacred Fist"
+      },
+      {
+        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Ranger",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Ranger"
+      },
+      {
+        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Sorcerer",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Sorcerer"
+      },
+      {
+        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Warlock",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Warlock"
+      },
+      {
+        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Wild Mage",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Wild Mage"
+      },
+      {
+        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Wizard",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Wizard"
+      },
+      {
+        "source": "Legendary 2: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Acolyte of the Skin"
+      },
+      {
+        "source": "Legendary 2: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Alchemist"
+      },
+      {
+        "source": "Legendary 2: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Artificer"
+      },
+      {
+        "source": "Legendary 2: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Arcane Trickster"
+      },
+      {
+        "source": "Legendary 2: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Bard"
+      },
+      {
+        "source": "Legendary 2: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Blight Caster"
+      },
+      {
+        "source": "Legendary 2: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Stormsinger"
+      },
+      {
+        "source": "Legendary 2: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Cleric"
+      },
+      {
+        "source": "Legendary 2: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Dark Apostate"
+      },
+      {
+        "source": "Legendary 2: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Dark Hunter"
+      },
+      {
+        "source": "Legendary 2: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Druid"
+      },
+      {
+        "source": "Legendary 2: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Favored Soul"
+      },
+      {
+        "source": "Legendary 2: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Paladin"
+      },
+      {
+        "source": "Legendary 2: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Sacred Fist"
+      },
+      {
+        "source": "Legendary 2: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Ranger"
+      },
+      {
+        "source": "Legendary 2: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Sorcerer"
+      },
+      {
+        "source": "Legendary 2: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Warlock"
+      },
+      {
+        "source": "Legendary 2: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Wizard"
+      },
+      {
+        "source": "Legendary 2: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Wild Mage"
+      },
+      {
+        "source": "Legendary 4: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Acolyte of the Skin"
+      },
+      {
+        "source": "Legendary 4: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Alchemist"
+      },
+      {
+        "source": "Legendary 4: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Artificer"
+      },
+      {
+        "source": "Legendary 4: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Arcane Trickster"
+      },
+      {
+        "source": "Legendary 4: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Bard"
+      },
+      {
+        "source": "Legendary 4: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Blight Caster"
+      },
+      {
+        "source": "Legendary 4: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Stormsinger"
+      },
+      {
+        "source": "Legendary 4: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Cleric"
+      },
+      {
+        "source": "Legendary 4: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Dark Apostate"
+      },
+      {
+        "source": "Legendary 4: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Dark Hunter"
+      },
+      {
+        "source": "Legendary 4: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Druid"
+      },
+      {
+        "source": "Legendary 4: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Favored Soul"
+      },
+      {
+        "source": "Legendary 4: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Paladin"
+      },
+      {
+        "source": "Legendary 4: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Sacred Fist"
+      },
+      {
+        "source": "Legendary 4: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Ranger"
+      },
+      {
+        "source": "Legendary 4: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Sorcerer"
+      },
+      {
+        "source": "Legendary 4: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Warlock"
+      },
+      {
+        "source": "Legendary 4: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Wizard"
+      },
+      {
+        "source": "Legendary 4: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Wild Mage"
+      }
+    ]
+  },
+  "spellPenetration": {
+    "total": 0,
+    "appliedCount": 0,
+    "dominatedCount": 0,
+    "sources": []
+  },
+  "spellDCs": {
+    "Abjuration": {
+      "total": 8,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "casting stat mod (+8)",
+          "bonusType": "(untyped)",
+          "value": 8
+        }
+      ]
+    },
+    "Conjuration": {
+      "total": 8,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "casting stat mod (+8)",
+          "bonusType": "(untyped)",
+          "value": 8
+        }
+      ]
+    },
+    "Divination": {
+      "total": 8,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "casting stat mod (+8)",
+          "bonusType": "(untyped)",
+          "value": 8
+        }
+      ]
+    },
+    "Enchantment": {
+      "total": 8,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "casting stat mod (+8)",
+          "bonusType": "(untyped)",
+          "value": 8
+        }
+      ]
+    },
+    "Evocation": {
+      "total": 8,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "casting stat mod (+8)",
+          "bonusType": "(untyped)",
+          "value": 8
+        }
+      ]
+    },
+    "Illusion": {
+      "total": 8,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "casting stat mod (+8)",
+          "bonusType": "(untyped)",
+          "value": 8
+        }
+      ]
+    },
+    "Necromancy": {
+      "total": 8,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "casting stat mod (+8)",
+          "bonusType": "(untyped)",
+          "value": 8
+        }
+      ]
+    },
+    "Transmutation": {
+      "total": 8,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "casting stat mod (+8)",
+          "bonusType": "(untyped)",
+          "value": 8
+        }
+      ]
+    }
+  },
+  "spellPowers": {
+    "Acid": {
+      "total": 84,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Universal Spell Power",
+          "bonusType": "(untyped)",
+          "value": 84,
+          "target": "Acid"
+        }
+      ]
+    },
+    "Cold": {
+      "total": 84,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Universal Spell Power",
+          "bonusType": "(untyped)",
+          "value": 84,
+          "target": "Cold"
+        }
+      ]
+    },
+    "Electric": {
+      "total": 84,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Universal Spell Power",
+          "bonusType": "(untyped)",
+          "value": 84,
+          "target": "Electric"
+        }
+      ]
+    },
+    "Fire": {
+      "total": 84,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Universal Spell Power",
+          "bonusType": "(untyped)",
+          "value": 84,
+          "target": "Fire"
+        }
+      ]
+    },
+    "Force": {
+      "total": 84,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Universal Spell Power",
+          "bonusType": "(untyped)",
+          "value": 84,
+          "target": "Force"
+        }
+      ]
+    },
+    "Light/Alignment": {
+      "total": 84,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Universal Spell Power",
+          "bonusType": "(untyped)",
+          "value": 84,
+          "target": "Light/Alignment"
+        }
+      ]
+    },
+    "Negative": {
+      "total": 84,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Universal Spell Power",
+          "bonusType": "(untyped)",
+          "value": 84,
+          "target": "Negative"
+        }
+      ]
+    },
+    "Poison": {
+      "total": 84,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Universal Spell Power",
+          "bonusType": "(untyped)",
+          "value": 84,
+          "target": "Poison"
+        }
+      ]
+    },
+    "Positive": {
+      "total": 84,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Universal Spell Power",
+          "bonusType": "(untyped)",
+          "value": 84,
+          "target": "Positive"
+        }
+      ]
+    },
+    "Repair": {
+      "total": 84,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Universal Spell Power",
+          "bonusType": "(untyped)",
+          "value": 84,
+          "target": "Repair"
+        }
+      ]
+    },
+    "Rust": {
+      "total": 84,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Universal Spell Power",
+          "bonusType": "(untyped)",
+          "value": 84,
+          "target": "Rust"
+        }
+      ]
+    },
+    "Sonic": {
+      "total": 84,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Universal Spell Power",
+          "bonusType": "(untyped)",
+          "value": 84,
+          "target": "Sonic"
+        }
+      ]
+    }
+  },
+  "spellCriticalChance": {
+    "Acid": {
+      "total": 10,
+      "appliedCount": 2,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Artificer 1: Magical Training",
+          "bonusType": "Feat",
+          "value": 5,
+          "target": "All"
+        },
+        {
+          "source": "Favored Soul 1: Magical Training",
+          "bonusType": "Feat",
+          "value": 5,
+          "target": "All"
+        }
+      ]
+    },
+    "Cold": {
+      "total": 10,
+      "appliedCount": 2,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Artificer 1: Magical Training",
+          "bonusType": "Feat",
+          "value": 5,
+          "target": "All"
+        },
+        {
+          "source": "Favored Soul 1: Magical Training",
+          "bonusType": "Feat",
+          "value": 5,
+          "target": "All"
+        }
+      ]
+    },
+    "Electric": {
+      "total": 10,
+      "appliedCount": 2,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Artificer 1: Magical Training",
+          "bonusType": "Feat",
+          "value": 5,
+          "target": "All"
+        },
+        {
+          "source": "Favored Soul 1: Magical Training",
+          "bonusType": "Feat",
+          "value": 5,
+          "target": "All"
+        }
+      ]
+    },
+    "Fire": {
+      "total": 10,
+      "appliedCount": 2,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Artificer 1: Magical Training",
+          "bonusType": "Feat",
+          "value": 5,
+          "target": "All"
+        },
+        {
+          "source": "Favored Soul 1: Magical Training",
+          "bonusType": "Feat",
+          "value": 5,
+          "target": "All"
+        }
+      ]
+    },
+    "Force": {
+      "total": 10,
+      "appliedCount": 2,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Artificer 1: Magical Training",
+          "bonusType": "Feat",
+          "value": 5,
+          "target": "All"
+        },
+        {
+          "source": "Favored Soul 1: Magical Training",
+          "bonusType": "Feat",
+          "value": 5,
+          "target": "All"
+        }
+      ]
+    },
+    "Light/Alignment": {
+      "total": 10,
+      "appliedCount": 2,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Artificer 1: Magical Training",
+          "bonusType": "Feat",
+          "value": 5,
+          "target": "All"
+        },
+        {
+          "source": "Favored Soul 1: Magical Training",
+          "bonusType": "Feat",
+          "value": 5,
+          "target": "All"
+        }
+      ]
+    },
+    "Negative": {
+      "total": 10,
+      "appliedCount": 2,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Artificer 1: Magical Training",
+          "bonusType": "Feat",
+          "value": 5,
+          "target": "All"
+        },
+        {
+          "source": "Favored Soul 1: Magical Training",
+          "bonusType": "Feat",
+          "value": 5,
+          "target": "All"
+        }
+      ]
+    },
+    "Poison": {
+      "total": 10,
+      "appliedCount": 2,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Artificer 1: Magical Training",
+          "bonusType": "Feat",
+          "value": 5,
+          "target": "All"
+        },
+        {
+          "source": "Favored Soul 1: Magical Training",
+          "bonusType": "Feat",
+          "value": 5,
+          "target": "All"
+        }
+      ]
+    },
+    "Positive": {
+      "total": 10,
+      "appliedCount": 2,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Artificer 1: Magical Training",
+          "bonusType": "Feat",
+          "value": 5,
+          "target": "All"
+        },
+        {
+          "source": "Favored Soul 1: Magical Training",
+          "bonusType": "Feat",
+          "value": 5,
+          "target": "All"
+        }
+      ]
+    },
+    "Repair": {
+      "total": 10,
+      "appliedCount": 2,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Artificer 1: Magical Training",
+          "bonusType": "Feat",
+          "value": 5,
+          "target": "All"
+        },
+        {
+          "source": "Favored Soul 1: Magical Training",
+          "bonusType": "Feat",
+          "value": 5,
+          "target": "All"
+        }
+      ]
+    },
+    "Rust": {
+      "total": 10,
+      "appliedCount": 2,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Artificer 1: Magical Training",
+          "bonusType": "Feat",
+          "value": 5,
+          "target": "All"
+        },
+        {
+          "source": "Favored Soul 1: Magical Training",
+          "bonusType": "Feat",
+          "value": 5,
+          "target": "All"
+        }
+      ]
+    },
+    "Sonic": {
+      "total": 10,
+      "appliedCount": 2,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Artificer 1: Magical Training",
+          "bonusType": "Feat",
+          "value": 5,
+          "target": "All"
+        },
+        {
+          "source": "Favored Soul 1: Magical Training",
+          "bonusType": "Feat",
+          "value": 5,
+          "target": "All"
+        }
+      ]
+    }
+  },
+  "spellCriticalDamage": {
+    "Acid": {
+      "total": 0,
+      "appliedCount": 0,
+      "dominatedCount": 0,
+      "sources": []
+    },
+    "Cold": {
+      "total": 0,
+      "appliedCount": 0,
+      "dominatedCount": 0,
+      "sources": []
+    },
+    "Electric": {
+      "total": 0,
+      "appliedCount": 0,
+      "dominatedCount": 0,
+      "sources": []
+    },
+    "Fire": {
+      "total": 0,
+      "appliedCount": 0,
+      "dominatedCount": 0,
+      "sources": []
+    },
+    "Force": {
+      "total": 0,
+      "appliedCount": 0,
+      "dominatedCount": 0,
+      "sources": []
+    },
+    "Light/Alignment": {
+      "total": 0,
+      "appliedCount": 0,
+      "dominatedCount": 0,
+      "sources": []
+    },
+    "Negative": {
+      "total": 0,
+      "appliedCount": 0,
+      "dominatedCount": 0,
+      "sources": []
+    },
+    "Poison": {
+      "total": 0,
+      "appliedCount": 0,
+      "dominatedCount": 0,
+      "sources": []
+    },
+    "Positive": {
+      "total": 0,
+      "appliedCount": 0,
+      "dominatedCount": 0,
+      "sources": []
+    },
+    "Repair": {
+      "total": 0,
+      "appliedCount": 0,
+      "dominatedCount": 0,
+      "sources": []
+    },
+    "Rust": {
+      "total": 0,
+      "appliedCount": 0,
+      "dominatedCount": 0,
+      "sources": []
+    },
+    "Sonic": {
+      "total": 0,
+      "appliedCount": 0,
+      "dominatedCount": 0,
+      "sources": []
+    }
+  },
+  "slas": [
+    {
+      "name": "Leap Of Faith",
+      "castingClass": "Favored Soul",
+      "category": "feat",
+      "cost": 10,
+      "maxCasterLevel": 0,
+      "cooldown": 3,
+      "source": "Favored Soul 17: Leap Of Faith"
+    },
+    {
+      "name": "Unleash Iron Defender",
+      "castingClass": "Artificer",
+      "category": "feat",
+      "cost": 0,
+      "maxCasterLevel": 0,
+      "cooldown": 0,
+      "source": "Artificer 1: Unleash Iron Defender"
+    },
+    {
+      "name": "Unyielding Sovereignty",
+      "castingClass": "Character",
+      "category": "feat",
+      "cost": 0,
+      "maxCasterLevel": 0,
+      "cooldown": 0,
+      "source": "Unyielding Sovereignty"
+    }
+  ]
 }

@@ -1,7 +1,13 @@
-import { useState, useMemo } from 'react';
-import { useBuildStore, apSpent, MAX_HEROIC_AP } from '@/store/buildStore';
+import { useEffect, useState, useMemo } from 'react';
+import {
+  useBuildStore,
+  apSpentByCategory, applyAPOverflow, specialFeatBonusAP,
+  BASE_STANDARD_AP, BASE_RACIAL_AP, BASE_UNIVERSAL_AP,
+  MAX_RACIAL_AP_TOME, MAX_UNIVERSAL_AP_TOME,
+} from '@/store/buildStore';
 import { useGameDataStore } from '@/store/gameDataStore';
 import { nameToId } from '@/utils/classAdapter';
+import { computeDefaultEnhancementTrees } from '@/utils/defaultEnhancementTrees';
 import type { EnhancementTreeData } from '@/types/ddoData';
 import type { DDOClassData } from '@/types/ddoData';
 import { EnhancementTreeGrid } from './EnhancementTreeGrid';
@@ -58,15 +64,70 @@ function isTreeAvailable(
 }
 
 export function EnhancementsTab() {
-  const build         = useBuildStore(s => s.build);
-  const toggleTree    = useBuildStore(s => s.toggleTree);
-  const trees         = useGameDataStore(s => s.enhancementTrees);
-  const classDataList = useGameDataStore(s => s.classes);
-  const status        = useGameDataStore(s => s.status);
+  const build           = useBuildStore(s => s.build);
+  const toggleTree      = useBuildStore(s => s.toggleTree);
+  const setSelectedTrees = useBuildStore(s => s.setSelectedTrees);
+  const trees           = useGameDataStore(s => s.enhancementTrees);
+  const classDataList   = useGameDataStore(s => s.classes);
+  const status          = useGameDataStore(s => s.status);
   const [pickerOpen, setPickerOpen] = useState(false);
 
-  const totalAP    = apSpent(build.enhancements);
-  const remaining  = MAX_HEROIC_AP - totalAP;
+  // Auto-seed (and re-seed) selectedEnhancementTrees from race + top class
+  // whenever those change — until the user explicitly toggles a tree, which
+  // sets `treesManuallyOverridden: true` and locks in their choice.
+  useEffect(() => {
+    if (status !== 'ready') return;
+    if (build.treesManuallyOverridden) return;
+    if (build.classes.length === 0 || trees.length === 0) return;
+
+    const defaults = computeDefaultEnhancementTrees(build, classDataList, trees);
+    if (defaults.length === 0) return;
+
+    // Only push state if the new defaults actually differ from current —
+    // avoids a render loop when the effect's deps tick but defaults are stable.
+    const cur = build.selectedEnhancementTrees;
+    const same = cur.length === defaults.length && cur.every((t, i) => t === defaults[i]);
+    if (!same) setSelectedTrees(defaults);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [
+    status,
+    build.treesManuallyOverridden,
+    build.classes,
+    build.raceId,
+    classDataList,
+    trees,
+  ]);
+
+  // RAP / UAP bonuses come from trained special feats (racial past lives,
+  // Inherent Racial Action Point tome, etc.). Standard AP has no bonus
+  // source — it's fixed at 80.
+  const allFeats = useGameDataStore(s => s.feats);
+  const setEnhancementTome = useBuildStore(s => s.setEnhancementTome);
+  const tomes = build.enhancementTomes ?? {};
+  const racialBonus    = useMemo(
+    () => specialFeatBonusAP(build.specialFeats, allFeats, 'RAPBonus'),
+    [build.specialFeats, allFeats],
+  );
+  const universalBonus = useMemo(
+    () => specialFeatBonusAP(build.specialFeats, allFeats, 'UAPBonus'),
+    [build.specialFeats, allFeats],
+  );
+  const racialTome    = tomes.racial    ?? 0;
+  const universalTome = tomes.universal ?? 0;
+  const racialCap    = BASE_RACIAL_AP    + racialBonus    + racialTome;
+  const universalCap = BASE_UNIVERSAL_AP + universalBonus + universalTome;
+
+  // AP totals per category use real costPerRank tables. Then apply the
+  // overflow rule: racial / universal spend over their caps spills into
+  // the standard pool (matching DDOBuilderV2's pool accounting).
+  const rawSpent = useMemo(
+    () => apSpentByCategory(build.enhancements, trees),
+    [build.enhancements, trees],
+  );
+  const pools = useMemo(
+    () => applyAPOverflow(rawSpent, racialCap, universalCap),
+    [rawSpent, racialCap, universalCap],
+  );
 
   const buildClassIds = useMemo(
     () => new Set(build.classes.map(c => c.classId)),
@@ -86,11 +147,14 @@ export function EnhancementsTab() {
     [trees, buildClassIds, build.raceId, classDataList],
   );
 
-  // The currently selected tree objects
+  // The currently selected tree objects (heroic only — destiny trees use
+  // the same `selectedEnhancementTrees` list but are rendered on the
+  // Epic Destinies tab and must not appear here).
   const selectedTrees = useMemo(
     () => build.selectedEnhancementTrees
       .map(name => trees.find(t => t.name === name))
-      .filter((t): t is NonNullable<typeof t> => t !== null && t !== undefined),
+      .filter((t): t is NonNullable<typeof t> =>
+        t !== null && t !== undefined && !t.isDestinyTree),
     [build.selectedEnhancementTrees, trees],
   );
 
@@ -104,18 +168,82 @@ export function EnhancementsTab() {
 
   return (
     <div className={styles.tab}>
-      {/* AP Budget bar */}
-      <div className={styles.apBar}>
-        <span className={styles.apLabel}>Action Points</span>
-        <div className={styles.apTrack}>
-          <div
-            className={styles.apFill}
-            style={{ width: `${Math.min(100, (totalAP / MAX_HEROIC_AP) * 100)}%` }}
-          />
-        </div>
-        <span className={remaining < 0 ? styles.apOver : styles.apRemaining}>
-          {totalAP} / {MAX_HEROIC_AP}
-        </span>
+      {/* AP pools. Standard absorbs overflow from racial/universal. */}
+      <div className={styles.apPools}>
+        {(['standard','racial','universal'] as const).map(kind => {
+          const pool = pools[kind];
+          const remaining = pool.cap - pool.spent;
+          const base = kind === 'standard' ? BASE_STANDARD_AP
+                     : kind === 'racial'   ? BASE_RACIAL_AP
+                                           : BASE_UNIVERSAL_AP;
+          const label = kind === 'standard' ? 'Standard' : kind === 'racial' ? 'Racial' : 'Universal';
+          const featBonus = kind === 'racial' ? racialBonus
+                          : kind === 'universal' ? universalBonus
+                          : 0;
+          const tomeVal = kind === 'racial' ? racialTome
+                        : kind === 'universal' ? universalTome
+                        : 0;
+          const tomeMax = kind === 'racial' ? MAX_RACIAL_AP_TOME
+                        : kind === 'universal' ? MAX_UNIVERSAL_AP_TOME
+                        : 0;
+          const showTomeRow = kind !== 'standard';
+          const overflowFrom: string[] = [];
+          if (kind === 'standard') {
+            if (pools.racial.overflow    > 0) overflowFrom.push(`+${pools.racial.overflow} racial overflow`);
+            if (pools.universal.overflow > 0) overflowFrom.push(`+${pools.universal.overflow} universal overflow`);
+          }
+          const breakdownParts = [`Base ${base}`];
+          if (featBonus > 0) {
+            breakdownParts.push(`+${featBonus} from ${kind === 'racial' ? 'racial past lives / inherent RAP' : 'inherent UAP / favor'}`);
+          }
+          if (tomeVal > 0) breakdownParts.push(`+${tomeVal} tome`);
+          if (overflowFrom.length) breakdownParts.push(...overflowFrom);
+          return (
+            <div key={kind} className={styles.apPool}>
+              <div className={styles.apPoolHead}>
+                <span className={styles.apPoolLabel}>{label}</span>
+                <span className={remaining < 0 ? styles.apOver : styles.apRemaining}>
+                  {pool.spent} / {pool.cap}
+                </span>
+              </div>
+              {kind !== 'standard' && (
+                <div className={styles.apTrack}>
+                  <div
+                    className={styles.apFill}
+                    style={{ width: `${pool.cap > 0 ? Math.min(100, (pool.spent / pool.cap) * 100) : 0}%` }}
+                  />
+                </div>
+              )}
+              <span className={styles.apBreakdown} title={breakdownParts.join(' · ')}>
+                {breakdownParts.join(' + ')}
+              </span>
+              {showTomeRow && (
+                <div className={styles.apTomeRow}>
+                  <span className={styles.apTomeLabel}>Tome</span>
+                  <button
+                    className={styles.apTomeBtn}
+                    onClick={() => setEnhancementTome(kind, tomeVal - 1)}
+                    disabled={tomeVal <= 0}
+                    aria-label={`Decrease ${label} AP tome`}
+                  >−</button>
+                  <span className={styles.apTomeValue}>+{tomeVal}</span>
+                  <button
+                    className={styles.apTomeBtn}
+                    onClick={() => setEnhancementTome(kind, tomeVal + 1)}
+                    disabled={tomeVal >= tomeMax}
+                    aria-label={`Increase ${label} AP tome`}
+                  >+</button>
+                  <span className={styles.apTomeMax}>(max +{tomeMax})</span>
+                  {pool.overflow > 0 && (
+                    <span className={styles.apTomeMax} title="Spend over this pool's cap deducts from Standard">
+                      · {pool.overflow} → Standard
+                    </span>
+                  )}
+                </div>
+              )}
+            </div>
+          );
+        })}
         <button
           className={styles.addTreeBtn}
           onClick={() => setPickerOpen(p => !p)}

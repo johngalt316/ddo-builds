@@ -74,6 +74,40 @@
   max-width: 100%;
 }
 
+.slotBadges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem;
+  justify-content: center;
+  margin-top: 0.15rem;
+}
+.slotBadge {
+  font-size: 0.6rem;
+  font-weight: 700;
+  padding: 0 0.25rem;
+  background: rgba(201,162,39,0.15);
+  color: var(--color-gold);
+  border-radius: 2px;
+  letter-spacing: 0.04em;
+  cursor: help;
+  line-height: 1.4;
+}
+
+.legend {
+  margin: 0.5rem 0 0;
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+.legend code {
+  background: rgba(201,162,39,0.15);
+  color: var(--color-gold);
+  padding: 0 0.25rem;
+  border-radius: 2px;
+  font-family: ui-monospace, monospace;
+  font-style: normal;
+}
+
 .pickerOverlay {
   position: fixed;
   inset: 0;

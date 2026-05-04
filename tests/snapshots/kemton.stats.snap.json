@@ -19,7 +19,7 @@
     "CHA": -1
   },
   "bab": 0,
-  "hitPoints": 60,
+  "hitPoints": 242,
   "saves": {
     "fortitude": 3,
     "reflex": 3,
@@ -132,15 +132,15 @@
       "maxRanks": 11
     },
     "search": {
-      "total": 4,
-      "ranks": 0,
+      "total": 5,
+      "ranks": 1,
       "abilityMod": 4,
       "isClassSkill": false,
       "maxRanks": 11
     },
     "spellcraft": {
-      "total": 4,
-      "ranks": 0,
+      "total": 27,
+      "ranks": 23,
       "abilityMod": 4,
       "isClassSkill": false,
       "maxRanks": 11

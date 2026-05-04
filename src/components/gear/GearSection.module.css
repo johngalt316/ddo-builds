@@ -44,18 +44,131 @@
 .body { padding-top: 0.75rem; }
 
 .empty {
-  padding: 2rem 1rem;
-  text-align: center;
+  padding: 1rem;
   font-size: 0.85rem;
   color: var(--color-text-muted);
+}
+.empty p { text-align: center; margin: 0 0 0.75rem; }
+
+.viewingHint {
+  margin-top: 0.6rem;
+  padding: 0.4rem 0.75rem;
+  background: rgba(106,159,216,0.08);
+  border: 1px solid #6a9fd8;
+  border-radius: 4px;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+}
+.viewingHint em { color: var(--color-text); font-style: normal; font-weight: 600; }
+.makeActiveBtn {
+  background: none;
+  border: none;
+  color: #6a9fd8;
+  font: inherit;
+  font-size: 0.78rem;
+  cursor: pointer;
+  text-decoration: underline dashed;
+  padding: 0;
+}
+.makeActiveBtn:hover { color: var(--color-gold); }
+
+/* ── Set tab bar (tabs + CRUD toolbar) ─────────────────── */
+.setBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+.setActions { display: flex; gap: 0.2rem; align-items: center; }
+
+.findBtn {
+  height: 24px;
+  padding: 0 0.55rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 3px;
+  color: var(--color-text-muted);
+  font: inherit;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.12s, color 0.12s, background 0.12s;
+  margin-right: 0.2rem;
+}
+.findBtn:hover:not(:disabled) {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+}
+.findBtn:disabled { opacity: 0.3; cursor: not-allowed; }
+
+.setBtn, .setBtnDanger {
+  width: 26px;
+  height: 24px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 3px;
+  color: var(--color-text-muted);
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  transition: border-color 0.12s, color 0.12s;
+}
+.setBtn:hover:not(:disabled) {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+}
+.setBtnDanger:hover:not(:disabled) {
+  border-color: #c05050;
+  color: #c05050;
+}
+.setBtn:disabled, .setBtnDanger:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* ── Set bonus pill row ────────────────────────────────── */
+.setBonusRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-bottom: 0.6rem;
+}
+.setBonusActive, .setBonusPending, .setBonusUnknown {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.2rem 0.55rem;
+  border-radius: 3px;
+  border: 1px solid;
+  cursor: help;
+  font-variant-numeric: tabular-nums;
+}
+.setBonusActive {
+  background: rgba(106,159,216,0.15);
+  border-color: #6a9fd8;
+  color: #6a9fd8;
+}
+.setBonusPending {
+  background: rgba(201,162,39,0.08);
+  border-color: rgba(201,162,39,0.45);
+  color: var(--color-text-muted);
+}
+.setBonusUnknown {
+  background: rgba(255,255,255,0.04);
+  border-color: var(--color-border);
+  color: var(--color-text-muted);
+  font-style: italic;
 }
 
 /* ── Set tabs ─────────────────────────────────────────── */
 .setTabs {
   display: flex;
   gap: 0.25rem;
-  margin-bottom: 0.75rem;
   flex-wrap: wrap;
+  flex: 1;
 }
 .setTab, .setTabActive {
   padding: 0.3rem 0.75rem;
@@ -81,8 +194,13 @@
 /* ── Slot grid ────────────────────────────────────────── */
 .slotGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0.5rem;
+}
+.slotSpacer {
+  /* Empty cells in the paper-doll layout — preserve the column slot but
+   * render no visible chrome. */
+  visibility: hidden;
 }
 
 .slot {
@@ -212,29 +330,18 @@
 }
 
 .buff {
-  display: flex;
-  align-items: baseline;
-  gap: 0.5rem;
   font-size: 0.82rem;
-  padding: 0.2rem 0;
+  line-height: 1.35;
+  padding: 0.25rem 0;
   border-bottom: 1px dashed rgba(255,255,255,0.05);
+  color: var(--color-text-muted);
 }
 .buff:last-child { border-bottom: none; }
-
-.buffBonus {
-  font-size: 0.65rem;
+.buffHeadline {
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--color-gold);
-  background: rgba(201,162,39,0.1);
-  padding: 1px 5px;
-  border-radius: 3px;
-  flex-shrink: 0;
+  color: var(--color-text);
 }
-
-.buffType { flex: 1; color: var(--color-text); }
-.buffValue { font-weight: 700; color: var(--color-gold); }
+.buffDetail { color: var(--color-text-muted); }
 
 .dropLocation {
   font-size: 0.72rem;
@@ -244,3 +351,170 @@
   border-top: 1px solid var(--color-border);
 }
 .dropLocation strong { color: var(--color-text); }
+
+/* ── Augment slot chips ─────────────────────────────────── */
+.augments { margin: 0.55rem 0 0.4rem; }
+.augmentsHeading {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+  margin: 0 0 0.3rem;
+}
+.augmentSlots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+.augmentSlotFilled, .augmentSlotEditable, .augmentSlotEmpty {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+  font: inherit;
+  font-size: 0.72rem;
+  cursor: pointer;
+  text-align: left;
+}
+.augmentSlotFilled {
+  background: rgba(106,159,216,0.12);
+  border: 1px solid #6a9fd8;
+  color: var(--color-text);
+}
+.augmentSlotFilled:hover { border-color: var(--color-gold); }
+.augmentSlotEditable {
+  background: rgba(255,255,255,0.03);
+  border: 1px dashed var(--color-border);
+  color: var(--color-text-muted);
+}
+.augmentSlotEditable:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+}
+.augmentSlotEmpty {
+  background: rgba(255,255,255,0.03);
+  border: 1px dashed var(--color-border);
+  color: var(--color-text-muted);
+  cursor: not-allowed;
+}
+.augmentSlotType {
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+}
+.augmentSlotFilled .augmentSlotType { color: #6a9fd8; }
+.augmentSlotValue {
+  font-weight: 600;
+}
+
+/* ── Filigree panels (sentient-weapon + artifact) ─────────────────── */
+.filigreeSection {
+  margin-top: 1rem;
+  padding: 0.65rem 0.8rem;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+}
+.filigreeHeading {
+  margin: 0 0 0.45rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.4rem;
+}
+.filigreeCount {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  text-transform: none;
+  letter-spacing: 0;
+}
+.filigreeGrid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.35rem;
+}
+.filigreeSlot {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.12rem;
+  align-items: stretch;
+  padding: 0.35rem 0.4rem;
+  border-radius: 3px;
+  font: inherit;
+  font-size: 0.72rem;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.12s, background 0.12s;
+  min-height: 2.6rem;
+}
+.filigreeSlotEmpty {
+  background: rgba(255,255,255,0.03);
+  border: 1px dashed var(--color-border);
+  color: var(--color-text-muted);
+}
+.filigreeSlotEmpty:hover { border-color: var(--color-gold); color: var(--color-gold); }
+.filigreeSlotFilled {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+}
+.filigreeSlotFilled:hover { border-color: var(--color-gold); }
+.filigreeSlotIdx {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+}
+.filigreeSlotName {
+  font-weight: 600;
+  font-size: 0.72rem;
+  line-height: 1.2;
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.filigreeSlotSet {
+  font-size: 0.62rem;
+  color: var(--color-gold);
+  line-height: 1.2;
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.filigreeRareToggle {
+  margin-top: 0.18rem;
+  align-self: flex-start;
+  font: inherit;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 0.05rem 0.3rem;
+  border-radius: 3px;
+  background: rgba(0,0,0,0.35);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  white-space: nowrap;
+}
+.filigreeRareToggle:hover:not(:disabled) {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+}
+.filigreeRareToggle:disabled { cursor: default; }
+.filigreeRareToggleOn {
+  background: rgba(201,162,39,0.22);
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+}

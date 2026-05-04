@@ -79,8 +79,8 @@ export function useBuild() {
   );
 
   const hitPoints = useMemo(
-    () => calculateHitPoints(build.classes, classesData, effectiveScores.CON, build.feats),
-    [build.classes, classesData, effectiveScores.CON, build.feats],
+    () => calculateHitPoints(build.classes, classesData, effectiveScores.CON, build.epicLevels),
+    [build.classes, classesData, effectiveScores.CON, build.epicLevels],
   );
 
   const saves = useMemo(
@@ -111,6 +111,31 @@ export function useBuild() {
     [build.abilityScores],
   );
 
+  // Point-buy budget depends on race + heroic/racial past life count
+  // (mirrors DDOBuilderV2's Build::DetermineBuildPoints):
+  //   - race.BuildPoints is a 4-tuple [adventurer, champion, 1-PL, 2+PL]
+  //   - 0 past lives → index 1 (champion; we don't model the F2P adventurer
+  //     tier since "Champion" is the default for any reasonably set-up account)
+  //   - 1 past life → index 2
+  //   - 2+ past lives → index 3
+  //   - Only HeroicPastLife and RacialPastLife count for this purpose
+  //     (Epic & Iconic do not affect point buy)
+  const rawRaces = useGameDataStore(s => s.races);
+  const pointBuyBudget = useMemo(() => {
+    const rawRace =
+      rawRaces.find(r => r.name.toLowerCase().replace(/[\s']+/g, '_') === build.raceId) ??
+      rawRaces[0];
+    const bp = rawRace?.buildPoints ?? [28, 32, 34, 36];
+    // DDOBuilderV2 sums total ranks (each rank = one past-life instance),
+    // so a single rank-3 Past Life: Wizard already crosses the "2+" threshold.
+    const plCount = (build.specialFeats ?? [])
+      .filter(f => f.type === 'HeroicPastLife' || f.type === 'RacialPastLife')
+      .reduce((sum, f) => sum + f.rank, 0);
+    if (plCount === 0) return bp[1] ?? 32;
+    if (plCount === 1) return bp[2] ?? 34;
+    return bp[3] ?? 36;
+  }, [rawRaces, build.raceId, build.specialFeats]);
+
   const skillBonuses = useMemo(
     () => calculateAllSkillBonuses(
       build.skillRanks,
@@ -129,8 +154,9 @@ export function useBuild() {
       build.classes,
       classesData,
       abilityModifier(effectiveScores.INT),
+      race.bonusSkillPoints ?? 0,
     ),
-    [build.classes, classesData, effectiveScores.INT],
+    [build.classes, classesData, effectiveScores.INT, race.bonusSkillPoints],
   );
 
   const skillPointsSpent = useMemo(
@@ -150,6 +176,7 @@ export function useBuild() {
     saves,
     modifiers,
     pointBuySpent,
+    pointBuyBudget,
     skillBonuses,
     skillPointBudget,
     skillPointsSpent,

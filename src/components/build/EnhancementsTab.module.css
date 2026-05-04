@@ -5,7 +5,86 @@
   padding: 0.75rem 0;
 }
 
-/* ── AP bar ──────────────────────────────────────────────────────── */
+/* ── AP pools (Standard / Racial / Universal) ────────────────────── */
+.apPools {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr) auto;
+  gap: 0.5rem;
+  align-items: stretch;
+}
+.apPool {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.4rem 0.6rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+}
+.apPoolHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 0.78rem;
+}
+.apPoolLabel {
+  font-weight: 700;
+  color: var(--color-text);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.7rem;
+}
+.apBreakdown {
+  font-size: 0.66rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.apTomeRow {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 0.15rem;
+  font-size: 0.7rem;
+}
+.apTomeLabel {
+  color: var(--color-text-muted);
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.apTomeBtn {
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-size: 0.85rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+.apTomeBtn:hover:not(:disabled) { border-color: var(--color-gold); color: var(--color-gold); }
+.apTomeBtn:disabled { opacity: 0.35; cursor: not-allowed; }
+.apTomeValue {
+  min-width: 24px;
+  text-align: center;
+  font-weight: 700;
+  color: var(--color-gold);
+  font-variant-numeric: tabular-nums;
+}
+.apTomeMax {
+  font-size: 0.62rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+/* ── AP bar (legacy single-pool layout, kept for fallback) ───────── */
 .apBar {
   display: flex;
   align-items: center;

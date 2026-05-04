@@ -142,6 +142,8 @@ function parseEffect(el) {
   if (dn) out.displayName = dn;
   const desc = textOf(el, 'Description');
   if (desc) out.description = desc;
+  if (firstChild(el, 'Percent') !== null) out.isPercent = true;
+  if (firstChild(el, 'ApplyAsItemEffect') !== null) out.isApplyAsItemEffect = true;
   return out;
 }
 
@@ -180,7 +182,9 @@ function parseEquipmentSlots(el) {
 }
 
 function parseAugmentSlots(itemEl) {
-  return directChildren(itemEl, 'Slot').map(s => {
+  // .item XML uses <ItemAugment><Type>…</Type></ItemAugment> for each slot
+  // (NOT <Slot>). Each item can declare any number of these.
+  return directChildren(itemEl, 'ItemAugment').map(s => {
     const out = { type: textOf(s, 'Type') };
     const desc = textOf(s, 'Description');
     if (desc) out.description = desc;

@@ -12,23 +12,30 @@ const fighter: DDOClass = {
 describe('calculateHitPoints', () => {
   it('pure fighter level 1 with neutral CON', () => {
     // d10 * 1 + CON 10 mod 0 = 10
-    expect(calculateHitPoints([{ classId: 'fighter', levels: 1 }], [fighter], 10, [])).toBe(10);
+    expect(calculateHitPoints([{ classId: 'fighter', levels: 1 }], [fighter], 10)).toBe(10);
   });
 
   it('adds CON modifier per level', () => {
     // d10 * 5 = 50, CON 14 = +2 * 5 = +10 → 60
-    expect(calculateHitPoints([{ classId: 'fighter', levels: 5 }], [fighter], 14, [])).toBe(60);
+    expect(calculateHitPoints([{ classId: 'fighter', levels: 5 }], [fighter], 14)).toBe(60);
   });
 
-  it('toughness adds 3 + 1 per level', () => {
-    // d10 * 2 = 20, CON 10 = 0, toughness 1 stack = 3 + (2*1 per level) ... wait
-    // toughness: count * (3 + totalLevels)
-    // 1 toughness, 2 levels: 1 * (3 + 2) = 5
+  it('includes epic levels (10 HP/level + CON mod)', () => {
+    // 20 fighter d10 = 200, CON 16 = +3 × (20+14) = 102, 14 epic × 10 = 140 → 442
     expect(calculateHitPoints(
-      [{ classId: 'fighter', levels: 2 }],
+      [{ classId: 'fighter', levels: 20 }],
       [fighter],
-      10,
-      [{ slotIndex: 0, featId: 'toughness' }],
-    )).toBe(20 + 5); // 25
+      16,
+      14,
+    )).toBe(200 + 140 + 3 * 34);
+  });
+
+  it('omitting epicLevels defaults to 0', () => {
+    // No epic levels: 20 fighter, CON 14 → 200 + 2*20 = 240
+    expect(calculateHitPoints(
+      [{ classId: 'fighter', levels: 20 }],
+      [fighter],
+      14,
+    )).toBe(240);
   });
 });

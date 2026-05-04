@@ -67,7 +67,7 @@ function loadGameData() {
 
   return {
     classes, races, feats, bonusTypes, enhancementTrees,
-    itemBuffs, setBonuses, itemSetIndex,
+    itemBuffs, setBonuses, itemSetIndex, augments: [], filigrees: [], filigreeSetBonuses: [], selfPartyBuffs: [],
   };
 }
 
@@ -124,6 +124,59 @@ describe('enhancement source walker', () => {
     // Pain Touch I: +5 MeleePower + 10 Healing Amp. The walker fires once with rank=1.
     expect(r.meleePower.total).toBe(5);
     expect(r.healingAmp.total).toBe(10);
+  });
+
+  it('runEngine surfaces a selector-granted SLA in EngineResult.slas', async () => {
+    const { runEngine } = await import('@/engine/runEngine');
+    const build = syntheticBuild({
+      classes: [{ classId: 'rogue', levels: 17 }, { classId: 'arcane_trickster', levels: 3 }],
+      enhancements: [{
+        treeId: 'Arcane Trickster',
+        enhancements: [{
+          enhancementId: 'ArcaneTricksterCore2',
+          selection: 'Stolen Spell - Conjure Bolts',
+          tier: 0, rank: 1,
+        }],
+      }],
+    });
+    const r = runEngine({ build, ...gameData });
+    const sla = r.slas.find(s => s.name === 'Conjure Bolts');
+    expect(sla).toBeDefined();
+    expect(sla!.castingClass).toBe('Arcane Trickster');
+    expect(sla!.cost).toBe(2);
+    expect(sla!.cooldown).toBe(6);
+  });
+
+  it('emits the selection.effects[] for a selector enhancement (Stolen Spell)', () => {
+    // Stolen Spell I in the Arcane Trickster tree — selection picks an SLA.
+    const tree = gameData.enhancementTrees.find(t => t.name === 'Arcane Trickster');
+    expect(tree).toBeDefined();
+    const item = tree!.items.find(i => i.internalName === 'ArcaneTricksterCore2');
+    expect(item).toBeDefined();
+    expect(item!.selector).not.toBeNull();
+    const conjureBolts = item!.selector!.find(s => s.name === 'Stolen Spell - Conjure Bolts');
+    expect(conjureBolts).toBeDefined();
+    expect(conjureBolts!.effects[0]?.types).toEqual(['SpellLikeAbility']);
+
+    const build = syntheticBuild({
+      classes: [{ classId: 'rogue', levels: 17 }, { classId: 'arcane_trickster', levels: 3 }],
+      enhancements: [{
+        treeId: 'Arcane Trickster',
+        enhancements: [{
+          enhancementId: 'ArcaneTricksterCore2',
+          selection: 'Stolen Spell - Conjure Bolts',
+          tier: 0, rank: 1,
+        }],
+      }],
+    });
+
+    const r = collectEffects({ build, ...gameData });
+    expect(r.unmatchedEnhancements).toEqual([]);
+    const slaEffect = r.effects.find(e =>
+      e.effect.types.includes('SpellLikeAbility') &&
+      e.effect.items?.includes('Conjure Bolts'));
+    expect(slaEffect).toBeDefined();
+    expect(slaEffect!.source).toContain('Stolen Spell - Conjure Bolts');
   });
 
   it('routes through selector when selection is provided', () => {

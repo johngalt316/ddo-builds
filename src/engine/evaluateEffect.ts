@@ -91,6 +91,10 @@ function passesRequirement(req: { type: string; item?: string; value?: number },
       return lvl >= value;
     }
     case 'TotalLevel':
+    case 'SpecificLevel':
+    case 'CharacterLevel':
+      // Three flavors of "character has reached level X" — DDO data uses
+      // them interchangeably. All compare against current character level.
       return ctx.totalLevel >= value;
     case 'Race':
       return ctx.raceName.toLowerCase() === item.toLowerCase()
@@ -222,12 +226,16 @@ export function evaluateEffect(
     return { bonuses: [], skipped: 'no-amount' };
   }
 
-  // Per-rank scaling: Simple/NotNeeded effects emit a per-rank value, so
-  // an enhancement taken at rank 3 with Amount=1 contributes +3. Other
-  // amount types either look up by rank already (Stacks: amount[rank-1]) or
-  // return absolute values that don't scale (TotalLevel, AbilityMod, BAB, …).
-  // Feats always pass rankCount=1 so the multiplier is a no-op for them.
-  const isPerRank = amountType === 'Simple' || amountType === 'NotNeeded';
+  // Per-rank scaling. Three patterns:
+  //  - Simple / NotNeeded: amount is a single per-rank value, multiplied by
+  //    rankCount (e.g. Toughness +5 HP at rank 3 = 15).
+  //  - TotalLevel: amount[charLevel-1] is the per-stack value, multiplied by
+  //    rankCount. Mirrors DDOBuilderV2's `total = m_Amount[vi] * m_stacks`
+  //    (Effect.cpp::TotalAmount). E.g. Past Life: Primal Sphere: Ancient
+  //    Power at level 34 reads amount[33]=15 per stack × 3 stacks = 45 HP.
+  //  - Stacks / AbilityMod / BAB / ClassLevel / etc.: amount already
+  //    encodes the value for the current rank/stat — don't multiply.
+  const isPerRank = amountType === 'Simple' || amountType === 'NotNeeded' || amountType === 'TotalLevel';
   const value = isPerRank ? baseValue * rankCount : baseValue;
 
   // Cardinality: emit one Bonus per (type, item) pair. If items is empty,
@@ -244,6 +252,8 @@ export function evaluateEffect(
         source: effect.displayName ? `${source}: ${effect.displayName}` : source,
         target: item || undefined,
         effectType: type || undefined,
+        ...(effect.isPercent && { isPercent: true }),
+        ...(effect.isApplyAsItemEffect && { isItemEffect: true }),
       });
     }
   }

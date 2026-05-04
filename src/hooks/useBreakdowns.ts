@@ -21,13 +21,20 @@ export function useBreakdowns(): EngineResult | null {
   const itemBuffs = useGameDataStore(s => s.itemBuffs);
   const setBonuses = useGameDataStore(s => s.setBonuses);
   const itemSetIndex = useGameDataStore(s => s.itemSetIndex);
+  const augments = useGameDataStore(s => s.augments);
+  const filigrees = useGameDataStore(s => s.filigrees);
+  const filigreeSetBonuses = useGameDataStore(s => s.filigreeSetBonuses);
+  const selfPartyBuffs = useGameDataStore(s => s.selfPartyBuffs);
+  const guildBuffs = useGameDataStore(s => s.guildBuffs);
 
   return useMemo(() => {
     if (status !== 'ready' || classes.length === 0) return null;
     return runEngine({
       build, classes, races, feats, bonusTypes, enhancementTrees,
-      itemBuffs, setBonuses, itemSetIndex,
+      itemBuffs, setBonuses, itemSetIndex, augments,
+      filigrees, filigreeSetBonuses, selfPartyBuffs, guildBuffs,
     });
   }, [build, status, classes, races, feats, bonusTypes, enhancementTrees,
-      itemBuffs, setBonuses, itemSetIndex]);
+      itemBuffs, setBonuses, itemSetIndex, augments,
+      filigrees, filigreeSetBonuses, selfPartyBuffs, guildBuffs]);
 }

@@ -14,6 +14,23 @@ function Row({ label, result }: RowProps) {
   const applied = result.contributors.filter(c => c.applied);
   const dominated = result.contributors.filter(c => !c.applied);
 
+  // Flat subtotal = sum of all *applied non-percent* bonuses. Percent
+  // contributions display as "+X% (+Y)" where Y = round(flatSubtotal × X/100).
+  // This matches stackBonuses' calc and lets users see both the % and the
+  // actual flat HP delta a percent buff contributes.
+  const flatSubtotal = applied
+    .filter(c => !c.isPercent)
+    .reduce((s, c) => s + c.value, 0);
+  const fmtValue = (c: { value: number; isPercent?: boolean }): string => {
+    if (c.isPercent) {
+      const flat = Math.round(flatSubtotal * c.value / 100);
+      const sign = c.value >= 0 ? '+' : '';
+      const flatSign = flat >= 0 ? '+' : '';
+      return `${sign}${c.value}% (${flatSign}${flat})`;
+    }
+    return c.value > 0 ? `+${c.value}` : `${c.value}`;
+  };
+
   return (
     <div className={styles.row}>
       <button
@@ -49,9 +66,7 @@ function Row({ label, result }: RowProps) {
                     <td>{c.source}</td>
                     <td>{c.bonusType || <span className={styles.muted}>untyped</span>}</td>
                     <td>{c.target ?? ''}</td>
-                    <td className={styles.numCol}>
-                      {c.value > 0 ? `+${c.value}` : c.value}
-                    </td>
+                    <td className={styles.numCol}>{fmtValue(c)}</td>
                   </tr>
                 ))}
               </tbody>
@@ -66,7 +81,7 @@ function Row({ label, result }: RowProps) {
                     <tr key={`d-${i}`} className={styles.dominatedRow}>
                       <td>{c.source}</td>
                       <td>{c.bonusType}</td>
-                      <td className={styles.numCol}>+{c.value}</td>
+                      <td className={styles.numCol}>{fmtValue(c)}</td>
                       <td className={styles.muted}>← dominated by {c.dominatedBy ?? 'unknown'}</td>
                     </tr>
                   ))}
@@ -87,7 +102,21 @@ export function BreakdownsTab() {
     return <div className={styles.loading}>Loading game data…</div>;
   }
 
-  const { abilityScores, hitPoints, saves, meleePower, rangedPower, doublestrike, doubleshot, healingAmp, diagnostics } = r;
+  const {
+    abilityScores, hitPoints, saves,
+    meleePower, rangedPower, doublestrike, doubleshot,
+    meleeSpeed, rangedSpeed,
+    healingAmp, negativeHealingAmp, repairAmp,
+    ac, dodge, prr, mrr, spellResistance,
+    arcaneSpellFailure,
+    spellDCs, spellPenetration, casterLevel,
+    spellPowers, spellCriticalChance, spellCriticalDamage,
+    diagnostics,
+  } = r;
+  const SPELL_DAMAGE_TYPES = [
+    'Fire','Cold','Electric','Acid','Sonic','Force',
+    'Light/Alignment','Negative','Poison','Positive','Repair','Rust',
+  ] as const;
 
   return (
     <div className={styles.page}>
@@ -107,19 +136,67 @@ export function BreakdownsTab() {
 
       <section className={styles.section}>
         <h3 className={styles.heading}>Defenses</h3>
-        <Row label="Hit Points" result={hitPoints} />
-        <Row label="Fortitude"  result={saves.Fortitude} />
-        <Row label="Reflex"     result={saves.Reflex} />
-        <Row label="Will"       result={saves.Will} />
+        <Row label="Hit Points"            result={hitPoints} />
+        <Row label="Fortitude"             result={saves.Fortitude} />
+        <Row label="Reflex"                result={saves.Reflex} />
+        <Row label="Will"                  result={saves.Will} />
+        <Row label="Armor Class"           result={ac} />
+        <Row label="Dodge"                 result={dodge} />
+        <Row label="Physical Sheltering (PRR)" result={prr} />
+        <Row label="Magical Sheltering (MRR)"  result={mrr} />
+        <Row label="Spell Resistance"      result={spellResistance} />
+        <Row label="Healing Amp (Positive)" result={healingAmp} />
+        <Row label="Healing Amp (Negative)" result={negativeHealingAmp} />
+        <Row label="Healing Amp (Repair)"   result={repairAmp} />
       </section>
 
       <section className={styles.section}>
-        <h3 className={styles.heading}>Combat</h3>
+        <h3 className={styles.heading}>Melee Combat</h3>
         <Row label="Melee Power"   result={meleePower} />
-        <Row label="Ranged Power"  result={rangedPower} />
         <Row label="Doublestrike"  result={doublestrike} />
+        <Row label="Melee Combat Speed" result={meleeSpeed} />
+      </section>
+
+      <section className={styles.section}>
+        <h3 className={styles.heading}>Ranged Combat</h3>
+        <Row label="Ranged Power"  result={rangedPower} />
         <Row label="Doubleshot"    result={doubleshot} />
-        <Row label="Healing Amp"   result={healingAmp} />
+        <Row label="Ranged Combat Speed" result={rangedSpeed} />
+      </section>
+
+      <section className={styles.section}>
+        <h3 className={styles.heading}>Spellcasting</h3>
+        <Row label="Caster Level"        result={casterLevel} />
+        <Row label="Spell Penetration"   result={spellPenetration} />
+        <Row label="Arcane Spell Failure" result={arcaneSpellFailure} />
+      </section>
+
+      <section className={styles.section}>
+        <h3 className={styles.heading}>Spell DCs</h3>
+        {(['Abjuration','Conjuration','Divination','Enchantment','Evocation','Illusion','Necromancy','Transmutation'] as const).map(school => (
+          <Row key={school} label={school} result={spellDCs[school]} />
+        ))}
+      </section>
+
+      <section className={styles.section}>
+        <h3 className={styles.heading}>Spell Power</h3>
+        {SPELL_DAMAGE_TYPES.map(t => (
+          <Row key={`pow-${t}`} label={`${t} Spell Power`} result={spellPowers[t]} />
+        ))}
+      </section>
+
+      <section className={styles.section}>
+        <h3 className={styles.heading}>Spell Critical Chance</h3>
+        {SPELL_DAMAGE_TYPES.map(t => (
+          <Row key={`crit-${t}`} label={`${t} Crit Chance`} result={spellCriticalChance[t]} />
+        ))}
+      </section>
+
+      <section className={styles.section}>
+        <h3 className={styles.heading}>Spell Critical Damage</h3>
+        {SPELL_DAMAGE_TYPES.map(t => (
+          <Row key={`crd-${t}`} label={`${t} Crit Damage`} result={spellCriticalDamage[t]} />
+        ))}
       </section>
 
       <section className={styles.diagnostics}>

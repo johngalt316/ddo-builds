@@ -163,7 +163,9 @@
 <button role="tab" aria-selected="false" class="_tab_8d690e">Past Lives</button>
 <button role="tab" aria-selected="false" class="_tab_8d690e">Enhancements</button>
 <button role="tab" aria-selected="false" class="_tab_8d690e">Epic Destinies</button>
+<button role="tab" aria-selected="false" class="_tab_8d690e">Reaper</button>
 <button role="tab" aria-selected="false" class="_tab_8d690e">Skills</button>
+<button role="tab" aria-selected="false" class="_tab_8d690e">Spells</button>
 <button role="tab" aria-selected="false" class="_tab_8d690e">Breakdowns</button>
 </div>
 <div class="_content_1cd67f">
@@ -229,6 +231,7 @@
 <span class="_className_cad321">Fighter</span>
 </button>
 </div>
+<p class="_legend_cad321">Feat-slot badges: <code>S</code> Standard heroic · class-bonus and racial slot codes match feat-type initials (hover for full label). Slots are display-only here — manage feats in the Feats tab.</p>
 </section>
 </div>
 <div class="_fullWidth_1cd67f">
@@ -237,17 +240,31 @@
 <h2 class="_heading_104516">Ability Scores</h2>
 <span class="_budget_104516">32 pts remaining</span>
 </div>
-<p class="_hint_104516">Base stats before racial bonuses. 32-point buy.</p>
+<p class="_hint_104516">Score column shows your point-buy result with Human racial bonuses applied. Tomes add on top; level-ups grant +1 each at every 4th level. Hover any score to see the point-buy / racial breakdown.</p>
 <div class="_grid_104516">
+<div class="_headerRow_104516">
+<span>
+</span>
+<span class="_headerLabel_104516">Base</span>
+<span class="_headerLabel_104516">Mod</span>
+<span class="_headerLabel_104516">Tome</span>
+<span class="_headerLabel_104516">Level-ups</span>
+</div>
 <div class="_row_104516">
 <span class="_label_104516">Strength</span>
 <div class="_controls_104516">
 <button class="_btn_104516" disabled="" aria-label="Decrease Strength">−</button>
 <span class="_score_104516">8</span>
 <button class="_btn_104516" aria-label="Increase Strength">+</button>
+<span class="_cost_104516">(0 pt)</span>
 </div>
 <span class="_mod_104516">-1</span>
-<span class="_cost_104516">(0 pts)</span>
+<div class="_controls_104516">
+<button class="_btn_104516" disabled="" aria-label="Decrease Strength tome">−</button>
+<span class="_tomeValue_104516">+0</span>
+<button class="_btn_104516" aria-label="Increase Strength tome">+</button>
+</div>
+<span class="_levelUpCountEmpty_104516">—</span>
 </div>
 <div class="_row_104516">
 <span class="_label_104516">Dexterity</span>
@@ -255,9 +272,15 @@
 <button class="_btn_104516" disabled="" aria-label="Decrease Dexterity">−</button>
 <span class="_score_104516">8</span>
 <button class="_btn_104516" aria-label="Increase Dexterity">+</button>
+<span class="_cost_104516">(0 pt)</span>
 </div>
 <span class="_mod_104516">-1</span>
-<span class="_cost_104516">(0 pts)</span>
+<div class="_controls_104516">
+<button class="_btn_104516" disabled="" aria-label="Decrease Dexterity tome">−</button>
+<span class="_tomeValue_104516">+0</span>
+<button class="_btn_104516" aria-label="Increase Dexterity tome">+</button>
+</div>
+<span class="_levelUpCountEmpty_104516">—</span>
 </div>
 <div class="_row_104516">
 <span class="_label_104516">Constitution</span>
@@ -265,9 +288,15 @@
 <button class="_btn_104516" disabled="" aria-label="Decrease Constitution">−</button>
 <span class="_score_104516">8</span>
 <button class="_btn_104516" aria-label="Increase Constitution">+</button>
+<span class="_cost_104516">(0 pt)</span>
 </div>
 <span class="_mod_104516">-1</span>
-<span class="_cost_104516">(0 pts)</span>
+<div class="_controls_104516">
+<button class="_btn_104516" disabled="" aria-label="Decrease Constitution tome">−</button>
+<span class="_tomeValue_104516">+0</span>
+<button class="_btn_104516" aria-label="Increase Constitution tome">+</button>
+</div>
+<span class="_levelUpCountEmpty_104516">—</span>
 </div>
 <div class="_row_104516">
 <span class="_label_104516">Intelligence</span>
@@ -275,9 +304,15 @@
 <button class="_btn_104516" disabled="" aria-label="Decrease Intelligence">−</button>
 <span class="_score_104516">8</span>
 <button class="_btn_104516" aria-label="Increase Intelligence">+</button>
+<span class="_cost_104516">(0 pt)</span>
 </div>
 <span class="_mod_104516">-1</span>
-<span class="_cost_104516">(0 pts)</span>
+<div class="_controls_104516">
+<button class="_btn_104516" disabled="" aria-label="Decrease Intelligence tome">−</button>
+<span class="_tomeValue_104516">+0</span>
+<button class="_btn_104516" aria-label="Increase Intelligence tome">+</button>
+</div>
+<span class="_levelUpCountEmpty_104516">—</span>
 </div>
 <div class="_row_104516">
 <span class="_label_104516">Wisdom</span>
@@ -285,9 +320,15 @@
 <button class="_btn_104516" disabled="" aria-label="Decrease Wisdom">−</button>
 <span class="_score_104516">8</span>
 <button class="_btn_104516" aria-label="Increase Wisdom">+</button>
+<span class="_cost_104516">(0 pt)</span>
 </div>
 <span class="_mod_104516">-1</span>
-<span class="_cost_104516">(0 pts)</span>
+<div class="_controls_104516">
+<button class="_btn_104516" disabled="" aria-label="Decrease Wisdom tome">−</button>
+<span class="_tomeValue_104516">+0</span>
+<button class="_btn_104516" aria-label="Increase Wisdom tome">+</button>
+</div>
+<span class="_levelUpCountEmpty_104516">—</span>
 </div>
 <div class="_row_104516">
 <span class="_label_104516">Charisma</span>
@@ -295,80 +336,36 @@
 <button class="_btn_104516" disabled="" aria-label="Decrease Charisma">−</button>
 <span class="_score_104516">8</span>
 <button class="_btn_104516" aria-label="Increase Charisma">+</button>
+<span class="_cost_104516">(0 pt)</span>
 </div>
 <span class="_mod_104516">-1</span>
-<span class="_cost_104516">(0 pts)</span>
+<div class="_controls_104516">
+<button class="_btn_104516" disabled="" aria-label="Decrease Charisma tome">−</button>
+<span class="_tomeValue_104516">+0</span>
+<button class="_btn_104516" aria-label="Increase Charisma tome">+</button>
+</div>
+<span class="_levelUpCountEmpty_104516">—</span>
 </div>
 </div>
-</section>
+<div class="_subHeader_104516">
+<h3 class="_subHeading_104516">Level-Up Assignments</h3>
+<label class="_fillAllLabel_104516">Fill all reached:<select class="_select_104516" aria-label="Apply one stat to every reached level-up tier">
+<option value="">— pick a stat —</option>
+<option value="STR">Strength</option>
+<option value="DEX">Dexterity</option>
+<option value="CON">Constitution</option>
+<option value="INT">Intelligence</option>
+<option value="WIS">Wisdom</option>
+<option value="CHA">Charisma</option>
+<option value="__clear__">(clear all)</option>
+</select>
+</label>
 </div>
-<div class="_fullWidth_1cd67f">
-<section class="_panel_dc9207">
-<h3 class="_heading_dc9207">Tomes &amp; Level-Ups</h3>
-<div class="_grid_dc9207">
-<div class="_col_dc9207">
-<h4 class="_colHeading_dc9207">Ability Tomes</h4>
-<table class="_tomeTable_dc9207">
-<tbody>
-<tr>
-<td class="_tomeName_dc9207">Strength</td>
-<td class="_tomeControls_dc9207">
-<button class="_btn_dc9207" disabled="" aria-label="Decrease Strength tome">−</button>
-<span class="_tomeValue_dc9207">+0</span>
-<button class="_btn_dc9207" aria-label="Increase Strength tome">+</button>
-</td>
-</tr>
-<tr>
-<td class="_tomeName_dc9207">Dexterity</td>
-<td class="_tomeControls_dc9207">
-<button class="_btn_dc9207" disabled="" aria-label="Decrease Dexterity tome">−</button>
-<span class="_tomeValue_dc9207">+0</span>
-<button class="_btn_dc9207" aria-label="Increase Dexterity tome">+</button>
-</td>
-</tr>
-<tr>
-<td class="_tomeName_dc9207">Constitution</td>
-<td class="_tomeControls_dc9207">
-<button class="_btn_dc9207" disabled="" aria-label="Decrease Constitution tome">−</button>
-<span class="_tomeValue_dc9207">+0</span>
-<button class="_btn_dc9207" aria-label="Increase Constitution tome">+</button>
-</td>
-</tr>
-<tr>
-<td class="_tomeName_dc9207">Intelligence</td>
-<td class="_tomeControls_dc9207">
-<button class="_btn_dc9207" disabled="" aria-label="Decrease Intelligence tome">−</button>
-<span class="_tomeValue_dc9207">+0</span>
-<button class="_btn_dc9207" aria-label="Increase Intelligence tome">+</button>
-</td>
-</tr>
-<tr>
-<td class="_tomeName_dc9207">Wisdom</td>
-<td class="_tomeControls_dc9207">
-<button class="_btn_dc9207" disabled="" aria-label="Decrease Wisdom tome">−</button>
-<span class="_tomeValue_dc9207">+0</span>
-<button class="_btn_dc9207" aria-label="Increase Wisdom tome">+</button>
-</td>
-</tr>
-<tr>
-<td class="_tomeName_dc9207">Charisma</td>
-<td class="_tomeControls_dc9207">
-<button class="_btn_dc9207" disabled="" aria-label="Decrease Charisma tome">−</button>
-<span class="_tomeValue_dc9207">+0</span>
-<button class="_btn_dc9207" aria-label="Increase Charisma tome">+</button>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="_col_dc9207">
-<h4 class="_colHeading_dc9207">Level-Up Assignments</h4>
-<table class="_levelTable_dc9207">
-<tbody>
-<tr class="_dimRow_dc9207">
-<td class="_levelLabel_dc9207">Level 4</td>
-<td>
-<select class="_select_dc9207" disabled="" aria-label="Level 4 ability assignment">
+<p class="_subHint_104516">Pick a stat at every 4 levels. Each grants +1 to that ability. Tiers above the build's level (charLevel 1) are dimmed but editable for planning.</p>
+<div class="_levelUpGrid_104516">
+<label class="_levelUpRowDim_104516">
+<span class="_levelUpLabel_104516">L4</span>
+<select class="_select_104516" aria-label="Level 4 ability assignment">
 <option value="">—</option>
 <option value="STR">Strength</option>
 <option value="DEX">Dexterity</option>
@@ -377,12 +374,10 @@
 <option value="WIS">Wisdom</option>
 <option value="CHA">Charisma</option>
 </select>
-</td>
-</tr>
-<tr class="_dimRow_dc9207">
-<td class="_levelLabel_dc9207">Level 8</td>
-<td>
-<select class="_select_dc9207" disabled="" aria-label="Level 8 ability assignment">
+</label>
+<label class="_levelUpRowDim_104516">
+<span class="_levelUpLabel_104516">L8</span>
+<select class="_select_104516" aria-label="Level 8 ability assignment">
 <option value="">—</option>
 <option value="STR">Strength</option>
 <option value="DEX">Dexterity</option>
@@ -391,12 +386,10 @@
 <option value="WIS">Wisdom</option>
 <option value="CHA">Charisma</option>
 </select>
-</td>
-</tr>
-<tr class="_dimRow_dc9207">
-<td class="_levelLabel_dc9207">Level 12</td>
-<td>
-<select class="_select_dc9207" disabled="" aria-label="Level 12 ability assignment">
+</label>
+<label class="_levelUpRowDim_104516">
+<span class="_levelUpLabel_104516">L12</span>
+<select class="_select_104516" aria-label="Level 12 ability assignment">
 <option value="">—</option>
 <option value="STR">Strength</option>
 <option value="DEX">Dexterity</option>
@@ -405,12 +398,10 @@
 <option value="WIS">Wisdom</option>
 <option value="CHA">Charisma</option>
 </select>
-</td>
-</tr>
-<tr class="_dimRow_dc9207">
-<td class="_levelLabel_dc9207">Level 16</td>
-<td>
-<select class="_select_dc9207" disabled="" aria-label="Level 16 ability assignment">
+</label>
+<label class="_levelUpRowDim_104516">
+<span class="_levelUpLabel_104516">L16</span>
+<select class="_select_104516" aria-label="Level 16 ability assignment">
 <option value="">—</option>
 <option value="STR">Strength</option>
 <option value="DEX">Dexterity</option>
@@ -419,12 +410,10 @@
 <option value="WIS">Wisdom</option>
 <option value="CHA">Charisma</option>
 </select>
-</td>
-</tr>
-<tr class="_dimRow_dc9207">
-<td class="_levelLabel_dc9207">Level 20</td>
-<td>
-<select class="_select_dc9207" disabled="" aria-label="Level 20 ability assignment">
+</label>
+<label class="_levelUpRowDim_104516">
+<span class="_levelUpLabel_104516">L20</span>
+<select class="_select_104516" aria-label="Level 20 ability assignment">
 <option value="">—</option>
 <option value="STR">Strength</option>
 <option value="DEX">Dexterity</option>
@@ -433,11 +422,67 @@
 <option value="WIS">Wisdom</option>
 <option value="CHA">Charisma</option>
 </select>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
+</label>
+<label class="_levelUpRowDim_104516">
+<span class="_levelUpLabel_104516">L24</span>
+<select class="_select_104516" aria-label="Level 24 ability assignment">
+<option value="">—</option>
+<option value="STR">Strength</option>
+<option value="DEX">Dexterity</option>
+<option value="CON">Constitution</option>
+<option value="INT">Intelligence</option>
+<option value="WIS">Wisdom</option>
+<option value="CHA">Charisma</option>
+</select>
+</label>
+<label class="_levelUpRowDim_104516">
+<span class="_levelUpLabel_104516">L28</span>
+<select class="_select_104516" aria-label="Level 28 ability assignment">
+<option value="">—</option>
+<option value="STR">Strength</option>
+<option value="DEX">Dexterity</option>
+<option value="CON">Constitution</option>
+<option value="INT">Intelligence</option>
+<option value="WIS">Wisdom</option>
+<option value="CHA">Charisma</option>
+</select>
+</label>
+<label class="_levelUpRowDim_104516">
+<span class="_levelUpLabel_104516">L32</span>
+<select class="_select_104516" aria-label="Level 32 ability assignment">
+<option value="">—</option>
+<option value="STR">Strength</option>
+<option value="DEX">Dexterity</option>
+<option value="CON">Constitution</option>
+<option value="INT">Intelligence</option>
+<option value="WIS">Wisdom</option>
+<option value="CHA">Charisma</option>
+</select>
+</label>
+<label class="_levelUpRowDim_104516">
+<span class="_levelUpLabel_104516">L36</span>
+<select class="_select_104516" aria-label="Level 36 ability assignment">
+<option value="">—</option>
+<option value="STR">Strength</option>
+<option value="DEX">Dexterity</option>
+<option value="CON">Constitution</option>
+<option value="INT">Intelligence</option>
+<option value="WIS">Wisdom</option>
+<option value="CHA">Charisma</option>
+</select>
+</label>
+<label class="_levelUpRowDim_104516">
+<span class="_levelUpLabel_104516">L40</span>
+<select class="_select_104516" aria-label="Level 40 ability assignment">
+<option value="">—</option>
+<option value="STR">Strength</option>
+<option value="DEX">Dexterity</option>
+<option value="CON">Constitution</option>
+<option value="INT">Intelligence</option>
+<option value="WIS">Wisdom</option>
+<option value="CHA">Charisma</option>
+</select>
+</label>
 </div>
 </section>
 </div>
@@ -451,7 +496,83 @@
 <span class="_title_0b2b7c">Gear</span>
 </button>
 <div class="_body_0b2b7c">
-<div class="_empty_0b2b7c">No gear loaded. Import a .DDOBuild file to populate gear sets.</div>
+<div class="_empty_0b2b7c">
+<p>No gear set yet. Double-click any slot to find an item, or import a .DDOBuild file.</p>
+<div class="_slotGrid_0b2b7c">
+<button class="_slot_0b2b7c _slotEmpty_0b2b7c" title="Goggles — double-click to find an item">
+<span class="_slotLabel_0b2b7c">Goggles</span>
+<span class="_slotEmptyText_0b2b7c">+</span>
+</button>
+<button class="_slot_0b2b7c _slotEmpty_0b2b7c" title="Helmet — double-click to find an item">
+<span class="_slotLabel_0b2b7c">Helmet</span>
+<span class="_slotEmptyText_0b2b7c">+</span>
+</button>
+<button class="_slot_0b2b7c _slotEmpty_0b2b7c" title="Necklace — double-click to find an item">
+<span class="_slotLabel_0b2b7c">Necklace</span>
+<span class="_slotEmptyText_0b2b7c">+</span>
+</button>
+<button class="_slot_0b2b7c _slotEmpty_0b2b7c" title="Trinket — double-click to find an item">
+<span class="_slotLabel_0b2b7c">Trinket</span>
+<span class="_slotEmptyText_0b2b7c">+</span>
+</button>
+<button class="_slot_0b2b7c _slotEmpty_0b2b7c" title="Armor — double-click to find an item">
+<span class="_slotLabel_0b2b7c">Armor</span>
+<span class="_slotEmptyText_0b2b7c">+</span>
+</button>
+<div class="_slotSpacer_0b2b7c" aria-hidden="true">
+</div>
+<div class="_slotSpacer_0b2b7c" aria-hidden="true">
+</div>
+<button class="_slot_0b2b7c _slotEmpty_0b2b7c" title="Cloak — double-click to find an item">
+<span class="_slotLabel_0b2b7c">Cloak</span>
+<span class="_slotEmptyText_0b2b7c">+</span>
+</button>
+<button class="_slot_0b2b7c _slotEmpty_0b2b7c" title="Bracers — double-click to find an item">
+<span class="_slotLabel_0b2b7c">Bracers</span>
+<span class="_slotEmptyText_0b2b7c">+</span>
+</button>
+<div class="_slotSpacer_0b2b7c" aria-hidden="true">
+</div>
+<div class="_slotSpacer_0b2b7c" aria-hidden="true">
+</div>
+<button class="_slot_0b2b7c _slotEmpty_0b2b7c" title="Belt — double-click to find an item">
+<span class="_slotLabel_0b2b7c">Belt</span>
+<span class="_slotEmptyText_0b2b7c">+</span>
+</button>
+<button class="_slot_0b2b7c _slotEmpty_0b2b7c" title="Ring1 — double-click to find an item">
+<span class="_slotLabel_0b2b7c">Ring1</span>
+<span class="_slotEmptyText_0b2b7c">+</span>
+</button>
+<button class="_slot_0b2b7c _slotEmpty_0b2b7c" title="Boots — double-click to find an item">
+<span class="_slotLabel_0b2b7c">Boots</span>
+<span class="_slotEmptyText_0b2b7c">+</span>
+</button>
+<button class="_slot_0b2b7c _slotEmpty_0b2b7c" title="Gloves — double-click to find an item">
+<span class="_slotLabel_0b2b7c">Gloves</span>
+<span class="_slotEmptyText_0b2b7c">+</span>
+</button>
+<button class="_slot_0b2b7c _slotEmpty_0b2b7c" title="Ring2 — double-click to find an item">
+<span class="_slotLabel_0b2b7c">Ring2</span>
+<span class="_slotEmptyText_0b2b7c">+</span>
+</button>
+<button class="_slot_0b2b7c _slotEmpty_0b2b7c" title="MainHand — double-click to find an item">
+<span class="_slotLabel_0b2b7c">MainHand</span>
+<span class="_slotEmptyText_0b2b7c">+</span>
+</button>
+<button class="_slot_0b2b7c _slotEmpty_0b2b7c" title="OffHand — double-click to find an item">
+<span class="_slotLabel_0b2b7c">OffHand</span>
+<span class="_slotEmptyText_0b2b7c">+</span>
+</button>
+<button class="_slot_0b2b7c _slotEmpty_0b2b7c" title="Quiver — double-click to find an item">
+<span class="_slotLabel_0b2b7c">Quiver</span>
+<span class="_slotEmptyText_0b2b7c">+</span>
+</button>
+<button class="_slot_0b2b7c _slotEmpty_0b2b7c" title="Arrow — double-click to find an item">
+<span class="_slotLabel_0b2b7c">Arrow</span>
+<span class="_slotEmptyText_0b2b7c">+</span>
+</button>
+</div>
+</div>
 </div>
 </section>
 </div>

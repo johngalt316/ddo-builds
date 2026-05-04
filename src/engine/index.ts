@@ -1,6 +1,6 @@
 export { abilityModifier, applyRacialBonuses, applyAbilityTomes, applyLevelUps, pointBuyCost, totalPointBuyCost } from './abilityScores';
 export { calculateBAB } from './bab';
-export { calculateHitPoints } from './hitPoints';
+export { calculateHitPoints, classHitPoints } from './hitPoints';
 export { calculateSaves } from './saves';
 export type { Saves } from './saves';
 export {

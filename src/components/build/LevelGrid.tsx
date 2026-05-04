@@ -5,6 +5,7 @@ import { useBuildStore } from '@/store/buildStore';
 import { ddoClassDataToEngineClass, nameToId } from '@/utils/classAdapter';
 import { classIconUrl } from '@/utils/ddoXmlParser';
 import { resolveLevelClasses } from '@/utils/levelClasses';
+import { computeFeatSlots, groupSlotsByLevel, shortFeatType } from '@/utils/featSlots';
 import type { DDOClass } from '@/types/gameData';
 import classesJson from '@/data/classes.json';
 import styles from './LevelGrid.module.css';
@@ -41,6 +42,14 @@ export function LevelGrid() {
 
   const levels = useMemo(() => resolveLevelClasses(build), [build]);
 
+  // Compute feat slots per character level (display-only for now; the
+  // FeatsTab still owns interactive feat selection. See PORT_PLAN §3 follow-ups).
+  const slotsByLevel = useMemo(() => {
+    if (gameData.status !== 'ready') return new Map<number, ReturnType<typeof computeFeatSlots>>();
+    const all = computeFeatSlots(build.classes, gameData.classes, gameData.races, build.raceId);
+    return groupSlotsByLevel(all);
+  }, [build.classes, build.raceId, gameData.classes, gameData.races, gameData.status]);
+
   function classIcon(classId: string): string | null {
     const cls = gameData.classes.find(c => nameToId(c.name) === classId);
     return cls ? classIconUrl(cls.smallIcon || cls.largeIcon, false) : null;
@@ -68,6 +77,7 @@ export function LevelGrid() {
         {levels.slice(0, MAX_HEROIC_LEVEL).map((classId, i) => {
           const level = i + 1;
           const icon = classIcon(classId);
+          const slots = slotsByLevel.get(level) ?? [];
           return (
             <button
               key={i}
@@ -82,10 +92,28 @@ export function LevelGrid() {
                        onError={e => { (e.target as HTMLImageElement).style.display = 'none'; }} />
                 : <span className={styles.classIconPlaceholder} />}
               <span className={styles.className}>{className(classId)}</span>
+              {slots.length > 0 && (
+                <span className={styles.slotBadges}>
+                  {slots.map(s => (
+                    <span
+                      key={s.slotKey}
+                      className={styles.slotBadge}
+                      title={`${s.featType} — granted by ${s.source}`}
+                    >
+                      {shortFeatType(s.featType)}
+                    </span>
+                  ))}
+                </span>
+              )}
             </button>
           );
         })}
       </div>
+      <p className={styles.legend}>
+        Feat-slot badges: <code>S</code> Standard heroic ·
+        class-bonus and racial slot codes match feat-type initials (hover for full label).
+        Slots are display-only here — manage feats in the Feats tab.
+      </p>
 
       {picker !== null && (
         <div className={styles.pickerOverlay} onClick={() => setPicker(null)}>

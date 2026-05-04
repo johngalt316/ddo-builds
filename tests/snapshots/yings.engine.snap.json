@@ -1,0 +1,4775 @@
+{
+  "diagnostics": {
+    "unmatchedFeats": [],
+    "unmatchedTrees": [],
+    "unmatchedEnhancements": [],
+    "unmatchedItemBuffs": [],
+    "unmatchedSets": [],
+    "unmatchedAugments": [],
+    "unmatchedFiligrees": [],
+    "unmatchedFiligreeSets": [],
+    "unmodeledAmountTypes": {
+      "Slider": 2,
+      "SliderValue": 3
+    },
+    "requirementsFailedCount": 106,
+    "totalSourcedEffects": 1104,
+    "totalAppliedBonuses": 1335
+  },
+  "abilityScores": {
+    "STR": {
+      "total": 20,
+      "appliedCount": 12,
+      "dominatedCount": 4,
+      "sources": [
+        {
+          "source": "base + racial",
+          "bonusType": "(untyped)",
+          "value": 17
+        },
+        {
+          "source": "Aasimar: Fallen Bond",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "Strength"
+        },
+        {
+          "source": "Monk 1: Ocean Stance: Ocean Stance: Strength Penalty",
+          "bonusType": "Feat",
+          "value": -2,
+          "target": "Strength"
+        },
+        {
+          "source": "Monk 6: Adept of Forms: Ocean Stance: Strength Penalty",
+          "bonusType": "Feat",
+          "value": -2,
+          "target": "Strength"
+        },
+        {
+          "source": "Monk 12: Master of Forms: Ocean Stance: Strength Penalty",
+          "bonusType": "Feat",
+          "value": -2,
+          "target": "Strength"
+        },
+        {
+          "source": "Monk 18: Grandmaster of Forms: Ocean Stance: Strength Penalty",
+          "bonusType": "Feat",
+          "value": -2,
+          "target": "Strength"
+        },
+        {
+          "source": "Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Globe of True Imperial Blood",
+          "bonusType": "Exceptional",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[PL] Past Life: Half-Orc ×3",
+          "bonusType": "Stacking",
+          "value": 1,
+          "target": "Strength"
+        },
+        {
+          "source": "[F] Sucker Punch/One Against Many +2 Strength",
+          "bonusType": "Stacking",
+          "value": 2,
+          "target": "Strength"
+        },
+        {
+          "source": "[FA] Sucker Punch/One Against Many +2 Strength",
+          "bonusType": "Stacking",
+          "value": 2,
+          "target": "Strength"
+        },
+        {
+          "source": "[Guild] Floating Rock Garden",
+          "bonusType": "Guild",
+          "value": 2,
+          "target": "Strength"
+        }
+      ]
+    },
+    "DEX": {
+      "total": 57,
+      "appliedCount": 17,
+      "dominatedCount": 2,
+      "sources": [
+        {
+          "source": "base + racial",
+          "bonusType": "(untyped)",
+          "value": 22
+        },
+        {
+          "source": "Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[D] Fury of the Wild: Fury of the Wild: Fury Selector → Spirit of the Beast: Animal Growth + Spirit of the Beast",
+          "bonusType": "Penalty",
+          "value": 0,
+          "target": "Dexterity"
+        },
+        {
+          "source": "[R] Dread Adversary: Reaper's Strength or Dexterity I → +1 Dexterity",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "Dexterity"
+        },
+        {
+          "source": "[R] Dread Adversary: Reaper's Strength or Dexterity II → +1 Dexterity",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "Dexterity"
+        },
+        {
+          "source": "[R] Dread Adversary: Reaper's Offense III → +1 Dexterity",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "Dexterity"
+        },
+        {
+          "source": "[R] Dread Adversary: Reaper's Strength or Dexterity III → +1 Dexterity",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "Dexterity"
+        },
+        {
+          "source": "[R] Dread Adversary: Reaper's Strength or Dexterity IV → +1 Dexterity",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "Dexterity"
+        },
+        {
+          "source": "[G] Helmet: Legendary Dread Stalker's Skullcap (AbilityBonus: Dexterity)",
+          "bonusType": "Insightful",
+          "value": 6,
+          "target": "Dexterity"
+        },
+        {
+          "source": "[G] Cloak: Legendary Dread Stalker's Cloak (AbilityBonus: Dexterity)",
+          "bonusType": "Enhancement",
+          "value": 14,
+          "target": "Dexterity"
+        },
+        {
+          "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Globe of True Imperial Blood",
+          "bonusType": "Exceptional",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Paradoxical Puzzle Box",
+          "bonusType": "Guild",
+          "value": 2,
+          "target": "Dexterity"
+        },
+        {
+          "source": "[PL] Past Life: Elf ×3",
+          "bonusType": "Stacking",
+          "value": 1,
+          "target": "Dexterity"
+        },
+        {
+          "source": "[PL] Past Life: Halfling ×3",
+          "bonusType": "Stacking",
+          "value": 1,
+          "target": "Dexterity"
+        },
+        {
+          "source": "[PL] Past Life: Shifter ×3",
+          "bonusType": "Stacking",
+          "value": 1,
+          "target": "Dexterity"
+        },
+        {
+          "source": "[PL] Past Life: Tabaxi ×3",
+          "bonusType": "Stacking",
+          "value": 1,
+          "target": "Dexterity"
+        },
+        {
+          "source": "[PL] Past Life: Eladrin ×3",
+          "bonusType": "Stacking",
+          "value": 1,
+          "target": "Dexterity"
+        }
+      ]
+    },
+    "CON": {
+      "total": 59,
+      "appliedCount": 14,
+      "dominatedCount": 3,
+      "sources": [
+        {
+          "source": "base + racial",
+          "bonusType": "(untyped)",
+          "value": 25
+        },
+        {
+          "source": "Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[R] Grim Barricade: Reaper's Constitution I",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "Constitution"
+        },
+        {
+          "source": "[R] Grim Barricade: Reaper's Constitution II",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "Constitution"
+        },
+        {
+          "source": "[R] Grim Barricade: Reaper's Defense III",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "Constitution"
+        },
+        {
+          "source": "[R] Grim Barricade: Reaper's Constitution III",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "Constitution"
+        },
+        {
+          "source": "[R] Grim Barricade: Reaper's Constitution V",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "Constitution"
+        },
+        {
+          "source": "[G] Ring1: Legendary Ring of Mystic Constitution (AbilityBonus: Constitution)",
+          "bonusType": "Quality",
+          "value": 3,
+          "target": "Constitution"
+        },
+        {
+          "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Globe of True Imperial Blood",
+          "bonusType": "Exceptional",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[A] Cloak: Legendary Dread Stalker's Cloak → Diamond of Insightful Constitution",
+          "bonusType": "Insightful",
+          "value": 5,
+          "target": "Constitution"
+        },
+        {
+          "source": "[A] Gloves: Gauntlets of the Stormreaver → Diamond of Constitution",
+          "bonusType": "Enhancement",
+          "value": 14,
+          "target": "Constitution"
+        },
+        {
+          "source": "[Guild] Old Sully's Grog Cellar",
+          "bonusType": "Guild",
+          "value": 2,
+          "target": "Constitution"
+        },
+        {
+          "source": "[PL] Past Life: Dwarf ×3",
+          "bonusType": "Stacking",
+          "value": 1,
+          "target": "Constitution"
+        },
+        {
+          "source": "[PL] Past Life: Warforged ×3",
+          "bonusType": "Stacking",
+          "value": 1,
+          "target": "Constitution"
+        }
+      ]
+    },
+    "INT": {
+      "total": 23,
+      "appliedCount": 6,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "base + racial",
+          "bonusType": "(untyped)",
+          "value": 16
+        },
+        {
+          "source": "Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Globe of True Imperial Blood",
+          "bonusType": "Exceptional",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Paradoxical Puzzle Box",
+          "bonusType": "Guild",
+          "value": 2,
+          "target": "Intelligence"
+        },
+        {
+          "source": "[PL] Past Life: Drow ×3",
+          "bonusType": "Stacking",
+          "value": 1,
+          "target": "Intelligence"
+        },
+        {
+          "source": "[PL] Past Life: Gnome ×3",
+          "bonusType": "Stacking",
+          "value": 1,
+          "target": "Intelligence"
+        }
+      ]
+    },
+    "WIS": {
+      "total": 99,
+      "appliedCount": 27,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "base + racial",
+          "bonusType": "(untyped)",
+          "value": 38
+        },
+        {
+          "source": "Monk 1: Ocean Stance: Ocean Stance: Wisdom",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "Wisdom"
+        },
+        {
+          "source": "Monk 6: Adept of Forms: Ocean Stance: Wisdom",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "Wisdom"
+        },
+        {
+          "source": "Monk 12: Master of Forms: Ocean Stance: Wisdom",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "Wisdom"
+        },
+        {
+          "source": "Monk 18: Grandmaster of Forms: Ocean Stance: Wisdom",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "Wisdom"
+        },
+        {
+          "source": "Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[E] Aasimar: Aasimar: Ability I → +1 Wisdom",
+          "bonusType": "Enhancement",
+          "value": 1,
+          "target": "Wisdom"
+        },
+        {
+          "source": "[E] Aasimar: Aasimar: Ability II → +1 Wisdom",
+          "bonusType": "Enhancement",
+          "value": 1,
+          "target": "Wisdom"
+        },
+        {
+          "source": "[E] Henshin Mystic: Henshin Mystic: Ability I → +1 Wisdom",
+          "bonusType": "Enhancement",
+          "value": 1,
+          "target": "Wisdom"
+        },
+        {
+          "source": "[E] Henshin Mystic: Henshin Mystic: Ability II → +1 Wisdom",
+          "bonusType": "Enhancement",
+          "value": 1,
+          "target": "Wisdom"
+        },
+        {
+          "source": "[E] Shintao: Shintao: Ability I → +1 Wisdom",
+          "bonusType": "Enhancement",
+          "value": 1,
+          "target": "Wisdom"
+        },
+        {
+          "source": "[E] Shintao: Shintao: Ability II → +1 Wisdom",
+          "bonusType": "Enhancement",
+          "value": 1,
+          "target": "Wisdom"
+        },
+        {
+          "source": "[E] Shintao: Shintao: To Seek Perfection",
+          "bonusType": "Enhancement",
+          "value": 4,
+          "target": "Wisdom"
+        },
+        {
+          "source": "[A] Bracers: Bracers of the Battlerager → Wisdom +15",
+          "bonusType": "Enhancement",
+          "value": 15,
+          "target": "Wisdom"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reapers's Ability I → +1 Wisdom",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "Wisdom"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Ability II → +1 Wisdom",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "Wisdom"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcanum III → +1 Wisdom",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "Wisdom"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Ability III → +1 Wisdom",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "Wisdom"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Ability V → +1 Wisdom",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "Wisdom"
+        },
+        {
+          "source": "[G] Trinket: Legendary Fragment of a Flayed Mind (AbilityBonus: Wisdom)",
+          "bonusType": "Quality",
+          "value": 3,
+          "target": "Wisdom"
+        },
+        {
+          "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Globe of True Imperial Blood",
+          "bonusType": "Exceptional",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[A] Belt: Ophael's Cincture → Insightful Wisdom +7",
+          "bonusType": "Insightful",
+          "value": 7,
+          "target": "Wisdom"
+        },
+        {
+          "source": "[A] Belt: Ophael's Cincture → Lunar Gem of Wisdom (Legendary)",
+          "bonusType": "Profane",
+          "value": 4,
+          "target": "Wisdom"
+        },
+        {
+          "source": "[A] Armor: Dinosaur Bone Outfit → +2 Festive Wisdom",
+          "bonusType": "Festive",
+          "value": 2,
+          "target": "Wisdom"
+        },
+        {
+          "source": "[Guild] Floating Rock Garden",
+          "bonusType": "Guild",
+          "value": 2,
+          "target": "Wisdom"
+        },
+        {
+          "source": "[PL] Past Life: Aasimar ×3",
+          "bonusType": "Stacking",
+          "value": 1,
+          "target": "Wisdom"
+        },
+        {
+          "source": "[PL] Past Life: Human ×3",
+          "bonusType": "Stacking",
+          "value": 1,
+          "target": "Wisdom"
+        }
+      ]
+    },
+    "CHA": {
+      "total": 24,
+      "appliedCount": 7,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "base + racial",
+          "bonusType": "(untyped)",
+          "value": 16
+        },
+        {
+          "source": "Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Globe of True Imperial Blood",
+          "bonusType": "Exceptional",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Old Sully's Grog Cellar",
+          "bonusType": "Guild",
+          "value": 2,
+          "target": "Charisma"
+        },
+        {
+          "source": "[PL] Past Life: Dragonborn ×3",
+          "bonusType": "Stacking",
+          "value": 1,
+          "target": "Charisma"
+        },
+        {
+          "source": "[PL] Past Life: Half-Elf ×3",
+          "bonusType": "Stacking",
+          "value": 1,
+          "target": "Charisma"
+        },
+        {
+          "source": "[PL] Past Life: Tiefling ×3",
+          "bonusType": "Stacking",
+          "value": 1,
+          "target": "Charisma"
+        }
+      ]
+    }
+  },
+  "hitPoints": {
+    "total": 2954,
+    "appliedCount": 38,
+    "dominatedCount": 0,
+    "sources": [
+      {
+        "source": "class hit dice",
+        "bonusType": "(untyped)",
+        "value": 300
+      },
+      {
+        "source": "Two Weapon Fighting",
+        "bonusType": "Feat",
+        "value": 1
+      },
+      {
+        "source": "Improved Two Weapon Fighting",
+        "bonusType": "Feat",
+        "value": 1
+      },
+      {
+        "source": "Greater Two Weapon Fighting",
+        "bonusType": "Feat",
+        "value": 1
+      },
+      {
+        "source": "Improved Heroic Durability (Monk 5)",
+        "bonusType": "Feat",
+        "value": 5
+      },
+      {
+        "source": "Improved Heroic Durability (Monk 10)",
+        "bonusType": "Feat",
+        "value": 5
+      },
+      {
+        "source": "Improved Heroic Durability (Monk 15)",
+        "bonusType": "Feat",
+        "value": 5
+      },
+      {
+        "source": "Heroic Durability",
+        "bonusType": "Feat",
+        "value": 30
+      },
+      {
+        "source": "[E] Henshin Mystic: Henshin Mystic: Conditioning",
+        "bonusType": "Enhancement",
+        "value": 5
+      },
+      {
+        "source": "[E] Harper Agent: Harper Agent: Traveller's Toughness",
+        "bonusType": "Enhancement",
+        "value": 5
+      },
+      {
+        "source": "[A] Ring1: Legendary Ring of Mystic Constitution → Sapphire of False Life",
+        "bonusType": "Enhancement",
+        "value": 54
+      },
+      {
+        "source": "[D] Fury of the Wild: Fury of the Wild: Die Hard",
+        "bonusType": "Destiny",
+        "value": 25
+      },
+      {
+        "source": "[D] Fury of the Wild: Fury of the Wild: Die Harder",
+        "bonusType": "Destiny",
+        "value": 25
+      },
+      {
+        "source": "[D] Fury of the Wild: Fury of the Wild: Die Harderest",
+        "bonusType": "Destiny",
+        "value": 25
+      },
+      {
+        "source": "[D] Fury of the Wild: Fury of the Wild: Be the Whirlwind",
+        "bonusType": "Destiny",
+        "value": 25
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Shadow Training",
+        "bonusType": "Destiny",
+        "value": 15
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Step Through Shadows",
+        "bonusType": "Destiny",
+        "value": 15
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: The Darkest Luck",
+        "bonusType": "Destiny",
+        "value": 15
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Cut to the Soul",
+        "bonusType": "Destiny",
+        "value": 15
+      },
+      {
+        "source": "[D] Legendary Dreadnought: Legendary Dreadnought: Fearless",
+        "bonusType": "Destiny",
+        "value": 25
+      },
+      {
+        "source": "[D] Legendary Dreadnought: Legendary Dreadnought: Weaponmaster",
+        "bonusType": "Destiny",
+        "value": 25
+      },
+      {
+        "source": "[D] Legendary Dreadnought: Legendary Dreadnought: Thick Skinned",
+        "bonusType": "Destiny",
+        "value": 25
+      },
+      {
+        "source": "[D] Legendary Dreadnought: Legendary Dreadnought: Unparalleled Accuracy",
+        "bonusType": "Destiny",
+        "value": 25
+      },
+      {
+        "source": "[R] Grim Barricade: Reaper's Defense I",
+        "bonusType": "Reaper",
+        "value": 10
+      },
+      {
+        "source": "[R] Grim Barricade: Reaper's Defense II",
+        "bonusType": "Reaper",
+        "value": 20
+      },
+      {
+        "source": "[R] Grim Barricade: Reaper's Defense IV",
+        "bonusType": "Reaper",
+        "value": 100
+      },
+      {
+        "source": "[A] Trinket: Legendary Fragment of a Flayed Mind → Ravil's Book of Legendary Recipes",
+        "bonusType": "Vitality",
+        "value": 48
+      },
+      {
+        "source": "[Guild] Hag Apothecary",
+        "bonusType": "Guild",
+        "value": 20
+      },
+      {
+        "source": "[PL] Past Life: Barbarian ×3",
+        "bonusType": "Stacking",
+        "value": 30
+      },
+      {
+        "source": "Constitution mod (+24) × 34 levels",
+        "bonusType": "Stacking",
+        "value": 816
+      },
+      {
+        "source": "Combat Style (3 style feats × 25% of class HP)",
+        "bonusType": "Stacking",
+        "value": 172
+      },
+      {
+        "source": "Fate Points (×2 HP each, 60 fate points)",
+        "bonusType": "Stacking",
+        "value": 120
+      },
+      {
+        "source": "[PL] Past Life: Primal Sphere: Ancient Power ×3",
+        "bonusType": "Unique",
+        "value": 45
+      },
+      {
+        "source": "[PL] Past Life: Primal Sphere: Colors of the Queen ×3",
+        "bonusType": "Unique",
+        "value": 45
+      },
+      {
+        "source": "[PL] Past Life: Primal Sphere: Doubleshot ×3",
+        "bonusType": "Unique",
+        "value": 45
+      },
+      {
+        "source": "[PL] Past Life: Primal Sphere: Fast Healing ×3",
+        "bonusType": "Unique",
+        "value": 45
+      },
+      {
+        "source": "Titan's Blood",
+        "bonusType": "Legendary",
+        "value": 10
+      },
+      {
+        "source": "[E] Shintao: Shintao: Shintao Mastery",
+        "bonusType": "Competence",
+        "value": 25
+      }
+    ]
+  },
+  "saves": {
+    "Fortitude": {
+      "total": 69,
+      "appliedCount": 22,
+      "dominatedCount": 2,
+      "sources": [
+        {
+          "source": "class save progression + ability mod",
+          "bonusType": "(untyped)",
+          "value": 19
+        },
+        {
+          "source": "Scion of Arborea",
+          "bonusType": "Feat",
+          "value": 4,
+          "target": "Fortitude"
+        },
+        {
+          "source": "Monk 1: Ocean Stance: Ocean Stance: Saves",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "Monk 6: Adept of Forms: Ocean Stance: Saves",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "Monk 12: Master of Forms: Ocean Stance: Saves",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "Monk 18: Grandmaster of Forms: Ocean Stance: Saves",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "Epic 2: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[E] Henshin Mystic: Henshin Mystic: Conditioning",
+          "bonusType": "Enhancement",
+          "value": 1,
+          "target": "Fortitude"
+        },
+        {
+          "source": "[E] Shintao: Shintao: Protection from Tainted Creatures",
+          "bonusType": "Enhancement",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[E] Shintao: Shintao: Argent Fist",
+          "bonusType": "Enhancement",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[E] Shintao: Shintao: To Seek Perfection",
+          "bonusType": "Enhancement",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[A] Belt: Ophael's Cincture → Sapphire of Resistance",
+          "bonusType": "Resistance",
+          "value": 11,
+          "target": "All"
+        },
+        {
+          "source": "[R] Grim Barricade: Reaper's Defense II",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[R] Grim Barricade: Reaper's Defense IV",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[G] Helmet: Legendary Dread Stalker's Skullcap (ParryingNumber)",
+          "bonusType": "Insightful",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Game Hunter",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Fortitude"
+        },
+        {
+          "source": "[PL] Past Life: Aasimar Scourge ×3",
+          "bonusType": "Stacking",
+          "value": 3,
+          "target": "Fortitude"
+        }
+      ]
+    },
+    "Reflex": {
+      "total": 80,
+      "appliedCount": 28,
+      "dominatedCount": 2,
+      "sources": [
+        {
+          "source": "class save progression + ability mod",
+          "bonusType": "(untyped)",
+          "value": 18
+        },
+        {
+          "source": "Aasimar: Fallen Bond",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "Reflex"
+        },
+        {
+          "source": "Monk 1: Ocean Stance: Ocean Stance: Saves",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "Monk 6: Adept of Forms: Ocean Stance: Saves",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "Monk 12: Master of Forms: Ocean Stance: Saves",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "Monk 18: Grandmaster of Forms: Ocean Stance: Saves",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "Epic 2: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[E] Aasimar: Aasimar: True Resilience → Fallen",
+          "bonusType": "Enhancement",
+          "value": 1,
+          "target": "Reflex"
+        },
+        {
+          "source": "[E] Shintao: Shintao: Protection from Tainted Creatures",
+          "bonusType": "Enhancement",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[E] Shintao: Shintao: Argent Fist",
+          "bonusType": "Enhancement",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[E] Shintao: Shintao: To Seek Perfection",
+          "bonusType": "Enhancement",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[D] Shadowdancer: Shadowdancer: Stealthy",
+          "bonusType": "Destiny",
+          "value": 1,
+          "target": "Reflex"
+        },
+        {
+          "source": "[D] Shadowdancer: Shadowdancer: Lithe",
+          "bonusType": "Destiny",
+          "value": 2,
+          "target": "Reflex"
+        },
+        {
+          "source": "[A] Belt: Ophael's Cincture → Sapphire of Resistance",
+          "bonusType": "Resistance",
+          "value": 11,
+          "target": "All"
+        },
+        {
+          "source": "[R] Grim Barricade: Reaper's Reflex/Fortitude/Will I → Reflex Save",
+          "bonusType": "Reaper",
+          "value": 3,
+          "target": "Reflex"
+        },
+        {
+          "source": "[R] Grim Barricade: Reaper's Defense II",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[R] Grim Barricade: Reaper's Reflex/Fortitude/Will II → Reflex Save",
+          "bonusType": "Reaper",
+          "value": 3,
+          "target": "Reflex"
+        },
+        {
+          "source": "[R] Grim Barricade: Reaper's Reflex/Fortitude/Will III → Reflex Save",
+          "bonusType": "Reaper",
+          "value": 3,
+          "target": "Reflex"
+        },
+        {
+          "source": "[R] Grim Barricade: Reaper's Defense IV",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[R] Grim Barricade: Reaper's Reflex/Fortitude/Will V → Reflex Save",
+          "bonusType": "Reaper",
+          "value": 3,
+          "target": "Reflex"
+        },
+        {
+          "source": "[G] Helmet: Legendary Dread Stalker's Skullcap (ParryingNumber)",
+          "bonusType": "Insightful",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Chronoscope",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Reflex"
+        },
+        {
+          "source": "[PL] Past Life: Tiefling Scoundrel ×3",
+          "bonusType": "Stacking",
+          "value": 3,
+          "target": "Reflex"
+        }
+      ]
+    },
+    "Will": {
+      "total": 70,
+      "appliedCount": 20,
+      "dominatedCount": 2,
+      "sources": [
+        {
+          "source": "class save progression + ability mod",
+          "bonusType": "(untyped)",
+          "value": 26
+        },
+        {
+          "source": "Monk 1: Ocean Stance: Ocean Stance: Saves",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "Monk 6: Adept of Forms: Ocean Stance: Saves",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "Monk 12: Master of Forms: Ocean Stance: Saves",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "Monk 18: Grandmaster of Forms: Ocean Stance: Saves",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "Epic 2: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[E] Shintao: Shintao: Protection from Tainted Creatures",
+          "bonusType": "Enhancement",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[E] Shintao: Shintao: Argent Fist",
+          "bonusType": "Enhancement",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[E] Shintao: Shintao: To Seek Perfection",
+          "bonusType": "Enhancement",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[A] Belt: Ophael's Cincture → Sapphire of Resistance",
+          "bonusType": "Resistance",
+          "value": 11,
+          "target": "All"
+        },
+        {
+          "source": "[R] Grim Barricade: Reaper's Defense II",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[R] Grim Barricade: Reaper's Defense IV",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[G] Helmet: Legendary Dread Stalker's Skullcap (ParryingNumber)",
+          "bonusType": "Insightful",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Grandmaster's Dojo",
+          "bonusType": "Guild",
+          "value": 2,
+          "target": "Will"
+        },
+        {
+          "source": "[PL] Past Life: Razorclaw Shifter ×3",
+          "bonusType": "Stacking",
+          "value": 3,
+          "target": "Will"
+        }
+      ]
+    }
+  },
+  "meleePower": {
+    "total": 378,
+    "appliedCount": 76,
+    "dominatedCount": 0,
+    "sources": [
+      {
+        "source": "Scion of Arborea",
+        "bonusType": "Feat",
+        "value": 20
+      },
+      {
+        "source": "Monk 1: Unarmed Strike",
+        "bonusType": "Feat",
+        "value": 5
+      },
+      {
+        "source": "Monk 4: Unarmed Strike",
+        "bonusType": "Feat",
+        "value": 5
+      },
+      {
+        "source": "Monk 8: Unarmed Strike",
+        "bonusType": "Feat",
+        "value": 5
+      },
+      {
+        "source": "Monk 12: Unarmed Strike",
+        "bonusType": "Feat",
+        "value": 5
+      },
+      {
+        "source": "Monk 16: Unarmed Strike",
+        "bonusType": "Feat",
+        "value": 5
+      },
+      {
+        "source": "Monk 20: Unarmed Strike",
+        "bonusType": "Feat",
+        "value": 5
+      },
+      {
+        "source": "Epic 1: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 2: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 3: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 4: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 5: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 6: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 7: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 8: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 9: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 10: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Legendary 1: Legendary Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Legendary 2: Legendary Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Legendary 3: Legendary Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Legendary 4: Legendary Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[E] Aasimar: Aasimar: Ascendant Bond → Fallen",
+        "bonusType": "Determination",
+        "value": 10
+      },
+      {
+        "source": "[E] Henshin Mystic: Henshin Mystic: Riddle of Fire",
+        "bonusType": "Enhancement",
+        "value": 3
+      },
+      {
+        "source": "[E] Henshin Mystic: Henshin Mystic: Ki Bolt",
+        "bonusType": "Enhancement",
+        "value": 3
+      },
+      {
+        "source": "[E] Henshin Mystic: Henshin Mystic: Cauldron of Flame",
+        "bonusType": "Enhancement",
+        "value": 3
+      },
+      {
+        "source": "[E] Henshin Mystic: Henshin Mystic: Incinerating Wave",
+        "bonusType": "Enhancement",
+        "value": 3
+      },
+      {
+        "source": "[E] Henshin Mystic: Henshin Mystic: Improved Cauldron",
+        "bonusType": "Enhancement",
+        "value": 3
+      },
+      {
+        "source": "[E] Shintao: Shintao: Touch the Void Dragon",
+        "bonusType": "Enhancement",
+        "value": 5
+      },
+      {
+        "source": "[E] Shintao: Shintao: To Seek Perfection",
+        "bonusType": "Enhancement",
+        "value": 15
+      },
+      {
+        "source": "[E] Shintao: Shintao: To Seek Perfection: To Seek Perfection + Meditation of War",
+        "bonusType": "Enhancement",
+        "value": 10
+      },
+      {
+        "source": "[A] Goggles: Legendary Goggles of the Berserker → Topaz of Melee Power",
+        "bonusType": "Enhancement",
+        "value": 10
+      },
+      {
+        "source": "[E] Henshin Mystic: Henshin Mystic: Focus",
+        "bonusType": "Exceptional",
+        "value": 5,
+        "target": "All"
+      },
+      {
+        "source": "[D] Fury of the Wild: Fury of the Wild: Die Hard",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Fury of the Wild: Fury of the Wild: Die Harder",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Fury of the Wild: Fury of the Wild: Die Harderest",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Fury of the Wild: Fury of the Wild: Be the Whirlwind",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Shadow Training",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Step Through Shadows",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: The Darkest Luck",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Cut to the Soul",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Legendary Dreadnought: Legendary Dreadnought: Fearless",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Legendary Dreadnought: Legendary Dreadnought: Weaponmaster",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Legendary Dreadnought: Legendary Dreadnought: Thick Skinned",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Legendary Dreadnought: Legendary Dreadnought: Unparalleled Accuracy",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[R] Dread Adversary: Reaper's Blade I",
+        "bonusType": "Reaper",
+        "value": 3
+      },
+      {
+        "source": "[R] Dread Adversary: Reaper's Blade II",
+        "bonusType": "Reaper",
+        "value": 3
+      },
+      {
+        "source": "[R] Dread Adversary: Reaper's Blade III",
+        "bonusType": "Reaper",
+        "value": 3
+      },
+      {
+        "source": "[R] Dread Adversary: Reaper's Blade IV",
+        "bonusType": "Reaper",
+        "value": 3
+      },
+      {
+        "source": "[R] Dread Adversary: Reaper's Offense V",
+        "bonusType": "Reaper",
+        "value": 1
+      },
+      {
+        "source": "[R] Dread Adversary: Reaper's Blade V",
+        "bonusType": "Reaper",
+        "value": 3
+      },
+      {
+        "source": "[R] Dread Adversary: Reaper's Offense VI",
+        "bonusType": "Reaper",
+        "value": 2
+      },
+      {
+        "source": "[A] Necklace: Legendary Pendant of Crippling Strikes → Lunar Gem of Melee Power (Legendary)",
+        "bonusType": "Profane",
+        "value": 15
+      },
+      {
+        "source": "[F] Sucker Punch/One Against Many +2 Strength (rare): Sucker Punch/One Against Many: +2 Strength: Rare +4 Melee Power",
+        "bonusType": "Stacking",
+        "value": 4
+      },
+      {
+        "source": "[F] Dreadbringer: +3 Melee Power",
+        "bonusType": "Stacking",
+        "value": 3
+      },
+      {
+        "source": "[F] Dreadbringer: +3 Melee Power (rare): Dreadbringer: Melee Power: Melee Power",
+        "bonusType": "Stacking",
+        "value": 2
+      },
+      {
+        "source": "[F] Dreadbringer: +1 Tactics DC (rare): Dreadbringer: Tactics DC: Melee Power",
+        "bonusType": "Stacking",
+        "value": 2
+      },
+      {
+        "source": "[F] The Long Shadow: +3 Melee Power",
+        "bonusType": "Stacking",
+        "value": 3
+      },
+      {
+        "source": "[F] The Long Shadow: +3 Melee Power (rare): The Long Shadow: Melee Power: Rare +2 Melee Power",
+        "bonusType": "Stacking",
+        "value": 2
+      },
+      {
+        "source": "[F] Shattered Device: +3 Melee Power",
+        "bonusType": "Stacking",
+        "value": 3
+      },
+      {
+        "source": "[F] Shattered Device: +3 Melee Power (rare): Shattered Device: Melee Power: Rare +2 Melee Power",
+        "bonusType": "Stacking",
+        "value": 2
+      },
+      {
+        "source": "[F] Treachery: +3 Melee Power",
+        "bonusType": "Stacking",
+        "value": 3
+      },
+      {
+        "source": "[F] Treachery: +3 Melee Power (rare): Treachery: Melee Power: Rare +2 Melee Power",
+        "bonusType": "Stacking",
+        "value": 2
+      },
+      {
+        "source": "[FA] Treachery: +3 Melee Power",
+        "bonusType": "Stacking",
+        "value": 3
+      },
+      {
+        "source": "[FA] Treachery: +3 Melee Power (rare): Treachery: Melee Power: Rare +2 Melee Power",
+        "bonusType": "Stacking",
+        "value": 2
+      },
+      {
+        "source": "[FA] The Long Shadow: +3 Melee Power",
+        "bonusType": "Stacking",
+        "value": 3
+      },
+      {
+        "source": "[FA] The Long Shadow: +3 Melee Power (rare): The Long Shadow: Melee Power: Rare +2 Melee Power",
+        "bonusType": "Stacking",
+        "value": 2
+      },
+      {
+        "source": "[FA] Sucker Punch/One Against Many +2 Strength (rare): Sucker Punch/One Against Many: +2 Strength: Rare +4 Melee Power",
+        "bonusType": "Stacking",
+        "value": 4
+      },
+      {
+        "source": "[FA] Dreadbringer: +3 Melee Power",
+        "bonusType": "Stacking",
+        "value": 3
+      },
+      {
+        "source": "[FA] Dreadbringer: +3 Melee Power (rare): Dreadbringer: Melee Power: Melee Power",
+        "bonusType": "Stacking",
+        "value": 2
+      },
+      {
+        "source": "[FA] Dreadbringer: +1 Tactics DC (rare): Dreadbringer: Tactics DC: Melee Power",
+        "bonusType": "Stacking",
+        "value": 2
+      },
+      {
+        "source": "[FS] Sucker Punch (2-piece tier ≥ 2)",
+        "bonusType": "Stacking",
+        "value": 5
+      },
+      {
+        "source": "[FS] Dreadbringer (4-piece tier ≥ 2)",
+        "bonusType": "Stacking",
+        "value": 5
+      },
+      {
+        "source": "[FS] Dreadbringer (4-piece tier ≥ 4)",
+        "bonusType": "Stacking",
+        "value": 10
+      },
+      {
+        "source": "[FS] The Long Shadow (2-piece tier ≥ 2)",
+        "bonusType": "Stacking",
+        "value": 5
+      },
+      {
+        "source": "[FS] Treachery (4-piece tier ≥ 2)",
+        "bonusType": "Stacking",
+        "value": 5
+      },
+      {
+        "source": "[PL] Inherent Melee Power ×4",
+        "bonusType": "Inherent",
+        "value": 4
+      }
+    ]
+  },
+  "rangedPower": {
+    "total": 236,
+    "appliedCount": 42,
+    "dominatedCount": 0,
+    "sources": [
+      {
+        "source": "Scion of Arborea",
+        "bonusType": "Feat",
+        "value": 20
+      },
+      {
+        "source": "Epic 1: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 2: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 3: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 4: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 5: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 6: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 7: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 8: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 9: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 10: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Legendary 1: Legendary Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Legendary 2: Legendary Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Legendary 3: Legendary Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Legendary 4: Legendary Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[E] Aasimar: Aasimar: Ascendant Bond → Fallen",
+        "bonusType": "Determination",
+        "value": 10
+      },
+      {
+        "source": "[E] Henshin Mystic: Henshin Mystic: Focus",
+        "bonusType": "Exceptional",
+        "value": 5,
+        "target": "All"
+      },
+      {
+        "source": "[E] Shintao: Shintao: To Seek Perfection: To Seek Perfection + Meditation of War",
+        "bonusType": "Enhancement",
+        "value": 10
+      },
+      {
+        "source": "[D] Fury of the Wild: Fury of the Wild: Die Hard",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Fury of the Wild: Fury of the Wild: Die Harder",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Fury of the Wild: Fury of the Wild: Die Harderest",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Fury of the Wild: Fury of the Wild: Be the Whirlwind",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Shadow Training",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Step Through Shadows",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: The Darkest Luck",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Cut to the Soul",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Legendary Dreadnought: Legendary Dreadnought: Fearless",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Legendary Dreadnought: Legendary Dreadnought: Weaponmaster",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Legendary Dreadnought: Legendary Dreadnought: Thick Skinned",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Legendary Dreadnought: Legendary Dreadnought: Unparalleled Accuracy",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[R] Dread Adversary: Reaper's Shot I",
+        "bonusType": "Reaper",
+        "value": 3
+      },
+      {
+        "source": "[R] Dread Adversary: Reaper's Shot II",
+        "bonusType": "Reaper",
+        "value": 3
+      },
+      {
+        "source": "[R] Dread Adversary: Reaper's Shot III",
+        "bonusType": "Reaper",
+        "value": 3
+      },
+      {
+        "source": "[R] Dread Adversary: Reaper's Shot IV",
+        "bonusType": "Reaper",
+        "value": 3
+      },
+      {
+        "source": "[R] Dread Adversary: Reaper's Offense V",
+        "bonusType": "Reaper",
+        "value": 1
+      },
+      {
+        "source": "[R] Dread Adversary: Reaper's Shot V",
+        "bonusType": "Reaper",
+        "value": 3
+      },
+      {
+        "source": "[R] Dread Adversary: Reaper's Offense VI",
+        "bonusType": "Reaper",
+        "value": 2
+      },
+      {
+        "source": "[FS] Dreadbringer (4-piece tier ≥ 2)",
+        "bonusType": "Stacking",
+        "value": 5
+      },
+      {
+        "source": "[FS] Dreadbringer (4-piece tier ≥ 4)",
+        "bonusType": "Stacking",
+        "value": 10
+      },
+      {
+        "source": "[FS] The Long Shadow (2-piece tier ≥ 2)",
+        "bonusType": "Stacking",
+        "value": 5
+      },
+      {
+        "source": "[FS] Treachery (4-piece tier ≥ 2)",
+        "bonusType": "Stacking",
+        "value": 5
+      },
+      {
+        "source": "[PL] Inherent Ranged Power ×4",
+        "bonusType": "Inherent",
+        "value": 4
+      }
+    ]
+  },
+  "doublestrike": {
+    "total": 80,
+    "appliedCount": 10,
+    "dominatedCount": 0,
+    "sources": [
+      {
+        "source": "Doublestrike",
+        "bonusType": "Feat",
+        "value": 5
+      },
+      {
+        "source": "[E] Shintao: Shintao: Fast Hands → Melee",
+        "bonusType": "Enhancement",
+        "value": 3
+      },
+      {
+        "source": "[A] Belt: Ophael's Cincture → Legendary Swordcrossed Topaz",
+        "bonusType": "Enhancement",
+        "value": 15
+      },
+      {
+        "source": "[E] Shintao: Shintao: Quick Strike",
+        "bonusType": "Morale",
+        "value": 25
+      },
+      {
+        "source": "[D] Fury of the Wild: Fury of the Wild: Wilder Weapons → Wilder Weapons - Doublestrike",
+        "bonusType": "Destiny",
+        "value": 4
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Shadowcaster → Shadowstriker",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Legendary Dreadnought: Legendary Dreadnought: Strike Twice",
+        "bonusType": "Destiny",
+        "value": 6
+      },
+      {
+        "source": "[G] Ring2: The Autumn Equinox (Doublestrike)",
+        "bonusType": "Insightful",
+        "value": 8
+      },
+      {
+        "source": "[PL] Past Life: Aasimar Scourge ×3",
+        "bonusType": "Stacking",
+        "value": 6
+      },
+      {
+        "source": "[FS] Shattered Device (3-piece tier ≥ 3)",
+        "bonusType": "Stacking",
+        "value": 3
+      }
+    ]
+  },
+  "doubleshot": {
+    "total": 21,
+    "appliedCount": 5,
+    "dominatedCount": 0,
+    "sources": [
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Shadowcaster → Shadowstriker",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Legendary Dreadnought: Legendary Dreadnought: Strike Twice",
+        "bonusType": "Destiny",
+        "value": 6
+      },
+      {
+        "source": "[G] Ring2: The Autumn Equinox (Doubleshot)",
+        "bonusType": "Insightful",
+        "value": 5
+      },
+      {
+        "source": "[FS] Shattered Device (3-piece tier ≥ 3)",
+        "bonusType": "Stacking",
+        "value": 3
+      },
+      {
+        "source": "[Guild] Archery Range",
+        "bonusType": "Guild",
+        "value": 2
+      }
+    ]
+  },
+  "meleeSpeed": {
+    "total": 0,
+    "appliedCount": 0,
+    "dominatedCount": 0,
+    "sources": []
+  },
+  "rangedSpeed": {
+    "total": 0,
+    "appliedCount": 0,
+    "dominatedCount": 0,
+    "sources": []
+  },
+  "healingAmp": {
+    "total": 200,
+    "appliedCount": 13,
+    "dominatedCount": 0,
+    "sources": [
+      {
+        "source": "[E] Aasimar: Aasimar: Improved Recovery I",
+        "bonusType": "Enhancement",
+        "value": 20
+      },
+      {
+        "source": "[E] Aasimar: Aasimar: Improved Recovery II",
+        "bonusType": "Enhancement",
+        "value": 20
+      },
+      {
+        "source": "[E] Aasimar: Aasimar: Improved Recovery III",
+        "bonusType": "Enhancement",
+        "value": 20
+      },
+      {
+        "source": "[E] Shintao: Shintao: Bastion of Purity",
+        "bonusType": "Enhancement",
+        "value": 10
+      },
+      {
+        "source": "[E] Shintao: Shintao: Protection from Tainted Creatures",
+        "bonusType": "Enhancement",
+        "value": 10
+      },
+      {
+        "source": "[E] Shintao: Shintao: Iron Hand",
+        "bonusType": "Enhancement",
+        "value": 10
+      },
+      {
+        "source": "[E] Shintao: Shintao: Argent Fist",
+        "bonusType": "Enhancement",
+        "value": 10
+      },
+      {
+        "source": "[E] Shintao: Shintao: Touch the Void Dragon",
+        "bonusType": "Enhancement",
+        "value": 10
+      },
+      {
+        "source": "[E] Shintao: Shintao: To Seek Perfection",
+        "bonusType": "Enhancement",
+        "value": 10
+      },
+      {
+        "source": "[Guild] Bath House",
+        "bonusType": "Guild",
+        "value": 20
+      },
+      {
+        "source": "[PL] Past Life: Paladin ×3",
+        "bonusType": "Stacking",
+        "value": 30
+      },
+      {
+        "source": "[PL] Past Life: Divine Sphere: Ancient Blessings ×3",
+        "bonusType": "Stacking",
+        "value": 15
+      },
+      {
+        "source": "[PL] Past Life: Paladin - Sacred Fist ×3",
+        "bonusType": "Stacking",
+        "value": 15
+      }
+    ]
+  },
+  "negativeHealingAmp": {
+    "total": 87,
+    "appliedCount": 3,
+    "dominatedCount": 0,
+    "sources": [
+      {
+        "source": "[A] Gloves: Gauntlets of the Stormreaver → Sapphire of Negative Healing Amplification",
+        "bonusType": "Competence",
+        "value": 57
+      },
+      {
+        "source": "[PL] Past Life: Divine Sphere: Ancient Blessings ×3",
+        "bonusType": "Stacking",
+        "value": 15
+      },
+      {
+        "source": "[PL] Past Life: Cleric - Dark Apostate ×3",
+        "bonusType": "Stacking",
+        "value": 15
+      }
+    ]
+  },
+  "repairAmp": {
+    "total": 15,
+    "appliedCount": 1,
+    "dominatedCount": 0,
+    "sources": [
+      {
+        "source": "[PL] Past Life: Divine Sphere: Ancient Blessings ×3",
+        "bonusType": "Stacking",
+        "value": 15
+      }
+    ]
+  },
+  "ac": {
+    "total": 127,
+    "appliedCount": 15,
+    "dominatedCount": 0,
+    "sources": [
+      {
+        "source": "Monk 1: AC Bonus (Monk)",
+        "bonusType": "Feat",
+        "value": 0
+      },
+      {
+        "source": "Attack: Base AC",
+        "bonusType": "Base",
+        "value": 10
+      },
+      {
+        "source": "[E] Shintao: Shintao: Protection from Tainted Creatures",
+        "bonusType": "Enhancement",
+        "value": 1
+      },
+      {
+        "source": "[E] Shintao: Shintao: Argent Fist",
+        "bonusType": "Enhancement",
+        "value": 1
+      },
+      {
+        "source": "[E] Shintao: Shintao: To Seek Perfection",
+        "bonusType": "Enhancement",
+        "value": 1
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Lithe",
+        "bonusType": "Destiny",
+        "value": 2
+      },
+      {
+        "source": "[G] Helmet: Legendary Dread Stalker's Skullcap (ParryingNumber)",
+        "bonusType": "Insightful",
+        "value": 6
+      },
+      {
+        "source": "[G] Helmet: Legendary Dread Stalker's Skullcap (Shield)",
+        "bonusType": "Shield",
+        "value": 14
+      },
+      {
+        "source": "[G] Gloves: Gauntlets of the Stormreaver (Protection)",
+        "bonusType": "Deflection",
+        "value": 11
+      },
+      {
+        "source": "[Guild] Armory",
+        "bonusType": "Guild",
+        "value": 6
+      },
+      {
+        "source": "[PL] Past Life: Martial Sphere: Ancient Tactics ×3",
+        "bonusType": "Unique",
+        "value": 15
+      },
+      {
+        "source": "[PL] Past Life: Martial Sphere: Doublestrike ×3",
+        "bonusType": "Unique",
+        "value": 15
+      },
+      {
+        "source": "[PL] Past Life: Martial Sphere: Fortification ×3",
+        "bonusType": "Unique",
+        "value": 15
+      },
+      {
+        "source": "[PL] Past Life: Martial Sphere: Skill Mastery ×3",
+        "bonusType": "Unique",
+        "value": 15
+      },
+      {
+        "source": "[PL] Past Life: Martial Sphere: Trap Damage Absorption ×3",
+        "bonusType": "Unique",
+        "value": 15
+      }
+    ]
+  },
+  "dodge": {
+    "total": 45,
+    "appliedCount": 15,
+    "dominatedCount": 0,
+    "sources": [
+      {
+        "source": "Dodge",
+        "bonusType": "Feat",
+        "value": 3
+      },
+      {
+        "source": "Mobility",
+        "bonusType": "Feat",
+        "value": 2
+      },
+      {
+        "source": "Monk 1: Flurry of Blows",
+        "bonusType": "Feat",
+        "value": 0
+      },
+      {
+        "source": "Monk 1: Flurry of Blows",
+        "bonusType": "Feat",
+        "value": 0
+      },
+      {
+        "source": "Monk 1: Ocean Stance: Ocean Stance: Dodge",
+        "bonusType": "Feat",
+        "value": 3
+      },
+      {
+        "source": "Monk 6: Adept of Forms: Ocean Stance: Dodge",
+        "bonusType": "Feat",
+        "value": 3
+      },
+      {
+        "source": "Monk 12: Master of Forms: Ocean Stance: Dodge",
+        "bonusType": "Feat",
+        "value": 3
+      },
+      {
+        "source": "Monk 18: Grandmaster of Forms: Ocean Stance: Dodge",
+        "bonusType": "Feat",
+        "value": 3
+      },
+      {
+        "source": "[E] Ninja Spy: Ninja Spy: Acrobatic",
+        "bonusType": "Enhancement",
+        "value": 1
+      },
+      {
+        "source": "[A] Ring2: The Autumn Equinox → Sapphire of Dodge",
+        "bonusType": "Enhancement",
+        "value": 14
+      },
+      {
+        "source": "[R] Grim Barricade: Reaper's Evasion I",
+        "bonusType": "Reaper",
+        "value": 3
+      },
+      {
+        "source": "[R] Grim Barricade: Reaper's Evasion II",
+        "bonusType": "Reaper",
+        "value": 3
+      },
+      {
+        "source": "[R] Grim Barricade: Reaper's Evasion III",
+        "bonusType": "Reaper",
+        "value": 3
+      },
+      {
+        "source": "[R] Grim Barricade: Reaper's Defense V",
+        "bonusType": "Reaper",
+        "value": 1
+      },
+      {
+        "source": "[PL] Past Life: Shadar-Kai ×3",
+        "bonusType": "Stacking",
+        "value": 3
+      }
+    ]
+  },
+  "prr": {
+    "total": 252,
+    "appliedCount": 30,
+    "dominatedCount": 0,
+    "sources": [
+      {
+        "source": "Embodiment of Law",
+        "bonusType": "Feat",
+        "value": 3
+      },
+      {
+        "source": "[E] Henshin Mystic: Henshin Mystic: Riddle of Fire",
+        "bonusType": "Enhancement",
+        "value": 3
+      },
+      {
+        "source": "[E] Henshin Mystic: Henshin Mystic: Ki Bolt",
+        "bonusType": "Enhancement",
+        "value": 3
+      },
+      {
+        "source": "[E] Henshin Mystic: Henshin Mystic: Cauldron of Flame",
+        "bonusType": "Enhancement",
+        "value": 3
+      },
+      {
+        "source": "[E] Henshin Mystic: Henshin Mystic: Incinerating Wave",
+        "bonusType": "Enhancement",
+        "value": 3
+      },
+      {
+        "source": "[E] Henshin Mystic: Henshin Mystic: Improved Cauldron",
+        "bonusType": "Enhancement",
+        "value": 3
+      },
+      {
+        "source": "[E] Shintao: Shintao: Iron Skin",
+        "bonusType": "Enhancement",
+        "value": 20
+      },
+      {
+        "source": "[D] Fury of the Wild: Fury of the Wild: Enduring",
+        "bonusType": "Enhancement",
+        "value": 6
+      },
+      {
+        "source": "[A] Armor: Dinosaur Bone Outfit → Claw: +35 Physical Resistance Rating",
+        "bonusType": "Enhancement",
+        "value": 35
+      },
+      {
+        "source": "[D] Legendary Dreadnought: Legendary Dreadnought: Thick Skinned",
+        "bonusType": "Destiny",
+        "value": 15
+      },
+      {
+        "source": "[R] Grim Barricade: Reaper's Bulwark/Shroud I → PRR",
+        "bonusType": "Reaper",
+        "value": 3
+      },
+      {
+        "source": "[R] Grim Barricade: Reaper's Bulwark/Shroud II → PRR",
+        "bonusType": "Reaper",
+        "value": 3
+      },
+      {
+        "source": "[R] Grim Barricade: Reaper's Bulwark/Shroud III → PRR",
+        "bonusType": "Reaper",
+        "value": 3
+      },
+      {
+        "source": "[R] Grim Barricade: Reaper's Bulwark/Shroud IV → PRR",
+        "bonusType": "Reaper",
+        "value": 6
+      },
+      {
+        "source": "[R] Grim Barricade: Reaper's Bulwark/Shroud V → PRR",
+        "bonusType": "Reaper",
+        "value": 6
+      },
+      {
+        "source": "[R] Grim Barricade: Reaper's Defense V",
+        "bonusType": "Reaper",
+        "value": 1
+      },
+      {
+        "source": "[R] Grim Barricade: Reaper's Defense VI",
+        "bonusType": "Reaper",
+        "value": 2
+      },
+      {
+        "source": "[G] Gloves: Gauntlets of the Stormreaver (Sheltering)",
+        "bonusType": "Insightful",
+        "value": 17
+      },
+      {
+        "source": "[A] Goggles: Legendary Goggles of the Berserker → Solar Gem of Physical Resistance Rating (Legendary)",
+        "bonusType": "Artifact",
+        "value": 30
+      },
+      {
+        "source": "[A] Bracers: Bracers of the Battlerager → Lunar Gem of Physical Protection (Legendary)",
+        "bonusType": "Profane",
+        "value": 30
+      },
+      {
+        "source": "[PL] Past Life: Purple Dragon Knight ×3",
+        "bonusType": "Stacking",
+        "value": 9
+      },
+      {
+        "source": "[PL] Past Life: Divine Sphere: Ancient Blessings ×3",
+        "bonusType": "Stacking",
+        "value": 9
+      },
+      {
+        "source": "[PL] Past Life: Divine Sphere: Block Energy ×3",
+        "bonusType": "Stacking",
+        "value": 9
+      },
+      {
+        "source": "[PL] Past Life: Divine Sphere: Brace ×3",
+        "bonusType": "Stacking",
+        "value": 9
+      },
+      {
+        "source": "[PL] Past Life: Divine Sphere: Power Over Life and Death ×3",
+        "bonusType": "Stacking",
+        "value": 9
+      },
+      {
+        "source": "[F] Shattered Device: +5% Armor Piercing (rare): Shattered Device: Armor Piercing : Rare +2 PRR",
+        "bonusType": "Stacking",
+        "value": 2
+      },
+      {
+        "source": "[F] Shattered Device: +1 Attack and Damage (rare): Shattered Device: Attack and Damage : Rare +2 PRR",
+        "bonusType": "Stacking",
+        "value": 2
+      },
+      {
+        "source": "[F] Treachery: +2 Critical Attack and Damage (rare): Treachery: Critical Attack and Damage: Rare +2 PRR",
+        "bonusType": "Stacking",
+        "value": 2
+      },
+      {
+        "source": "[F] Treachery: +50% Threat Reduction (rare): Treachery: Threat Reduction: Rare +2 PRR",
+        "bonusType": "Stacking",
+        "value": 2
+      },
+      {
+        "source": "[PL] Inherent Physical Resistance ×4",
+        "bonusType": "Inherent",
+        "value": 4
+      }
+    ]
+  },
+  "mrr": {
+    "total": 68,
+    "appliedCount": 9,
+    "dominatedCount": 0,
+    "sources": [
+      {
+        "source": "Embodiment of Law",
+        "bonusType": "Feat",
+        "value": 3
+      },
+      {
+        "source": "[E] Henshin Mystic: Henshin Mystic: Mantra of Soul",
+        "bonusType": "Enhancement",
+        "value": 20
+      },
+      {
+        "source": "[R] Grim Barricade: Reaper's Defense V",
+        "bonusType": "Reaper",
+        "value": 1
+      },
+      {
+        "source": "[R] Grim Barricade: Reaper's Defense VI",
+        "bonusType": "Reaper",
+        "value": 2
+      },
+      {
+        "source": "[G] Gloves: Gauntlets of the Stormreaver (Sheltering)",
+        "bonusType": "Insightful",
+        "value": 17
+      },
+      {
+        "source": "[PL] Past Life: Warlock ×3",
+        "bonusType": "Stacking",
+        "value": 9
+      },
+      {
+        "source": "[PL] Past Life: Deep Gnome ×3",
+        "bonusType": "Stacking",
+        "value": 9
+      },
+      {
+        "source": "[PL] Past Life: Warlock - Acolyte of the Skin ×3",
+        "bonusType": "Stacking",
+        "value": 3
+      },
+      {
+        "source": "[PL] Inherent Magical Resistance ×4",
+        "bonusType": "Inherent",
+        "value": 4
+      }
+    ]
+  },
+  "spellResistance": {
+    "total": 0,
+    "appliedCount": 1,
+    "dominatedCount": 0,
+    "sources": [
+      {
+        "source": "Monk 13: Diamond Soul",
+        "bonusType": "Feat",
+        "value": 0
+      }
+    ]
+  },
+  "arcaneSpellFailure": {
+    "total": 0,
+    "appliedCount": 0,
+    "dominatedCount": 0,
+    "sources": []
+  },
+  "casterLevel": {
+    "total": 167,
+    "appliedCount": 134,
+    "dominatedCount": 0,
+    "sources": [
+      {
+        "source": "character level (34)",
+        "bonusType": "(untyped)",
+        "value": 34
+      },
+      {
+        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Acolyte of the Skin",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Acolyte of the Skin"
+      },
+      {
+        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Alchemist",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Alchemist"
+      },
+      {
+        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Arcane Trickster",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Arcane Trickster"
+      },
+      {
+        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Artificer",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Artificer"
+      },
+      {
+        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Bard",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Bard"
+      },
+      {
+        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Blight Caster",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Blight Caster"
+      },
+      {
+        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Stormsinger",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Stormsinger"
+      },
+      {
+        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Cleric",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Cleric"
+      },
+      {
+        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Dark Apostate",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Dark Apostate"
+      },
+      {
+        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Dark Hunter",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Dark Hunter"
+      },
+      {
+        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Druid",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Druid"
+      },
+      {
+        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Favored Soul",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Favored Soul"
+      },
+      {
+        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Paladin",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Paladin"
+      },
+      {
+        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Sacred Fist",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Sacred Fist"
+      },
+      {
+        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Ranger",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Ranger"
+      },
+      {
+        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Sorcerer",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Sorcerer"
+      },
+      {
+        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Warlock",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Warlock"
+      },
+      {
+        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Wild Mage",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Wild Mage"
+      },
+      {
+        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Wizard",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Wizard"
+      },
+      {
+        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Acolyte of the Skin",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Acolyte of the Skin"
+      },
+      {
+        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Alchemist",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Alchemist"
+      },
+      {
+        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Arcane Trickster",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Arcane Trickster"
+      },
+      {
+        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Artificer",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Artificer"
+      },
+      {
+        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Bard",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Bard"
+      },
+      {
+        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Blight Caster",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Blight Caster"
+      },
+      {
+        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Stormsinger",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Stormsinger"
+      },
+      {
+        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Cleric",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Cleric"
+      },
+      {
+        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Dark Apostate",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Dark Apostate"
+      },
+      {
+        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Dark Hunter",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Dark Hunter"
+      },
+      {
+        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Druid",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Druid"
+      },
+      {
+        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Favored Soul",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Favored Soul"
+      },
+      {
+        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Paladin",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Paladin"
+      },
+      {
+        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Sacred Fist",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Sacred Fist"
+      },
+      {
+        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Ranger",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Ranger"
+      },
+      {
+        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Sorcerer",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Sorcerer"
+      },
+      {
+        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Warlock",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Warlock"
+      },
+      {
+        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Wild Mage",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Wild Mage"
+      },
+      {
+        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Wizard",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Wizard"
+      },
+      {
+        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Acolyte of the Skin",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Acolyte of the Skin"
+      },
+      {
+        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Alchemist",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Alchemist"
+      },
+      {
+        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Arcane Trickster",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Arcane Trickster"
+      },
+      {
+        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Artificer",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Artificer"
+      },
+      {
+        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Bard",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Bard"
+      },
+      {
+        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Blight Caster",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Blight Caster"
+      },
+      {
+        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Stormsinger",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Stormsinger"
+      },
+      {
+        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Cleric",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Cleric"
+      },
+      {
+        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Dark Apostate",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Dark Apostate"
+      },
+      {
+        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Dark Hunter",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Dark Hunter"
+      },
+      {
+        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Druid",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Druid"
+      },
+      {
+        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Favored Soul",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Favored Soul"
+      },
+      {
+        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Paladin",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Paladin"
+      },
+      {
+        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Sacred Fist",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Sacred Fist"
+      },
+      {
+        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Ranger",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Ranger"
+      },
+      {
+        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Sorcerer",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Sorcerer"
+      },
+      {
+        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Warlock",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Warlock"
+      },
+      {
+        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Wild Mage",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Wild Mage"
+      },
+      {
+        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Wizard",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Wizard"
+      },
+      {
+        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Acolyte of the Skin",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Acolyte of the Skin"
+      },
+      {
+        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Alchemist",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Alchemist"
+      },
+      {
+        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Arcane Trickster",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Arcane Trickster"
+      },
+      {
+        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Artificer",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Artificer"
+      },
+      {
+        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Bard",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Bard"
+      },
+      {
+        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Blight Caster",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Blight Caster"
+      },
+      {
+        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Stormsinger",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Stormsinger"
+      },
+      {
+        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Cleric",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Cleric"
+      },
+      {
+        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Dark Apostate",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Dark Apostate"
+      },
+      {
+        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Dark Hunter",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Dark Hunter"
+      },
+      {
+        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Druid",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Druid"
+      },
+      {
+        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Favored Soul",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Favored Soul"
+      },
+      {
+        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Paladin",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Paladin"
+      },
+      {
+        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Sacred Fist",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Sacred Fist"
+      },
+      {
+        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Ranger",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Ranger"
+      },
+      {
+        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Sorcerer",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Sorcerer"
+      },
+      {
+        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Warlock",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Warlock"
+      },
+      {
+        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Wild Mage",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Wild Mage"
+      },
+      {
+        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Wizard",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Wizard"
+      },
+      {
+        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Acolyte of the Skin",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Acolyte of the Skin"
+      },
+      {
+        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Alchemist",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Alchemist"
+      },
+      {
+        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Arcane Trickster",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Arcane Trickster"
+      },
+      {
+        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Artificer",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Artificer"
+      },
+      {
+        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Bard",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Bard"
+      },
+      {
+        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Blight Caster",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Blight Caster"
+      },
+      {
+        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Stormsinger",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Stormsinger"
+      },
+      {
+        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Cleric",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Cleric"
+      },
+      {
+        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Dark Apostate",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Dark Apostate"
+      },
+      {
+        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Dark Hunter",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Dark Hunter"
+      },
+      {
+        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Druid",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Druid"
+      },
+      {
+        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Favored Soul",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Favored Soul"
+      },
+      {
+        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Paladin",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Paladin"
+      },
+      {
+        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Sacred Fist",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Sacred Fist"
+      },
+      {
+        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Ranger",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Ranger"
+      },
+      {
+        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Sorcerer",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Sorcerer"
+      },
+      {
+        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Warlock",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Warlock"
+      },
+      {
+        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Wild Mage",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Wild Mage"
+      },
+      {
+        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Wizard",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Wizard"
+      },
+      {
+        "source": "Legendary 2: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Acolyte of the Skin"
+      },
+      {
+        "source": "Legendary 2: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Alchemist"
+      },
+      {
+        "source": "Legendary 2: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Artificer"
+      },
+      {
+        "source": "Legendary 2: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Arcane Trickster"
+      },
+      {
+        "source": "Legendary 2: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Bard"
+      },
+      {
+        "source": "Legendary 2: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Blight Caster"
+      },
+      {
+        "source": "Legendary 2: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Stormsinger"
+      },
+      {
+        "source": "Legendary 2: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Cleric"
+      },
+      {
+        "source": "Legendary 2: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Dark Apostate"
+      },
+      {
+        "source": "Legendary 2: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Dark Hunter"
+      },
+      {
+        "source": "Legendary 2: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Druid"
+      },
+      {
+        "source": "Legendary 2: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Favored Soul"
+      },
+      {
+        "source": "Legendary 2: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Paladin"
+      },
+      {
+        "source": "Legendary 2: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Sacred Fist"
+      },
+      {
+        "source": "Legendary 2: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Ranger"
+      },
+      {
+        "source": "Legendary 2: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Sorcerer"
+      },
+      {
+        "source": "Legendary 2: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Warlock"
+      },
+      {
+        "source": "Legendary 2: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Wizard"
+      },
+      {
+        "source": "Legendary 2: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Wild Mage"
+      },
+      {
+        "source": "Legendary 4: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Acolyte of the Skin"
+      },
+      {
+        "source": "Legendary 4: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Alchemist"
+      },
+      {
+        "source": "Legendary 4: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Artificer"
+      },
+      {
+        "source": "Legendary 4: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Arcane Trickster"
+      },
+      {
+        "source": "Legendary 4: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Bard"
+      },
+      {
+        "source": "Legendary 4: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Blight Caster"
+      },
+      {
+        "source": "Legendary 4: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Stormsinger"
+      },
+      {
+        "source": "Legendary 4: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Cleric"
+      },
+      {
+        "source": "Legendary 4: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Dark Apostate"
+      },
+      {
+        "source": "Legendary 4: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Dark Hunter"
+      },
+      {
+        "source": "Legendary 4: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Druid"
+      },
+      {
+        "source": "Legendary 4: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Favored Soul"
+      },
+      {
+        "source": "Legendary 4: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Paladin"
+      },
+      {
+        "source": "Legendary 4: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Sacred Fist"
+      },
+      {
+        "source": "Legendary 4: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Ranger"
+      },
+      {
+        "source": "Legendary 4: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Sorcerer"
+      },
+      {
+        "source": "Legendary 4: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Warlock"
+      },
+      {
+        "source": "Legendary 4: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Wizard"
+      },
+      {
+        "source": "Legendary 4: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Wild Mage"
+      }
+    ]
+  },
+  "spellPenetration": {
+    "total": 18,
+    "appliedCount": 9,
+    "dominatedCount": 0,
+    "sources": [
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Grim Precision",
+        "bonusType": "Destiny",
+        "value": 3
+      },
+      {
+        "source": "[R] Dire Thaumaturge: Reaper's Deep Magic I",
+        "bonusType": "Reaper",
+        "value": 1,
+        "target": "All"
+      },
+      {
+        "source": "[R] Dire Thaumaturge: Reaper's Deep Magic II",
+        "bonusType": "Reaper",
+        "value": 1,
+        "target": "All"
+      },
+      {
+        "source": "[R] Dire Thaumaturge: Reaper's Deep Magic III",
+        "bonusType": "Reaper",
+        "value": 1,
+        "target": "All"
+      },
+      {
+        "source": "[R] Dire Thaumaturge: Reaper's Deep Magic IV",
+        "bonusType": "Reaper",
+        "value": 1,
+        "target": "All"
+      },
+      {
+        "source": "[R] Dire Thaumaturge: Reaper's Deep Magic V",
+        "bonusType": "Reaper",
+        "value": 1,
+        "target": "All"
+      },
+      {
+        "source": "[Guild] Arcane Sanctum",
+        "bonusType": "Guild",
+        "value": 1
+      },
+      {
+        "source": "[PL] Past Life: Favored Soul ×3",
+        "bonusType": "Stacking",
+        "value": 3
+      },
+      {
+        "source": "[PL] Past Life: Wizard ×3",
+        "bonusType": "Stacking",
+        "value": 6
+      }
+    ]
+  },
+  "spellDCs": {
+    "Abjuration": {
+      "total": 9,
+      "appliedCount": 7,
+      "dominatedCount": 3,
+      "sources": [
+        {
+          "source": "[D] Shadowdancer: Shadowdancer: Shadow Training: Shadowdancer: Epic Spell DCs",
+          "bonusType": "Epic",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Focus I",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Focus II",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Focus III",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Focus V",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[G] Ring1: Legendary Ring of Mystic Constitution (SpellFocusMastery)",
+          "bonusType": "Insightful",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Archwizard",
+          "bonusType": "Guild",
+          "value": 1,
+          "target": "All"
+        }
+      ]
+    },
+    "Conjuration": {
+      "total": 12,
+      "appliedCount": 8,
+      "dominatedCount": 3,
+      "sources": [
+        {
+          "source": "[D] Shadowdancer: Shadowdancer: Shadow Training: Shadowdancer: Epic Spell DCs",
+          "bonusType": "Epic",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Focus I",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Focus II",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Focus III",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Focus V",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[G] Ring1: Legendary Ring of Mystic Constitution (SpellFocusMastery)",
+          "bonusType": "Insightful",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Archwizard",
+          "bonusType": "Guild",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[PL] Past Life: Cleric ×3",
+          "bonusType": "Stacking",
+          "value": 3,
+          "target": "Conjuration"
+        }
+      ]
+    },
+    "Divination": {
+      "total": 9,
+      "appliedCount": 7,
+      "dominatedCount": 3,
+      "sources": [
+        {
+          "source": "[D] Shadowdancer: Shadowdancer: Shadow Training: Shadowdancer: Epic Spell DCs",
+          "bonusType": "Epic",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Focus I",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Focus II",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Focus III",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Focus V",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[G] Ring1: Legendary Ring of Mystic Constitution (SpellFocusMastery)",
+          "bonusType": "Insightful",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Archwizard",
+          "bonusType": "Guild",
+          "value": 1,
+          "target": "All"
+        }
+      ]
+    },
+    "Enchantment": {
+      "total": 9,
+      "appliedCount": 7,
+      "dominatedCount": 3,
+      "sources": [
+        {
+          "source": "[D] Shadowdancer: Shadowdancer: Shadow Training: Shadowdancer: Epic Spell DCs",
+          "bonusType": "Epic",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Focus I",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Focus II",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Focus III",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Focus V",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[G] Ring1: Legendary Ring of Mystic Constitution (SpellFocusMastery)",
+          "bonusType": "Insightful",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Archwizard",
+          "bonusType": "Guild",
+          "value": 1,
+          "target": "All"
+        }
+      ]
+    },
+    "Evocation": {
+      "total": 12,
+      "appliedCount": 8,
+      "dominatedCount": 3,
+      "sources": [
+        {
+          "source": "[D] Shadowdancer: Shadowdancer: Shadow Training: Shadowdancer: Epic Spell DCs",
+          "bonusType": "Epic",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Focus I",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Focus II",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Focus III",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Focus V",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[G] Ring1: Legendary Ring of Mystic Constitution (SpellFocusMastery)",
+          "bonusType": "Insightful",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Archwizard",
+          "bonusType": "Guild",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[PL] Past Life: Sorcerer ×3",
+          "bonusType": "Stacking",
+          "value": 3,
+          "target": "Evocation"
+        }
+      ]
+    },
+    "Illusion": {
+      "total": 9,
+      "appliedCount": 7,
+      "dominatedCount": 3,
+      "sources": [
+        {
+          "source": "[D] Shadowdancer: Shadowdancer: Shadow Training: Shadowdancer: Epic Spell DCs",
+          "bonusType": "Epic",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Focus I",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Focus II",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Focus III",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Focus V",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[G] Ring1: Legendary Ring of Mystic Constitution (SpellFocusMastery)",
+          "bonusType": "Insightful",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Archwizard",
+          "bonusType": "Guild",
+          "value": 1,
+          "target": "All"
+        }
+      ]
+    },
+    "Necromancy": {
+      "total": 9,
+      "appliedCount": 7,
+      "dominatedCount": 3,
+      "sources": [
+        {
+          "source": "[D] Shadowdancer: Shadowdancer: Shadow Training: Shadowdancer: Epic Spell DCs",
+          "bonusType": "Epic",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Focus I",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Focus II",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Focus III",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Focus V",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[G] Ring1: Legendary Ring of Mystic Constitution (SpellFocusMastery)",
+          "bonusType": "Insightful",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Archwizard",
+          "bonusType": "Guild",
+          "value": 1,
+          "target": "All"
+        }
+      ]
+    },
+    "Transmutation": {
+      "total": 12,
+      "appliedCount": 8,
+      "dominatedCount": 3,
+      "sources": [
+        {
+          "source": "[D] Shadowdancer: Shadowdancer: Shadow Training: Shadowdancer: Epic Spell DCs",
+          "bonusType": "Epic",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Focus I",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Focus II",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Focus III",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Focus V",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[G] Ring1: Legendary Ring of Mystic Constitution (SpellFocusMastery)",
+          "bonusType": "Insightful",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Archwizard",
+          "bonusType": "Guild",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[PL] Past Life: Alchemist ×3",
+          "bonusType": "Stacking",
+          "value": 3,
+          "target": "Transmutation"
+        }
+      ]
+    }
+  },
+  "spellPowers": {
+    "Acid": {
+      "total": 223,
+      "appliedCount": 10,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana I",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana II",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana III",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana IV",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcanum V",
+          "bonusType": "Reaper",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana V",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcanum VI",
+          "bonusType": "Reaper",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Shrine of the Devourer I",
+          "bonusType": "Guild",
+          "value": 15,
+          "target": "Acid"
+        },
+        {
+          "source": "[PL] Past Life: Druid - Blight Caster ×3",
+          "bonusType": "Stacking",
+          "value": 15,
+          "target": "Acid"
+        },
+        {
+          "source": "Universal Spell Power",
+          "bonusType": "(untyped)",
+          "value": 157,
+          "target": "Acid"
+        }
+      ]
+    },
+    "Cold": {
+      "total": 208,
+      "appliedCount": 9,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana I",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana II",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana III",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana IV",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcanum V",
+          "bonusType": "Reaper",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana V",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcanum VI",
+          "bonusType": "Reaper",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Shrine of the Devourer I",
+          "bonusType": "Guild",
+          "value": 15,
+          "target": "Cold"
+        },
+        {
+          "source": "Universal Spell Power",
+          "bonusType": "(untyped)",
+          "value": 157,
+          "target": "Cold"
+        }
+      ]
+    },
+    "Electric": {
+      "total": 223,
+      "appliedCount": 10,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana I",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana II",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana III",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana IV",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcanum V",
+          "bonusType": "Reaper",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana V",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcanum VI",
+          "bonusType": "Reaper",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Stormreaver Memorial I",
+          "bonusType": "Guild",
+          "value": 15,
+          "target": "Electric"
+        },
+        {
+          "source": "[PL] Past Life: Bard - Stormsinger ×3",
+          "bonusType": "Stacking",
+          "value": 15,
+          "target": "Electric"
+        },
+        {
+          "source": "Universal Spell Power",
+          "bonusType": "(untyped)",
+          "value": 157,
+          "target": "Electric"
+        }
+      ]
+    },
+    "Fire": {
+      "total": 223,
+      "appliedCount": 10,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana I",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana II",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana III",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana IV",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcanum V",
+          "bonusType": "Reaper",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana V",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcanum VI",
+          "bonusType": "Reaper",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Sign of the Silver Flame I",
+          "bonusType": "Guild",
+          "value": 15,
+          "target": "Fire"
+        },
+        {
+          "source": "[PL] Past Life: Warlock - Acolyte of the Skin ×3",
+          "bonusType": "Stacking",
+          "value": 15,
+          "target": "Fire"
+        },
+        {
+          "source": "Universal Spell Power",
+          "bonusType": "(untyped)",
+          "value": 157,
+          "target": "Fire"
+        }
+      ]
+    },
+    "Force": {
+      "total": 233,
+      "appliedCount": 14,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Scion of Arborea",
+          "bonusType": "Feat",
+          "value": 20,
+          "target": "Force"
+        },
+        {
+          "source": "[D] Shadowdancer: Shadowdancer: Shadow Training",
+          "bonusType": "Destiny",
+          "value": 5,
+          "target": "Force"
+        },
+        {
+          "source": "[D] Shadowdancer: Shadowdancer: Lithe",
+          "bonusType": "Destiny",
+          "value": 0,
+          "target": "Force"
+        },
+        {
+          "source": "[D] Shadowdancer: Shadowdancer: Step Through Shadows",
+          "bonusType": "Destiny",
+          "value": 5,
+          "target": "Force"
+        },
+        {
+          "source": "[D] Shadowdancer: Shadowdancer: The Darkest Luck",
+          "bonusType": "Destiny",
+          "value": 5,
+          "target": "Force"
+        },
+        {
+          "source": "[D] Shadowdancer: Shadowdancer: Cut to the Soul",
+          "bonusType": "Destiny",
+          "value": 5,
+          "target": "Force"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana I",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana II",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana III",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana IV",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcanum V",
+          "bonusType": "Reaper",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana V",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcanum VI",
+          "bonusType": "Reaper",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "Universal Spell Power",
+          "bonusType": "(untyped)",
+          "value": 157,
+          "target": "Force"
+        }
+      ]
+    },
+    "Light/Alignment": {
+      "total": 208,
+      "appliedCount": 9,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana I",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana II",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana III",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana IV",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcanum V",
+          "bonusType": "Reaper",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana V",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcanum VI",
+          "bonusType": "Reaper",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Sign of the Silver Flame I",
+          "bonusType": "Guild",
+          "value": 15,
+          "target": "Light/Alignment"
+        },
+        {
+          "source": "Universal Spell Power",
+          "bonusType": "(untyped)",
+          "value": 157,
+          "target": "Light/Alignment"
+        }
+      ]
+    },
+    "Negative": {
+      "total": 223,
+      "appliedCount": 10,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana I",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana II",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana III",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana IV",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcanum V",
+          "bonusType": "Reaper",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana V",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcanum VI",
+          "bonusType": "Reaper",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Crusader's Chapel",
+          "bonusType": "Guild",
+          "value": 15,
+          "target": "Negative"
+        },
+        {
+          "source": "[PL] Past Life: Cleric - Dark Apostate ×3",
+          "bonusType": "Stacking",
+          "value": 15,
+          "target": "Negative"
+        },
+        {
+          "source": "Universal Spell Power",
+          "bonusType": "(untyped)",
+          "value": 157,
+          "target": "Negative"
+        }
+      ]
+    },
+    "Poison": {
+      "total": 208,
+      "appliedCount": 9,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana I",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana II",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana III",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana IV",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcanum V",
+          "bonusType": "Reaper",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana V",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcanum VI",
+          "bonusType": "Reaper",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "[PL] Past Life: Druid - Blight Caster ×3",
+          "bonusType": "Stacking",
+          "value": 15,
+          "target": "Poison"
+        },
+        {
+          "source": "Universal Spell Power",
+          "bonusType": "(untyped)",
+          "value": 157,
+          "target": "Poison"
+        }
+      ]
+    },
+    "Positive": {
+      "total": 292,
+      "appliedCount": 17,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "[E] Shintao: Shintao: Bastion of Purity",
+          "bonusType": "Enhancement",
+          "value": 10,
+          "target": "Positive"
+        },
+        {
+          "source": "[E] Shintao: Shintao: Protection from Tainted Creatures",
+          "bonusType": "Enhancement",
+          "value": 10,
+          "target": "Positive"
+        },
+        {
+          "source": "[E] Shintao: Shintao: Iron Hand",
+          "bonusType": "Enhancement",
+          "value": 10,
+          "target": "Positive"
+        },
+        {
+          "source": "[E] Shintao: Shintao: Argent Fist",
+          "bonusType": "Enhancement",
+          "value": 10,
+          "target": "Positive"
+        },
+        {
+          "source": "[E] Shintao: Shintao: Touch the Void Dragon",
+          "bonusType": "Enhancement",
+          "value": 10,
+          "target": "Positive"
+        },
+        {
+          "source": "[E] Shintao: Shintao: To Seek Perfection",
+          "bonusType": "Enhancement",
+          "value": 10,
+          "target": "Positive"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana I",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana II",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana III",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana IV",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcanum V",
+          "bonusType": "Reaper",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana V",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcanum VI",
+          "bonusType": "Reaper",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Crusader's Chapel",
+          "bonusType": "Guild",
+          "value": 15,
+          "target": "Positive"
+        },
+        {
+          "source": "[PL] Past Life: Morninglord ×3",
+          "bonusType": "Stacking",
+          "value": 9,
+          "target": "Positive"
+        },
+        {
+          "source": "[PL] Past Life: Paladin - Sacred Fist ×3",
+          "bonusType": "Stacking",
+          "value": 15,
+          "target": "Positive"
+        },
+        {
+          "source": "Universal Spell Power",
+          "bonusType": "(untyped)",
+          "value": 157,
+          "target": "Positive"
+        }
+      ]
+    },
+    "Repair": {
+      "total": 193,
+      "appliedCount": 8,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana I",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana II",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana III",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana IV",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcanum V",
+          "bonusType": "Reaper",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana V",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcanum VI",
+          "bonusType": "Reaper",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "Universal Spell Power",
+          "bonusType": "(untyped)",
+          "value": 157,
+          "target": "Repair"
+        }
+      ]
+    },
+    "Rust": {
+      "total": 193,
+      "appliedCount": 8,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana I",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana II",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana III",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana IV",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcanum V",
+          "bonusType": "Reaper",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana V",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcanum VI",
+          "bonusType": "Reaper",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "Universal Spell Power",
+          "bonusType": "(untyped)",
+          "value": 157,
+          "target": "Rust"
+        }
+      ]
+    },
+    "Sonic": {
+      "total": 223,
+      "appliedCount": 10,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana I",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana II",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana III",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana IV",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcanum V",
+          "bonusType": "Reaper",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcana V",
+          "bonusType": "Reaper",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcanum VI",
+          "bonusType": "Reaper",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Stormreaver Memorial I",
+          "bonusType": "Guild",
+          "value": 15,
+          "target": "Sonic"
+        },
+        {
+          "source": "[PL] Past Life: Bard - Stormsinger ×3",
+          "bonusType": "Stacking",
+          "value": 15,
+          "target": "Sonic"
+        },
+        {
+          "source": "Universal Spell Power",
+          "bonusType": "(untyped)",
+          "value": 157,
+          "target": "Sonic"
+        }
+      ]
+    }
+  },
+  "spellCriticalChance": {
+    "Acid": {
+      "total": 5,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Monk 1: Magical Training",
+          "bonusType": "Feat",
+          "value": 5,
+          "target": "All"
+        }
+      ]
+    },
+    "Cold": {
+      "total": 5,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Monk 1: Magical Training",
+          "bonusType": "Feat",
+          "value": 5,
+          "target": "All"
+        }
+      ]
+    },
+    "Electric": {
+      "total": 5,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Monk 1: Magical Training",
+          "bonusType": "Feat",
+          "value": 5,
+          "target": "All"
+        }
+      ]
+    },
+    "Fire": {
+      "total": 5,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Monk 1: Magical Training",
+          "bonusType": "Feat",
+          "value": 5,
+          "target": "All"
+        }
+      ]
+    },
+    "Force": {
+      "total": 5,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Monk 1: Magical Training",
+          "bonusType": "Feat",
+          "value": 5,
+          "target": "All"
+        }
+      ]
+    },
+    "Light/Alignment": {
+      "total": 5,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Monk 1: Magical Training",
+          "bonusType": "Feat",
+          "value": 5,
+          "target": "All"
+        }
+      ]
+    },
+    "Negative": {
+      "total": 5,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Monk 1: Magical Training",
+          "bonusType": "Feat",
+          "value": 5,
+          "target": "All"
+        }
+      ]
+    },
+    "Poison": {
+      "total": 5,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Monk 1: Magical Training",
+          "bonusType": "Feat",
+          "value": 5,
+          "target": "All"
+        }
+      ]
+    },
+    "Positive": {
+      "total": 5,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Monk 1: Magical Training",
+          "bonusType": "Feat",
+          "value": 5,
+          "target": "All"
+        }
+      ]
+    },
+    "Repair": {
+      "total": 5,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Monk 1: Magical Training",
+          "bonusType": "Feat",
+          "value": 5,
+          "target": "All"
+        }
+      ]
+    },
+    "Rust": {
+      "total": 5,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Monk 1: Magical Training",
+          "bonusType": "Feat",
+          "value": 5,
+          "target": "All"
+        }
+      ]
+    },
+    "Sonic": {
+      "total": 5,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Monk 1: Magical Training",
+          "bonusType": "Feat",
+          "value": 5,
+          "target": "All"
+        }
+      ]
+    }
+  },
+  "spellCriticalDamage": {
+    "Acid": {
+      "total": 0,
+      "appliedCount": 0,
+      "dominatedCount": 0,
+      "sources": []
+    },
+    "Cold": {
+      "total": 0,
+      "appliedCount": 0,
+      "dominatedCount": 0,
+      "sources": []
+    },
+    "Electric": {
+      "total": 0,
+      "appliedCount": 0,
+      "dominatedCount": 0,
+      "sources": []
+    },
+    "Fire": {
+      "total": 0,
+      "appliedCount": 0,
+      "dominatedCount": 0,
+      "sources": []
+    },
+    "Force": {
+      "total": 0,
+      "appliedCount": 0,
+      "dominatedCount": 0,
+      "sources": []
+    },
+    "Light/Alignment": {
+      "total": 0,
+      "appliedCount": 0,
+      "dominatedCount": 0,
+      "sources": []
+    },
+    "Negative": {
+      "total": 0,
+      "appliedCount": 0,
+      "dominatedCount": 0,
+      "sources": []
+    },
+    "Poison": {
+      "total": 0,
+      "appliedCount": 0,
+      "dominatedCount": 0,
+      "sources": []
+    },
+    "Positive": {
+      "total": 0,
+      "appliedCount": 0,
+      "dominatedCount": 0,
+      "sources": []
+    },
+    "Repair": {
+      "total": 0,
+      "appliedCount": 0,
+      "dominatedCount": 0,
+      "sources": []
+    },
+    "Rust": {
+      "total": 0,
+      "appliedCount": 0,
+      "dominatedCount": 0,
+      "sources": []
+    },
+    "Sonic": {
+      "total": 0,
+      "appliedCount": 0,
+      "dominatedCount": 0,
+      "sources": []
+    }
+  },
+  "slas": [
+    {
+      "name": "Abundant Step",
+      "castingClass": "Character",
+      "category": "feat",
+      "cost": 10,
+      "maxCasterLevel": 0,
+      "cooldown": 3,
+      "source": "Monk 12: Abundant Step"
+    },
+    {
+      "name": "Dimension Door",
+      "castingClass": "Character",
+      "category": "enhancement",
+      "cost": 0,
+      "maxCasterLevel": 0,
+      "cooldown": 120,
+      "source": "[D] Shadowdancer: Shadowdancer: Step Through Shadows"
+    },
+    {
+      "name": "Evasive Trance",
+      "castingClass": "Character",
+      "category": "feat",
+      "cost": 0,
+      "maxCasterLevel": 0,
+      "cooldown": 0,
+      "source": "Past Life: Disciple of the Fist"
+    },
+    {
+      "name": "Shadow Walk",
+      "castingClass": "Character",
+      "category": "feat",
+      "cost": 10,
+      "maxCasterLevel": 0,
+      "cooldown": 10,
+      "source": "Monk 19: Empty Body"
+    }
+  ]
+}

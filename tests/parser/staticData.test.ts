@@ -16,6 +16,8 @@ import {
   parseWeaponGroupsXml,
   parseSetBonusesXml,
   parseFeatsXml,
+  parseSpellsXml,
+  parseClassXml,
 } from '@/utils/ddoXmlParser';
 import { findUnknownEffectTypes } from '@/utils/effectParser';
 
@@ -98,5 +100,47 @@ describe('static-data parsers', () => {
     };
     await expect(JSON.stringify(summary, null, 2))
       .toMatchFileSnapshot(resolve(SNAPSHOTS, 'Feats.summary.json'));
+  });
+
+  it('Spells.xml parses to a stable summary', async () => {
+    const spells = parseSpellsXml(readData('Spells.xml'));
+    const schools = [...new Set(spells.map(s => s.school))].sort();
+    const withDamage   = spells.filter(s => s.damages.length > 0).length;
+    const withDC       = spells.filter(s => s.dcs.length > 0).length;
+    const withEffects  = spells.filter(s => s.effects.length > 0).length;
+    const metamagicCounts: Record<string, number> = {};
+    for (const s of spells) {
+      for (const k of Object.keys(s.metamagic)) {
+        metamagicCounts[k] = (metamagicCounts[k] ?? 0) + 1;
+      }
+    }
+    const summary = {
+      count: spells.length,
+      schools,
+      withDamage, withDC, withEffects,
+      metamagicCounts,
+      sample: {
+        magicMissile:   spells.find(s => s.name === 'Magic Missile'),
+        sleep:          spells.find(s => s.name === 'Sleep'),
+        sonicBlast:     spells.find(s => s.name === 'Sonic Blast'),
+      },
+    };
+    await expect(JSON.stringify(summary, null, 2))
+      .toMatchFileSnapshot(resolve(SNAPSHOTS, 'Spells.summary.json'));
+  });
+
+  it('Wizard class XML carries ClassSpell entries that join to Spells.xml', async () => {
+    const wizard = parseClassXml(readData('Classes/Wizard.class.xml'));
+    expect(wizard).not.toBeNull();
+    expect(wizard!.spells.length).toBeGreaterThan(100);
+    // Magic Missile should be a Wizard 1
+    const mm = wizard!.spells.find(s => s.name === 'Magic Missile');
+    expect(mm).toBeDefined();
+    expect(mm!.level).toBe(1);
+    expect(mm!.cost).toBe(4);
+    expect(mm!.maxCasterLevel).toBe(9);
+    // Catalog has the spell so the join works
+    const spells = parseSpellsXml(readData('Spells.xml'));
+    expect(spells.find(s => s.name === 'Magic Missile')).toBeDefined();
   });
 });

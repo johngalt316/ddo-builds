@@ -65,7 +65,7 @@ function deriveStats(build: Build) {
     effectiveScores,
     modifiers,
     bab:             calculateBAB(build.classes, CLASSES),
-    hitPoints:       calculateHitPoints(build.classes, CLASSES, effectiveScores.CON, build.feats),
+    hitPoints:       calculateHitPoints(build.classes, CLASSES, effectiveScores.CON, build.epicLevels),
     saves:           calculateSaves(
       build.classes, CLASSES,
       effectiveScores.CON, effectiveScores.DEX, effectiveScores.WIS,

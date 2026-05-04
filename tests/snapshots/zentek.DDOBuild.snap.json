@@ -1,7 +1,7 @@
 {
   "notes": "",
   "warnings": [
-    "14 Epic/Legendary levels detected (level 21+) — only heroic classes are shown."
+    "14 Epic/Legendary levels detected — heroic classes shown explicitly; epic levels stored as build.epicLevels for HP/CON purposes."
   ],
   "build": {
     "version": 1,
@@ -139,6 +139,7 @@
     ],
     "enhancements": [],
     "destinyEnhancements": [],
+    "reaperEnhancements": [],
     "selectedEnhancementTrees": [
       "Eladrin",
       "Angel of Vengeance",
@@ -148,14 +149,33 @@
       "Battle Engineer",
       "Renegade Mastermaker"
     ],
+    "treesManuallyOverridden": true,
     "gearSets": [
       {
         "name": "Standard",
-        "items": []
+        "items": [],
+        "artifactFiligrees": [
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {}
+        ]
       }
     ],
     "activeGearSet": "Standard",
-    "activeStances": [],
+    "activeStances": [
+      "Cloth Armor",
+      "Centered",
+      "Empty",
+      "Eladrin",
+      "Chaotic"
+    ],
     "levelClasses": [
       "artificer",
       "artificer",
@@ -205,6 +225,7 @@
         "type": "HeroicPastLife",
         "rank": 3
       }
-    ]
+    ],
+    "epicLevels": 14
   }
 }

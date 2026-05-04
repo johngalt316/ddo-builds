@@ -1,7 +1,7 @@
 {
   "notes": "",
   "warnings": [
-    "14 Epic/Legendary levels detected (level 21+) — only heroic classes are shown."
+    "14 Epic/Legendary levels detected — heroic classes shown explicitly; epic levels stored as build.epicLevels for HP/CON purposes."
   ],
   "build": {
     "version": 1,
@@ -22,27 +22,30 @@
       "WIS": 8,
       "CHA": 8
     },
-    "skillRanks": {},
+    "skillRanks": {
+      "spellcraft": 23,
+      "search": 1
+    },
     "feats": [
       {
         "slotIndex": 0,
-        "featId": "Rapid Reload"
-      },
-      {
-        "slotIndex": 1,
-        "featId": "Point Blank Shot"
-      },
-      {
-        "slotIndex": 2,
-        "featId": "Minion of the Eldritch"
-      },
-      {
-        "slotIndex": 3,
         "featId": "Maximize Spell"
       },
       {
+        "slotIndex": 1,
+        "featId": "Empower Spell"
+      },
+      {
+        "slotIndex": 2,
+        "featId": "Echoing Soul"
+      },
+      {
+        "slotIndex": 3,
+        "featId": "Quicken Spell"
+      },
+      {
         "slotIndex": 4,
-        "featId": "Rapid Shot"
+        "featId": "Enlarge Spell"
       },
       {
         "slotIndex": 5,
@@ -50,86 +53,1134 @@
       },
       {
         "slotIndex": 6,
-        "featId": "Empower Spell"
+        "featId": "Extend Spell"
       },
       {
         "slotIndex": 7,
-        "featId": "Improved Critical: Ranged Weapons"
+        "featId": "Mental Toughness"
       },
       {
         "slotIndex": 8,
-        "featId": "Precise Shot"
+        "featId": "Heighten Spell"
       },
       {
         "slotIndex": 9,
-        "featId": "Quicken Spell"
+        "featId": "Nimble Fingers"
       },
       {
         "slotIndex": 10,
-        "featId": "Precision"
+        "featId": "Eschew Materials"
       },
       {
         "slotIndex": 11,
-        "featId": "Epic Spell Power: Force"
+        "featId": "Improved Sneak Attack"
       },
       {
         "slotIndex": 12,
-        "featId": "Intensify Spell"
+        "featId": "Epic Spell Power: Force"
       },
       {
         "slotIndex": 13,
-        "featId": "Doubleshot"
+        "featId": "Intensify Spell"
       },
       {
         "slotIndex": 14,
-        "featId": "Patience"
+        "featId": "Epic Spell Power: Repair"
       },
       {
         "slotIndex": 15,
-        "featId": "Arcane Warrior"
+        "featId": "Embolden Spell"
       },
       {
         "slotIndex": 16,
-        "featId": "Scion of the Ethereal Plane"
+        "featId": "Epic Spell Power: Fire"
       },
       {
         "slotIndex": 17,
-        "featId": "Enhanced Minion of the Eldritch"
+        "featId": "Scion of the Ethereal Plane"
       },
       {
         "slotIndex": 18,
-        "featId": "Overwhelming Critical"
+        "featId": "Enhanced Echoing Soul"
       },
       {
         "slotIndex": 19,
-        "featId": "Legendary Aim"
+        "featId": "Improved Mental Toughness"
       },
       {
         "slotIndex": 20,
-        "featId": "Watchful Eye"
+        "featId": "Epic Spell Power: Sonic"
       },
       {
         "slotIndex": 21,
-        "featId": "Epic Spell Power: Positive"
+        "featId": "Wellspring of Power"
+      },
+      {
+        "slotIndex": 22,
+        "featId": "Epic Spell Power: Acid"
       }
     ],
     "enhancements": [
       {
         "treeId": "Eladrin",
         "enhancements": []
+      },
+      {
+        "treeId": "Bladeforged",
+        "enhancements": [
+          {
+            "enhancementId": "BladeforgedCore1",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "BladeforgedCore2",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "BladeforgedCore3",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "BladeforgedCore4",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "BladeforgedCore5",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "BladeforgedRepairSystems",
+            "selection": "Mechanist",
+            "tier": 0,
+            "rank": 3
+          },
+          {
+            "enhancementId": "BladeforgedCommunionOfScribing",
+            "tier": 0,
+            "rank": 3
+          },
+          {
+            "enhancementId": "BladeforgedPowerOfTheForge",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "BladeforgedSoulboundPlating",
+            "tier": 0,
+            "rank": 1
+          }
+        ]
+      },
+      {
+        "treeId": "Arcane Trickster",
+        "enhancements": [
+          {
+            "enhancementId": "ArcaneTricksterCore1",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "ATEyePoke",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "ATMagicFingers",
+            "tier": 0,
+            "rank": 3
+          },
+          {
+            "enhancementId": "ATMageHandSlap",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "ATProtectiveGear",
+            "tier": 0,
+            "rank": 3
+          },
+          {
+            "enhancementId": "ATArmsOfTheTrickster",
+            "selection": "Trickster's Trick",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "ATCatcherGlove",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "ArcaneTricksterCore2",
+            "selection": "Stolen Spell - Magic Missile",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "ATAppliedForce",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "ATTricksOnTricks",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "ATMoreMagicMoreFun",
+            "selection": "Quick Silver",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "ATMeddleWithReality",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "ArcaneTricksterCore3",
+            "selection": "Stolen Spell - Sound Burst",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "ATHelpingHand",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "ATSlipperyMagic",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "ATPinPoint",
+            "tier": 0,
+            "rank": 3
+          },
+          {
+            "enhancementId": "ATSharpMagic",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "ArcaneTricksterCore4",
+            "selection": "Stolen Spell - Flash Freeze",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "ATPresto",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "ATExtraHand",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "ATTrickyBusiness",
+            "tier": 0,
+            "rank": 2
+          },
+          {
+            "enhancementId": "ATGoodWithMyHands",
+            "tier": 0,
+            "rank": 3
+          },
+          {
+            "enhancementId": "ATNotHalfBad",
+            "selection": "Not that Bad with a Blade",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "ArcaneTricksterCore5",
+            "selection": "Stolen Spell - Turn to Frog",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "ArcaneTricksterCore6",
+            "tier": 0,
+            "rank": 1
+          }
+        ]
+      },
+      {
+        "treeId": "Mechanic",
+        "enhancements": [
+          {
+            "enhancementId": "MechCore1",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "MechSharpshooterI",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "MechThunderstone",
+            "tier": 0,
+            "rank": 3
+          },
+          {
+            "enhancementId": "MechMechanics",
+            "tier": 0,
+            "rank": 3
+          },
+          {
+            "enhancementId": "MechAwareness",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "MechCore2",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "MechSharpshooterII",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "MechImprovedTraps",
+            "tier": 0,
+            "rank": 3
+          },
+          {
+            "enhancementId": "MechCore3",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "MechSharpshooterIII",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "MechOozeFlask",
+            "tier": 0,
+            "rank": 3
+          },
+          {
+            "enhancementId": "MechFletching",
+            "tier": 0,
+            "rank": 3
+          },
+          {
+            "enhancementId": "MechSharpshooterIV",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "MechLegShot",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "MechCore4",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "MechCore5",
+            "tier": 0,
+            "rank": 1
+          }
+        ]
+      },
+      {
+        "treeId": "Thief-Acrobat",
+        "enhancements": [
+          {
+            "enhancementId": "TACore1",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "TAFastMovement",
+            "tier": 0,
+            "rank": 1
+          }
+        ]
+      },
+      {
+        "treeId": "Falconry",
+        "enhancements": [
+          {
+            "enhancementId": "FalconCore1",
+            "selection": "Summon Grey Owl",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "FalconOutInNature",
+            "tier": 0,
+            "rank": 3
+          },
+          {
+            "enhancementId": "FalconRugged",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "FalconActionBoostSprint",
+            "tier": 0,
+            "rank": 2
+          }
+        ]
       }
     ],
-    "destinyEnhancements": [],
+    "destinyEnhancements": [
+      {
+        "treeId": "Shiradi Champion",
+        "enhancements": [
+          {
+            "enhancementId": "U51ShiradiChampionCore1",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "U51ShiradiChampionPrism",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "U51ShiradiChampionGoodLuck",
+            "tier": 0,
+            "rank": 3
+          },
+          {
+            "enhancementId": "U51ShiradiChampionWildMagics",
+            "tier": 0,
+            "rank": 3
+          },
+          {
+            "enhancementId": "U51ShiradiChampionFeySight",
+            "tier": 0,
+            "rank": 2
+          },
+          {
+            "enhancementId": "U51ShiradiChampionFadeOrPresence",
+            "selection": "Fey Presence",
+            "tier": 0,
+            "rank": 3
+          },
+          {
+            "enhancementId": "U51ShiradiChampionStay",
+            "selection": "Stay Strong",
+            "tier": 0,
+            "rank": 3
+          },
+          {
+            "enhancementId": "U51ShiradiChampionFriendOrFoe",
+            "selection": "Fey Form",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "U51ShiradiChampionCore2",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "U51ShiradiChampionDoubleRainbow",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "U51ShiradiChampionPierceDeception",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "U51ShiradiChampionCore3",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "U51ShiradiChampionCore4",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "U51ShiradiChampionCrookedTouch",
+            "selection": "Flickering Fingers",
+            "tier": 0,
+            "rank": 3
+          },
+          {
+            "enhancementId": "U51ShiradiChampionQueensDiplomacy",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "U51ShiradiChampionTrack",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "U51ShiradiChampionCrueltyOfTheHunt",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "U51ShiradiChampionNerveVenom",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "U51ShiradiChampionFeywildAttunement",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "U51ShiradiChampionEpicMoment",
+            "selection": "Inexorable Advance",
+            "tier": 0,
+            "rank": 1
+          }
+        ]
+      },
+      {
+        "treeId": "Shadowdancer",
+        "enhancements": [
+          {
+            "enhancementId": "U51ShadowdancerCore1",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "U51ShadowdancerCoverOfDarkness",
+            "tier": 0,
+            "rank": 3
+          },
+          {
+            "enhancementId": "U51ShadowdancerWellOfDarkness",
+            "tier": 0,
+            "rank": 3
+          },
+          {
+            "enhancementId": "U51ShadowdancerTechnician",
+            "tier": 0,
+            "rank": 3
+          },
+          {
+            "enhancementId": "U51ShadowdancerCore2",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "U51ShadowdancerDanceInTheDark",
+            "tier": 0,
+            "rank": 3
+          },
+          {
+            "enhancementId": "U51ShadowdancerEpicStrike",
+            "selection": "Nightmare Lance",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "U51ShadowdancerEpicStrikeUpgrade",
+            "selection": "Dark Imbuement",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "U51ShadowdancerCore3",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "U51ShadowdancerShadowcaster",
+            "selection": "Shadowcaster",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "U51ShadowdancerCore4",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "U51ShadowdancerEpicStrikeUpgradeII",
+            "selection": "Improved Paranoia",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "U51ShadowdancerBringDarkness",
+            "tier": 0,
+            "rank": 1
+          }
+        ]
+      },
+      {
+        "treeId": "Machrotechnic",
+        "enhancements": [
+          {
+            "enhancementId": "MachrotechnicCore1",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "MachroSprockets",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "MachroEpicStrike",
+            "selection": "Mending Burst",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "MachroBlastShields",
+            "tier": 0,
+            "rank": 3
+          },
+          {
+            "enhancementId": "MachrotechnicCore2",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "MachroRuneArmUse",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "MachroHammerTime",
+            "selection": "Tonquin's Thunder Hammer",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "MachroArcaneImbuement",
+            "tier": 0,
+            "rank": 3
+          },
+          {
+            "enhancementId": "MachrotechnicCore3",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "MachroTechniqueDrive",
+            "selection": "Efficiency Drive",
+            "tier": 0,
+            "rank": 2
+          },
+          {
+            "enhancementId": "MachroStormCore",
+            "tier": 0,
+            "rank": 3
+          },
+          {
+            "enhancementId": "MachroStrikeDrive",
+            "selection": "Ruin Drive",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "MachrotechnicCore4",
+            "tier": 0,
+            "rank": 1
+          }
+        ]
+      }
+    ],
+    "reaperEnhancements": [
+      {
+        "treeId": "Dire Thaumaturge",
+        "enhancements": [
+          {
+            "enhancementId": "DireCore1",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "DireArcanaI",
+            "tier": 0,
+            "rank": 3
+          },
+          {
+            "enhancementId": "DireAbilityI",
+            "selection": "+1 Intelligence",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "DireDeepMagicI",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "DireFocusI",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "DirePower",
+            "tier": 0,
+            "rank": 3
+          },
+          {
+            "enhancementId": "DireCore2",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "DireAbilityII",
+            "selection": "+1 Intelligence",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "DireDeepMagicII",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "DireFocusII",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "DireArcanaII",
+            "tier": 0,
+            "rank": 3
+          },
+          {
+            "enhancementId": "DireFocusIII",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "DireDeepMagicIII",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "DireAbilityIII",
+            "selection": "+1 Intelligence",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "DireCore3",
+            "selection": "+1 Intelligence",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "DireArcanaIII",
+            "tier": 0,
+            "rank": 3
+          },
+          {
+            "enhancementId": "DireArcanaIV",
+            "tier": 0,
+            "rank": 3
+          },
+          {
+            "enhancementId": "DirePotency",
+            "tier": 0,
+            "rank": 3
+          },
+          {
+            "enhancementId": "DireEfficiency",
+            "tier": 0,
+            "rank": 3
+          },
+          {
+            "enhancementId": "DireDeepMagicIV",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "DireCore4",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "DireDeepMagicV",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "DireAbilityV",
+            "selection": "+1 Intelligence",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "DireCore5",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "DireCharge",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "DireFocusV",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "DireArcanaV",
+            "tier": 0,
+            "rank": 3
+          },
+          {
+            "enhancementId": "DireCore6",
+            "tier": 0,
+            "rank": 1
+          }
+        ]
+      },
+      {
+        "treeId": "Dread Adversary",
+        "enhancements": [
+          {
+            "enhancementId": "DreadAdversaryCore1",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "DAReapersBladeI",
+            "tier": 0,
+            "rank": 2
+          },
+          {
+            "enhancementId": "DAReapersShotI",
+            "tier": 0,
+            "rank": 3
+          },
+          {
+            "enhancementId": "DAReapersAbilityI",
+            "selection": "+1 Dexterity",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "DAReapersStrike",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "DAReapersTacticsI",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "DAReapersShotII",
+            "tier": 0,
+            "rank": 3
+          },
+          {
+            "enhancementId": "DreadAdversaryCore2",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "DAReapersAbilityII",
+            "selection": "+1 Dexterity",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "DAReapersTacticsII",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "DAReapersBladeII",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "DAReapersAbilityIII",
+            "selection": "+1 Dexterity",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "DAReapersShotIII",
+            "tier": 0,
+            "rank": 3
+          },
+          {
+            "enhancementId": "DreadAdversaryCore3",
+            "selection": "+1 Dexterity",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "DAReapersTacticsIII",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "DAReapersBladeIII",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "DAReapersShotIV",
+            "tier": 0,
+            "rank": 3
+          },
+          {
+            "enhancementId": "DAReapersDeadlyStrikes",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "DAReapersImbuement",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "DreadAdversaryCore4",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "DAReapersBladeIV",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "DreadAdversaryCore5",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "DAReapersCharge",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "DAReapersAbilityIV",
+            "selection": "+1 Dexterity",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "DAReapersShotV",
+            "tier": 0,
+            "rank": 3
+          },
+          {
+            "enhancementId": "DAReapersTacticsIV",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "DAReapersBladeV",
+            "tier": 0,
+            "rank": 1
+          }
+        ]
+      },
+      {
+        "treeId": "Grim Barricade",
+        "enhancements": [
+          {
+            "enhancementId": "GrimCore1",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "GrimBulwarkShroudI",
+            "selection": "PRR",
+            "tier": 0,
+            "rank": 3
+          },
+          {
+            "enhancementId": "GrimReapersSaveI",
+            "selection": "Fortitude Save",
+            "tier": 0,
+            "rank": 3
+          },
+          {
+            "enhancementId": "GrimReapersLuck",
+            "tier": 0,
+            "rank": 3
+          },
+          {
+            "enhancementId": "GrimAbilityI",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "GrimReapersEvasionI",
+            "tier": 0,
+            "rank": 3
+          },
+          {
+            "enhancementId": "GrimCore2",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "GrimAbilityII",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "GrimReapersSaveII",
+            "selection": "Fortitude Save",
+            "tier": 0,
+            "rank": 3
+          },
+          {
+            "enhancementId": "GrimBulwarkShroudII",
+            "selection": "PRR",
+            "tier": 0,
+            "rank": 3
+          },
+          {
+            "enhancementId": "GrimReapersEvasionII",
+            "tier": 0,
+            "rank": 3
+          },
+          {
+            "enhancementId": "GrimAbilityIII",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "GrimReapersSaveIII",
+            "selection": "Fortitude Save",
+            "tier": 0,
+            "rank": 3
+          },
+          {
+            "enhancementId": "GrimBulwarkShroudIII",
+            "selection": "PRR",
+            "tier": 0,
+            "rank": 3
+          },
+          {
+            "enhancementId": "GrimReapersEvasionIII",
+            "tier": 0,
+            "rank": 3
+          },
+          {
+            "enhancementId": "GrimCore3",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "GrimBulwarkShroudIV",
+            "selection": "PRR",
+            "tier": 0,
+            "rank": 3
+          },
+          {
+            "enhancementId": "GrimReapersResistance",
+            "tier": 0,
+            "rank": 3
+          },
+          {
+            "enhancementId": "GrimReapersSteadfastness",
+            "tier": 0,
+            "rank": 3
+          },
+          {
+            "enhancementId": "GrimReapersHeightenedEvasionI",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "GrimCore4",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "GrimAbilityV",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "GrimReapersCharge",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "GrimReapersSaveV",
+            "selection": "Fortitude Save",
+            "tier": 0,
+            "rank": 3
+          },
+          {
+            "enhancementId": "GrimBulwarkShroudV",
+            "selection": "PRR",
+            "tier": 0,
+            "rank": 3
+          },
+          {
+            "enhancementId": "GrimReapersHeightenedEvasionII",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "GrimCore5",
+            "tier": 0,
+            "rank": 1
+          },
+          {
+            "enhancementId": "GrimCore6",
+            "tier": 0,
+            "rank": 1
+          }
+        ]
+      }
+    ],
     "selectedEnhancementTrees": [
       "Bladeforged",
       "Arcane Trickster",
       "Mechanic",
-      "Thief-Acrobat"
+      "Thief-Acrobat",
+      "Falconry",
+      "Shiradi Champion",
+      "Shadowdancer",
+      "Machrotechnic",
+      "Dire Thaumaturge",
+      "Dread Adversary",
+      "Grim Barricade"
     ],
+    "treesManuallyOverridden": true,
     "gearSets": [
       {
         "name": "Standard",
-        "items": []
+        "items": [],
+        "artifactFiligrees": [
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {}
+        ]
       },
       {
         "name": "DPS",
@@ -166,6 +1217,236 @@
                 "item": "Force",
                 "description1": "Force"
               }
+            ],
+            "augmentSlots": [
+              {
+                "slotType": "Green",
+                "selectedAugment": "Sapphire of Defense",
+                "selectedLevelIndex": 8
+              },
+              {
+                "slotType": "Colorless",
+                "selectedAugment": "+2 Festive Constitution"
+              },
+              {
+                "slotType": "Sun",
+                "selectedAugment": "Solar Gem of Spell Critical Damage (Legendary)"
+              },
+              {
+                "slotType": "Mythic"
+              },
+              {
+                "slotType": "Reaper Helmet"
+              },
+              {
+                "slotType": "Deck Curse",
+                "selectedAugment": "Curse of Minor Sheltering"
+              }
+            ]
+          },
+          {
+            "slot": "Necklace",
+            "name": "Celestial Insignia",
+            "icon": "Necklace_11a",
+            "description": "FEYTWISTED form of Winter Court Necklace \r\n\r\nThis Celestial pendant seems to glow with holy light.",
+            "dropLocation": "The Feywild, Feytwisted chests",
+            "minLevel": 29,
+            "material": "Glass",
+            "setBonus": "Eminence of Autumn",
+            "buffs": [
+              {
+                "type": "AngelicGrace"
+              },
+              {
+                "type": "HealingAmplification",
+                "value1": 53,
+                "bonusType": "Competence"
+              },
+              {
+                "type": "AbilityBonus",
+                "value1": 3,
+                "bonusType": "Quality",
+                "item": "Constitution",
+                "description1": "Constitution"
+              },
+              {
+                "type": "PhysicalSheltering",
+                "value1": 8,
+                "bonusType": "Quality"
+              }
+            ],
+            "augmentSlots": [
+              {
+                "slotType": "Green",
+                "selectedAugment": "Draconic Soul Gem"
+              },
+              {
+                "slotType": "Mythic"
+              },
+              {
+                "slotType": "Reaper Necklace"
+              },
+              {
+                "slotType": "Deck Curse",
+                "selectedAugment": "Curse of Major Spellwork"
+              }
+            ]
+          },
+          {
+            "slot": "Trinket",
+            "name": "Legendary Heartshard",
+            "icon": "Trinket_107",
+            "description": "This crystalline fragment pulses in your hands.",
+            "dropLocation": "Snowfall and Sunlight, end chest (rare)",
+            "minLevel": 34,
+            "material": "Leather",
+            "buffs": [
+              {
+                "type": "Legendary Conditioning",
+                "value1": 15,
+                "bonusType": "Legendary"
+              }
+            ],
+            "augmentSlots": [
+              {
+                "slotType": "Melancholic Slot (Accessory)"
+              },
+              {
+                "slotType": "Dolorous Slot (Accessory)"
+              },
+              {
+                "slotType": "Miserable Slot (Accessory)"
+              },
+              {
+                "slotType": "Green",
+                "selectedAugment": "Sapphire of Greater Heroism"
+              },
+              {
+                "slotType": "Colorless",
+                "selectedAugment": "+2 Festive Intelligence"
+              },
+              {
+                "slotType": "Sun",
+                "selectedAugment": "Solar Gem of Spell Critical Chance (Legendary)"
+              },
+              {
+                "slotType": "Mythic",
+                "selectedAugment": "Mythic Power Boost"
+              },
+              {
+                "slotType": "Reaper Trinket",
+                "selectedAugment": "+3 Melee/Ranged and Spell Power"
+              },
+              {
+                "slotType": "Deck Curse",
+                "selectedAugment": "Curse of Cruelty"
+              }
+            ]
+          },
+          {
+            "slot": "Cloak",
+            "name": "The Deathly Shroud",
+            "icon": "Cloak_9",
+            "dropLocation": "Relentless, end chest",
+            "minLevel": 34,
+            "material": "Cloth",
+            "buffs": [],
+            "augmentSlots": [
+              {
+                "slotType": "Melancholic Slot (Accessory)"
+              },
+              {
+                "slotType": "Dolorous Slot (Accessory)"
+              },
+              {
+                "slotType": "Miserable Slot (Accessory)"
+              },
+              {
+                "slotType": "Woeful Slot (Accessory)"
+              },
+              {
+                "slotType": "Green",
+                "selectedAugment": "Topaz of Wizardry",
+                "selectedLevelIndex": 8
+              },
+              {
+                "slotType": "Blue",
+                "selectedAugment": "Sapphire of Fortification"
+              },
+              {
+                "slotType": "Sun",
+                "selectedAugment": "Solar Gem of Spellpower (Heroic)"
+              },
+              {
+                "slotType": "Mythic"
+              },
+              {
+                "slotType": "Reaper Cloak"
+              },
+              {
+                "slotType": "Deck Curse",
+                "selectedAugment": "Curse of Major Fortitude"
+              }
+            ]
+          },
+          {
+            "slot": "Belt",
+            "name": "Legendary Belt of Bold Brilliance",
+            "icon": "Belt_14c",
+            "description": "A flashy, ostentatious belt of a Dwarven make. An inscription inside indicates\r\nit may have been a gift.",
+            "dropLocation": "The House of Gems, end chest",
+            "minLevel": 33,
+            "material": "Steel",
+            "buffs": [
+              {
+                "type": "AbilityBonus",
+                "value1": 6,
+                "bonusType": "Insightful",
+                "item": "Intelligence",
+                "description1": "Intelligence"
+              },
+              {
+                "type": "ReflexSave",
+                "value1": 3,
+                "bonusType": "Quality"
+              },
+              {
+                "type": "Profane Well Rounded",
+                "value1": 3,
+                "bonusType": "Profane"
+              },
+              {
+                "type": "HealingAmplification",
+                "value1": 15,
+                "bonusType": "Exceptional"
+              }
+            ],
+            "augmentSlots": [
+              {
+                "slotType": "Green",
+                "selectedAugment": "Topaz of Ranged Power",
+                "selectedLevelIndex": 4
+              },
+              {
+                "slotType": "Colorless",
+                "selectedAugment": "Diamond of Spellcraft",
+                "selectedLevelIndex": 6
+              },
+              {
+                "slotType": "Moon",
+                "selectedAugment": "Lunar Gem of Physical Protection (Legendary)"
+              },
+              {
+                "slotType": "Mythic"
+              },
+              {
+                "slotType": "Reaper Belt",
+                "selectedAugment": "+10 Reaper Bonus to hit points, and +3 PRR"
+              },
+              {
+                "slotType": "Deck Curse",
+                "selectedAugment": "Curse of Unending Song"
+              }
             ]
           },
           {
@@ -184,6 +1465,36 @@
               },
               {
                 "type": "TrueSeeing"
+              }
+            ],
+            "augmentSlots": [
+              {
+                "slotType": "Melancholic Slot (Accessory)",
+                "selectedAugment": "Melancholic Force Spell Critical Damage (Legendary)"
+              },
+              {
+                "slotType": "Dolorous Slot (Accessory)",
+                "selectedAugment": "Dolorous Force Spell Critical Damage (Legendary)"
+              },
+              {
+                "slotType": "Green"
+              },
+              {
+                "slotType": "Colorless"
+              },
+              {
+                "slotType": "Sun",
+                "selectedAugment": "Solar Gem of Sneak Attack Dice (Legendary)"
+              },
+              {
+                "slotType": "Mythic"
+              },
+              {
+                "slotType": "Reaper Goggles"
+              },
+              {
+                "slotType": "Deck Curse",
+                "selectedAugment": "Curse of the Visionary"
               }
             ]
           },
@@ -216,6 +1527,30 @@
                 "value1": 9,
                 "bonusType": "Equipment"
               }
+            ],
+            "augmentSlots": [
+              {
+                "slotType": "Green"
+              },
+              {
+                "slotType": "Colorless",
+                "selectedAugment": "Diamond of Disable Device",
+                "selectedLevelIndex": 7
+              },
+              {
+                "slotType": "Moon",
+                "selectedAugment": "Lunar Gem of Ranged Power (Legendary)"
+              },
+              {
+                "slotType": "Mythic"
+              },
+              {
+                "slotType": "Reaper Gloves"
+              },
+              {
+                "slotType": "Deck Curse",
+                "selectedAugment": "Curse of Uncontrollable Energy"
+              }
             ]
           },
           {
@@ -245,6 +1580,23 @@
                 "value1": 13,
                 "bonusType": "Enhancement"
               }
+            ],
+            "augmentSlots": [
+              {
+                "slotType": "Green",
+                "selectedAugment": "Topaz of Feather Fall"
+              },
+              {
+                "slotType": "Mythic",
+                "selectedAugment": "Mythic Shield Boost"
+              },
+              {
+                "slotType": "Reaper Boot"
+              },
+              {
+                "slotType": "Deck Curse",
+                "selectedAugment": "Curse of Minor Mechanics"
+              }
             ]
           },
           {
@@ -270,6 +1622,33 @@
                 "type": "Power in Pact",
                 "value1": 3,
                 "bonusType": "Enhancement"
+              }
+            ],
+            "augmentSlots": [
+              {
+                "slotType": "Sealed in Undeath",
+                "selectedAugment": "Insightful Constitution +7"
+              },
+              {
+                "slotType": "Green"
+              },
+              {
+                "slotType": "Yellow",
+                "selectedAugment": "Globe of True Imperial Blood"
+              },
+              {
+                "slotType": "Moon",
+                "selectedAugment": "Lunar Gem of Repair Amplification (Legendary)"
+              },
+              {
+                "slotType": "Mythic"
+              },
+              {
+                "slotType": "Reaper Bracers"
+              },
+              {
+                "slotType": "Deck Curse",
+                "selectedAugment": "Curse of Minor Arcana"
               }
             ]
           },
@@ -317,6 +1696,155 @@
               {
                 "type": "Construct Fortification (10%)"
               }
+            ],
+            "augmentSlots": [
+              {
+                "slotType": "Colorless",
+                "selectedAugment": "Diamond of Intelligence",
+                "selectedLevelIndex": 8
+              },
+              {
+                "slotType": "Blue",
+                "selectedAugment": "Sapphire of Repair Amplification",
+                "selectedLevelIndex": 8
+              },
+              {
+                "slotType": "Mythic"
+              },
+              {
+                "slotType": "Reaper Armor"
+              },
+              {
+                "slotType": "Deck Curse"
+              }
+            ]
+          },
+          {
+            "slot": "MainHand",
+            "name": "Attuned Bone Great Crossbow",
+            "icon": "GreatCrossbow_4",
+            "description": "Fashioned of intricately carved bones of long-forgotten Dinosaurs.",
+            "dropLocation": "Skeletons in the Closet, end chest",
+            "minLevel": 31,
+            "material": "Bone",
+            "setBonus": "The Legendary Dread Isle's Curse",
+            "buffs": [
+              {
+                "type": "WeaponEnchantment",
+                "value1": 15,
+                "bonusType": "Enhancement"
+              }
+            ],
+            "augmentSlots": [
+              {
+                "slotType": "IoD: Weapon: Scale Slot"
+              },
+              {
+                "slotType": "IoD: Weapon: Fang Slot"
+              },
+              {
+                "slotType": "IoD: Weapon: Claw Slot"
+              },
+              {
+                "slotType": "IoD: Weapon: Horn Slot",
+                "selectedAugment": "Flamehorn"
+              },
+              {
+                "slotType": "Orange"
+              },
+              {
+                "slotType": "Purple"
+              },
+              {
+                "slotType": "Mythic"
+              },
+              {
+                "slotType": "Reaper Weapon"
+              },
+              {
+                "slotType": "Deck Curse",
+                "selectedAugment": "Curse of the Unbreakable"
+              }
+            ]
+          },
+          {
+            "slot": "OffHand",
+            "name": "Driftwood",
+            "icon": "RuneArm_5a",
+            "description": "This arcane curiousity appears to be fashioned entirely out of woven, magical\r\nwood.",
+            "dropLocation": "The Dryad and the Demigod, End chest and optional chest",
+            "minLevel": 29,
+            "material": "Wood",
+            "setBonus": "Eminence of Autumn",
+            "buffs": [
+              {
+                "type": "MaximumChargeTierV",
+                "bonusType": "Equipment"
+              },
+              {
+                "type": "Impulse",
+                "value1": 74,
+                "bonusType": "Insightful",
+                "description1": "Force/Untyped"
+              },
+              {
+                "type": "Impulse",
+                "value1": 36,
+                "bonusType": "Quality",
+                "description1": "Force/Untyped"
+              },
+              {
+                "type": "NaturalArmor",
+                "value1": 13,
+                "bonusType": "Natural Armor"
+              },
+              {
+                "type": "Corrosive Salt",
+                "item": "All",
+                "description1": "All"
+              },
+              {
+                "type": "Rune Arm Imbue - Tidal Shot VI",
+                "bonusType": ""
+              }
+            ],
+            "augmentSlots": [
+              {
+                "slotType": "Green"
+              },
+              {
+                "slotType": "Yellow"
+              },
+              {
+                "slotType": "Mythic"
+              },
+              {
+                "slotType": "Reaper Weapon"
+              },
+              {
+                "slotType": "Deck Curse"
+              }
+            ]
+          },
+          {
+            "slot": "Quiver",
+            "name": "Quiver of Alacrity",
+            "icon": "Quiver_1",
+            "description": "Said to allow the user to draw arrows or bolts at a very fast rate, this large,\r\nthin quiver will hold 3 different types of arrow or bolt and can store each\r\ntype of up to 1500. Total capacity: 4500.",
+            "dropLocation": "Ascension Chamber, Raid Warded chest",
+            "minLevel": 1,
+            "material": "Category:No Material items",
+            "buffs": [
+              {
+                "type": "RangedAlacrity",
+                "value1": 10,
+                "bonusType": "Enhancement"
+              }
+            ],
+            "augmentSlots": [
+              {
+                "slotType": "Upgradeable Item (Black Abbot)"
+              }
             ]
           },
           {
@@ -349,13 +1877,178 @@
                 "value1": 5,
                 "bonusType": "Insightful"
               }
+            ],
+            "augmentSlots": [
+              {
+                "slotType": "Green",
+                "selectedAugment": "Legendary Moment to Legendary Moment"
+              },
+              {
+                "slotType": "Yellow",
+                "selectedAugment": "Legendary Swordcrossed Topaz"
+              },
+              {
+                "slotType": "Blue",
+                "selectedAugment": "Sapphire of Stunning",
+                "selectedLevelIndex": 8
+              },
+              {
+                "slotType": "Mythic"
+              },
+              {
+                "slotType": "Reaper Ring",
+                "selectedAugment": "+5 Reaper Bonus to Melee / Ranged Power"
+              },
+              {
+                "slotType": "Deck Curse",
+                "selectedAugment": "Curse of the Unstoppable One"
+              }
+            ]
+          },
+          {
+            "slot": "Ring2",
+            "name": "Clouded Dreams",
+            "icon": "Ring_18",
+            "description": "It's so hard to get a good night's sleep these days...",
+            "dropLocation": "Killing Time, warded chest",
+            "minLevel": 28,
+            "material": "Steel",
+            "buffs": [
+              {
+                "type": "UniversalSpellLore",
+                "value1": 5,
+                "bonusType": "Exceptional"
+              },
+              {
+                "type": "UniversalSpellPower",
+                "value1": 15,
+                "bonusType": "Exceptional"
+              },
+              {
+                "type": "SpellFocusMastery",
+                "value1": 3,
+                "bonusType": "Insightful"
+              },
+              {
+                "type": "Legendary Nightmare Guard"
+              },
+              {
+                "type": "Mind Drain"
+              },
+              {
+                "type": "WillSave",
+                "value1": -2,
+                "bonusType": "Resistance"
+              }
+            ],
+            "augmentSlots": [
+              {
+                "slotType": "Yellow",
+                "selectedAugment": "Crystallized Drop of Tea"
+              },
+              {
+                "slotType": "Green",
+                "selectedAugment": "Essence of Pomura's Memento"
+              },
+              {
+                "slotType": "Mythic"
+              },
+              {
+                "slotType": "Reaper Ring"
+              },
+              {
+                "slotType": "Deck Curse",
+                "selectedAugment": "Curse of Minor Breath"
+              }
             ]
           }
+        ],
+        "filigrees": [
+          {
+            "name": "Coalesced Magic: +1% Universal Spell Critical Damage"
+          },
+          {
+            "name": "Coalesced Magic: +6 Universal Spell Power"
+          },
+          {
+            "name": "Dragonsoul: Universal Spell Power",
+            "rare": true
+          },
+          {
+            "name": "Dragonsoul: +1 Intelligence",
+            "rare": true
+          },
+          {
+            "name": "Dragonsoul: +5% Fire Absorption",
+            "rare": true
+          },
+          {
+            "name": "Coalesced Magic: -10% Arcane Spell failure",
+            "rare": true
+          },
+          {
+            "name": "Elemental Avatar: +9 Acid Spell Power",
+            "rare": true
+          },
+          {
+            "name": "Elemental Avatar: +9 Cold Spell Power",
+            "rare": true
+          },
+          {
+            "name": "Elemental Avatar: +9 Fire Spell Power",
+            "rare": true
+          },
+          {
+            "name": "Coalesced Magic: +1 Intelligence"
+          }
+        ],
+        "artifactFiligrees": [
+          {
+            "name": "Dragonsoul: Universal Spell Power",
+            "rare": true
+          },
+          {
+            "name": "Elemental Avatar: +9 Cold Spell Power",
+            "rare": true
+          },
+          {
+            "name": "Elemental Avatar: +9 Fire Spell Power",
+            "rare": true
+          },
+          {
+            "name": "Coalesced Magic: +1% Universal Spell Critical Damage",
+            "rare": true
+          },
+          {
+            "name": "Dragonsoul: -10% Arcane Spell Failure",
+            "rare": true
+          },
+          {},
+          {},
+          {},
+          {},
+          {}
         ]
       }
     ],
     "activeGearSet": "DPS",
-    "activeStances": [],
+    "activeStances": [
+      "Cloth Armor",
+      "True Neutral",
+      "Bladeforged",
+      "Energy Criticals",
+      "Ancient Blessings",
+      "Skill Mastery",
+      "Colors of the Queen",
+      "Maximize Spell",
+      "Empower Spell",
+      "Quicken Spell",
+      "Intensify Spell",
+      "Deep Gnome",
+      "Ranged Combat",
+      "Rune Arm",
+      "Great Crossbow"
+    ],
     "levelClasses": [
       "arcane_trickster",
       "arcane_trickster",
@@ -443,22 +2136,12 @@
       {
         "featId": "Inherent Racial Action Point",
         "type": "Special",
-        "rank": 2
-      },
-      {
-        "featId": "Inherent Racial Action Point",
-        "type": "Cheap Shot (level 15)",
-        "rank": 1
+        "rank": 3
       },
       {
         "featId": "Inherent Universal Action Point",
         "type": "Special",
-        "rank": 2
-      },
-      {
-        "featId": "Inherent Universal Action Point",
-        "type": "SpecialAnniversary Party, Turn in 40",
-        "rank": 1
+        "rank": 3
       },
       {
         "featId": "Legendary Dreadnought",
@@ -483,37 +2166,17 @@
       {
         "featId": "Past Life: Aasimar Scourge",
         "type": "IconicPastLife",
-        "rank": 1
-      },
-      {
-        "featId": "Past Life: Aasimar Scourge",
-        "type": "",
-        "rank": 1
+        "rank": 3
       },
       {
         "featId": "Past Life: Arcane Sphere: Enchant Weapon",
         "type": "Critical Befouling 2",
-        "rank": 1
-      },
-      {
-        "featId": "Past Life: Arcane Sphere: Enchant Weapon",
-        "type": "",
-        "rank": 1
-      },
-      {
-        "featId": "Past Life: Arcane Sphere: Enchant Weapon",
-        "type": "EpicPastLife",
-        "rank": 1
-      },
-      {
-        "featId": "Past Life: Arcane Sphere: Energy Criticals",
-        "type": "",
-        "rank": 1
+        "rank": 3
       },
       {
         "featId": "Past Life: Arcane Sphere: Energy Criticals",
         "type": "EpicPastLife",
-        "rank": 2
+        "rank": 3
       },
       {
         "featId": "Past Life: Artificer",
@@ -836,16 +2499,6 @@
         "rank": 3
       },
       {
-        "featId": "Inherent Spell Power",
-        "type": "Special",
-        "rank": 4
-      },
-      {
-        "featId": "Inherent Ranged Power",
-        "type": "Special",
-        "rank": 4
-      },
-      {
         "featId": "Past Life: Dark Bargainer",
         "type": "IconicPastLife",
         "rank": 3
@@ -853,13 +2506,26 @@
       {
         "featId": "Past Life: Alchemist",
         "type": "HeroicPastLife",
-        "rank": 1
+        "rank": 3
       },
       {
         "featId": "Past Life: Sorcerer - Wild Mage",
         "type": "HeroicPastLife",
-        "rank": 1
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Tiefling Scoundrel",
+        "type": "IconicPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Rogue - Arcane Trickster",
+        "type": "HeroicPastLife",
+        "rank": 2
       }
-    ]
+    ],
+    "epicLevels": 14,
+    "guildLevel": 200,
+    "applyGuildBuffs": true
   }
 }

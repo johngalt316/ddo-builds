@@ -40,6 +40,9 @@ const EMPTY_GAME_DATA = {
   itemBuffs: {},
   setBonuses: [],
   itemSetIndex: {},
+  augments: [],
+  filigrees: [],
+  filigreeSetBonuses: [], selfPartyBuffs: [],
 };
 
 function buildWithSpecial(rank: number): Build {

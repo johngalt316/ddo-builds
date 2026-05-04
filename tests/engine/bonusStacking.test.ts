@@ -15,8 +15,17 @@ const RULES = buildStackingRules([
   { name: 'Equipment',   stacking: 'Highest Only' },
 ]);
 
-function b(bonusType: string, value: number, source: string, target?: string): Bonus {
-  return { bonusType, value, source, target };
+// Default to isItemEffect=true since most "Highest Only" tests model gear
+// stacking competition (DDOBuilderV2 only enforces it on m_itemEffects).
+// Tests that need non-item behavior pass isItemEffect=false explicitly.
+function b(
+  bonusType: string,
+  value: number,
+  source: string,
+  target?: string,
+  isItemEffect: boolean = true,
+): Bonus {
+  return { bonusType, value, source, target, isItemEffect };
 }
 
 describe('stackBonuses', () => {
@@ -96,6 +105,37 @@ describe('stackBonuses', () => {
     const loser = r.contributors.find(c => c.source === 'A');
     expect(loser?.applied).toBe(false);
     expect(loser?.dominatedBy).toBe('B');
+  });
+
+  it('non-item effects bypass Highest Only — feat HP stacks even with same bonusType', () => {
+    // DDOBuilderV2's BreakdownItem only applies Highest-Only competition to
+    // m_itemEffects. Feats / enhancements / destinies (m_effects) all stack.
+    // E.g. Heroic Durability +30 (Feat) + Improved Heroic Durability ×3 +5 (Feat)
+    // all apply for 45 HP total.
+    const r = stackBonuses(
+      [
+        b('Feat', 30, 'Heroic Durability',          undefined, false),
+        b('Feat',  5, 'IHD (Class 5)',              undefined, false),
+        b('Feat',  5, 'IHD (Class 10)',             undefined, false),
+        b('Feat',  5, 'IHD (Class 15)',             undefined, false),
+      ],
+      RULES,
+    );
+    expect(r.total).toBe(45);
+    expect(r.contributors.filter(c => c.applied)).toHaveLength(4);
+  });
+
+  it('item-effect Highest Only competes; non-item Feat in same group still stacks', () => {
+    const r = stackBonuses(
+      [
+        b('Feat', 5,  'item feat A',     undefined, true),   // gear-tagged
+        b('Feat', 10, 'item feat B',     undefined, true),   // gear-tagged, wins
+        b('Feat', 7,  'enhancement HD',  undefined, false),  // non-item, stacks
+      ],
+      RULES,
+    );
+    // Item competition: 10 wins (5 dominated). Non-item: +7 always.
+    expect(r.total).toBe(10 + 7);
   });
 });
 

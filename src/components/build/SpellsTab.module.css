@@ -1,0 +1,396 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.subTabs {
+  display: flex;
+  gap: 0.25rem;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 0.4rem;
+  flex-wrap: wrap;
+}
+.subTab, .subTabActive {
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.3rem 0.7rem;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: 4px 4px 0 0;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: color 0.12s, background 0.12s, border-color 0.12s;
+}
+.subTab:hover { color: var(--color-text); border-color: var(--color-gold); }
+.subTabActive {
+  background: rgba(201,162,39,0.12);
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+}
+
+.body { padding-top: 0.4rem; }
+
+.empty {
+  padding: 1.5rem 1rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+/* ── Per-class panel ────────────────────────────────────────── */
+
+.metamagicRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  align-items: center;
+  padding: 0.4rem 0.5rem;
+  margin-bottom: 0.6rem;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+}
+.metamagicLabel {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+  margin-right: 0.4rem;
+}
+.metamagicOff, .metamagicOn {
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.2rem 0.55rem;
+  border-radius: 3px;
+  border: 1px solid;
+  cursor: pointer;
+  transition: all 0.12s;
+}
+.metamagicOff {
+  background: rgba(255,255,255,0.04);
+  border-color: var(--color-border);
+  color: var(--color-text-muted);
+}
+.metamagicOff:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+}
+.metamagicOn {
+  background: rgba(46,139,87,0.18);
+  border-color: #2e8b57;
+  color: #4fb37d;
+}
+.metamagicOn:hover { border-color: #4fb37d; }
+
+.slotGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.slotRow {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+.slotRowLabel {
+  flex: 0 0 4.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.4rem 0;
+}
+.slotLevel {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-gold);
+}
+.slotCount {
+  font-size: 0.62rem;
+  color: var(--color-text-muted);
+  margin-top: 0.15rem;
+}
+.slotRowTiles {
+  flex: 1;
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+.slotEmpty, .slotFilled {
+  font: inherit;
+  font-size: 0.74rem;
+  text-align: left;
+  padding: 0.4rem 0.55rem;
+  min-width: 11rem;
+  min-height: 2.5rem;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: border-color 0.12s, background 0.12s;
+}
+.slotEmpty {
+  background: rgba(255,255,255,0.03);
+  border: 1px dashed var(--color-border);
+  color: var(--color-text-muted);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.slotEmpty:hover { border-color: var(--color-gold); color: var(--color-gold); }
+.slotFilled {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+.slotFilled:hover { border-color: var(--color-gold); }
+.slotIcon {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  border-radius: 3px;
+  object-fit: contain;
+}
+.slotText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  min-width: 0;
+}
+.slotName {
+  font-weight: 600;
+  word-break: break-word;
+}
+.slotSchool {
+  font-size: 0.62rem;
+  color: var(--color-gold);
+}
+
+/* ── Stances & Mantles panel ───────────────────────────────── */
+.stancesContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.stanceGroup {
+  padding: 0.5rem 0.6rem;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+}
+.stanceGroupHeading {
+  margin: 0 0 0.4rem;
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--color-gold);
+}
+.stanceCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: 0.4rem;
+}
+.stanceCardOff, .stanceCardOn {
+  font: inherit;
+  text-align: left;
+  padding: 0.45rem 0.55rem;
+  border-radius: 4px;
+  border: 1px solid;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  transition: border-color 0.12s, background 0.12s, color 0.12s;
+}
+.stanceCardOff {
+  background: rgba(255,255,255,0.03);
+  border-color: var(--color-border);
+  color: var(--color-text);
+}
+.stanceCardOff:hover {
+  border-color: var(--color-gold);
+  background: rgba(201,162,39,0.05);
+}
+.stanceCardOn {
+  background: rgba(46,139,87,0.12);
+  border-color: #2e8b57;
+  color: var(--color-text);
+}
+.stanceCardOn:hover { border-color: #4fb37d; }
+.stanceIcon {
+  width: 28px;
+  height: 28px;
+  border-radius: 3px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.stanceCardBody {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.12rem;
+}
+.stanceCardName {
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.25;
+  word-break: break-word;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35rem;
+}
+.stanceCardOn .stanceCardName { color: #4fb37d; }
+.stanceRankBadge {
+  font-size: 0.66rem;
+  font-weight: 700;
+  padding: 0.05rem 0.32rem;
+  border-radius: 8px;
+  background: rgba(201,162,39,0.18);
+  color: var(--color-gold);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+.stanceCardSummary {
+  font-size: 0.7rem;
+  line-height: 1.3;
+  color: var(--color-text-muted);
+  word-break: break-word;
+  /* Cap at 3 lines so very long descriptions don't blow up the row. */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ── Self / Party Buffs panel ───────────────────────────────── */
+.partyBuffsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.partyBuffsToolbar {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid var(--color-border);
+  flex-wrap: wrap;
+}
+.partyBuffsSearch {
+  flex: 1;
+  min-width: 12rem;
+  padding: 0.3rem 0.55rem;
+  border-radius: 4px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font: inherit;
+  font-size: 0.82rem;
+}
+.partyBuffsSearch:focus { outline: none; border-color: var(--color-gold); }
+.partyBuffsCount {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+.partyBuffsLinkBtn, .partyBuffsClearBtn {
+  font: inherit;
+  font-size: 0.74rem;
+  padding: 0.25rem 0.55rem;
+  border-radius: 3px;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+.partyBuffsLinkBtn:hover { border-color: var(--color-gold); color: var(--color-gold); }
+.partyBuffsClearBtn {
+  border-color: #5a2020;
+  color: #c05050;
+}
+.partyBuffsClearBtn:hover { background: rgba(200,50,50,0.12); }
+
+.partyBuffsChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+.partyBuffChipOff, .partyBuffChipOn {
+  font: inherit;
+  font-size: 0.74rem;
+  font-weight: 600;
+  padding: 0.25rem 0.55rem 0.25rem 0.35rem;
+  border-radius: 3px;
+  border: 1px solid;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: border-color 0.12s, background 0.12s, color 0.12s;
+}
+.partyBuffChipOff {
+  background: rgba(255,255,255,0.04);
+  border-color: var(--color-border);
+  color: var(--color-text-muted);
+}
+.partyBuffChipOff:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+}
+.partyBuffChipOn {
+  background: rgba(46,139,87,0.18);
+  border-color: #2e8b57;
+  color: #4fb37d;
+}
+.partyBuffIcon {
+  width: 18px;
+  height: 18px;
+  border-radius: 2px;
+  object-fit: contain;
+}
+
+/* SLA icon column in the table */
+.slaIconCell {
+  width: 32px;
+  padding-right: 0;
+}
+.slaIcon {
+  width: 24px;
+  height: 24px;
+  border-radius: 2px;
+  object-fit: contain;
+  display: block;
+}
+
+/* ── SLA tab ────────────────────────────────────────────────── */
+
+.slaTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+.slaTable th {
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+  padding: 0.35rem 0.6rem;
+  border-bottom: 1px solid var(--color-border);
+}
+.slaTable td {
+  padding: 0.4rem 0.6rem;
+  border-bottom: 1px dashed rgba(255,255,255,0.05);
+}
+.slaTable tr:last-child td { border-bottom: none; }
+.slaName { font-weight: 600; }
+.slaSource { font-size: 0.7rem; color: var(--color-text-muted); }
+.numCol { text-align: right; font-variant-numeric: tabular-nums; }

@@ -113,6 +113,25 @@ Until now we've been a viewer of imported builds. Now: full create/edit from scr
 - ~~**Per-level class grid** (P3.3)~~ **— DONE.** Optional `build.levelClasses: string[]` (one classId per character level). Helper `resolveLevelClasses(build)` returns the stored array if length matches charLevel, otherwise derives by interleaving `classes[]`. New store actions `setLevelClass(level, classId)` and `setTotalLevels(n)` keep `classes[]` and `levelClasses` coherent (re-aggregating via `aggregateClasses`). Existing `updateClasses` also re-derives `levelClasses` so the +/- buttons in `ClassSelector` stay in sync. Parser populates the array from each `<LevelTraining>` block (skipping Epic/Legendary pseudo-classes). New `LevelGrid` component on the Main Sheet: 5-column responsive grid of cells (one per level 1–20), click a cell → modal class picker. Engine reads `classes[]` unchanged → totals stay identical (kemton: 112/155 sourced/applied effects, no drift). 12 new tests across `tests/engine/levelClasses.test.ts` (helpers) and `tests/engine/setLevelClass.test.ts` (store actions). Out of scope: per-level feat slots / skill ranks (Phase 3.x), epic levels 21–40 in the grid (current grid caps at heroic 1–20).
 - ~~**Tomes + level-up ability assignments** (P3.4)~~ **— DONE.** Added optional `Build.abilityTomes`, `Build.skillTomes`, `Build.levelUps`. Engine helpers `applyAbilityTomes` (max +8 each) and `applyLevelUps` (+1 per assigned tier 4/8/.../40) compose into the score pipeline `base → race → tomes → level-ups → effective` in both `useBuild` and `runEngine` (kept in sync). Skill tomes raise `maxRanks` cap and contribute to skill total via extended `calculateSkillBonuses(..., skillTomeBonus)`. Parser reads from `<Character>` scope (tomes apply across all lives): `<StrTome>...<ChaTome>`, `<SkillTomes><Tome><Name>X</Name><Value>N</Value>` and from `<Build>`: `<Level4>...<Level40>` ability assignments. Store actions `setAbilityTome(stat, value)`, `setSkillTome(skillId, value)`, `setLevelUp(level, stat \| null)` for editing. New `TomesAndLevelUpsPanel` component: ability tome +/- table (capped 0–8) + per-tier level-up dropdowns (dimmed for unreached tiers). 11 new tests in `tests/engine/tomesAndLevelUps.test.ts` + `tests/ui/TomesAndLevelUpsPanel.test.tsx`. **Real-data win**: kemton (Bladeforged AT) ability scores now reflect parsed +8 tomes everywhere + 10× INT level-ups → STR 16, DEX 24, CON 26→40 (with gear), INT 36, WIS 14, CHA 14. HP 240→320.
 - ~~**Special feats / past lives** (P3.5)~~ **— DONE.** New optional `Build.specialFeats: { featId, type, rank }[]`. Parser groups `<SpecialFeats><TrainedFeat>` entries (at `<Character>` scope, applies across all lives) by name+type with rank=count. Engine source walker emits one Effect per feat with `rankCount=rank`. Store action `setSpecialFeatRank(featId, type, rank)` — handles add/update/remove (rank=0). New `SpecialFeatsTab` with category tabs (Heroic / Racial / Iconic / Epic / Universal Trees / Epic Destinies); each card shows feat with +/- buttons capped at `MaxTimesAcquire`. 4 unit tests in `tests/engine/specialFeats.test.ts`. **Massive coverage jump**: kemton's engine now sources from his 92 past-life feats (16 racial, 18 epic, 20 heroic, 13 destinies unlocked, etc.) → **sourced effects 112 → 336 (+224), applied bonuses 155 → 382 (+227)**.
+- ~~**Reaper enhancements grid** (P3.6)~~ **— DONE.** Added `Build.reaperEnhancements: EnhancementSelection[]`, parsed from `<ReaperSpendInTree>` blocks (parallel to `EnhancementSpendInTree`/`DestinySpendInTree`). New constants `MAX_REAPER_AP=200` (editor cap; reaper points have no in-game cap) and `MAX_REAPER_TREES=3`. Generalized `EnhancementTreeGrid` from `destinyMode?: boolean` to `treeKind?: 'enhancement' \| 'destiny' \| 'reaper'` (legacy `destinyMode` kept as a deprecated alias for safety). 6 new store actions: `spendReaperEnhancement`/`revokeReaperEnhancement`/`resetReaperTree` mirroring the heroic + destiny patterns. Engine source walker extended with a `[R]` source-prefix step. New `ReaperEnhancementsTab` reusing `DestiniesTab`'s CSS module (visually identical apart from labels + tree pool). XML tree parser detects the `<IsReaperTree/>` flag → `isReaperTree: boolean` on `EnhancementTreeData`. 3 unit tests in `tests/engine/reaperWalker.test.ts`. Both fixture builds (kemton/zentek) have empty reaper trees so engine totals are unchanged on real fixtures — synthetic tests cover the path.
+
+## Phase 3 — COMPLETE
+
+All build-editing capabilities now in place:
+- Feat editor with requirement-aware picker
+- Skill rank editor with budget tracking
+- Per-level class assignment grid
+- Tomes (ability + skill) and level-up ability assignments
+- Special feats / past lives grid (6 categories)
+- Stances (Phase 2.x-E)
+- Reaper enhancements grid (3-tree cap, parallels destinies)
+- Heroic enhancements + epic destinies (preexisting)
+
+Open follow-ups (deferred but not blocking):
+- ~~Per-level feat slots in `LevelGrid`~~ **— display done.** New `src/utils/featSlots.ts::computeFeatSlots(classes, classData, races, raceId)` derives all available slots per character level (Standard heroic at L1/3/6/9/12/15/18, race feat slots at L1, class feat slots at the Nth class level). LevelGrid now renders compact slot badges (one-letter abbreviations like `S`/`F`/`H` for Standard/Fighter Bonus/Human Bonus, hover for full label). 10 unit tests in `tests/engine/featSlots.test.ts`. **Interactive picking is still deferred** — FeatsTab continues to own feat selection; the badges are planning info only. To make slots clickable, a follow-up needs: (a) options-list filter on FeatPickerDialog, (b) slotKey tracking on SelectedFeat, (c) conflict handling when class assignments change.
+- ~~Skill tomes UI~~ **— DONE.** Per-row +/- buttons in SkillsTab capped 0–5 via `setSkillTome` store action.
+- ~~Human/Half-Elf bonus skill points~~ **— DONE.** `calculateSkillPointBudget` now takes a `racialBonusSp` parameter; useBuild plumbs `race.bonusSkillPoints` (parsed from race XML's `<SkillPoints>` field) through. 3 new test cases.
+- Cross-class skill 2× SP cost (we use the lower cap-only model — still deferred)
 
 ### Dev workflow wrappers (P3.5+)
 
@@ -146,17 +165,28 @@ Read-only gear display (current state) → full inventory editor.
 
 **Exit criteria:** all 16 slots editable; AC/PRR/saves/skills update live as gear changes via Phase 2 engine; set bonuses fire correctly.
 
-### Phase 5 — Spells, DCs, DPS (2 weeks)
+### Phase 5 — Spells, DCs, buffs (1.5 weeks)
 
-- **Spells pane**: per-class spell list, spell slots by class+level, known spells, metamagic toggles.
-- **Spell DCs**: port `BreakdownItemSpellSchool` — DC = 10 + spell level + casting stat mod + school focus + items + enhancements.
-- **Caster Level** breakdown per school + general.
-- **DPS pane** (port `DPSPane`): main+offhand weapon DPS calc — attack speed (from `AttackRates.xml` + ability + haste effects), crit chance/multiplier/range, doublestrike, sneak attack dice, weapon enchantments, on-hit procs. This is the "headline" feature for users.
+- **Spell DCs**: per-school SpellDC + Spell Penetration + Caster Level breakdowns. ✅ done in P5.1.
+- **Spells.xml ingestion**: parse spell catalog (name/school/level/cost/metamagic/DC blocks/damage), join with each class's `<ClassSpell>` list to associate spells to class/level.
+- **Spells pane UI**: per-class spell list, slots by class+level, known-spell selection, metamagic toggles. Reads the catalog from above.
 - **Self/Party buffs pane**: toggle external buffs (haste, displacement, prayer, recitation, etc.) — feed effect engine.
 
-**Exit criteria:** DPS pane shows both unbuffed and fully-buffed DPS for kemton; kept in sync with weapon swaps.
+**Exit criteria:** every fixture build's caster gets correct per-school DCs against DDOBuilderV2 totals; spells pane lets a wizard pick known spells per level; haste toggle changes melee/ranged-power breakdown.
 
-### Phase 6 — Auxiliary panes & polish (1 week)
+### Phase 6 — DPS pane (2–3 weeks, headline feature)
+
+DDOBuilderV2's `DPSPane.cpp` per-style evaluators (`EvaluateTWF`, `EvaluateTHF`, `EvaluateRanged`, `EvaluateHandwraps`, `EvaluateSwordAndBoard`) are unimplemented stubs upstream — every one is `return 0.0;`. There is no C++ algorithm to translate, so this phase needs its own design pass before implementation. The breakdown infrastructure (BreakdownItemWeapon: m_baseDamage, m_attackBonus, m_criticalThreatRange, m_criticalMultiplier, m_attackSpeed, m_drBypass) and `AttackRates.xml` (APM by style × BAB) provide the inputs, but per-attack damage × rate × crit aggregation is for us to write.
+
+- **Algorithm design doc**: per-attack damage formula, crit folding, doublestrike-as-extra-roll, TWF main/offhand asymmetry, sneak-attack gating, alacrity/haste application.
+- **Per-weapon breakdowns**: damage dice, enchantment, attack/damage bonus, critical threat range + multiplier (incl. 19–20 multiplier for keen), attack speed, DR bypass. Mirror the structure of `BreakdownItemWeapon.h`.
+- **AttackRates.xml ingestion**: APM table by style + BAB.
+- **DPS pane UI**: main vs offhand, unbuffed vs fully-buffed columns, weapon swap shows DPS delta.
+- **On-hit procs / weapon-special effects**: vorpal range, ghost touch, true seeing, DR bypass display (numbers may not be modeled).
+
+**Exit criteria:** DPS pane shows numbers within ~5% of community DPS spreadsheets for kemton; updates live as weapons / stances / haste change.
+
+### Phase 7 — Auxiliary panes & polish (1 week)
 
 - **Notes pane**: free-text, persisted in build JSON.
 - **Bonuses pane**: list view of every active Effect (debug companion to Breakdowns).
@@ -166,7 +196,7 @@ Read-only gear display (current state) → full inventory editor.
 - **Forum-export** (port `Build::ExportForumPaste`): generate BBCode summary string.
 - **Build comparison**: open two builds side-by-side, diff stats.
 
-### Phase 7 — Cutover & deprecation (a few days)
+### Phase 8 — Cutover & deprecation (a few days)
 
 - Audit `useCharacterStats.ts` and any other heuristic code; delete what the engine replaced.
 - Delete temporary parser shims kept for Phase 0 snapshots once the engine produces equivalent output.
@@ -207,8 +237,8 @@ The cross-check is the highest-signal test we have — DDOBuilderV2 itself is th
 ```
 Phase 0 (snapshots)  →  Phase 1 (data load)  →  Phase 2 (engine + breakdowns)  →
    Phase 3 (build editing)  ┐
-                            ├─→  Phase 5 (spells/DPS)  →  Phase 6 (polish)  →  Phase 7 (cutover)
-   Phase 4 (gear editing)   ┘
+                            ├─→  Phase 5 (spells/DCs/buffs)  →  Phase 6 (DPS pane)  →
+   Phase 4 (gear editing)   ┘                                   Phase 7 (polish)  →  Phase 8 (cutover)
 ```
 
 Phases 3 and 4 can run in parallel once Phase 2 lands. Total estimated effort: ~9–11 weeks of focused work, but each phase ships independently — at the end of any phase the app is deployable and a strict superset of the previous one.

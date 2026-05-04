@@ -1,21 +1,26 @@
 import { useBuild } from '@/hooks/useBuild';
+import { useBuildStore } from '@/store/buildStore';
 import skillsJson from '@/data/skills.json';
 import type { Skill } from '@/types/gameData';
 import styles from './SkillsTab.module.css';
 
 const ALL_SKILLS = skillsJson as unknown as Skill[];
+const MAX_SKILL_TOME = 5;
 
 export function SkillsTab() {
   const {
+    build,
     skillBonuses,
     charLevel,
     skillPointBudget,
     skillPointsSpent,
     updateSkillRank,
   } = useBuild();
+  const setSkillTome = useBuildStore(s => s.setSkillTome);
 
   const remaining = skillPointBudget - skillPointsSpent;
   const overBudget = remaining < 0;
+  const tomes = build.skillTomes ?? {};
 
   return (
     <div className={styles.panel}>
@@ -39,6 +44,7 @@ export function SkillsTab() {
               <th className={styles.thNum}>Ranks</th>
               <th className={styles.thControls} />
               <th className={styles.thNum}>Max</th>
+              <th className={styles.thTome}>Tome</th>
               <th className={styles.thNum}>Ability Mod</th>
               <th className={styles.thNum}>Total</th>
             </tr>
@@ -84,6 +90,23 @@ export function SkillsTab() {
                     >+</button>
                   </td>
                   <td className={styles.tdMax}>{b.maxRanks}</td>
+                  <td className={styles.tdTome}>
+                    <button
+                      className={styles.tomeBtn}
+                      onClick={() => setSkillTome(skill.id, (tomes[skill.id] ?? 0) - 1)}
+                      disabled={(tomes[skill.id] ?? 0) <= 0}
+                      aria-label={`Decrease ${skill.name} tome`}
+                    >−</button>
+                    <span className={(tomes[skill.id] ?? 0) > 0 ? styles.tomeValue : styles.tomeValueZero}>
+                      +{tomes[skill.id] ?? 0}
+                    </span>
+                    <button
+                      className={styles.tomeBtn}
+                      onClick={() => setSkillTome(skill.id, (tomes[skill.id] ?? 0) + 1)}
+                      disabled={(tomes[skill.id] ?? 0) >= MAX_SKILL_TOME}
+                      aria-label={`Increase ${skill.name} tome`}
+                    >+</button>
+                  </td>
                   <td className={styles.tdNum}>
                     {b.abilityMod >= 0 ? `+${b.abilityMod}` : b.abilityMod}
                   </td>

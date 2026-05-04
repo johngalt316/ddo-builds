@@ -14,6 +14,16 @@ import type {
   DDOWeaponGroup,
   DDOSetBonusData,
   DDOEffect,
+  DDOAugmentData,
+  DDOFiligreeData,
+  DDOFiligreeSetBonus,
+  DDOClassSpell,
+  DDOSpellData,
+  DDOSpellDamage,
+  DDOSpellDC,
+  DDOSpellMetamagic,
+  DDOOptionalBuff,
+  DDOGuildBuff,
 } from '@/types/ddoData';
 import {
   parseEffectsIn,
@@ -77,9 +87,21 @@ export type IconCategory =
   | 'SentientGem'
   | 'UI';
 
+/**
+ * Known case/spelling fixes for icon names referenced in the upstream data
+ * but stored on disk under a slightly different casing. Case-sensitive web
+ * servers (Linux, default) will 404 the data-side spelling; this map keeps
+ * Windows (case-insensitive) and Linux runtimes consistent.
+ */
+const ICON_NAME_FIXES: Record<string, string> = {
+  EpicPastLifeSkillMAstery:    'EpicPastLifeSkillMastery',
+  EpicPastLifeColorsOftheQueen: 'EpicPastLifeColorsOfTheQueen',
+};
+
 export function iconUrl(iconName: string, category: IconCategory): string {
   if (!iconName) return '';
-  return `/assets/images/${category}Images/${iconName}.png`;
+  const corrected = ICON_NAME_FIXES[iconName] ?? iconName;
+  return `/assets/images/${category}Images/${corrected}.png`;
 }
 
 export function classIconUrl(iconName: string, small = false): string {
@@ -112,6 +134,26 @@ export function parseClassXml(xml: string): DDOClassData | null {
     options: elements(fs, 'FeatUpdateList').map(f => f.textContent?.trim() ?? '').filter(Boolean),
   }));
 
+  // Spell slot table: <Level1>..<Level20>, each carrying a space-separated
+  // count of slots per spell-level. Inner length is fixed per-class via the
+  // size attribute (4/6/9 depending on max spell level reachable).
+  const spellSlotsByLevel: number[][] = [];
+  for (let lvl = 1; lvl <= 20; lvl++) {
+    const el = cls.querySelector(`:scope > Level${lvl}`);
+    spellSlotsByLevel.push(el ? spaceSeparatedNumbers(el.textContent ?? '') : []);
+  }
+
+  const spells: DDOClassData['spells'] = elements(cls, 'ClassSpell').map(cs => {
+    const out: DDOClassSpell = {
+      name: text(cs, 'Name'),
+      level: num(cs, 'Level'),
+    };
+    if (cs.querySelector(':scope > Cost'))           out.cost           = num(cs, 'Cost');
+    if (cs.querySelector(':scope > MaxCasterLevel')) out.maxCasterLevel = num(cs, 'MaxCasterLevel');
+    if (cs.querySelector(':scope > Cooldown'))       out.cooldown       = parseFloat(text(cs, 'Cooldown'));
+    return out;
+  }).filter(s => s.name);
+
   return {
     name: text(cls, 'Name'),
     baseClass: text(cls, 'BaseClass') || null,
@@ -130,6 +172,9 @@ export function parseClassXml(xml: string): DDOClassData | null {
     automaticFeats,
     featSlots,
     classSpecificFeatType: text(cls, 'ClassSpecificFeatType') || null,
+    spells,
+    spellSlotsByLevel,
+    ...(cls.querySelector(':scope > NotHeroic') !== null && { notHeroic: true }),
   };
 }
 
@@ -155,6 +200,22 @@ export function parseRaceXml(xml: string): DDORaceData | null {
     maxTimesAcquire: num(pastLifeEl, 'MaxTimesAcquire') || 3,
   } : null;
 
+  // Racial ability score mods come from per-stat <Strength>+2</Strength>,
+  // <Dexterity>-2</Dexterity> tags as direct children of <Race>.
+  const STAT_TAG: Record<string, keyof DDORaceData['abilityMods']> = {
+    Strength: 'STR', Dexterity: 'DEX', Constitution: 'CON',
+    Intelligence: 'INT', Wisdom: 'WIS', Charisma: 'CHA',
+  };
+  const abilityMods: DDORaceData['abilityMods'] = {};
+  for (const [tag, key] of Object.entries(STAT_TAG)) {
+    const el = race.querySelector(`:scope > ${tag}`);
+    if (!el) continue;
+    const raw = el.textContent?.trim() ?? '';
+    if (!raw) continue;
+    const v = parseInt(raw.replace(/^\+/, ''), 10);
+    if (!Number.isNaN(v) && v !== 0) abilityMods[key] = v;
+  }
+
   return {
     name: text(race, 'Name'),
     shortName: text(race, 'ShortName'),
@@ -162,8 +223,11 @@ export function parseRaceXml(xml: string): DDORaceData | null {
     startingWorld: text(race, 'StartingWorld'),
     buildPoints: spaceSeparatedNumbers(buildPointsRaw),
     bonusSkillPoints: num(race, 'SkillPoints'),
+    abilityMods,
     featSlots,
     pastLifeFeat: pastLife,
+    ...(race.querySelector(':scope > IconicClass') !== null && { iconic: true }),
+    ...(race.querySelector(':scope > NoPastLife') !== null && { noPastLife: true }),
   };
 }
 
@@ -171,6 +235,10 @@ export function parseRaceXml(xml: string): DDORaceData | null {
 
 function parseFeatRequirements(featEl: Element): DDOFeatRequirements {
   const reqBlock = featEl.querySelector(':scope > Requirements');
+  return parseRequirementsBlock(reqBlock);
+}
+
+function parseRequirementsBlock(reqBlock: Element | null): DDOFeatRequirements {
   if (!reqBlock) return { allOf: [], oneOf: [], noneOf: [] };
 
   const parseReq = (el: Element): DDOFeatRequirement => ({
@@ -193,6 +261,12 @@ function parseFeatRequirements(featEl: Element): DDOFeatRequirements {
 }
 
 function parseSingleFeat(feat: Element, hasSubItems: boolean): DDOFeatData {
+  // <AutomaticAcquisition> uses the same shape as a Requirements block
+  // (list of <Requirement> children). Most "Automatic" feats gate on
+  // SpecificLevel; some (like Improved Heroic Durability) have no AA block
+  // at all and apply unconditionally.
+  const aaEl = feat.querySelector(':scope > AutomaticAcquisition');
+  const automaticAcquisition = aaEl ? parseRequirementsBlock(aaEl) : undefined;
   return {
     name: text(feat, 'Name'),
     description: text(feat, 'Description'),
@@ -206,6 +280,8 @@ function parseSingleFeat(feat: Element, hasSubItems: boolean): DDOFeatData {
     // intentionally don't recurse — sub-items are parsed as separate feat
     // entries below, so we'd double-count their effects otherwise.
     effects: directChildren(feat, 'Effect').map(parseEffectInline),
+    stances: parseStancesIn(feat),
+    ...(automaticAcquisition && { automaticAcquisition }),
   };
 }
 
@@ -264,16 +340,58 @@ export function parseBonusTypesXml(xml: string): DDOBonusType[] {
 
 // ── Stances ────────────────────────────────────────────────────────────────────
 
-export function parseStancesXml(xml: string): DDOStanceData[] {
-  const doc = parseXml(xml);
-  return elements(doc, 'Stance').map(s => ({
+function parseStanceElement(s: Element): DDOStanceData {
+  const incompatibleStances = elements(s, ':scope > IncompatibleStance')
+    .map(el => el.textContent?.trim() ?? '')
+    .filter(Boolean);
+  return {
     name: text(s, 'Name'),
     icon: text(s, 'Icon'),
     description: text(s, 'Description'),
     group: text(s, 'Group'),
     autoControlled: s.querySelector(':scope > AutoControlled') !== null,
+    incompatibleStances,
     requirements: parseRequirements(s.querySelector(':scope > Requirements')),
-  })).filter(s => s.name);
+  };
+}
+
+export function parseStancesXml(xml: string): DDOStanceData[] {
+  const doc = parseXml(xml);
+  return elements(doc, 'Stance').map(parseStanceElement).filter(s => s.name);
+}
+
+/** Parse `<Stance>` direct children of a parent element (feat, enhancement
+ *  item, selection). Used for stances that nest inside other XML structures
+ *  (Mountain Stance lives inside the Mountain Stance feat, not in Stances.xml). */
+export function parseStancesIn(parent: Element): DDOStanceData[] {
+  return elements(parent, ':scope > Stance').map(parseStanceElement).filter(s => s.name);
+}
+
+// ── Self / Party buffs ─────────────────────────────────────────────────────
+// SelfAndPartyBuffs.xml — togglable buffs from self/party (Haste, Bless,
+// Recitation, …). Each <OptionalBuff> carries Name / Icon / Description and
+// any number of <Effect> blocks.
+
+export function parseSelfPartyBuffsXml(xml: string): DDOOptionalBuff[] {
+  const doc = parseXml(xml);
+  return elements(doc, 'OptionalBuff').map(b => ({
+    name: text(b, 'Name'),
+    icon: text(b, 'Icon'),
+    description: text(b, 'Description'),
+    effects: parseEffectsIn(b),
+  })).filter(b => b.name);
+}
+
+// ── Guild Buffs ────────────────────────────────────────────────────────────
+
+export function parseGuildBuffsXml(xml: string): DDOGuildBuff[] {
+  const doc = parseXml(xml);
+  return elements(doc, 'GuildBuff').map(b => ({
+    name: text(b, 'Name').trim(),
+    description: text(b, 'Description'),
+    level: num(b, 'Level'),
+    effects: parseEffectsIn(b),
+  })).filter(b => b.name);
 }
 
 // ── Weapon Groupings ───────────────────────────────────────────────────────────
@@ -297,6 +415,161 @@ export function parseSetBonusesXml(xml: string): DDOSetBonusData[] {
   })).filter(s => s.type);
 }
 
+// ── Augments ───────────────────────────────────────────────────────────────
+
+export function parseAugmentsXml(xml: string): DDOAugmentData[] {
+  const doc = parseXml(xml);
+  return elements(doc, 'Augment').map(aug => {
+    const slotTypes = elements(aug, ':scope > Type').map(t => t.textContent?.trim() ?? '').filter(Boolean);
+    const levels = spaceSeparatedNumbers(text(aug, 'Levels'));
+    const levelValues = spaceSeparatedNumbers(text(aug, 'LevelValue'));
+    return {
+      name: text(aug, 'Name'),
+      description: text(aug, 'Description'),
+      slotTypes,
+      icon: text(aug, 'Icon'),
+      scalesWithLevel: aug.querySelector(':scope > ChooseLevel') !== null,
+      levels,
+      levelValues,
+      effects: parseEffectsIn(aug),
+    };
+  }).filter(a => a.name);
+}
+
+// ── Filigrees ──────────────────────────────────────────────────────────────
+// Each FiligreeSets/*.xml file declares <SetBonus> entries (set-tier buffs)
+// AND multiple <Filigree> entries (the filigrees the user picks).
+
+export function parseFiligreesXml(xml: string): {
+  filigrees: DDOFiligreeData[];
+  setBonuses: DDOFiligreeSetBonus[];
+} {
+  const doc = parseXml(xml);
+  const setBonuses: DDOFiligreeSetBonus[] = elements(doc, 'SetBonus').map(sb => ({
+    name: text(sb, 'Type'),
+    icon: text(sb, 'Icon'),
+    buffs: parseBuffsIn(sb),
+  })).filter(s => s.name);
+
+  const filigrees: DDOFiligreeData[] = elements(doc, 'Filigree').map(fg => {
+    // Effects on filigrees may carry a <Rare/> flag — capture it so the
+    // engine walker can gate per-slot.
+    const parsedEffects = elements(fg, ':scope > Effect').map(el => {
+      const rare = el.querySelector(':scope > Rare') !== null;
+      // Re-use parseEffectsIn by wrapping the single Effect in a minimal
+      // pseudo-element that exposes it as the only direct child.
+      const wrapper = { childNodes: [el] } as unknown as Element;
+      const e = parseEffectsIn(wrapper)[0];
+      return e ? { ...e, rare } : null;
+    }).filter((e): e is NonNullable<typeof e> => e !== null);
+
+    return {
+      name: text(fg, 'Name'),
+      description: text(fg, 'Description'),
+      icon: text(fg, 'Icon'),
+      setBonus: text(fg, 'SetBonus'),
+      effects: parsedEffects,
+    };
+  }).filter(f => f.name);
+
+  return { filigrees, setBonuses };
+}
+
+// ── Spells parser ──────────────────────────────────────────────────────────
+// Spells.xml is a flat list of <Spell> entries. Class linkage lives on each
+// class's <ClassSpell> entries (parsed by parseClassXml). Schema notes:
+//   - Metamagic flags are self-closing tags: <Empower/>, <Maximize/>, etc.
+//   - <SpellDamage> nests <SpellDice> with PerCasterLevels, BonusDice, and Cap
+//   - <SpellDC> describes the save-DC profile (DCType / DCVersus / Schools / ModAbility)
+
+const METAMAGIC_TAGS = [
+  ['Accelerate',     'accelerate'],
+  ['Embolden',       'embolden'],
+  ['Empower',        'empower'],
+  ['EmpowerHealing', 'empowerHealing'],
+  ['Enlarge',        'enlarge'],
+  ['Extend',         'extend'],
+  ['Heighten',       'heighten'],
+  ['Intensify',      'intensify'],
+  ['Maximize',       'maximize'],
+  ['Quicken',        'quicken'],
+] as const;
+
+function parseSpellMetamagic(spell: Element): DDOSpellMetamagic {
+  const out: DDOSpellMetamagic = {};
+  for (const [tag, key] of METAMAGIC_TAGS) {
+    if (spell.querySelector(`:scope > ${tag}`)) out[key] = true;
+  }
+  return out;
+}
+
+function parseSpellDamage(sd: Element): DDOSpellDamage {
+  const dice = sd.querySelector(':scope > SpellDice');
+  const bonusDice = dice?.querySelector(':scope > BonusDice');
+  return {
+    damageType: text(sd, 'Damage'),
+    spellPower: text(sd, 'SpellPower'),
+    dice: {
+      number: bonusDice ? num(bonusDice, 'Number') || 1 : 1,
+      sides:  bonusDice ? num(bonusDice, 'Sides')  || 0 : 0,
+      bonus:  bonusDice ? num(bonusDice, 'Bonus')  || 0 : 0,
+      perCasterLevels: dice?.querySelector(':scope > PerCasterLevels')
+        ? num(dice, 'PerCasterLevels')
+        : undefined,
+      cap: dice?.querySelector(':scope > Cap')
+        ? num(dice, 'Cap')
+        : undefined,
+    },
+  };
+}
+
+function parseSpellDC(dc: Element): DDOSpellDC {
+  const schools = elements(dc, ':scope > School')
+    .map(s => s.textContent?.trim() ?? '')
+    .filter(Boolean);
+  const modAbility = elements(dc, ':scope > ModAbility')
+    .map(s => s.textContent?.trim() ?? '')
+    .filter(Boolean);
+  const out: DDOSpellDC = {
+    dcType: text(dc, 'DCType'),
+    dcVersus: text(dc, 'DCVersus'),
+    schools,
+    castingStatMod: dc.querySelector(':scope > CastingStatMod') !== null,
+  };
+  if (modAbility.length) out.modAbility = modAbility;
+  return out;
+}
+
+export function parseSpellsXml(xml: string): DDOSpellData[] {
+  const doc = parseXml(xml);
+  const spells: DDOSpellData[] = [];
+
+  for (const spell of elements(doc, 'Spell')) {
+    const name = text(spell, 'Name');
+    if (!name || name === 'No spell trained') continue; // sentinel placeholder
+
+    const damages = elements(spell, ':scope > SpellDamage').map(parseSpellDamage);
+    const dcs     = elements(spell, ':scope > SpellDC').map(parseSpellDC);
+    const effects = parseEffectsIn(spell);
+
+    const out: DDOSpellData = {
+      name,
+      description: text(spell, 'Description'),
+      icon:        text(spell, 'Icon'),
+      school:      text(spell, 'School'),
+      metamagic:   parseSpellMetamagic(spell),
+      damages,
+      dcs,
+      effects,
+    };
+    if (spell.querySelector(':scope > Cost'))            out.cost           = num(spell, 'Cost');
+    if (spell.querySelector(':scope > MaxCasterLevel'))  out.maxCasterLevel = num(spell, 'MaxCasterLevel');
+    if (spell.querySelector(':scope > Cooldown'))        out.cooldown       = parseFloat(text(spell, 'Cooldown'));
+    spells.push(out);
+  }
+  return spells;
+}
+
 // Re-export for convenience so callers don't need to import effectParser separately
 export type { DDOEffect };
 export { parseEffectsIn, parseBuffsIn };
@@ -308,12 +581,21 @@ function parseEnhancementItem(el: Element, isCore: boolean): EnhancementItemData
   const selector: EnhancementSelectionData[] | null = (() => {
     const sel = el.querySelector(':scope > Selector');
     if (!sel) return null;
-    return elements(sel, ':scope > EnhancementSelection').map(s => ({
-      name: text(s, 'Name'),
-      description: text(s, 'Description'),
-      icon: text(s, 'Icon'),
-      effects: parseEffectsIn(s),
-    }));
+    return elements(sel, ':scope > EnhancementSelection').map(s => {
+      const out: EnhancementSelectionData = {
+        name: text(s, 'Name'),
+        description: text(s, 'Description'),
+        icon: text(s, 'Icon'),
+        effects: parseEffectsIn(s),
+        stances: parseStancesIn(s),
+      };
+      // Per-selection CostPerRank overrides the parent enhancement's cost
+      // when the user picks this option (e.g. Shadowdancer's Nightmare
+      // Lance sets <CostPerRank>2</CostPerRank> on the selection itself).
+      const selCost = text(s, 'CostPerRank');
+      if (selCost) out.costPerRank = spaceSeparatedNumbers(selCost);
+      return out;
+    });
   })();
 
   // Arrow flags are DL_FLAG elements — present = true, absent = false
@@ -321,6 +603,7 @@ function parseEnhancementItem(el: Element, isCore: boolean): EnhancementItemData
   // Effects are direct children of the EnhancementTreeItem; the per-Selection
   // effects are captured separately above and don't double-up here.
   const effects = parseEffectsIn(el);
+  const stances = parseStancesIn(el);
   const requirements = parseRequirements(el.querySelector(':scope > Requirements'));
 
   return {
@@ -336,6 +619,7 @@ function parseEnhancementItem(el: Element, isCore: boolean): EnhancementItemData
     isCore,
     selector,
     effects,
+    stances,
     requirements,
     arrowUp:         hasFlag('ArrowUp'),
     arrowLeft:       hasFlag('ArrowLeft'),
@@ -358,6 +642,7 @@ export function parseEnhancementTreeXml(xml: string): EnhancementTreeData | null
   let raceReq: string | null = null;
   let isUniversal = false;
   const isRacialTree = tree.querySelector(':scope > IsRacialTree') !== null;
+  const isReaperTree = tree.querySelector(':scope > IsReaperTree') !== null;
 
   if (reqBlock) {
     // Direct requirements
@@ -398,6 +683,7 @@ export function parseEnhancementTreeXml(xml: string): EnhancementTreeData | null
     isUniversal,
     isRacialTree,
     isDestinyTree: background.startsWith('Destiny'),
+    isReaperTree,
     items: [...coreItems, ...treeItems],
   };
 }

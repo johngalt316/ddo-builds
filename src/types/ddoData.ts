@@ -71,6 +71,21 @@ export interface DDOEffect {
   values: number[];
   /** Optional in-place description (for set bonus / item buff readability) */
   description?: string;
+  /**
+   * `<Percent/>` flag — value is a percentage of the breakdown's running
+   * total instead of a flat bonus. Used for Legendary Conditioning ("15%
+   * bonus to Maximum Hit Points"), some MeleePower / RangedPower modifiers.
+   * Stacking still applies; same-bonus-type percentages don't stack.
+   */
+  isPercent?: boolean;
+  /**
+   * `<ApplyAsItemEffect/>` flag — DDOBuilderV2 treats this effect as if it
+   * came from gear, which means it competes via Highest-Only stacking. Effects
+   * WITHOUT this flag (most feats, enhancements, destinies) bypass Highest-Only
+   * and stack freely (mirrors DDOBuilderV2's m_effects vs m_itemEffects split:
+   * see BreakdownItem.cpp::AddFeatEffect / AddEnhancementEffect).
+   */
+  isApplyAsItemEffect?: boolean;
 }
 
 export interface DDOBuffBlock {
@@ -97,12 +112,69 @@ export interface ItemBuffCatalogEntry {
 
 export type ItemBuffCatalog = Record<string, ItemBuffCatalogEntry>;
 
+// ── Filigree ───────────────────────────────────────────────────────────────
+// Filigrees go in sentient-weapon and artifact slots (up to 10 each).
+// Each filigree XML file (`public/data/FiligreeSets/*.xml`) defines BOTH:
+//   - `<SetBonus>` blocks (set-bonus tiers for groups of filigrees)
+//   - `<Filigree>` blocks (the individual filigree options the user picks)
+//
+// `<Rare/>`-tagged effects only fire when the filigree slot itself has the
+// rare flag set in the build (i.e. user unlocked that filigree's rare bonus).
+
+export interface DDOFiligreeData {
+  name: string;
+  description: string;
+  icon: string;
+  /** The filigree set this belongs to (e.g. "Angelic Wings"). */
+  setBonus: string;
+  /** All effect blocks; ones with `Rare: true` only fire when the slot has rare unlocked. */
+  effects: (DDOEffect & { rare?: boolean })[];
+}
+
+export interface DDOFiligreeSetBonus {
+  name: string;
+  icon: string;
+  /** Tiered buffs ordered by `equippedCount`. */
+  buffs: DDOBuffBlock[];
+}
+
+// ── Augment ────────────────────────────────────────────────────────────────
+// Each <Augment> in public/data/Augments/*.xml. The `slotTypes` list is what
+// item augment-slot types this augment can fit into (e.g. "Red", "Purple").
+// Scaling augments use `levels[]` and `levelValues[]` to pick a tier based
+// on the item's minimum level.
+export interface DDOAugmentData {
+  name: string;
+  description: string;
+  /** Item augment-slot types this augment can be inserted into. */
+  slotTypes: string[];
+  icon: string;
+  /** True if the augment scales with item level (`<ChooseLevel/>` flag). */
+  scalesWithLevel: boolean;
+  /** Item-level breakpoints; `levels[i]` corresponds to `levelValues[i]`. */
+  levels: number[];
+  levelValues: number[];
+  effects: DDOEffect[];
+}
+
 // ── BonusType (stacking rules) ────────────────────────────────────────────
 export type BonusStacking = 'Highest Only' | 'Always' | string;
 
 export interface DDOBonusType {
   name: string;
   stacking: BonusStacking;
+}
+
+// ── Self / Party buff ─────────────────────────────────────────────────────
+// SelfAndPartyBuffs.xml: 138 togglable buffs cast by self or party members
+// (Haste, Bless, Recitation, Prayer, Stoneskin, etc.). The build's
+// activePartyBuffs list controls which fire their effects through the engine.
+
+export interface DDOOptionalBuff {
+  name: string;
+  icon: string;
+  description: string;
+  effects: DDOEffect[];
 }
 
 // ── Stance ────────────────────────────────────────────────────────────────
@@ -113,6 +185,9 @@ export interface DDOStanceData {
   group: string;
   /** Has <AutoControlled/> flag — game manages this stance automatically */
   autoControlled: boolean;
+  /** Other stance names that turn off when this stance turns on. Same-group
+   *  stances are also implicitly mutually exclusive. */
+  incompatibleStances: string[];
   requirements: DDORequirements;
 }
 
@@ -184,6 +259,100 @@ export interface DDOClassData {
   automaticFeats: { level: number; feats: string[] }[];
   featSlots: { level: number; featType: string; options: string[] }[];
   classSpecificFeatType: string | null;
+  /** Spells this class learns: name + spell level (1–9), with optional per-class
+   *  overrides for SP cost / max caster level / cooldown. Joins by name with
+   *  the global DDOSpellData catalog. Empty for non-casters. */
+  spells: DDOClassSpell[];
+  /** Per-class-level spell slot table.
+   *  - Outer index = classLevel - 1 (0..19 for levels 1..20)
+   *  - Inner array length = max spell level for the class (4 for Pal/Ran,
+   *    6 for Bard/Warlock/Artificer/Alchemist, 9 for Cler/Drd/Wiz/Sor/FvS)
+   *  - Inner index = spellLevel - 1; value = number of slots at that spell level
+   *  Empty array for non-casters. */
+  spellSlotsByLevel: number[][];
+  /** `<NotHeroic/>` flag — Epic / Legendary pseudo-classes. They don't grant
+   *  past-life feats and are excluded from Completionist requirements. */
+  notHeroic?: boolean;
+}
+
+// ── Spells ────────────────────────────────────────────────────────────────
+// Each <Spell> in Spells.xml. The catalog is global (no class info); class
+// linkage lives on `DDOClassData.spells` via `<ClassSpell>` entries in each
+// class XML, joined by spell name.
+
+export interface DDOSpellDice {
+  /** Base count of dice (e.g. 1 in "1d6+1"). */
+  number: number;
+  /** Dice size (e.g. 6 in "1d6"). */
+  sides: number;
+  /** Flat bonus added to each dice roll (e.g. 1 in "1d6+1"). */
+  bonus: number;
+  /** Set of dice scales: 1 set per N caster levels. Undefined = fixed. */
+  perCasterLevels?: number;
+  /** Maximum cap on dice count (e.g. "5d6+5" capped at 5 dice). */
+  cap?: number;
+}
+
+export interface DDOSpellDamage {
+  /** Damage element ("Fire", "Cold", "Force", "Electric", "Positive", …). */
+  damageType: string;
+  /** Spell power school used to scale damage ("Fire", "Force", …). */
+  spellPower: string;
+  dice: DDOSpellDice;
+}
+
+export interface DDOSpellDC {
+  /** Effect when save fails ("Negates", "Daze", "Slow", …). */
+  dcType: string;
+  /** Save type rolled by target ("Will", "Reflex", "Fortitude"). */
+  dcVersus: string;
+  /** Schools whose focus bonuses add to the DC. */
+  schools: string[];
+  /** When true, adds the class casting stat modifier to the DC. */
+  castingStatMod: boolean;
+  /** Optional override ability mods — DC uses the highest of these. */
+  modAbility?: string[];
+}
+
+export interface DDOSpellMetamagic {
+  accelerate?:     true;
+  embolden?:       true;
+  empower?:        true;
+  empowerHealing?: true;
+  enlarge?:        true;
+  extend?:         true;
+  heighten?:       true;
+  intensify?:      true;
+  maximize?:       true;
+  quicken?:        true;
+}
+
+export interface DDOSpellData {
+  name: string;
+  description: string;
+  icon: string;
+  school: string;
+  /** Default global cost; per-class override lives on DDOClassSpell. */
+  cost?: number;
+  /** Default global cap on caster level; per-class override possible. */
+  maxCasterLevel?: number;
+  cooldown?: number;
+  metamagic: DDOSpellMetamagic;
+  damages: DDOSpellDamage[];
+  dcs: DDOSpellDC[];
+  /** Effects on cast (buffs/auras). Reuses the universal DDOEffect schema. */
+  effects: DDOEffect[];
+}
+
+export interface DDOClassSpell {
+  /** Joins to DDOSpellData by exact (case-sensitive) name match. */
+  name: string;
+  /** Spell level 1–9 within this class (e.g. Magic Missile is Wizard 1). */
+  level: number;
+  /** Per-class SP cost override (overrides DDOSpellData.cost when set). */
+  cost?: number;
+  maxCasterLevel?: number;
+  cooldown?: number;
 }
 
 export interface DDORaceData {
@@ -193,6 +362,9 @@ export interface DDORaceData {
   startingWorld: string;
   buildPoints: number[];            // [28, 32, 34, 36] for different build-point tiers
   bonusSkillPoints: number;         // extra skill points per level
+  /** Racial ability mods parsed from <Strength>+2</Strength>, <Dexterity>-2</Dexterity>, etc.
+   *  Empty when the race XML omits the tag. */
+  abilityMods: { STR?: number; DEX?: number; CON?: number; INT?: number; WIS?: number; CHA?: number };
   featSlots: { level: number; featType: string; options: string[] }[];
   pastLifeFeat: {
     name: string;
@@ -200,6 +372,25 @@ export interface DDORaceData {
     icon: string;
     maxTimesAcquire: number;
   } | null;
+  /** `<Iconic/>` flag — Bladeforged, Aasimar Scourge, Deep Gnome, etc.
+   *  Iconic races contribute to IconicPastLife, NOT RacialPastLife, so they're
+   *  excluded from Racial Completionist requirements. */
+  iconic?: boolean;
+  /** `<NoPastLife/>` flag — race doesn't grant a past-life feat (e.g. WoodElf).
+   *  Excluded from Racial Completionist requirements. */
+  noPastLife?: boolean;
+}
+
+/**
+ * Guild buff: each entry in GuildBuffs.xml grants a set of effects when the
+ * player's guild reaches `level`. Engine fires buffs whose `level` ≤
+ * `build.guildLevel` while `build.applyGuildBuffs` is true.
+ */
+export interface DDOGuildBuff {
+  name: string;
+  description: string;
+  level: number;
+  effects: DDOEffect[];
 }
 
 export type FeatAcquireType = 'Train' | 'Automatic' | 'HeroicPastLife' | 'RacialPastLife' | 'Special';
@@ -221,6 +412,15 @@ export interface DDOFeatData {
   hasSubItems: boolean;
   /** All <Effect> blocks declared on this feat. Empty until Phase 2 parses them. */
   effects: DDOEffect[];
+  /** Toggle-able stances this feat grants (e.g. Power Attack, Mountain Stance). */
+  stances: DDOStanceData[];
+  /**
+   * Gate for `acquire === 'Automatic'` feats — DDO grants the feat (and its
+   * effects) when these requirements pass. Most are `<SpecificLevel>` checks
+   * (e.g. Heroic Durability requires SpecificLevel=1, Improved Heroic
+   * Durability has none → always-on). Empty/null = always-on.
+   */
+  automaticAcquisition?: DDOFeatRequirements;
 }
 
 export interface EnhancementSelectionData {
@@ -229,6 +429,11 @@ export interface EnhancementSelectionData {
   icon: string;
   /** Effects this selection grants when chosen */
   effects: DDOEffect[];
+  /** Stances this selection grants when chosen (e.g. mantle picks). */
+  stances: DDOStanceData[];
+  /** Per-rank AP cost when this selection is the chosen option. Undefined
+   *  → fall back to the parent enhancement's costPerRank table. */
+  costPerRank?: number[];
 }
 
 export interface EnhancementItemData {
@@ -245,6 +450,8 @@ export interface EnhancementItemData {
   selector: EnhancementSelectionData[] | null;
   /** Effects this enhancement grants per rank. Empty if it has a selector instead. */
   effects: DDOEffect[];
+  /** Stances this enhancement grants when taken (e.g. Stalwart Stance). */
+  stances: DDOStanceData[];
   /** Requirements for taking this enhancement (class min level, AP spent, etc.) */
   requirements: DDORequirements;
   // Dependency arrows (stored on the source/prerequisite item)
@@ -272,6 +479,7 @@ export interface EnhancementTreeData {
   isUniversal: boolean;        // feat/favor requirement = available to everyone
   isRacialTree: boolean;       // has <IsRacialTree/>
   isDestinyTree: boolean;      // background starts with "Destiny"
+  isReaperTree: boolean;       // has <IsReaperTree/>
   items: EnhancementItemData[];
 }
 

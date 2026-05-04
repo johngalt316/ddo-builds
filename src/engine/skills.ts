@@ -84,25 +84,26 @@ export function calculateAllSkillBonuses(
 /**
  * Total skill points the build is allowed to spend.
  *
- * Per DDO: each class level grants `max(1, class.skillPointsPerLevel + intMod)`
- * skill points; the FIRST character level grants 4× that. We approximate
- * "first character level" as the first class in `classLevels[0]`.
+ * Per DDO: each class level grants `max(1, class.skillPointsPerLevel + intMod
+ * + racialBonusSp)` skill points; the FIRST character level grants 4× that.
+ * Humans and Half-Elves have racialBonusSp=1 (parsed from race XML's
+ * <SkillPoints> field). We approximate "first character level" as the
+ * first class in `classLevels[0]`.
  *
  * Cost per rank = 1 (cross-class skills are limited via a lower max-rank cap
  * rather than via a higher per-rank cost in our simplified model).
  *
- * Out of scope (return-value will be slightly low until added):
+ * Out of scope:
  *   - Skill tomes (extend max ranks per skill, not budget)
- *   - Human / Half-Elf +1 SP per level
- *   - Sub-1 floor for class data not yet loaded (returns 0)
  *
- * NOTE: `engineClasses` here are post-adapter (DDOClass with id+skillPointsPerLevel),
+ * NOTE: `classData` is post-adapter (DDOClass with id+skillPointsPerLevel),
  * matching what `calculateAllSkillBonuses` accepts.
  */
 export function calculateSkillPointBudget(
   classLevels: ClassLevel[],
   classData: DDOClass[],
   intMod: number,
+  racialBonusSp: number = 0,
 ): number {
   const classMap = new Map(classData.map(c => [c.id, c]));
   let total = 0;
@@ -110,7 +111,7 @@ export function calculateSkillPointBudget(
   for (const cl of classLevels) {
     const cls = classMap.get(cl.classId);
     if (!cls) continue;
-    const perLevel = Math.max(1, cls.skillPointsPerLevel + intMod);
+    const perLevel = Math.max(1, cls.skillPointsPerLevel + intMod + racialBonusSp);
     total += perLevel * cl.levels;
   }
 
@@ -119,7 +120,7 @@ export function calculateSkillPointBudget(
   if (first) {
     const cls = classMap.get(first.classId);
     if (cls) {
-      total += Math.max(1, cls.skillPointsPerLevel + intMod) * 3;
+      total += Math.max(1, cls.skillPointsPerLevel + intMod + racialBonusSp) * 3;
     }
   }
 

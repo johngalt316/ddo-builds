@@ -58,7 +58,7 @@ function loadGameData() {
 
   return {
     classes, races, feats, bonusTypes, enhancementTrees,
-    itemBuffs, setBonuses, itemSetIndex,
+    itemBuffs, setBonuses, itemSetIndex, augments: [], filigrees: [], filigreeSetBonuses: [], selfPartyBuffs: [],
   };
 }
 

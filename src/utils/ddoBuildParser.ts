@@ -24,7 +24,10 @@ const ALIGNMENT_MAP: Record<string, Alignment> = {
   'Chaotic Evil':   'CE',
 };
 
-// Feat types from LevelTraining that are automatic grants, NOT user selections
+// Feat types from LevelTraining that are automatic grants, NOT user selections.
+// `Special` covers items like "Inherent Racial Action Point" / "Inherent
+// Universal Action Point" (the in-game RAP/UAP tomes from Chrism of Racial
+// Knowledge etc.).
 const AUTO_FEAT_TYPES = new Set([
   'Automatic',
   'HeroicPastLife',
@@ -32,7 +35,9 @@ const AUTO_FEAT_TYPES = new Set([
   'IconicPastLife',
   'EpicPastLife',
   'UniversalTree',
+  'EpicDestinyTree',
   'SpecialFeat',
+  'Special',
 ]);
 
 // ── Robust XML helpers ─────────────────────────────────────────────────────────
@@ -187,7 +192,7 @@ export function parseDDOBuildFile(xmlText: string): DDOBuildImport | null {
     }
   }
   if (epicLevels > 0) {
-    warnings.push(`${epicLevels} Epic/Legendary levels detected (level ${Object.values(classCount).reduce((a, b) => a + b, 0) + 1}+) — only heroic classes are shown.`);
+    warnings.push(`${epicLevels} Epic/Legendary levels detected — heroic classes shown explicitly; epic levels stored as build.epicLevels for HP/CON purposes.`);
   }
 
   let classes: ClassLevel[];
@@ -232,7 +237,6 @@ export function parseDDOBuildFile(xmlText: string): DDOBuildImport | null {
   // Same feat name appearing N times = N ranks of that feat. We group by
   // (featName, type) so e.g. multiple "Past Life: Aasimar" entries become a
   // single specialFeats[] entry with rank: 3.
-  const specialFeatsKey = (n: string, t: string) => `${n}${t}`;
   const specialFeatRanks = new Map<string, { featId: string; type: string; rank: number }>();
   // <Character>-scope (applies across all lives), not per-build.
   const specialFeatsEl = firstElemChild(character, 'SpecialFeats');
@@ -241,10 +245,21 @@ export function parseDDOBuildFile(xmlText: string): DDOBuildImport | null {
       const featName = textOf(tf, 'FeatName');
       const featType = textOf(tf, 'Type');
       if (!featName) continue;
-      const key = specialFeatsKey(featName, featType);
+      // Each TrainedFeat counts as one rank — DDOBuilderV2 itself ignores the
+      // <Type> field for stack counting and looks up the feat catalog's
+      // <Acquire> instead. Past-life feats commonly appear with mixed Types
+      // (one "EpicPastLife", one empty, one stray like "Critical Befouling 2"),
+      // and they all contribute to the same past-life stack count. Merge by
+      // featId, using the first non-empty type encountered as the canonical
+      // type so downstream code can still inspect the past-life kind.
+      const key = featName;
       const existing = specialFeatRanks.get(key);
-      if (existing) existing.rank++;
-      else specialFeatRanks.set(key, { featId: featName, type: featType, rank: 1 });
+      if (existing) {
+        existing.rank++;
+        if (!existing.type && featType) existing.type = featType;
+      } else {
+        specialFeatRanks.set(key, { featId: featName, type: featType, rank: 1 });
+      }
     }
   }
   const specialFeats = [...specialFeatRanks.values()];
@@ -281,6 +296,7 @@ export function parseDDOBuildFile(xmlText: string): DDOBuildImport | null {
 
   const enhancements        = parseSpendInTree('EnhancementSpendInTree');
   const destinyEnhancements = parseSpendInTree('DestinySpendInTree');
+  const reaperEnhancements  = parseSpendInTree('ReaperSpendInTree');
 
   // ── Gear ────────────────────────────────────────────────────────
   const GEAR_SLOTS: GearSlot[] = [
@@ -306,6 +322,15 @@ export function parseDDOBuildFile(xmlText: string): DDOBuildImport | null {
     const itemName = textOf(slotEl, 'Name');
     if (!itemName) return null;
     const buffs: GearBuff[] = elemChildren(slotEl, 'Buff').map(parseBuff);
+    const augmentSlots = elemChildren(slotEl, 'ItemAugment').map(aug => {
+      const sel = textOf(aug, 'SelectedAugment');
+      const lvl = numOf(aug, 'SelectedLevelIndex');
+      return {
+        slotType: textOf(aug, 'Type'),
+        selectedAugment: sel || undefined,
+        selectedLevelIndex: lvl > 0 ? lvl : undefined,
+      };
+    }).filter(a => a.slotType);
     return {
       slot,
       name:         itemName,
@@ -316,7 +341,15 @@ export function parseDDOBuildFile(xmlText: string): DDOBuildImport | null {
       material:     textOf(slotEl, 'Material') || undefined,
       setBonus:     textOf(slotEl, 'SetBonus') || undefined,
       buffs,
+      augmentSlots: augmentSlots.length > 0 ? augmentSlots : undefined,
     };
+  }
+
+  function parseFiligreeSlots(parent: Element, tag: string) {
+    return elemChildren(parent, tag).map(fg => ({
+      name: textOf(fg, 'Name') || undefined,
+      rare: fg.querySelector(':scope > Rare') !== null ? true : undefined,
+    }));
   }
 
   const gearSets: GearSet[] = elemChildren(buildEl, 'EquippedGear').map(eg => {
@@ -329,25 +362,61 @@ export function parseDDOBuildFile(xmlText: string): DDOBuildImport | null {
         if (item) items.push(item);
       }
     }
-    return { name: setName, items };
+    const filigrees         = parseFiligreeSlots(eg, 'Filigree');
+    const artifactFiligrees = parseFiligreeSlots(eg, 'ArtifactFiligree');
+    return {
+      name: setName,
+      items,
+      ...(filigrees.length         > 0 ? { filigrees } : {}),
+      ...(artifactFiligrees.length > 0 ? { artifactFiligrees } : {}),
+    };
   });
 
   const activeGearSet = textOf(buildEl, 'ActiveGear');
 
-  // Extract the 6 selected enhancement tree names
-  const selectedEnhancementTrees: string[] = [];
-  const selTreesEl = firstElemChild(buildEl, 'Enhancement_SelectedTrees');
-  if (selTreesEl) {
-    for (const tn of elemChildren(selTreesEl, 'TreeName')) {
-      const name = tn.textContent?.trim() ?? '';
-      if (name && name !== 'No selection') selectedEnhancementTrees.push(name);
+  // Active stance names from <ActiveStances><Stances>NAME</Stances>...</ActiveStances>.
+  // Stance-gated effects (e.g. Past Life: Energy Criticals' +3 SpellLore for
+  // Acid/Cold/Electric/Fire/Sonic) only fire when their stance is in this list.
+  const activeStances: string[] = [];
+  const stancesEl = firstElemChild(buildEl, 'ActiveStances');
+  if (stancesEl) {
+    for (const s of elemChildren(stancesEl, 'Stances')) {
+      const name = (s.textContent ?? '').trim();
+      if (name) activeStances.push(name);
     }
   }
-  // Fall back to the trees that have actual spend data
-  if (selectedEnhancementTrees.length === 0) {
-    for (const e of enhancements) {
-      if (!selectedEnhancementTrees.includes(e.treeId)) selectedEnhancementTrees.push(e.treeId);
+
+  // Extract the selected enhancement tree names. The .DDOBuild file lists
+  // them in three separate blocks — heroic / destiny / reaper — but our
+  // build state stores all in one shared list (downstream tabs filter by
+  // tree.isDestinyTree / tree.isReaperTree to render them in the right
+  // place). Always pull all three so the corresponding tabs show their
+  // selections after import.
+  const selectedEnhancementTrees: string[] = [];
+  const collectSelTrees = (containerTag: string) => {
+    const el = firstElemChild(buildEl, containerTag);
+    if (!el) return;
+    for (const tn of elemChildren(el, 'TreeName')) {
+      const name = tn.textContent?.trim() ?? '';
+      if (name && name !== 'No selection' && !selectedEnhancementTrees.includes(name)) {
+        selectedEnhancementTrees.push(name);
+      }
     }
+  };
+  collectSelTrees('Enhancement_SelectedTrees');
+  collectSelTrees('Destiny_SelectedTrees');
+  collectSelTrees('Reaper_SelectedTrees');
+  // Fall back to any tree that has actual spend data — covers files that
+  // omit the explicit selected-trees blocks.
+  if (selectedEnhancementTrees.length === 0) {
+    for (const e of enhancements)         if (!selectedEnhancementTrees.includes(e.treeId)) selectedEnhancementTrees.push(e.treeId);
+    for (const e of destinyEnhancements)  if (!selectedEnhancementTrees.includes(e.treeId)) selectedEnhancementTrees.push(e.treeId);
+    for (const e of reaperEnhancements)   if (!selectedEnhancementTrees.includes(e.treeId)) selectedEnhancementTrees.push(e.treeId);
+  } else {
+    // Even when explicit lists exist, ensure every tree the user actually
+    // spent in is selected — otherwise spent points become orphaned.
+    for (const e of destinyEnhancements)  if (!selectedEnhancementTrees.includes(e.treeId)) selectedEnhancementTrees.push(e.treeId);
+    for (const e of reaperEnhancements)   if (!selectedEnhancementTrees.includes(e.treeId)) selectedEnhancementTrees.push(e.treeId);
   }
 
   return {
@@ -364,15 +433,28 @@ export function parseDDOBuildFile(xmlText: string): DDOBuildImport | null {
       feats,
       enhancements,
       destinyEnhancements,
+      reaperEnhancements,
       selectedEnhancementTrees,
+      // If the import had trees specified, treat as manual; otherwise let
+      // the auto-defaults effect populate them based on race + top class.
+      treesManuallyOverridden: selectedEnhancementTrees.length > 0,
       gearSets,
       activeGearSet,
-      activeStances: [],
+      activeStances,
       levelClasses,
       abilityTomes,
       skillTomes,
       levelUps,
       specialFeats,
+      ...(epicLevels > 0 && { epicLevels }),
+      ...((() => {
+        const gl = numOf(character, 'GuildLevel');
+        const apply = numOf(character, 'ApplyGuildBuffs');
+        const out: { guildLevel?: number; applyGuildBuffs?: boolean } = {};
+        if (gl > 0) out.guildLevel = gl;
+        if (apply > 0) out.applyGuildBuffs = true;
+        return out;
+      })()),
     },
   };
 }
