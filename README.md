@@ -4,6 +4,8 @@ A hobby build calculator for **Dungeons and Dragons Online** (DDO). Plan a chara
 
 It's a TypeScript port of [Maetrim's DDOBuilderV2](https://github.com/Maetrim/DDOBuilderV2) (C++/MFC desktop app), running in the browser.
 
+**Live site:** [https://ddo-builds.com](https://ddo-builds.com) — deployed on Cloudflare Workers, auto-redeploys on push to `master`.
+
 ---
 
 ## What it does
@@ -16,7 +18,7 @@ It's a TypeScript port of [Maetrim's DDOBuilderV2](https://github.com/Maetrim/DD
 - **Spells & SLAs** — per-class spell-slot allocation, feat- / enhancement- / destiny-granted spell-like abilities.
 - **Live breakdowns** — every stat shows source-by-source contributors with applied/dominated stacking; percent buffs render as `+X% (+Y)` so the actual flat delta is visible.
 - **Build sharing & import** — full state encoded in the URL via lz-string; or drag-drop a `.DDOBuild` file from the desktop app.
-- **Self-hostable** — Docker Compose for local prod preview, AWS App Runner deploy path.
+- **Self-hostable** — Cloudflare Workers in production, Docker Compose for local prod preview.
 
 ---
 
@@ -242,33 +244,48 @@ npm run debug:fixture kemton     # pretty-print a parsed .DDOBuild
 | Routing | React Router 7 |
 | Build sharing | lz-string URL hash |
 | Tests | Vitest + happy-dom + @testing-library/react |
-| Serving | Nginx 1.27-alpine |
-| Container | Docker multi-stage (~30MB image) |
-| Cloud | AWS App Runner |
-| CI | GitHub Actions |
+| Hosting | Cloudflare Workers (static assets) |
+| Local prod preview | Docker + Nginx (multi-stage, ~30MB image) |
+| CI | GitHub Actions (lint + typecheck + test) |
 
 ---
 
-## AWS Deployment
+## Deployment
 
-Recommended target is **AWS App Runner** (~$5/month for 0.25 vCPU / 0.5 GB).
+The site is hosted on **[Cloudflare Workers](https://developers.cloudflare.com/workers/static-assets/)** with static-assets serving — global edge CDN, free tier covers hobby usage, deploys driven directly from this Git repo. **Push to `master` and Cloudflare rebuilds and redeploys within a few minutes**, no manual step required.
+
+### How it's wired up
+
+| File | Role |
+|---|---|
+| `wrangler.jsonc` | Worker config — points at `./dist` and enables SPA fallback (`not_found_handling: "single-page-application"`). |
+| Cloudflare's GitHub integration | Watches `master`, runs `npm run build`, uploads `dist/` to the Worker. |
+| `ddo-builds.com` | Custom domain, attached to the Worker via Cloudflare's *Custom Domains* feature. SSL is provisioned automatically. |
+
+### Cloudflare project settings
+
+Reproducing the project on a fresh Cloudflare account:
+
+| Field | Value |
+|---|---|
+| Build command | `npm run build` |
+| Deploy command | `npx wrangler deploy` |
+| Output directory | `dist` (handled by `wrangler.jsonc`) |
+| Environment variable | `NODE_VERSION=22` |
+| Production branch | `master` |
+
+### Manual deploy from your laptop
+
+If Cloudflare's auto-deploy is ever down or you want to test a deploy outside CI:
 
 ```bash
-# One-time
-aws ecr create-repository --repository-name ddo-builds --region us-east-1
-# Then create an App Runner service pointing at the ECR image (port 80)
-# with automatic deployment enabled.
-
-# Push
-aws ecr get-login-password --region us-east-1 \
-  | docker login --username AWS --password-stdin \
-    <ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com
-docker build -t ddo-builds .
-docker tag  ddo-builds:latest <ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/ddo-builds:latest
-docker push <ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/ddo-builds:latest
+npm run build
+npx wrangler deploy        # uses wrangler.jsonc + your local Cloudflare login
 ```
 
-`.github/workflows/deploy.yml` automates this via OIDC (no long-lived secrets).
+### Self-hosting alternative
+
+If you'd rather run this somewhere else, the `Dockerfile` produces a standalone Nginx + static-bundle image (~30MB). `docker compose up --build` serves it on port 3000. The image is platform-agnostic — works on any container host (Lightsail Containers, Fly.io, your own VPS, etc.).
 
 ---
 
