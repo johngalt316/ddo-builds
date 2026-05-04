@@ -33,6 +33,33 @@ export function Home() {
           <p>Your entire build is encoded in the URL. Copy and share it — no account required, no server needed.</p>
         </div>
       </section>
+
+      <footer className={styles.attribution}>
+        <p>
+          Open source —{' '}
+          <a
+            href="https://github.com/johngalt316/ddo-builds"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            github.com/johngalt316/ddo-builds
+          </a>{' '}
+          (MIT license).
+        </p>
+        <p>
+          Game data and images sourced from{' '}
+          <a
+            href="https://github.com/Maetrim/DDOBuilderV2"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Maetrim's DDOBuilderV2
+          </a>
+          . Dungeons &amp; Dragons Online is © Standing Stone Games. This site is a
+          fan-made tool, not affiliated with or endorsed by Standing Stone Games or
+          Daybreak Game Company.
+        </p>
+      </footer>
     </div>
   );
 }
