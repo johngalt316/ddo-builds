@@ -4,6 +4,23 @@ import styles from './Home.module.css';
 export function Home() {
   return (
     <div className={styles.page}>
+      <div className={styles.alphaBanner} role="alert">
+        <span className={styles.alphaTag}>Alpha</span>
+        <span>
+          This site is under active development and <strong>has known bugs</strong>.
+          Numbers may be wrong, layouts may shift, and saved builds may need re-importing
+          as the data model evolves. File issues at{' '}
+          <a
+            href="https://github.com/johngalt316/ddo-builds/issues"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            github.com/johngalt316/ddo-builds/issues
+          </a>
+          .
+        </span>
+      </div>
+
       <section className={styles.hero}>
         <h1 className={styles.title}>DDO Build DPS Calculator</h1>
         <p className={styles.subtitle}>

@@ -4,6 +4,43 @@
   padding: 3rem 1.5rem;
 }
 
+/* Top-of-page "still in development" banner. */
+.alphaBanner {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin: 0 0 2.5rem;
+  padding: 0.85rem 1.1rem;
+  background: rgba(255, 184, 77, 0.10);
+  border: 1px solid rgba(255, 184, 77, 0.45);
+  border-radius: 6px;
+  color: var(--color-text);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.alphaTag {
+  flex-shrink: 0;
+  padding: 0.15rem 0.55rem;
+  background: var(--color-gold);
+  color: #1a1200;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 3px;
+  align-self: center;
+}
+
+.alphaBanner a {
+  color: var(--color-gold);
+  text-decoration: none;
+}
+
+.alphaBanner a:hover {
+  text-decoration: underline;
+}
+
 .hero {
   text-align: center;
   margin-bottom: 4rem;

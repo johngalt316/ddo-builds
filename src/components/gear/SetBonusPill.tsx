@@ -1,7 +1,8 @@
-import { useEffect, useLayoutEffect, useRef, useState, type MouseEvent as ReactMouseEvent } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import type { DDOBuffBlock } from '@/types/ddoData';
 import { formatBuffBlock } from '@/utils/formatBuff';
+import type { AnchorRect } from './useHoverAnchor';
 import styles from './SetBonusPill.module.css';
 
 const TOOLTIP_DELAY_MS = 150;
@@ -22,43 +23,6 @@ interface Props {
   buffs: DDOBuffBlock[];
   /** Optional fallback message when buffs is empty. */
   unknownNote?: string;
-}
-
-export interface AnchorRect { top: number; bottom: number; left: number; right: number }
-
-/**
- * Shared hover-tooltip plumbing: tracks the anchor element's bounding rect
- * and delays showing the tooltip until the cursor has lingered. Returns the
- * anchor rect (or null when hidden) plus mouse-event handlers to spread on
- * the trigger element.
- */
-export function useHoverAnchor(): {
-  anchor: AnchorRect | null;
-  onMouseEnter: (e: ReactMouseEvent<HTMLElement>) => void;
-  onMouseLeave: () => void;
-} {
-  const showTimer = useRef<number | null>(null);
-  const [anchor, setAnchor] = useState<AnchorRect | null>(null);
-
-  useEffect(() => () => {
-    if (showTimer.current !== null) window.clearTimeout(showTimer.current);
-  }, []);
-
-  return {
-    anchor,
-    onMouseEnter: (e) => {
-      const r = e.currentTarget.getBoundingClientRect();
-      const snap: AnchorRect = { top: r.top, bottom: r.bottom, left: r.left, right: r.right };
-      showTimer.current = window.setTimeout(() => setAnchor(snap), TOOLTIP_DELAY_MS);
-    },
-    onMouseLeave: () => {
-      if (showTimer.current !== null) {
-        window.clearTimeout(showTimer.current);
-        showTimer.current = null;
-      }
-      setAnchor(null);
-    },
-  };
 }
 
 export function SetBonusPill({ name, count, nextTier, variant, buffs, unknownNote }: Props) {

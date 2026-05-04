@@ -164,7 +164,11 @@ export function useBuild() {
     [build.skillRanks],
   );
 
-  const { build: _build, ...storeActions } = store;
+  // Strip `build` from the store snapshot — we re-export it from the memoized
+  // selector above. Rest spread is the discard pattern; the `build` binding
+  // here is intentionally unused.
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { build: _, ...storeActions } = store;
 
   return {
     build,

@@ -134,10 +134,12 @@ export function EnhancementsTab() {
     [build.classes],
   );
 
-  // All heroic trees eligible for this character (destiny trees handled separately)
+  // All heroic trees eligible for this character. Destiny trees and reaper
+  // trees are rendered on their own tabs, so exclude them here.
   const allEligible = useMemo(
     () => trees
-      .filter(t => !t.isDestinyTree && isTreeAvailable(t, buildClassIds, build.raceId, classDataList))
+      .filter(t => !t.isDestinyTree && !t.isReaperTree
+        && isTreeAvailable(t, buildClassIds, build.raceId, classDataList))
       .sort((a, b) => {
         // Sort: race tree first, then class trees, then universal
         if (a.isRacialTree !== b.isRacialTree) return a.isRacialTree ? -1 : 1;
@@ -147,14 +149,14 @@ export function EnhancementsTab() {
     [trees, buildClassIds, build.raceId, classDataList],
   );
 
-  // The currently selected tree objects (heroic only — destiny trees use
-  // the same `selectedEnhancementTrees` list but are rendered on the
-  // Epic Destinies tab and must not appear here).
+  // The currently selected tree objects (heroic only — destiny / reaper trees
+  // share the same `selectedEnhancementTrees` list but render on their own
+  // tabs and must not appear here).
   const selectedTrees = useMemo(
     () => build.selectedEnhancementTrees
       .map(name => trees.find(t => t.name === name))
       .filter((t): t is NonNullable<typeof t> =>
-        t !== null && t !== undefined && !t.isDestinyTree),
+        t !== null && t !== undefined && !t.isDestinyTree && !t.isReaperTree),
     [build.selectedEnhancementTrees, trees],
   );
 

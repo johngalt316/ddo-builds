@@ -381,7 +381,10 @@ function StancesPanel() {
   const r = useBreakdowns();
   const active = useBuildStore(s => s.build.activeStances);
   const setStances = useBuildStore(s => s.setStances);
-  const stances = r?.availableStances ?? [];
+  // Use a stable empty array when the engine hasn't run yet — otherwise the
+  // `?? []` fallback creates a new reference each render and the useMemos
+  // below would re-run forever (per react-hooks/exhaustive-deps lint).
+  const stances = useMemo(() => r?.availableStances ?? EMPTY_STANCES, [r]);
 
   const grouped = useMemo(() => {
     const byGroup = new Map<string, AvailableStance[]>();
@@ -561,6 +564,9 @@ function stanceSummary(description: string, rank: number = 1): string {
 // when activePartyBuffs is undefined — otherwise React's useSyncExternalStore
 // sees a fresh `[]` snapshot every render and triggers an infinite update loop.
 const EMPTY_BUFFS: readonly string[] = [];
+// Same trick for stances when the engine hasn't loaded yet — keeps useMemo
+// dependency identity stable across renders.
+const EMPTY_STANCES: readonly AvailableStance[] = [];
 
 function PartyBuffsPanel() {
   const buffs = useGameDataStore(s => s.selfPartyBuffs);

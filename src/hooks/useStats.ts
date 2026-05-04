@@ -18,7 +18,7 @@
 // These will be replaced with engine-driven equivalents once the matching
 // effect types are modeled (Phase 5+ touches DPS / spell DCs / etc.).
 
-import { useMemo } from 'react';
+import { useCallback, useMemo } from 'react';
 import { useBuild } from '@/hooks/useBuild';
 import { useBreakdowns } from '@/hooks/useBreakdowns';
 import { useGameDataStore } from '@/store/gameDataStore';
@@ -98,7 +98,10 @@ export function useStats() {
     () => new Set(build.feats.map(f => f.featId)),
     [build.feats],
   );
-  const hasFeat = (n: string) => featNames.has(n);
+  // useCallback so hasFeat has a stable identity bound to featNames; lets
+  // the useMemo blocks below list `hasFeat` as a dep without recomputing on
+  // every render.
+  const hasFeat = useCallback((n: string) => featNames.has(n), [featNames]);
 
   const meleeDamageAttr = useMemo(() => {
     const strMod = abilityMods.STR;
@@ -107,7 +110,7 @@ export function useStats() {
       return { stat: 'DEX' as Stat, mod: dexMod };
     }
     return { stat: 'STR' as Stat, mod: strMod };
-  }, [abilityMods, featNames]);
+  }, [abilityMods, hasFeat]);
 
   const improvedCriticalGroups = useMemo(
     () => Array.from(featNames)
@@ -125,7 +128,7 @@ export function useStats() {
     else if (hasFeat('Improved Two Handed Fighting')) chains.push('ITHF');
     else if (hasFeat('Two Handed Fighting')) chains.push('THF');
     return chains;
-  }, [featNames]);
+  }, [hasFeat]);
 
   const meleeAttackCount = useMemo(
     () => 1 + Math.floor(Math.max(0, bab - 1) / 5),
@@ -137,7 +140,7 @@ export function useStats() {
     if (hasFeat('Spell Penetration')) bonus += 2;
     if (hasFeat('Greater Spell Penetration')) bonus += 2;
     return bonus;
-  }, [featNames]);
+  }, [hasFeat]);
 
   const spellFocusSchools = useMemo(
     () => Array.from(featNames)
@@ -150,7 +153,7 @@ export function useStats() {
     () => ['Empower Spell', 'Maximize Spell', 'Quicken Spell', 'Heighten Spell',
            'Enlarge Spell', 'Extend Spell', 'Empower Healing Spell', 'Intensify Spell']
       .filter(hasFeat),
-    [featNames],
+    [hasFeat],
   );
 
   const primarySpellcaster = useMemo(() => {
