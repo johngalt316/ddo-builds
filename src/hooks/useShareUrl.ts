@@ -7,8 +7,8 @@ export function useShareUrl() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const getShareUrl = useCallback((build: Build): string => {
-    const encoded = encodeBuild(build);
+  const getShareUrl = useCallback(async (build: Build): Promise<string> => {
+    const encoded = await encodeBuild(build);
     const url = new URL(window.location.href);
     url.hash = encoded;
     return url.toString();
@@ -16,7 +16,7 @@ export function useShareUrl() {
 
   const copyShareUrl = useCallback(async (build: Build): Promise<boolean> => {
     try {
-      const url = getShareUrl(build);
+      const url = await getShareUrl(build);
       await navigator.clipboard.writeText(url);
       return true;
     } catch {
@@ -24,7 +24,7 @@ export function useShareUrl() {
     }
   }, [getShareUrl]);
 
-  const loadBuildFromHash = useCallback((): Build | null => {
+  const loadBuildFromHash = useCallback(async (): Promise<Build | null> => {
     const hash = location.hash.slice(1);
     if (!hash) return null;
     return decodeBuild(hash);

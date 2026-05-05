@@ -40,8 +40,11 @@ export function BuildEditor() {
   const [activeTab, setActiveTab] = useState('main');
 
   useEffect(() => {
-    const loaded = loadBuildFromHash();
-    if (loaded) setBuild(loaded);
+    let cancelled = false;
+    loadBuildFromHash().then(loaded => {
+      if (!cancelled && loaded) setBuild(loaded);
+    });
+    return () => { cancelled = true; };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
