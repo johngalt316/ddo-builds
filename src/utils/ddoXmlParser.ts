@@ -526,14 +526,18 @@ function parseSpellMetamagic(spell: Element): DDOSpellMetamagic {
 
 function parseSpellDamage(sd: Element): DDOSpellDamage {
   const dice = sd.querySelector(':scope > SpellDice');
-  const bonusDice = dice?.querySelector(':scope > BonusDice');
+  // DDOBuilderV2 spells use either <BaseDice> or <BonusDice> to describe
+  // the dice that scale per caster level (e.g. Force Missiles uses BaseDice,
+  // Magic Missile uses BonusDice). Same shape; either tag is the source.
+  const dieEl = dice?.querySelector(':scope > BaseDice')
+            ?? dice?.querySelector(':scope > BonusDice');
   return {
     damageType: text(sd, 'Damage'),
     spellPower: text(sd, 'SpellPower'),
     dice: {
-      number: bonusDice ? num(bonusDice, 'Number') || 1 : 1,
-      sides:  bonusDice ? num(bonusDice, 'Sides')  || 0 : 0,
-      bonus:  bonusDice ? num(bonusDice, 'Bonus')  || 0 : 0,
+      number: dieEl ? num(dieEl, 'Number') || 1 : 1,
+      sides:  dieEl ? num(dieEl, 'Sides')  || 0 : 0,
+      bonus:  dieEl ? num(dieEl, 'Bonus')  || 0 : 0,
       perCasterLevels: dice?.querySelector(':scope > PerCasterLevels')
         ? num(dice, 'PerCasterLevels')
         : undefined,
