@@ -86,6 +86,13 @@ export interface DDOEffect {
    * see BreakdownItem.cpp::AddFeatEffect / AddEnhancementEffect).
    */
   isApplyAsItemEffect?: boolean;
+  /**
+   * `<Rank>N</Rank>` — minimum enhancement rank required for this effect to
+   * fire. Multi-rank enhancements often define rank-specific perks (e.g.
+   * Storm Core grants its spell-power rider only at rank 3); ranks below the
+   * threshold skip the effect entirely. Undefined = always fires.
+   */
+  minRank?: number;
 }
 
 export interface DDOBuffBlock {

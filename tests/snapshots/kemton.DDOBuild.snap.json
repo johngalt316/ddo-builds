@@ -24,6 +24,9 @@
     },
     "skillRanks": {
       "spellcraft": 23,
+      "disable_device": 23,
+      "heal": 11,
+      "repair": 23,
       "search": 1
     },
     "feats": [
@@ -1375,7 +1378,7 @@
               },
               {
                 "slotType": "Sun",
-                "selectedAugment": "Solar Gem of Spellpower (Heroic)"
+                "selectedAugment": "Solar Gem of Spellpower (Legendary)"
               },
               {
                 "slotType": "Mythic"
@@ -1539,7 +1542,7 @@
               },
               {
                 "slotType": "Moon",
-                "selectedAugment": "Lunar Gem of Ranged Power (Legendary)"
+                "selectedAugment": "Lunar Gem of Spellpower (Legendary)"
               },
               {
                 "slotType": "Mythic"
@@ -1789,7 +1792,7 @@
               },
               {
                 "type": "Impulse",
-                "value1": 36,
+                "value1": 31,
                 "bonusType": "Quality",
                 "description1": "Force/Untyped"
               },
@@ -1987,8 +1990,7 @@
             "rare": true
           },
           {
-            "name": "Elemental Avatar: +9 Acid Spell Power",
-            "rare": true
+            "name": "Elemental Avatar: +9 Acid Spell Power"
           },
           {
             "name": "Elemental Avatar: +9 Cold Spell Power",
@@ -2079,7 +2081,12 @@
       "WIS": 8,
       "CHA": 8
     },
-    "skillTomes": {},
+    "skillTomes": {
+      "disable_device": 4,
+      "heal": 5,
+      "repair": 4,
+      "spellcraft": 5
+    },
     "levelUps": {
       "4": "INT",
       "8": "INT",
@@ -2524,6 +2531,23 @@
         "rank": 2
       }
     ],
+    "trainedSpells": {
+      "Arcane Trickster": {
+        "1": [
+          "Magic Missile"
+        ],
+        "2": [
+          "Scorching Ray"
+        ],
+        "3": [
+          "Chain Missiles",
+          "Frost Lance"
+        ],
+        "4": [
+          "Force Missiles"
+        ]
+      }
+    },
     "epicLevels": 14,
     "guildLevel": 200,
     "applyGuildBuffs": true

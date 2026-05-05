@@ -55,8 +55,8 @@
       "maxRanks": 11
     },
     "disable_device": {
-      "total": 4,
-      "ranks": 0,
+      "total": 27,
+      "ranks": 23,
       "abilityMod": 4,
       "isClassSkill": false,
       "maxRanks": 11
@@ -69,8 +69,8 @@
       "maxRanks": 11
     },
     "heal": {
-      "total": -1,
-      "ranks": 0,
+      "total": 21,
+      "ranks": 22,
       "abilityMod": -1,
       "isClassSkill": false,
       "maxRanks": 11
@@ -125,8 +125,8 @@
       "maxRanks": 11
     },
     "repair": {
-      "total": 4,
-      "ranks": 0,
+      "total": 27,
+      "ranks": 23,
       "abilityMod": 4,
       "isClassSkill": false,
       "maxRanks": 11

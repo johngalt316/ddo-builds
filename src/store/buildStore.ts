@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import type { AbilityScores, Alignment, Build, ClassLevel, EnhancementSelection, GearItem, GearSlot, SelectedFeat, Stat } from '@/types/build';
+import type { AbilityScores, Alignment, Build, ClassLevel, EnhancementSelection, GearItem, GearSet, GearSlot, SelectedFeat, Stat } from '@/types/build';
 import { DEFAULT_BUILD } from '@/types/build';
 import { resolveLevelClasses, aggregateClasses } from '@/utils/levelClasses';
 
@@ -77,6 +77,9 @@ interface BuildState {
     slotIdx: number,
     rare: boolean,
   ) => void;
+  // Empty every sentient-weapon (`'weapon'`) or artifact filigree slot in
+  // the active gear set in one shot.
+  clearFiligrees: (target: 'weapon' | 'artifact') => void;
   // Train a spell into the given class+spellLevel slot list. No-op if the
   // spell is already trained at that level for that class.
   trainSpell: (className: string, spellLevel: number, spellName: string) => void;
@@ -464,8 +467,14 @@ export const useBuildStore = create<BuildState>((set, get) => ({
       const trimmed = newName.trim();
       const src = s.build.gearSets.find(g => g.name === srcName);
       if (!src || !trimmed || s.build.gearSets.some(g => g.name === trimmed)) return s;
-      // Clone items by value (each item is a fresh object).
-      const cloned = { name: trimmed, items: src.items.map(it => ({ ...it, buffs: [...it.buffs] })) };
+      // Clone items, sentient filigrees, and artifact filigrees by value so
+      // editing the duplicate doesn't mutate the source set.
+      const cloned: GearSet = {
+        name: trimmed,
+        items: src.items.map(it => ({ ...it, buffs: [...it.buffs] })),
+        ...(src.filigrees         && { filigrees:         src.filigrees.map(f => ({ ...f })) }),
+        ...(src.artifactFiligrees && { artifactFiligrees: src.artifactFiligrees.map(f => ({ ...f })) }),
+      };
       return {
         build: {
           ...s.build,
@@ -547,6 +556,21 @@ export const useBuildStore = create<BuildState>((set, get) => ({
       if (!slot.name) return s;                         // can't rare an empty slot
       list[slotIdx] = { ...slot, rare: rare || undefined };
       const newSet = { ...cur, [key]: list };
+      const newSets = sets.map((g, i) => i === activeIdx ? newSet : g);
+      return { build: { ...s.build, gearSets: newSets } };
+    }),
+
+  clearFiligrees: (target) =>
+    set(s => {
+      const sets = s.build.gearSets;
+      const activeIdx = sets.findIndex(g => g.name === s.build.activeGearSet);
+      if (activeIdx < 0) return s;
+      const cur = sets[activeIdx]!;
+      const key = target === 'weapon' ? 'filigrees' : 'artifactFiligrees';
+      const list = cur[key];
+      // No-op when the section is already empty (saves a render tick).
+      if (!list || list.every(f => !f.name && !f.rare)) return s;
+      const newSet = { ...cur, [key]: [] };
       const newSets = sets.map((g, i) => i === activeIdx ? newSet : g);
       return { build: { ...s.build, gearSets: newSets } };
     }),

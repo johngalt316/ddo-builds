@@ -15,7 +15,7 @@
     },
     "requirementsFailedCount": 170,
     "totalSourcedEffects": 1154,
-    "totalAppliedBonuses": 1305
+    "totalAppliedBonuses": 1309
   },
   "abilityScores": {
     "STR": {
@@ -433,14 +433,14 @@
       ]
     },
     "WIS": {
-      "total": 104,
+      "total": 102,
       "appliedCount": 27,
       "dominatedCount": 2,
       "sources": [
         {
           "source": "base + racial",
           "bonusType": "(untyped)",
-          "value": 37
+          "value": 35
         },
         {
           "source": "Monk 1: Ocean Stance: Ocean Stance: Wisdom",
@@ -1231,14 +1231,14 @@
       ]
     },
     "Will": {
-      "total": 96,
+      "total": 95,
       "appliedCount": 26,
       "dominatedCount": 2,
       "sources": [
         {
           "source": "class save progression + ability mod",
           "bonusType": "(untyped)",
-          "value": 25
+          "value": 24
         },
         {
           "source": "Echoing Soul",
@@ -2636,812 +2636,14 @@
     "sources": []
   },
   "casterLevel": {
-    "total": 167,
-    "appliedCount": 134,
+    "total": 34,
+    "appliedCount": 1,
     "dominatedCount": 0,
     "sources": [
       {
         "source": "character level (34)",
         "bonusType": "(untyped)",
         "value": 34
-      },
-      {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Acolyte of the Skin",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Acolyte of the Skin"
-      },
-      {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Alchemist",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Alchemist"
-      },
-      {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Arcane Trickster",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Arcane Trickster"
-      },
-      {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Artificer",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Artificer"
-      },
-      {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Bard",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Bard"
-      },
-      {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Blight Caster",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Blight Caster"
-      },
-      {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Stormsinger",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Stormsinger"
-      },
-      {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Cleric",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Cleric"
-      },
-      {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Dark Apostate",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Dark Apostate"
-      },
-      {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Dark Hunter",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Dark Hunter"
-      },
-      {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Druid",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Druid"
-      },
-      {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Favored Soul",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Favored Soul"
-      },
-      {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Paladin",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Paladin"
-      },
-      {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Sacred Fist",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Sacred Fist"
-      },
-      {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Ranger",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Ranger"
-      },
-      {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Sorcerer",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Sorcerer"
-      },
-      {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Warlock",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Warlock"
-      },
-      {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Wild Mage",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Wild Mage"
-      },
-      {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Wizard",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Wizard"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Acolyte of the Skin",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Acolyte of the Skin"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Alchemist",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Alchemist"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Arcane Trickster",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Arcane Trickster"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Artificer",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Artificer"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Bard",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Bard"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Blight Caster",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Blight Caster"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Stormsinger",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Stormsinger"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Cleric",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Cleric"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Dark Apostate",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Dark Apostate"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Dark Hunter",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Dark Hunter"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Druid",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Druid"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Favored Soul",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Favored Soul"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Paladin",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Paladin"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Sacred Fist",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Sacred Fist"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Ranger",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Ranger"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Sorcerer",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Sorcerer"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Warlock",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Warlock"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Wild Mage",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Wild Mage"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Wizard",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Wizard"
-      },
-      {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Acolyte of the Skin",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Acolyte of the Skin"
-      },
-      {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Alchemist",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Alchemist"
-      },
-      {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Arcane Trickster",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Arcane Trickster"
-      },
-      {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Artificer",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Artificer"
-      },
-      {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Bard",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Bard"
-      },
-      {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Blight Caster",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Blight Caster"
-      },
-      {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Stormsinger",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Stormsinger"
-      },
-      {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Cleric",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Cleric"
-      },
-      {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Dark Apostate",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Dark Apostate"
-      },
-      {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Dark Hunter",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Dark Hunter"
-      },
-      {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Druid",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Druid"
-      },
-      {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Favored Soul",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Favored Soul"
-      },
-      {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Paladin",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Paladin"
-      },
-      {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Sacred Fist",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Sacred Fist"
-      },
-      {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Ranger",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Ranger"
-      },
-      {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Sorcerer",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Sorcerer"
-      },
-      {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Warlock",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Warlock"
-      },
-      {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Wild Mage",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Wild Mage"
-      },
-      {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Wizard",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Wizard"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Acolyte of the Skin",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Acolyte of the Skin"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Alchemist",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Alchemist"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Arcane Trickster",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Arcane Trickster"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Artificer",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Artificer"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Bard",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Bard"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Blight Caster",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Blight Caster"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Stormsinger",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Stormsinger"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Cleric",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Cleric"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Dark Apostate",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Dark Apostate"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Dark Hunter",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Dark Hunter"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Druid",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Druid"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Favored Soul",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Favored Soul"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Paladin",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Paladin"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Sacred Fist",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Sacred Fist"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Ranger",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Ranger"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Sorcerer",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Sorcerer"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Warlock",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Warlock"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Wild Mage",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Wild Mage"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Wizard",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Wizard"
-      },
-      {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Acolyte of the Skin",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Acolyte of the Skin"
-      },
-      {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Alchemist",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Alchemist"
-      },
-      {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Arcane Trickster",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Arcane Trickster"
-      },
-      {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Artificer",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Artificer"
-      },
-      {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Bard",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Bard"
-      },
-      {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Blight Caster",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Blight Caster"
-      },
-      {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Stormsinger",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Stormsinger"
-      },
-      {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Cleric",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Cleric"
-      },
-      {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Dark Apostate",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Dark Apostate"
-      },
-      {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Dark Hunter",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Dark Hunter"
-      },
-      {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Druid",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Druid"
-      },
-      {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Favored Soul",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Favored Soul"
-      },
-      {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Paladin",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Paladin"
-      },
-      {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Sacred Fist",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Sacred Fist"
-      },
-      {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Ranger",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Ranger"
-      },
-      {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Sorcerer",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Sorcerer"
-      },
-      {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Warlock",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Warlock"
-      },
-      {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Wild Mage",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Wild Mage"
-      },
-      {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Wizard",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Wizard"
-      },
-      {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Acolyte of the Skin"
-      },
-      {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Alchemist"
-      },
-      {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Artificer"
-      },
-      {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Arcane Trickster"
-      },
-      {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Bard"
-      },
-      {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Blight Caster"
-      },
-      {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Stormsinger"
-      },
-      {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Cleric"
-      },
-      {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Dark Apostate"
-      },
-      {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Dark Hunter"
-      },
-      {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Druid"
-      },
-      {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Favored Soul"
-      },
-      {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Paladin"
-      },
-      {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Sacred Fist"
-      },
-      {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Ranger"
-      },
-      {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Sorcerer"
-      },
-      {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Warlock"
-      },
-      {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Wizard"
-      },
-      {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Wild Mage"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Acolyte of the Skin"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Alchemist"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Artificer"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Arcane Trickster"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Bard"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Blight Caster"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Stormsinger"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Cleric"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Dark Apostate"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Dark Hunter"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Druid"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Favored Soul"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Paladin"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Sacred Fist"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Ranger"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Sorcerer"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Warlock"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Wizard"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Wild Mage"
       }
     ]
   },
@@ -3650,18 +2852,162 @@
       ]
     }
   },
+  "universalSpellPower": {
+    "total": 130,
+    "appliedCount": 25,
+    "dominatedCount": 0,
+    "sources": [
+      {
+        "source": "Epic 1: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 2: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 3: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 4: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 5: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 6: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 7: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 8: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 9: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 10: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Legendary 1: Legendary Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Legendary 2: Legendary Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Legendary 3: Legendary Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Legendary 4: Legendary Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Shadow Training",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Step Through Shadows",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: The Darkest Luck",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Cut to the Soul",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[A] Cloak: Dinosaur Bone Cloak → Mythic Power Boost",
+        "bonusType": "Mythic",
+        "value": 1
+      },
+      {
+        "source": "[A] Belt: Legendary Waistwrap of Wild Wisdom → Mythic Power Boost",
+        "bonusType": "Mythic",
+        "value": 1
+      },
+      {
+        "source": "[A] Goggles: Legendary Karissa's Goggles → Mythic Power Boost",
+        "bonusType": "Mythic",
+        "value": 1
+      },
+      {
+        "source": "[A] Boots: Legendary Icewalkers → +3 Melee/Ranged and Spell Power",
+        "bonusType": "Reaper",
+        "value": 3
+      },
+      {
+        "source": "[PL] Inherent Spell Power ×2",
+        "bonusType": "Inherent",
+        "value": 2
+      },
+      {
+        "source": "[PL] Past Life: Sorcerer - Wild Mage ×3",
+        "bonusType": "Stacking",
+        "value": 9
+      },
+      {
+        "source": "[PL] Past Life: Eladrin Chaosmancer ×3",
+        "bonusType": "Stacking",
+        "value": 9
+      }
+    ]
+  },
+  "universalSpellCriticalChance": {
+    "total": 5,
+    "appliedCount": 1,
+    "dominatedCount": 0,
+    "sources": [
+      {
+        "source": "Monk 1: Magical Training",
+        "bonusType": "Feat",
+        "value": 5
+      }
+    ]
+  },
+  "universalSpellCriticalDamage": {
+    "total": 0,
+    "appliedCount": 0,
+    "dominatedCount": 0,
+    "sources": []
+  },
   "spellPowers": {
     "Acid": {
       "total": 165,
-      "appliedCount": 5,
+      "appliedCount": 4,
       "dominatedCount": 0,
       "sources": [
-        {
-          "source": "[A] Boots: Legendary Icewalkers → +3 Melee/Ranged and Spell Power",
-          "bonusType": "Reaper",
-          "value": 3,
-          "target": "All"
-        },
         {
           "source": "[A] Ring2: The Time Taken → Curse of the Caustic One",
           "bonusType": "Fortune",
@@ -3683,22 +3029,29 @@
         {
           "source": "Universal Spell Power",
           "bonusType": "(untyped)",
-          "value": 127,
+          "value": 130,
           "target": "Acid"
+        }
+      ]
+    },
+    "Chaos": {
+      "total": 130,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Universal Spell Power",
+          "bonusType": "(untyped)",
+          "value": 130,
+          "target": "Chaos"
         }
       ]
     },
     "Cold": {
       "total": 145,
-      "appliedCount": 3,
+      "appliedCount": 2,
       "dominatedCount": 0,
       "sources": [
-        {
-          "source": "[A] Boots: Legendary Icewalkers → +3 Melee/Ranged and Spell Power",
-          "bonusType": "Reaper",
-          "value": 3,
-          "target": "All"
-        },
         {
           "source": "[Guild] Shrine of the Devourer I",
           "bonusType": "Guild",
@@ -3708,22 +3061,16 @@
         {
           "source": "Universal Spell Power",
           "bonusType": "(untyped)",
-          "value": 127,
+          "value": 130,
           "target": "Cold"
         }
       ]
     },
     "Electric": {
       "total": 160,
-      "appliedCount": 4,
+      "appliedCount": 3,
       "dominatedCount": 0,
       "sources": [
-        {
-          "source": "[A] Boots: Legendary Icewalkers → +3 Melee/Ranged and Spell Power",
-          "bonusType": "Reaper",
-          "value": 3,
-          "target": "All"
-        },
         {
           "source": "[Guild] Stormreaver Memorial I",
           "bonusType": "Guild",
@@ -3739,22 +3086,29 @@
         {
           "source": "Universal Spell Power",
           "bonusType": "(untyped)",
-          "value": 127,
+          "value": 130,
           "target": "Electric"
+        }
+      ]
+    },
+    "Evil": {
+      "total": 130,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Universal Spell Power",
+          "bonusType": "(untyped)",
+          "value": 130,
+          "target": "Evil"
         }
       ]
     },
     "Fire": {
       "total": 160,
-      "appliedCount": 4,
+      "appliedCount": 3,
       "dominatedCount": 0,
       "sources": [
-        {
-          "source": "[A] Boots: Legendary Icewalkers → +3 Melee/Ranged and Spell Power",
-          "bonusType": "Reaper",
-          "value": 3,
-          "target": "All"
-        },
         {
           "source": "[Guild] Sign of the Silver Flame I",
           "bonusType": "Guild",
@@ -3770,14 +3124,14 @@
         {
           "source": "Universal Spell Power",
           "bonusType": "(untyped)",
-          "value": 127,
+          "value": 130,
           "target": "Fire"
         }
       ]
     },
     "Force": {
       "total": 159,
-      "appliedCount": 7,
+      "appliedCount": 6,
       "dominatedCount": 0,
       "sources": [
         {
@@ -3805,12 +3159,6 @@
           "target": "Force"
         },
         {
-          "source": "[A] Boots: Legendary Icewalkers → +3 Melee/Ranged and Spell Power",
-          "bonusType": "Reaper",
-          "value": 3,
-          "target": "All"
-        },
-        {
           "source": "[PL] Past Life: Rogue - Arcane Trickster ×3",
           "bonusType": "Stacking",
           "value": 9,
@@ -3819,22 +3167,16 @@
         {
           "source": "Universal Spell Power",
           "bonusType": "(untyped)",
-          "value": 127,
+          "value": 130,
           "target": "Force"
         }
       ]
     },
     "Light/Alignment": {
       "total": 145,
-      "appliedCount": 3,
+      "appliedCount": 2,
       "dominatedCount": 0,
       "sources": [
-        {
-          "source": "[A] Boots: Legendary Icewalkers → +3 Melee/Ranged and Spell Power",
-          "bonusType": "Reaper",
-          "value": 3,
-          "target": "All"
-        },
         {
           "source": "[Guild] Sign of the Silver Flame I",
           "bonusType": "Guild",
@@ -3844,22 +3186,16 @@
         {
           "source": "Universal Spell Power",
           "bonusType": "(untyped)",
-          "value": 127,
+          "value": 130,
           "target": "Light/Alignment"
         }
       ]
     },
     "Negative": {
-      "total": 160,
+      "total": 260,
       "appliedCount": 4,
       "dominatedCount": 0,
       "sources": [
-        {
-          "source": "[A] Boots: Legendary Icewalkers → +3 Melee/Ranged and Spell Power",
-          "bonusType": "Reaper",
-          "value": 3,
-          "target": "All"
-        },
         {
           "source": "[Guild] Crusader's Chapel",
           "bonusType": "Guild",
@@ -3873,24 +3209,24 @@
           "target": "Negative"
         },
         {
+          "source": "[Skill] Heal (total 100)",
+          "bonusType": "(untyped)",
+          "value": 100,
+          "target": "Negative"
+        },
+        {
           "source": "Universal Spell Power",
           "bonusType": "(untyped)",
-          "value": 127,
+          "value": 130,
           "target": "Negative"
         }
       ]
     },
     "Poison": {
       "total": 145,
-      "appliedCount": 3,
+      "appliedCount": 2,
       "dominatedCount": 0,
       "sources": [
-        {
-          "source": "[A] Boots: Legendary Icewalkers → +3 Melee/Ranged and Spell Power",
-          "bonusType": "Reaper",
-          "value": 3,
-          "target": "All"
-        },
         {
           "source": "[PL] Past Life: Druid - Blight Caster ×3",
           "bonusType": "Stacking",
@@ -3900,13 +3236,13 @@
         {
           "source": "Universal Spell Power",
           "bonusType": "(untyped)",
-          "value": 127,
+          "value": 130,
           "target": "Poison"
         }
       ]
     },
     "Positive": {
-      "total": 249,
+      "total": 349,
       "appliedCount": 12,
       "dominatedCount": 0,
       "sources": [
@@ -3953,12 +3289,6 @@
           "target": "Positive"
         },
         {
-          "source": "[A] Boots: Legendary Icewalkers → +3 Melee/Ranged and Spell Power",
-          "bonusType": "Reaper",
-          "value": 3,
-          "target": "All"
-        },
-        {
           "source": "[Guild] Crusader's Chapel",
           "bonusType": "Guild",
           "value": 15,
@@ -3977,62 +3307,43 @@
           "target": "Positive"
         },
         {
+          "source": "[Skill] Heal (total 100)",
+          "bonusType": "(untyped)",
+          "value": 100,
+          "target": "Positive"
+        },
+        {
           "source": "Universal Spell Power",
           "bonusType": "(untyped)",
-          "value": 127,
+          "value": 130,
           "target": "Positive"
         }
       ]
     },
     "Repair": {
-      "total": 130,
+      "total": 197,
       "appliedCount": 2,
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "[A] Boots: Legendary Icewalkers → +3 Melee/Ranged and Spell Power",
-          "bonusType": "Reaper",
-          "value": 3,
-          "target": "All"
+          "source": "[Skill] Repair (total 67)",
+          "bonusType": "(untyped)",
+          "value": 67,
+          "target": "Repair"
         },
         {
           "source": "Universal Spell Power",
           "bonusType": "(untyped)",
-          "value": 127,
+          "value": 130,
           "target": "Repair"
         }
       ]
     },
-    "Rust": {
-      "total": 130,
-      "appliedCount": 2,
-      "dominatedCount": 0,
-      "sources": [
-        {
-          "source": "[A] Boots: Legendary Icewalkers → +3 Melee/Ranged and Spell Power",
-          "bonusType": "Reaper",
-          "value": 3,
-          "target": "All"
-        },
-        {
-          "source": "Universal Spell Power",
-          "bonusType": "(untyped)",
-          "value": 127,
-          "target": "Rust"
-        }
-      ]
-    },
     "Sonic": {
-      "total": 160,
+      "total": 230,
       "appliedCount": 4,
       "dominatedCount": 0,
       "sources": [
-        {
-          "source": "[A] Boots: Legendary Icewalkers → +3 Melee/Ranged and Spell Power",
-          "bonusType": "Reaper",
-          "value": 3,
-          "target": "All"
-        },
         {
           "source": "[Guild] Stormreaver Memorial I",
           "bonusType": "Guild",
@@ -4046,9 +3357,15 @@
           "target": "Sonic"
         },
         {
+          "source": "[Skill] Perform (total 70)",
+          "bonusType": "(untyped)",
+          "value": 70,
+          "target": "Sonic"
+        },
+        {
           "source": "Universal Spell Power",
           "bonusType": "(untyped)",
-          "value": 127,
+          "value": 130,
           "target": "Sonic"
         }
       ]
@@ -4061,10 +3378,23 @@
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "Monk 1: Magical Training",
-          "bonusType": "Feat",
+          "source": "Universal Spell Lore",
+          "bonusType": "(untyped)",
           "value": 5,
-          "target": "All"
+          "target": "Acid"
+        }
+      ]
+    },
+    "Chaos": {
+      "total": 5,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Universal Spell Lore",
+          "bonusType": "(untyped)",
+          "value": 5,
+          "target": "Chaos"
         }
       ]
     },
@@ -4074,10 +3404,10 @@
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "Monk 1: Magical Training",
-          "bonusType": "Feat",
+          "source": "Universal Spell Lore",
+          "bonusType": "(untyped)",
           "value": 5,
-          "target": "All"
+          "target": "Cold"
         }
       ]
     },
@@ -4087,10 +3417,23 @@
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "Monk 1: Magical Training",
-          "bonusType": "Feat",
+          "source": "Universal Spell Lore",
+          "bonusType": "(untyped)",
           "value": 5,
-          "target": "All"
+          "target": "Electric"
+        }
+      ]
+    },
+    "Evil": {
+      "total": 5,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Universal Spell Lore",
+          "bonusType": "(untyped)",
+          "value": 5,
+          "target": "Evil"
         }
       ]
     },
@@ -4100,10 +3443,10 @@
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "Monk 1: Magical Training",
-          "bonusType": "Feat",
+          "source": "Universal Spell Lore",
+          "bonusType": "(untyped)",
           "value": 5,
-          "target": "All"
+          "target": "Fire"
         }
       ]
     },
@@ -4113,10 +3456,10 @@
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "Monk 1: Magical Training",
-          "bonusType": "Feat",
+          "source": "Universal Spell Lore",
+          "bonusType": "(untyped)",
           "value": 5,
-          "target": "All"
+          "target": "Force"
         }
       ]
     },
@@ -4126,10 +3469,10 @@
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "Monk 1: Magical Training",
-          "bonusType": "Feat",
+          "source": "Universal Spell Lore",
+          "bonusType": "(untyped)",
           "value": 5,
-          "target": "All"
+          "target": "Light/Alignment"
         }
       ]
     },
@@ -4139,10 +3482,10 @@
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "Monk 1: Magical Training",
-          "bonusType": "Feat",
+          "source": "Universal Spell Lore",
+          "bonusType": "(untyped)",
           "value": 5,
-          "target": "All"
+          "target": "Negative"
         }
       ]
     },
@@ -4152,10 +3495,10 @@
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "Monk 1: Magical Training",
-          "bonusType": "Feat",
+          "source": "Universal Spell Lore",
+          "bonusType": "(untyped)",
           "value": 5,
-          "target": "All"
+          "target": "Poison"
         }
       ]
     },
@@ -4165,10 +3508,10 @@
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "Monk 1: Magical Training",
-          "bonusType": "Feat",
+          "source": "Universal Spell Lore",
+          "bonusType": "(untyped)",
           "value": 5,
-          "target": "All"
+          "target": "Positive"
         }
       ]
     },
@@ -4178,23 +3521,10 @@
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "Monk 1: Magical Training",
-          "bonusType": "Feat",
+          "source": "Universal Spell Lore",
+          "bonusType": "(untyped)",
           "value": 5,
-          "target": "All"
-        }
-      ]
-    },
-    "Rust": {
-      "total": 5,
-      "appliedCount": 1,
-      "dominatedCount": 0,
-      "sources": [
-        {
-          "source": "Monk 1: Magical Training",
-          "bonusType": "Feat",
-          "value": 5,
-          "target": "All"
+          "target": "Repair"
         }
       ]
     },
@@ -4204,10 +3534,10 @@
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "Monk 1: Magical Training",
-          "bonusType": "Feat",
+          "source": "Universal Spell Lore",
+          "bonusType": "(untyped)",
           "value": 5,
-          "target": "All"
+          "target": "Sonic"
         }
       ]
     }
@@ -4219,6 +3549,12 @@
       "dominatedCount": 0,
       "sources": []
     },
+    "Chaos": {
+      "total": 0,
+      "appliedCount": 0,
+      "dominatedCount": 0,
+      "sources": []
+    },
     "Cold": {
       "total": 0,
       "appliedCount": 0,
@@ -4226,6 +3562,12 @@
       "sources": []
     },
     "Electric": {
+      "total": 0,
+      "appliedCount": 0,
+      "dominatedCount": 0,
+      "sources": []
+    },
+    "Evil": {
       "total": 0,
       "appliedCount": 0,
       "dominatedCount": 0,
@@ -4273,17 +3615,2486 @@
       "dominatedCount": 0,
       "sources": []
     },
-    "Rust": {
-      "total": 0,
-      "appliedCount": 0,
-      "dominatedCount": 0,
-      "sources": []
-    },
     "Sonic": {
       "total": 0,
       "appliedCount": 0,
       "dominatedCount": 0,
       "sources": []
+    }
+  },
+  "skills": {
+    "balance": {
+      "total": 101,
+      "appliedCount": 21,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Ranks (23)",
+          "bonusType": "(untyped)",
+          "value": 23
+        },
+        {
+          "source": "Dexterity modifier",
+          "bonusType": "(untyped)",
+          "value": 27
+        },
+        {
+          "source": "Skill tome",
+          "bonusType": "(untyped)",
+          "value": 5
+        },
+        {
+          "source": "Echoing Soul",
+          "bonusType": "Feat",
+          "value": 20,
+          "target": "All"
+        },
+        {
+          "source": "Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "Racial Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[A] Trinket: Legendary Heartshard → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "[A] Gloves: Legendary Blood-Stained Doctor's Gloves → Sapphire of Good Luck + 3",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[A] Gloves: Legendary Blood-Stained Doctor's Gloves → +1 Reaper Bonus to all skills and +3 PRR",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Otto's Irresistible Dancehall",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Balance"
+        },
+        {
+          "source": "[PL] Past Life: Dwarf ×3",
+          "bonusType": "Stacking",
+          "value": 1,
+          "target": "Balance"
+        }
+      ]
+    },
+    "bluff": {
+      "total": 95,
+      "appliedCount": 21,
+      "dominatedCount": 1,
+      "sources": [
+        {
+          "source": "Charisma modifier",
+          "bonusType": "(untyped)",
+          "value": 21
+        },
+        {
+          "source": "Skill tome",
+          "bonusType": "(untyped)",
+          "value": 4
+        },
+        {
+          "source": "Echoing Soul",
+          "bonusType": "Feat",
+          "value": 20,
+          "target": "All"
+        },
+        {
+          "source": "Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "Racial Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[E] Shintao: Shintao: Negotiator",
+          "bonusType": "Enhancement",
+          "value": 3,
+          "target": "Bluff"
+        },
+        {
+          "source": "[G] Gloves: Legendary Blood-Stained Doctor's Gloves (Improved Deception)",
+          "bonusType": "Enhancement",
+          "value": 22,
+          "target": "Bluff"
+        },
+        {
+          "source": "[A] Trinket: Legendary Heartshard → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "[A] Gloves: Legendary Blood-Stained Doctor's Gloves → Sapphire of Good Luck + 3",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[A] Gloves: Legendary Blood-Stained Doctor's Gloves → +1 Reaper Bonus to all skills and +3 PRR",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Throne Room",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Bluff"
+        }
+      ]
+    },
+    "concentration": {
+      "total": 105,
+      "appliedCount": 21,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Ranks (23)",
+          "bonusType": "(untyped)",
+          "value": 23
+        },
+        {
+          "source": "Constitution modifier",
+          "bonusType": "(untyped)",
+          "value": 30
+        },
+        {
+          "source": "Skill tome",
+          "bonusType": "(untyped)",
+          "value": 5
+        },
+        {
+          "source": "Echoing Soul",
+          "bonusType": "Feat",
+          "value": 20,
+          "target": "All"
+        },
+        {
+          "source": "Past Life: Disciple of the Fist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "Concentration"
+        },
+        {
+          "source": "Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "Racial Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[A] Trinket: Legendary Heartshard → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "[A] Gloves: Legendary Blood-Stained Doctor's Gloves → Sapphire of Good Luck + 3",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[A] Gloves: Legendary Blood-Stained Doctor's Gloves → +1 Reaper Bonus to all skills and +3 PRR",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Forbidden Library",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Concentration"
+        }
+      ]
+    },
+    "diplomacy": {
+      "total": 77,
+      "appliedCount": 22,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Charisma modifier",
+          "bonusType": "(untyped)",
+          "value": 21
+        },
+        {
+          "source": "Skill tome",
+          "bonusType": "(untyped)",
+          "value": 4
+        },
+        {
+          "source": "Echoing Soul",
+          "bonusType": "Feat",
+          "value": 20,
+          "target": "All"
+        },
+        {
+          "source": "Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "Racial Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[E] Shintao: Shintao: Negotiator",
+          "bonusType": "Enhancement",
+          "value": 3,
+          "target": "Diplomacy"
+        },
+        {
+          "source": "[D] Grandmaster of Flowers: Grandmaster of Flowers: Disciple's Studies",
+          "bonusType": "Destiny",
+          "value": 3,
+          "target": "Diplomacy"
+        },
+        {
+          "source": "[A] Trinket: Legendary Heartshard → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "[A] Gloves: Legendary Blood-Stained Doctor's Gloves → Sapphire of Good Luck + 3",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[A] Gloves: Legendary Blood-Stained Doctor's Gloves → +1 Reaper Bonus to all skills and +3 PRR",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Throne Room",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Diplomacy"
+        },
+        {
+          "source": "[PL] Past Life: Half-Elf ×3",
+          "bonusType": "Stacking",
+          "value": 1,
+          "target": "Diplomacy"
+        }
+      ]
+    },
+    "disable_device": {
+      "total": 0,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Untrained — trained-only skill with 0 ranks",
+          "bonusType": "(untyped)",
+          "value": 0
+        }
+      ]
+    },
+    "haggle": {
+      "total": 71,
+      "appliedCount": 20,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Charisma modifier",
+          "bonusType": "(untyped)",
+          "value": 21
+        },
+        {
+          "source": "Skill tome",
+          "bonusType": "(untyped)",
+          "value": 4
+        },
+        {
+          "source": "Echoing Soul",
+          "bonusType": "Feat",
+          "value": 20,
+          "target": "All"
+        },
+        {
+          "source": "Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "Racial Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[A] Trinket: Legendary Heartshard → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "[A] Gloves: Legendary Blood-Stained Doctor's Gloves → Sapphire of Good Luck + 3",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[A] Gloves: Legendary Blood-Stained Doctor's Gloves → +1 Reaper Bonus to all skills and +3 PRR",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Throne Room",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Haggle"
+        },
+        {
+          "source": "[PL] Past Life: Human ×3",
+          "bonusType": "Stacking",
+          "value": 1,
+          "target": "Haggle"
+        }
+      ]
+    },
+    "heal": {
+      "total": 100,
+      "appliedCount": 22,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Wisdom modifier",
+          "bonusType": "(untyped)",
+          "value": 46
+        },
+        {
+          "source": "Skill tome",
+          "bonusType": "(untyped)",
+          "value": 4
+        },
+        {
+          "source": "Echoing Soul",
+          "bonusType": "Feat",
+          "value": 20,
+          "target": "All"
+        },
+        {
+          "source": "Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "Racial Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[E] Henshin Mystic: Henshin Mystic: Exemplar",
+          "bonusType": "Enhancement",
+          "value": 1,
+          "target": "Heal"
+        },
+        {
+          "source": "[D] Grandmaster of Flowers: Grandmaster of Flowers: Disciple's Studies",
+          "bonusType": "Destiny",
+          "value": 3,
+          "target": "Heal"
+        },
+        {
+          "source": "[A] Trinket: Legendary Heartshard → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "[A] Gloves: Legendary Blood-Stained Doctor's Gloves → Sapphire of Good Luck + 3",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[A] Gloves: Legendary Blood-Stained Doctor's Gloves → +1 Reaper Bonus to all skills and +3 PRR",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Forbidden Library",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Heal"
+        },
+        {
+          "source": "[PL] Past Life: Aasimar ×3",
+          "bonusType": "Stacking",
+          "value": 1,
+          "target": "Heal"
+        }
+      ]
+    },
+    "hide": {
+      "total": 113,
+      "appliedCount": 24,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Ranks (23)",
+          "bonusType": "(untyped)",
+          "value": 23
+        },
+        {
+          "source": "Dexterity modifier",
+          "bonusType": "(untyped)",
+          "value": 27
+        },
+        {
+          "source": "Skill tome",
+          "bonusType": "(untyped)",
+          "value": 5
+        },
+        {
+          "source": "Echoing Soul",
+          "bonusType": "Feat",
+          "value": 20,
+          "target": "All"
+        },
+        {
+          "source": "Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "Racial Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[D] Shadowdancer: Shadowdancer: Stealthy",
+          "bonusType": "Destiny",
+          "value": 6,
+          "target": "Hide"
+        },
+        {
+          "source": "[A] Necklace: Legendary Black Dynamo → Curse of Minor Obscurity",
+          "bonusType": "Fortune",
+          "value": 1,
+          "target": "Hide"
+        },
+        {
+          "source": "[A] Trinket: Legendary Heartshard → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "[A] Gloves: Legendary Blood-Stained Doctor's Gloves → Sapphire of Good Luck + 3",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[A] Gloves: Legendary Blood-Stained Doctor's Gloves → +1 Reaper Bonus to all skills and +3 PRR",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[A] Ring2: The Time Taken → Woeful Enhanced Ghostly (Legendary)",
+          "bonusType": "Enhancement",
+          "value": 5,
+          "target": "Hide"
+        },
+        {
+          "source": "[Guild] Danger Room",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Hide"
+        },
+        {
+          "source": "[PL] Past Life: Dhampir ×3",
+          "bonusType": "Stacking",
+          "value": 1,
+          "target": "Hide"
+        }
+      ]
+    },
+    "intimidate": {
+      "total": 109,
+      "appliedCount": 26,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Ranks (11)",
+          "bonusType": "(untyped)",
+          "value": 11
+        },
+        {
+          "source": "Charisma modifier",
+          "bonusType": "(untyped)",
+          "value": 21
+        },
+        {
+          "source": "Skill tome",
+          "bonusType": "(untyped)",
+          "value": 5
+        },
+        {
+          "source": "Echoing Soul",
+          "bonusType": "Feat",
+          "value": 20,
+          "target": "All"
+        },
+        {
+          "source": "Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "Racial Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[E] Shintao: Shintao: Negotiator",
+          "bonusType": "Enhancement",
+          "value": 3,
+          "target": "Intimidate"
+        },
+        {
+          "source": "[E] Henshin Mystic: Henshin Mystic: Animal Forms → Way of the Tenacious Badger",
+          "bonusType": "Enhancement",
+          "value": 0,
+          "target": "Intimidate"
+        },
+        {
+          "source": "[E] Henshin Mystic: Henshin Mystic: Exemplar",
+          "bonusType": "Enhancement",
+          "value": 1,
+          "target": "Intimidate"
+        },
+        {
+          "source": "[D] Grandmaster of Flowers: Grandmaster of Flowers: Disciple's Studies",
+          "bonusType": "Destiny",
+          "value": 3,
+          "target": "Intimidate"
+        },
+        {
+          "source": "[A] Trinket: Legendary Heartshard → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "[A] Goggles: Legendary Karissa's Goggles → Diamond of Intimidate",
+          "bonusType": "Competence",
+          "value": 19,
+          "target": "Intimidate"
+        },
+        {
+          "source": "[A] Gloves: Legendary Blood-Stained Doctor's Gloves → Sapphire of Good Luck + 3",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[A] Gloves: Legendary Blood-Stained Doctor's Gloves → +1 Reaper Bonus to all skills and +3 PRR",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Throne Room",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Intimidate"
+        },
+        {
+          "source": "[PL] Past Life: Half-Orc ×3",
+          "bonusType": "Stacking",
+          "value": 1,
+          "target": "Intimidate"
+        }
+      ]
+    },
+    "jump": {
+      "total": 69,
+      "appliedCount": 19,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Strength modifier",
+          "bonusType": "(untyped)",
+          "value": 20
+        },
+        {
+          "source": "Skill tome",
+          "bonusType": "(untyped)",
+          "value": 4
+        },
+        {
+          "source": "Echoing Soul",
+          "bonusType": "Feat",
+          "value": 20,
+          "target": "All"
+        },
+        {
+          "source": "Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "Racial Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[A] Trinket: Legendary Heartshard → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "[A] Gloves: Legendary Blood-Stained Doctor's Gloves → Sapphire of Good Luck + 3",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[A] Gloves: Legendary Blood-Stained Doctor's Gloves → +1 Reaper Bonus to all skills and +3 PRR",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Otto's Irresistible Dancehall",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Jump"
+        }
+      ]
+    },
+    "listen": {
+      "total": 101,
+      "appliedCount": 22,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Wisdom modifier",
+          "bonusType": "(untyped)",
+          "value": 46
+        },
+        {
+          "source": "Skill tome",
+          "bonusType": "(untyped)",
+          "value": 5
+        },
+        {
+          "source": "Echoing Soul",
+          "bonusType": "Feat",
+          "value": 20,
+          "target": "All"
+        },
+        {
+          "source": "Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "Racial Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[E] Falconry: Falconry: Summon Falcon",
+          "bonusType": "Enhancement",
+          "value": 2,
+          "target": "Listen"
+        },
+        {
+          "source": "[E] Falconry: Falconry: Well Rounded I",
+          "bonusType": "Enhancement",
+          "value": 2,
+          "target": "Listen"
+        },
+        {
+          "source": "[A] Trinket: Legendary Heartshard → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "[A] Gloves: Legendary Blood-Stained Doctor's Gloves → Sapphire of Good Luck + 3",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[A] Gloves: Legendary Blood-Stained Doctor's Gloves → +1 Reaper Bonus to all skills and +3 PRR",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Throne Room",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Listen"
+        },
+        {
+          "source": "[PL] Past Life: Eladrin ×3",
+          "bonusType": "Stacking",
+          "value": 1,
+          "target": "Listen"
+        }
+      ]
+    },
+    "move_silently": {
+      "total": 113,
+      "appliedCount": 24,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Ranks (23)",
+          "bonusType": "(untyped)",
+          "value": 23
+        },
+        {
+          "source": "Dexterity modifier",
+          "bonusType": "(untyped)",
+          "value": 27
+        },
+        {
+          "source": "Skill tome",
+          "bonusType": "(untyped)",
+          "value": 5
+        },
+        {
+          "source": "Echoing Soul",
+          "bonusType": "Feat",
+          "value": 20,
+          "target": "All"
+        },
+        {
+          "source": "Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "Racial Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[D] Shadowdancer: Shadowdancer: Stealthy",
+          "bonusType": "Destiny",
+          "value": 6,
+          "target": "Move Silently"
+        },
+        {
+          "source": "[A] Necklace: Legendary Black Dynamo → Curse of Minor Obscurity",
+          "bonusType": "Fortune",
+          "value": 1,
+          "target": "Move Silently"
+        },
+        {
+          "source": "[A] Trinket: Legendary Heartshard → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "[A] Gloves: Legendary Blood-Stained Doctor's Gloves → Sapphire of Good Luck + 3",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[A] Gloves: Legendary Blood-Stained Doctor's Gloves → +1 Reaper Bonus to all skills and +3 PRR",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[A] Ring2: The Time Taken → Woeful Enhanced Ghostly (Legendary)",
+          "bonusType": "Enhancement",
+          "value": 5,
+          "target": "Move Silently"
+        },
+        {
+          "source": "[Guild] Otto's Irresistible Dancehall",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Move Silently"
+        },
+        {
+          "source": "[PL] Past Life: Halfling ×3",
+          "bonusType": "Stacking",
+          "value": 1,
+          "target": "Move Silently"
+        }
+      ]
+    },
+    "open_lock": {
+      "total": 0,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Untrained — trained-only skill with 0 ranks",
+          "bonusType": "(untyped)",
+          "value": 0
+        }
+      ]
+    },
+    "perform": {
+      "total": 70,
+      "appliedCount": 20,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Ranks (1)",
+          "bonusType": "(untyped)",
+          "value": 1
+        },
+        {
+          "source": "Charisma modifier",
+          "bonusType": "(untyped)",
+          "value": 21
+        },
+        {
+          "source": "Skill tome",
+          "bonusType": "(untyped)",
+          "value": 3
+        },
+        {
+          "source": "Echoing Soul",
+          "bonusType": "Feat",
+          "value": 20,
+          "target": "All"
+        },
+        {
+          "source": "Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "Racial Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[A] Trinket: Legendary Heartshard → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "[A] Gloves: Legendary Blood-Stained Doctor's Gloves → Sapphire of Good Luck + 3",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[A] Gloves: Legendary Blood-Stained Doctor's Gloves → +1 Reaper Bonus to all skills and +3 PRR",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Otto's Irresistible Dancehall",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Perform"
+        }
+      ]
+    },
+    "repair": {
+      "total": 67,
+      "appliedCount": 21,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Intelligence modifier",
+          "bonusType": "(untyped)",
+          "value": 14
+        },
+        {
+          "source": "Skill tome",
+          "bonusType": "(untyped)",
+          "value": 4
+        },
+        {
+          "source": "Echoing Soul",
+          "bonusType": "Feat",
+          "value": 20,
+          "target": "All"
+        },
+        {
+          "source": "Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "Racial Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[A] Trinket: Legendary Heartshard → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "[A] Gloves: Legendary Blood-Stained Doctor's Gloves → Sapphire of Good Luck + 3",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[A] Gloves: Legendary Blood-Stained Doctor's Gloves → +1 Reaper Bonus to all skills and +3 PRR",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Forbidden Library",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Repair"
+        },
+        {
+          "source": "[PL] Past Life: Warforged ×3",
+          "bonusType": "Stacking",
+          "value": 1,
+          "target": "Repair"
+        },
+        {
+          "source": "[PL] Past Life: Artificer ×3",
+          "bonusType": "Stacking",
+          "value": 3,
+          "target": "Intelligence"
+        }
+      ]
+    },
+    "search": {
+      "total": 78,
+      "appliedCount": 22,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Ranks (11)",
+          "bonusType": "(untyped)",
+          "value": 11
+        },
+        {
+          "source": "Intelligence modifier",
+          "bonusType": "(untyped)",
+          "value": 14
+        },
+        {
+          "source": "Skill tome",
+          "bonusType": "(untyped)",
+          "value": 4
+        },
+        {
+          "source": "Echoing Soul",
+          "bonusType": "Feat",
+          "value": 20,
+          "target": "All"
+        },
+        {
+          "source": "Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "Racial Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[A] Trinket: Legendary Heartshard → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "[A] Gloves: Legendary Blood-Stained Doctor's Gloves → Sapphire of Good Luck + 3",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[A] Gloves: Legendary Blood-Stained Doctor's Gloves → +1 Reaper Bonus to all skills and +3 PRR",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Danger Room",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Search"
+        },
+        {
+          "source": "[PL] Past Life: Drow ×3",
+          "bonusType": "Stacking",
+          "value": 1,
+          "target": "Search"
+        },
+        {
+          "source": "[PL] Past Life: Artificer ×3",
+          "bonusType": "Stacking",
+          "value": 3,
+          "target": "Intelligence"
+        }
+      ]
+    },
+    "spellcraft": {
+      "total": 0,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Untrained — trained-only skill with 0 ranks",
+          "bonusType": "(untyped)",
+          "value": 0
+        }
+      ]
+    },
+    "spot": {
+      "total": 125,
+      "appliedCount": 24,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Ranks (23)",
+          "bonusType": "(untyped)",
+          "value": 23
+        },
+        {
+          "source": "Wisdom modifier",
+          "bonusType": "(untyped)",
+          "value": 46
+        },
+        {
+          "source": "Skill tome",
+          "bonusType": "(untyped)",
+          "value": 5
+        },
+        {
+          "source": "Echoing Soul",
+          "bonusType": "Feat",
+          "value": 20,
+          "target": "All"
+        },
+        {
+          "source": "Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "Racial Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[E] Falconry: Falconry: Summon Falcon",
+          "bonusType": "Enhancement",
+          "value": 2,
+          "target": "Spot"
+        },
+        {
+          "source": "[E] Falconry: Falconry: Well Rounded I",
+          "bonusType": "Enhancement",
+          "value": 2,
+          "target": "Spot"
+        },
+        {
+          "source": "[A] Trinket: Legendary Heartshard → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "[A] Gloves: Legendary Blood-Stained Doctor's Gloves → Sapphire of Good Luck + 3",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[A] Gloves: Legendary Blood-Stained Doctor's Gloves → +1 Reaper Bonus to all skills and +3 PRR",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Danger Room",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Spot"
+        },
+        {
+          "source": "[PL] Past Life: Elf ×3",
+          "bonusType": "Stacking",
+          "value": 1,
+          "target": "Spot"
+        },
+        {
+          "source": "[PL] Past Life: Shifter ×3",
+          "bonusType": "Stacking",
+          "value": 1,
+          "target": "Spot"
+        }
+      ]
+    },
+    "swim": {
+      "total": 93,
+      "appliedCount": 21,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Ranks (23)",
+          "bonusType": "(untyped)",
+          "value": 23
+        },
+        {
+          "source": "Strength modifier",
+          "bonusType": "(untyped)",
+          "value": 20
+        },
+        {
+          "source": "Skill tome",
+          "bonusType": "(untyped)",
+          "value": 3
+        },
+        {
+          "source": "Echoing Soul",
+          "bonusType": "Feat",
+          "value": 20,
+          "target": "All"
+        },
+        {
+          "source": "Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "Racial Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[A] Trinket: Legendary Heartshard → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "[A] Gloves: Legendary Blood-Stained Doctor's Gloves → Sapphire of Good Luck + 3",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[A] Gloves: Legendary Blood-Stained Doctor's Gloves → +1 Reaper Bonus to all skills and +3 PRR",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[A] Armor: Dinosaur Bone Outfit → Curse of the Depths",
+          "bonusType": "Fortune",
+          "value": 2,
+          "target": "Swim"
+        },
+        {
+          "source": "[Guild] Otto's Irresistible Dancehall",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Swim"
+        }
+      ]
+    },
+    "tumble": {
+      "total": 79,
+      "appliedCount": 21,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Ranks (4)",
+          "bonusType": "(untyped)",
+          "value": 4
+        },
+        {
+          "source": "Dexterity modifier",
+          "bonusType": "(untyped)",
+          "value": 27
+        },
+        {
+          "source": "Skill tome",
+          "bonusType": "(untyped)",
+          "value": 2
+        },
+        {
+          "source": "Echoing Soul",
+          "bonusType": "Feat",
+          "value": 20,
+          "target": "All"
+        },
+        {
+          "source": "Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "Racial Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[A] Trinket: Legendary Heartshard → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "[A] Gloves: Legendary Blood-Stained Doctor's Gloves → Sapphire of Good Luck + 3",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[A] Gloves: Legendary Blood-Stained Doctor's Gloves → +1 Reaper Bonus to all skills and +3 PRR",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Otto's Irresistible Dancehall",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Tumble"
+        },
+        {
+          "source": "[PL] Past Life: Tabaxi ×3",
+          "bonusType": "Stacking",
+          "value": 1,
+          "target": "Tumble"
+        }
+      ]
+    },
+    "use_magic_device": {
+      "total": 79,
+      "appliedCount": 22,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Ranks (6)",
+          "bonusType": "(untyped)",
+          "value": 6
+        },
+        {
+          "source": "Charisma modifier",
+          "bonusType": "(untyped)",
+          "value": 21
+        },
+        {
+          "source": "Skill tome",
+          "bonusType": "(untyped)",
+          "value": 3
+        },
+        {
+          "source": "Echoing Soul",
+          "bonusType": "Feat",
+          "value": 20,
+          "target": "All"
+        },
+        {
+          "source": "Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "Racial Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[A] Trinket: Legendary Heartshard → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "[A] Gloves: Legendary Blood-Stained Doctor's Gloves → Sapphire of Good Luck + 3",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[A] Gloves: Legendary Blood-Stained Doctor's Gloves → +1 Reaper Bonus to all skills and +3 PRR",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Forbidden Library",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Use Magic Device"
+        },
+        {
+          "source": "[PL] Past Life: Artificer ×3",
+          "bonusType": "Stacking",
+          "value": 3,
+          "target": "Use Magic Device"
+        },
+        {
+          "source": "[PL] Past Life: Gnome ×3",
+          "bonusType": "Stacking",
+          "value": 1,
+          "target": "Use Magic Device"
+        }
+      ]
     }
   },
   "slas": [
@@ -4294,6 +6105,7 @@
       "cost": 10,
       "maxCasterLevel": 0,
       "cooldown": 3,
+      "charges": 0,
       "source": "Monk 12: Abundant Step"
     },
     {
@@ -4303,6 +6115,7 @@
       "cost": 0,
       "maxCasterLevel": 0,
       "cooldown": 120,
+      "charges": 0,
       "source": "[D] Shadowdancer: Shadowdancer: Step Through Shadows"
     },
     {
@@ -4312,6 +6125,7 @@
       "cost": 0,
       "maxCasterLevel": 0,
       "cooldown": 0,
+      "charges": 0,
       "source": "Past Life: Disciple of the Fist"
     },
     {
@@ -4321,6 +6135,7 @@
       "cost": 10,
       "maxCasterLevel": 0,
       "cooldown": 10,
+      "charges": 0,
       "source": "Monk 19: Empty Body"
     }
   ]

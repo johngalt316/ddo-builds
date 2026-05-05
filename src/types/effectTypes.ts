@@ -157,6 +157,7 @@ export type EffectTypeName =
   | 'SongUniversalSpellPower'
   | 'SpellCostReduction'
   | 'SpellCriticalDamage'
+  | 'SpellCooldownReduction'
   | 'SpellDC'
   | 'SpellLikeAbility'
   | 'SpellListAddition'
@@ -379,6 +380,7 @@ export const EFFECT_TYPE_NAMES: readonly EffectTypeName[] = [
   'SongUniversalSpellPower',
   'SpellCostReduction',
   'SpellCriticalDamage',
+  'SpellCooldownReduction',
   'SpellDC',
   'SpellLikeAbility',
   'SpellListAddition',

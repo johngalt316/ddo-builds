@@ -14,18 +14,18 @@
     },
     "requirementsFailedCount": 28,
     "totalSourcedEffects": 333,
-    "totalAppliedBonuses": 516
+    "totalAppliedBonuses": 519
   },
   "abilityScores": {
     "STR": {
-      "total": 26,
+      "total": 24,
       "appliedCount": 1,
       "dominatedCount": 0,
       "sources": [
         {
           "source": "base + racial",
           "bonusType": "(untyped)",
-          "value": 26
+          "value": 24
         }
       ]
     },
@@ -599,80 +599,14 @@
     "sources": []
   },
   "casterLevel": {
-    "total": 167,
-    "appliedCount": 134,
+    "total": 24,
+    "appliedCount": 8,
     "dominatedCount": 0,
     "sources": [
       {
-        "source": "character level (34)",
+        "source": "Favored Soul class level (17)",
         "bonusType": "(untyped)",
-        "value": 34
-      },
-      {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Acolyte of the Skin",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Acolyte of the Skin"
-      },
-      {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Alchemist",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Alchemist"
-      },
-      {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Arcane Trickster",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Arcane Trickster"
-      },
-      {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Artificer",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Artificer"
-      },
-      {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Bard",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Bard"
-      },
-      {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Blight Caster",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Blight Caster"
-      },
-      {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Stormsinger",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Stormsinger"
-      },
-      {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Cleric",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Cleric"
-      },
-      {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Dark Apostate",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Dark Apostate"
-      },
-      {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Dark Hunter",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Dark Hunter"
-      },
-      {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Druid",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Druid"
+        "value": 17
       },
       {
         "source": "Epic 2: Epic Knowledge: Epic Knowledge: Favored Soul",
@@ -681,226 +615,10 @@
         "target": "Favored Soul"
       },
       {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Paladin",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Paladin"
-      },
-      {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Sacred Fist",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Sacred Fist"
-      },
-      {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Ranger",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Ranger"
-      },
-      {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Sorcerer",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Sorcerer"
-      },
-      {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Warlock",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Warlock"
-      },
-      {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Wild Mage",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Wild Mage"
-      },
-      {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Wizard",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Wizard"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Acolyte of the Skin",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Acolyte of the Skin"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Alchemist",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Alchemist"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Arcane Trickster",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Arcane Trickster"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Artificer",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Artificer"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Bard",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Bard"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Blight Caster",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Blight Caster"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Stormsinger",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Stormsinger"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Cleric",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Cleric"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Dark Apostate",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Dark Apostate"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Dark Hunter",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Dark Hunter"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Druid",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Druid"
-      },
-      {
         "source": "Epic 4: Epic Knowledge: Epic Knowledge: Favored Soul",
         "bonusType": "Feat",
         "value": 1,
         "target": "Favored Soul"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Paladin",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Paladin"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Sacred Fist",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Sacred Fist"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Ranger",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Ranger"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Sorcerer",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Sorcerer"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Warlock",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Warlock"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Wild Mage",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Wild Mage"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Wizard",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Wizard"
-      },
-      {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Acolyte of the Skin",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Acolyte of the Skin"
-      },
-      {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Alchemist",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Alchemist"
-      },
-      {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Arcane Trickster",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Arcane Trickster"
-      },
-      {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Artificer",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Artificer"
-      },
-      {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Bard",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Bard"
-      },
-      {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Blight Caster",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Blight Caster"
-      },
-      {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Stormsinger",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Stormsinger"
-      },
-      {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Cleric",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Cleric"
-      },
-      {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Dark Apostate",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Dark Apostate"
-      },
-      {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Dark Hunter",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Dark Hunter"
-      },
-      {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Druid",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Druid"
       },
       {
         "source": "Epic 6: Epic Knowledge: Epic Knowledge: Favored Soul",
@@ -909,226 +627,10 @@
         "target": "Favored Soul"
       },
       {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Paladin",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Paladin"
-      },
-      {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Sacred Fist",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Sacred Fist"
-      },
-      {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Ranger",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Ranger"
-      },
-      {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Sorcerer",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Sorcerer"
-      },
-      {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Warlock",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Warlock"
-      },
-      {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Wild Mage",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Wild Mage"
-      },
-      {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Wizard",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Wizard"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Acolyte of the Skin",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Acolyte of the Skin"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Alchemist",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Alchemist"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Arcane Trickster",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Arcane Trickster"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Artificer",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Artificer"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Bard",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Bard"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Blight Caster",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Blight Caster"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Stormsinger",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Stormsinger"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Cleric",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Cleric"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Dark Apostate",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Dark Apostate"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Dark Hunter",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Dark Hunter"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Druid",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Druid"
-      },
-      {
         "source": "Epic 8: Epic Knowledge: Epic Knowledge: Favored Soul",
         "bonusType": "Feat",
         "value": 1,
         "target": "Favored Soul"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Paladin",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Paladin"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Sacred Fist",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Sacred Fist"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Ranger",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Ranger"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Sorcerer",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Sorcerer"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Warlock",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Warlock"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Wild Mage",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Wild Mage"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Wizard",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Wizard"
-      },
-      {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Acolyte of the Skin",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Acolyte of the Skin"
-      },
-      {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Alchemist",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Alchemist"
-      },
-      {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Arcane Trickster",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Arcane Trickster"
-      },
-      {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Artificer",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Artificer"
-      },
-      {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Bard",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Bard"
-      },
-      {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Blight Caster",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Blight Caster"
-      },
-      {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Stormsinger",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Stormsinger"
-      },
-      {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Cleric",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Cleric"
-      },
-      {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Dark Apostate",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Dark Apostate"
-      },
-      {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Dark Hunter",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Dark Hunter"
-      },
-      {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Druid",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Druid"
       },
       {
         "source": "Epic 10: Epic Knowledge: Epic Knowledge: Favored Soul",
@@ -1137,274 +639,16 @@
         "target": "Favored Soul"
       },
       {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Paladin",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Paladin"
-      },
-      {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Sacred Fist",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Sacred Fist"
-      },
-      {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Ranger",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Ranger"
-      },
-      {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Sorcerer",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Sorcerer"
-      },
-      {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Warlock",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Warlock"
-      },
-      {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Wild Mage",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Wild Mage"
-      },
-      {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Wizard",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Wizard"
-      },
-      {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Acolyte of the Skin"
-      },
-      {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Alchemist"
-      },
-      {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Artificer"
-      },
-      {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Arcane Trickster"
-      },
-      {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Bard"
-      },
-      {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Blight Caster"
-      },
-      {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Stormsinger"
-      },
-      {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Cleric"
-      },
-      {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Dark Apostate"
-      },
-      {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Dark Hunter"
-      },
-      {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Druid"
-      },
-      {
         "source": "Legendary 2: Legendary Knowledge",
         "bonusType": "Feat",
         "value": 1,
         "target": "Favored Soul"
       },
       {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Paladin"
-      },
-      {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Sacred Fist"
-      },
-      {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Ranger"
-      },
-      {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Sorcerer"
-      },
-      {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Warlock"
-      },
-      {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Wizard"
-      },
-      {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Wild Mage"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Acolyte of the Skin"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Alchemist"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Artificer"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Arcane Trickster"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Bard"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Blight Caster"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Stormsinger"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Cleric"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Dark Apostate"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Dark Hunter"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Druid"
-      },
-      {
         "source": "Legendary 4: Legendary Knowledge",
         "bonusType": "Feat",
         "value": 1,
         "target": "Favored Soul"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Paladin"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Sacred Fist"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Ranger"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Sorcerer"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Warlock"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Wizard"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Wild Mage"
       }
     ]
   },
@@ -1512,6 +756,106 @@
       ]
     }
   },
+  "universalSpellPower": {
+    "total": 84,
+    "appliedCount": 14,
+    "dominatedCount": 0,
+    "sources": [
+      {
+        "source": "Epic 1: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 2: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 3: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 4: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 5: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 6: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 7: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 8: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 9: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 10: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Legendary 1: Legendary Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Legendary 2: Legendary Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Legendary 3: Legendary Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Legendary 4: Legendary Power",
+        "bonusType": "Feat",
+        "value": 6
+      }
+    ]
+  },
+  "universalSpellCriticalChance": {
+    "total": 10,
+    "appliedCount": 2,
+    "dominatedCount": 0,
+    "sources": [
+      {
+        "source": "Artificer 1: Magical Training",
+        "bonusType": "Feat",
+        "value": 5
+      },
+      {
+        "source": "Favored Soul 1: Magical Training",
+        "bonusType": "Feat",
+        "value": 5
+      }
+    ]
+  },
+  "universalSpellCriticalDamage": {
+    "total": 0,
+    "appliedCount": 0,
+    "dominatedCount": 0,
+    "sources": []
+  },
   "spellPowers": {
     "Acid": {
       "total": 84,
@@ -1523,6 +867,19 @@
           "bonusType": "(untyped)",
           "value": 84,
           "target": "Acid"
+        }
+      ]
+    },
+    "Chaos": {
+      "total": 84,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Universal Spell Power",
+          "bonusType": "(untyped)",
+          "value": 84,
+          "target": "Chaos"
         }
       ]
     },
@@ -1549,6 +906,19 @@
           "bonusType": "(untyped)",
           "value": 84,
           "target": "Electric"
+        }
+      ]
+    },
+    "Evil": {
+      "total": 84,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Universal Spell Power",
+          "bonusType": "(untyped)",
+          "value": 84,
+          "target": "Evil"
         }
       ]
     },
@@ -1592,10 +962,16 @@
       ]
     },
     "Negative": {
-      "total": 84,
-      "appliedCount": 1,
+      "total": 101,
+      "appliedCount": 2,
       "dominatedCount": 0,
       "sources": [
+        {
+          "source": "[Skill] Heal (total 17)",
+          "bonusType": "(untyped)",
+          "value": 17,
+          "target": "Negative"
+        },
         {
           "source": "Universal Spell Power",
           "bonusType": "(untyped)",
@@ -1618,10 +994,16 @@
       ]
     },
     "Positive": {
-      "total": 84,
-      "appliedCount": 1,
+      "total": 101,
+      "appliedCount": 2,
       "dominatedCount": 0,
       "sources": [
+        {
+          "source": "[Skill] Heal (total 17)",
+          "bonusType": "(untyped)",
+          "value": 17,
+          "target": "Positive"
+        },
         {
           "source": "Universal Spell Power",
           "bonusType": "(untyped)",
@@ -1631,28 +1013,21 @@
       ]
     },
     "Repair": {
-      "total": 84,
-      "appliedCount": 1,
+      "total": 103,
+      "appliedCount": 2,
       "dominatedCount": 0,
       "sources": [
+        {
+          "source": "[Skill] Repair (total 19)",
+          "bonusType": "(untyped)",
+          "value": 19,
+          "target": "Repair"
+        },
         {
           "source": "Universal Spell Power",
           "bonusType": "(untyped)",
           "value": 84,
           "target": "Repair"
-        }
-      ]
-    },
-    "Rust": {
-      "total": 84,
-      "appliedCount": 1,
-      "dominatedCount": 0,
-      "sources": [
-        {
-          "source": "Universal Spell Power",
-          "bonusType": "(untyped)",
-          "value": 84,
-          "target": "Rust"
         }
       ]
     },
@@ -1673,229 +1048,170 @@
   "spellCriticalChance": {
     "Acid": {
       "total": 10,
-      "appliedCount": 2,
+      "appliedCount": 1,
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "Artificer 1: Magical Training",
-          "bonusType": "Feat",
-          "value": 5,
-          "target": "All"
-        },
+          "source": "Universal Spell Lore",
+          "bonusType": "(untyped)",
+          "value": 10,
+          "target": "Acid"
+        }
+      ]
+    },
+    "Chaos": {
+      "total": 10,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
         {
-          "source": "Favored Soul 1: Magical Training",
-          "bonusType": "Feat",
-          "value": 5,
-          "target": "All"
+          "source": "Universal Spell Lore",
+          "bonusType": "(untyped)",
+          "value": 10,
+          "target": "Chaos"
         }
       ]
     },
     "Cold": {
       "total": 10,
-      "appliedCount": 2,
+      "appliedCount": 1,
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "Artificer 1: Magical Training",
-          "bonusType": "Feat",
-          "value": 5,
-          "target": "All"
-        },
-        {
-          "source": "Favored Soul 1: Magical Training",
-          "bonusType": "Feat",
-          "value": 5,
-          "target": "All"
+          "source": "Universal Spell Lore",
+          "bonusType": "(untyped)",
+          "value": 10,
+          "target": "Cold"
         }
       ]
     },
     "Electric": {
       "total": 10,
-      "appliedCount": 2,
+      "appliedCount": 1,
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "Artificer 1: Magical Training",
-          "bonusType": "Feat",
-          "value": 5,
-          "target": "All"
-        },
+          "source": "Universal Spell Lore",
+          "bonusType": "(untyped)",
+          "value": 10,
+          "target": "Electric"
+        }
+      ]
+    },
+    "Evil": {
+      "total": 10,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
         {
-          "source": "Favored Soul 1: Magical Training",
-          "bonusType": "Feat",
-          "value": 5,
-          "target": "All"
+          "source": "Universal Spell Lore",
+          "bonusType": "(untyped)",
+          "value": 10,
+          "target": "Evil"
         }
       ]
     },
     "Fire": {
       "total": 10,
-      "appliedCount": 2,
+      "appliedCount": 1,
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "Artificer 1: Magical Training",
-          "bonusType": "Feat",
-          "value": 5,
-          "target": "All"
-        },
-        {
-          "source": "Favored Soul 1: Magical Training",
-          "bonusType": "Feat",
-          "value": 5,
-          "target": "All"
+          "source": "Universal Spell Lore",
+          "bonusType": "(untyped)",
+          "value": 10,
+          "target": "Fire"
         }
       ]
     },
     "Force": {
       "total": 10,
-      "appliedCount": 2,
+      "appliedCount": 1,
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "Artificer 1: Magical Training",
-          "bonusType": "Feat",
-          "value": 5,
-          "target": "All"
-        },
-        {
-          "source": "Favored Soul 1: Magical Training",
-          "bonusType": "Feat",
-          "value": 5,
-          "target": "All"
+          "source": "Universal Spell Lore",
+          "bonusType": "(untyped)",
+          "value": 10,
+          "target": "Force"
         }
       ]
     },
     "Light/Alignment": {
       "total": 10,
-      "appliedCount": 2,
+      "appliedCount": 1,
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "Artificer 1: Magical Training",
-          "bonusType": "Feat",
-          "value": 5,
-          "target": "All"
-        },
-        {
-          "source": "Favored Soul 1: Magical Training",
-          "bonusType": "Feat",
-          "value": 5,
-          "target": "All"
+          "source": "Universal Spell Lore",
+          "bonusType": "(untyped)",
+          "value": 10,
+          "target": "Light/Alignment"
         }
       ]
     },
     "Negative": {
       "total": 10,
-      "appliedCount": 2,
+      "appliedCount": 1,
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "Artificer 1: Magical Training",
-          "bonusType": "Feat",
-          "value": 5,
-          "target": "All"
-        },
-        {
-          "source": "Favored Soul 1: Magical Training",
-          "bonusType": "Feat",
-          "value": 5,
-          "target": "All"
+          "source": "Universal Spell Lore",
+          "bonusType": "(untyped)",
+          "value": 10,
+          "target": "Negative"
         }
       ]
     },
     "Poison": {
       "total": 10,
-      "appliedCount": 2,
+      "appliedCount": 1,
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "Artificer 1: Magical Training",
-          "bonusType": "Feat",
-          "value": 5,
-          "target": "All"
-        },
-        {
-          "source": "Favored Soul 1: Magical Training",
-          "bonusType": "Feat",
-          "value": 5,
-          "target": "All"
+          "source": "Universal Spell Lore",
+          "bonusType": "(untyped)",
+          "value": 10,
+          "target": "Poison"
         }
       ]
     },
     "Positive": {
       "total": 10,
-      "appliedCount": 2,
+      "appliedCount": 1,
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "Artificer 1: Magical Training",
-          "bonusType": "Feat",
-          "value": 5,
-          "target": "All"
-        },
-        {
-          "source": "Favored Soul 1: Magical Training",
-          "bonusType": "Feat",
-          "value": 5,
-          "target": "All"
+          "source": "Universal Spell Lore",
+          "bonusType": "(untyped)",
+          "value": 10,
+          "target": "Positive"
         }
       ]
     },
     "Repair": {
       "total": 10,
-      "appliedCount": 2,
+      "appliedCount": 1,
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "Artificer 1: Magical Training",
-          "bonusType": "Feat",
-          "value": 5,
-          "target": "All"
-        },
-        {
-          "source": "Favored Soul 1: Magical Training",
-          "bonusType": "Feat",
-          "value": 5,
-          "target": "All"
-        }
-      ]
-    },
-    "Rust": {
-      "total": 10,
-      "appliedCount": 2,
-      "dominatedCount": 0,
-      "sources": [
-        {
-          "source": "Artificer 1: Magical Training",
-          "bonusType": "Feat",
-          "value": 5,
-          "target": "All"
-        },
-        {
-          "source": "Favored Soul 1: Magical Training",
-          "bonusType": "Feat",
-          "value": 5,
-          "target": "All"
+          "source": "Universal Spell Lore",
+          "bonusType": "(untyped)",
+          "value": 10,
+          "target": "Repair"
         }
       ]
     },
     "Sonic": {
       "total": 10,
-      "appliedCount": 2,
+      "appliedCount": 1,
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "Artificer 1: Magical Training",
-          "bonusType": "Feat",
-          "value": 5,
-          "target": "All"
-        },
-        {
-          "source": "Favored Soul 1: Magical Training",
-          "bonusType": "Feat",
-          "value": 5,
-          "target": "All"
+          "source": "Universal Spell Lore",
+          "bonusType": "(untyped)",
+          "value": 10,
+          "target": "Sonic"
         }
       ]
     }
@@ -1907,6 +1223,12 @@
       "dominatedCount": 0,
       "sources": []
     },
+    "Chaos": {
+      "total": 0,
+      "appliedCount": 0,
+      "dominatedCount": 0,
+      "sources": []
+    },
     "Cold": {
       "total": 0,
       "appliedCount": 0,
@@ -1914,6 +1236,12 @@
       "sources": []
     },
     "Electric": {
+      "total": 0,
+      "appliedCount": 0,
+      "dominatedCount": 0,
+      "sources": []
+    },
+    "Evil": {
       "total": 0,
       "appliedCount": 0,
       "dominatedCount": 0,
@@ -1961,17 +1289,1321 @@
       "dominatedCount": 0,
       "sources": []
     },
-    "Rust": {
-      "total": 0,
-      "appliedCount": 0,
-      "dominatedCount": 0,
-      "sources": []
-    },
     "Sonic": {
       "total": 0,
       "appliedCount": 0,
       "dominatedCount": 0,
       "sources": []
+    }
+  },
+  "skills": {
+    "balance": {
+      "total": 18,
+      "appliedCount": 12,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Dexterity modifier",
+          "bonusType": "(untyped)",
+          "value": 4
+        },
+        {
+          "source": "Scion of the Ethereal Plane",
+          "bonusType": "Feat",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        }
+      ]
+    },
+    "bluff": {
+      "total": 22,
+      "appliedCount": 12,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Charisma modifier",
+          "bonusType": "(untyped)",
+          "value": 8
+        },
+        {
+          "source": "Scion of the Ethereal Plane",
+          "bonusType": "Feat",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        }
+      ]
+    },
+    "concentration": {
+      "total": 22,
+      "appliedCount": 12,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Constitution modifier",
+          "bonusType": "(untyped)",
+          "value": 8
+        },
+        {
+          "source": "Scion of the Ethereal Plane",
+          "bonusType": "Feat",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        }
+      ]
+    },
+    "diplomacy": {
+      "total": 22,
+      "appliedCount": 12,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Charisma modifier",
+          "bonusType": "(untyped)",
+          "value": 8
+        },
+        {
+          "source": "Scion of the Ethereal Plane",
+          "bonusType": "Feat",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        }
+      ]
+    },
+    "disable_device": {
+      "total": 0,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Untrained — trained-only skill with 0 ranks",
+          "bonusType": "(untyped)",
+          "value": 0
+        }
+      ]
+    },
+    "haggle": {
+      "total": 22,
+      "appliedCount": 12,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Charisma modifier",
+          "bonusType": "(untyped)",
+          "value": 8
+        },
+        {
+          "source": "Scion of the Ethereal Plane",
+          "bonusType": "Feat",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        }
+      ]
+    },
+    "heal": {
+      "total": 17,
+      "appliedCount": 12,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Wisdom modifier",
+          "bonusType": "(untyped)",
+          "value": 3
+        },
+        {
+          "source": "Scion of the Ethereal Plane",
+          "bonusType": "Feat",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        }
+      ]
+    },
+    "hide": {
+      "total": 18,
+      "appliedCount": 12,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Dexterity modifier",
+          "bonusType": "(untyped)",
+          "value": 4
+        },
+        {
+          "source": "Scion of the Ethereal Plane",
+          "bonusType": "Feat",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        }
+      ]
+    },
+    "intimidate": {
+      "total": 22,
+      "appliedCount": 12,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Charisma modifier",
+          "bonusType": "(untyped)",
+          "value": 8
+        },
+        {
+          "source": "Scion of the Ethereal Plane",
+          "bonusType": "Feat",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        }
+      ]
+    },
+    "jump": {
+      "total": 21,
+      "appliedCount": 12,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Strength modifier",
+          "bonusType": "(untyped)",
+          "value": 7
+        },
+        {
+          "source": "Scion of the Ethereal Plane",
+          "bonusType": "Feat",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        }
+      ]
+    },
+    "listen": {
+      "total": 17,
+      "appliedCount": 12,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Wisdom modifier",
+          "bonusType": "(untyped)",
+          "value": 3
+        },
+        {
+          "source": "Scion of the Ethereal Plane",
+          "bonusType": "Feat",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        }
+      ]
+    },
+    "move_silently": {
+      "total": 18,
+      "appliedCount": 12,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Dexterity modifier",
+          "bonusType": "(untyped)",
+          "value": 4
+        },
+        {
+          "source": "Scion of the Ethereal Plane",
+          "bonusType": "Feat",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        }
+      ]
+    },
+    "open_lock": {
+      "total": 0,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Untrained — trained-only skill with 0 ranks",
+          "bonusType": "(untyped)",
+          "value": 0
+        }
+      ]
+    },
+    "perform": {
+      "total": 0,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Untrained — trained-only skill with 0 ranks",
+          "bonusType": "(untyped)",
+          "value": 0
+        }
+      ]
+    },
+    "repair": {
+      "total": 19,
+      "appliedCount": 12,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Intelligence modifier",
+          "bonusType": "(untyped)",
+          "value": 5
+        },
+        {
+          "source": "Scion of the Ethereal Plane",
+          "bonusType": "Feat",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        }
+      ]
+    },
+    "search": {
+      "total": 19,
+      "appliedCount": 12,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Intelligence modifier",
+          "bonusType": "(untyped)",
+          "value": 5
+        },
+        {
+          "source": "Scion of the Ethereal Plane",
+          "bonusType": "Feat",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        }
+      ]
+    },
+    "spellcraft": {
+      "total": 0,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Untrained — trained-only skill with 0 ranks",
+          "bonusType": "(untyped)",
+          "value": 0
+        }
+      ]
+    },
+    "spot": {
+      "total": 17,
+      "appliedCount": 12,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Wisdom modifier",
+          "bonusType": "(untyped)",
+          "value": 3
+        },
+        {
+          "source": "Scion of the Ethereal Plane",
+          "bonusType": "Feat",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        }
+      ]
+    },
+    "swim": {
+      "total": 21,
+      "appliedCount": 12,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Strength modifier",
+          "bonusType": "(untyped)",
+          "value": 7
+        },
+        {
+          "source": "Scion of the Ethereal Plane",
+          "bonusType": "Feat",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        }
+      ]
+    },
+    "tumble": {
+      "total": 18,
+      "appliedCount": 12,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Dexterity modifier",
+          "bonusType": "(untyped)",
+          "value": 4
+        },
+        {
+          "source": "Scion of the Ethereal Plane",
+          "bonusType": "Feat",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        }
+      ]
+    },
+    "use_magic_device": {
+      "total": 0,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Untrained — trained-only skill with 0 ranks",
+          "bonusType": "(untyped)",
+          "value": 0
+        }
+      ]
     }
   },
   "slas": [
@@ -1982,6 +2614,7 @@
       "cost": 10,
       "maxCasterLevel": 0,
       "cooldown": 3,
+      "charges": 0,
       "source": "Favored Soul 17: Leap Of Faith"
     },
     {
@@ -1991,6 +2624,7 @@
       "cost": 0,
       "maxCasterLevel": 0,
       "cooldown": 0,
+      "charges": 0,
       "source": "Artificer 1: Unleash Iron Defender"
     },
     {
@@ -2000,6 +2634,7 @@
       "cost": 0,
       "maxCasterLevel": 0,
       "cooldown": 0,
+      "charges": 0,
       "source": "Unyielding Sovereignty"
     }
   ]

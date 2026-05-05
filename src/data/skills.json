@@ -12,7 +12,7 @@
   { "id": "listen",          "name": "Listen",            "keyAbility": "WIS", "armorCheckPenalty": false, "trainedOnly": false },
   { "id": "move_silently",   "name": "Move Silently",     "keyAbility": "DEX", "armorCheckPenalty": true,  "trainedOnly": false },
   { "id": "open_lock",       "name": "Open Lock",         "keyAbility": "DEX", "armorCheckPenalty": false, "trainedOnly": true  },
-  { "id": "perform",         "name": "Perform",           "keyAbility": "CHA", "armorCheckPenalty": false, "trainedOnly": false },
+  { "id": "perform",         "name": "Perform",           "keyAbility": "CHA", "armorCheckPenalty": false, "trainedOnly": true  },
   { "id": "repair",          "name": "Repair",            "keyAbility": "INT", "armorCheckPenalty": false, "trainedOnly": false },
   { "id": "search",          "name": "Search",            "keyAbility": "INT", "armorCheckPenalty": false, "trainedOnly": false },
   { "id": "spellcraft",      "name": "Spellcraft",        "keyAbility": "INT", "armorCheckPenalty": false, "trainedOnly": true  },

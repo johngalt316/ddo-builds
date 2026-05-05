@@ -129,6 +129,8 @@ export function parseEffect(el: Element): DDOEffect {
   const description = textOf(el, 'Description');
   const isPercent = firstChild(el, 'Percent') !== null;
   const isApplyAsItemEffect = firstChild(el, 'ApplyAsItemEffect') !== null;
+  const rankRaw = textOf(el, 'Rank');
+  const minRank = rankRaw ? parseInt(rankRaw, 10) : undefined;
 
   return {
     displayName: displayName || undefined,
@@ -142,6 +144,7 @@ export function parseEffect(el: Element): DDOEffect {
     description: description || undefined,
     ...(isPercent && { isPercent: true }),
     ...(isApplyAsItemEffect && { isApplyAsItemEffect: true }),
+    ...(minRank !== undefined && Number.isFinite(minRank) && { minRank }),
   };
 }
 

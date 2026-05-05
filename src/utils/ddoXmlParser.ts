@@ -417,21 +417,42 @@ export function parseSetBonusesXml(xml: string): DDOSetBonusData[] {
 
 // ── Augments ───────────────────────────────────────────────────────────────
 
+/**
+ * Manual data patches for augments whose upstream XML doesn't match in-game
+ * behavior. Each entry rewrites the parsed effects of a specific augment so
+ * the engine sees the correct effect shape.
+ *
+ * Solar Gem of Spell Critical Damage (Legendary): the XML codes it as
+ * `SpellCriticalDamage` with `<Item>All</Item>`, which our engine routes
+ * per-element (matching how other gear-source target=All bonuses behave).
+ * In-game it acts as a true universal-pool bonus — promote the effect type
+ * to `UniversalSpellCriticalDamage` and drop the per-element target.
+ */
+const AUGMENT_EFFECT_PATCHES: Record<string, (effects: ReturnType<typeof parseEffectsIn>) => ReturnType<typeof parseEffectsIn>> = {
+  'Solar Gem of Spell Critical Damage (Legendary)': effects => effects.map(e => {
+    const types = e.types.map(t => t === 'SpellCriticalDamage' ? 'UniversalSpellCriticalDamage' : t);
+    return { ...e, types, items: [] };
+  }),
+};
+
 export function parseAugmentsXml(xml: string): DDOAugmentData[] {
   const doc = parseXml(xml);
   return elements(doc, 'Augment').map(aug => {
     const slotTypes = elements(aug, ':scope > Type').map(t => t.textContent?.trim() ?? '').filter(Boolean);
     const levels = spaceSeparatedNumbers(text(aug, 'Levels'));
     const levelValues = spaceSeparatedNumbers(text(aug, 'LevelValue'));
+    const name = text(aug, 'Name');
+    const rawEffects = parseEffectsIn(aug);
+    const patch = AUGMENT_EFFECT_PATCHES[name];
     return {
-      name: text(aug, 'Name'),
+      name,
       description: text(aug, 'Description'),
       slotTypes,
       icon: text(aug, 'Icon'),
       scalesWithLevel: aug.querySelector(':scope > ChooseLevel') !== null,
       levels,
       levelValues,
-      effects: parseEffectsIn(aug),
+      effects: patch ? patch(rawEffects) : rawEffects,
     };
   }).filter(a => a.name);
 }
@@ -629,6 +650,27 @@ function parseEnhancementItem(el: Element, isCore: boolean): EnhancementItemData
   };
 }
 
+/**
+ * Manual data patches applied after enhancement-tree parsing. The keyed
+ * function rewrites the parsed items in-place to fix discrepancies between
+ * the upstream XML and in-game behavior.
+ *
+ * Shiradi Champion: every "Force/Physical/Untyped" SpellPower effect in the
+ * tree should also grant Chaos spell power. The XML doesn't list Chaos as
+ * an `<Item>` even though the in-game cores apply it.
+ */
+const ENHANCEMENT_TREE_PATCHES: Record<string, (items: EnhancementItemData[]) => void> = {
+  'Shiradi Champion': items => {
+    for (const item of items) {
+      for (const eff of item.effects) {
+        if (eff.types.includes('SpellPower') && eff.items.includes('Force') && !eff.items.includes('Chaos')) {
+          eff.items = [...eff.items, 'Chaos'];
+        }
+      }
+    }
+  },
+};
+
 export function parseEnhancementTreeXml(xml: string): EnhancementTreeData | null {
   const doc = parseXml(xml);
   const tree = doc.querySelector('EnhancementTree');
@@ -673,8 +715,12 @@ export function parseEnhancementTreeXml(xml: string): EnhancementTreeData | null
   }
 
   const background = text(tree, 'Background');
+  const treeName = text(tree, 'Name');
+  const items = [...coreItems, ...treeItems];
+  const patch = ENHANCEMENT_TREE_PATCHES[treeName];
+  if (patch) patch(items);
   return {
-    name: text(tree, 'Name'),
+    name: treeName,
     version: num(tree, 'Version'),
     icon: text(tree, 'Icon'),
     background,
@@ -684,6 +730,6 @@ export function parseEnhancementTreeXml(xml: string): EnhancementTreeData | null
     isRacialTree,
     isDestinyTree: background.startsWith('Destiny'),
     isReaperTree,
-    items: [...coreItems, ...treeItems],
+    items,
   };
 }

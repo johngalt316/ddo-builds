@@ -121,6 +121,7 @@ This infusion is affected by Artificer Knowledge: Potions.</Description>
       <School>Conjuration</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Grease</Name>
@@ -151,6 +152,7 @@ A successful Reflex save will reduce this damage by half.</Description>
       <School>Conjuration</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Master's Touch</Name>
@@ -208,6 +210,7 @@ a short period of time or until they take damage.</Description>
       <School>Evocation</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Enchant Armor</Name>
@@ -313,6 +316,7 @@ area, a fiery explosion does 1d6+4 Fire damage per caster level.
       <School>Abjuration</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Lucky Cape</Name>
@@ -351,6 +355,7 @@ Energy types available are: Acid, Cold, Electricity, Fire, and Sonic.</Descripti
       <Damage>All</Damage>
       <SpellPower>All</SpellPower>
     </SpellDamage>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Curative Admixture: Cure Moderate Wounds</Name>
@@ -382,6 +387,7 @@ enemy undead. Special material component: Potion of Cure Moderate Wounds.</Descr
       <School>Conjuration</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Insightful Strikes</Name>
@@ -466,6 +472,7 @@ The item is temporarily bound to character while this effect is active.</Descrip
       <School>Evocation</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Elemental Weapons</Name>
@@ -515,6 +522,7 @@ the caster can arc the orb if no target is selected.</Description>
       <School>Abjuration</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Bear's Endurance</Name>
@@ -710,6 +718,7 @@ caster level 12.</Description>
         </BonusDice>
       </SpellDice>
     </SpellDamage>
+    <Cooldown>2</Cooldown>
   </Spell>
   <!--Artificer level 3's-->
   <Spell>
@@ -751,6 +760,7 @@ caster level it is discharged. Otherwise it lasts 1 minute per caster level.
       </SpellDice>
       <Damage>Adamantine</Damage>
     </SpellDamage>
+    <Cooldown>4</Cooldown>
   </Spell>
   <Spell>
     <Name>Curative Admixture: Cure Serious Wounds</Name>
@@ -783,6 +793,7 @@ This infusion is affected by Artificer Knowledge: Potions.</Description>
       <School>Conjuration</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>4</Cooldown>
   </Spell>
   <Spell>
     <Name>Flame Turret</Name>
@@ -853,6 +864,7 @@ targets in its path. A successful Reflex save reduces the damage by half.</Descr
       <School>Evocation</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>4</Cooldown>
   </Spell>
   <Spell>
     <Name>Lightning Bolt</Name>
@@ -884,6 +896,7 @@ save allowed to halve the damage from the second bolt.</Description>
       <School>Evocation</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>4</Cooldown>
   </Spell>
   <Spell>
     <Name>Adamantine Weapons</Name>
@@ -927,6 +940,7 @@ additional 1d4 for every caster level up to caster level 25.</Description>
       <Damage>Negative</Damage>
       <SpellPower>Negative</SpellPower>
     </SpellDamage>
+    <Cooldown>4</Cooldown>
   </Spell>
   <Spell>
     <Name>Inflict Serious Damage</Name>
@@ -992,6 +1006,7 @@ time this spell has been cast. The effect lasts for five minutes before expiring
       <Damage>Rust</Damage>
       <SpellPower>Rust</SpellPower>
     </SpellDamage>
+    <Cooldown>4</Cooldown>
   </Spell>
   <Spell>
     <Name>Repair Serious Damage</Name>
@@ -1050,6 +1065,7 @@ energy type has been absorbed.</Description>
       </SpellDice>
       <Damage>All</Damage>
     </SpellDamage>
+    <Cooldown>4</Cooldown>
   </Spell>
   <Spell>
     <Name>Lightning Motes</Name>
@@ -1085,6 +1101,7 @@ taking 15% extra damage from any Electric-based attacks.</Description>
       <School>Evocation</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>6</Cooldown>
   </Spell>
   <Spell>
     <Name>Thundering Armor</Name>
@@ -1210,6 +1227,7 @@ constructs.</Description>
       <Damage>Negative</Damage>
       <SpellPower>Negative</SpellPower>
     </SpellDamage>
+    <Cooldown>6</Cooldown>
   </Spell>
   <Spell>
     <Name>Repair Critical Damage</Name>
@@ -1264,6 +1282,7 @@ constructs.</Description>
       <Damage>Repair</Damage>
       <SpellPower>Repair</SpellPower>
     </SpellDamage>
+    <Cooldown>6</Cooldown>
   </Spell>
   <!--Artificer level 5's-->
   <Spell>
@@ -1316,6 +1335,7 @@ chosen randomly each time. The enemy is also subject to 2 of 3 CC effects
       <Damage>Electric</Damage>
       <SpellPower>Electric</SpellPower>
     </SpellDamage>
+    <Cooldown>6</Cooldown>
   </Spell>
   <Spell>
     <Name>Bear's Endurance, Mass</Name>
@@ -1434,6 +1454,7 @@ to each of them for 1 minute per caster level.</Description>
       <Damage>Negative</Damage>
       <SpellPower>Negative</SpellPower>
     </SpellDamage>
+    <Cooldown>6</Cooldown>
   </Spell>
   <Spell>
     <Name>Owl's Wisdom, Mass</Name>
@@ -1515,6 +1536,7 @@ damage reduction. An item can have only one temporary item enchantment at a time
       <Damage>Repair</Damage>
       <SpellPower>Repair</SpellPower>
     </SpellDamage>
+    <Cooldown>6</Cooldown>
   </Spell>
   <Spell>
     <Name>Silver Weapons</Name>
@@ -1621,6 +1643,7 @@ per caster level (Maximum caster level 10) for each energy type has been absorbe
       </SpellDice>
       <Damage>All</Damage>
     </SpellDamage>
+    <Cooldown>6</Cooldown>
   </Spell>
   <Spell>
     <Name>Blade Barrier</Name>
@@ -1650,6 +1673,7 @@ save reduces this damage by half.</Description>
       <School>Evocation</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>8</Cooldown>
   </Spell>
   <Spell>
     <Name>Tactical Detonation</Name>
@@ -1692,6 +1716,7 @@ and 1d6+3 force damage per caster level (no save) to targets in the area.</Descr
       <School>Evocation</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>8</Cooldown>
   </Spell>
   <Spell>
     <Name>Deadly Weapons</Name>
@@ -1731,6 +1756,7 @@ A successful Will save halves this damage and prevents the debuff portion.</Desc
       <Damage>Repair</Damage>
       <SpellPower>Repair</SpellPower>
     </SpellDamage>
+    <Cooldown>8</Cooldown>
   </Spell>
   <Spell>
     <Name>Inflict Critical Damage, Mass</Name>
@@ -1759,6 +1785,7 @@ A successful Will save halves this damage and prevents the debuff portion.</Desc
       <Damage>Negative</Damage>
       <SpellPower>Negative</SpellPower>
     </SpellDamage>
+    <Cooldown>8</Cooldown>
   </Spell>
   <Spell>
     <Name>Reconstruct</Name>
@@ -1778,6 +1805,7 @@ while simultaneously granting the Construct an increase in attack speed for a sh
       <Damage>Repair</Damage>
       <SpellPower>Repair</SpellPower>
     </SpellDamage>
+    <Cooldown>8</Cooldown>
   </Spell>
   <Spell>
     <Name>Repair Critical Damage, Mass</Name>
@@ -1805,6 +1833,7 @@ while simultaneously granting the Construct an increase in attack speed for a sh
       <Damage>Repair</Damage>
       <SpellPower>Repair</SpellPower>
     </SpellDamage>
+    <Cooldown>8</Cooldown>
   </Spell>
   <!--Bard level 1's-->
   <Spell>
@@ -1996,6 +2025,7 @@ be Dazed for a short period of time, or until they take damage.</Description>
       <School>Evocation</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Cause Fear</Name>
@@ -2260,6 +2290,7 @@ save to avoid being stunned for 6 seconds. Max caster level 15</Description>
       <School>Evocation</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Blur</Name>
@@ -2778,6 +2809,7 @@ to all targets in its path. A successful Fortitude save halves the damage.</Desc
       <School>Evocation</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>6</Cooldown>
   </Spell>
   <!--Bard level 5's-->
   <Spell>
@@ -3053,6 +3085,7 @@ Fortitude save halves the damage and negates stun.</Description>
       <School>Evocation</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>8</Cooldown>
   </Spell>
   <!--Cleric and Favored Soul level 1's-->
   <Spell>
@@ -3221,6 +3254,7 @@ damage per caster level, max caster level 15.</Description>
       <Damage>Light</Damage>
       <SpellPower>Light/Alignment</SpellPower>
     </SpellDamage>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Doom</Name>
@@ -3305,6 +3339,7 @@ This spell has faster casting speed than normal and minimal cooldown.</Descripti
       <School>Conjuration</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Deific Vengeance</Name>
@@ -3338,6 +3373,7 @@ reduces this damage by half.</Description>
       <School>Conjuration</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Lesser Restoration</Name>
@@ -3474,6 +3510,7 @@ A successful Reflex save reduces the damage by half.</Description>
       <School>Abjuration</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>4</Cooldown>
   </Spell>
   <Spell>
     <Name>Magic Circle Against Evil</Name>
@@ -3567,6 +3604,7 @@ Light damage per caster level. (Maximum damage 10d6+60)</Description>
       <Damage>Light</Damage>
       <SpellPower>Light/Alignment</SpellPower>
     </SpellDamage>
+    <Cooldown>4</Cooldown>
   </Spell>
   <Spell>
     <Name>Bestow Curse</Name>
@@ -3701,6 +3739,7 @@ Undead who make a successful Will save reduce the damage by half.</Description>
       <School>Conjuration</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>6</Cooldown>
   </Spell>
   <Spell>
     <Name>Restoration</Name>
@@ -3765,6 +3804,7 @@ Lawful casters.</Description>
       <School>Evocation</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>6</Cooldown>
   </Spell>
   <Spell>
     <Name>Divine Power</Name>
@@ -3823,6 +3863,7 @@ Evil caster.</Description>
       <School>Evocation</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>6</Cooldown>
   </Spell>
   <Spell>
     <Name>Order's Wrath</Name>
@@ -3859,6 +3900,7 @@ or Neutral casters, it has no effect when cast by a Chaotic caster.</Description
       <School>Evocation</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>6</Cooldown>
   </Spell>
   <Spell>
     <Name>Symbol of Flame</Name>
@@ -3892,6 +3934,7 @@ being triggered, or in 5 minutes otherwise.</Description>
       <School>Evocation</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>6</Cooldown>
   </Spell>
   <Spell>
     <Name>Unholy Blight</Name>
@@ -3929,6 +3972,7 @@ effect when cast by a Good caster.</Description>
       <School>Evocation</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>6</Cooldown>
   </Spell>
   <Spell>
     <Name>Inflict Critical Wounds</Name>
@@ -4091,6 +4135,7 @@ stack on the target up to 3 times, increasing the damage with each stack.</Descr
       <Damage>Light</Damage>
       <SpellPower>Light/Alignment</SpellPower>
     </SpellDamage>
+    <Cooldown>6</Cooldown>
   </Spell>
   <Spell>
     <Name>Flame Strike</Name>
@@ -4125,6 +4170,7 @@ based attacks. A successful Reflex save reduces the damage by half.</Description
       <School>Evocation</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>6</Cooldown>
   </Spell>
   <Spell>
     <Name>Stalwart Pact</Name>
@@ -4192,6 +4238,7 @@ successful Fortitude save.</Description>
       <School>Necromancy</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>6</Cooldown>
   </Spell>
   <Spell>
     <Name>Symbol of Pain</Name>
@@ -4263,6 +4310,7 @@ A successful Reflex save reduces the damage by half.</Description>
       <School>Abjuration</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>4</Cooldown>
   </Spell>
   <Spell>
     <Name>Cometfall</Name>
@@ -4304,6 +4352,7 @@ prone. Another successful Reflex save negates the knockdown portion.</Descriptio
       <School>Conjuration</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>8</Cooldown>
   </Spell>
   <Spell>
     <Name>Heal</Name>
@@ -4337,6 +4386,7 @@ successful Will save reduce the damage by half.</Description>
       <School>Conjuration</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>8</Cooldown>
   </Spell>
   <Spell>
     <Name>Word of Recall</Name>
@@ -4400,6 +4450,7 @@ targets this spell heals like Heal.</Description>
       <School>Necromancy</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>8</Cooldown>
   </Spell>
   <Spell>
     <Name>Inflict Moderate Wounds, Mass</Name>
@@ -4587,6 +4638,7 @@ Fortitude save. Max caster level 20.</Description>
       <School>Necromancy</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>12</Cooldown>
   </Spell>
   <Spell>
     <Name>Inflict Serious Wounds, Mass</Name>
@@ -4752,6 +4804,7 @@ A successful Reflex save reduces the damage by half.</Description>
       <School>Evocation</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>12</Cooldown>
   </Spell>
   <Spell>
     <Name>Death Pact</Name>
@@ -4840,6 +4893,7 @@ successful Will save reduce the damage by half.</Description>
       <School>Conjuration</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>30</Cooldown>
   </Spell>
   <Spell>
     <Name>True Resurrection</Name>
@@ -4918,6 +4972,7 @@ spells are cast on the same target, then the duration is extended.</Description>
       <Damage>Positive</Damage>
       <SpellPower>Positive</SpellPower>
     </SpellDamage>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Summon Nature's Ally I</Name>
@@ -4987,6 +5042,7 @@ They deal 1d6+1 Fire damage per caster level, up to 15d6+15 at caster level 15.<
       <Damage>Fire</Damage>
       <SpellPower>Fire</SpellPower>
     </SpellDamage>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Entangle</Name>
@@ -5421,6 +5477,7 @@ level, to a maximum of 12d6+48 at caster level 12.</Description>
       </SpellDice>
       <Damage>Pierce</Damage>
     </SpellDamage>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Summon Nature's Ally II</Name>
@@ -5523,6 +5580,7 @@ Third Phase: 3d4 damage +6 per 3 caster levels (max +36 at caster level 18).</De
       <Damage>Cold</Damage>
       <SpellPower>Cold</SpellPower>
     </SpellDamage>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Flame Blade</Name>
@@ -5562,6 +5620,7 @@ A successful Reflex save negates the damage.</Description>
       <School>Evocation</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Gust of Wind</Name>
@@ -5710,6 +5769,7 @@ target, then the duration is extended.</Description>
       <Damage>Positive</Damage>
       <SpellPower>Positive</SpellPower>
     </SpellDamage>
+    <Cooldown>4</Cooldown>
   </Spell>
   <Spell>
     <Name>Dominate Animal</Name>
@@ -5760,6 +5820,7 @@ for every caster level up to 15. A successful Reflex save reduces damage by half
       <School>Evocation</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>4</Cooldown>
   </Spell>
   <Spell>
     <Name>Salt Ray</Name>
@@ -5794,6 +5855,7 @@ Fortitude save negates the stun.</Description>
       <School>Evocation</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>4</Cooldown>
   </Spell>
   <Spell>
     <Name>Quench</Name>
@@ -5897,6 +5959,7 @@ A successful Reflex save negates the slow effect.</Description>
       <School>Transmutation</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Baiting Bite</Name>
@@ -5953,6 +6016,7 @@ A successful Reflex Saving Throw halves the damage each tick.</Description>
       <School>Conjuration</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>6</Cooldown>
   </Spell>
   <Spell>
     <Name>Lesser Vigor, Mass</Name>
@@ -5984,6 +6048,7 @@ the duration is extended.</Description>
       <Damage>Positive</Damage>
       <SpellPower>Positive</SpellPower>
     </SpellDamage>
+    <Cooldown>6</Cooldown>
   </Spell>
   <Spell>
     <Name>Summon Nature's Ally IV</Name>
@@ -6026,6 +6091,7 @@ level of 15) every 2 seconds to each creature inside the area.</Description>
       <Damage>Cold</Damage>
       <SpellPower>Cold</SpellPower>
     </SpellDamage>
+    <Cooldown>6</Cooldown>
   </Spell>
   <Spell>
     <Name>Harrowing Pack</Name>
@@ -6097,6 +6163,7 @@ target, then the duration is extended.</Description>
       <Damage>Positive</Damage>
       <SpellPower>Positive</SpellPower>
     </SpellDamage>
+    <Cooldown>6</Cooldown>
   </Spell>
   <Spell>
     <Name>Summon Nature's Ally V</Name>
@@ -6139,6 +6206,7 @@ save reduces the damage by half. </Description>
       <School>Evocation</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>6</Cooldown>
   </Spell>
   <Spell>
     <Name>Wall of Fire</Name>
@@ -6174,6 +6242,7 @@ regardless of caster level.</Description>
       <School>Evocation</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>6</Cooldown>
   </Spell>
   <Spell>
     <Name>Animal Growth</Name>
@@ -6285,6 +6354,7 @@ level 15). D&amp;D Dice: Deals 1d3+3 Cold damage per caster level (max 15d3+45).
       <Damage>Cold</Damage>
       <SpellPower>Cold</SpellPower>
     </SpellDamage>
+    <Cooldown>6</Cooldown>
   </Spell>
   <!--Druid level 6's-->
   <Spell>
@@ -6319,6 +6389,7 @@ ground to act as a trap, for reduced Spell Point cost.</Description>
       <School>Conjuration</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>8</Cooldown>
   </Spell>
   <Spell>
     <Name>Summon Nature's Ally VI</Name>
@@ -6360,6 +6431,7 @@ the same target, then the duration is extended.</Description>
       <Damage>Positive</Damage>
       <SpellPower>Positive</SpellPower>
     </SpellDamage>
+    <Cooldown>8</Cooldown>
   </Spell>
   <Spell>
     <Name>Fire Shield</Name>
@@ -6405,6 +6477,7 @@ will burn away any webs that attempt to entangle you.</Description>
       <Damage>Fire</Damage>
       <SpellPower>Fire</SpellPower>
     </SpellDamage>
+    <Cooldown>6</Cooldown>
   </Spell>
   <Spell>
     <Name>Fire Shield (Cold)</Name>
@@ -6439,6 +6512,7 @@ damage the caster takes from Fire by half.</Description>
       <Damage>Cold</Damage>
       <SpellPower>Cold</SpellPower>
     </SpellDamage>
+    <Cooldown>8</Cooldown>
   </Spell>
   <Spell>
     <Name>Frostbite</Name>
@@ -6479,6 +6553,7 @@ Third Phase: 6d4 damage +8 per 2 caster levels (max +80 at caster level 20).</De
       <Damage>Cold</Damage>
       <SpellPower>Cold</SpellPower>
     </SpellDamage>
+    <Cooldown>8</Cooldown>
   </Spell>
   <Spell>
     <Name>Jaws of Winter</Name>
@@ -6522,6 +6597,7 @@ True Neutral targets are immune to the effects of this spell.</Description>
       <Damage>Bane</Damage>
       <SpellPower>Light/Alignment</SpellPower>
     </SpellDamage>
+    <Cooldown>8</Cooldown>
   </Spell>
   <Spell>
     <Name>Tenacious Pack</Name>
@@ -6579,6 +6655,7 @@ for 16 seconds. A successful Reflex save halves the damage.</Description>
       <School>Conjuration</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>12</Cooldown>
   </Spell>
   <Spell>
     <Name>Greater Vigor, Mass</Name>
@@ -6611,6 +6688,7 @@ Vigor spells are cast on the same target, then the duration is extended.</Descri
       <Damage>Positive</Damage>
       <SpellPower>Positive</SpellPower>
     </SpellDamage>
+    <Cooldown>12</Cooldown>
   </Spell>
   <Spell>
     <Name>Regenerate</Name>
@@ -6641,6 +6719,7 @@ Regenerate spells are cast on the same target, then the duration is extended.</D
       <Damage>Positive</Damage>
       <SpellPower>Positive</SpellPower>
     </SpellDamage>
+    <Cooldown>12</Cooldown>
   </Spell>
   <Spell>
     <Name>Summon Nature's Ally VII</Name>
@@ -6678,6 +6757,7 @@ Fortitude save halves.</Description>
       <School>Evocation</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>12</Cooldown>
   </Spell>
   <Spell>
     <Name>Elemental Toughness</Name>
@@ -6756,6 +6836,7 @@ D&amp;D Dice: Deals 1d3+3 light damage per caster level.</Description>
       <School>Evocation</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>12</Cooldown>
   </Spell>
   <Spell>
     <Name>Relentless Onslaught</Name>
@@ -6826,6 +6907,7 @@ Flying enemies are immune. D&amp;D Dice: Deals 2d8 level bludgeoning damage.</De
       <School>Evocation</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>15</Cooldown>
   </Spell>
   <Spell>
     <Name>Fires of Purity</Name>
@@ -6871,6 +6953,7 @@ by this spell if it fails its save.</Description>
       <School>Evocation</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>15</Cooldown>
   </Spell>
   <Spell>
     <Name>Finger of Death</Name>
@@ -6900,6 +6983,7 @@ by this spell if it fails its save.</Description>
       <School>Necromancy</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>6</Cooldown>
   </Spell>
   <Spell>
     <Name>Ice Flowers</Name>
@@ -6943,6 +7027,7 @@ and 1d6+8 Cold damage per caster level, to a maximum of 15d6+120 Cold and
       <School>Transmutation</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>15</Cooldown>
   </Spell>
   <Spell>
     <Name>Unstoppable</Name>
@@ -7027,6 +7112,7 @@ same target, then the duration is extended.</Description>
       <Damage>Positive</Damage>
       <SpellPower>Positive</SpellPower>
     </SpellDamage>
+    <Cooldown>30</Cooldown>
   </Spell>
   <Spell>
     <Name>Storm of Vengeance</Name>
@@ -7072,6 +7158,7 @@ damage 1d6+6 per caster levels, with a maximum of 25. Duration is 30 seconds.</D
       <School>Conjuration</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>30</Cooldown>
   </Spell>
   <Spell>
     <Name>Summon Nature's Ally IX</Name>
@@ -7279,6 +7366,7 @@ caster level (up to a max of 30 to 80 at caster level 10).</Description>
       <Damage>Chaos</Damage>
       <SpellPower>Chaos</SpellPower>
     </SpellDamage>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Shield</Name>
@@ -7354,6 +7442,7 @@ bonus to Armor Class for 5 minutes plus 1 minute per caster level.</Description>
       <School>Conjuration</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Acid Spray</Name>
@@ -7386,6 +7475,7 @@ A successful Reflex save reduces the damage by half.</Description>
       <School>Evocation</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Burning Hands</Name>
@@ -7418,6 +7508,7 @@ A successful Reflex save reduces the damage by half.</Description>
       <School>Evocation</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Caustic Bolt</Name>
@@ -7442,6 +7533,7 @@ with Freezing Bolt, Shocking Bolt and Flaming Bolt.</Description>
       <Damage>Acid</Damage>
       <SpellPower>Acid</SpellPower>
     </SpellDamage>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Freezing Bolt</Name>
@@ -7466,6 +7558,7 @@ with Caustic Bolt, Shocking Bolt and Flaming Bolt.</Description>
       <Damage>Cold</Damage>
       <SpellPower>Cold</SpellPower>
     </SpellDamage>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Flaming Bolt</Name>
@@ -7490,6 +7583,7 @@ with Freezing Bolt, Shocking Bolt and Caustic Bolt.</Description>
       <Damage>Fire</Damage>
       <SpellPower>Fire</SpellPower>
     </SpellDamage>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Shocking Bolt</Name>
@@ -7514,6 +7608,7 @@ a cooldown with Freezing Bolt, Flaming Bolt and Caustic Bolt.</Description>
       <Damage>Electric</Damage>
       <SpellPower>Electric</SpellPower>
     </SpellDamage>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Magic Missile</Name>
@@ -7540,6 +7635,7 @@ additional missile, up to a maximum of 5 missiles at 9th level and higher.</Desc
       <Damage>Force</Damage>
       <SpellPower>Force</SpellPower>
     </SpellDamage>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Shocking Grasp</Name>
@@ -7564,6 +7660,7 @@ to any enemy you touch.</Description>
       <Damage>Electric</Damage>
       <SpellPower>Electric</SpellPower>
     </SpellDamage>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Chill Touch</Name>
@@ -7598,6 +7695,7 @@ Undead who make a successful Will save negate this Panicked condition.</Descript
       <School>Necromancy</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Disrupt Undead</Name>
@@ -7634,6 +7732,7 @@ caster levels to an enemy undead. This spell has nearly unlimited range.</Descri
       <School>Necromancy</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Ray of Enfeeblement</Name>
@@ -7669,6 +7768,7 @@ caster levels to an enemy undead. This spell has nearly unlimited range.</Descri
       <Damage>Acid</Damage>
       <SpellPower>Acid</SpellPower>
     </SpellDamage>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Web</Name>
@@ -7747,6 +7847,7 @@ Will save to avoid be Dazed for a short period of time or until takes damage.</D
       <School>Evocation</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Scorch</Name>
@@ -7780,6 +7881,7 @@ save reduces the damage by half.</Description>
       <School>Evocation</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Scorching Ray</Name>
@@ -7806,6 +7908,7 @@ Ray spells have double range.</Description>
       <Damage>Fire</Damage>
       <SpellPower>Fire</SpellPower>
     </SpellDamage>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Snowball Swarm</Name>
@@ -7840,6 +7943,7 @@ the damage by half.</Description>
       <School>Evocation</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Command Undead</Name>
@@ -7913,6 +8017,7 @@ remain within it. Undead are instead healed by the aura.</Description>
       <Damage>Negative</Damage>
       <SpellPower>Negative</SpellPower>
     </SpellDamage>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Knock</Name>
@@ -7980,6 +8085,7 @@ its path. A successful Reflex save reduces the damage by half.</Description>
       <School>Evocation</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>4</Cooldown>
   </Spell>
   <Spell>
     <Name>Acid Blast</Name>
@@ -8013,6 +8119,7 @@ A successful Reflex save reduces the damage by half.</Description>
       <School>Conjuration</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>4</Cooldown>
   </Spell>
   <Spell>
     <Name>Stinking Cloud</Name>
@@ -8058,6 +8165,7 @@ D&amp;D Dice: Each missile deals 1d2+3 force damage.</Description>
       <Damage>Force</Damage>
       <SpellPower>Force</SpellPower>
     </SpellDamage>
+    <Cooldown>4</Cooldown>
   </Spell>
   <Spell>
     <Name>Fireball</Name>
@@ -8090,6 +8198,7 @@ damage, to targets around it. A successful Reflex save reduces the damage by hal
       <School>Evocation</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>4</Cooldown>
   </Spell>
   <Spell>
     <Name>Frost Lance</Name>
@@ -8126,6 +8235,7 @@ As a Ray this spell has double range.</Description>
       <School>Evocation</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>4</Cooldown>
   </Spell>
   <Spell>
     <Name>Halt Undead</Name>
@@ -8195,6 +8305,7 @@ any creatures remaining in the rain will take damage with no saving throw.</Desc
       <School>Conjuration</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>6</Cooldown>
   </Spell>
   <Spell>
     <Name>Solid Fog</Name>
@@ -8230,6 +8341,7 @@ You gain one additional missile at levels 4, 8, and 12 for a maximum of 4 missil
       <Damage>Force</Damage>
       <SpellPower>Force</SpellPower>
     </SpellDamage>
+    <Cooldown>4</Cooldown>
   </Spell>
   <Spell>
     <Name>Phantasmal Killer</Name>
@@ -8267,6 +8379,7 @@ caster level. A Will save disbelieves the spell and negates ill effects.</Descri
       </SpellDice>
       <Damage>Bane</Damage>
     </SpellDamage>
+    <Cooldown>4</Cooldown>
   </Spell>
   <Spell>
     <Name>Burning Blood</Name>
@@ -8305,6 +8418,7 @@ every 2 seconds for 10 seconds.</Description>
       <Damage>Fire</Damage>
       <SpellPower>Fire</SpellPower>
     </SpellDamage>
+    <Cooldown>6</Cooldown>
   </Spell>
   <Spell>
     <Name>Death Aura</Name>
@@ -8333,6 +8447,7 @@ Undead do not trigger spell resistance.</Description>
       <Damage>Negative</Damage>
       <SpellPower>Negative</SpellPower>
     </SpellDamage>
+    <Cooldown>6</Cooldown>
   </Spell>
   <Spell>
     <Name>Enervation</Name>
@@ -8382,6 +8497,7 @@ healed by the attack.</Description>
       <School>Necromancy</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>6</Cooldown>
   </Spell>
   <!--Sorcerer and Wizard level 5's-->
   <Spell>
@@ -8427,6 +8543,7 @@ this spell.</Description>
       <School>Conjuration</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>6</Cooldown>
   </Spell>
   <Spell>
     <Name>Teleport</Name>
@@ -8484,6 +8601,7 @@ half.</Description>
       <School>Evocation</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>6</Cooldown>
   </Spell>
   <Spell>
     <Name>Cone of Cold</Name>
@@ -8516,6 +8634,7 @@ cone. It drains heat, dealing 1d6+5 points of Cold damage per caster level.
       <School>Evocation</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>6</Cooldown>
   </Spell>
   <Spell>
     <Name>Cyclonic Blast</Name>
@@ -8555,6 +8674,7 @@ such as clouds and Wall of Fire of both friends and foes.</Description>
       <School>Evocation</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>4</Cooldown>
   </Spell>
   <Spell>
     <Name>Eladar's Electric Surge</Name>
@@ -8583,6 +8703,7 @@ spell can stack on the target up to 3 times, increasing the damage with each sta
       <Damage>Electric</Damage>
       <SpellPower>Electric</SpellPower>
     </SpellDamage>
+    <Cooldown>6</Cooldown>
   </Spell>
   <Spell>
     <Name>Niac's Biting Cold</Name>
@@ -8611,6 +8732,7 @@ can stack on the target up to 3 times, increasing the damage with each stack.</D
       <Damage>Cold</Damage>
       <SpellPower>Cold</SpellPower>
     </SpellDamage>
+    <Cooldown>6</Cooldown>
   </Spell>
   <Spell>
     <Name>Prismatic Ray</Name>
@@ -8676,6 +8798,7 @@ also suffers a -4 penalty to their Armor Class.</Description>
       <Damage>Acid</Damage>
       <SpellPower>Acid</SpellPower>
     </SpellDamage>
+    <Cooldown>8</Cooldown>
   </Spell>
   <Spell>
     <Name>Chain Lightning</Name>
@@ -8709,6 +8832,7 @@ lightning bolt. A successful Reflex save reduces the damage by half.</Descriptio
       <School>Evocation</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>6</Cooldown>
   </Spell>
   <Spell>
     <Name>Otiluke's Freezing Sphere</Name>
@@ -8743,6 +8867,7 @@ damage by half.</Description>
       <School>Evocation</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>8</Cooldown>
   </Spell>
   <Spell>
     <Name>Circle of Death</Name>
@@ -8801,6 +8926,7 @@ level.</Description>
       <School>Necromancy</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>8</Cooldown>
   </Spell>
   <Spell>
     <Name>Symbol of Fear</Name>
@@ -8853,6 +8979,7 @@ A successful Fortitude save reduces this damage to 6d3+12.</Description>
       <School>Transmutation</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>8</Cooldown>
   </Spell>
   <Spell>
     <Name>Flesh to Stone</Name>
@@ -8953,6 +9080,7 @@ around it. A successful Reflex save reduces the damage by half.</Description>
       <School>Evocation</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>6</Cooldown>
   </Spell>
   <Spell>
     <Name>Prismatic Spray</Name>
@@ -9048,6 +9176,7 @@ This spell has double range.</Description>
       <Damage>Acid</Damage>
       <SpellPower>Acid</SpellPower>
     </SpellDamage>
+    <Cooldown>6</Cooldown>
   </Spell>
   <Spell>
     <Name>Incendiary Cloud</Name>
@@ -9083,6 +9212,7 @@ the cloud.</Description>
       <School>Conjuration</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>15</Cooldown>
   </Spell>
   <Spell>
     <Name>Trap the Soul</Name>
@@ -9136,6 +9266,7 @@ for 8 seconds.</Description>
       <Damage>Cold</Damage>
       <SpellPower>Cold</SpellPower>
     </SpellDamage>
+    <Cooldown>15</Cooldown>
   </Spell>
   <Spell>
     <Name>Horrid Wilting</Name>
@@ -9165,6 +9296,7 @@ Plants which instead take 1d4+4 points of damage per caster level.
       <Damage>Untyped</Damage>
       <SpellPower>Untyped</SpellPower>
     </SpellDamage>
+    <Cooldown>12</Cooldown>
   </Spell>
   <!--Sorcerer and Wizard level 9's-->
   <Spell>
@@ -9198,6 +9330,7 @@ half.</Description>
       <School>Conjuration</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>30</Cooldown>
   </Spell>
   <Spell>
     <Name>Iceberg</Name>
@@ -9230,6 +9363,7 @@ the damage by half.</Description>
       <School>Evocation</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>30</Cooldown>
   </Spell>
   <Spell>
     <Name>Thunderstroke</Name>
@@ -9262,6 +9396,7 @@ Reflex save reduces the damage by half.</Description>
       <School>Evocation</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>8</Cooldown>
   </Spell>
   <Spell>
     <Name>Mordenkainen's Disjunction</Name>
@@ -9367,6 +9502,7 @@ damage per caster level (No save.) to targets in the area. (Max 20d3+20 Fire,
       <School>Evocation</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>30</Cooldown>
   </Spell>
   <Spell>
     <Name>Wail of the Banshee</Name>
@@ -9418,6 +9554,7 @@ level up to 20. A successful Fortitude save reduces damage by half. D&amp;D Dice
       <School>Necromancy</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>30</Cooldown>
   </Spell>
   <!--Warlock level 1's-->
   <!--Warlock level 2's-->
@@ -9505,6 +9642,7 @@ the zone fades, though they will not deal damage.</Description>
       <School>Conjuration</School>
       <CastingStatMod/>
     </SpellDC>
+    <Cooldown>6</Cooldown>
   </Spell>
   <Spell>
     <Name>Binding Chain</Name>
@@ -10109,6 +10247,7 @@ Cost: 20 spell points. Cooldown: 6 second.</Description>
       <Damage>Light</Damage>
       <SpellPower>Light/Alignment</SpellPower>
     </SpellDamage>
+    <Cooldown>6</Cooldown>
   </Spell>
   <Spell>
     <Name>Horn of Thunder</Name>
@@ -10307,6 +10446,7 @@ manner. Fire creatures are immune to this effect.
       <Damage>Fire</Damage>
       <SpellPower>Fire</SpellPower>
     </SpellDamage>
+    <Cooldown>60</Cooldown>
   </Spell>
   <Spell>
     <Name>Icy Prison</Name>
@@ -10325,6 +10465,7 @@ targets gets occasional saves to attempt to escape.
       <Damage>Cold</Damage>
       <SpellPower>Cold</SpellPower>
     </SpellDamage>
+    <Cooldown>60</Cooldown>
   </Spell>
   <Spell>
     <Name>Resist Energies</Name>
@@ -10537,6 +10678,7 @@ Cooldown: 20 seconds</Description>
       <Damage>Positive</Damage>
       <SpellPower>Positive</SpellPower>
     </SpellDamage>
+    <Cooldown>30</Cooldown>
   </Spell>
   <Spell>
     <Name>Celestial Bombardment</Name>
@@ -10567,6 +10709,7 @@ Activation cost is [300/200/100] Spell points and has a cooldown of [3/2/1] minu
       <Damage>Fire</Damage>
       <SpellPower>Fire</SpellPower>
     </SpellDamage>
+    <Cooldown>30</Cooldown>
   </Spell>
   <Spell>
     <Name>Flyby Attack</Name>
@@ -10629,6 +10772,7 @@ for 8 seconds. Unlisted Reflex save.(Cooldown 3mins, 30sp)</Description>
       <Damage>Force</Damage>
       <SpellPower>Force</SpellPower>
     </SpellDamage>
+    <Cooldown>8</Cooldown>
   </Spell>
   <Spell>
     <Name>Rejuvenation Cocoon</Name>
@@ -10647,6 +10791,7 @@ Affected by: Empower Heal, Quicken and Enlarge</Description>
       <Damage>Positive</Damage>
       <SpellPower>Positive</SpellPower>
     </SpellDamage>
+    <Cooldown>12</Cooldown>
   </Spell>
   <Spell>
     <Name>Insidious Spores</Name>
@@ -10678,6 +10823,7 @@ Affected by: Empower, Maximize, Quicken and Enlarge</Description>
       <Damage>Rust</Damage>
       <SpellPower>Rust</SpellPower>
     </SpellDamage>
+    <Cooldown>12</Cooldown>
   </Spell>
   <Spell>
     <Name>Tsunami</Name>
@@ -10710,6 +10856,7 @@ Affected by: Empower, Maximize, Quicken, Heighten and Enlarge</Description>
       <Damage>Cold</Damage>
       <SpellPower>Cold</SpellPower>
     </SpellDamage>
+    <Cooldown>7</Cooldown>
   </Spell>
   <Spell>
     <Name>Divine Energy Resistance</Name>
@@ -10882,6 +11029,7 @@ Artificer Knowledge: Potions..</Description>
       <Damage>Positive</Damage>
       <SpellPower>Positive</SpellPower>
     </SpellDamage>
+    <Cooldown>6</Cooldown>
   </Spell>
   <Spell>
     <Name>Unbreakable Forcefield</Name>
@@ -10957,6 +11105,7 @@ Cooldown: 1 Minute cooldown.</Description>
       <Damage>Positive</Damage>
       <SpellPower>Positive</SpellPower>
     </SpellDamage>
+    <Cooldown>60</Cooldown>
   </Spell>
   <Spell>
     <Name>Dismiss Charm</Name>
@@ -11079,6 +11228,7 @@ A successful Fortitude save reduces the damage by half.</Description>
       <Damage>Poison</Damage>
       <SpellPower>Poison</SpellPower>
     </SpellDamage>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Vial of Flame</Name>
@@ -11116,6 +11266,7 @@ A successful Reflex save reduces the damage by half.</Description>
       <Damage>Fire</Damage>
       <SpellPower>Fire</SpellPower>
     </SpellDamage>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Vial of Acid</Name>
@@ -11153,6 +11304,7 @@ A successful Reflex save reduces the damage by half.</Description>
       <Damage>Acid</Damage>
       <SpellPower>Acid</SpellPower>
     </SpellDamage>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Vial of Frost</Name>
@@ -11190,6 +11342,7 @@ A successful Reflex save reduces the damage by half.</Description>
       <Damage>Cold</Damage>
       <SpellPower>Cold</SpellPower>
     </SpellDamage>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Vial of Sparks</Name>
@@ -11227,6 +11380,7 @@ A successful Reflex save reduces the damage by half.</Description>
       <Damage>Electric</Damage>
       <SpellPower>Electric</SpellPower>
     </SpellDamage>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Empty Bottle</Name>
@@ -11264,6 +11418,7 @@ A successful Reflex save reduces the damage by half.</Description>
       <Damage>Bludgeon</Damage>
       <SpellPower>Force</SpellPower>
     </SpellDamage>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Rapid Condensation</Name>
@@ -11594,6 +11749,7 @@ living allies and enemy undead.</Description>
       <Damage>Negative</Damage>
       <SpellPower>Negative</SpellPower>
     </SpellDamage>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Curative Admixture: Remove Disease</Name>
@@ -11653,6 +11809,7 @@ Reflex saves reduces the damage by half.</Description>
       <Damage>Fire</Damage>
       <SpellPower>Fire</SpellPower>
     </SpellDamage>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Vial Smash: Cold</Name>
@@ -11690,6 +11847,7 @@ Reflex saves reduces the damage by half.</Description>
       <Damage>Cold</Damage>
       <SpellPower>Cold</SpellPower>
     </SpellDamage>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Vial Smash: Electric</Name>
@@ -11727,6 +11885,7 @@ Reflex saves reduces the damage by half.</Description>
       <Damage>Electric</Damage>
       <SpellPower>Electric</SpellPower>
     </SpellDamage>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Vial Smash: Acid</Name>
@@ -11764,6 +11923,7 @@ Reflex saves reduces the damage by half.</Description>
       <Damage>Acid</Damage>
       <SpellPower>Acid</SpellPower>
     </SpellDamage>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Vial Smash: Poison</Name>
@@ -11801,6 +11961,7 @@ Reflex saves reduces the damage by half.</Description>
       <Damage>Poison</Damage>
       <SpellPower>Poison</SpellPower>
     </SpellDamage>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Bottled Boost: Attack</Name>
@@ -11935,6 +12096,7 @@ Reflex save reduces the damage by half.</Description>
       <Damage>Cold</Damage>
       <SpellPower>Cold</SpellPower>
     </SpellDamage>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Corrode Weapons</Name>
@@ -11975,6 +12137,7 @@ Reflex save reduces the damage by half.</Description>
       <Damage>Acid</Damage>
       <SpellPower>Acid</SpellPower>
     </SpellDamage>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Curative Admixture: Inflict Moderate Wounds</Name>
@@ -12015,6 +12178,7 @@ undead.</Description>
       <Damage>Negative</Damage>
       <SpellPower>Negative</SpellPower>
     </SpellDamage>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Curative Admixture: Remove Curse</Name>
@@ -12102,6 +12266,7 @@ A successful Fortitude save reduces the damage by half.</Description>
       <Damage>Poison</Damage>
       <SpellPower>Poison</SpellPower>
     </SpellDamage>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Lesser Heartseeker Poison Imbue</Name>
@@ -12210,6 +12375,7 @@ A successful Reflex save reduces the damage by half.</Description>
       <Damage>Fire</Damage>
       <SpellPower>Fire</SpellPower>
     </SpellDamage>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Restorative Draught</Name>
@@ -12284,6 +12450,7 @@ A successful Fortitude save reduces the damage by half.</Description>
       <Damage>Poison</Damage>
       <SpellPower>Poison</SpellPower>
     </SpellDamage>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Voltaic Backlash</Name>
@@ -12323,6 +12490,7 @@ A successful Reflex save reduces the damage by half.</Description>
       <Damage>Electric</Damage>
       <SpellPower>Electric</SpellPower>
     </SpellDamage>
+    <Cooldown>2</Cooldown>
   </Spell>
   <!---Alchemist Spells Level 3-->
   <Spell>
@@ -12366,6 +12534,7 @@ A successful Reflex save reduces the damage by half.</Description>
       <Damage>Acid</Damage>
       <SpellPower>Acid</SpellPower>
     </SpellDamage>
+    <Cooldown>4</Cooldown>
   </Spell>
   <Spell>
     <Name>Bitter Frost Burst</Name>
@@ -12403,6 +12572,7 @@ A successful Fortitude save reduces the damage by half.</Description>
       <Damage>Cold</Damage>
       <SpellPower>Cold</SpellPower>
     </SpellDamage>
+    <Cooldown>4</Cooldown>
   </Spell>
   <Spell>
     <Name>Bottled Boost: Double</Name>
@@ -12454,6 +12624,7 @@ A successful Reflex save reduces damage by half.</Description>
       <Damage>Acid</Damage>
       <SpellPower>Acid</SpellPower>
     </SpellDamage>
+    <Cooldown>4</Cooldown>
   </Spell>
   <Spell>
     <Name>Choking Smog</Name>
@@ -12517,6 +12688,7 @@ living allies and enemy undead.</Description>
       <Damage>Negative</Damage>
       <SpellPower>Negative</SpellPower>
     </SpellDamage>
+    <Cooldown>4</Cooldown>
   </Spell>
   <Spell>
     <Name>Displacement Draught</Name>
@@ -12704,6 +12876,7 @@ A successful Reflex save reduces the damage by half.</Description>
       <Damage>Fire</Damage>
       <SpellPower>Fire</SpellPower>
     </SpellDamage>
+    <Cooldown>4</Cooldown>
   </Spell>
   <Spell>
     <Name>Flash Freeze</Name>
@@ -12765,6 +12938,7 @@ A successful Reflex save reduces the damage by half.</Description>
       <Damage>Cold</Damage>
       <SpellPower>Cold</SpellPower>
     </SpellDamage>
+    <Cooldown>4</Cooldown>
   </Spell>
   <Spell>
     <Name>Greater Liquid Courage</Name>
@@ -12839,6 +13013,7 @@ A successful Reflex save reduces the damage by half.</Description>
       <Damage>Poison</Damage>
       <SpellPower>Poison</SpellPower>
     </SpellDamage>
+    <Cooldown>4</Cooldown>
   </Spell>
   <Spell>
     <Name>Invisibility Potion</Name>
@@ -12922,6 +13097,7 @@ DND Dice: Deals 1d6+3 Fire damage per caster level, max 15d6+45</Description>
       <Damage>Fire</Damage>
       <SpellPower>Fire</SpellPower>
     </SpellDamage>
+    <Cooldown>4</Cooldown>
   </Spell>
   <Spell>
     <Name>Quicksilver Potion</Name>
@@ -12977,6 +13153,7 @@ A successful Reflex save reduces the damage by half.</Description>
       <Damage>Electric</Damage>
       <SpellPower>Electric</SpellPower>
     </SpellDamage>
+    <Cooldown>4</Cooldown>
   </Spell>
   <Spell>
     <Name>Voltaic Induction</Name>
@@ -13018,6 +13195,7 @@ damage by half.</Description>
       <Damage>Electric</Damage>
       <SpellPower>Electric</SpellPower>
     </SpellDamage>
+    <Cooldown>4</Cooldown>
   </Spell>
   <!---Alchemist Spells Level 4-->
   <Spell>
@@ -13087,6 +13265,7 @@ A successful Reflex save reduces the damage by half and negates the debuff</Desc
       <Damage>Acid</Damage>
       <SpellPower>Acid</SpellPower>
     </SpellDamage>
+    <Cooldown>6</Cooldown>
   </Spell>
   <Spell>
     <Name>Cindersmoke</Name>
@@ -13124,6 +13303,7 @@ A successful Reflex save reduces the damage by half and negates the blind</Descr
       <Damage>Fire</Damage>
       <SpellPower>Fire</SpellPower>
     </SpellDamage>
+    <Cooldown>6</Cooldown>
   </Spell>
   <Spell>
     <Name>Corrosive Dust</Name>
@@ -13161,6 +13341,7 @@ A successful Reflex save reduces the damage by half</Description>
       <Damage>Rust</Damage>
       <SpellPower>Rust</SpellPower>
     </SpellDamage>
+    <Cooldown>6</Cooldown>
   </Spell>
   <Spell>
     <Name>Curative Admixture: Inflict Critical Wounds</Name>
@@ -13201,6 +13382,7 @@ living allies and enemy undead.</Description>
       <Damage>Negative</Damage>
       <SpellPower>Negative</SpellPower>
     </SpellDamage>
+    <Cooldown>6</Cooldown>
   </Spell>
   <Spell>
     <Name>Flesh to Gold</Name>
@@ -13365,6 +13547,7 @@ A successful Reflex save reduces the damage by half and negates the debuff.</Des
       <Damage>Cold</Damage>
       <SpellPower>Cold</SpellPower>
     </SpellDamage>
+    <Cooldown>6</Cooldown>
   </Spell>
   <Spell>
     <Name>Voidmind Poison Imbue</Name>
@@ -13421,6 +13604,7 @@ A successful Reflex save reduces the damage by half and negates the debuff.</Des
       <Damage>Electric</Damage>
       <SpellPower>Electric</SpellPower>
     </SpellDamage>
+    <Cooldown>6</Cooldown>
   </Spell>
   <!---Alchemist Spells Level 5-->
   <Spell>
@@ -13665,6 +13849,7 @@ other Multivial spells.</Description>
       <Damage>Acid</Damage>
       <SpellPower>Acid</SpellPower>
     </SpellDamage>
+    <Cooldown>6</Cooldown>
   </Spell>
   <Spell>
     <Name>Multivial of Flame</Name>
@@ -13702,6 +13887,7 @@ other Multivial spells.</Description>
       <Damage>Fire</Damage>
       <SpellPower>Fire</SpellPower>
     </SpellDamage>
+    <Cooldown>6</Cooldown>
   </Spell>
   <Spell>
     <Name>Multivial of Frost</Name>
@@ -13739,6 +13925,7 @@ other Multivial spells.</Description>
       <Damage>Cold</Damage>
       <SpellPower>Cold</SpellPower>
     </SpellDamage>
+    <Cooldown>6</Cooldown>
   </Spell>
   <Spell>
     <Name>Multivial of Poison</Name>
@@ -13776,6 +13963,7 @@ other Multivial spells.</Description>
       <Damage>Poison</Damage>
       <SpellPower>Poison</SpellPower>
     </SpellDamage>
+    <Cooldown>6</Cooldown>
   </Spell>
   <Spell>
     <Name>Multivial of Sparks</Name>
@@ -13813,6 +14001,7 @@ other Multivial spells.</Description>
       <Damage>Electric</Damage>
       <SpellPower>Electric</SpellPower>
     </SpellDamage>
+    <Cooldown>6</Cooldown>
   </Spell>
   <Spell>
     <Name>Poison Breath</Name>
@@ -13849,6 +14038,7 @@ A successful Fortitude save reduces the damage by half.</Description>
       <Damage>Poison</Damage>
       <SpellPower>Poison</SpellPower>
     </SpellDamage>
+    <Cooldown>6</Cooldown>
   </Spell>
   <Spell>
     <Name>Turn to Frog</Name>
@@ -13906,6 +14096,7 @@ This spell receives reduced benefit from spell power.</Description>
       <Damage>Negative</Damage>
       <SpellPower>Negative</SpellPower>
     </SpellDamage>
+    <Cooldown>8</Cooldown>
   </Spell>
   <Spell>
     <Name>Curative Admixture: Heal</Name>
@@ -13943,6 +14134,7 @@ This spell receives reduced benefit from spell power.</Description>
       <Damage>Positive</Damage>
       <SpellPower>Positive</SpellPower>
     </SpellDamage>
+    <Cooldown>8</Cooldown>
   </Spell>
   <Spell>
     <Name>Dust of Confusion</Name>
@@ -14036,6 +14228,7 @@ A successful Fortitude save reduces the damage by half.</Description>
       <Damage>Bludgeon</Damage>
       <SpellPower>Force</SpellPower>
     </SpellDamage>
+    <Cooldown>8</Cooldown>
   </Spell>
   <Spell>
     <Name>Goldskin Potion</Name>
@@ -14597,6 +14790,7 @@ A successful Reflex saves reduces the damage by half.</Description>
       </SpellDice>
       <Damage>Force</Damage>
     </SpellDamage>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Sacred Fist Empowerment</Name>
@@ -14642,6 +14836,7 @@ and Force damage per caster level, scaling with 300% Melee power..</Description>
       </SpellDice>
       <Damage>Force</Damage>
     </SpellDamage>
+    <Cooldown>4</Cooldown>
   </Spell>
   <Spell>
     <Name>Ki Explosion</Name>
@@ -14679,6 +14874,7 @@ caster level (up to a maximum of 50 to 70 damage at caster level 10).</Descripti
       <Damage>Pierce</Damage>
       <SpellPower>Poison</SpellPower>
     </SpellDamage>
+    <Cooldown>2</Cooldown>
   </Spell>
   <Spell>
     <Name>Thorn Blade</Name>
@@ -14720,6 +14916,7 @@ nearby foes. Reflex save for half.</Description>
       <Damage>Pierce</Damage>
       <SpellPower>Poison</SpellPower>
     </SpellDamage>
+    <Cooldown>4</Cooldown>
   </Spell>
   <Spell>
     <Name>Blighted Breath</Name>
@@ -14751,6 +14948,7 @@ of 30 to 120 damage at caster level 15).</Description>
       <Damage>Poison</Damage>
       <SpellPower>Poison</SpellPower>
     </SpellDamage>
+    <Cooldown>6</Cooldown>
   </Spell>
   <Spell>
     <Name>Thorn Wave</Name>
@@ -14778,6 +14976,7 @@ of you 6 to 11 points of Piercing damage per caster level (up to a maximum of
       <Damage>Pierce</Damage>
       <SpellPower>Poison</SpellPower>
     </SpellDamage>
+    <Cooldown>6</Cooldown>
   </Spell>
   <Spell>
     <Name>Blighted Bite</Name>
@@ -14834,6 +15033,7 @@ because they burn through the plants.</Description>
       <Damage>Pierce</Damage>
       <SpellPower>Poison</SpellPower>
     </SpellDamage>
+    <Cooldown>8</Cooldown>
   </Spell>
   <Spell>
     <Name>Jaws of Doom</Name>
@@ -14873,6 +15073,7 @@ The lance will damage all enemies in front or behind the target.</Description>
       <Damage>Pierce</Damage>
       <SpellPower>Poison</SpellPower>
     </SpellDamage>
+    <Cooldown>15</Cooldown>
   </Spell>
   <Spell>
     <Name>Stormrage</Name>

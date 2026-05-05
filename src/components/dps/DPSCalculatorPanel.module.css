@@ -1,0 +1,234 @@
+.panel {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.85rem;
+}
+.title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-gold);
+}
+.tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.15rem 0.5rem;
+  border-radius: 3px;
+  background: rgba(255, 184, 77, 0.12);
+  border: 1px solid rgba(255, 184, 77, 0.45);
+  color: var(--color-gold);
+}
+
+/* ── Controls ─────────────────────────────────────────────── */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  align-items: flex-end;
+  margin-bottom: 0.85rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 9rem;
+}
+.fieldLabel {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+}
+.fieldValue {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--color-gold);
+  text-transform: none;
+  letter-spacing: 0;
+  margin-left: 0.25rem;
+}
+
+.select {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  color: var(--color-text);
+  font: inherit;
+  font-size: 0.85rem;
+  padding: 0.4rem 0.5rem;
+  cursor: pointer;
+}
+.select:hover { border-color: var(--color-gold); }
+
+.slider {
+  width: 11rem;
+  cursor: pointer;
+}
+.sliderTicks {
+  display: flex;
+  justify-content: space-between;
+  width: 11rem;
+  font-size: 0.62rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Optimizer split-button: main click triggers, chevron opens menu. */
+.optimizer {
+  position: relative;
+  display: flex;
+  align-self: flex-end;
+}
+.optimizerBtn,
+.optimizerChevron {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.45rem 0.75rem;
+  transition: border-color 0.12s, background 0.12s, color 0.12s;
+}
+.optimizerBtn {
+  border-radius: 4px 0 0 4px;
+  border-right-width: 0;
+}
+.optimizerChevron {
+  border-radius: 0 4px 4px 0;
+  padding: 0.45rem 0.4rem;
+}
+.optimizerBtn:hover,
+.optimizerChevron:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+}
+.optimizerMenu {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  z-index: 5;
+  min-width: 12rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-gold);
+  border-radius: 4px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+  padding: 0.25rem;
+  display: flex;
+  flex-direction: column;
+}
+.optimizerMenuItem,
+.optimizerMenuItemActive {
+  background: transparent;
+  border: 0;
+  color: var(--color-text);
+  font: inherit;
+  font-size: 0.82rem;
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 3px;
+}
+.optimizerMenuItem:hover { background: rgba(201,162,39,0.12); }
+.optimizerMenuItemActive {
+  background: rgba(201,162,39,0.18);
+  color: var(--color-gold);
+}
+
+.simulateBtn {
+  background: var(--color-gold);
+  color: #1a1200;
+  border: 0;
+  border-radius: 4px;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  align-self: flex-end;
+  transition: background 0.12s;
+}
+.simulateBtn:hover { background: var(--color-gold-light); }
+
+/* ── Magic rotation editor (palette + timeline) ──────────── */
+.editor {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 0.85rem;
+}
+
+/* Stand-in shown while melee/ranged rotation editors are unimplemented. */
+.timelinePlaceholder {
+  background: var(--color-bg);
+  border: 1px dashed var(--color-border);
+  border-radius: 4px;
+  padding: 1.25rem 0.85rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+  margin-bottom: 0.85rem;
+}
+
+/* ── Stats row ────────────────────────────────────────────── */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.5rem;
+  margin-bottom: 0.85rem;
+}
+.metric {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: 0.5rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+.metricLabel {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+}
+.metricValue {
+  font-size: 1.1rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-gold);
+}
+
+/* ── Chart (placeholder) ─────────────────────────────────── */
+.chart {
+  background: var(--color-bg);
+  border: 1px dashed var(--color-border);
+  border-radius: 4px;
+  padding: 0.85rem;
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.chartPlaceholder {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+}

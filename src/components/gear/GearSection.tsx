@@ -42,6 +42,7 @@ export function GearSection() {
   const renameGearSet      = useBuildStore(s => s.renameGearSet);
   const duplicateGearSet   = useBuildStore(s => s.duplicateGearSet);
   const deleteGearSet      = useBuildStore(s => s.deleteGearSet);
+  const unequipItem        = useBuildStore(s => s.unequipItem);
   const setBonuses         = useGameDataStore(s => s.setBonuses);
   const itemSetIndex       = useGameDataStore(s => s.itemSetIndex);
   const [open, setOpen]    = useState(true);
@@ -133,6 +134,11 @@ export function GearSection() {
     setSelectedSlot(slot);
     setFindOpen({ slotFilter: slotToItemTag(slot) });
   }
+  function handleSlotRemove(slot: GearSlot) {
+    if (!isViewingActive) return;
+    unequipItem(slot);
+    if (selectedSlot === slot) setSelectedSlot(null);
+  }
 
   // Resolve `selectedSlot` against the live viewing set so the details panel
   // re-renders when the user equips/changes the item in that slot.
@@ -175,19 +181,23 @@ export function GearSection() {
                 <div className={styles.setTabs} role="tablist">
                   {sets.map((set, i) => {
                     const viewing = i === activeSetIdx;
-                    const active  = set.name === build.activeGearSet;
                     return (
                       <button
                         key={i}
                         role="tab"
                         aria-selected={viewing}
                         className={viewing ? styles.setTabActive : styles.setTab}
-                        onClick={() => { setActiveSetIdx(i); setSelectedSlot(null); }}
-                        onDoubleClick={() => setActiveGearSet(set.name)}
-                        title={active ? 'Active set' : 'Click to view · double-click to make active'}
+                        onClick={() => {
+                          setActiveSetIdx(i);
+                          setSelectedSlot(null);
+                          // The breakdowns and engine read `build.activeGearSet`,
+                          // so making the clicked tab the active set keeps the
+                          // stat panes and gear panel in sync.
+                          if (set.name !== build.activeGearSet) setActiveGearSet(set.name);
+                        }}
+                        title="Switch to this gear set"
                       >
                         {set.name}
-                        {active && <span className={styles.activeBadge}>★</span>}
                       </button>
                     );
                   })}
@@ -234,6 +244,7 @@ export function GearSection() {
                 items={viewingSet?.items ?? []}
                 onSlotSelect={handleSlotSelect}
                 onSlotEdit={handleSlotEdit}
+                onSlotRemove={isViewingActive ? handleSlotRemove : undefined}
                 selectedSlot={selectedSlot}
               />
 
@@ -306,11 +317,12 @@ export function GearSection() {
 // ── Slot grid ─────────────────────────────────────────────────────
 
 function SlotGrid({
-  items, onSlotSelect, onSlotEdit, selectedSlot,
+  items, onSlotSelect, onSlotEdit, onSlotRemove, selectedSlot,
 }: {
   items: GearItem[];
   onSlotSelect: (slot: GearSlot) => void;
   onSlotEdit: (slot: GearSlot) => void;
+  onSlotRemove?: (slot: GearSlot) => void;
   selectedSlot: GearSlot | null;
 }) {
   const itemBuffs = useGameDataStore(s => s.itemBuffs);
@@ -341,35 +353,45 @@ function SlotGrid({
           ? `${titleHead}${buffSummary ? `\n\n${buffSummary}` : ''}\n\n(Double-click to replace)`
           : titleHead;
         return (
-          <button
-            key={slot}
-            className={[
-              styles.slot,
-              item ? styles.slotFilled : styles.slotEmpty,
-              selected ? styles.slotSelected : '',
-            ].filter(Boolean).join(' ')}
-            onClick={() => onSlotSelect(slot)}
-            onDoubleClick={() => onSlotEdit(slot)}
-            title={title}
-          >
-            <span className={styles.slotLabel}>{slot}</span>
-            {item ? (
-              <>
-                <img
-                  src={`/assets/images/ItemImages/${item.icon}.png`}
-                  alt=""
-                  className={styles.slotIcon}
-                  onError={e => {
-                    const img = e.currentTarget;
-                    img.src = '/assets/images/ItemImages/NoImage.png';
-                  }}
-                />
-                <span className={styles.slotName}>{item.name}</span>
-              </>
-            ) : (
-              <span className={styles.slotEmptyText}>+</span>
+          <div key={slot} className={styles.slotWrapper}>
+            <button
+              className={[
+                styles.slot,
+                item ? styles.slotFilled : styles.slotEmpty,
+                selected ? styles.slotSelected : '',
+              ].filter(Boolean).join(' ')}
+              onClick={() => onSlotSelect(slot)}
+              onDoubleClick={() => onSlotEdit(slot)}
+              title={title}
+            >
+              <span className={styles.slotLabel}>{slot}</span>
+              {item ? (
+                <>
+                  <img
+                    src={`/assets/images/ItemImages/${item.icon}.png`}
+                    alt=""
+                    className={styles.slotIcon}
+                    onError={e => {
+                      const img = e.currentTarget;
+                      img.src = '/assets/images/ItemImages/NoImage.png';
+                    }}
+                  />
+                  <span className={styles.slotName}>{item.name}</span>
+                </>
+              ) : (
+                <span className={styles.slotEmptyText}>+</span>
+              )}
+            </button>
+            {item && onSlotRemove && (
+              <button
+                type="button"
+                className={styles.slotRemove}
+                onClick={e => { e.stopPropagation(); onSlotRemove(slot); }}
+                title={`Remove ${item.name}`}
+                aria-label={`Remove ${item.name}`}
+              >×</button>
             )}
-          </button>
+          </div>
         );
       })}
     </div>
@@ -482,6 +504,8 @@ function FiligreePanel({
   const filigrees          = useGameDataStore(s => s.filigrees);
   const filigreeSetBonuses = useGameDataStore(s => s.filigreeSetBonuses);
   const setFiligreeRare    = useBuildStore(s => s.setFiligreeRare);
+  const setFiligree        = useBuildStore(s => s.setFiligree);
+  const clearFiligrees     = useBuildStore(s => s.clearFiligrees);
 
   const filIdx = useMemo(() => {
     const m = new Map<string, DDOFiligreeData>();
@@ -548,6 +572,7 @@ function FiligreePanel({
             })()}
             onPick={() => onPickSlot(target, i)}
             onToggleRare={() => setFiligreeRare(target, i, !slot.rare)}
+            onRemove={() => setFiligree(target, i, null)}
           />
         ))}
       </div>
@@ -563,6 +588,14 @@ function FiligreePanel({
         <h4 className={styles.filigreeHeading}>
           <span>Sentient weapon filigrees</span>
           <span className={styles.filigreeCount}>{weaponCount} / {MAX_FILIGREE}</span>
+          {editable && weaponCount > 0 && (
+            <button
+              type="button"
+              className={styles.filigreeReset}
+              onClick={() => clearFiligrees('weapon')}
+              title="Clear all sentient weapon filigrees"
+            >Reset</button>
+          )}
         </h4>
         {renderGrid('weapon', weaponSlots)}
       </div>
@@ -570,6 +603,14 @@ function FiligreePanel({
         <h4 className={styles.filigreeHeading}>
           <span>Artifact filigrees</span>
           <span className={styles.filigreeCount}>{artifactCount} / {MAX_ARTIFACT_FILIGREE}</span>
+          {editable && artifactCount > 0 && (
+            <button
+              type="button"
+              className={styles.filigreeReset}
+              onClick={() => clearFiligrees('artifact')}
+              title="Clear all artifact filigrees"
+            >Reset</button>
+          )}
         </h4>
         {renderGrid('artifact', artifactSlots)}
       </div>
@@ -614,10 +655,11 @@ interface FiligreeSlotTileProps {
   };
   onPick: () => void;
   onToggleRare: () => void;
+  onRemove: () => void;
 }
 
 function FiligreeSlotTile({
-  slot, index, editable, filigree, setSummary, onPick, onToggleRare,
+  slot, index, editable, filigree, setSummary, onPick, onToggleRare, onRemove,
 }: FiligreeSlotTileProps) {
   const filled = !!slot.name;
   // Every filigree has a rare version in the live game even when the local
@@ -669,6 +711,15 @@ function FiligreeSlotTile({
           >
             {slot.rare ? '★ Rare' : '☆ Rare'}
           </button>
+          {editable && (
+            <button
+              type="button"
+              className={styles.filigreeRemove}
+              onClick={e => { e.stopPropagation(); onRemove(); }}
+              title={`Remove ${slot.name}`}
+              aria-label={`Remove ${slot.name}`}
+            >×</button>
+          )}
         </>
       ) : (
         <span className={styles.filigreeSlotName}>+</span>

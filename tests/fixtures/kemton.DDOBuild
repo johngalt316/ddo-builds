@@ -1118,9 +1118,9 @@
       <Bluff>0</Bluff>
       <Concentration>0</Concentration>
       <Diplomacy>0</Diplomacy>
-      <DisableDevice>0</DisableDevice>
+      <DisableDevice>4</DisableDevice>
       <Haggle>0</Haggle>
-      <Heal>0</Heal>
+      <Heal>5</Heal>
       <Hide>0</Hide>
       <Intimidate>0</Intimidate>
       <Jump>0</Jump>
@@ -1128,9 +1128,9 @@
       <MoveSilently>0</MoveSilently>
       <OpenLock>0</OpenLock>
       <Perform>0</Perform>
-      <Repair>0</Repair>
+      <Repair>4</Repair>
       <Search>0</Search>
-      <SpellCraft>0</SpellCraft>
+      <SpellCraft>5</SpellCraft>
       <Spot>0</Spot>
       <Swim>0</Swim>
       <Tumble>0</Tumble>
@@ -9174,7 +9174,7 @@ is channeled here.</Description>
         <LevelTraining>
           <Class>Arcane Trickster</Class>
           <SkillPointsAvailable>48</SkillPointsAvailable>
-          <SkillPointsSpent>4</SkillPointsSpent>
+          <SkillPointsSpent>16</SkillPointsSpent>
           <TrainedFeat>
             <FeatName>Maximize Spell</FeatName>
             <Type>Standard</Type>
@@ -9192,19 +9192,64 @@ is channeled here.</Description>
           <TrainedSkill>
             <Skill>Spellcraft</Skill>
           </TrainedSkill>
-        </LevelTraining>
-        <LevelTraining>
-          <Class>Arcane Trickster</Class>
-          <SkillPointsAvailable>13</SkillPointsAvailable>
-          <SkillPointsSpent>1</SkillPointsSpent>
           <TrainedSkill>
-            <Skill>Spellcraft</Skill>
+            <Skill>Disable Device</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Disable Device</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Disable Device</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Disable Device</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Heal</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Heal</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Heal</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Heal</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Repair</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Repair</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Repair</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Repair</Skill>
           </TrainedSkill>
         </LevelTraining>
         <LevelTraining>
           <Class>Arcane Trickster</Class>
           <SkillPointsAvailable>13</SkillPointsAvailable>
-          <SkillPointsSpent>1</SkillPointsSpent>
+          <SkillPointsSpent>4</SkillPointsSpent>
+          <TrainedSkill>
+            <Skill>Spellcraft</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Disable Device</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Heal</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Repair</Skill>
+          </TrainedSkill>
+        </LevelTraining>
+        <LevelTraining>
+          <Class>Arcane Trickster</Class>
+          <SkillPointsAvailable>13</SkillPointsAvailable>
+          <SkillPointsSpent>4</SkillPointsSpent>
           <TrainedFeat>
             <FeatName>Empower Spell</FeatName>
             <Type>Standard</Type>
@@ -9213,11 +9258,20 @@ is channeled here.</Description>
           <TrainedSkill>
             <Skill>Spellcraft</Skill>
           </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Disable Device</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Heal</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Repair</Skill>
+          </TrainedSkill>
         </LevelTraining>
         <LevelTraining>
           <Class>Arcane Trickster</Class>
           <SkillPointsAvailable>14</SkillPointsAvailable>
-          <SkillPointsSpent>1</SkillPointsSpent>
+          <SkillPointsSpent>4</SkillPointsSpent>
           <TrainedFeat>
             <FeatName>Echoing Soul </FeatName>
             <Type>Alter Dark Gift</Type>
@@ -9226,19 +9280,37 @@ is channeled here.</Description>
           <TrainedSkill>
             <Skill>Spellcraft</Skill>
           </TrainedSkill>
-        </LevelTraining>
-        <LevelTraining>
-          <Class>Arcane Trickster</Class>
-          <SkillPointsAvailable>14</SkillPointsAvailable>
-          <SkillPointsSpent>1</SkillPointsSpent>
           <TrainedSkill>
-            <Skill>Spellcraft</Skill>
+            <Skill>Disable Device</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Heal</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Repair</Skill>
           </TrainedSkill>
         </LevelTraining>
         <LevelTraining>
           <Class>Arcane Trickster</Class>
           <SkillPointsAvailable>14</SkillPointsAvailable>
-          <SkillPointsSpent>1</SkillPointsSpent>
+          <SkillPointsSpent>4</SkillPointsSpent>
+          <TrainedSkill>
+            <Skill>Spellcraft</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Disable Device</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Heal</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Repair</Skill>
+          </TrainedSkill>
+        </LevelTraining>
+        <LevelTraining>
+          <Class>Arcane Trickster</Class>
+          <SkillPointsAvailable>14</SkillPointsAvailable>
+          <SkillPointsSpent>4</SkillPointsSpent>
           <TrainedFeat>
             <FeatName>Quicken Spell</FeatName>
             <Type>Standard</Type>
@@ -9252,27 +9324,54 @@ is channeled here.</Description>
           <TrainedSkill>
             <Skill>Spellcraft</Skill>
           </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Disable Device</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Heal</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Repair</Skill>
+          </TrainedSkill>
         </LevelTraining>
         <LevelTraining>
           <Class>Arcane Trickster</Class>
           <SkillPointsAvailable>14</SkillPointsAvailable>
-          <SkillPointsSpent>1</SkillPointsSpent>
+          <SkillPointsSpent>4</SkillPointsSpent>
           <TrainedSkill>
             <Skill>Spellcraft</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Disable Device</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Heal</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Repair</Skill>
           </TrainedSkill>
         </LevelTraining>
         <LevelTraining>
           <Class>Arcane Trickster</Class>
           <SkillPointsAvailable>15</SkillPointsAvailable>
-          <SkillPointsSpent>1</SkillPointsSpent>
+          <SkillPointsSpent>4</SkillPointsSpent>
           <TrainedSkill>
             <Skill>Spellcraft</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Disable Device</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Heal</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Repair</Skill>
           </TrainedSkill>
         </LevelTraining>
         <LevelTraining>
           <Class>Arcane Trickster</Class>
           <SkillPointsAvailable>15</SkillPointsAvailable>
-          <SkillPointsSpent>2</SkillPointsSpent>
+          <SkillPointsSpent>5</SkillPointsSpent>
           <TrainedFeat>
             <FeatName>Past Life: Arcane Initiate</FeatName>
             <Type>Standard</Type>
@@ -9284,27 +9383,54 @@ is channeled here.</Description>
           <TrainedSkill>
             <Skill>Spellcraft</Skill>
           </TrainedSkill>
-        </LevelTraining>
-        <LevelTraining>
-          <Class>Arcane Trickster</Class>
-          <SkillPointsAvailable>15</SkillPointsAvailable>
-          <SkillPointsSpent>1</SkillPointsSpent>
           <TrainedSkill>
-            <Skill>Spellcraft</Skill>
+            <Skill>Disable Device</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Heal</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Repair</Skill>
           </TrainedSkill>
         </LevelTraining>
         <LevelTraining>
           <Class>Arcane Trickster</Class>
           <SkillPointsAvailable>15</SkillPointsAvailable>
-          <SkillPointsSpent>1</SkillPointsSpent>
+          <SkillPointsSpent>4</SkillPointsSpent>
           <TrainedSkill>
             <Skill>Spellcraft</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Disable Device</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Heal</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Repair</Skill>
+          </TrainedSkill>
+        </LevelTraining>
+        <LevelTraining>
+          <Class>Arcane Trickster</Class>
+          <SkillPointsAvailable>15</SkillPointsAvailable>
+          <SkillPointsSpent>4</SkillPointsSpent>
+          <TrainedSkill>
+            <Skill>Spellcraft</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Disable Device</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Heal</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Repair</Skill>
           </TrainedSkill>
         </LevelTraining>
         <LevelTraining>
           <Class>Arcane Trickster</Class>
           <SkillPointsAvailable>16</SkillPointsAvailable>
-          <SkillPointsSpent>1</SkillPointsSpent>
+          <SkillPointsSpent>4</SkillPointsSpent>
           <TrainedFeat>
             <FeatName>Extend Spell</FeatName>
             <Type>Standard</Type>
@@ -9318,27 +9444,54 @@ is channeled here.</Description>
           <TrainedSkill>
             <Skill>Spellcraft</Skill>
           </TrainedSkill>
-        </LevelTraining>
-        <LevelTraining>
-          <Class>Arcane Trickster</Class>
-          <SkillPointsAvailable>16</SkillPointsAvailable>
-          <SkillPointsSpent>1</SkillPointsSpent>
           <TrainedSkill>
-            <Skill>Spellcraft</Skill>
+            <Skill>Disable Device</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Heal</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Repair</Skill>
           </TrainedSkill>
         </LevelTraining>
         <LevelTraining>
           <Class>Arcane Trickster</Class>
           <SkillPointsAvailable>16</SkillPointsAvailable>
-          <SkillPointsSpent>1</SkillPointsSpent>
+          <SkillPointsSpent>4</SkillPointsSpent>
           <TrainedSkill>
             <Skill>Spellcraft</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Disable Device</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Heal</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Repair</Skill>
           </TrainedSkill>
         </LevelTraining>
         <LevelTraining>
           <Class>Arcane Trickster</Class>
           <SkillPointsAvailable>16</SkillPointsAvailable>
-          <SkillPointsSpent>1</SkillPointsSpent>
+          <SkillPointsSpent>4</SkillPointsSpent>
+          <TrainedSkill>
+            <Skill>Spellcraft</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Disable Device</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Heal</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Repair</Skill>
+          </TrainedSkill>
+        </LevelTraining>
+        <LevelTraining>
+          <Class>Arcane Trickster</Class>
+          <SkillPointsAvailable>16</SkillPointsAvailable>
+          <SkillPointsSpent>4</SkillPointsSpent>
           <TrainedFeat>
             <FeatName>Heighten Spell</FeatName>
             <Type>Standard</Type>
@@ -9347,27 +9500,54 @@ is channeled here.</Description>
           <TrainedSkill>
             <Skill>Spellcraft</Skill>
           </TrainedSkill>
-        </LevelTraining>
-        <LevelTraining>
-          <Class>Arcane Trickster</Class>
-          <SkillPointsAvailable>17</SkillPointsAvailable>
-          <SkillPointsSpent>1</SkillPointsSpent>
           <TrainedSkill>
-            <Skill>Spellcraft</Skill>
+            <Skill>Disable Device</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Heal</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Repair</Skill>
           </TrainedSkill>
         </LevelTraining>
         <LevelTraining>
           <Class>Arcane Trickster</Class>
           <SkillPointsAvailable>17</SkillPointsAvailable>
-          <SkillPointsSpent>1</SkillPointsSpent>
+          <SkillPointsSpent>4</SkillPointsSpent>
           <TrainedSkill>
             <Skill>Spellcraft</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Disable Device</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Heal</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Repair</Skill>
           </TrainedSkill>
         </LevelTraining>
         <LevelTraining>
           <Class>Arcane Trickster</Class>
           <SkillPointsAvailable>17</SkillPointsAvailable>
-          <SkillPointsSpent>1</SkillPointsSpent>
+          <SkillPointsSpent>4</SkillPointsSpent>
+          <TrainedSkill>
+            <Skill>Spellcraft</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Disable Device</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Heal</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Repair</Skill>
+          </TrainedSkill>
+        </LevelTraining>
+        <LevelTraining>
+          <Class>Arcane Trickster</Class>
+          <SkillPointsAvailable>17</SkillPointsAvailable>
+          <SkillPointsSpent>4</SkillPointsSpent>
           <TrainedFeat>
             <FeatName>Nimble Fingers</FeatName>
             <Type>Standard</Type>
@@ -9381,21 +9561,45 @@ is channeled here.</Description>
           <TrainedSkill>
             <Skill>Spellcraft</Skill>
           </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Disable Device</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Heal</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Repair</Skill>
+          </TrainedSkill>
         </LevelTraining>
         <LevelTraining>
           <Class>Arcane Trickster</Class>
           <SkillPointsAvailable>17</SkillPointsAvailable>
-          <SkillPointsSpent>1</SkillPointsSpent>
+          <SkillPointsSpent>4</SkillPointsSpent>
           <TrainedSkill>
             <Skill>Spellcraft</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Disable Device</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Heal</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Repair</Skill>
           </TrainedSkill>
         </LevelTraining>
         <LevelTraining>
           <Class>Arcane Trickster</Class>
           <SkillPointsAvailable>18</SkillPointsAvailable>
-          <SkillPointsSpent>1</SkillPointsSpent>
+          <SkillPointsSpent>3</SkillPointsSpent>
           <TrainedSkill>
             <Skill>Spellcraft</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Disable Device</Skill>
+          </TrainedSkill>
+          <TrainedSkill>
+            <Skill>Repair</Skill>
           </TrainedSkill>
         </LevelTraining>
         <LevelTraining>
@@ -9528,6 +9732,31 @@ is channeled here.</Description>
             <LevelTrainedAt>33</LevelTrainedAt>
           </TrainedFeat>
         </LevelTraining>
+        <TrainedSpell>
+          <Class>Arcane Trickster</Class>
+          <Level>1</Level>
+          <SpellName>Magic Missile</SpellName>
+        </TrainedSpell>
+        <TrainedSpell>
+          <Class>Arcane Trickster</Class>
+          <Level>2</Level>
+          <SpellName>Scorching Ray</SpellName>
+        </TrainedSpell>
+        <TrainedSpell>
+          <Class>Arcane Trickster</Class>
+          <Level>3</Level>
+          <SpellName>Chain Missiles</SpellName>
+        </TrainedSpell>
+        <TrainedSpell>
+          <Class>Arcane Trickster</Class>
+          <Level>3</Level>
+          <SpellName>Frost Lance</SpellName>
+        </TrainedSpell>
+        <TrainedSpell>
+          <Class>Arcane Trickster</Class>
+          <Level>4</Level>
+          <SpellName>Force Missiles</SpellName>
+        </TrainedSpell>
         <ActiveStances>
           <Stances>Cloth Armor</Stances>
           <Stances>True Neutral</Stances>
@@ -10653,7 +10882,7 @@ This Celestial pendant seems to glow with holy light.</Description>
             </ItemAugment>
             <ItemAugment>
               <Type>Sun</Type>
-              <SelectedAugment>Solar Gem of Spellpower (Heroic)</SelectedAugment>
+              <SelectedAugment>Solar Gem of Spellpower (Legendary)</SelectedAugment>
               <SelectedLevelIndex>0</SelectedLevelIndex>
             </ItemAugment>
             <ItemAugment>
@@ -10823,7 +11052,7 @@ sewn to allow the free flow of spellcasting.</Description>
             </ItemAugment>
             <ItemAugment>
               <Type>Moon</Type>
-              <SelectedAugment>Lunar Gem of Ranged Power (Legendary)</SelectedAugment>
+              <SelectedAugment>Lunar Gem of Spellpower (Legendary)</SelectedAugment>
               <SelectedLevelIndex>0</SelectedLevelIndex>
             </ItemAugment>
             <ItemAugment>
@@ -11332,7 +11561,6 @@ is channeled here.</Description>
           </Filigree>
           <Filigree>
             <Name>Elemental Avatar: +9 Acid Spell Power</Name>
-            <Rare/>
           </Filigree>
           <Filigree>
             <Name>Elemental Avatar: +9 Cold Spell Power</Name>

@@ -1,35 +1,112 @@
-import { useState } from 'react';
+import { useState, type ReactNode } from 'react';
 import { useBreakdowns } from '@/hooks/useBreakdowns';
 import { StancesPicker } from './StancesPicker';
 import type { BreakdownResult } from '@/engine/bonusStacking';
+import skillsJson from '@/data/skills.json';
+import type { Skill } from '@/types/gameData';
 import styles from './BreakdownsTab.module.css';
+
+const ALL_SKILLS = skillsJson as unknown as Skill[];
+
+// ── Collapsible section wrapper ─────────────────────────────────────────
+
+interface SectionProps {
+  title: string;
+  children: ReactNode;
+  defaultOpen?: boolean;
+}
+
+function Section({ title, children, defaultOpen = true }: SectionProps) {
+  const [open, setOpen] = useState(defaultOpen);
+  return (
+    <section className={styles.section}>
+      <button
+        className={styles.sectionHeader}
+        onClick={() => setOpen(o => !o)}
+        aria-expanded={open}
+      >
+        <span className={open ? styles.sectionChevronOpen : styles.sectionChevron}>▸</span>
+        <span className={styles.sectionTitle}>{title}</span>
+      </button>
+      {open && <div className={styles.sectionBody}>{children}</div>}
+    </section>
+  );
+}
+
+// ── Single breakdown row ────────────────────────────────────────────────
 
 interface RowProps {
   label: string;
   result: BreakdownResult;
 }
 
+function fmtValue(c: { value: number; isPercent?: boolean }, flatSubtotal: number): string {
+  if (c.isPercent) {
+    const flat = Math.round(flatSubtotal * c.value / 100);
+    const sign = c.value >= 0 ? '+' : '';
+    const flatSign = flat >= 0 ? '+' : '';
+    return `${sign}${c.value}% (${flatSign}${flat})`;
+  }
+  return c.value > 0 ? `+${c.value}` : `${c.value}`;
+}
+
+function ContributorTables({ result }: { result: BreakdownResult }) {
+  const applied = result.contributors.filter(c => c.applied);
+  const dominated = result.contributors.filter(c => !c.applied);
+  const flatSubtotal = applied.filter(c => !c.isPercent).reduce((s, c) => s + c.value, 0);
+
+  return (
+    <>
+      {applied.length === 0 && dominated.length === 0 && (
+        <div className={styles.emptyContrib}>No contributors yet (effect sources still being implemented).</div>
+      )}
+      {applied.length > 0 && (
+        <table className={styles.table}>
+          <thead>
+            <tr>
+              <th>Source</th>
+              <th>Type</th>
+              <th>Target</th>
+              <th className={styles.numCol}>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            {applied.map((c, i) => (
+              <tr key={`a-${i}`}>
+                <td>{c.source}</td>
+                <td>{c.bonusType || <span className={styles.muted}>untyped</span>}</td>
+                <td>{c.target ?? ''}</td>
+                <td className={styles.numCol}>{fmtValue(c, flatSubtotal)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
+      {dominated.length > 0 && (
+        <details className={styles.dominated}>
+          <summary>{dominated.length} dominated bonus{dominated.length === 1 ? '' : 'es'}</summary>
+          <table className={styles.table}>
+            <tbody>
+              {dominated.map((c, i) => (
+                <tr key={`d-${i}`} className={styles.dominatedRow}>
+                  <td>{c.source}</td>
+                  <td>{c.bonusType}</td>
+                  <td className={styles.numCol}>{fmtValue(c, flatSubtotal)}</td>
+                  <td className={styles.muted}>← dominated by {c.dominatedBy ?? 'unknown'}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </details>
+      )}
+    </>
+  );
+}
+
 function Row({ label, result }: RowProps) {
   const [open, setOpen] = useState(false);
   const applied = result.contributors.filter(c => c.applied);
   const dominated = result.contributors.filter(c => !c.applied);
-
-  // Flat subtotal = sum of all *applied non-percent* bonuses. Percent
-  // contributions display as "+X% (+Y)" where Y = round(flatSubtotal × X/100).
-  // This matches stackBonuses' calc and lets users see both the % and the
-  // actual flat HP delta a percent buff contributes.
-  const flatSubtotal = applied
-    .filter(c => !c.isPercent)
-    .reduce((s, c) => s + c.value, 0);
-  const fmtValue = (c: { value: number; isPercent?: boolean }): string => {
-    if (c.isPercent) {
-      const flat = Math.round(flatSubtotal * c.value / 100);
-      const sign = c.value >= 0 ? '+' : '';
-      const flatSign = flat >= 0 ? '+' : '';
-      return `${sign}${c.value}% (${flatSign}${flat})`;
-    }
-    return c.value > 0 ? `+${c.value}` : `${c.value}`;
-  };
 
   return (
     <div className={styles.row}>
@@ -47,53 +124,63 @@ function Row({ label, result }: RowProps) {
       </button>
       {open && (
         <div className={styles.body}>
-          {applied.length === 0 && dominated.length === 0 && (
-            <div className={styles.emptyContrib}>No contributors yet (effect sources still being implemented).</div>
-          )}
-          {applied.length > 0 && (
-            <table className={styles.table}>
-              <thead>
-                <tr>
-                  <th>Source</th>
-                  <th>Type</th>
-                  <th>Target</th>
-                  <th className={styles.numCol}>Value</th>
-                </tr>
-              </thead>
-              <tbody>
-                {applied.map((c, i) => (
-                  <tr key={`a-${i}`}>
-                    <td>{c.source}</td>
-                    <td>{c.bonusType || <span className={styles.muted}>untyped</span>}</td>
-                    <td>{c.target ?? ''}</td>
-                    <td className={styles.numCol}>{fmtValue(c)}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          )}
-          {dominated.length > 0 && (
-            <details className={styles.dominated}>
-              <summary>{dominated.length} dominated bonus{dominated.length === 1 ? '' : 'es'}</summary>
-              <table className={styles.table}>
-                <tbody>
-                  {dominated.map((c, i) => (
-                    <tr key={`d-${i}`} className={styles.dominatedRow}>
-                      <td>{c.source}</td>
-                      <td>{c.bonusType}</td>
-                      <td className={styles.numCol}>{fmtValue(c)}</td>
-                      <td className={styles.muted}>← dominated by {c.dominatedBy ?? 'unknown'}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </details>
-          )}
+          <ContributorTables result={result} />
         </div>
       )}
     </div>
   );
 }
+
+// ── Combined per-element row: power / crit / crit-damage in one ────────
+
+interface CombinedSpellRowProps {
+  element: string;
+  power: BreakdownResult;
+  critChance: BreakdownResult;
+  critDamage: BreakdownResult;
+}
+
+function CombinedSpellRow({ element, power, critChance, critDamage }: CombinedSpellRowProps) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div className={styles.row}>
+      <button
+        className={styles.rowHeaderCombined}
+        onClick={() => setOpen(o => !o)}
+        aria-expanded={open}
+      >
+        <span className={open ? styles.chevronOpen : styles.chevron}>▸</span>
+        <span className={styles.label}>{element} Spell Power</span>
+        <span className={styles.combinedTotals}>
+          <span className={styles.total}>{power.total}</span>
+          <span className={styles.combinedSep}>/</span>
+          <span className={styles.combinedTotal}>{critChance.total}% Crit</span>
+          <span className={styles.combinedSep}>/</span>
+          <span className={styles.combinedTotal}>{critDamage.total}% Crit Dmg</span>
+        </span>
+      </button>
+      {open && (
+        <div className={styles.body}>
+          <div className={styles.subBreakdown}>
+            <h4 className={styles.subHeading}>Spell Power</h4>
+            <ContributorTables result={power} />
+          </div>
+          <div className={styles.subBreakdown}>
+            <h4 className={styles.subHeading}>Critical Chance</h4>
+            <ContributorTables result={critChance} />
+          </div>
+          <div className={styles.subBreakdown}>
+            <h4 className={styles.subHeading}>Critical Damage</h4>
+            <ContributorTables result={critDamage} />
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ── Tab ─────────────────────────────────────────────────────────────────
 
 export function BreakdownsTab() {
   const r = useBreakdowns();
@@ -103,19 +190,25 @@ export function BreakdownsTab() {
   }
 
   const {
-    abilityScores, hitPoints, saves,
+    abilityScores, hitPoints, spellPoints, saves,
     meleePower, rangedPower, doublestrike, doubleshot,
     meleeSpeed, rangedSpeed,
     healingAmp, negativeHealingAmp, repairAmp,
     ac, dodge, prr, mrr, spellResistance,
     arcaneSpellFailure,
     spellDCs, spellPenetration, casterLevel,
+    universalSpellPower, universalSpellCriticalChance, universalSpellCriticalDamage,
     spellPowers, spellCriticalChance, spellCriticalDamage,
+    skills,
     diagnostics,
   } = r;
   const SPELL_DAMAGE_TYPES = [
-    'Fire','Cold','Electric','Acid','Sonic','Force',
-    'Light/Alignment','Negative','Poison','Positive','Repair','Rust',
+    'Acid','Chaos','Cold','Electric','Evil','Fire','Force','Light/Alignment',
+    'Negative','Poison','Positive','Repair','Sonic',
+  ] as const;
+  const SPELL_SCHOOLS = [
+    'Abjuration','Conjuration','Divination','Enchantment',
+    'Evocation','Illusion','Necromancy','Transmutation',
   ] as const;
 
   return (
@@ -127,16 +220,18 @@ export function BreakdownsTab() {
 
       <StancesPicker />
 
-      <section className={styles.section}>
-        <h3 className={styles.heading}>Ability Scores</h3>
+      <Section title="General">
+        <Row label="Hit Points"   result={hitPoints} />
+        <Row label="Spell Points" result={spellPoints} />
+      </Section>
+
+      <Section title="Ability Scores">
         {(['STR','DEX','CON','INT','WIS','CHA'] as const).map(s => (
           <Row key={s} label={s} result={abilityScores[s]} />
         ))}
-      </section>
+      </Section>
 
-      <section className={styles.section}>
-        <h3 className={styles.heading}>Defenses</h3>
-        <Row label="Hit Points"            result={hitPoints} />
+      <Section title="Defenses">
         <Row label="Fortitude"             result={saves.Fortitude} />
         <Row label="Reflex"                result={saves.Reflex} />
         <Row label="Will"                  result={saves.Will} />
@@ -148,60 +243,57 @@ export function BreakdownsTab() {
         <Row label="Healing Amp (Positive)" result={healingAmp} />
         <Row label="Healing Amp (Negative)" result={negativeHealingAmp} />
         <Row label="Healing Amp (Repair)"   result={repairAmp} />
-      </section>
+      </Section>
 
-      <section className={styles.section}>
-        <h3 className={styles.heading}>Melee Combat</h3>
+      <Section title="Melee Combat">
         <Row label="Melee Power"   result={meleePower} />
         <Row label="Doublestrike"  result={doublestrike} />
         <Row label="Melee Combat Speed" result={meleeSpeed} />
-      </section>
+      </Section>
 
-      <section className={styles.section}>
-        <h3 className={styles.heading}>Ranged Combat</h3>
+      <Section title="Ranged Combat">
         <Row label="Ranged Power"  result={rangedPower} />
         <Row label="Doubleshot"    result={doubleshot} />
         <Row label="Ranged Combat Speed" result={rangedSpeed} />
-      </section>
+      </Section>
 
-      <section className={styles.section}>
-        <h3 className={styles.heading}>Spellcasting</h3>
+      <Section title="Spellcasting">
         <Row label="Caster Level"        result={casterLevel} />
         <Row label="Spell Penetration"   result={spellPenetration} />
         <Row label="Arcane Spell Failure" result={arcaneSpellFailure} />
-      </section>
-
-      <section className={styles.section}>
-        <h3 className={styles.heading}>Spell DCs</h3>
-        {(['Abjuration','Conjuration','Divination','Enchantment','Evocation','Illusion','Necromancy','Transmutation'] as const).map(school => (
-          <Row key={school} label={school} result={spellDCs[school]} />
+        {SPELL_SCHOOLS.map(school => (
+          <Row key={school} label={`${school} DC`} result={spellDCs[school]} />
         ))}
-      </section>
+      </Section>
 
-      <section className={styles.section}>
-        <h3 className={styles.heading}>Spell Power</h3>
+      <Section title="Skills" defaultOpen={false}>
+        {ALL_SKILLS.map(skill => {
+          const r = skills[skill.id];
+          if (!r) return null;
+          return <Row key={skill.id} label={skill.name} result={r} />;
+        })}
+      </Section>
+
+      <Section title="Spell Damage">
         {SPELL_DAMAGE_TYPES.map(t => (
-          <Row key={`pow-${t}`} label={`${t} Spell Power`} result={spellPowers[t]} />
+          <CombinedSpellRow
+            key={t}
+            element={t}
+            power={spellPowers[t]}
+            critChance={spellCriticalChance[t]}
+            critDamage={spellCriticalDamage[t]}
+          />
         ))}
-      </section>
+        <CombinedSpellRow
+          element="Universal"
+          power={universalSpellPower}
+          critChance={universalSpellCriticalChance}
+          critDamage={universalSpellCriticalDamage}
+        />
+      </Section>
 
-      <section className={styles.section}>
-        <h3 className={styles.heading}>Spell Critical Chance</h3>
-        {SPELL_DAMAGE_TYPES.map(t => (
-          <Row key={`crit-${t}`} label={`${t} Crit Chance`} result={spellCriticalChance[t]} />
-        ))}
-      </section>
-
-      <section className={styles.section}>
-        <h3 className={styles.heading}>Spell Critical Damage</h3>
-        {SPELL_DAMAGE_TYPES.map(t => (
-          <Row key={`crd-${t}`} label={`${t} Crit Damage`} result={spellCriticalDamage[t]} />
-        ))}
-      </section>
-
-      <section className={styles.diagnostics}>
-        <h3 className={styles.heading}>Diagnostics</h3>
-        <dl>
+      <Section title="Diagnostics" defaultOpen={false}>
+        <dl className={styles.diagnosticsDl}>
           <dt>Sourced effects</dt><dd>{diagnostics.totalSourcedEffects}</dd>
           <dt>Applied bonuses</dt><dd>{diagnostics.totalAppliedBonuses}</dd>
           <dt>Requirements failed</dt><dd>{diagnostics.requirementsFailedCount}</dd>
@@ -221,7 +313,7 @@ export function BreakdownsTab() {
             </>
           )}
         </dl>
-      </section>
+      </Section>
     </div>
   );
 }

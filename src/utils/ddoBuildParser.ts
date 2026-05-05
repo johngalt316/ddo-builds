@@ -2,6 +2,7 @@ import type {
   Build, ClassLevel, SelectedFeat, EnhancementSelection, Alignment, Stat,
   GearSet, GearItem, GearBuff, GearSlot,
 } from '@/types/build';
+import { skillNameToId } from './classAdapter';
 
 const xmlParser = new DOMParser();
 
@@ -79,6 +80,30 @@ function toId(name: string): string {
   return name.toLowerCase().replace(/[\s']+/g, '_').replace(/-/g, '_');
 }
 
+/**
+ * Manual data patches for items whose buff values in the `.DDOBuild` (and
+ * upstream wiki/XML data) don't match in-game behavior. Each entry is keyed
+ * by the item name and mutates the parsed `GearBuff[]` in place.
+ *
+ * Tracked in `docs/DATA_PATCHES.md` so we can eventually file upstream bugs.
+ */
+const ITEM_BUFF_PATCHES: Record<string, (buffs: GearBuff[]) => void> = {
+  // Driftwood (offhand Rune Arm): the upstream data lists the Quality Impulse
+  // bonus at +36, but in-game it's actually +31.
+  'Driftwood': buffs => {
+    for (const b of buffs) {
+      if (b.type === 'Impulse' && b.bonusType === 'Quality' && b.value1 === 36) {
+        b.value1 = 31;
+      }
+    }
+  },
+};
+
+function applyItemBuffPatches(itemName: string, buffs: GearBuff[]): void {
+  const patch = ITEM_BUFF_PATCHES[itemName];
+  if (patch) patch(buffs);
+}
+
 // ── Public API ─────────────────────────────────────────────────────────────────
 
 export interface DDOBuildImport {
@@ -87,7 +112,20 @@ export interface DDOBuildImport {
   warnings: string[];
 }
 
-export function parseDDOBuildFile(xmlText: string): DDOBuildImport | null {
+/**
+ * Optional context passed by callers that have access to game data. Used to
+ * convert raw skill-point spend (each `<TrainedSkill>` entry = 1 SP) into
+ * actual ranks: class skills cost 1 SP/rank, cross-class skills cost 2 SP/rank.
+ * When omitted, every entry is counted as 1 rank (legacy behavior — overcounts
+ * cross-class skills by 2×, but harmless for builds that only train class skills).
+ */
+export interface ParseOptions {
+  /** Map of classId → list of class skill IDs. Caller derives this from the
+   *  loaded class catalog. */
+  classSkillsByClassId?: Record<string, string[]>;
+}
+
+export function parseDDOBuildFile(xmlText: string, options?: ParseOptions): DDOBuildImport | null {
   const stripped = xmlText.charCodeAt(0) === 0xFEFF ? xmlText.slice(1) : xmlText;
   const doc = xmlParser.parseFromString(stripped, 'application/xml');
   if (doc.querySelector('parsererror')) return null;
@@ -150,10 +188,16 @@ export function parseDDOBuildFile(xmlText: string): DDOBuildImport | null {
   const skillTomes: Record<string, number> = {};
   const skillTomesEl = firstElemChild(character, 'SkillTomes');
   if (skillTomesEl) {
-    for (const t of elemChildren(skillTomesEl, 'Tome')) {
-      const name = textOf(t, 'Name');
-      const value = numOf(t, 'Value');
-      if (name && value > 0) skillTomes[toId(name)] = value;
+    // The XML stores tomes as direct child tags named after the skill, e.g.
+    // `<SkillTomes><DisableDevice>5</DisableDevice><UMD>3</UMD>…</SkillTomes>`.
+    // Iterate every element child and let `skillNameToId` map the tag name
+    // (DisableDevice, MoveSilently, UMD, …) to our canonical skill ids.
+    for (let i = 0; i < skillTomesEl.childNodes.length; i++) {
+      const node = skillTomesEl.childNodes[i];
+      if (!node || node.nodeType !== 1) continue;
+      const el = node as Element;
+      const value = parseInt(el.textContent?.trim() ?? '0', 10) || 0;
+      if (value > 0) skillTomes[skillNameToId(el.tagName)] = value;
     }
   }
 
@@ -265,15 +309,52 @@ export function parseDDOBuildFile(xmlText: string): DDOBuildImport | null {
   const specialFeats = [...specialFeatRanks.values()];
 
   // ── Skill Ranks ─────────────────────────────────────────────────────────────
-  // Each TrainedSkill entry inside LevelTraining represents 1 rank spent in that skill.
-  const skillRanks: Record<string, number> = {};
+  // Each `<TrainedSkill>` entry inside LevelTraining represents 1 SKILL POINT
+  // spent in that skill. To convert SP → ranks: class skills are 1 SP/rank,
+  // cross-class skills are 2 SP/rank (so spending 22 SP on a cross-class skill
+  // gives 11 ranks). We need the build's classes' class-skill lists to know
+  // which is which — passed in via `options.classSkillsByClassId`. When the
+  // option isn't provided we fall back to "1 SP = 1 rank" (overcounts cross-
+  // class but preserves legacy behavior).
+  const skillSp: Record<string, number> = {};
   for (const lt of levelTrainings) {
     for (const ts of elemChildren(lt, 'TrainedSkill')) {
       const skill = textOf(ts, 'Skill');
       if (!skill) continue;
-      const id = toId(skill);
-      skillRanks[id] = (skillRanks[id] ?? 0) + 1;
+      const id = skillNameToId(skill);
+      skillSp[id] = (skillSp[id] ?? 0) + 1;
     }
+  }
+  const skillRanks: Record<string, number> = {};
+  if (options?.classSkillsByClassId) {
+    // Union of class skills across every class the build has any levels in.
+    const accessibleClassSkills = new Set<string>();
+    for (const c of classes) {
+      for (const s of options.classSkillsByClassId[c.classId] ?? []) {
+        accessibleClassSkills.add(s);
+      }
+    }
+    for (const [id, sp] of Object.entries(skillSp)) {
+      skillRanks[id] = accessibleClassSkills.has(id) ? sp : sp / 2;
+    }
+  } else {
+    for (const [id, sp] of Object.entries(skillSp)) skillRanks[id] = sp;
+  }
+
+  // ── Trained Spells ─────────────────────────────────────────────────────────
+  // <TrainedSpell> blocks are siblings of <LevelTraining>, one per trained
+  // spell slot (class + spell level + spell name). Group into the
+  // Record<className, Record<spellLevel, string[]>> shape `Build.trainedSpells`
+  // expects. Empty when nothing is trained.
+  const trainedSpells: Record<string, Record<string, string[]>> = {};
+  for (const ts of elemChildren(build, 'TrainedSpell')) {
+    const className = textOf(ts, 'Class');
+    const level     = textOf(ts, 'Level');
+    const spellName = textOf(ts, 'SpellName');
+    if (!className || !level || !spellName) continue;
+    const byLevel = trainedSpells[className] ??= {};
+    const list    = byLevel[level] ??= [];
+    list.push(spellName);
   }
 
   // ── Enhancements ────────────────────────────────────────────────────────────
@@ -322,6 +403,7 @@ export function parseDDOBuildFile(xmlText: string): DDOBuildImport | null {
     const itemName = textOf(slotEl, 'Name');
     if (!itemName) return null;
     const buffs: GearBuff[] = elemChildren(slotEl, 'Buff').map(parseBuff);
+    applyItemBuffPatches(itemName, buffs);
     const augmentSlots = elemChildren(slotEl, 'ItemAugment').map(aug => {
       const sel = textOf(aug, 'SelectedAugment');
       const lvl = numOf(aug, 'SelectedLevelIndex');
@@ -446,6 +528,7 @@ export function parseDDOBuildFile(xmlText: string): DDOBuildImport | null {
       skillTomes,
       levelUps,
       specialFeats,
+      ...(Object.keys(trainedSpells).length > 0 && { trainedSpells }),
       ...(epicLevels > 0 && { epicLevels }),
       ...((() => {
         const gl = numOf(character, 'GuildLevel');

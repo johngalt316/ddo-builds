@@ -13,7 +13,7 @@ import { SpecialFeatsTab } from '@/components/build/SpecialFeatsTab';
 import { SpellsTab } from '@/components/build/SpellsTab';
 import { BreakdownsTab } from '@/components/build/BreakdownsTab';
 import { BuildSection } from '@/components/build/BuildSection';
-import { StatsSection } from '@/components/stats/StatsSection';
+import { DPSCalculatorPanel } from '@/components/dps/DPSCalculatorPanel';
 import { GearSection } from '@/components/gear/GearSection';
 import { Tabs } from '@/components/ui/Tabs';
 import { Button } from '@/components/ui/Button';
@@ -73,8 +73,8 @@ export function BuildEditor() {
         </div>
       </div>
 
-      {/* ── Stats (always visible at top) ── */}
-      <StatsSection />
+      {/* ── DPS Calculator (always visible at top) ── */}
+      <DPSCalculatorPanel />
 
       {/* ── Build (collapsible) ── */}
       <BuildSection>

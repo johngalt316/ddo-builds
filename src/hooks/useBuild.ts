@@ -57,6 +57,16 @@ export function useBuild() {
   // Score build pipeline: base → race → tomes → level-ups → effective.
   // Engine's stance/feat/etc. effects layer on top of this in runEngine,
   // which reads `effectiveScores` as the seed for AbilityScore breakdowns.
+  const charLevel = useMemo(
+    () => characterLevel(build.classes),
+    [build.classes],
+  );
+
+  // Level-up filter uses TOTAL level (heroic + epic) since the +1-per-tier
+  // entries can be at any of 4/8/.../40 — entries past the actual cap shouldn't
+  // count. `charLevel` itself remains heroic-only for downstream consumers.
+  const totalCharLevel = charLevel + (build.epicLevels ?? 0);
+
   const effectiveScores = useMemo(
     () => applyLevelUps(
       applyAbilityTomes(
@@ -64,13 +74,9 @@ export function useBuild() {
         build.abilityTomes,
       ),
       build.levelUps,
+      totalCharLevel,
     ),
-    [build.abilityScores, race, build.abilityTomes, build.levelUps],
-  );
-
-  const charLevel = useMemo(
-    () => characterLevel(build.classes),
-    [build.classes],
+    [build.abilityScores, race, build.abilityTomes, build.levelUps, totalCharLevel],
   );
 
   const bab = useMemo(

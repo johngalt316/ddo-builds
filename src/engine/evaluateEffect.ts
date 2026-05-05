@@ -217,6 +217,14 @@ export function evaluateEffect(
     return { bonuses: [], skipped: 'unmodeled-amount-type', unmodeledAmountType: amountType };
   }
 
+  // `<Rank>N</Rank>` gating: skip the effect when fewer ranks than its
+  // minimum threshold are taken. Used by multi-rank enhancements where a
+  // specific rider only fires at a higher rank (e.g. Storm Core's spell-
+  // power piece at rank 3).
+  if (effect.minRank !== undefined && rankCount < effect.minRank) {
+    return { bonuses: [], skipped: 'requirements-failed' };
+  }
+
   if (!passesRequirements(effect.requirements, ctx)) {
     return { bonuses: [], skipped: 'requirements-failed' };
   }
@@ -235,8 +243,14 @@ export function evaluateEffect(
   //    Power at level 34 reads amount[33]=15 per stack × 3 stacks = 45 HP.
   //  - Stacks / AbilityMod / BAB / ClassLevel / etc.: amount already
   //    encodes the value for the current rank/stat — don't multiply.
+  //
+  // `<Rank>N</Rank>` overrides the per-rank multiplier: the effect is a
+  // fixed rider that fires *once* when rank N is reached (e.g. Storm Core
+  // grants +5 USP at rank 3 — not 5×3).
   const isPerRank = amountType === 'Simple' || amountType === 'NotNeeded' || amountType === 'TotalLevel';
-  const value = isPerRank ? baseValue * rankCount : baseValue;
+  const value = isPerRank && effect.minRank === undefined
+    ? baseValue * rankCount
+    : baseValue;
 
   // Cardinality: emit one Bonus per (type, item) pair. If items is empty,
   // emit one Bonus per type with no target.

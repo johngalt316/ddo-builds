@@ -24,6 +24,7 @@ import {
   parseFiligreesXml, parseGuildBuffsXml,
 } from '@/utils/ddoXmlParser';
 import { runEngine } from '@/engine/runEngine';
+import { nameToId, skillNameToId } from '@/utils/classAdapter';
 import type { Build } from '@/types/build';
 import type { BreakdownResult } from '@/engine/bonusStacking';
 import type { DDOClassData, DDORaceData, DDOFeatData, EnhancementTreeData, ItemBuffCatalog, DDOAugmentData, DDOFiligreeData, DDOFiligreeSetBonus } from '@/types/ddoData';
@@ -116,9 +117,9 @@ function loadGameData() {
   };
 }
 
-function loadBuild(filename: string): Build {
+function loadBuild(filename: string, classSkillsByClassId?: Record<string, string[]>): Build {
   const xml = readFileSync(resolve(FIXTURES, filename), 'utf8');
-  const result = parseDDOBuildFile(xml);
+  const result = parseDDOBuildFile(xml, { classSkillsByClassId });
   if (!result) throw new Error(`parseDDOBuildFile returned null for ${filename}`);
   return result.build;
 }
@@ -172,6 +173,9 @@ function engineSummary(build: Build, gameData: ReturnType<typeof loadGameData>) 
     spellDCs: Object.fromEntries(
       Object.entries(r.spellDCs).map(([k, v]) => [k, summarizeBreakdown(v)]),
     ),
+    universalSpellPower: summarizeBreakdown(r.universalSpellPower),
+    universalSpellCriticalChance: summarizeBreakdown(r.universalSpellCriticalChance),
+    universalSpellCriticalDamage: summarizeBreakdown(r.universalSpellCriticalDamage),
     spellPowers: Object.fromEntries(
       Object.entries(r.spellPowers).map(([k, v]) => [k, summarizeBreakdown(v)]),
     ),
@@ -181,9 +185,13 @@ function engineSummary(build: Build, gameData: ReturnType<typeof loadGameData>) 
     spellCriticalDamage: Object.fromEntries(
       Object.entries(r.spellCriticalDamage).map(([k, v]) => [k, summarizeBreakdown(v)]),
     ),
+    skills: Object.fromEntries(
+      Object.entries(r.skills).map(([k, v]) => [k, summarizeBreakdown(v)]),
+    ),
     slas: r.slas.map(s => ({
       name: s.name, castingClass: s.castingClass, category: s.category,
       cost: s.cost, maxCasterLevel: s.maxCasterLevel, cooldown: s.cooldown,
+      charges: s.charges,
       source: s.source,
     })),
   };
@@ -192,6 +200,13 @@ function engineSummary(build: Build, gameData: ReturnType<typeof loadGameData>) 
 describe('runEngine snapshots', () => {
   // Load game data once per test file; it's shared and stable.
   const gameData = loadGameData();
+
+  // Build the classSkillsByClassId lookup for the parser so cross-class skill
+  // SP gets correctly halved into rank counts.
+  const classSkillsByClassId: Record<string, string[]> = {};
+  for (const c of gameData.classes) {
+    classSkillsByClassId[nameToId(c.name)] = c.classSkills.map(skillNameToId);
+  }
 
   const cases: { name: string; fixture: string; snapshot: string }[] = [
     { name: 'kemton',   fixture: 'kemton.DDOBuild',                       snapshot: 'kemton.engine.snap.json' },
@@ -202,7 +217,7 @@ describe('runEngine snapshots', () => {
 
   for (const c of cases) {
     it(`${c.name} engine output is stable`, async () => {
-      const build = loadBuild(c.fixture);
+      const build = loadBuild(c.fixture, classSkillsByClassId);
       const summary = engineSummary(build, gameData);
       await expect(JSON.stringify(summary, null, 2))
         .toMatchFileSnapshot(resolve(SNAPSHOTS, c.snapshot));

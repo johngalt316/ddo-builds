@@ -24,10 +24,19 @@ import {
   breakdownMeleeSpeed, breakdownRangedSpeed,
   breakdownArcaneSpellFailure,
   breakdownSpellPower, breakdownSpellCriticalChance, breakdownSpellCriticalDamage,
+  breakdownUniversalSpellPower,
+  breakdownUniversalSpellCriticalChance, breakdownUniversalSpellCriticalDamage,
+  breakdownSpellPoints,
   breakdownSpellDC, breakdownSpellPenetration, breakdownCasterLevel,
+  breakdownSpellCooldownReduction,
+  breakdownSkill,
   SPELL_SCHOOLS, SPELL_DAMAGE_TYPES, type SpellSchool, type SpellDamageType,
 } from './breakdowns';
+import skillsJson from '@/data/skills.json';
+import type { Skill } from '@/types/gameData';
+const ALL_SKILLS = skillsJson as unknown as Skill[];
 import { abilityModifier } from './abilityScores';
+import { lookupSlaChargePatch } from './dps/slaCharges';
 import type { Stat } from '@/types/build';
 
 /**
@@ -54,6 +63,10 @@ export interface CollectedSLA {
   maxCasterLevel: number;
   /** Cooldown in seconds between casts (Amount[3]). */
   cooldown: number;
+  /** Per-rest charges. 0 means unlimited. Sourced from Amount[0] when set,
+   *  otherwise from `SLA_CHARGE_PATCHES` for SLAs whose granting effect
+   *  doesn't carry the value. */
+  charges: number;
   /** Where it came from — full source label including prefix. */
   source: string;
   /** Bucketed source category, derived from the source-label prefix. Used
@@ -113,6 +126,12 @@ export interface EngineResult {
   spellDCs: Record<SpellSchool, BreakdownResult>;
   spellPenetration: BreakdownResult;
   casterLevel: BreakdownResult;
+  spellPoints: BreakdownResult;
+  spellCooldownReduction: BreakdownResult;
+  universalSpellPower: BreakdownResult;
+  universalSpellCriticalChance: BreakdownResult;
+  universalSpellCriticalDamage: BreakdownResult;
+  skills: Record<string, BreakdownResult>;
   spellPowers: Record<SpellDamageType, BreakdownResult>;
   spellCriticalChance: Record<SpellDamageType, BreakdownResult>;
   spellCriticalDamage: Record<SpellDamageType, BreakdownResult>;
@@ -172,13 +191,18 @@ export function runEngine(input: RunEngineInput): EngineResult {
     engineRaces.find(r => r.name.toLowerCase() === build.raceId.replace(/_/g, ' ')) ??
     engineRaces[0];
 
-  // Score pipeline mirrors useBuild: base → race → tomes → level-ups.
+  // Score pipeline mirrors useBuild: base → race → tomes → level-ups. The
+  // level-up filter is gated on total character level (heroic + epic) so
+  // build entries pre-assigned past the current cap (36/40 today) don't fire.
+  const seedTotalLevel = build.classes.reduce((s, c) => s + c.levels, 0)
+                       + (build.epicLevels ?? 0);
   const effectiveScores = applyLevelUps(
     applyAbilityTomes(
       race ? applyRacialBonuses(build.abilityScores, race) : { ...build.abilityScores },
       build.abilityTomes,
     ),
     build.levelUps,
+    seedTotalLevel,
   );
 
   const seedBab = calculateBAB(build.classes, engineClasses);
@@ -222,16 +246,23 @@ export function runEngine(input: RunEngineInput): EngineResult {
   for (const { effect, source, rankCount } of sourced) {
     const isSLA = effect.types.includes('SpellLikeAbility');
     if (isSLA) {
-      // Item[0] = spell name; Item[1] = casting class. Amount[1..3] = cost,
-      // maxCasterLevel, cooldown. Amount[0] is reserved/unused upstream.
+      // Item[0] = spell name; Item[1] = casting class. Amount[0] = per-rest
+      // charges (when the effect bothers to set it — most don't), Amount[1..3]
+      // = cost, maxCasterLevel, cooldown. When the effect ships with
+      // `<Amount>0 0 0 0</Amount>` (common for past-life-granted SLAs), we
+      // fall back to the manual `SLA_CHARGE_PATCHES` table so e.g. Past
+      // Life: Arcane Initiate's Magic Missile correctly reports 10 charges.
       const name = effect.items?.[0] ?? '';
       if (name) {
+        const chargesRaw = effect.amount?.[0] ?? 0;
+        const charges = chargesRaw > 0 ? chargesRaw : lookupSlaChargePatch(source, name);
         slas.push({
           name,
           castingClass: resolveSLACastingClass(effect.items?.[1] ?? '', source),
           cost:           effect.amount?.[1] ?? 0,
           maxCasterLevel: effect.amount?.[2] ?? 0,
           cooldown:       effect.amount?.[3] ?? 0,
+          charges,
           source,
           category: categorizeSLASource(source),
         });
@@ -323,6 +354,28 @@ export function runEngine(input: RunEngineInput): EngineResult {
     }
   }
 
+  // Implement-in-your-hands → Universal Spell Power = main-hand minLevel.
+  // Shiradi Champion's "Fey Form" selection (and similar effects) tag the
+  // main-hand weapon as an Implement, which in DDO grants Universal Spell
+  // Power equal to the weapon's minimum level. Trigger: any `ImplementInYourHands`
+  // bonus that survived requirements/rank gating.
+  {
+    const hasImplement = allBonuses.some(b => b.effectType === 'ImplementInYourHands' && b.value > 0);
+    if (hasImplement) {
+      const activeSet = build.gearSets.find(g => g.name === build.activeGearSet);
+      const mainHand = activeSet?.items.find(i => i.slot === 'MainHand');
+      const ml = mainHand?.minLevel ?? 0;
+      if (ml > 0) {
+        allBonuses.push({
+          effectType: 'UniversalSpellPower',
+          bonusType: 'Enhancement',
+          value: ml,
+          source: `Implement (${mainHand!.name} ML ${ml})`,
+        });
+      }
+    }
+  }
+
   // Casting-stat mod for the per-school spell DC seed. Each casting class
   // uses its own primary stat (Wizard/AT → Int, Sorcerer/Bard/FvS → Cha,
   // Cleric/Druid/Paladin/Ranger → Wis, Artificer/Alchemist → Int). When
@@ -338,6 +391,8 @@ export function runEngine(input: RunEngineInput): EngineResult {
   const totalLevel = build.classes.reduce((s, c) => s + c.levels, 0)
                    + (build.epicLevels ?? 0);
   let bestCastingStatMod = 0;
+  let primaryCastingClass: string | undefined;
+  let primaryCastingClassLevel = 0;
   for (const cl of build.classes) {
     if (cl.levels <= 0) continue;
     // Read the raw catalog DDOClassData (which carries `castingStat`) since
@@ -349,6 +404,54 @@ export function runEngine(input: RunEngineInput): EngineResult {
     if (!stat) continue;
     const mod = abilityModifier(abilityScores[stat].total);
     if (mod > bestCastingStatMod) bestCastingStatMod = mod;
+    // Track the highest-level casting class as the build's primary caster.
+    if (cl.levels > primaryCastingClassLevel) {
+      primaryCastingClass = cdata.name;
+      primaryCastingClassLevel = cl.levels;
+    }
+  }
+  // Build a name set of all classes (heroic + epic/legendary). Used by the
+  // caster-level breakdown to ignore class-targeted bonuses for classes the
+  // build doesn't actually have.
+  const buildClassNames = new Set<string>();
+  for (const cl of build.classes) {
+    if (cl.levels <= 0) continue;
+    const cdata = classes.find(c =>
+      c.name.toLowerCase().replace(/[\s']+/g, '_').replace(/-/g, '_') === cl.classId);
+    if (cdata) buildClassNames.add(cdata.name);
+  }
+
+  // ── Spell Points seed ──────────────────────────────────────────────
+  // Build per-class seed rows: class table SP at this level + casting-stat
+  // contribution (mod × levels × 5, only if positive). Effect bonuses with
+  // EffectType=SpellPoints stack on top inside breakdownSpellPoints.
+  const spSeedBonuses: Bonus[] = [];
+  for (const cl of build.classes) {
+    if (cl.levels <= 0) continue;
+    const cdata = classes.find(c =>
+      c.name.toLowerCase().replace(/[\s']+/g, '_').replace(/-/g, '_') === cl.classId);
+    if (!cdata) continue;
+    const tableSp = cdata.spellPointsPerLevel?.[cl.levels] ?? 0;
+    if (tableSp > 0) {
+      spSeedBonuses.push({
+        bonusType: '',
+        value: tableSp,
+        source: `${cdata.name} class table (level ${cl.levels})`,
+      });
+    }
+    if (cdata.castingStat) {
+      const stat = STAT_NAMES_LC[cdata.castingStat.toLowerCase()];
+      if (stat) {
+        const mod = abilityModifier(abilityScores[stat].total);
+        if (mod > 0) {
+          spSeedBonuses.push({
+            bonusType: '',
+            value: mod * cl.levels * 5,
+            source: `${cdata.name} ${cdata.castingStat} mod (+${mod} × ${cl.levels} levels × 5)`,
+          });
+        }
+      }
+    }
   }
 
   const spellDCs = Object.fromEntries(
@@ -357,6 +460,62 @@ export function runEngine(input: RunEngineInput): EngineResult {
       breakdownSpellDC(school, bestCastingStatMod, allBonuses, rules),
     ] as const),
   ) as Record<SpellSchool, BreakdownResult>;
+
+  // ── Per-skill breakdowns ───────────────────────────────────────────
+  // Compute every skill's full total: ranks + ability mod (post-effect) +
+  // racial + tome + SkillBonus / SkillBonusAbility effects. Surfaced on
+  // EngineResult.skills so the Breakdowns UI can show each contributor.
+  const raceSkillBonuses = (race?.skillBonuses ?? {}) as Record<string, number>;
+  const skillTomes = build.skillTomes ?? {};
+  const skillRanks = build.skillRanks ?? {};
+  const skills: Record<string, BreakdownResult> = {};
+  for (const skill of ALL_SKILLS) {
+    const stat = skill.keyAbility as Stat;
+    const ranks = skillRanks[skill.id] ?? 0;
+    const abilMod = abilityModifier(abilityScores[stat]?.total ?? 10);
+    const racialBonus = raceSkillBonuses[skill.id] ?? 0;
+    const tomeBonus = skillTomes[skill.id] ?? 0;
+    skills[skill.id] = breakdownSkill(
+      skill.name, skill.keyAbility,
+      ranks, abilMod, racialBonus, tomeBonus,
+      skill.trainedOnly ?? false,
+      allBonuses, rules,
+    );
+  }
+
+  // ── Skill → spell power injection ──────────────────────────────────
+  // Each point of the relevant skill TOTAL (post-feats/enhancements/effects)
+  // adds 1 spell power for the matching element(s):
+  //   Spellcraft → Acid/Chaos/Cold/Electric/Evil/Fire/Force/Light/Poison
+  //   Perform    → Sonic
+  //   Heal       → Positive, Negative
+  //   Repair     → Repair
+  // Injected as untyped SpellPower bonuses so they always stack with other
+  // contributors. Uses the full per-skill BreakdownResult total computed
+  // above, matching what the in-game character sheet shows.
+  const SKILL_SPELL_POWER: Array<{
+    skillId: string; name: string; elements: SpellDamageType[];
+  }> = [
+    { skillId: 'spellcraft', name: 'Spellcraft',
+      elements: ['Acid','Chaos','Cold','Electric','Evil','Fire','Force','Light/Alignment','Poison'] },
+    { skillId: 'perform',    name: 'Perform',    elements: ['Sonic'] },
+    { skillId: 'heal',       name: 'Heal',       elements: ['Positive','Negative'] },
+    { skillId: 'repair',     name: 'Repair',     elements: ['Repair'] },
+  ];
+  for (const sk of SKILL_SPELL_POWER) {
+    const total = skills[sk.skillId]?.total ?? 0;
+    if (total <= 0) continue;
+    const sourceLabel = `[Skill] ${sk.name} (total ${total})`;
+    for (const element of sk.elements) {
+      allBonuses.push({
+        effectType: 'SpellPower',
+        bonusType: '',
+        value: total,
+        source: sourceLabel,
+        target: element,
+      });
+    }
+  }
 
   const spellPowers = Object.fromEntries(
     SPELL_DAMAGE_TYPES.map(t => [t, breakdownSpellPower(t, allBonuses, rules)] as const),
@@ -393,7 +552,20 @@ export function runEngine(input: RunEngineInput): EngineResult {
     arcaneSpellFailure: breakdownArcaneSpellFailure(allBonuses, rules),
     spellDCs,
     spellPenetration:  breakdownSpellPenetration(allBonuses, rules),
-    casterLevel:       breakdownCasterLevel(totalLevel, allBonuses, rules),
+    casterLevel:       breakdownCasterLevel(
+      primaryCastingClass,
+      primaryCastingClassLevel,
+      totalLevel,
+      buildClassNames,
+      allBonuses,
+      rules,
+    ),
+    spellPoints:       breakdownSpellPoints(spSeedBonuses, allBonuses, rules),
+    spellCooldownReduction: breakdownSpellCooldownReduction(allBonuses, rules),
+    universalSpellPower: breakdownUniversalSpellPower(allBonuses, rules),
+    universalSpellCriticalChance: breakdownUniversalSpellCriticalChance(allBonuses, rules),
+    universalSpellCriticalDamage: breakdownUniversalSpellCriticalDamage(allBonuses, rules),
+    skills,
     spellPowers, spellCriticalChance, spellCriticalDamage,
     slas,
     availableStances: collectAvailableStances({

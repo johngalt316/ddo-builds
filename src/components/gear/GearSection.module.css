@@ -203,6 +203,10 @@
   visibility: hidden;
 }
 
+.slotWrapper {
+  position: relative;
+  display: flex;
+}
 .slot {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
@@ -217,6 +221,32 @@
   text-align: left;
   transition: border-color 0.12s, background 0.12s;
   min-height: 80px;
+  width: 100%;
+}
+.slotRemove {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  background: rgba(0,0,0,0.45);
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.12s, color 0.12s, background 0.12s, border-color 0.12s;
+}
+.slotWrapper:hover .slotRemove,
+.slotRemove:focus-visible { opacity: 1; }
+.slotRemove:hover {
+  color: #ff8a8a;
+  background: rgba(0,0,0,0.7);
+  border-color: #ff8a8a;
 }
 .slot:disabled { cursor: default; }
 .slotFilled:hover:not(:disabled) {
@@ -437,6 +467,26 @@
   color: var(--color-text-muted);
   text-transform: none;
   letter-spacing: 0;
+  margin-left: auto;
+}
+.filigreeReset {
+  font: inherit;
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.15rem 0.5rem;
+  border-radius: 3px;
+  border: 1px solid var(--color-border);
+  background: rgba(0,0,0,0.35);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: color 0.12s, border-color 0.12s, background 0.12s;
+}
+.filigreeReset:hover {
+  color: #ff8a8a;
+  border-color: #ff8a8a;
+  background: rgba(0,0,0,0.55);
 }
 .filigreeGrid {
   display: grid;
@@ -511,6 +561,32 @@
 .filigreeRareToggle:hover:not(:disabled) {
   border-color: var(--color-gold);
   color: var(--color-gold);
+}
+
+.filigreeRemove {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  background: rgba(0,0,0,0.45);
+  color: var(--color-text-muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.12s, color 0.12s, background 0.12s, border-color 0.12s;
+}
+.filigreeSlot:hover .filigreeRemove,
+.filigreeRemove:focus-visible { opacity: 1; }
+.filigreeRemove:hover {
+  color: #ff8a8a;
+  background: rgba(0,0,0,0.7);
+  border-color: #ff8a8a;
 }
 .filigreeRareToggle:disabled { cursor: default; }
 .filigreeRareToggleOn {

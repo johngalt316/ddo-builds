@@ -53,7 +53,8 @@
       ],
       "dcs": [],
       "effects": [],
-      "maxCasterLevel": 20
+      "maxCasterLevel": 20,
+      "cooldown": 2
     },
     "sleep": {
       "name": "Sleep",
@@ -113,7 +114,8 @@
         }
       ],
       "effects": [],
-      "maxCasterLevel": 5
+      "maxCasterLevel": 5,
+      "cooldown": 2
     }
   }
 }

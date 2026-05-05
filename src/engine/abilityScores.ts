@@ -58,15 +58,24 @@ export function applyAbilityTomes(
  * Apply level-up ability assignments. Each entry contributes +1 to the
  * chosen stat. Tier levels in DDO are 4, 8, 12, 16, 20 (heroic) and
  * 24, 28, 32, 36, 40 (epic/legendary).
+ *
+ * `maxCharacterLevel`, when provided, filters out tier entries the build
+ * hasn't actually reached — e.g. with the live cap at 34, a build that
+ * pre-assigned level 36/40 picks shouldn't already get those +1s. Without
+ * the cap, every entry applies (legacy behavior, used by callers that
+ * trust their `levelUps` is already trimmed).
  */
 export function applyLevelUps(
   scores: AbilityScores,
   levelUps: Partial<Record<number, Stat>> | undefined,
+  maxCharacterLevel?: number,
 ): AbilityScores {
   if (!levelUps) return scores;
   const result = { ...scores };
-  for (const stat of Object.values(levelUps)) {
-    if (stat) result[stat] += 1;
+  for (const [levelStr, stat] of Object.entries(levelUps)) {
+    if (!stat) continue;
+    if (maxCharacterLevel !== undefined && Number(levelStr) > maxCharacterLevel) continue;
+    result[stat] += 1;
   }
   return result;
 }

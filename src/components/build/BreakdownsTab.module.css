@@ -25,6 +25,42 @@
   border-bottom: 1px solid var(--color-border);
 }
 
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  width: 100%;
+  padding: 0.35rem 0;
+  margin: 0 0 0.5rem;
+  border: 0;
+  border-bottom: 1px solid var(--color-border);
+  background: transparent;
+  font-family: inherit;
+  cursor: pointer;
+  text-align: left;
+}
+.sectionHeader:hover .sectionTitle { color: var(--color-gold); }
+
+.sectionChevron, .sectionChevronOpen {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  transition: transform 0.15s;
+}
+.sectionChevronOpen { transform: rotate(90deg); }
+
+.sectionTitle {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  transition: color 0.12s;
+}
+
+.sectionBody {
+  padding-left: 0.25rem;
+}
+
 .row { margin-bottom: 0.25rem; }
 
 .rowHeader {
@@ -61,6 +97,54 @@
 .count {
   font-size: 0.72rem;
   color: var(--color-text-muted);
+}
+
+.rowHeaderCombined {
+  display: grid;
+  grid-template-columns: 1.2rem 8rem 1fr;
+  align-items: center;
+  width: 100%;
+  padding: 0.4rem 0.6rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 0.85rem;
+  color: var(--color-text);
+  text-align: left;
+  cursor: pointer;
+  gap: 0.4rem;
+}
+.rowHeaderCombined:hover { border-color: var(--color-gold); }
+
+.combinedTotals {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.82rem;
+  white-space: nowrap;
+}
+.combinedTotal {
+  font-weight: 600;
+  color: var(--color-gold);
+}
+.combinedSep {
+  color: var(--color-text-muted);
+  font-weight: 400;
+}
+
+.subBreakdown {
+  margin-bottom: 0.6rem;
+}
+.subBreakdown:last-child { margin-bottom: 0; }
+.subHeading {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-gold);
+  margin: 0.25rem 0 0.3rem;
 }
 
 .body {
@@ -121,18 +205,18 @@
   padding-top: 1rem;
   border-top: 1px solid var(--color-border);
 }
-.diagnostics dl {
+.diagnostics dl, .diagnosticsDl {
   display: grid;
   grid-template-columns: max-content 1fr;
   gap: 0.25rem 1rem;
   margin: 0;
   font-size: 0.78rem;
 }
-.diagnostics dt {
+.diagnostics dt, .diagnosticsDl dt {
   color: var(--color-text-muted);
   font-weight: 600;
 }
-.diagnostics dd {
+.diagnostics dd, .diagnosticsDl dd {
   margin: 0;
   color: var(--color-text);
 }

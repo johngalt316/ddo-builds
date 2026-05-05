@@ -10,145 +10,76 @@
 <button class="_btn_947cf7 _primary_947cf7 _sm_947cf7">Share Build</button>
 </div>
 </div>
-<section class="_statsSection_05a746">
-<h2 class="_heading_05a746">Stats</h2>
-<div class="_panes_05a746">
-<div class="_pane_05a746">
-<h3 class="_paneHeading_05a746">Overall</h3>
-<dl class="_list_05a746">
-<div class="_row_05a746">
-<dt class="_rowLabel_05a746">Hit Points</dt>
-<dd class="_rowValue_05a746">9</dd>
+<section class="_panel_b61b79">
+<header class="_header_b61b79">
+<h2 class="_title_b61b79">DPS Calculator</h2>
+<span class="_tag_b61b79">Phase 6 — work in progress</span>
+</header>
+<div class="_controls_b61b79">
+<label class="_field_b61b79">
+<span class="_fieldLabel_b61b79">Rotation</span>
+<select class="_select_b61b79">
+<option value="magic">Magic</option>
+<option value="melee">Melee (coming soon)</option>
+<option value="ranged">Ranged (coming soon)</option>
+</select>
+</label>
+<div class="_optimizer_b61b79">
+<button class="_optimizerBtn_b61b79" title="Generate optimal rotation (Max Sustained DPS)">Generate Rotation · Max Sustained DPS</button>
+<button class="_optimizerChevron_b61b79" aria-haspopup="menu" aria-expanded="false" title="Choose objective">▾</button>
 </div>
-<div class="_row_05a746">
-<dt class="_rowLabel_05a746">Spell Points</dt>
-<dd class="_rowValue_05a746">—</dd>
+<label class="_field_b61b79">
+<span class="_fieldLabel_b61b79">Difficulty <span class="_fieldValue_b61b79">Elite</span>
+</span>
+<input class="_slider_b61b79" min="0" max="10" step="1" type="range" value="0">
+<span class="_sliderTicks_b61b79">
+<span>Elite</span>
+<span>R5</span>
+<span>R10</span>
+</span>
+</label>
+<button class="_simulateBtn_b61b79">▶ Simulate</button>
 </div>
-<div class="_row_05a746">
-<dt class="_rowLabel_05a746">Healing Amp</dt>
-<dd class="_rowValue_05a746">—</dd>
+<div class="_editor_b61b79">
+<div class="_wrapper_45f8b7">
+<div class="_header_45f8b7">
+<span class="_label_45f8b7">Active · 0 spells</span>
+<button type="button" class="_manageBtn_45f8b7" title="Pick which trained spells are available in your rotation">+ Manage</button>
 </div>
-<div class="_row_05a746">
-<dt class="_rowLabel_05a746">PRR<span class="_hint_05a746">phys. resist</span>
-</dt>
-<dd class="_rowValueMuted_05a746">0</dd>
+<div class="_empty_45f8b7">No damaging spells trained. Open the <strong>Spells</strong> tab to train spells with damage rolls.</div>
 </div>
-<div class="_row_05a746">
-<dt class="_rowLabel_05a746">MRR<span class="_hint_05a746">magic resist</span>
-</dt>
-<dd class="_rowValueMuted_05a746">0</dd>
+<div class="_wrapper_dcde76">
+<div class="_header_dcde76">
+<span class="_label_dcde76">Rotation · 0 steps</span>
+<label class="_autoToggle_dcde76" title="When on, the rotation order is managed by the optimizer (drag/reorder disabled).">
+<input type="checkbox">
+<span>Auto</span>
+</label>
+<button type="button" class="_clearBtn_dcde76" disabled="">Clear</button>
 </div>
-<div class="_row_05a746">
-<dt class="_rowLabel_05a746">AC</dt>
-<dd class="_rowValueMuted_05a746">9</dd>
+<div class="_empty_dcde76">Empty rotation. Click an ability from the palette above to add it here.</div>
 </div>
-<div class="_row_05a746">
-<dt class="_rowLabel_05a746">Fortitude</dt>
-<dd class="_rowValue_05a746">+1</dd>
 </div>
-<div class="_row_05a746">
-<dt class="_rowLabel_05a746">Reflex</dt>
-<dd class="_rowValue_05a746">-1</dd>
+<div class="_stats_b61b79">
+<div class="_metric_b61b79">
+<span class="_metricLabel_b61b79">DPS</span>
+<span class="_metricValue_b61b79">—</span>
 </div>
-<div class="_row_05a746">
-<dt class="_rowLabel_05a746">Will</dt>
-<dd class="_rowValue_05a746">-1</dd>
+<div class="_metric_b61b79">
+<span class="_metricLabel_b61b79">DPM</span>
+<span class="_metricValue_b61b79">—</span>
 </div>
-</dl>
-<p class="_disclaimer_05a746">PRR / MRR / AC are not yet engine-backed</p>
+<div class="_metric_b61b79">
+<span class="_metricLabel_b61b79">SPM</span>
+<span class="_metricValue_b61b79">—</span>
 </div>
-<div class="_pane_05a746">
-<h3 class="_paneHeading_05a746">Melee</h3>
-<dl class="_list_05a746">
-<div class="_row_05a746">
-<dt class="_rowLabel_05a746">Melee Power</dt>
-<dd class="_rowValue_05a746">+0</dd>
+<div class="_metric_b61b79">
+<span class="_metricLabel_b61b79">Damage</span>
+<span class="_metricValue_b61b79">—</span>
 </div>
-<div class="_row_05a746">
-<dt class="_rowLabel_05a746">Doublestrike</dt>
-<dd class="_rowValue_05a746">—</dd>
 </div>
-<div class="_row_05a746">
-<dt class="_rowLabel_05a746">Damage Attr</dt>
-<dd class="_rowValue_05a746">STR -1</dd>
-</div>
-<div class="_row_05a746">
-<dt class="_rowLabel_05a746">Attack Bonus<span class="_hint_05a746">BAB + attr</span>
-</dt>
-<dd class="_rowValue_05a746">+0</dd>
-</div>
-<div class="_row_05a746">
-<dt class="_rowLabel_05a746">Attacks / round<span class="_hint_05a746">iterative</span>
-</dt>
-<dd class="_rowValue_05a746">1</dd>
-</div>
-<div class="_row_05a746">
-<dt class="_rowLabel_05a746">Improved Crit</dt>
-<dd class="_rowValue_05a746">—</dd>
-</div>
-<div class="_row_05a746">
-<dt class="_rowLabel_05a746">Attack chain</dt>
-<dd class="_rowValue_05a746">—</dd>
-</div>
-</dl>
-<h4 class="_subHeading_05a746">Procs &amp; Debuffs</h4>
-<p class="_placeholder_05a746">Equip gear to see procs (e.g. Dripping with Magma) and debuffs (e.g. Legendary Ash).</p>
-</div>
-<div class="_pane_05a746">
-<h3 class="_paneHeading_05a746">Ranged</h3>
-<dl class="_list_05a746">
-<div class="_row_05a746">
-<dt class="_rowLabel_05a746">Ranged Power</dt>
-<dd class="_rowValue_05a746">+0</dd>
-</div>
-<div class="_row_05a746">
-<dt class="_rowLabel_05a746">Doubleshot</dt>
-<dd class="_rowValue_05a746">—</dd>
-</div>
-<div class="_row_05a746">
-<dt class="_rowLabel_05a746">DEX modifier</dt>
-<dd class="_rowValue_05a746">-1</dd>
-</div>
-<div class="_row_05a746">
-<dt class="_rowLabel_05a746">Attack Bonus<span class="_hint_05a746">BAB + DEX</span>
-</dt>
-<dd class="_rowValue_05a746">+0</dd>
-</div>
-<div class="_row_05a746">
-<dt class="_rowLabel_05a746">Improved Crit</dt>
-<dd class="_rowValue_05a746">—</dd>
-</div>
-</dl>
-<h4 class="_subHeading_05a746">Procs &amp; Debuffs</h4>
-<p class="_placeholder_05a746">Equip a bow / crossbow to see ranged-specific procs and on-hit effects.</p>
-</div>
-<div class="_pane_05a746">
-<h3 class="_paneHeading_05a746">Magic</h3>
-<dl class="_list_05a746">
-<div class="_row_05a746">
-<dt class="_rowLabel_05a746">Spell Points</dt>
-<dd class="_rowValue_05a746">—</dd>
-</div>
-<div class="_row_05a746">
-<dt class="_rowLabel_05a746">Caster Level</dt>
-<dd class="_rowValue_05a746">—</dd>
-</div>
-<div class="_row_05a746">
-<dt class="_rowLabel_05a746">Spell Penetration</dt>
-<dd class="_rowValue_05a746">—</dd>
-</div>
-<div class="_row_05a746">
-<dt class="_rowLabel_05a746">Spell Focus</dt>
-<dd class="_rowValue_05a746">—</dd>
-</div>
-<div class="_row_05a746">
-<dt class="_rowLabel_05a746">Metamagic</dt>
-<dd class="_rowValue_05a746">—</dd>
-</div>
-</dl>
-<h4 class="_subHeading_05a746">Procs &amp; Buffs</h4>
-<p class="_placeholder_05a746">Equip an implement / weapon to see spell power, crit chance, and on-cast effects.</p>
-</div>
+<div class="_chart_b61b79">
+<div class="_chartPlaceholder_b61b79">Damage chart · stacked-by-element with overall (Phase 6.5)</div>
 </div>
 </section>
 <section class="_section_190c49">
@@ -499,78 +430,110 @@
 <div class="_empty_c6fe1d">
 <p>No gear set yet. Double-click any slot to find an item, or import a .DDOBuild file.</p>
 <div class="_slotGrid_c6fe1d">
+<div class="_slotWrapper_c6fe1d">
 <button class="_slot_c6fe1d _slotEmpty_c6fe1d" title="Goggles — double-click to find an item">
 <span class="_slotLabel_c6fe1d">Goggles</span>
 <span class="_slotEmptyText_c6fe1d">+</span>
 </button>
+</div>
+<div class="_slotWrapper_c6fe1d">
 <button class="_slot_c6fe1d _slotEmpty_c6fe1d" title="Helmet — double-click to find an item">
 <span class="_slotLabel_c6fe1d">Helmet</span>
 <span class="_slotEmptyText_c6fe1d">+</span>
 </button>
+</div>
+<div class="_slotWrapper_c6fe1d">
 <button class="_slot_c6fe1d _slotEmpty_c6fe1d" title="Necklace — double-click to find an item">
 <span class="_slotLabel_c6fe1d">Necklace</span>
 <span class="_slotEmptyText_c6fe1d">+</span>
 </button>
+</div>
+<div class="_slotWrapper_c6fe1d">
 <button class="_slot_c6fe1d _slotEmpty_c6fe1d" title="Trinket — double-click to find an item">
 <span class="_slotLabel_c6fe1d">Trinket</span>
 <span class="_slotEmptyText_c6fe1d">+</span>
 </button>
+</div>
+<div class="_slotWrapper_c6fe1d">
 <button class="_slot_c6fe1d _slotEmpty_c6fe1d" title="Armor — double-click to find an item">
 <span class="_slotLabel_c6fe1d">Armor</span>
 <span class="_slotEmptyText_c6fe1d">+</span>
 </button>
-<div class="_slotSpacer_c6fe1d" aria-hidden="true">
 </div>
 <div class="_slotSpacer_c6fe1d" aria-hidden="true">
 </div>
+<div class="_slotSpacer_c6fe1d" aria-hidden="true">
+</div>
+<div class="_slotWrapper_c6fe1d">
 <button class="_slot_c6fe1d _slotEmpty_c6fe1d" title="Cloak — double-click to find an item">
 <span class="_slotLabel_c6fe1d">Cloak</span>
 <span class="_slotEmptyText_c6fe1d">+</span>
 </button>
+</div>
+<div class="_slotWrapper_c6fe1d">
 <button class="_slot_c6fe1d _slotEmpty_c6fe1d" title="Bracers — double-click to find an item">
 <span class="_slotLabel_c6fe1d">Bracers</span>
 <span class="_slotEmptyText_c6fe1d">+</span>
 </button>
-<div class="_slotSpacer_c6fe1d" aria-hidden="true">
 </div>
 <div class="_slotSpacer_c6fe1d" aria-hidden="true">
 </div>
+<div class="_slotSpacer_c6fe1d" aria-hidden="true">
+</div>
+<div class="_slotWrapper_c6fe1d">
 <button class="_slot_c6fe1d _slotEmpty_c6fe1d" title="Belt — double-click to find an item">
 <span class="_slotLabel_c6fe1d">Belt</span>
 <span class="_slotEmptyText_c6fe1d">+</span>
 </button>
+</div>
+<div class="_slotWrapper_c6fe1d">
 <button class="_slot_c6fe1d _slotEmpty_c6fe1d" title="Ring1 — double-click to find an item">
 <span class="_slotLabel_c6fe1d">Ring1</span>
 <span class="_slotEmptyText_c6fe1d">+</span>
 </button>
+</div>
+<div class="_slotWrapper_c6fe1d">
 <button class="_slot_c6fe1d _slotEmpty_c6fe1d" title="Boots — double-click to find an item">
 <span class="_slotLabel_c6fe1d">Boots</span>
 <span class="_slotEmptyText_c6fe1d">+</span>
 </button>
+</div>
+<div class="_slotWrapper_c6fe1d">
 <button class="_slot_c6fe1d _slotEmpty_c6fe1d" title="Gloves — double-click to find an item">
 <span class="_slotLabel_c6fe1d">Gloves</span>
 <span class="_slotEmptyText_c6fe1d">+</span>
 </button>
+</div>
+<div class="_slotWrapper_c6fe1d">
 <button class="_slot_c6fe1d _slotEmpty_c6fe1d" title="Ring2 — double-click to find an item">
 <span class="_slotLabel_c6fe1d">Ring2</span>
 <span class="_slotEmptyText_c6fe1d">+</span>
 </button>
+</div>
+<div class="_slotWrapper_c6fe1d">
 <button class="_slot_c6fe1d _slotEmpty_c6fe1d" title="MainHand — double-click to find an item">
 <span class="_slotLabel_c6fe1d">MainHand</span>
 <span class="_slotEmptyText_c6fe1d">+</span>
 </button>
+</div>
+<div class="_slotWrapper_c6fe1d">
 <button class="_slot_c6fe1d _slotEmpty_c6fe1d" title="OffHand — double-click to find an item">
 <span class="_slotLabel_c6fe1d">OffHand</span>
 <span class="_slotEmptyText_c6fe1d">+</span>
 </button>
+</div>
+<div class="_slotWrapper_c6fe1d">
 <button class="_slot_c6fe1d _slotEmpty_c6fe1d" title="Quiver — double-click to find an item">
 <span class="_slotLabel_c6fe1d">Quiver</span>
 <span class="_slotEmptyText_c6fe1d">+</span>
 </button>
+</div>
+<div class="_slotWrapper_c6fe1d">
 <button class="_slot_c6fe1d _slotEmpty_c6fe1d" title="Arrow — double-click to find an item">
 <span class="_slotLabel_c6fe1d">Arrow</span>
 <span class="_slotEmptyText_c6fe1d">+</span>
 </button>
+</div>
 </div>
 </div>
 </div>

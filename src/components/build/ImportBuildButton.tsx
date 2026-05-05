@@ -1,6 +1,8 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useMemo } from 'react';
 import { parseDDOBuildFile } from '@/utils/ddoBuildParser';
 import { useBuildStore } from '@/store/buildStore';
+import { useGameDataStore } from '@/store/gameDataStore';
+import { nameToId, skillNameToId } from '@/utils/classAdapter';
 import { Button } from '@/components/ui/Button';
 import styles from './ImportBuildButton.module.css';
 
@@ -9,8 +11,18 @@ type Status = 'idle' | 'success' | 'error';
 export function ImportBuildButton() {
   const inputRef = useRef<HTMLInputElement>(null);
   const setBuild = useBuildStore(s => s.setBuild);
+  const classes  = useGameDataStore(s => s.classes);
   const [status, setStatus] = useState<Status>('idle');
   const [message, setMessage] = useState('');
+
+  // Class-skills lookup — parser uses this to halve cross-class SP into ranks.
+  const classSkillsByClassId = useMemo(() => {
+    const out: Record<string, string[]> = {};
+    for (const c of classes) {
+      out[nameToId(c.name)] = c.classSkills.map(skillNameToId);
+    }
+    return out;
+  }, [classes]);
 
   function handleClick() {
     inputRef.current?.click();
@@ -24,7 +36,7 @@ export function ImportBuildButton() {
     e.target.value = '';
 
     const text = await file.text();
-    const result = parseDDOBuildFile(text);
+    const result = parseDDOBuildFile(text, { classSkillsByClassId });
 
     if (!result) {
       setStatus('error');

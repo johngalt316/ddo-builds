@@ -7,6 +7,28 @@ export function nameToId(name: string): string {
   return name.toLowerCase().replace(/[\s']+/g, '_').replace(/-/g, '_');
 }
 
+// Skill names suffer from upstream inconsistency: the build XML writes
+// "Spellcraft" (one word) while class XMLs use "Spell Craft" (two words);
+// `nameToId` would map them to "spellcraft" vs "spell_craft" respectively.
+// `skillNameToId` strips all non-alphanumerics first and then looks the
+// result up against the known skill IDs (also stripped of underscores), so
+// every spelling variant collapses to the canonical id ("spellcraft",
+// "disable_device", etc.). Falls back to plain `nameToId` for unknown skills.
+import skillsJson from '@/data/skills.json';
+
+const SKILL_BY_STRIPPED = new Map<string, string>();
+for (const s of skillsJson as { id: string; name: string }[]) {
+  SKILL_BY_STRIPPED.set(s.name.toLowerCase().replace(/[^a-z0-9]/g, ''), s.id);
+  SKILL_BY_STRIPPED.set(s.id.replace(/_/g, ''), s.id);
+}
+// Game-data shorthand that won't normalize otherwise.
+SKILL_BY_STRIPPED.set('umd', 'use_magic_device');
+
+export function skillNameToId(name: string): string {
+  const stripped = name.toLowerCase().replace(/[^a-z0-9]/g, '');
+  return SKILL_BY_STRIPPED.get(stripped) ?? nameToId(name);
+}
+
 // Derive BAB progression string from the explicit per-level BAB table.
 // The table index is the level number (index 0 is unused, index 20 is level 20).
 function babFromTable(table: number[]): 'full' | 'three_quarter' | 'half' {

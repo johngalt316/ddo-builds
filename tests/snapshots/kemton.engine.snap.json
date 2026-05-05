@@ -12,9 +12,9 @@
       "SliderValue": 6,
       "Slider": 3
     },
-    "requirementsFailedCount": 95,
-    "totalSourcedEffects": 1068,
-    "totalAppliedBonuses": 1384
+    "requirementsFailedCount": 96,
+    "totalSourcedEffects": 1067,
+    "totalAppliedBonuses": 1401
   },
   "abilityScores": {
     "STR": {
@@ -264,14 +264,14 @@
       ]
     },
     "INT": {
-      "total": 75,
+      "total": 73,
       "appliedCount": 15,
       "dominatedCount": 0,
       "sources": [
         {
           "source": "base + racial",
           "bonusType": "(untyped)",
-          "value": 36
+          "value": 34
         },
         {
           "source": "Completionist",
@@ -655,7 +655,7 @@
   },
   "saves": {
     "Fortitude": {
-      "total": 63,
+      "total": 57,
       "appliedCount": 16,
       "dominatedCount": 1,
       "sources": [
@@ -709,7 +709,7 @@
         {
           "source": "[D] Shadowdancer: Shadowdancer: Cover of Darkness",
           "bonusType": "Resistance",
-          "value": 9,
+          "value": 3,
           "target": "All"
         },
         {
@@ -757,7 +757,7 @@
       ]
     },
     "Reflex": {
-      "total": 74,
+      "total": 68,
       "appliedCount": 17,
       "dominatedCount": 1,
       "sources": [
@@ -811,7 +811,7 @@
         {
           "source": "[D] Shadowdancer: Shadowdancer: Cover of Darkness",
           "bonusType": "Resistance",
-          "value": 9,
+          "value": 3,
           "target": "All"
         },
         {
@@ -865,7 +865,7 @@
       ]
     },
     "Will": {
-      "total": 52,
+      "total": 46,
       "appliedCount": 16,
       "dominatedCount": 1,
       "sources": [
@@ -919,7 +919,7 @@
         {
           "source": "[D] Shadowdancer: Shadowdancer: Cover of Darkness",
           "bonusType": "Resistance",
-          "value": 9,
+          "value": 3,
           "target": "All"
         },
         {
@@ -1120,8 +1120,8 @@
     ]
   },
   "rangedPower": {
-    "total": 204,
-    "appliedCount": 35,
+    "total": 189,
+    "appliedCount": 34,
     "dominatedCount": 0,
     "sources": [
       {
@@ -1293,11 +1293,6 @@
         "source": "[A] Trinket: Legendary Heartshard → Mythic Power Boost",
         "bonusType": "Mythic",
         "value": 1
-      },
-      {
-        "source": "[A] Gloves: Legendary Darstil's Gloves → Lunar Gem of Ranged Power (Legendary)",
-        "bonusType": "Profane",
-        "value": 15
       }
     ]
   },
@@ -1987,26 +1982,14 @@
     ]
   },
   "casterLevel": {
-    "total": 168,
-    "appliedCount": 135,
+    "total": 27,
+    "appliedCount": 8,
     "dominatedCount": 0,
     "sources": [
       {
-        "source": "character level (34)",
+        "source": "Arcane Trickster class level (20)",
         "bonusType": "(untyped)",
-        "value": 34
-      },
-      {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Acolyte of the Skin",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Acolyte of the Skin"
-      },
-      {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Alchemist",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Alchemist"
+        "value": 20
       },
       {
         "source": "Epic 2: Epic Knowledge: Epic Knowledge: Arcane Trickster",
@@ -2015,226 +1998,10 @@
         "target": "Arcane Trickster"
       },
       {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Artificer",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Artificer"
-      },
-      {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Bard",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Bard"
-      },
-      {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Blight Caster",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Blight Caster"
-      },
-      {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Stormsinger",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Stormsinger"
-      },
-      {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Cleric",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Cleric"
-      },
-      {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Dark Apostate",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Dark Apostate"
-      },
-      {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Dark Hunter",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Dark Hunter"
-      },
-      {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Druid",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Druid"
-      },
-      {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Favored Soul",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Favored Soul"
-      },
-      {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Paladin",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Paladin"
-      },
-      {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Sacred Fist",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Sacred Fist"
-      },
-      {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Ranger",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Ranger"
-      },
-      {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Sorcerer",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Sorcerer"
-      },
-      {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Warlock",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Warlock"
-      },
-      {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Wild Mage",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Wild Mage"
-      },
-      {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Wizard",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Wizard"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Acolyte of the Skin",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Acolyte of the Skin"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Alchemist",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Alchemist"
-      },
-      {
         "source": "Epic 4: Epic Knowledge: Epic Knowledge: Arcane Trickster",
         "bonusType": "Feat",
         "value": 1,
         "target": "Arcane Trickster"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Artificer",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Artificer"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Bard",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Bard"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Blight Caster",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Blight Caster"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Stormsinger",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Stormsinger"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Cleric",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Cleric"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Dark Apostate",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Dark Apostate"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Dark Hunter",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Dark Hunter"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Druid",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Druid"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Favored Soul",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Favored Soul"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Paladin",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Paladin"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Sacred Fist",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Sacred Fist"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Ranger",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Ranger"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Sorcerer",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Sorcerer"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Warlock",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Warlock"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Wild Mage",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Wild Mage"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Wizard",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Wizard"
-      },
-      {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Acolyte of the Skin",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Acolyte of the Skin"
-      },
-      {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Alchemist",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Alchemist"
       },
       {
         "source": "Epic 6: Epic Knowledge: Epic Knowledge: Arcane Trickster",
@@ -2243,226 +2010,10 @@
         "target": "Arcane Trickster"
       },
       {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Artificer",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Artificer"
-      },
-      {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Bard",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Bard"
-      },
-      {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Blight Caster",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Blight Caster"
-      },
-      {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Stormsinger",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Stormsinger"
-      },
-      {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Cleric",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Cleric"
-      },
-      {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Dark Apostate",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Dark Apostate"
-      },
-      {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Dark Hunter",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Dark Hunter"
-      },
-      {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Druid",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Druid"
-      },
-      {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Favored Soul",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Favored Soul"
-      },
-      {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Paladin",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Paladin"
-      },
-      {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Sacred Fist",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Sacred Fist"
-      },
-      {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Ranger",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Ranger"
-      },
-      {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Sorcerer",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Sorcerer"
-      },
-      {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Warlock",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Warlock"
-      },
-      {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Wild Mage",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Wild Mage"
-      },
-      {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Wizard",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Wizard"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Acolyte of the Skin",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Acolyte of the Skin"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Alchemist",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Alchemist"
-      },
-      {
         "source": "Epic 8: Epic Knowledge: Epic Knowledge: Arcane Trickster",
         "bonusType": "Feat",
         "value": 1,
         "target": "Arcane Trickster"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Artificer",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Artificer"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Bard",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Bard"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Blight Caster",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Blight Caster"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Stormsinger",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Stormsinger"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Cleric",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Cleric"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Dark Apostate",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Dark Apostate"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Dark Hunter",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Dark Hunter"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Druid",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Druid"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Favored Soul",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Favored Soul"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Paladin",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Paladin"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Sacred Fist",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Sacred Fist"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Ranger",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Ranger"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Sorcerer",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Sorcerer"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Warlock",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Warlock"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Wild Mage",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Wild Mage"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Wizard",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Wizard"
-      },
-      {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Acolyte of the Skin",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Acolyte of the Skin"
-      },
-      {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Alchemist",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Alchemist"
       },
       {
         "source": "Epic 10: Epic Knowledge: Epic Knowledge: Arcane Trickster",
@@ -2471,334 +2022,16 @@
         "target": "Arcane Trickster"
       },
       {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Artificer",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Artificer"
-      },
-      {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Bard",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Bard"
-      },
-      {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Blight Caster",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Blight Caster"
-      },
-      {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Stormsinger",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Stormsinger"
-      },
-      {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Cleric",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Cleric"
-      },
-      {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Dark Apostate",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Dark Apostate"
-      },
-      {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Dark Hunter",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Dark Hunter"
-      },
-      {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Druid",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Druid"
-      },
-      {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Favored Soul",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Favored Soul"
-      },
-      {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Paladin",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Paladin"
-      },
-      {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Sacred Fist",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Sacred Fist"
-      },
-      {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Ranger",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Ranger"
-      },
-      {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Sorcerer",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Sorcerer"
-      },
-      {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Warlock",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Warlock"
-      },
-      {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Wild Mage",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Wild Mage"
-      },
-      {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Wizard",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Wizard"
-      },
-      {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Acolyte of the Skin"
-      },
-      {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Alchemist"
-      },
-      {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Artificer"
-      },
-      {
         "source": "Legendary 2: Legendary Knowledge",
         "bonusType": "Feat",
         "value": 1,
         "target": "Arcane Trickster"
       },
       {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Bard"
-      },
-      {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Blight Caster"
-      },
-      {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Stormsinger"
-      },
-      {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Cleric"
-      },
-      {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Dark Apostate"
-      },
-      {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Dark Hunter"
-      },
-      {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Druid"
-      },
-      {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Favored Soul"
-      },
-      {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Paladin"
-      },
-      {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Sacred Fist"
-      },
-      {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Ranger"
-      },
-      {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Sorcerer"
-      },
-      {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Warlock"
-      },
-      {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Wizard"
-      },
-      {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Wild Mage"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Acolyte of the Skin"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Alchemist"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Artificer"
-      },
-      {
         "source": "Legendary 4: Legendary Knowledge",
         "bonusType": "Feat",
         "value": 1,
         "target": "Arcane Trickster"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Bard"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Blight Caster"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Stormsinger"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Cleric"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Dark Apostate"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Dark Hunter"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Druid"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Favored Soul"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Paladin"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Sacred Fist"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Ranger"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Sorcerer"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Warlock"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Wizard"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Wild Mage"
-      },
-      {
-        "source": "[FS] Coalesced Magic (5-piece tier ≥ 4)",
-        "bonusType": "Stacking",
-        "value": 1,
-        "target": "Arcane"
       }
     ]
   },
@@ -2836,14 +2069,14 @@
   },
   "spellDCs": {
     "Abjuration": {
-      "total": 38,
+      "total": 37,
       "appliedCount": 5,
       "dominatedCount": 12,
       "sources": [
         {
-          "source": "casting stat mod (+32)",
+          "source": "casting stat mod (+31)",
           "bonusType": "(untyped)",
-          "value": 32
+          "value": 31
         },
         {
           "source": "Past Life: Arcane Initiate",
@@ -2872,14 +2105,14 @@
       ]
     },
     "Conjuration": {
-      "total": 41,
+      "total": 40,
       "appliedCount": 6,
       "dominatedCount": 12,
       "sources": [
         {
-          "source": "casting stat mod (+32)",
+          "source": "casting stat mod (+31)",
           "bonusType": "(untyped)",
-          "value": 32
+          "value": 31
         },
         {
           "source": "Past Life: Arcane Initiate",
@@ -2914,14 +2147,14 @@
       ]
     },
     "Divination": {
-      "total": 38,
+      "total": 37,
       "appliedCount": 5,
       "dominatedCount": 12,
       "sources": [
         {
-          "source": "casting stat mod (+32)",
+          "source": "casting stat mod (+31)",
           "bonusType": "(untyped)",
-          "value": 32
+          "value": 31
         },
         {
           "source": "Past Life: Arcane Initiate",
@@ -2950,14 +2183,14 @@
       ]
     },
     "Enchantment": {
-      "total": 40,
+      "total": 39,
       "appliedCount": 6,
       "dominatedCount": 12,
       "sources": [
         {
-          "source": "casting stat mod (+32)",
+          "source": "casting stat mod (+31)",
           "bonusType": "(untyped)",
-          "value": 32
+          "value": 31
         },
         {
           "source": "Past Life: Arcane Initiate",
@@ -2992,14 +2225,14 @@
       ]
     },
     "Evocation": {
-      "total": 41,
+      "total": 40,
       "appliedCount": 6,
       "dominatedCount": 12,
       "sources": [
         {
-          "source": "casting stat mod (+32)",
+          "source": "casting stat mod (+31)",
           "bonusType": "(untyped)",
-          "value": 32
+          "value": 31
         },
         {
           "source": "Past Life: Arcane Initiate",
@@ -3034,14 +2267,14 @@
       ]
     },
     "Illusion": {
-      "total": 45,
+      "total": 44,
       "appliedCount": 8,
       "dominatedCount": 12,
       "sources": [
         {
-          "source": "casting stat mod (+32)",
+          "source": "casting stat mod (+31)",
           "bonusType": "(untyped)",
-          "value": 32
+          "value": 31
         },
         {
           "source": "Past Life: Arcane Initiate",
@@ -3088,14 +2321,14 @@
       ]
     },
     "Necromancy": {
-      "total": 38,
+      "total": 37,
       "appliedCount": 5,
       "dominatedCount": 12,
       "sources": [
         {
-          "source": "casting stat mod (+32)",
+          "source": "casting stat mod (+31)",
           "bonusType": "(untyped)",
-          "value": 32
+          "value": 31
         },
         {
           "source": "Past Life: Arcane Initiate",
@@ -3124,14 +2357,14 @@
       ]
     },
     "Transmutation": {
-      "total": 41,
+      "total": 40,
       "appliedCount": 6,
       "dominatedCount": 12,
       "sources": [
         {
-          "source": "casting stat mod (+32)",
+          "source": "casting stat mod (+31)",
           "bonusType": "(untyped)",
-          "value": 32
+          "value": 31
         },
         {
           "source": "Past Life: Arcane Initiate",
@@ -3166,9 +2399,445 @@
       ]
     }
   },
+  "universalSpellPower": {
+    "total": 397,
+    "appliedCount": 61,
+    "dominatedCount": 0,
+    "sources": [
+      {
+        "source": "Epic 1: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 2: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 3: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 4: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 5: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 6: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 7: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 8: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 9: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Epic 10: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Legendary 1: Legendary Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Legendary 2: Legendary Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Legendary 3: Legendary Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Legendary 4: Legendary Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[E] Arcane Trickster: Arcane Trickster: Trained in Trickery",
+        "bonusType": "Enhancement",
+        "value": 5
+      },
+      {
+        "source": "[E] Arcane Trickster: Arcane Trickster: Stolen Spell I",
+        "bonusType": "Enhancement",
+        "value": 5
+      },
+      {
+        "source": "[E] Arcane Trickster: Arcane Trickster: More Magic More Fun → Quick Silver",
+        "bonusType": "Enhancement",
+        "value": 5
+      },
+      {
+        "source": "[E] Arcane Trickster: Arcane Trickster: Stolen Spell II",
+        "bonusType": "Enhancement",
+        "value": 5
+      },
+      {
+        "source": "[E] Arcane Trickster: Arcane Trickster: Stolen Spell III",
+        "bonusType": "Enhancement",
+        "value": 5
+      },
+      {
+        "source": "[E] Arcane Trickster: Arcane Trickster: Stolen Spell IV",
+        "bonusType": "Enhancement",
+        "value": 5
+      },
+      {
+        "source": "[E] Arcane Trickster: Arcane Trickster: Master of Trickery",
+        "bonusType": "Enhancement",
+        "value": 5
+      },
+      {
+        "source": "Implement (Attuned Bone Great Crossbow ML 31)",
+        "bonusType": "Enhancement",
+        "value": 31
+      },
+      {
+        "source": "[D] Shiradi Champion: Shiradi Champion: Fey Favor",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Shiradi Champion: Shiradi Champion: Wild Magics",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Shiradi Champion: Shiradi Champion: Friend or Foe → Fey Form",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Shiradi Champion: Shiradi Champion: Vision",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Shiradi Champion: Shiradi Champion: Audience with the Queen",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Shiradi Champion: Shiradi Champion: Fey Countenance",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Shiradi Champion: Shiradi Champion: Feywild Attunement",
+        "bonusType": "Destiny",
+        "value": 10
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Shadow Training",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Well of Darkness",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Step Through Shadows",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: The Darkest Luck",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Cut to the Soul",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Machrotechnic: Machrotechnic: Maker's Touch",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Machrotechnic: Machrotechnic: Metamagic Capacitors",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Machrotechnic: Machrotechnic: Warding Inscriptions",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Machrotechnic: Machrotechnic: Storm Core",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Machrotechnic: Machrotechnic: Armored Augmentation",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[R] Dire Thaumaturge: Reaper's Arcanum V",
+        "bonusType": "Reaper",
+        "value": 2
+      },
+      {
+        "source": "[R] Dire Thaumaturge: Reaper's Arcanum VI",
+        "bonusType": "Reaper",
+        "value": 4
+      },
+      {
+        "source": "[A] Trinket: Legendary Heartshard → +3 Melee/Ranged and Spell Power",
+        "bonusType": "Reaper",
+        "value": 3
+      },
+      {
+        "source": "[S] Eminence of Autumn (3-piece tier ≥ 2)",
+        "bonusType": "Artifact",
+        "value": 25
+      },
+      {
+        "source": "[A] Necklace: Celestial Insignia → Curse of Major Spellwork",
+        "bonusType": "Fortune",
+        "value": 10
+      },
+      {
+        "source": "[A] Trinket: Legendary Heartshard → Mythic Power Boost",
+        "bonusType": "Mythic",
+        "value": 1
+      },
+      {
+        "source": "[PL] Past Life: Eladrin Chaosmancer ×3",
+        "bonusType": "Stacking",
+        "value": 9
+      },
+      {
+        "source": "[PL] Past Life: Sorcerer - Wild Mage ×3",
+        "bonusType": "Stacking",
+        "value": 9
+      },
+      {
+        "source": "[F] Coalesced Magic: +6 Universal Spell Power",
+        "bonusType": "Stacking",
+        "value": 6
+      },
+      {
+        "source": "[F] Dragonsoul: Universal Spell Power",
+        "bonusType": "Stacking",
+        "value": 6
+      },
+      {
+        "source": "[F] Dragonsoul: Universal Spell Power (rare): Dragonsoul: Universal Spell Power: Universal Spell Power",
+        "bonusType": "Stacking",
+        "value": 4
+      },
+      {
+        "source": "[F] Coalesced Magic: -10% Arcane Spell failure (rare): Coalesced Magic: Arcane Spell Failure : Rare +4 Universal Spell Power",
+        "bonusType": "Stacking",
+        "value": 4
+      },
+      {
+        "source": "[F] Elemental Avatar: +9 Cold Spell Power (rare): Elemental Avatar: Cold Spell Power: Universal Spell Power",
+        "bonusType": "Stacking",
+        "value": 4
+      },
+      {
+        "source": "[F] Elemental Avatar: +9 Fire Spell Power (rare): Elemental Avatar: Fire Spell Power: Universal Spell Power",
+        "bonusType": "Stacking",
+        "value": 4
+      },
+      {
+        "source": "[FA] Dragonsoul: Universal Spell Power",
+        "bonusType": "Stacking",
+        "value": 6
+      },
+      {
+        "source": "[FA] Dragonsoul: Universal Spell Power (rare): Dragonsoul: Universal Spell Power: Universal Spell Power",
+        "bonusType": "Stacking",
+        "value": 4
+      },
+      {
+        "source": "[FA] Elemental Avatar: +9 Cold Spell Power (rare): Elemental Avatar: Cold Spell Power: Universal Spell Power",
+        "bonusType": "Stacking",
+        "value": 4
+      },
+      {
+        "source": "[FA] Elemental Avatar: +9 Fire Spell Power (rare): Elemental Avatar: Fire Spell Power: Universal Spell Power",
+        "bonusType": "Stacking",
+        "value": 4
+      },
+      {
+        "source": "[FA] Coalesced Magic: +1% Universal Spell Critical Damage (rare): Coalesced Magic: Universal Spell Critical Damage : Rare +4 Universal Spell Power",
+        "bonusType": "Stacking",
+        "value": 4
+      },
+      {
+        "source": "[FA] Dragonsoul: -10% Arcane Spell Failure (rare): Dragonsoul: Arcane Spell Failure: Universal Spell Power",
+        "bonusType": "Stacking",
+        "value": 4
+      },
+      {
+        "source": "[FS] Coalesced Magic (5-piece tier ≥ 2)",
+        "bonusType": "Stacking",
+        "value": 10
+      },
+      {
+        "source": "[FS] Coalesced Magic (5-piece tier ≥ 5)",
+        "bonusType": "Stacking",
+        "value": 30
+      }
+    ]
+  },
+  "universalSpellCriticalChance": {
+    "total": 27,
+    "appliedCount": 10,
+    "dominatedCount": 0,
+    "sources": [
+      {
+        "source": "Mental Toughness",
+        "bonusType": "Feat",
+        "value": 1
+      },
+      {
+        "source": "Improved Mental Toughness",
+        "bonusType": "Feat",
+        "value": 1
+      },
+      {
+        "source": "Arcane Trickster 3: Magical Training",
+        "bonusType": "Feat",
+        "value": 5
+      },
+      {
+        "source": "[E] Arcane Trickster: Arcane Trickster: Not Half Bad...",
+        "bonusType": "Enhancement",
+        "value": 5
+      },
+      {
+        "source": "[G] Ring2: Clouded Dreams (UniversalSpellLore)",
+        "bonusType": "Exceptional",
+        "value": 5
+      },
+      {
+        "source": "[S] Eminence of Autumn (3-piece tier ≥ 3)",
+        "bonusType": "Artifact",
+        "value": 6
+      },
+      {
+        "source": "[FS] Elemental Avatar (5-piece tier ≥ 2)",
+        "bonusType": "Stacking",
+        "value": 1
+      },
+      {
+        "source": "[FS] Elemental Avatar (5-piece tier ≥ 3)",
+        "bonusType": "Stacking",
+        "value": 1
+      },
+      {
+        "source": "[FS] Elemental Avatar (5-piece tier ≥ 4)",
+        "bonusType": "Stacking",
+        "value": 1
+      },
+      {
+        "source": "[FS] Elemental Avatar (5-piece tier ≥ 5)",
+        "bonusType": "Stacking",
+        "value": 1
+      }
+    ]
+  },
+  "universalSpellCriticalDamage": {
+    "total": 56,
+    "appliedCount": 11,
+    "dominatedCount": 0,
+    "sources": [
+      {
+        "source": "Epic Spell Power: Force",
+        "bonusType": "Feat",
+        "value": 5,
+        "target": "All"
+      },
+      {
+        "source": "Epic Spell Power: Repair",
+        "bonusType": "Feat",
+        "value": 5,
+        "target": "All"
+      },
+      {
+        "source": "Epic Spell Power: Fire",
+        "bonusType": "Feat",
+        "value": 5,
+        "target": "All"
+      },
+      {
+        "source": "Epic Spell Power: Sonic",
+        "bonusType": "Feat",
+        "value": 5,
+        "target": "All"
+      },
+      {
+        "source": "Epic Spell Power: Acid",
+        "bonusType": "Feat",
+        "value": 5,
+        "target": "All"
+      },
+      {
+        "source": "[A] Helmet: Legendary Helm of Workplace Safety → Solar Gem of Spell Critical Damage (Legendary)",
+        "bonusType": "Legendary",
+        "value": 15
+      },
+      {
+        "source": "[F] Coalesced Magic: +1% Universal Spell Critical Damage",
+        "bonusType": "Stacking",
+        "value": 1
+      },
+      {
+        "source": "[FA] Coalesced Magic: +1% Universal Spell Critical Damage",
+        "bonusType": "Stacking",
+        "value": 1
+      },
+      {
+        "source": "[FS] Coalesced Magic (5-piece tier ≥ 3)",
+        "bonusType": "Stacking",
+        "value": 4
+      },
+      {
+        "source": "[FS] Dragonsoul (5-piece tier ≥ 3)",
+        "bonusType": "Stacking",
+        "value": 5
+      },
+      {
+        "source": "[FS] Dragonsoul (5-piece tier ≥ 5)",
+        "bonusType": "Stacking",
+        "value": 5
+      }
+    ]
+  },
   "spellPowers": {
     "Acid": {
-      "total": 801,
+      "total": 686,
       "appliedCount": 11,
       "dominatedCount": 1,
       "sources": [
@@ -3179,33 +2848,27 @@
           "target": "Acid"
         },
         {
-          "source": "[R] Dire Thaumaturge: Reaper's Arcanum V",
-          "bonusType": "Reaper",
-          "value": 2,
-          "target": "All"
-        },
-        {
-          "source": "[R] Dire Thaumaturge: Reaper's Arcanum VI",
-          "bonusType": "Reaper",
-          "value": 4,
-          "target": "All"
-        },
-        {
-          "source": "[A] Trinket: Legendary Heartshard → +3 Melee/Ranged and Spell Power",
-          "bonusType": "Reaper",
-          "value": 3,
-          "target": "All"
-        },
-        {
           "source": "[G] Goggles: Legendary Scientist's Sights (Potency)",
           "bonusType": "Quality",
           "value": 27,
           "target": "All"
         },
         {
-          "source": "[A] Cloak: The Deathly Shroud → Solar Gem of Spellpower (Heroic)",
-          "bonusType": "Artifact",
+          "source": "[G] Ring2: Clouded Dreams (UniversalSpellPower)",
+          "bonusType": "Exceptional",
           "value": 15,
+          "target": "All"
+        },
+        {
+          "source": "[A] Cloak: The Deathly Shroud → Solar Gem of Spellpower (Legendary)",
+          "bonusType": "Artifact",
+          "value": 25,
+          "target": "All"
+        },
+        {
+          "source": "[A] Gloves: Legendary Darstil's Gloves → Lunar Gem of Spellpower (Legendary)",
+          "bonusType": "Profane",
+          "value": 25,
           "target": "All"
         },
         {
@@ -3233,35 +2896,59 @@
           "target": "Acid"
         },
         {
+          "source": "[Skill] Spellcraft (total 133)",
+          "bonusType": "(untyped)",
+          "value": 133,
+          "target": "Acid"
+        },
+        {
           "source": "Universal Spell Power",
           "bonusType": "(untyped)",
-          "value": 686,
+          "value": 397,
           "target": "Acid"
         }
       ]
     },
-    "Cold": {
-      "total": 770,
-      "appliedCount": 9,
+    "Chaos": {
+      "total": 657,
+      "appliedCount": 12,
       "dominatedCount": 1,
       "sources": [
         {
-          "source": "[R] Dire Thaumaturge: Reaper's Arcanum V",
-          "bonusType": "Reaper",
-          "value": 2,
-          "target": "All"
+          "source": "[D] Shiradi Champion: Shiradi Champion: Fey Favor",
+          "bonusType": "Destiny",
+          "value": 5,
+          "target": "Chaos"
         },
         {
-          "source": "[R] Dire Thaumaturge: Reaper's Arcanum VI",
-          "bonusType": "Reaper",
-          "value": 4,
-          "target": "All"
+          "source": "[D] Shiradi Champion: Shiradi Champion: Wild Magics",
+          "bonusType": "Destiny",
+          "value": 5,
+          "target": "Chaos"
         },
         {
-          "source": "[A] Trinket: Legendary Heartshard → +3 Melee/Ranged and Spell Power",
-          "bonusType": "Reaper",
-          "value": 3,
-          "target": "All"
+          "source": "[D] Shiradi Champion: Shiradi Champion: Vision",
+          "bonusType": "Destiny",
+          "value": 5,
+          "target": "Chaos"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Audience with the Queen",
+          "bonusType": "Destiny",
+          "value": 5,
+          "target": "Chaos"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Fey Countenance",
+          "bonusType": "Destiny",
+          "value": 5,
+          "target": "Chaos"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Feywild Attunement",
+          "bonusType": "Destiny",
+          "value": 10,
+          "target": "Chaos"
         },
         {
           "source": "[G] Goggles: Legendary Scientist's Sights (Potency)",
@@ -3270,9 +2957,64 @@
           "target": "All"
         },
         {
-          "source": "[A] Cloak: The Deathly Shroud → Solar Gem of Spellpower (Heroic)",
-          "bonusType": "Artifact",
+          "source": "[G] Ring2: Clouded Dreams (UniversalSpellPower)",
+          "bonusType": "Exceptional",
           "value": 15,
+          "target": "All"
+        },
+        {
+          "source": "[A] Cloak: The Deathly Shroud → Solar Gem of Spellpower (Legendary)",
+          "bonusType": "Artifact",
+          "value": 25,
+          "target": "All"
+        },
+        {
+          "source": "[A] Gloves: Legendary Darstil's Gloves → Lunar Gem of Spellpower (Legendary)",
+          "bonusType": "Profane",
+          "value": 25,
+          "target": "All"
+        },
+        {
+          "source": "[Skill] Spellcraft (total 133)",
+          "bonusType": "(untyped)",
+          "value": 133,
+          "target": "Chaos"
+        },
+        {
+          "source": "Universal Spell Power",
+          "bonusType": "(untyped)",
+          "value": 397,
+          "target": "Chaos"
+        }
+      ]
+    },
+    "Cold": {
+      "total": 655,
+      "appliedCount": 9,
+      "dominatedCount": 1,
+      "sources": [
+        {
+          "source": "[G] Goggles: Legendary Scientist's Sights (Potency)",
+          "bonusType": "Quality",
+          "value": 27,
+          "target": "All"
+        },
+        {
+          "source": "[G] Ring2: Clouded Dreams (UniversalSpellPower)",
+          "bonusType": "Exceptional",
+          "value": 15,
+          "target": "All"
+        },
+        {
+          "source": "[A] Cloak: The Deathly Shroud → Solar Gem of Spellpower (Legendary)",
+          "bonusType": "Artifact",
+          "value": 25,
+          "target": "All"
+        },
+        {
+          "source": "[A] Gloves: Legendary Darstil's Gloves → Lunar Gem of Spellpower (Legendary)",
+          "bonusType": "Profane",
+          "value": 25,
           "target": "All"
         },
         {
@@ -3294,15 +3036,21 @@
           "target": "Cold"
         },
         {
+          "source": "[Skill] Spellcraft (total 133)",
+          "bonusType": "(untyped)",
+          "value": 133,
+          "target": "Cold"
+        },
+        {
           "source": "Universal Spell Power",
           "bonusType": "(untyped)",
-          "value": 686,
+          "value": 397,
           "target": "Cold"
         }
       ]
     },
     "Electric": {
-      "total": 792,
+      "total": 667,
       "appliedCount": 13,
       "dominatedCount": 1,
       "sources": [
@@ -3327,7 +3075,7 @@
         {
           "source": "[D] Machrotechnic: Machrotechnic: Storm Core",
           "bonusType": "Destiny",
-          "value": 15,
+          "value": 5,
           "target": "Electric"
         },
         {
@@ -3337,33 +3085,27 @@
           "target": "Electric"
         },
         {
-          "source": "[R] Dire Thaumaturge: Reaper's Arcanum V",
-          "bonusType": "Reaper",
-          "value": 2,
-          "target": "All"
-        },
-        {
-          "source": "[R] Dire Thaumaturge: Reaper's Arcanum VI",
-          "bonusType": "Reaper",
-          "value": 4,
-          "target": "All"
-        },
-        {
-          "source": "[A] Trinket: Legendary Heartshard → +3 Melee/Ranged and Spell Power",
-          "bonusType": "Reaper",
-          "value": 3,
-          "target": "All"
-        },
-        {
           "source": "[G] Goggles: Legendary Scientist's Sights (Potency)",
           "bonusType": "Quality",
           "value": 27,
           "target": "All"
         },
         {
-          "source": "[A] Cloak: The Deathly Shroud → Solar Gem of Spellpower (Heroic)",
-          "bonusType": "Artifact",
+          "source": "[G] Ring2: Clouded Dreams (UniversalSpellPower)",
+          "bonusType": "Exceptional",
           "value": 15,
+          "target": "All"
+        },
+        {
+          "source": "[A] Cloak: The Deathly Shroud → Solar Gem of Spellpower (Legendary)",
+          "bonusType": "Artifact",
+          "value": 25,
+          "target": "All"
+        },
+        {
+          "source": "[A] Gloves: Legendary Darstil's Gloves → Lunar Gem of Spellpower (Legendary)",
+          "bonusType": "Profane",
+          "value": 25,
           "target": "All"
         },
         {
@@ -3379,15 +3121,64 @@
           "target": "Electric"
         },
         {
+          "source": "[Skill] Spellcraft (total 133)",
+          "bonusType": "(untyped)",
+          "value": 133,
+          "target": "Electric"
+        },
+        {
           "source": "Universal Spell Power",
           "bonusType": "(untyped)",
-          "value": 686,
+          "value": 397,
           "target": "Electric"
         }
       ]
     },
+    "Evil": {
+      "total": 622,
+      "appliedCount": 6,
+      "dominatedCount": 1,
+      "sources": [
+        {
+          "source": "[G] Goggles: Legendary Scientist's Sights (Potency)",
+          "bonusType": "Quality",
+          "value": 27,
+          "target": "All"
+        },
+        {
+          "source": "[G] Ring2: Clouded Dreams (UniversalSpellPower)",
+          "bonusType": "Exceptional",
+          "value": 15,
+          "target": "All"
+        },
+        {
+          "source": "[A] Cloak: The Deathly Shroud → Solar Gem of Spellpower (Legendary)",
+          "bonusType": "Artifact",
+          "value": 25,
+          "target": "All"
+        },
+        {
+          "source": "[A] Gloves: Legendary Darstil's Gloves → Lunar Gem of Spellpower (Legendary)",
+          "bonusType": "Profane",
+          "value": 25,
+          "target": "All"
+        },
+        {
+          "source": "[Skill] Spellcraft (total 133)",
+          "bonusType": "(untyped)",
+          "value": 133,
+          "target": "Evil"
+        },
+        {
+          "source": "Universal Spell Power",
+          "bonusType": "(untyped)",
+          "value": 397,
+          "target": "Evil"
+        }
+      ]
+    },
     "Fire": {
-      "total": 941,
+      "total": 826,
       "appliedCount": 11,
       "dominatedCount": 1,
       "sources": [
@@ -3396,24 +3187,6 @@
           "bonusType": "Feat",
           "value": 20,
           "target": "Fire"
-        },
-        {
-          "source": "[R] Dire Thaumaturge: Reaper's Arcanum V",
-          "bonusType": "Reaper",
-          "value": 2,
-          "target": "All"
-        },
-        {
-          "source": "[R] Dire Thaumaturge: Reaper's Arcanum VI",
-          "bonusType": "Reaper",
-          "value": 4,
-          "target": "All"
-        },
-        {
-          "source": "[A] Trinket: Legendary Heartshard → +3 Melee/Ranged and Spell Power",
-          "bonusType": "Reaper",
-          "value": 3,
-          "target": "All"
         },
         {
           "source": "[G] Goggles: Legendary Scientist's Sights (Potency)",
@@ -3428,9 +3201,21 @@
           "target": "Fire"
         },
         {
-          "source": "[A] Cloak: The Deathly Shroud → Solar Gem of Spellpower (Heroic)",
-          "bonusType": "Artifact",
+          "source": "[G] Ring2: Clouded Dreams (UniversalSpellPower)",
+          "bonusType": "Exceptional",
           "value": 15,
+          "target": "All"
+        },
+        {
+          "source": "[A] Cloak: The Deathly Shroud → Solar Gem of Spellpower (Legendary)",
+          "bonusType": "Artifact",
+          "value": 25,
+          "target": "All"
+        },
+        {
+          "source": "[A] Gloves: Legendary Darstil's Gloves → Lunar Gem of Spellpower (Legendary)",
+          "bonusType": "Profane",
+          "value": 25,
           "target": "All"
         },
         {
@@ -3452,15 +3237,21 @@
           "target": "Fire"
         },
         {
+          "source": "[Skill] Spellcraft (total 133)",
+          "bonusType": "(untyped)",
+          "value": 133,
+          "target": "Fire"
+        },
+        {
           "source": "Universal Spell Power",
           "bonusType": "(untyped)",
-          "value": 686,
+          "value": 397,
           "target": "Fire"
         }
       ]
     },
     "Force": {
-      "total": 1083,
+      "total": 963,
       "appliedCount": 23,
       "dominatedCount": 2,
       "sources": [
@@ -3549,27 +3340,9 @@
           "target": "Force"
         },
         {
-          "source": "[R] Dire Thaumaturge: Reaper's Arcanum V",
-          "bonusType": "Reaper",
-          "value": 2,
-          "target": "All"
-        },
-        {
-          "source": "[R] Dire Thaumaturge: Reaper's Arcanum VI",
-          "bonusType": "Reaper",
-          "value": 4,
-          "target": "All"
-        },
-        {
-          "source": "[A] Trinket: Legendary Heartshard → +3 Melee/Ranged and Spell Power",
-          "bonusType": "Reaper",
-          "value": 3,
-          "target": "All"
-        },
-        {
           "source": "[G] OffHand: Driftwood (Impulse)",
           "bonusType": "Quality",
-          "value": 36,
+          "value": 31,
           "target": "Force"
         },
         {
@@ -3585,9 +3358,21 @@
           "target": "Force"
         },
         {
-          "source": "[A] Cloak: The Deathly Shroud → Solar Gem of Spellpower (Heroic)",
-          "bonusType": "Artifact",
+          "source": "[G] Ring2: Clouded Dreams (UniversalSpellPower)",
+          "bonusType": "Exceptional",
           "value": 15,
+          "target": "All"
+        },
+        {
+          "source": "[A] Cloak: The Deathly Shroud → Solar Gem of Spellpower (Legendary)",
+          "bonusType": "Artifact",
+          "value": 25,
+          "target": "All"
+        },
+        {
+          "source": "[A] Gloves: Legendary Darstil's Gloves → Lunar Gem of Spellpower (Legendary)",
+          "bonusType": "Profane",
+          "value": 25,
           "target": "All"
         },
         {
@@ -3597,36 +3382,24 @@
           "target": "Force"
         },
         {
+          "source": "[Skill] Spellcraft (total 133)",
+          "bonusType": "(untyped)",
+          "value": 133,
+          "target": "Force"
+        },
+        {
           "source": "Universal Spell Power",
           "bonusType": "(untyped)",
-          "value": 686,
+          "value": 397,
           "target": "Force"
         }
       ]
     },
     "Light/Alignment": {
-      "total": 752,
+      "total": 637,
       "appliedCount": 7,
       "dominatedCount": 1,
       "sources": [
-        {
-          "source": "[R] Dire Thaumaturge: Reaper's Arcanum V",
-          "bonusType": "Reaper",
-          "value": 2,
-          "target": "All"
-        },
-        {
-          "source": "[R] Dire Thaumaturge: Reaper's Arcanum VI",
-          "bonusType": "Reaper",
-          "value": 4,
-          "target": "All"
-        },
-        {
-          "source": "[A] Trinket: Legendary Heartshard → +3 Melee/Ranged and Spell Power",
-          "bonusType": "Reaper",
-          "value": 3,
-          "target": "All"
-        },
         {
           "source": "[G] Goggles: Legendary Scientist's Sights (Potency)",
           "bonusType": "Quality",
@@ -3634,9 +3407,21 @@
           "target": "All"
         },
         {
-          "source": "[A] Cloak: The Deathly Shroud → Solar Gem of Spellpower (Heroic)",
-          "bonusType": "Artifact",
+          "source": "[G] Ring2: Clouded Dreams (UniversalSpellPower)",
+          "bonusType": "Exceptional",
           "value": 15,
+          "target": "All"
+        },
+        {
+          "source": "[A] Cloak: The Deathly Shroud → Solar Gem of Spellpower (Legendary)",
+          "bonusType": "Artifact",
+          "value": 25,
+          "target": "All"
+        },
+        {
+          "source": "[A] Gloves: Legendary Darstil's Gloves → Lunar Gem of Spellpower (Legendary)",
+          "bonusType": "Profane",
+          "value": 25,
           "target": "All"
         },
         {
@@ -3646,36 +3431,24 @@
           "target": "Light/Alignment"
         },
         {
+          "source": "[Skill] Spellcraft (total 133)",
+          "bonusType": "(untyped)",
+          "value": 133,
+          "target": "Light/Alignment"
+        },
+        {
           "source": "Universal Spell Power",
           "bonusType": "(untyped)",
-          "value": 686,
+          "value": 397,
           "target": "Light/Alignment"
         }
       ]
     },
     "Negative": {
-      "total": 752,
+      "total": 581,
       "appliedCount": 7,
       "dominatedCount": 1,
       "sources": [
-        {
-          "source": "[R] Dire Thaumaturge: Reaper's Arcanum V",
-          "bonusType": "Reaper",
-          "value": 2,
-          "target": "All"
-        },
-        {
-          "source": "[R] Dire Thaumaturge: Reaper's Arcanum VI",
-          "bonusType": "Reaper",
-          "value": 4,
-          "target": "All"
-        },
-        {
-          "source": "[A] Trinket: Legendary Heartshard → +3 Melee/Ranged and Spell Power",
-          "bonusType": "Reaper",
-          "value": 3,
-          "target": "All"
-        },
         {
           "source": "[G] Goggles: Legendary Scientist's Sights (Potency)",
           "bonusType": "Quality",
@@ -3683,9 +3456,21 @@
           "target": "All"
         },
         {
-          "source": "[A] Cloak: The Deathly Shroud → Solar Gem of Spellpower (Heroic)",
-          "bonusType": "Artifact",
+          "source": "[G] Ring2: Clouded Dreams (UniversalSpellPower)",
+          "bonusType": "Exceptional",
           "value": 15,
+          "target": "All"
+        },
+        {
+          "source": "[A] Cloak: The Deathly Shroud → Solar Gem of Spellpower (Legendary)",
+          "bonusType": "Artifact",
+          "value": 25,
+          "target": "All"
+        },
+        {
+          "source": "[A] Gloves: Legendary Darstil's Gloves → Lunar Gem of Spellpower (Legendary)",
+          "bonusType": "Profane",
+          "value": 25,
           "target": "All"
         },
         {
@@ -3695,36 +3480,24 @@
           "target": "Negative"
         },
         {
+          "source": "[Skill] Heal (total 77)",
+          "bonusType": "(untyped)",
+          "value": 77,
+          "target": "Negative"
+        },
+        {
           "source": "Universal Spell Power",
           "bonusType": "(untyped)",
-          "value": 686,
+          "value": 397,
           "target": "Negative"
         }
       ]
     },
     "Poison": {
-      "total": 742,
+      "total": 627,
       "appliedCount": 7,
       "dominatedCount": 1,
       "sources": [
-        {
-          "source": "[R] Dire Thaumaturge: Reaper's Arcanum V",
-          "bonusType": "Reaper",
-          "value": 2,
-          "target": "All"
-        },
-        {
-          "source": "[R] Dire Thaumaturge: Reaper's Arcanum VI",
-          "bonusType": "Reaper",
-          "value": 4,
-          "target": "All"
-        },
-        {
-          "source": "[A] Trinket: Legendary Heartshard → +3 Melee/Ranged and Spell Power",
-          "bonusType": "Reaper",
-          "value": 3,
-          "target": "All"
-        },
         {
           "source": "[G] Goggles: Legendary Scientist's Sights (Potency)",
           "bonusType": "Quality",
@@ -3732,9 +3505,21 @@
           "target": "All"
         },
         {
-          "source": "[A] Cloak: The Deathly Shroud → Solar Gem of Spellpower (Heroic)",
-          "bonusType": "Artifact",
+          "source": "[G] Ring2: Clouded Dreams (UniversalSpellPower)",
+          "bonusType": "Exceptional",
           "value": 15,
+          "target": "All"
+        },
+        {
+          "source": "[A] Cloak: The Deathly Shroud → Solar Gem of Spellpower (Legendary)",
+          "bonusType": "Artifact",
+          "value": 25,
+          "target": "All"
+        },
+        {
+          "source": "[A] Gloves: Legendary Darstil's Gloves → Lunar Gem of Spellpower (Legendary)",
+          "bonusType": "Profane",
+          "value": 25,
           "target": "All"
         },
         {
@@ -3744,36 +3529,24 @@
           "target": "Poison"
         },
         {
+          "source": "[Skill] Spellcraft (total 133)",
+          "bonusType": "(untyped)",
+          "value": 133,
+          "target": "Poison"
+        },
+        {
           "source": "Universal Spell Power",
           "bonusType": "(untyped)",
-          "value": 686,
+          "value": 397,
           "target": "Poison"
         }
       ]
     },
     "Positive": {
-      "total": 776,
+      "total": 605,
       "appliedCount": 9,
       "dominatedCount": 1,
       "sources": [
-        {
-          "source": "[R] Dire Thaumaturge: Reaper's Arcanum V",
-          "bonusType": "Reaper",
-          "value": 2,
-          "target": "All"
-        },
-        {
-          "source": "[R] Dire Thaumaturge: Reaper's Arcanum VI",
-          "bonusType": "Reaper",
-          "value": 4,
-          "target": "All"
-        },
-        {
-          "source": "[A] Trinket: Legendary Heartshard → +3 Melee/Ranged and Spell Power",
-          "bonusType": "Reaper",
-          "value": 3,
-          "target": "All"
-        },
         {
           "source": "[G] Goggles: Legendary Scientist's Sights (Potency)",
           "bonusType": "Quality",
@@ -3781,9 +3554,21 @@
           "target": "All"
         },
         {
-          "source": "[A] Cloak: The Deathly Shroud → Solar Gem of Spellpower (Heroic)",
-          "bonusType": "Artifact",
+          "source": "[G] Ring2: Clouded Dreams (UniversalSpellPower)",
+          "bonusType": "Exceptional",
           "value": 15,
+          "target": "All"
+        },
+        {
+          "source": "[A] Cloak: The Deathly Shroud → Solar Gem of Spellpower (Legendary)",
+          "bonusType": "Artifact",
+          "value": 25,
+          "target": "All"
+        },
+        {
+          "source": "[A] Gloves: Legendary Darstil's Gloves → Lunar Gem of Spellpower (Legendary)",
+          "bonusType": "Profane",
+          "value": 25,
           "target": "All"
         },
         {
@@ -3805,15 +3590,21 @@
           "target": "Positive"
         },
         {
+          "source": "[Skill] Heal (total 77)",
+          "bonusType": "(untyped)",
+          "value": 77,
+          "target": "Positive"
+        },
+        {
           "source": "Universal Spell Power",
           "bonusType": "(untyped)",
-          "value": 686,
+          "value": 397,
           "target": "Positive"
         }
       ]
     },
     "Repair": {
-      "total": 822,
+      "total": 681,
       "appliedCount": 13,
       "dominatedCount": 1,
       "sources": [
@@ -3844,7 +3635,7 @@
         {
           "source": "[D] Machrotechnic: Machrotechnic: Storm Core",
           "bonusType": "Destiny",
-          "value": 15,
+          "value": 5,
           "target": "Repair"
         },
         {
@@ -3854,33 +3645,27 @@
           "target": "Repair"
         },
         {
-          "source": "[R] Dire Thaumaturge: Reaper's Arcanum V",
-          "bonusType": "Reaper",
-          "value": 2,
-          "target": "All"
-        },
-        {
-          "source": "[R] Dire Thaumaturge: Reaper's Arcanum VI",
-          "bonusType": "Reaper",
-          "value": 4,
-          "target": "All"
-        },
-        {
-          "source": "[A] Trinket: Legendary Heartshard → +3 Melee/Ranged and Spell Power",
-          "bonusType": "Reaper",
-          "value": 3,
-          "target": "All"
-        },
-        {
           "source": "[G] Goggles: Legendary Scientist's Sights (Potency)",
           "bonusType": "Quality",
           "value": 27,
           "target": "All"
         },
         {
-          "source": "[A] Cloak: The Deathly Shroud → Solar Gem of Spellpower (Heroic)",
-          "bonusType": "Artifact",
+          "source": "[G] Ring2: Clouded Dreams (UniversalSpellPower)",
+          "bonusType": "Exceptional",
           "value": 15,
+          "target": "All"
+        },
+        {
+          "source": "[A] Cloak: The Deathly Shroud → Solar Gem of Spellpower (Legendary)",
+          "bonusType": "Artifact",
+          "value": 25,
+          "target": "All"
+        },
+        {
+          "source": "[A] Gloves: Legendary Darstil's Gloves → Lunar Gem of Spellpower (Legendary)",
+          "bonusType": "Profane",
+          "value": 25,
           "target": "All"
         },
         {
@@ -3890,101 +3675,22 @@
           "target": "Repair"
         },
         {
-          "source": "Universal Spell Power",
+          "source": "[Skill] Repair (total 117)",
           "bonusType": "(untyped)",
-          "value": 686,
+          "value": 117,
           "target": "Repair"
-        }
-      ]
-    },
-    "Rust": {
-      "total": 822,
-      "appliedCount": 13,
-      "dominatedCount": 1,
-      "sources": [
-        {
-          "source": "Epic Spell Power: Repair",
-          "bonusType": "Feat",
-          "value": 20,
-          "target": "Rust"
-        },
-        {
-          "source": "[D] Machrotechnic: Machrotechnic: Maker's Touch",
-          "bonusType": "Destiny",
-          "value": 5,
-          "target": "Rust"
-        },
-        {
-          "source": "[D] Machrotechnic: Machrotechnic: Metamagic Capacitors",
-          "bonusType": "Destiny",
-          "value": 5,
-          "target": "Rust"
-        },
-        {
-          "source": "[D] Machrotechnic: Machrotechnic: Warding Inscriptions",
-          "bonusType": "Destiny",
-          "value": 5,
-          "target": "Rust"
-        },
-        {
-          "source": "[D] Machrotechnic: Machrotechnic: Storm Core",
-          "bonusType": "Destiny",
-          "value": 15,
-          "target": "Rust"
-        },
-        {
-          "source": "[D] Machrotechnic: Machrotechnic: Armored Augmentation",
-          "bonusType": "Destiny",
-          "value": 5,
-          "target": "Rust"
-        },
-        {
-          "source": "[R] Dire Thaumaturge: Reaper's Arcanum V",
-          "bonusType": "Reaper",
-          "value": 2,
-          "target": "All"
-        },
-        {
-          "source": "[R] Dire Thaumaturge: Reaper's Arcanum VI",
-          "bonusType": "Reaper",
-          "value": 4,
-          "target": "All"
-        },
-        {
-          "source": "[A] Trinket: Legendary Heartshard → +3 Melee/Ranged and Spell Power",
-          "bonusType": "Reaper",
-          "value": 3,
-          "target": "All"
-        },
-        {
-          "source": "[G] Goggles: Legendary Scientist's Sights (Potency)",
-          "bonusType": "Quality",
-          "value": 27,
-          "target": "All"
-        },
-        {
-          "source": "[A] Cloak: The Deathly Shroud → Solar Gem of Spellpower (Heroic)",
-          "bonusType": "Artifact",
-          "value": 15,
-          "target": "All"
-        },
-        {
-          "source": "[PL] Past Life: Bladeforged ×3",
-          "bonusType": "Stacking",
-          "value": 30,
-          "target": "Rust"
         },
         {
           "source": "Universal Spell Power",
           "bonusType": "(untyped)",
-          "value": 686,
-          "target": "Rust"
+          "value": 397,
+          "target": "Repair"
         }
       ]
     },
     "Sonic": {
-      "total": 812,
-      "appliedCount": 14,
+      "total": 554,
+      "appliedCount": 13,
       "dominatedCount": 1,
       "sources": [
         {
@@ -4014,7 +3720,7 @@
         {
           "source": "[D] Machrotechnic: Machrotechnic: Storm Core",
           "bonusType": "Destiny",
-          "value": 15,
+          "value": 5,
           "target": "Sonic"
         },
         {
@@ -4024,33 +3730,27 @@
           "target": "Sonic"
         },
         {
-          "source": "[R] Dire Thaumaturge: Reaper's Arcanum V",
-          "bonusType": "Reaper",
-          "value": 2,
-          "target": "All"
-        },
-        {
-          "source": "[R] Dire Thaumaturge: Reaper's Arcanum VI",
-          "bonusType": "Reaper",
-          "value": 4,
-          "target": "All"
-        },
-        {
-          "source": "[A] Trinket: Legendary Heartshard → +3 Melee/Ranged and Spell Power",
-          "bonusType": "Reaper",
-          "value": 3,
-          "target": "All"
-        },
-        {
           "source": "[G] Goggles: Legendary Scientist's Sights (Potency)",
           "bonusType": "Quality",
           "value": 27,
           "target": "All"
         },
         {
-          "source": "[A] Cloak: The Deathly Shroud → Solar Gem of Spellpower (Heroic)",
-          "bonusType": "Artifact",
+          "source": "[G] Ring2: Clouded Dreams (UniversalSpellPower)",
+          "bonusType": "Exceptional",
           "value": 15,
+          "target": "All"
+        },
+        {
+          "source": "[A] Cloak: The Deathly Shroud → Solar Gem of Spellpower (Legendary)",
+          "bonusType": "Artifact",
+          "value": 25,
+          "target": "All"
+        },
+        {
+          "source": "[A] Gloves: Legendary Darstil's Gloves → Lunar Gem of Spellpower (Legendary)",
+          "bonusType": "Profane",
+          "value": 25,
           "target": "All"
         },
         {
@@ -4068,7 +3768,7 @@
         {
           "source": "Universal Spell Power",
           "bonusType": "(untyped)",
-          "value": 686,
+          "value": 397,
           "target": "Sonic"
         }
       ]
@@ -4077,27 +3777,9 @@
   "spellCriticalChance": {
     "Acid": {
       "total": 60,
-      "appliedCount": 12,
+      "appliedCount": 5,
       "dominatedCount": 0,
       "sources": [
-        {
-          "source": "Mental Toughness",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Improved Mental Toughness",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Arcane Trickster 3: Magical Training",
-          "bonusType": "Feat",
-          "value": 5,
-          "target": "All"
-        },
         {
           "source": "[G] Gloves: Legendary Darstil's Gloves (SpellLore)",
           "bonusType": "Equipment",
@@ -4123,60 +3805,49 @@
           "target": "Acid"
         },
         {
-          "source": "[FS] Elemental Avatar (5-piece tier ≥ 2)",
-          "bonusType": "Stacking",
-          "value": 1,
+          "source": "Universal Spell Lore",
+          "bonusType": "(untyped)",
+          "value": 27,
+          "target": "Acid"
+        }
+      ]
+    },
+    "Chaos": {
+      "total": 51,
+      "appliedCount": 4,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "[G] Gloves: Legendary Darstil's Gloves (SpellLore)",
+          "bonusType": "Equipment",
+          "value": 13,
           "target": "All"
         },
         {
-          "source": "[FS] Elemental Avatar (5-piece tier ≥ 3)",
-          "bonusType": "Stacking",
-          "value": 1,
+          "source": "[A] Trinket: Legendary Heartshard → Solar Gem of Spell Critical Chance (Legendary)",
+          "bonusType": "Artifact",
+          "value": 6,
           "target": "All"
         },
         {
-          "source": "[FS] Elemental Avatar (5-piece tier ≥ 4)",
-          "bonusType": "Stacking",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[FS] Elemental Avatar (5-piece tier ≥ 5)",
-          "bonusType": "Stacking",
-          "value": 1,
+          "source": "[A] Ring2: Clouded Dreams → Essence of Pomura's Memento",
+          "bonusType": "Insightful",
+          "value": 5,
           "target": "All"
         },
         {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 16,
-          "target": "Acid"
+          "value": 27,
+          "target": "Chaos"
         }
       ]
     },
     "Cold": {
       "total": 60,
-      "appliedCount": 12,
+      "appliedCount": 5,
       "dominatedCount": 0,
       "sources": [
-        {
-          "source": "Mental Toughness",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Improved Mental Toughness",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Arcane Trickster 3: Magical Training",
-          "bonusType": "Feat",
-          "value": 5,
-          "target": "All"
-        },
         {
           "source": "[G] Gloves: Legendary Darstil's Gloves (SpellLore)",
           "bonusType": "Equipment",
@@ -4202,60 +3873,18 @@
           "target": "Cold"
         },
         {
-          "source": "[FS] Elemental Avatar (5-piece tier ≥ 2)",
-          "bonusType": "Stacking",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[FS] Elemental Avatar (5-piece tier ≥ 3)",
-          "bonusType": "Stacking",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[FS] Elemental Avatar (5-piece tier ≥ 4)",
-          "bonusType": "Stacking",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[FS] Elemental Avatar (5-piece tier ≥ 5)",
-          "bonusType": "Stacking",
-          "value": 1,
-          "target": "All"
-        },
-        {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 16,
+          "value": 27,
           "target": "Cold"
         }
       ]
     },
     "Electric": {
       "total": 60,
-      "appliedCount": 12,
+      "appliedCount": 5,
       "dominatedCount": 0,
       "sources": [
-        {
-          "source": "Mental Toughness",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Improved Mental Toughness",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Arcane Trickster 3: Magical Training",
-          "bonusType": "Feat",
-          "value": 5,
-          "target": "All"
-        },
         {
           "source": "[G] Gloves: Legendary Darstil's Gloves (SpellLore)",
           "bonusType": "Equipment",
@@ -4281,60 +3910,49 @@
           "target": "Electric"
         },
         {
-          "source": "[FS] Elemental Avatar (5-piece tier ≥ 2)",
-          "bonusType": "Stacking",
-          "value": 1,
+          "source": "Universal Spell Lore",
+          "bonusType": "(untyped)",
+          "value": 27,
+          "target": "Electric"
+        }
+      ]
+    },
+    "Evil": {
+      "total": 51,
+      "appliedCount": 4,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "[G] Gloves: Legendary Darstil's Gloves (SpellLore)",
+          "bonusType": "Equipment",
+          "value": 13,
           "target": "All"
         },
         {
-          "source": "[FS] Elemental Avatar (5-piece tier ≥ 3)",
-          "bonusType": "Stacking",
-          "value": 1,
+          "source": "[A] Trinket: Legendary Heartshard → Solar Gem of Spell Critical Chance (Legendary)",
+          "bonusType": "Artifact",
+          "value": 6,
           "target": "All"
         },
         {
-          "source": "[FS] Elemental Avatar (5-piece tier ≥ 4)",
-          "bonusType": "Stacking",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[FS] Elemental Avatar (5-piece tier ≥ 5)",
-          "bonusType": "Stacking",
-          "value": 1,
+          "source": "[A] Ring2: Clouded Dreams → Essence of Pomura's Memento",
+          "bonusType": "Insightful",
+          "value": 5,
           "target": "All"
         },
         {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 16,
-          "target": "Electric"
+          "value": 27,
+          "target": "Evil"
         }
       ]
     },
     "Fire": {
       "total": 69,
-      "appliedCount": 12,
+      "appliedCount": 5,
       "dominatedCount": 1,
       "sources": [
-        {
-          "source": "Mental Toughness",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Improved Mental Toughness",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Arcane Trickster 3: Magical Training",
-          "bonusType": "Feat",
-          "value": 5,
-          "target": "All"
-        },
         {
           "source": "[G] Armor: Legendary Red Dragonscale Docent (FireLore)",
           "bonusType": "Equipment",
@@ -4360,60 +3978,18 @@
           "target": "Fire"
         },
         {
-          "source": "[FS] Elemental Avatar (5-piece tier ≥ 2)",
-          "bonusType": "Stacking",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[FS] Elemental Avatar (5-piece tier ≥ 3)",
-          "bonusType": "Stacking",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[FS] Elemental Avatar (5-piece tier ≥ 4)",
-          "bonusType": "Stacking",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[FS] Elemental Avatar (5-piece tier ≥ 5)",
-          "bonusType": "Stacking",
-          "value": 1,
-          "target": "All"
-        },
-        {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 16,
+          "value": 27,
           "target": "Fire"
         }
       ]
     },
     "Force": {
       "total": 62,
-      "appliedCount": 11,
+      "appliedCount": 4,
       "dominatedCount": 1,
       "sources": [
-        {
-          "source": "Mental Toughness",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Improved Mental Toughness",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Arcane Trickster 3: Magical Training",
-          "bonusType": "Feat",
-          "value": 5,
-          "target": "All"
-        },
         {
           "source": "[G] Bracers: Thayan Pactmage's Bangle (KineticLore)",
           "bonusType": "Equipment",
@@ -4433,60 +4009,18 @@
           "target": "All"
         },
         {
-          "source": "[FS] Elemental Avatar (5-piece tier ≥ 2)",
-          "bonusType": "Stacking",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[FS] Elemental Avatar (5-piece tier ≥ 3)",
-          "bonusType": "Stacking",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[FS] Elemental Avatar (5-piece tier ≥ 4)",
-          "bonusType": "Stacking",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[FS] Elemental Avatar (5-piece tier ≥ 5)",
-          "bonusType": "Stacking",
-          "value": 1,
-          "target": "All"
-        },
-        {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 16,
+          "value": 27,
           "target": "Force"
         }
       ]
     },
     "Light/Alignment": {
       "total": 51,
-      "appliedCount": 11,
+      "appliedCount": 4,
       "dominatedCount": 0,
       "sources": [
-        {
-          "source": "Mental Toughness",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Improved Mental Toughness",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Arcane Trickster 3: Magical Training",
-          "bonusType": "Feat",
-          "value": 5,
-          "target": "All"
-        },
         {
           "source": "[G] Gloves: Legendary Darstil's Gloves (SpellLore)",
           "bonusType": "Equipment",
@@ -4506,60 +4040,18 @@
           "target": "All"
         },
         {
-          "source": "[FS] Elemental Avatar (5-piece tier ≥ 2)",
-          "bonusType": "Stacking",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[FS] Elemental Avatar (5-piece tier ≥ 3)",
-          "bonusType": "Stacking",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[FS] Elemental Avatar (5-piece tier ≥ 4)",
-          "bonusType": "Stacking",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[FS] Elemental Avatar (5-piece tier ≥ 5)",
-          "bonusType": "Stacking",
-          "value": 1,
-          "target": "All"
-        },
-        {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 16,
+          "value": 27,
           "target": "Light/Alignment"
         }
       ]
     },
     "Negative": {
       "total": 51,
-      "appliedCount": 11,
+      "appliedCount": 4,
       "dominatedCount": 0,
       "sources": [
-        {
-          "source": "Mental Toughness",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Improved Mental Toughness",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Arcane Trickster 3: Magical Training",
-          "bonusType": "Feat",
-          "value": 5,
-          "target": "All"
-        },
         {
           "source": "[G] Gloves: Legendary Darstil's Gloves (SpellLore)",
           "bonusType": "Equipment",
@@ -4579,60 +4071,18 @@
           "target": "All"
         },
         {
-          "source": "[FS] Elemental Avatar (5-piece tier ≥ 2)",
-          "bonusType": "Stacking",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[FS] Elemental Avatar (5-piece tier ≥ 3)",
-          "bonusType": "Stacking",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[FS] Elemental Avatar (5-piece tier ≥ 4)",
-          "bonusType": "Stacking",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[FS] Elemental Avatar (5-piece tier ≥ 5)",
-          "bonusType": "Stacking",
-          "value": 1,
-          "target": "All"
-        },
-        {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 16,
+          "value": 27,
           "target": "Negative"
         }
       ]
     },
     "Poison": {
       "total": 51,
-      "appliedCount": 11,
+      "appliedCount": 4,
       "dominatedCount": 0,
       "sources": [
-        {
-          "source": "Mental Toughness",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Improved Mental Toughness",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Arcane Trickster 3: Magical Training",
-          "bonusType": "Feat",
-          "value": 5,
-          "target": "All"
-        },
         {
           "source": "[G] Gloves: Legendary Darstil's Gloves (SpellLore)",
           "bonusType": "Equipment",
@@ -4652,60 +4102,18 @@
           "target": "All"
         },
         {
-          "source": "[FS] Elemental Avatar (5-piece tier ≥ 2)",
-          "bonusType": "Stacking",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[FS] Elemental Avatar (5-piece tier ≥ 3)",
-          "bonusType": "Stacking",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[FS] Elemental Avatar (5-piece tier ≥ 4)",
-          "bonusType": "Stacking",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[FS] Elemental Avatar (5-piece tier ≥ 5)",
-          "bonusType": "Stacking",
-          "value": 1,
-          "target": "All"
-        },
-        {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 16,
+          "value": 27,
           "target": "Poison"
         }
       ]
     },
     "Positive": {
       "total": 51,
-      "appliedCount": 11,
+      "appliedCount": 4,
       "dominatedCount": 0,
       "sources": [
-        {
-          "source": "Mental Toughness",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Improved Mental Toughness",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Arcane Trickster 3: Magical Training",
-          "bonusType": "Feat",
-          "value": 5,
-          "target": "All"
-        },
         {
           "source": "[G] Gloves: Legendary Darstil's Gloves (SpellLore)",
           "bonusType": "Equipment",
@@ -4725,60 +4133,18 @@
           "target": "All"
         },
         {
-          "source": "[FS] Elemental Avatar (5-piece tier ≥ 2)",
-          "bonusType": "Stacking",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[FS] Elemental Avatar (5-piece tier ≥ 3)",
-          "bonusType": "Stacking",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[FS] Elemental Avatar (5-piece tier ≥ 4)",
-          "bonusType": "Stacking",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[FS] Elemental Avatar (5-piece tier ≥ 5)",
-          "bonusType": "Stacking",
-          "value": 1,
-          "target": "All"
-        },
-        {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 16,
+          "value": 27,
           "target": "Positive"
         }
       ]
     },
     "Repair": {
       "total": 51,
-      "appliedCount": 11,
+      "appliedCount": 4,
       "dominatedCount": 0,
       "sources": [
-        {
-          "source": "Mental Toughness",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Improved Mental Toughness",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Arcane Trickster 3: Magical Training",
-          "bonusType": "Feat",
-          "value": 5,
-          "target": "All"
-        },
         {
           "source": "[G] Gloves: Legendary Darstil's Gloves (SpellLore)",
           "bonusType": "Equipment",
@@ -4798,133 +4164,18 @@
           "target": "All"
         },
         {
-          "source": "[FS] Elemental Avatar (5-piece tier ≥ 2)",
-          "bonusType": "Stacking",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[FS] Elemental Avatar (5-piece tier ≥ 3)",
-          "bonusType": "Stacking",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[FS] Elemental Avatar (5-piece tier ≥ 4)",
-          "bonusType": "Stacking",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[FS] Elemental Avatar (5-piece tier ≥ 5)",
-          "bonusType": "Stacking",
-          "value": 1,
-          "target": "All"
-        },
-        {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 16,
+          "value": 27,
           "target": "Repair"
-        }
-      ]
-    },
-    "Rust": {
-      "total": 51,
-      "appliedCount": 11,
-      "dominatedCount": 0,
-      "sources": [
-        {
-          "source": "Mental Toughness",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Improved Mental Toughness",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Arcane Trickster 3: Magical Training",
-          "bonusType": "Feat",
-          "value": 5,
-          "target": "All"
-        },
-        {
-          "source": "[G] Gloves: Legendary Darstil's Gloves (SpellLore)",
-          "bonusType": "Equipment",
-          "value": 13,
-          "target": "All"
-        },
-        {
-          "source": "[A] Trinket: Legendary Heartshard → Solar Gem of Spell Critical Chance (Legendary)",
-          "bonusType": "Artifact",
-          "value": 6,
-          "target": "All"
-        },
-        {
-          "source": "[A] Ring2: Clouded Dreams → Essence of Pomura's Memento",
-          "bonusType": "Insightful",
-          "value": 5,
-          "target": "All"
-        },
-        {
-          "source": "[FS] Elemental Avatar (5-piece tier ≥ 2)",
-          "bonusType": "Stacking",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[FS] Elemental Avatar (5-piece tier ≥ 3)",
-          "bonusType": "Stacking",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[FS] Elemental Avatar (5-piece tier ≥ 4)",
-          "bonusType": "Stacking",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[FS] Elemental Avatar (5-piece tier ≥ 5)",
-          "bonusType": "Stacking",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Universal Spell Lore",
-          "bonusType": "(untyped)",
-          "value": 16,
-          "target": "Rust"
         }
       ]
     },
     "Sonic": {
       "total": 60,
-      "appliedCount": 12,
+      "appliedCount": 5,
       "dominatedCount": 0,
       "sources": [
-        {
-          "source": "Mental Toughness",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Improved Mental Toughness",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Arcane Trickster 3: Magical Training",
-          "bonusType": "Feat",
-          "value": 5,
-          "target": "All"
-        },
         {
           "source": "[G] Gloves: Legendary Darstil's Gloves (SpellLore)",
           "bonusType": "Equipment",
@@ -4950,33 +4201,9 @@
           "target": "Sonic"
         },
         {
-          "source": "[FS] Elemental Avatar (5-piece tier ≥ 2)",
-          "bonusType": "Stacking",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[FS] Elemental Avatar (5-piece tier ≥ 3)",
-          "bonusType": "Stacking",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[FS] Elemental Avatar (5-piece tier ≥ 4)",
-          "bonusType": "Stacking",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[FS] Elemental Avatar (5-piece tier ≥ 5)",
-          "bonusType": "Stacking",
-          "value": 1,
-          "target": "All"
-        },
-        {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 16,
+          "value": 27,
           "target": "Sonic"
         }
       ]
@@ -4985,7 +4212,7 @@
   "spellCriticalDamage": {
     "Acid": {
       "total": 68,
-      "appliedCount": 4,
+      "appliedCount": 3,
       "dominatedCount": 0,
       "sources": [
         {
@@ -4995,11 +4222,24 @@
           "target": "Acid"
         },
         {
-          "source": "[A] Helmet: Legendary Helm of Workplace Safety → Solar Gem of Spell Critical Damage (Legendary)",
-          "bonusType": "Legendary",
-          "value": 15,
+          "source": "[A] Gloves: Legendary Darstil's Gloves → Curse of Uncontrollable Energy",
+          "bonusType": "Fortune",
+          "value": 2,
           "target": "All"
         },
+        {
+          "source": "Universal Spell Critical Damage",
+          "bonusType": "(untyped)",
+          "value": 56,
+          "target": "Acid"
+        }
+      ]
+    },
+    "Chaos": {
+      "total": 58,
+      "appliedCount": 2,
+      "dominatedCount": 0,
+      "sources": [
         {
           "source": "[A] Gloves: Legendary Darstil's Gloves → Curse of Uncontrollable Energy",
           "bonusType": "Fortune",
@@ -5009,22 +4249,16 @@
         {
           "source": "Universal Spell Critical Damage",
           "bonusType": "(untyped)",
-          "value": 41,
-          "target": "Acid"
+          "value": 56,
+          "target": "Chaos"
         }
       ]
     },
     "Cold": {
       "total": 58,
-      "appliedCount": 3,
+      "appliedCount": 2,
       "dominatedCount": 0,
       "sources": [
-        {
-          "source": "[A] Helmet: Legendary Helm of Workplace Safety → Solar Gem of Spell Critical Damage (Legendary)",
-          "bonusType": "Legendary",
-          "value": 15,
-          "target": "All"
-        },
         {
           "source": "[A] Gloves: Legendary Darstil's Gloves → Curse of Uncontrollable Energy",
           "bonusType": "Fortune",
@@ -5034,22 +4268,16 @@
         {
           "source": "Universal Spell Critical Damage",
           "bonusType": "(untyped)",
-          "value": 41,
+          "value": 56,
           "target": "Cold"
         }
       ]
     },
     "Electric": {
       "total": 58,
-      "appliedCount": 3,
+      "appliedCount": 2,
       "dominatedCount": 0,
       "sources": [
-        {
-          "source": "[A] Helmet: Legendary Helm of Workplace Safety → Solar Gem of Spell Critical Damage (Legendary)",
-          "bonusType": "Legendary",
-          "value": 15,
-          "target": "All"
-        },
         {
           "source": "[A] Gloves: Legendary Darstil's Gloves → Curse of Uncontrollable Energy",
           "bonusType": "Fortune",
@@ -5059,14 +4287,33 @@
         {
           "source": "Universal Spell Critical Damage",
           "bonusType": "(untyped)",
-          "value": 41,
+          "value": 56,
           "target": "Electric"
+        }
+      ]
+    },
+    "Evil": {
+      "total": 58,
+      "appliedCount": 2,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "[A] Gloves: Legendary Darstil's Gloves → Curse of Uncontrollable Energy",
+          "bonusType": "Fortune",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "Universal Spell Critical Damage",
+          "bonusType": "(untyped)",
+          "value": 56,
+          "target": "Evil"
         }
       ]
     },
     "Fire": {
       "total": 68,
-      "appliedCount": 4,
+      "appliedCount": 3,
       "dominatedCount": 0,
       "sources": [
         {
@@ -5076,12 +4323,6 @@
           "target": "Fire"
         },
         {
-          "source": "[A] Helmet: Legendary Helm of Workplace Safety → Solar Gem of Spell Critical Damage (Legendary)",
-          "bonusType": "Legendary",
-          "value": 15,
-          "target": "All"
-        },
-        {
           "source": "[A] Gloves: Legendary Darstil's Gloves → Curse of Uncontrollable Energy",
           "bonusType": "Fortune",
           "value": 2,
@@ -5090,14 +4331,14 @@
         {
           "source": "Universal Spell Critical Damage",
           "bonusType": "(untyped)",
-          "value": 41,
+          "value": 56,
           "target": "Fire"
         }
       ]
     },
     "Force": {
       "total": 113,
-      "appliedCount": 7,
+      "appliedCount": 6,
       "dominatedCount": 0,
       "sources": [
         {
@@ -5119,12 +4360,6 @@
           "target": "Force"
         },
         {
-          "source": "[A] Helmet: Legendary Helm of Workplace Safety → Solar Gem of Spell Critical Damage (Legendary)",
-          "bonusType": "Legendary",
-          "value": 15,
-          "target": "All"
-        },
-        {
           "source": "[A] Goggles: Legendary Scientist's Sights → Dolorous Force Spell Critical Damage (Legendary)",
           "bonusType": "Insightful",
           "value": 12,
@@ -5139,22 +4374,16 @@
         {
           "source": "Universal Spell Critical Damage",
           "bonusType": "(untyped)",
-          "value": 41,
+          "value": 56,
           "target": "Force"
         }
       ]
     },
     "Light/Alignment": {
       "total": 58,
-      "appliedCount": 3,
+      "appliedCount": 2,
       "dominatedCount": 0,
       "sources": [
-        {
-          "source": "[A] Helmet: Legendary Helm of Workplace Safety → Solar Gem of Spell Critical Damage (Legendary)",
-          "bonusType": "Legendary",
-          "value": 15,
-          "target": "All"
-        },
         {
           "source": "[A] Gloves: Legendary Darstil's Gloves → Curse of Uncontrollable Energy",
           "bonusType": "Fortune",
@@ -5164,22 +4393,16 @@
         {
           "source": "Universal Spell Critical Damage",
           "bonusType": "(untyped)",
-          "value": 41,
+          "value": 56,
           "target": "Light/Alignment"
         }
       ]
     },
     "Negative": {
       "total": 58,
-      "appliedCount": 3,
+      "appliedCount": 2,
       "dominatedCount": 0,
       "sources": [
-        {
-          "source": "[A] Helmet: Legendary Helm of Workplace Safety → Solar Gem of Spell Critical Damage (Legendary)",
-          "bonusType": "Legendary",
-          "value": 15,
-          "target": "All"
-        },
         {
           "source": "[A] Gloves: Legendary Darstil's Gloves → Curse of Uncontrollable Energy",
           "bonusType": "Fortune",
@@ -5189,22 +4412,16 @@
         {
           "source": "Universal Spell Critical Damage",
           "bonusType": "(untyped)",
-          "value": 41,
+          "value": 56,
           "target": "Negative"
         }
       ]
     },
     "Poison": {
       "total": 58,
-      "appliedCount": 3,
+      "appliedCount": 2,
       "dominatedCount": 0,
       "sources": [
-        {
-          "source": "[A] Helmet: Legendary Helm of Workplace Safety → Solar Gem of Spell Critical Damage (Legendary)",
-          "bonusType": "Legendary",
-          "value": 15,
-          "target": "All"
-        },
         {
           "source": "[A] Gloves: Legendary Darstil's Gloves → Curse of Uncontrollable Energy",
           "bonusType": "Fortune",
@@ -5214,22 +4431,16 @@
         {
           "source": "Universal Spell Critical Damage",
           "bonusType": "(untyped)",
-          "value": 41,
+          "value": 56,
           "target": "Poison"
         }
       ]
     },
     "Positive": {
       "total": 58,
-      "appliedCount": 3,
+      "appliedCount": 2,
       "dominatedCount": 0,
       "sources": [
-        {
-          "source": "[A] Helmet: Legendary Helm of Workplace Safety → Solar Gem of Spell Critical Damage (Legendary)",
-          "bonusType": "Legendary",
-          "value": 15,
-          "target": "All"
-        },
         {
           "source": "[A] Gloves: Legendary Darstil's Gloves → Curse of Uncontrollable Energy",
           "bonusType": "Fortune",
@@ -5239,14 +4450,14 @@
         {
           "source": "Universal Spell Critical Damage",
           "bonusType": "(untyped)",
-          "value": 41,
+          "value": 56,
           "target": "Positive"
         }
       ]
     },
     "Repair": {
       "total": 68,
-      "appliedCount": 4,
+      "appliedCount": 3,
       "dominatedCount": 0,
       "sources": [
         {
@@ -5254,12 +4465,6 @@
           "bonusType": "Feat",
           "value": 10,
           "target": "Repair"
-        },
-        {
-          "source": "[A] Helmet: Legendary Helm of Workplace Safety → Solar Gem of Spell Critical Damage (Legendary)",
-          "bonusType": "Legendary",
-          "value": 15,
-          "target": "All"
         },
         {
           "source": "[A] Gloves: Legendary Darstil's Gloves → Curse of Uncontrollable Energy",
@@ -5270,45 +4475,14 @@
         {
           "source": "Universal Spell Critical Damage",
           "bonusType": "(untyped)",
-          "value": 41,
+          "value": 56,
           "target": "Repair"
-        }
-      ]
-    },
-    "Rust": {
-      "total": 68,
-      "appliedCount": 4,
-      "dominatedCount": 0,
-      "sources": [
-        {
-          "source": "Epic Spell Power: Repair",
-          "bonusType": "Feat",
-          "value": 10,
-          "target": "Rust"
-        },
-        {
-          "source": "[A] Helmet: Legendary Helm of Workplace Safety → Solar Gem of Spell Critical Damage (Legendary)",
-          "bonusType": "Legendary",
-          "value": 15,
-          "target": "All"
-        },
-        {
-          "source": "[A] Gloves: Legendary Darstil's Gloves → Curse of Uncontrollable Energy",
-          "bonusType": "Fortune",
-          "value": 2,
-          "target": "All"
-        },
-        {
-          "source": "Universal Spell Critical Damage",
-          "bonusType": "(untyped)",
-          "value": 41,
-          "target": "Rust"
         }
       ]
     },
     "Sonic": {
       "total": 68,
-      "appliedCount": 4,
+      "appliedCount": 3,
       "dominatedCount": 0,
       "sources": [
         {
@@ -5318,12 +4492,6 @@
           "target": "Sonic"
         },
         {
-          "source": "[A] Helmet: Legendary Helm of Workplace Safety → Solar Gem of Spell Critical Damage (Legendary)",
-          "bonusType": "Legendary",
-          "value": 15,
-          "target": "All"
-        },
-        {
           "source": "[A] Gloves: Legendary Darstil's Gloves → Curse of Uncontrollable Energy",
           "bonusType": "Fortune",
           "value": 2,
@@ -5332,8 +4500,2509 @@
         {
           "source": "Universal Spell Critical Damage",
           "bonusType": "(untyped)",
-          "value": 41,
+          "value": 56,
           "target": "Sonic"
+        }
+      ]
+    }
+  },
+  "skills": {
+    "balance": {
+      "total": 67,
+      "appliedCount": 20,
+      "dominatedCount": 1,
+      "sources": [
+        {
+          "source": "Dexterity modifier",
+          "bonusType": "(untyped)",
+          "value": 15
+        },
+        {
+          "source": "Echoing Soul",
+          "bonusType": "Feat",
+          "value": 20,
+          "target": "All"
+        },
+        {
+          "source": "Scion of the Ethereal Plane",
+          "bonusType": "Feat",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "Racial Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[A] Trinket: Legendary Heartshard → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Otto's Irresistible Dancehall",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Balance"
+        },
+        {
+          "source": "[PL] Past Life: Dwarf ×3",
+          "bonusType": "Stacking",
+          "value": 1,
+          "target": "Balance"
+        },
+        {
+          "source": "[PL] Past Life: Martial Sphere: Skill Mastery ×3",
+          "bonusType": "Stacking",
+          "value": 3,
+          "target": "All"
+        }
+      ]
+    },
+    "bluff": {
+      "total": 61,
+      "appliedCount": 19,
+      "dominatedCount": 1,
+      "sources": [
+        {
+          "source": "Charisma modifier",
+          "bonusType": "(untyped)",
+          "value": 10
+        },
+        {
+          "source": "Echoing Soul",
+          "bonusType": "Feat",
+          "value": 20,
+          "target": "All"
+        },
+        {
+          "source": "Scion of the Ethereal Plane",
+          "bonusType": "Feat",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "Racial Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[A] Trinket: Legendary Heartshard → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Throne Room",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Bluff"
+        },
+        {
+          "source": "[PL] Past Life: Martial Sphere: Skill Mastery ×3",
+          "bonusType": "Stacking",
+          "value": 3,
+          "target": "All"
+        }
+      ]
+    },
+    "concentration": {
+      "total": 84,
+      "appliedCount": 21,
+      "dominatedCount": 1,
+      "sources": [
+        {
+          "source": "Constitution modifier",
+          "bonusType": "(untyped)",
+          "value": 29
+        },
+        {
+          "source": "Echoing Soul",
+          "bonusType": "Feat",
+          "value": 20,
+          "target": "All"
+        },
+        {
+          "source": "Scion of the Ethereal Plane",
+          "bonusType": "Feat",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "Racial Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[E] Arcane Trickster: Arcane Trickster: Magic Fingers",
+          "bonusType": "Enhancement",
+          "value": 3,
+          "target": "Concentration"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[A] Trinket: Legendary Heartshard → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "[A] Bracers: Thayan Pactmage's Bangle → Curse of Minor Arcana",
+          "bonusType": "Fortune",
+          "value": 1,
+          "target": "Concentration"
+        },
+        {
+          "source": "[Guild] Forbidden Library",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Concentration"
+        },
+        {
+          "source": "[PL] Past Life: Martial Sphere: Skill Mastery ×3",
+          "bonusType": "Stacking",
+          "value": 3,
+          "target": "All"
+        }
+      ]
+    },
+    "diplomacy": {
+      "total": 62,
+      "appliedCount": 20,
+      "dominatedCount": 1,
+      "sources": [
+        {
+          "source": "Charisma modifier",
+          "bonusType": "(untyped)",
+          "value": 10
+        },
+        {
+          "source": "Echoing Soul",
+          "bonusType": "Feat",
+          "value": 20,
+          "target": "All"
+        },
+        {
+          "source": "Scion of the Ethereal Plane",
+          "bonusType": "Feat",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "Racial Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[A] Trinket: Legendary Heartshard → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Throne Room",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Diplomacy"
+        },
+        {
+          "source": "[PL] Past Life: Half-Elf ×3",
+          "bonusType": "Stacking",
+          "value": 1,
+          "target": "Diplomacy"
+        },
+        {
+          "source": "[PL] Past Life: Martial Sphere: Skill Mastery ×3",
+          "bonusType": "Stacking",
+          "value": 3,
+          "target": "All"
+        }
+      ]
+    },
+    "disable_device": {
+      "total": 148,
+      "appliedCount": 29,
+      "dominatedCount": 1,
+      "sources": [
+        {
+          "source": "Ranks (23)",
+          "bonusType": "(untyped)",
+          "value": 23
+        },
+        {
+          "source": "Intelligence modifier",
+          "bonusType": "(untyped)",
+          "value": 31
+        },
+        {
+          "source": "Skill tome",
+          "bonusType": "(untyped)",
+          "value": 4
+        },
+        {
+          "source": "Echoing Soul",
+          "bonusType": "Feat",
+          "value": 20,
+          "target": "All"
+        },
+        {
+          "source": "Nimble Fingers",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "Disable Device"
+        },
+        {
+          "source": "Scion of the Ethereal Plane",
+          "bonusType": "Feat",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "Racial Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[E] Arcane Trickster: Arcane Trickster: Magic Fingers",
+          "bonusType": "Enhancement",
+          "value": 3,
+          "target": "Disable Device"
+        },
+        {
+          "source": "[E] Mechanic: Mechanic: Mechanics",
+          "bonusType": "Enhancement",
+          "value": 3,
+          "target": "Disable Device"
+        },
+        {
+          "source": "[E] Mechanic: Mechanic: Improved Traps",
+          "bonusType": "Enhancement",
+          "value": 3,
+          "target": "Disable Device"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[D] Shadowdancer: Shadowdancer: Technician",
+          "bonusType": "Destiny",
+          "value": 6,
+          "target": "Disable Device"
+        },
+        {
+          "source": "[A] Trinket: Legendary Heartshard → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "[A] Gloves: Legendary Darstil's Gloves → Diamond of Disable Device",
+          "bonusType": "Competence",
+          "value": 20,
+          "target": "Disable Device"
+        },
+        {
+          "source": "[A] Boots: Legendary Windriders → Curse of Minor Mechanics",
+          "bonusType": "Fortune",
+          "value": 1,
+          "target": "Disable Device"
+        },
+        {
+          "source": "[Guild] Danger Room",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Disable Device"
+        },
+        {
+          "source": "[PL] Past Life: Martial Sphere: Skill Mastery ×3",
+          "bonusType": "Stacking",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[PL] Past Life: Artificer",
+          "bonusType": "Stacking",
+          "value": 1,
+          "target": "Intelligence"
+        }
+      ]
+    },
+    "haggle": {
+      "total": 62,
+      "appliedCount": 20,
+      "dominatedCount": 1,
+      "sources": [
+        {
+          "source": "Charisma modifier",
+          "bonusType": "(untyped)",
+          "value": 10
+        },
+        {
+          "source": "Echoing Soul",
+          "bonusType": "Feat",
+          "value": 20,
+          "target": "All"
+        },
+        {
+          "source": "Scion of the Ethereal Plane",
+          "bonusType": "Feat",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "Racial Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[A] Trinket: Legendary Heartshard → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Throne Room",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Haggle"
+        },
+        {
+          "source": "[PL] Past Life: Human ×3",
+          "bonusType": "Stacking",
+          "value": 1,
+          "target": "Haggle"
+        },
+        {
+          "source": "[PL] Past Life: Martial Sphere: Skill Mastery ×3",
+          "bonusType": "Stacking",
+          "value": 3,
+          "target": "All"
+        }
+      ]
+    },
+    "heal": {
+      "total": 77,
+      "appliedCount": 22,
+      "dominatedCount": 1,
+      "sources": [
+        {
+          "source": "Ranks (11)",
+          "bonusType": "(untyped)",
+          "value": 11
+        },
+        {
+          "source": "Wisdom modifier",
+          "bonusType": "(untyped)",
+          "value": 9
+        },
+        {
+          "source": "Skill tome",
+          "bonusType": "(untyped)",
+          "value": 5
+        },
+        {
+          "source": "Echoing Soul",
+          "bonusType": "Feat",
+          "value": 20,
+          "target": "All"
+        },
+        {
+          "source": "Scion of the Ethereal Plane",
+          "bonusType": "Feat",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "Racial Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[A] Trinket: Legendary Heartshard → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Forbidden Library",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Heal"
+        },
+        {
+          "source": "[PL] Past Life: Aasimar ×3",
+          "bonusType": "Stacking",
+          "value": 1,
+          "target": "Heal"
+        },
+        {
+          "source": "[PL] Past Life: Martial Sphere: Skill Mastery ×3",
+          "bonusType": "Stacking",
+          "value": 3,
+          "target": "All"
+        }
+      ]
+    },
+    "hide": {
+      "total": 67,
+      "appliedCount": 20,
+      "dominatedCount": 1,
+      "sources": [
+        {
+          "source": "Dexterity modifier",
+          "bonusType": "(untyped)",
+          "value": 15
+        },
+        {
+          "source": "Echoing Soul",
+          "bonusType": "Feat",
+          "value": 20,
+          "target": "All"
+        },
+        {
+          "source": "Scion of the Ethereal Plane",
+          "bonusType": "Feat",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "Racial Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[A] Trinket: Legendary Heartshard → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Danger Room",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Hide"
+        },
+        {
+          "source": "[PL] Past Life: Martial Sphere: Skill Mastery ×3",
+          "bonusType": "Stacking",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[PL] Past Life: Dhampir ×3",
+          "bonusType": "Stacking",
+          "value": 1,
+          "target": "Hide"
+        }
+      ]
+    },
+    "intimidate": {
+      "total": 62,
+      "appliedCount": 20,
+      "dominatedCount": 1,
+      "sources": [
+        {
+          "source": "Charisma modifier",
+          "bonusType": "(untyped)",
+          "value": 10
+        },
+        {
+          "source": "Echoing Soul",
+          "bonusType": "Feat",
+          "value": 20,
+          "target": "All"
+        },
+        {
+          "source": "Scion of the Ethereal Plane",
+          "bonusType": "Feat",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "Racial Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[A] Trinket: Legendary Heartshard → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Throne Room",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Intimidate"
+        },
+        {
+          "source": "[PL] Past Life: Half-Orc ×3",
+          "bonusType": "Stacking",
+          "value": 1,
+          "target": "Intimidate"
+        },
+        {
+          "source": "[PL] Past Life: Martial Sphere: Skill Mastery ×3",
+          "bonusType": "Stacking",
+          "value": 3,
+          "target": "All"
+        }
+      ]
+    },
+    "jump": {
+      "total": 61,
+      "appliedCount": 19,
+      "dominatedCount": 1,
+      "sources": [
+        {
+          "source": "Strength modifier",
+          "bonusType": "(untyped)",
+          "value": 10
+        },
+        {
+          "source": "Echoing Soul",
+          "bonusType": "Feat",
+          "value": 20,
+          "target": "All"
+        },
+        {
+          "source": "Scion of the Ethereal Plane",
+          "bonusType": "Feat",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "Racial Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[A] Trinket: Legendary Heartshard → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Otto's Irresistible Dancehall",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Jump"
+        },
+        {
+          "source": "[PL] Past Life: Martial Sphere: Skill Mastery ×3",
+          "bonusType": "Stacking",
+          "value": 3,
+          "target": "All"
+        }
+      ]
+    },
+    "listen": {
+      "total": 68,
+      "appliedCount": 23,
+      "dominatedCount": 1,
+      "sources": [
+        {
+          "source": "Wisdom modifier",
+          "bonusType": "(untyped)",
+          "value": 9
+        },
+        {
+          "source": "Echoing Soul",
+          "bonusType": "Feat",
+          "value": 20,
+          "target": "All"
+        },
+        {
+          "source": "Scion of the Ethereal Plane",
+          "bonusType": "Feat",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "Racial Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[E] Mechanic: Mechanic: Awareness",
+          "bonusType": "Enhancement",
+          "value": 1,
+          "target": "Listen"
+        },
+        {
+          "source": "[E] Falconry: Falconry: Summon Falcon",
+          "bonusType": "Enhancement",
+          "value": 2,
+          "target": "Listen"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Fey Sight",
+          "bonusType": "Destiny",
+          "value": 4,
+          "target": "Listen"
+        },
+        {
+          "source": "[A] Trinket: Legendary Heartshard → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Throne Room",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Listen"
+        },
+        {
+          "source": "[PL] Past Life: Martial Sphere: Skill Mastery ×3",
+          "bonusType": "Stacking",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[PL] Past Life: Eladrin ×3",
+          "bonusType": "Stacking",
+          "value": 1,
+          "target": "Listen"
+        }
+      ]
+    },
+    "move_silently": {
+      "total": 67,
+      "appliedCount": 20,
+      "dominatedCount": 1,
+      "sources": [
+        {
+          "source": "Dexterity modifier",
+          "bonusType": "(untyped)",
+          "value": 15
+        },
+        {
+          "source": "Echoing Soul",
+          "bonusType": "Feat",
+          "value": 20,
+          "target": "All"
+        },
+        {
+          "source": "Scion of the Ethereal Plane",
+          "bonusType": "Feat",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "Racial Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[A] Trinket: Legendary Heartshard → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Otto's Irresistible Dancehall",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Move Silently"
+        },
+        {
+          "source": "[PL] Past Life: Martial Sphere: Skill Mastery ×3",
+          "bonusType": "Stacking",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[PL] Past Life: Halfling ×3",
+          "bonusType": "Stacking",
+          "value": 1,
+          "target": "Move Silently"
+        }
+      ]
+    },
+    "open_lock": {
+      "total": 0,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Untrained — trained-only skill with 0 ranks",
+          "bonusType": "(untyped)",
+          "value": 0
+        }
+      ]
+    },
+    "perform": {
+      "total": 0,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Untrained — trained-only skill with 0 ranks",
+          "bonusType": "(untyped)",
+          "value": 0
+        }
+      ]
+    },
+    "repair": {
+      "total": 117,
+      "appliedCount": 25,
+      "dominatedCount": 1,
+      "sources": [
+        {
+          "source": "Ranks (23)",
+          "bonusType": "(untyped)",
+          "value": 23
+        },
+        {
+          "source": "Intelligence modifier",
+          "bonusType": "(untyped)",
+          "value": 31
+        },
+        {
+          "source": "Skill tome",
+          "bonusType": "(untyped)",
+          "value": 4
+        },
+        {
+          "source": "Echoing Soul",
+          "bonusType": "Feat",
+          "value": 20,
+          "target": "All"
+        },
+        {
+          "source": "Scion of the Ethereal Plane",
+          "bonusType": "Feat",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "Racial Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[E] Bladeforged: Bladeforged: Repair Systems → Mechanist",
+          "bonusType": "Enhancement",
+          "value": 3,
+          "target": "Repair"
+        },
+        {
+          "source": "[E] Mechanic: Mechanic: Mechanics",
+          "bonusType": "Enhancement",
+          "value": 3,
+          "target": "Repair"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[A] Trinket: Legendary Heartshard → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Forbidden Library",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Repair"
+        },
+        {
+          "source": "[PL] Past Life: Martial Sphere: Skill Mastery ×3",
+          "bonusType": "Stacking",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[PL] Past Life: Warforged ×3",
+          "bonusType": "Stacking",
+          "value": 1,
+          "target": "Repair"
+        },
+        {
+          "source": "[PL] Past Life: Artificer",
+          "bonusType": "Stacking",
+          "value": 1,
+          "target": "Intelligence"
+        }
+      ]
+    },
+    "search": {
+      "total": 96,
+      "appliedCount": 25,
+      "dominatedCount": 1,
+      "sources": [
+        {
+          "source": "Ranks (1)",
+          "bonusType": "(untyped)",
+          "value": 1
+        },
+        {
+          "source": "Intelligence modifier",
+          "bonusType": "(untyped)",
+          "value": 31
+        },
+        {
+          "source": "Echoing Soul",
+          "bonusType": "Feat",
+          "value": 20,
+          "target": "All"
+        },
+        {
+          "source": "Scion of the Ethereal Plane",
+          "bonusType": "Feat",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "Racial Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[E] Mechanic: Mechanic: Awareness",
+          "bonusType": "Enhancement",
+          "value": 1,
+          "target": "Search"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Fey Sight",
+          "bonusType": "Destiny",
+          "value": 4,
+          "target": "Search"
+        },
+        {
+          "source": "[D] Shadowdancer: Shadowdancer: Technician",
+          "bonusType": "Destiny",
+          "value": 6,
+          "target": "Search"
+        },
+        {
+          "source": "[A] Trinket: Legendary Heartshard → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Danger Room",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Search"
+        },
+        {
+          "source": "[PL] Past Life: Drow ×3",
+          "bonusType": "Stacking",
+          "value": 1,
+          "target": "Search"
+        },
+        {
+          "source": "[PL] Past Life: Martial Sphere: Skill Mastery ×3",
+          "bonusType": "Stacking",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[PL] Past Life: Artificer",
+          "bonusType": "Stacking",
+          "value": 1,
+          "target": "Intelligence"
+        }
+      ]
+    },
+    "spellcraft": {
+      "total": 133,
+      "appliedCount": 26,
+      "dominatedCount": 1,
+      "sources": [
+        {
+          "source": "Ranks (23)",
+          "bonusType": "(untyped)",
+          "value": 23
+        },
+        {
+          "source": "Intelligence modifier",
+          "bonusType": "(untyped)",
+          "value": 31
+        },
+        {
+          "source": "Skill tome",
+          "bonusType": "(untyped)",
+          "value": 5
+        },
+        {
+          "source": "Echoing Soul",
+          "bonusType": "Feat",
+          "value": 20,
+          "target": "All"
+        },
+        {
+          "source": "Scion of the Ethereal Plane",
+          "bonusType": "Feat",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "Racial Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[A] Trinket: Legendary Heartshard → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "[A] Belt: Legendary Belt of Bold Brilliance → Diamond of Spellcraft",
+          "bonusType": "Competence",
+          "value": 19,
+          "target": "Spellcraft"
+        },
+        {
+          "source": "[A] Bracers: Thayan Pactmage's Bangle → Curse of Minor Arcana",
+          "bonusType": "Fortune",
+          "value": 1,
+          "target": "Spellcraft"
+        },
+        {
+          "source": "[Guild] Forbidden Library",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Spellcraft"
+        },
+        {
+          "source": "[PL] Past Life: Martial Sphere: Skill Mastery ×3",
+          "bonusType": "Stacking",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[PL] Past Life: Tiefling ×3",
+          "bonusType": "Stacking",
+          "value": 1,
+          "target": "Spellcraft"
+        },
+        {
+          "source": "[PL] Past Life: Dragonborn ×3",
+          "bonusType": "Stacking",
+          "value": 1,
+          "target": "Spellcraft"
+        },
+        {
+          "source": "[PL] Past Life: Artificer",
+          "bonusType": "Stacking",
+          "value": 1,
+          "target": "Intelligence"
+        }
+      ]
+    },
+    "spot": {
+      "total": 77,
+      "appliedCount": 26,
+      "dominatedCount": 1,
+      "sources": [
+        {
+          "source": "Wisdom modifier",
+          "bonusType": "(untyped)",
+          "value": 9
+        },
+        {
+          "source": "Echoing Soul",
+          "bonusType": "Feat",
+          "value": 20,
+          "target": "All"
+        },
+        {
+          "source": "Scion of the Ethereal Plane",
+          "bonusType": "Feat",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "Racial Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[E] Mechanic: Mechanic: Awareness",
+          "bonusType": "Enhancement",
+          "value": 1,
+          "target": "Spot"
+        },
+        {
+          "source": "[E] Falconry: Falconry: Summon Falcon",
+          "bonusType": "Enhancement",
+          "value": 2,
+          "target": "Spot"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Fey Sight",
+          "bonusType": "Destiny",
+          "value": 4,
+          "target": "Spot"
+        },
+        {
+          "source": "[D] Shadowdancer: Shadowdancer: Technician",
+          "bonusType": "Destiny",
+          "value": 6,
+          "target": "Spot"
+        },
+        {
+          "source": "[A] Trinket: Legendary Heartshard → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "[A] Goggles: Legendary Scientist's Sights → Curse of the Visionary",
+          "bonusType": "Fortune",
+          "value": 2,
+          "target": "Spot"
+        },
+        {
+          "source": "[Guild] Danger Room",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Spot"
+        },
+        {
+          "source": "[PL] Past Life: Martial Sphere: Skill Mastery ×3",
+          "bonusType": "Stacking",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[PL] Past Life: Shifter ×3",
+          "bonusType": "Stacking",
+          "value": 1,
+          "target": "Spot"
+        },
+        {
+          "source": "[PL] Past Life: Elf ×3",
+          "bonusType": "Stacking",
+          "value": 1,
+          "target": "Spot"
+        }
+      ]
+    },
+    "swim": {
+      "total": 61,
+      "appliedCount": 19,
+      "dominatedCount": 1,
+      "sources": [
+        {
+          "source": "Strength modifier",
+          "bonusType": "(untyped)",
+          "value": 10
+        },
+        {
+          "source": "Echoing Soul",
+          "bonusType": "Feat",
+          "value": 20,
+          "target": "All"
+        },
+        {
+          "source": "Scion of the Ethereal Plane",
+          "bonusType": "Feat",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "Racial Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[A] Trinket: Legendary Heartshard → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Otto's Irresistible Dancehall",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Swim"
+        },
+        {
+          "source": "[PL] Past Life: Martial Sphere: Skill Mastery ×3",
+          "bonusType": "Stacking",
+          "value": 3,
+          "target": "All"
+        }
+      ]
+    },
+    "tumble": {
+      "total": 67,
+      "appliedCount": 20,
+      "dominatedCount": 1,
+      "sources": [
+        {
+          "source": "Dexterity modifier",
+          "bonusType": "(untyped)",
+          "value": 15
+        },
+        {
+          "source": "Echoing Soul",
+          "bonusType": "Feat",
+          "value": 20,
+          "target": "All"
+        },
+        {
+          "source": "Scion of the Ethereal Plane",
+          "bonusType": "Feat",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "Racial Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[A] Trinket: Legendary Heartshard → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Otto's Irresistible Dancehall",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Tumble"
+        },
+        {
+          "source": "[PL] Past Life: Martial Sphere: Skill Mastery ×3",
+          "bonusType": "Stacking",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[PL] Past Life: Tabaxi ×3",
+          "bonusType": "Stacking",
+          "value": 1,
+          "target": "Tumble"
+        }
+      ]
+    },
+    "use_magic_device": {
+      "total": 0,
+      "appliedCount": 1,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "Untrained — trained-only skill with 0 ranks",
+          "bonusType": "(untyped)",
+          "value": 0
         }
       ]
     }
@@ -5346,6 +7015,7 @@
       "cost": 0,
       "maxCasterLevel": 0,
       "cooldown": 120,
+      "charges": 0,
       "source": "[D] Shadowdancer: Shadowdancer: Step Through Shadows"
     },
     {
@@ -5355,6 +7025,7 @@
       "cost": 0,
       "maxCasterLevel": 0,
       "cooldown": 0,
+      "charges": 0,
       "source": "Arcane Trickster 1: Dismiss Charm"
     },
     {
@@ -5364,6 +7035,7 @@
       "cost": 8,
       "maxCasterLevel": 20,
       "cooldown": 30,
+      "charges": 0,
       "source": "[E] Arcane Trickster: Arcane Trickster: Stolen Spell III → Stolen Spell - Flash Freeze"
     },
     {
@@ -5373,6 +7045,7 @@
       "cost": 2,
       "maxCasterLevel": 5,
       "cooldown": 4,
+      "charges": 0,
       "source": "[E] Arcane Trickster: Arcane Trickster: Stolen Spell I → Stolen Spell - Magic Missile"
     },
     {
@@ -5382,6 +7055,7 @@
       "cost": 0,
       "maxCasterLevel": 0,
       "cooldown": 0,
+      "charges": 10,
       "source": "Past Life: Arcane Initiate"
     },
     {
@@ -5391,6 +7065,7 @@
       "cost": 35,
       "maxCasterLevel": 0,
       "cooldown": 30,
+      "charges": 0,
       "source": "[E] Bladeforged: Bladeforged: Communion of Scribing"
     },
     {
@@ -5400,6 +7075,7 @@
       "cost": 8,
       "maxCasterLevel": 20,
       "cooldown": 20,
+      "charges": 0,
       "source": "[E] Arcane Trickster: Arcane Trickster: Stolen Spell II → Stolen Spell - Sound Burst"
     },
     {
@@ -5409,6 +7085,7 @@
       "cost": 25,
       "maxCasterLevel": 20,
       "cooldown": 10,
+      "charges": 0,
       "source": "[E] Arcane Trickster: Arcane Trickster: Stolen Spell IV → Stolen Spell - Turn to Frog"
     }
   ]
