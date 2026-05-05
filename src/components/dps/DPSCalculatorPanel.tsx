@@ -430,6 +430,7 @@ function MagicRotationEditor({
         onRemove={onRemove}
         onClear={onClear}
         playheadTime={simRunning || simTime > 0 ? simTime : undefined}
+        activeBuffs={rotationBreakdown?.activeBuffs}
       />
       <RotationDPSSummary
         breakdown={rotationBreakdown}

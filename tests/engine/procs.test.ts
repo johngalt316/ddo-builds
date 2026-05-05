@@ -3,7 +3,6 @@
 import { describe, it, expect } from 'vitest';
 import {
   MAGICAL_AMBUSH,
-  DARK_IMBUEMENT,
   DRIPPING_WITH_MAGMA,
   WOEFUL_ENERGY,
   WOEFUL_ECHOES,
@@ -109,41 +108,6 @@ describe('MAGICAL_AMBUSH.toComponents', () => {
       [{ name: 'Magic Missile', casterLevel: 9 }]);
     expect(c).toMatchObject({ useGenericVuln: true, useMRR: true });
     expect(c?.useSonicVuln).toBeUndefined();
-  });
-});
-
-describe('DARK_IMBUEMENT', () => {
-  const sd = build({
-    destinyEnhancements: [destinyTree('shadowdancer', 'Dark Imbuement')],
-  });
-
-  it('isActive only when the Dark Imbuement enhancement is selected', () => {
-    expect(DARK_IMBUEMENT.isActive(sd, ENGINE)).toBe(true);
-    // Selecting Paranoia (the sibling) does not activate Dark Imbuement.
-    expect(DARK_IMBUEMENT.isActive(
-      build({ destinyEnhancements: [destinyTree('shadowdancer', 'Paranoia')] }),
-      ENGINE,
-    )).toBe(false);
-    expect(DARK_IMBUEMENT.isActive(build(), ENGINE)).toBe(false);
-  });
-
-  it('emits one global per-cast component scaled to sneak dice', () => {
-    const [c] = DARK_IMBUEMENT.toComponents(sd, ENGINE, { sneakAttackDice: 38 }, []);
-    expect(c).toMatchObject({
-      trigger: { kind: 'per-cast' },
-      qtyPerTrigger: 1,
-      avgDicePerHit: 133,             // 38 × 3.5
-      damageType: 'Force',
-      scaleProfile: 'dark-imbuement',
-    });
-    // Ignores all debuffs (per spreadsheet).
-    expect(c?.useGenericVuln).toBeUndefined();
-    expect(c?.useSonicVuln).toBeUndefined();
-    expect(c?.useMRR).toBeUndefined();
-  });
-
-  it('emits nothing when sneak dice is 0', () => {
-    expect(DARK_IMBUEMENT.toComponents(sd, ENGINE, { sneakAttackDice: 0 }, [])).toEqual([]);
   });
 });
 

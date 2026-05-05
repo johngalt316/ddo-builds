@@ -267,3 +267,66 @@
   line-height: 1.5;
   text-align: center;
 }
+
+/* ── Buff lanes (under cast blocks) ─────────────────────────── */
+.buffLanes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-top: 0.6rem;
+  padding-top: 0.55rem;
+  border-top: 1px dashed var(--color-border);
+}
+.buffLane {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.buffLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-shrink: 0;
+  width: 11rem;
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+.buffIcon {
+  width: 18px;
+  height: 18px;
+  border-radius: 3px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+.buffName {
+  font-weight: 600;
+  color: var(--color-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+  min-width: 0;
+}
+.buffUptime {
+  color: var(--color-gold);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  flex-shrink: 0;
+}
+.buffTrack {
+  position: relative;
+  height: 14px;
+  background: rgba(255,255,255,0.03);
+  border-radius: 2px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.buffWindow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, rgba(154, 88, 200, 0.55), rgba(154, 88, 200, 0.35));
+  border-left: 1px solid rgba(154, 88, 200, 0.85);
+  border-right: 1px solid rgba(154, 88, 200, 0.85);
+}

@@ -204,49 +204,6 @@ const STATIC_PROC_CATALOG: StaticProcEntry[] = [
  *   • scale profile = 'sneak' (the wiki's "specified" exception that does
  *     scale with force SP — at 50%)
  */
-/**
- * Dark Imbuement — Shadowdancer destiny enhancement (sibling of Paranoia
- * in the same selector). Active while Shadowdancer Epic Strike is up;
- * for DPS modelling we assume it's perma-active (re-applied every 10 s).
- *
- * Damage rule (per ddowiki):
- *
- *   "1d6 per Sneak Attack Dice in Untyped damage on hit, scaling with
- *    Melee or Ranged Power."
- *
- * In-game behavior: BUGGED — the proc actually consumes BOTH Force Spell
- * Power AND max(MeleePower, RangedPower) as multiplicative scalars on
- * spellcasts. Players exploit this. We model the bug, not the spec — the
- * `'dark-imbuement'` scale profile encodes the dual scaling at calculator
- * time. If/when the bug gets patched, swap the profile for 'spell' (full
- * Force SP only) or recompute against the post-fix mechanics.
- *
- * Despite the wiki's "on hit" wording, the proc effectively fires once
- * per spell cast (not once per missile) — matching how the reference
- * spreadsheet models it. Damage type is Force for crit/scaling purposes
- * even though the wiki labels it Untyped.
- */
-export const DARK_IMBUEMENT: Proc = {
-  id: 'dark-imbuement',
-  label: 'Dark Imbuement',
-  isActive: (build) =>
-    build.destinyEnhancements.some(d =>
-      d.enhancements.some(e => e.selection === 'Dark Imbuement'),
-    ),
-  toComponents: (_build, _engine, ctx) => {
-    if (ctx.sneakAttackDice <= 0) return [];
-    return [{
-      label: 'Dark Imbuement',
-      trigger: { kind: 'per-cast' },
-      qtyPerTrigger: 1,
-      avgDicePerHit: ctx.sneakAttackDice * 3.5,   // Nd6 average
-      damageType: 'Force',
-      scaleProfile: 'dark-imbuement',
-      // ignores generic vuln, sonic vuln, and MRR per the spreadsheet
-    }];
-  },
-};
-
 export const MAGICAL_AMBUSH: Proc = {
   id: 'magical-ambush',
   label: 'Magical Ambush',
@@ -280,7 +237,6 @@ export const REVEL_IN_BLOOD_MAGIC = entryToProc(STATIC_PROC_CATALOG[3]!);
  *  static catalog or as new dynamic procs are added. */
 export const PROC_CATALOG: Proc[] = [
   MAGICAL_AMBUSH,
-  DARK_IMBUEMENT,
   ...STATIC_PROC_CATALOG.map(entryToProc),
 ];
 

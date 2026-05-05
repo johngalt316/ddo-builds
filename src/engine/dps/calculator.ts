@@ -19,6 +19,7 @@ import type { MagicAbility } from './abilities';
 import type { RotationStep } from './rotation';
 import { resolveTimeline } from './timing';
 import { projectileCount } from './spellRules';
+import { BUFF_CATALOG, computeActiveBuffs, type ActiveBuff } from './buffs';
 
 /**
  * Inputs for evaluating components into damage numbers. Extends
@@ -216,6 +217,11 @@ export const NO_DEBUFFS: Debuffs = {
  * that fire on every cast. Used by the rotation palette / spell tooltips
  * so the user can cross-reference against in-game numbers.
  *
+ * Transient buffs (Dark Imbuement, …) are included optimistically — the
+ * per-cast view assumes the user's rotation maintains the buff. The
+ * whole-rotation calculator scales the buff contribution by its actual
+ * uptime; this view is the "buff up" upper bound.
+ *
  * `debuffs` defaults to the no-debuff baseline; pass aggregated values
  * to see how active debuffs lift the per-cast number.
  */
@@ -236,8 +242,12 @@ export function damagePerCast(
   const procs = expandActiveProcs(build, engine, ctx, [
     { name: ability.name, casterLevel },
   ]);
+  // Buffs (assume up) — optimal-rotation upper bound.
+  const buffs = BUFF_CATALOG
+    .filter(b => b.isAvailable(build, engine))
+    .flatMap(b => b.toComponents(build, engine, ctx));
 
-  const byComponent: ComponentDamage[] = [...base, ...procs].map(c => {
+  const byComponent: ComponentDamage[] = [...base, ...procs, ...buffs].map(c => {
     const scaleInputs      = resolveScaleInputs(c, engine, ctx);
     const damagePerTrigger = componentDamagePerTrigger(c, scaleInputs);
     const debuffMultiplier = componentDebuffMultiplier(c, debuffs);
@@ -264,6 +274,13 @@ export function damagePerCast(
  *
  * Returns `null` for an empty rotation (no time to spread damage over).
  */
+export interface RotationDPSResult extends DamageBreakdown {
+  /** Per-buff uptime + benefiting cast count for the timeline UI. */
+  activeBuffs: ActiveBuff[];
+  /** Cycle length in seconds (sets the buff-window scale). */
+  cycleSeconds: number;
+}
+
 export function rotationDPS(
   magicSteps: RotationStep[],
   abilities: MagicAbility[],
@@ -272,7 +289,7 @@ export function rotationDPS(
   ctx: EvalContext,
   debuffs: Debuffs,
   cooldownReductionPct: number,
-): DamageBreakdown | null {
+): RotationDPSResult | null {
   if (magicSteps.length === 0) return null;
   const abilityById = new Map(abilities.map(a => [a.id, a]));
   const timeline = resolveTimeline(magicSteps, abilityById, cooldownReductionPct);
@@ -317,10 +334,47 @@ export function rotationDPS(
     })),
   };
 
-  return evaluateAll(
+  // ── Buff contributions ──────────────────────────────────────────────
+  // For each buff, count benefiting casts in one cycle, then evaluate its
+  // damage components with `triggersPerMinute = benefitingCount × cyclesPerMinute`
+  // (overrides the standard per-cast cpm so non-benefiting casts don't
+  // contribute). Bypasses evaluateComponent's rotation lookup.
+  const activeBuffs = computeActiveBuffs(
+    BUFF_CATALOG, timeline.steps, timeline.totalSeconds, build, engine,
+  );
+  const buffComponentDamages: ComponentDamage[] = [];
+  for (const ab of activeBuffs) {
+    const benefitingCpm = ab.benefitingStepKeys.size * cyclesPerMinute;
+    if (benefitingCpm === 0) continue;
+    const components = ab.buff.toComponents(build, engine, ctx);
+    for (const c of components) {
+      const scaleInputs       = resolveScaleInputs(c, engine, ctx);
+      const damagePerTrigger  = componentDamagePerTrigger(c, scaleInputs);
+      const debuffMultiplier  = componentDebuffMultiplier(c, debuffs);
+      buffComponentDamages.push({
+        component:        c,
+        scaleInputs,
+        damagePerTrigger,
+        triggersPerMinute: benefitingCpm,
+        debuffMultiplier,
+        damagePerMinute:  damagePerTrigger * benefitingCpm * debuffMultiplier,
+      });
+    }
+  }
+
+  const baseAndProcs = evaluateAll(
     [...baseComponents, ...procComponents],
     engine, ctx, rotation, debuffs,
   );
+  const allByComponent = [...baseAndProcs.byComponent, ...buffComponentDamages];
+  const totalPerMinute = allByComponent.reduce((s, b) => s + b.damagePerMinute, 0);
+  return {
+    totalPerMinute,
+    totalDPS:        totalPerMinute / 60,
+    byComponent:     allByComponent,
+    activeBuffs,
+    cycleSeconds:    timeline.totalSeconds,
+  };
 }
 
 /** Roll up every component's per-minute damage and return a DPS total. */

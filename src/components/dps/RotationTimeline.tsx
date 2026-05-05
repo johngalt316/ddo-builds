@@ -15,6 +15,7 @@ import { useRef, useState } from 'react';
 import type { MagicAbility } from '@/engine/dps/abilities';
 import type { RotationStep } from '@/engine/dps/rotation';
 import { resolveTimeline } from '@/engine/dps/timing';
+import type { ActiveBuff } from '@/engine/dps/buffs';
 import styles from './RotationTimeline.module.css';
 
 /** Pixel width per second of cast time. Larger → roomier blocks. */
@@ -35,12 +36,15 @@ interface Props {
   /** When >= 0 a vertical playhead is drawn at this time (seconds).
    *  Drives the simulation animation visual. */
   playheadTime?: number;
+  /** Transient buffs active during the rotation cycle. One band rendered
+   *  per buff under the cast blocks, with windows clipped to [0, cycle). */
+  activeBuffs?: ActiveBuff[];
 }
 
 export function RotationTimeline({
   steps, abilityById, cooldownReductionPct,
   auto, onAutoChange, onReorder, onRemove, onClear,
-  playheadTime,
+  playheadTime, activeBuffs,
 }: Props) {
   const dragFrom = useRef<number | null>(null);
   const [dragOver, setDragOver] = useState<number | null>(null);
@@ -239,6 +243,55 @@ export function RotationTimeline({
               })}
             </div>
           </div>
+
+          {activeBuffs && activeBuffs.length > 0 && (
+            <div
+              className={styles.buffLanes}
+              style={{ minWidth: `${totalPx}px` }}
+              aria-label="Active buffs"
+            >
+              {activeBuffs.map(ab => (
+                <div key={ab.buff.id} className={styles.buffLane}>
+                  <div className={styles.buffLabel} title={`${ab.buff.label} · ${ab.buff.duration}s duration`}>
+                    {ab.buff.icon && (
+                      <img
+                        src={`/assets/images/SpellImages/${ab.buff.icon}.png`}
+                        alt=""
+                        className={styles.buffIcon}
+                        onError={e => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
+                      />
+                    )}
+                    <span className={styles.buffName}>{ab.buff.label}</span>
+                    <span className={styles.buffUptime}>{(ab.uptimeFraction * 100).toFixed(0)}%</span>
+                  </div>
+                  <div className={styles.buffTrack} style={{ width: `${totalPx}px` }}>
+                    {ab.windows.flatMap(w => {
+                      // Render the in-cycle window directly; if it extends
+                      // past cycleSeconds, also draw the wrap-around piece
+                      // at the start of the cycle for steady-state clarity.
+                      const segs: { left: number; width: number; key: string }[] = [];
+                      const a = Math.max(0, w.start);
+                      const b = Math.min(totalSeconds, w.end);
+                      if (b > a) {
+                        segs.push({ left: a * PX_PER_SECOND, width: (b - a) * PX_PER_SECOND, key: `${w.start}-main` });
+                      }
+                      if (w.end > totalSeconds) {
+                        const wrap = w.end - totalSeconds;
+                        segs.push({ left: 0, width: wrap * PX_PER_SECOND, key: `${w.start}-wrap` });
+                      }
+                      return segs;
+                    }).map(seg => (
+                      <div
+                        key={seg.key}
+                        className={styles.buffWindow}
+                        style={{ left: `${seg.left}px`, width: `${seg.width}px` }}
+                      />
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       )}
     </div>
