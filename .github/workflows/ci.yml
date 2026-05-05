@@ -27,6 +27,11 @@ jobs:
 
       - name: Test
         run: npm run test
+        env:
+          # The engine-snapshot suite (kemton/zentek/maetrim/yings) loads
+          # the full game data inside one fork; raise the heap to avoid
+          # the runner's default cap.
+          NODE_OPTIONS: --max-old-space-size=4096
 
       - name: Build
         run: npm run build
