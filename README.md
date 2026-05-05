@@ -205,17 +205,79 @@ scripts/
 
 ## Getting Started
 
+### Cold-start setup (you have nothing installed yet)
+
+You need **Node.js 22** (LTS) and **Git**. Pick the section for your OS.
+
+#### macOS
+
+Open **Terminal** and run:
+
 ```bash
-npm install
-npm run dev                      # http://localhost:5173
+# 1. Install Homebrew (skip if you already have brew)
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-docker compose up --build        # production preview, http://localhost:3000
+# 2. Install Node 22 + Git
+brew install node@22 git
+brew link --force --overwrite node@22
 
-npm run typecheck
-npm run lint
-npm run test                     # 28 files / 179 tests
-npm run verify                   # typecheck + tests
+# 3. Verify
+node --version    # → v22.x.x
+npm --version
+git --version
+```
+
+If you're on Apple Silicon and `brew` isn't on your PATH after install, follow the post-install instructions Homebrew prints (it tells you exactly what `eval` line to add to `~/.zprofile`).
+
+#### Windows 10 / 11
+
+Open **PowerShell** (no admin needed) and run:
+
+```powershell
+# 1. Install Node 22 LTS + Git via winget (built into Windows 10/11)
+winget install OpenJS.NodeJS.LTS
+winget install Git.Git
+
+# 2. Close this PowerShell window and open a NEW one so the PATH refreshes.
+
+# 3. Verify
+node --version    # → v22.x.x
+npm --version
+git --version
+```
+
+If `winget` isn't available, grab the installers from [nodejs.org](https://nodejs.org/en/download/) and [git-scm.com](https://git-scm.com/download/win).
+
+#### Optional but useful
+
+- **VS Code** — `brew install --cask visual-studio-code` / `winget install Microsoft.VisualStudioCode`
+- **A nicer terminal on Windows** — Windows Terminal (preinstalled on Win 11) or PowerShell 7 (`winget install Microsoft.PowerShell`)
+
+### Clone the repo and run the dev server
+
+Same on both platforms:
+
+```bash
+git clone https://github.com/johngalt316/ddo-builds.git
+cd ddo-builds
+npm install                       # ~1 min, downloads ~300 MB into node_modules/
+npm run dev                       # http://localhost:5173
+```
+
+Open `http://localhost:5173` in a browser — you should see the landing page. The dev server hot-reloads on every file save.
+
+### Common commands
+
+```bash
+npm run dev                      # dev server with hot reload
+npm run typecheck                # tsc -b across app + worker projects
+npm run lint                     # eslint --max-warnings 0
+npm run test                     # vitest, ~300 tests
+npm run verify                   # typecheck + lint + test
 npm run verify:full              # + production build
+npm run build                    # produce dist/ for deploy
+
+docker compose up --build        # production preview at http://localhost:3000 (needs Docker Desktop)
 ```
 
 ### Data refresh
