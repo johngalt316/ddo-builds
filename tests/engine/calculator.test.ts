@@ -9,20 +9,26 @@ import {
   componentDebuffMultiplier,
   evaluateComponent,
   evaluateAll,
+  rotationDPS,
   totalCastsPerMinute,
   type Rotation,
   type Debuffs,
 } from '@/engine/dps/calculator';
 import type { DamageComponent } from '@/engine/dps/damage';
 import type { EngineResult } from '@/engine/runEngine';
+import type { MagicAbility } from '@/engine/dps/abilities';
+import type { Build } from '@/types/build';
+import { newRotationStep } from '@/engine/dps/rotation';
 
 // Minimal engine factory — only the fields resolveScaleInputs reads.
 function engine(opts: {
-  spellPower?:    Partial<Record<string, number>>;
-  critChance?:    Partial<Record<string, number>>;   // % values, e.g. 68 for 68%
-  critDamage?:    Partial<Record<string, number>>;   // % bonus, e.g. 149 for +149%
-  meleePower?:    number;
-  rangedPower?:   number;
+  spellPower?:      Partial<Record<string, number>>;
+  critChance?:      Partial<Record<string, number>>;   // % values, e.g. 68 for 68%
+  critDamage?:      Partial<Record<string, number>>;   // % bonus, e.g. 149 for +149%
+  meleePower?:      number;
+  rangedPower?:     number;
+  casterLevel?:     number;
+  sneakAttackDice?: number;
 }): EngineResult {
   const r = (n = 0) => ({ total: n, contributors: [] });
   const sp = opts.spellPower ?? {};
@@ -34,8 +40,43 @@ function engine(opts: {
     spellCriticalDamage:   Object.fromEntries(Object.keys(cd).map(k => [k, r(cd[k])])),
     meleePower:            r(opts.meleePower  ?? 0),
     rangedPower:           r(opts.rangedPower ?? 0),
+    casterLevel:           r(opts.casterLevel ?? 20),
+    sneakAttackDice:       r(opts.sneakAttackDice ?? 0),
   } as unknown as EngineResult;
 }
+
+// Minimal ability factory for rotationDPS tests.
+function ability(name: string, opts: Partial<MagicAbility> = {}): MagicAbility {
+  return {
+    id: name,
+    source: 'spell',
+    name,
+    displayName: name,
+    icon: '',
+    school: 'Evocation',
+    className: 'Wizard',
+    spellLevel: 1,
+    cost: 10,
+    cooldown: 0,
+    charges: 0,
+    maxCasterLevel: 20,
+    castTime: 1,
+    damages: [{
+      damageType: 'Force',
+      spellPower: 'Force',
+      dice: { number: 1, sides: 6, bonus: 0 },   // avg 3.5 per cast
+    }],
+    ...opts,
+  };
+}
+
+// Minimal build for rotationDPS — no class/destiny/gear so no procs fire.
+const EMPTY_BUILD = {
+  classes: [],
+  gearSets: [],
+  activeGearSet: '',
+  destinyEnhancements: [],
+} as unknown as Build;
 
 const baseComponent: Omit<DamageComponent, 'scaleProfile' | 'damageType'> = {
   label: 'test',
@@ -248,6 +289,67 @@ describe('evaluateComponent / evaluateAll', () => {
     expect(r.triggersPerMinute).toBe(30);
     expect(r.debuffMultiplier).toBeCloseTo(100 / 79, 4);
     expect(r.damagePerMinute).toBeCloseTo(151_902.88, 0);
+  });
+
+  it('rotationDPS — empty rotation returns null', () => {
+    const out = rotationDPS([], [ability('A')], EMPTY_BUILD, e, ctx,
+      { genericVulnPct: 0, sonicVulnPct: 0, effectiveMRR: 0 }, 0);
+    expect(out).toBeNull();
+  });
+
+  it('rotationDPS — single-spell rotation', () => {
+    // 1s cast, 0 CD → 60 cpm cycle. Force SP 1182, crit 68%, critBonus 1.49.
+    // scaleMult = (1 + 1182/100) × (1 + 0.68 × (1.49 + 2)) = 12.82 × 3.3732 = 43.247
+    // perCast = 1 × 3.5 × 43.247 = 151.36
+    // perMin = 151.36 × 60 = 9081.5 (no debuffs, no procs)
+    const A = ability('A', { castTime: 1, cooldown: 0 });
+    const out = rotationDPS(
+      [newRotationStep('A')],
+      [A], EMPTY_BUILD, e, ctx,
+      { genericVulnPct: 0, sonicVulnPct: 0, effectiveMRR: 0 }, 0,
+    );
+    expect(out).not.toBeNull();
+    expect(out!.byComponent).toHaveLength(1);
+    expect(out!.byComponent[0]!.component.label).toBe('A (base)');
+    expect(out!.byComponent[0]!.damagePerTrigger).toBeCloseTo(151.36, 1);
+    expect(out!.byComponent[0]!.triggersPerMinute).toBeCloseTo(60, 1);
+    expect(out!.totalPerMinute).toBeCloseTo(9081.55, 0);
+    expect(out!.totalDPS).toBeCloseTo(151.36, 1);
+  });
+
+  it('rotationDPS — multi-spell rotation splits cpm across spells', () => {
+    // Rotation [A, B] both 1s cast, 0 CD → cycle 2s, cpm each = 30.
+    // Each contributes (1 × 3.5 × 43.247) × 30 = 4540.78 / min.
+    // Total = 9081.55.
+    const A = ability('A', { castTime: 1, cooldown: 0 });
+    const B = ability('B', { castTime: 1, cooldown: 0 });
+    const out = rotationDPS(
+      [newRotationStep('A'), newRotationStep('B')],
+      [A, B], EMPTY_BUILD, e, ctx,
+      { genericVulnPct: 0, sonicVulnPct: 0, effectiveMRR: 0 }, 0,
+    );
+    expect(out).not.toBeNull();
+    expect(out!.byComponent).toHaveLength(2);
+    for (const c of out!.byComponent) {
+      expect(c.triggersPerMinute).toBeCloseTo(30, 1);
+      expect(c.damagePerMinute).toBeCloseTo(4540.78, 0);
+    }
+    expect(out!.totalPerMinute).toBeCloseTo(9081.55, 0);
+  });
+
+  it('rotationDPS — repeated spell sums casts in one component, doubled cpm', () => {
+    // Rotation [A, A] both 1s cast, 0 CD → cycle 2s, A appears twice.
+    // A's cpm = 60. Same total per minute as a single A at 60 cpm.
+    const A = ability('A', { castTime: 1, cooldown: 0 });
+    const out = rotationDPS(
+      [newRotationStep('A'), newRotationStep('A')],
+      [A], EMPTY_BUILD, e, ctx,
+      { genericVulnPct: 0, sonicVulnPct: 0, effectiveMRR: 0 }, 0,
+    );
+    expect(out).not.toBeNull();
+    expect(out!.byComponent).toHaveLength(1);
+    expect(out!.byComponent[0]!.triggersPerMinute).toBeCloseTo(60, 1);
+    expect(out!.totalPerMinute).toBeCloseTo(9081.55, 0);
   });
 
   it('evaluateAll sums per-component damage and reports DPS = perMinute / 60', () => {

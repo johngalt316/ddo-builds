@@ -18,8 +18,12 @@ import { useGameDataStore } from '@/store/gameDataStore';
 import { useBreakdowns } from '@/hooks/useBreakdowns';
 import { getMagicAbilities, type MagicAbility } from '@/engine/dps/abilities';
 import { newRotationStep, type RotationStep } from '@/engine/dps/rotation';
-import { findFirstAvailableSlot } from '@/engine/dps/timing';
-import { damagePerCast, type PerCastDamage } from '@/engine/dps/calculator';
+import { findFirstAvailableSlot, resolveTimeline } from '@/engine/dps/timing';
+import {
+  damagePerCast,
+  rotationDPS,
+  type PerCastDamage,
+} from '@/engine/dps/calculator';
 import {
   aggregateDebuffs,
   initialDebuffState,
@@ -29,6 +33,7 @@ import { RotationPalette } from './RotationPalette';
 import { RotationTimeline } from './RotationTimeline';
 import { ManageActiveDialog } from './ManageActiveDialog';
 import { DebuffsSummary, ManageDebuffsDialog } from './DebuffsPanel';
+import { RotationDPSSummary } from './RotationDPSSummary';
 import styles from './DPSCalculatorPanel.module.css';
 
 export type RotationType = 'melee' | 'ranged' | 'magic';
@@ -259,6 +264,24 @@ function MagicRotationEditor({
     return m;
   }, [abilities, build, breakdowns, debuffs]);
 
+  // Whole-rotation breakdown — total per-min damage + per-component
+  // contributions. Drives the RotationDPSSummary below the timeline.
+  // Recomputes whenever the rotation, build, debuffs, or CDR changes.
+  const rotationBreakdown = useMemo(() => {
+    if (!breakdowns) return null;
+    const ctx = {
+      sneakAttackDice: breakdowns.sneakAttackDice.total,
+      metamagicSP:     300,
+    };
+    return rotationDPS(steps, abilities, build, breakdowns, ctx, debuffs, cooldownReductionPct);
+  }, [steps, abilities, build, breakdowns, debuffs, cooldownReductionPct]);
+
+  // Cycle length for the summary header, kept in sync with the timeline.
+  const rotationCycleSeconds = useMemo(() => {
+    if (steps.length === 0) return 0;
+    return resolveTimeline(steps, abilityById, cooldownReductionPct).totalSeconds;
+  }, [steps, abilityById, cooldownReductionPct]);
+
   // First-time / unset Active = "everything is active in catalog order" so
   // the panel works out of the box without forcing the user through the
   // Manage dialog. Once the user Applies in the dialog, `activeAbilityIds`
@@ -342,6 +365,10 @@ function MagicRotationEditor({
         onReorder={onReorder}
         onRemove={onRemove}
         onClear={onClear}
+      />
+      <RotationDPSSummary
+        breakdown={rotationBreakdown}
+        cycleSeconds={rotationCycleSeconds}
       />
       <ManageActiveDialog
         open={manageOpen}

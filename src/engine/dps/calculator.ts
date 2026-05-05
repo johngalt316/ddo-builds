@@ -13,9 +13,11 @@ import type { EngineResult } from '@/engine/runEngine';
 import type { Build } from '@/types/build';
 import type { DamageComponent, ScaleInputs } from './damage';
 import { componentDamagePerTrigger, abilityToBaseComponents } from './damage';
-import type { ProcContext } from './procs';
+import type { ProcContext, ActiveSpell } from './procs';
 import { expandActiveProcs } from './procs';
 import type { MagicAbility } from './abilities';
+import type { RotationStep } from './rotation';
+import { resolveTimeline } from './timing';
 import { projectileCount } from './spellRules';
 
 /**
@@ -250,6 +252,75 @@ export function damagePerCast(
   });
   const total = byComponent.reduce((s, b) => s + b.damagePerMinute, 0);
   return { total, casterLevel, byComponent };
+}
+
+// ── Whole-rotation breakdown ─────────────────────────────────────────────
+
+/**
+ * Run the calculator over an entire magic rotation. Resolves the
+ * rotation's cycle length, derives each spell's casts-per-minute,
+ * collects every base hit + active proc, and returns the per-component
+ * + total per-minute breakdown.
+ *
+ * Returns `null` for an empty rotation (no time to spread damage over).
+ */
+export function rotationDPS(
+  magicSteps: RotationStep[],
+  abilities: MagicAbility[],
+  build: Build,
+  engine: EngineResult,
+  ctx: EvalContext,
+  debuffs: Debuffs,
+  cooldownReductionPct: number,
+): DamageBreakdown | null {
+  if (magicSteps.length === 0) return null;
+  const abilityById = new Map(abilities.map(a => [a.id, a]));
+  const timeline = resolveTimeline(magicSteps, abilityById, cooldownReductionPct);
+  if (timeline.totalSeconds <= 0) return null;
+
+  const buildCL         = engine.casterLevel.total;
+  const cyclesPerMinute = 60 / timeline.totalSeconds;
+
+  // Collect unique abilities firing in the rotation + how many times each
+  // appears per cycle. Casts-per-minute = count × cycles/min.
+  interface UsedAbility {
+    ability:     MagicAbility;
+    casterLevel: number;
+    count:       number;
+  }
+  const used = new Map<string, UsedAbility>();
+  for (const r of timeline.steps) {
+    const existing = used.get(r.ability.id);
+    if (existing) { existing.count++; continue; }
+    const cl = r.ability.maxCasterLevel > 0
+      ? Math.min(buildCL, r.ability.maxCasterLevel)
+      : buildCL;
+    used.set(r.ability.id, { ability: r.ability, casterLevel: cl, count: 1 });
+  }
+
+  const activeSpells: ActiveSpell[] = [...used.values()].map(u => ({
+    name: u.ability.name, casterLevel: u.casterLevel,
+  }));
+
+  // One base component per unique spell — the rotation's per-spell cpm
+  // handles the firing-rate multiplier for repeats.
+  const baseComponents: DamageComponent[] = [...used.values()].flatMap(u =>
+    abilityToBaseComponents(u.ability, u.casterLevel),
+  );
+  const procComponents = expandActiveProcs(build, engine, ctx, activeSpells);
+
+  const rotation: Rotation = {
+    spells: [...used.values()].map(u => ({
+      name:           u.ability.name,
+      casterLevel:    u.casterLevel,
+      castsPerMinute: u.count * cyclesPerMinute,
+    })),
+  };
+
+  return evaluateAll(
+    [...baseComponents, ...procComponents],
+    engine, ctx, rotation, debuffs,
+  );
 }
 
 /** Roll up every component's per-minute damage and return a DPS total. */
