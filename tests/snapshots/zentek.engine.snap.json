@@ -478,6 +478,38 @@
       }
     ]
   },
+  "sneakAttackDice": {
+    "total": 6,
+    "appliedCount": 5,
+    "dominatedCount": 0,
+    "sources": [
+      {
+        "source": "Quicken Spell: Arcane Trickster: Sharp Magic",
+        "bonusType": "Enhancement",
+        "value": 0
+      },
+      {
+        "source": "Quicken Spell: Arcane Trickster: Sharp Magic",
+        "bonusType": "Enhancement",
+        "value": 0
+      },
+      {
+        "source": "Empower Healing Spell: Arcane Trickster: Sharp Magic",
+        "bonusType": "Enhancement",
+        "value": 0
+      },
+      {
+        "source": "Empower Healing Spell: Arcane Trickster: Sharp Magic",
+        "bonusType": "Enhancement",
+        "value": 0
+      },
+      {
+        "source": "Scion of the Ethereal Plane",
+        "bonusType": "Feat",
+        "value": 6
+      }
+    ]
+  },
   "meleeSpeed": {
     "total": 0,
     "appliedCount": 0,

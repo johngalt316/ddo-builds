@@ -17,7 +17,7 @@ import { evaluateEffect } from './evaluateEffect';
 import { buildStackingRules, type Bonus, type BreakdownResult } from './bonusStacking';
 import {
   breakdownAbilityScore, breakdownHitPoints, breakdownSave,
-  breakdownDoublestrike, breakdownDoubleshot,
+  breakdownDoublestrike, breakdownDoubleshot, breakdownSneakAttackDice,
   breakdownMeleePower, breakdownRangedPower,
   breakdownHealingAmp, breakdownNegativeHealingAmp, breakdownRepairAmp,
   breakdownAC, breakdownDodge, breakdownPRR, breakdownMRR, breakdownSpellResistance,
@@ -112,6 +112,9 @@ export interface EngineResult {
   rangedPower: BreakdownResult;
   doublestrike: BreakdownResult;
   doubleshot: BreakdownResult;
+  /** Total sneak-attack dice. Same value drives melee + ranged sneak
+   *  attacks AND spell procs that read sneak dice (Magical Ambush). */
+  sneakAttackDice: BreakdownResult;
   meleeSpeed: BreakdownResult;
   rangedSpeed: BreakdownResult;
   healingAmp: BreakdownResult;
@@ -539,6 +542,7 @@ export function runEngine(input: RunEngineInput): EngineResult {
     rangedPower:       breakdownRangedPower(allBonuses, rules),
     doublestrike:      breakdownDoublestrike(allBonuses, rules),
     doubleshot:        breakdownDoubleshot(allBonuses, rules),
+    sneakAttackDice:   breakdownSneakAttackDice(allBonuses, rules),
     meleeSpeed:        breakdownMeleeSpeed(allBonuses, rules),
     rangedSpeed:       breakdownRangedSpeed(allBonuses, rules),
     healingAmp:        breakdownHealingAmp(allBonuses, rules),

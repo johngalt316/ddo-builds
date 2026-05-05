@@ -1395,6 +1395,238 @@
       }
     ]
   },
+  "sneakAttackDice": {
+    "total": 38,
+    "appliedCount": 45,
+    "dominatedCount": 0,
+    "sources": [
+      {
+        "source": "Maximize Spell: Arcane Trickster: Sharp Magic",
+        "bonusType": "Enhancement",
+        "value": 0
+      },
+      {
+        "source": "Maximize Spell: Arcane Trickster: Sharp Magic",
+        "bonusType": "Enhancement",
+        "value": 0
+      },
+      {
+        "source": "Empower Spell: Arcane Trickster: Sharp Magic",
+        "bonusType": "Enhancement",
+        "value": 0
+      },
+      {
+        "source": "Empower Spell: Arcane Trickster: Sharp Magic",
+        "bonusType": "Enhancement",
+        "value": 0
+      },
+      {
+        "source": "Quicken Spell: Arcane Trickster: Sharp Magic",
+        "bonusType": "Enhancement",
+        "value": 0
+      },
+      {
+        "source": "Quicken Spell: Arcane Trickster: Sharp Magic",
+        "bonusType": "Enhancement",
+        "value": 0
+      },
+      {
+        "source": "Enlarge Spell: Arcane Trickster: Sharp Magic",
+        "bonusType": "Enhancement",
+        "value": 0
+      },
+      {
+        "source": "Enlarge Spell: Arcane Trickster: Sharp Magic",
+        "bonusType": "Enhancement",
+        "value": 0
+      },
+      {
+        "source": "Extend Spell: Arcane Trickster: Sharp Magic",
+        "bonusType": "Enhancement",
+        "value": 0
+      },
+      {
+        "source": "Extend Spell: Arcane Trickster: Sharp Magic",
+        "bonusType": "Enhancement",
+        "value": 0
+      },
+      {
+        "source": "Heighten Spell: Arcane Trickster: Sharp Magic",
+        "bonusType": "Enhancement",
+        "value": 0
+      },
+      {
+        "source": "Heighten Spell: Arcane Trickster: Sharp Magic",
+        "bonusType": "Enhancement",
+        "value": 0
+      },
+      {
+        "source": "Eschew Materials: Arcane Trickster: Sharp Magic",
+        "bonusType": "Enhancement",
+        "value": 0
+      },
+      {
+        "source": "Eschew Materials: Arcane Trickster: Sharp Magic",
+        "bonusType": "Enhancement",
+        "value": 0
+      },
+      {
+        "source": "Intensify Spell: Arcane Trickster: Sharp Magic",
+        "bonusType": "Enhancement",
+        "value": 0
+      },
+      {
+        "source": "Intensify Spell: Arcane Trickster: Sharp Magic",
+        "bonusType": "Enhancement",
+        "value": 0
+      },
+      {
+        "source": "Embolden Spell: Arcane Trickster: Sharp Magic",
+        "bonusType": "Enhancement",
+        "value": 0
+      },
+      {
+        "source": "Embolden Spell: Arcane Trickster: Sharp Magic",
+        "bonusType": "Enhancement",
+        "value": 0
+      },
+      {
+        "source": "[E] Arcane Trickster: Arcane Trickster: Sharp Magic: Arcane Trickster: Sharp Magic",
+        "bonusType": "Enhancement",
+        "value": 0
+      },
+      {
+        "source": "[E] Mechanic: Mechanic: Sharpshooter I",
+        "bonusType": "Enhancement",
+        "value": 1
+      },
+      {
+        "source": "[E] Mechanic: Mechanic: Sharpshooter II",
+        "bonusType": "Enhancement",
+        "value": 1
+      },
+      {
+        "source": "[E] Mechanic: Mechanic: Sharpshooter III",
+        "bonusType": "Enhancement",
+        "value": 1
+      },
+      {
+        "source": "[E] Mechanic: Mechanic: Sharpshooter IV",
+        "bonusType": "Enhancement",
+        "value": 1
+      },
+      {
+        "source": "[E] Mechanic: Mechanic: Sniper",
+        "bonusType": "Enhancement",
+        "value": 3
+      },
+      {
+        "source": "Nimble Fingers: Shadowdancer: Technician with Nimble Fingers",
+        "bonusType": "Destiny",
+        "value": 0
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Shadow Training",
+        "bonusType": "Destiny",
+        "value": 1
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Technician: Shadowdancer: Technician with Nimble Fingers",
+        "bonusType": "Destiny",
+        "value": 1
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Step Through Shadows",
+        "bonusType": "Destiny",
+        "value": 1
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Dance in the Dark",
+        "bonusType": "Destiny",
+        "value": 3
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: The Darkest Luck",
+        "bonusType": "Destiny",
+        "value": 1
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Cut to the Soul",
+        "bonusType": "Destiny",
+        "value": 1
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Bring Darkness",
+        "bonusType": "Destiny",
+        "value": 1
+      },
+      {
+        "source": "Improved Sneak Attack",
+        "bonusType": "Feat",
+        "value": 3
+      },
+      {
+        "source": "Scion of the Ethereal Plane",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "Arcane Trickster 1: Sneak Attack",
+        "bonusType": "Feat",
+        "value": 1
+      },
+      {
+        "source": "Arcane Trickster 3: Sneak Attack",
+        "bonusType": "Feat",
+        "value": 1
+      },
+      {
+        "source": "Arcane Trickster 5: Sneak Attack",
+        "bonusType": "Feat",
+        "value": 1
+      },
+      {
+        "source": "Arcane Trickster 7: Sneak Attack",
+        "bonusType": "Feat",
+        "value": 1
+      },
+      {
+        "source": "Arcane Trickster 9: Sneak Attack",
+        "bonusType": "Feat",
+        "value": 1
+      },
+      {
+        "source": "Arcane Trickster 11: Sneak Attack",
+        "bonusType": "Feat",
+        "value": 1
+      },
+      {
+        "source": "Arcane Trickster 13: Sneak Attack",
+        "bonusType": "Feat",
+        "value": 1
+      },
+      {
+        "source": "Arcane Trickster 15: Sneak Attack",
+        "bonusType": "Feat",
+        "value": 1
+      },
+      {
+        "source": "Arcane Trickster 17: Sneak Attack",
+        "bonusType": "Feat",
+        "value": 1
+      },
+      {
+        "source": "Arcane Trickster 19: Sneak Attack",
+        "bonusType": "Feat",
+        "value": 1
+      },
+      {
+        "source": "[A] Goggles: Legendary Scientist's Sights → Solar Gem of Sneak Attack Dice (Legendary)",
+        "bonusType": "Artifact",
+        "value": 3
+      }
+    ]
+  },
   "meleeSpeed": {
     "total": 0,
     "appliedCount": 0,

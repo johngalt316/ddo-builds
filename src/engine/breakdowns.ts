@@ -117,6 +117,16 @@ export function breakdownDoubleshot(bonuses: Bonus[], rules: StackingRules): Bre
   return stackBonuses(ofType(bonuses, 'Doubleshot'), rules);
 }
 
+// ── Sneak Attack Dice ────────────────────────────────────────────────────
+//
+// Number of `Nd6` sneak-attack dice the build accumulates. The same
+// total drives melee sneak attacks, ranged sneak attacks, and spell
+// procs that read sneak-dice (Magical Ambush, Dark Imbuement / Paranoia).
+
+export function breakdownSneakAttackDice(bonuses: Bonus[], rules: StackingRules): BreakdownResult {
+  return stackBonuses(ofType(bonuses, 'SneakAttackDice'), rules);
+}
+
 // ── Melee / Ranged Power ─────────────────────────────────────────────────
 
 export function breakdownMeleePower(bonuses: Bonus[], rules: StackingRules): BreakdownResult {

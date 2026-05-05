@@ -1884,6 +1884,58 @@
       }
     ]
   },
+  "sneakAttackDice": {
+    "total": 12,
+    "appliedCount": 9,
+    "dominatedCount": 0,
+    "sources": [
+      {
+        "source": "[E] Ninja Spy: Ninja Spy: Sneak Attack Training I",
+        "bonusType": "Enhancement",
+        "value": 1
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Shadow Training",
+        "bonusType": "Destiny",
+        "value": 1
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Dance in the Dark",
+        "bonusType": "Destiny",
+        "value": 3
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Step Through Shadows",
+        "bonusType": "Destiny",
+        "value": 1
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: The Darkest Luck",
+        "bonusType": "Destiny",
+        "value": 1
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Cut to the Soul",
+        "bonusType": "Destiny",
+        "value": 1
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Bring Darkness",
+        "bonusType": "Destiny",
+        "value": 1
+      },
+      {
+        "source": "[A] Armor: Dinosaur Bone Outfit → Goldfang",
+        "bonusType": "Profane",
+        "value": 2
+      },
+      {
+        "source": "[FS] Treachery (4-piece tier ≥ 3)",
+        "bonusType": "Stacking",
+        "value": 1
+      }
+    ]
+  },
   "meleeSpeed": {
     "total": 0,
     "appliedCount": 0,

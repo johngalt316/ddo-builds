@@ -242,12 +242,15 @@ function MagicRotationEditor({
 
   // Per-spell damage estimate, refreshed on any build / engine / debuff
   // change. Used by the palette tooltip + visible per-tile badge for
-  // cross-checking against in-game numbers. Sneak dice + metamagic SP
-  // are placeholders until the panel exposes proper inputs.
+  // cross-checking against in-game numbers. Metamagic SP still defaults
+  // to 300 until we expose a panel input that reads metamagic toggles.
   const damageByAbility = useMemo(() => {
     const m = new Map<string, PerCastDamage>();
     if (!breakdowns) return m;
-    const ctx = { sneakAttackDice: 0, metamagicSP: 300 };
+    const ctx = {
+      sneakAttackDice: breakdowns.sneakAttackDice.total,
+      metamagicSP:     300,
+    };
     for (const a of abilities) {
       m.set(a.id, damagePerCast(a, build, breakdowns, ctx, debuffs));
     }
