@@ -14591,15 +14591,6 @@ the death.</Description>
     </SpellDC>
   </Spell>
   <Spell>
-    <Name>Flame Pillar</Name>
-    <Description>Epic Strike: Bring a pillar of Fire down on a single enemy, dealing 1d6+6 Fire
-damage per caster level. Cooldown 6 seconds, cost 5 Spell Points
-
-Every Epic Strike shares a cooldown with every other Epic Strike. Using this
-ability will put every Epic Strike onto this ability's cooldown.</Description>
-    <Icon>FlamePillar</Icon>
-  </Spell>
-  <Spell>
     <Name>Healing Pillar</Name>
     <Description>Epic Strike: Bring a pillar of positive energy down on a single ally, healing
 them for 3d6+6 Hit Points, plus an additional 1 per Caster Level (Max Caster Level: 15).
@@ -14610,15 +14601,6 @@ Cooldown 6 seconds, cost 5 Spell Points
 Every Epic Strike shares a cooldown with every other Epic Strike. Using this
 ability will put every Epic Strike onto this ability's cooldown.</Description>
     <Icon>HealingPillar</Icon>
-  </Spell>
-  <Spell>
-    <Name>Sun Pillar</Name>
-    <Description>Epic Strike: Bring a beam of light down on a single enemy, dealing 1d6+6 Light
-damage per caster level. Cooldown 6 seconds, cost 5 Spell Points.
-
-Every Epic Strike shares a cooldown with every other Epic Strike. Using this
-ability will put every Epic Strike onto this ability's cooldown.</Description>
-    <Icon>SunPillar</Icon>
   </Spell>
   <Spell>
     <Name>Chain Cure</Name>
@@ -14662,25 +14644,7 @@ and other adverse conditions affecting you. Cost 30ki.      </Description>
     <Name>Inner Focus</Name>
     <Description>Activate to gain 20d10 Ki. Cooldown: [180/160/120] seconds</Description>
     <Icon>InnerFocus</Icon>
-  </Spell>
-  <Spell>
-    <Name>Gloomspear</Name>
-    <Description>Epic Strike: Single-target SLA, 1d6+6 Negative Damage per caster level and applies
-3 stacks of Shattermantle. Cooldown 6 seconds, cost 5 Spell Points
-
-Every Epic Strike shares a cooldown with every other Epic Strike. Using this
-ability will put every Epic Strike onto this ability's cooldown.</Description>
-    <Icon>Gloomspear</Icon>
-  </Spell>
-  <Spell>
-    <Name>Moon Lance</Name>
-    <Description>Epic Strike: Single-target SLA, 1d6+6 Cold Damage per caster level and applies
-3 stacks of Shattermantle. Cooldown 6 seconds, cost 5 Spell Points
-
-Every Epic Strike shares a cooldown with every other Epic Strike. Using this
-ability will put every Epic Strike onto this ability's cooldown.</Description>
-    <Icon>MoonLance</Icon>
-  </Spell>
+  </Spell>
   <Spell>
     <Name>Cold Light of the Moon</Name>
     <Description>Creates a lingering Area of Effect of moonlight.
@@ -15695,5 +15659,619 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
       <SpellPower>Force</SpellPower>
     </SpellDamage>
     <Cooldown>8</Cooldown>
+  </Spell>
+
+  <!-- ddo-builds patch: Epic Strike spell wiring (was missing or stub).
+       See docs/DATA_PATCHES.md "Epic Strike spells". -->
+  <Spell>
+    <Name>Black Dragon Breath</Name>
+    <Description>Epic Strike: Conjure forth a torrent of Acid to melt your enemies, dealing 1d6+5 Acid damage per character level to all enemies caught within the spray.
+
+Every Epic Strike shares a cooldown with every other Epic Strike. Using this
+ability will put every Epic Strike onto this ability's cooldown.</Description>
+    <Icon>DragonBreathBlack</Icon>
+    <School>Conjuration</School>
+    <Empower/>
+    <Maximize/>
+    <Quicken/>
+    <Intensify/>
+    <MaxCasterLevel>30</MaxCasterLevel>
+    <SpellDamage>
+      <SpellDice>
+        <PerCasterLevels>1</PerCasterLevels>
+        <BonusDice>
+          <Number>1</Number>
+          <Sides>6</Sides>
+          <Bonus>5</Bonus>
+        </BonusDice>
+      </SpellDice>
+      <Damage>Acid</Damage>
+      <SpellPower>Acid</SpellPower>
+    </SpellDamage>
+    <Cooldown>12</Cooldown>
+  </Spell>
+  <!-- ddo-builds patch: Epic Strike spell wiring (was missing or stub).
+       See docs/DATA_PATCHES.md "Epic Strike spells". -->
+  <Spell>
+    <Name>Blue Dragon Breath</Name>
+    <Description>Epic Strike: Conjure forth a galvanic storm to electrocute your enemies, dealing 1d6+5 Electric damage per character level to all enemies caught within the sparks.
+
+Every Epic Strike shares a cooldown with every other Epic Strike. Using this
+ability will put every Epic Strike onto this ability's cooldown.</Description>
+    <Icon>DragonBreathBlue</Icon>
+    <School>Conjuration</School>
+    <Empower/>
+    <Maximize/>
+    <Quicken/>
+    <Intensify/>
+    <MaxCasterLevel>30</MaxCasterLevel>
+    <SpellDamage>
+      <SpellDice>
+        <PerCasterLevels>1</PerCasterLevels>
+        <BonusDice>
+          <Number>1</Number>
+          <Sides>6</Sides>
+          <Bonus>5</Bonus>
+        </BonusDice>
+      </SpellDice>
+      <Damage>Electric</Damage>
+      <SpellPower>Electric</SpellPower>
+    </SpellDamage>
+    <Cooldown>12</Cooldown>
+  </Spell>
+  <!-- ddo-builds patch: Epic Strike spell wiring (was missing or stub).
+       See docs/DATA_PATCHES.md "Epic Strike spells". -->
+  <Spell>
+    <Name>Green Dragon Breath</Name>
+    <Description>Epic Strike: Conjure forth a wave of poison to infect your enemies, dealing 1d6+5 Poison damage per character level to all enemies caught within the area.
+
+Every Epic Strike shares a cooldown with every other Epic Strike. Using this
+ability will put every Epic Strike onto this ability's cooldown.</Description>
+    <Icon>DragonBreathGreen</Icon>
+    <School>Conjuration</School>
+    <Empower/>
+    <Maximize/>
+    <Quicken/>
+    <Intensify/>
+    <MaxCasterLevel>30</MaxCasterLevel>
+    <SpellDamage>
+      <SpellDice>
+        <PerCasterLevels>1</PerCasterLevels>
+        <BonusDice>
+          <Number>1</Number>
+          <Sides>6</Sides>
+          <Bonus>5</Bonus>
+        </BonusDice>
+      </SpellDice>
+      <Damage>Poison</Damage>
+      <SpellPower>Poison</SpellPower>
+    </SpellDamage>
+    <Cooldown>12</Cooldown>
+  </Spell>
+  <!-- ddo-builds patch: Epic Strike spell wiring (was missing or stub).
+       See docs/DATA_PATCHES.md "Epic Strike spells". -->
+  <Spell>
+    <Name>Red Dragon Breath</Name>
+    <Description>Epic Strike: Conjure forth a gout of flame to scorch your enemies, dealing 1d6+5 Fire damage per character level to all enemies caught within the blaze.
+
+Every Epic Strike shares a cooldown with every other Epic Strike. Using this
+ability will put every Epic Strike onto this ability's cooldown.</Description>
+    <Icon>DragonBreath</Icon>
+    <School>Conjuration</School>
+    <Empower/>
+    <Maximize/>
+    <Quicken/>
+    <Intensify/>
+    <MaxCasterLevel>30</MaxCasterLevel>
+    <SpellDamage>
+      <SpellDice>
+        <PerCasterLevels>1</PerCasterLevels>
+        <BonusDice>
+          <Number>1</Number>
+          <Sides>6</Sides>
+          <Bonus>5</Bonus>
+        </BonusDice>
+      </SpellDice>
+      <Damage>Fire</Damage>
+      <SpellPower>Fire</SpellPower>
+    </SpellDamage>
+    <Cooldown>12</Cooldown>
+  </Spell>
+  <!-- ddo-builds patch: Epic Strike spell wiring (was missing or stub).
+       See docs/DATA_PATCHES.md "Epic Strike spells". -->
+  <Spell>
+    <Name>Shadow Dragon Breath</Name>
+    <Description>Epic Strike: Conjure forth a wave of shadow to terrify your enemies, dealing 1d6+5 Negative damage per character level to all enemies caught within the blast.
+
+Every Epic Strike shares a cooldown with every other Epic Strike. Using this
+ability will put every Epic Strike onto this ability's cooldown.</Description>
+    <Icon>DragonBreathShadow</Icon>
+    <School>Conjuration</School>
+    <Empower/>
+    <Maximize/>
+    <Quicken/>
+    <Intensify/>
+    <MaxCasterLevel>30</MaxCasterLevel>
+    <SpellDamage>
+      <SpellDice>
+        <PerCasterLevels>1</PerCasterLevels>
+        <BonusDice>
+          <Number>1</Number>
+          <Sides>6</Sides>
+          <Bonus>5</Bonus>
+        </BonusDice>
+      </SpellDice>
+      <Damage>Negative</Damage>
+      <SpellPower>Negative</SpellPower>
+    </SpellDamage>
+    <Cooldown>12</Cooldown>
+  </Spell>
+  <!-- ddo-builds patch: Epic Strike spell wiring (was missing or stub).
+       See docs/DATA_PATCHES.md "Epic Strike spells". -->
+  <Spell>
+    <Name>White Dragon Breath</Name>
+    <Description>Epic Strike: Conjure forth a spray of frost to freeze your enemies, dealing 1d6+5 Cold damage per character level to all enemies caught within the ice.
+
+Every Epic Strike shares a cooldown with every other Epic Strike. Using this
+ability will put every Epic Strike onto this ability's cooldown.</Description>
+    <Icon>DragonBreathWhite</Icon>
+    <School>Conjuration</School>
+    <Empower/>
+    <Maximize/>
+    <Quicken/>
+    <Intensify/>
+    <MaxCasterLevel>30</MaxCasterLevel>
+    <SpellDamage>
+      <SpellDice>
+        <PerCasterLevels>1</PerCasterLevels>
+        <BonusDice>
+          <Number>1</Number>
+          <Sides>6</Sides>
+          <Bonus>5</Bonus>
+        </BonusDice>
+      </SpellDice>
+      <Damage>Cold</Damage>
+      <SpellPower>Cold</SpellPower>
+    </SpellDamage>
+    <Cooldown>12</Cooldown>
+  </Spell>
+  <!-- ddo-builds patch: Epic Strike spell wiring (was missing or stub).
+       See docs/DATA_PATCHES.md "Epic Strike spells". -->
+  <Spell>
+    <Name>Flame Pillar</Name>
+    <Description>Epic Strike: Bring a pillar of fire down on a single enemy, dealing 1d8+8 Fire damage per caster level (max caster level 20).
+
+Every Epic Strike shares a cooldown with every other Epic Strike. Using this
+ability will put every Epic Strike onto this ability's cooldown.</Description>
+    <Icon>FlamePillar</Icon>
+    <School>Evocation</School>
+    <Empower/>
+    <Maximize/>
+    <Quicken/>
+    <Intensify/>
+    <MaxCasterLevel>20</MaxCasterLevel>
+    <SpellDamage>
+      <SpellDice>
+        <PerCasterLevels>1</PerCasterLevels>
+        <BonusDice>
+          <Number>1</Number>
+          <Sides>8</Sides>
+          <Bonus>8</Bonus>
+        </BonusDice>
+      </SpellDice>
+      <Damage>Fire</Damage>
+      <SpellPower>Fire</SpellPower>
+    </SpellDamage>
+    <Cooldown>6</Cooldown>
+  </Spell>
+  <!-- ddo-builds patch: Epic Strike spell wiring (was missing or stub).
+       See docs/DATA_PATCHES.md "Epic Strike spells". -->
+  <Spell>
+    <Name>Sun Pillar</Name>
+    <Description>Epic Strike: Bring a beam of light down on a single enemy, dealing 1d6+8 Light damage per caster level (max caster level 20).
+
+Every Epic Strike shares a cooldown with every other Epic Strike. Using this
+ability will put every Epic Strike onto this ability's cooldown.</Description>
+    <Icon>SunPillar</Icon>
+    <School>Evocation</School>
+    <Empower/>
+    <Maximize/>
+    <Quicken/>
+    <Intensify/>
+    <MaxCasterLevel>20</MaxCasterLevel>
+    <SpellDamage>
+      <SpellDice>
+        <PerCasterLevels>1</PerCasterLevels>
+        <BonusDice>
+          <Number>1</Number>
+          <Sides>6</Sides>
+          <Bonus>8</Bonus>
+        </BonusDice>
+      </SpellDice>
+      <Damage>Light</Damage>
+      <SpellPower>Light</SpellPower>
+    </SpellDamage>
+    <Cooldown>6</Cooldown>
+  </Spell>
+  <!-- ddo-builds patch: Epic Strike spell wiring (was missing or stub).
+       See docs/DATA_PATCHES.md "Epic Strike spells". -->
+  <Spell>
+    <Name>Gloomspear</Name>
+    <Description>Epic Strike: Conjure a beam of eclipse energy at a single target, dealing 1d8+8 Negative damage per caster level (max caster level 20) and applying 3 stacks of Shattermantle.
+
+Every Epic Strike shares a cooldown with every other Epic Strike. Using this
+ability will put every Epic Strike onto this ability's cooldown.</Description>
+    <Icon>Gloomspear</Icon>
+    <School>Evocation</School>
+    <Empower/>
+    <Maximize/>
+    <Quicken/>
+    <Intensify/>
+    <MaxCasterLevel>20</MaxCasterLevel>
+    <SpellDamage>
+      <SpellDice>
+        <PerCasterLevels>1</PerCasterLevels>
+        <BonusDice>
+          <Number>1</Number>
+          <Sides>8</Sides>
+          <Bonus>8</Bonus>
+        </BonusDice>
+      </SpellDice>
+      <Damage>Negative</Damage>
+      <SpellPower>Negative</SpellPower>
+    </SpellDamage>
+    <Cooldown>6</Cooldown>
+  </Spell>
+  <!-- ddo-builds patch: Epic Strike spell wiring (was missing or stub).
+       See docs/DATA_PATCHES.md "Epic Strike spells". -->
+  <Spell>
+    <Name>Moon Lance</Name>
+    <Description>Epic Strike: Fire a spear of lunar energy at a single target, dealing 1d8+8 Cold damage per caster level (max caster level 20) and applying 3 stacks of Shattermantle.
+
+Every Epic Strike shares a cooldown with every other Epic Strike. Using this
+ability will put every Epic Strike onto this ability's cooldown.</Description>
+    <Icon>MoonLance</Icon>
+    <School>Evocation</School>
+    <Empower/>
+    <Maximize/>
+    <Quicken/>
+    <Intensify/>
+    <MaxCasterLevel>20</MaxCasterLevel>
+    <SpellDamage>
+      <SpellDice>
+        <PerCasterLevels>1</PerCasterLevels>
+        <BonusDice>
+          <Number>1</Number>
+          <Sides>8</Sides>
+          <Bonus>8</Bonus>
+        </BonusDice>
+      </SpellDice>
+      <Damage>Cold</Damage>
+      <SpellPower>Cold</SpellPower>
+    </SpellDamage>
+    <Cooldown>6</Cooldown>
+  </Spell>
+  <!-- ddo-builds patch: Epic Strike spell wiring (was missing or stub).
+       See docs/DATA_PATCHES.md "Epic Strike spells". -->
+  <Spell>
+    <Name>Galvanic Blast</Name>
+    <Description>Epic Strike: A storm of Electricity explodes from within you, dealing 1d6+6 Electric damage per caster level to all enemies nearby.
+
+Every Epic Strike shares a cooldown with every other Epic Strike. Using this
+ability will put every Epic Strike onto this ability's cooldown.</Description>
+    <Icon>MachroEpicStrike</Icon>
+    <School>Evocation</School>
+    <Empower/>
+    <Maximize/>
+    <Quicken/>
+    <Heighten/>
+    <Embolden/>
+    <Intensify/>
+    <MaxCasterLevel>30</MaxCasterLevel>
+    <SpellDamage>
+      <SpellDice>
+        <PerCasterLevels>1</PerCasterLevels>
+        <BonusDice>
+          <Number>1</Number>
+          <Sides>6</Sides>
+          <Bonus>6</Bonus>
+        </BonusDice>
+      </SpellDice>
+      <Damage>Electric</Damage>
+      <SpellPower>Electric</SpellPower>
+    </SpellDamage>
+    <Cooldown>10</Cooldown>
+  </Spell>
+  <!-- ddo-builds patch: Epic Strike spell wiring (was missing or stub).
+       See docs/DATA_PATCHES.md "Epic Strike spells". -->
+  <Spell>
+    <Name>Sonic Boom</Name>
+    <Description>Epic Strike: A wave of concussive sound explodes from within you, dealing 1d6+6 Sonic damage per caster level to all enemies nearby.
+
+Every Epic Strike shares a cooldown with every other Epic Strike. Using this
+ability will put every Epic Strike onto this ability's cooldown.</Description>
+    <Icon>MachroSonicBoom</Icon>
+    <School>Evocation</School>
+    <Empower/>
+    <Maximize/>
+    <Quicken/>
+    <Heighten/>
+    <Embolden/>
+    <Intensify/>
+    <MaxCasterLevel>30</MaxCasterLevel>
+    <SpellDamage>
+      <SpellDice>
+        <PerCasterLevels>1</PerCasterLevels>
+        <BonusDice>
+          <Number>1</Number>
+          <Sides>6</Sides>
+          <Bonus>6</Bonus>
+        </BonusDice>
+      </SpellDice>
+      <Damage>Sonic</Damage>
+      <SpellPower>Sonic</SpellPower>
+    </SpellDamage>
+    <Cooldown>10</Cooldown>
+  </Spell>
+  <!-- ddo-builds patch: Epic Strike spell wiring (was missing or stub).
+       See docs/DATA_PATCHES.md "Epic Strike spells". -->
+  <Spell>
+    <Name>Fey Lights</Name>
+    <Description>Epic Strike: Enemies in a cone take 1d6+3 Force damage per caster level and must save versus Will, Fortitude, and Reflex for a Daze, Blind, and Silence effect.
+
+Every Epic Strike shares a cooldown with every other Epic Strike. Using this
+ability will put every Epic Strike onto this ability's cooldown.</Description>
+    <Icon>FeyLights</Icon>
+    <School>Illusion</School>
+    <Empower/>
+    <Maximize/>
+    <Quicken/>
+    <Intensify/>
+    <MaxCasterLevel>30</MaxCasterLevel>
+    <SpellDamage>
+      <SpellDice>
+        <PerCasterLevels>1</PerCasterLevels>
+        <BonusDice>
+          <Number>1</Number>
+          <Sides>6</Sides>
+          <Bonus>3</Bonus>
+        </BonusDice>
+      </SpellDice>
+      <Damage>Force</Damage>
+      <SpellPower>Force</SpellPower>
+    </SpellDamage>
+    <Cooldown>6</Cooldown>
+  </Spell>
+  <!-- ddo-builds patch: Epic Strike spell wiring (was missing or stub).
+       See docs/DATA_PATCHES.md "Epic Strike spells". -->
+  <Spell>
+    <Name>Carrion Swarm</Name>
+    <Description>Epic Strike: Targets and nearby enemies are covered with biting acidic insects, taking 1d6+1 Acid damage every 2 seconds per 2 character levels for 8 seconds (max caster level 20). Modeled as instant single-tick (underestimate).
+
+Every Epic Strike shares a cooldown with every other Epic Strike. Using this
+ability will put every Epic Strike onto this ability's cooldown.</Description>
+    <Icon>CarrionSwarm</Icon>
+    <School>Conjuration</School>
+    <Empower/>
+    <Maximize/>
+    <Quicken/>
+    <Intensify/>
+    <MaxCasterLevel>20</MaxCasterLevel>
+    <SpellDamage>
+      <SpellDice>
+        <PerCasterLevels>2</PerCasterLevels>
+        <BonusDice>
+          <Number>1</Number>
+          <Sides>6</Sides>
+          <Bonus>1</Bonus>
+        </BonusDice>
+      </SpellDice>
+      <Damage>Acid</Damage>
+      <SpellPower>Acid</SpellPower>
+    </SpellDamage>
+    <Cooldown>6</Cooldown>
+  </Spell>
+  <!-- ddo-builds patch: Epic Strike spell wiring (was missing or stub).
+       See docs/DATA_PATCHES.md "Epic Strike spells". -->
+  <Spell>
+    <Name>Spring to Summer</Name>
+    <Description>Epic Strike: Butterflies burst into flame around the caster, dealing 1d6+6 Fire damage per character level (max caster level 20) to all nearby enemies.
+
+Every Epic Strike shares a cooldown with every other Epic Strike. Using this
+ability will put every Epic Strike onto this ability's cooldown.</Description>
+    <Icon>SpringToSummer</Icon>
+    <School>Evocation</School>
+    <Empower/>
+    <Maximize/>
+    <Quicken/>
+    <Intensify/>
+    <MaxCasterLevel>20</MaxCasterLevel>
+    <SpellDamage>
+      <SpellDice>
+        <PerCasterLevels>1</PerCasterLevels>
+        <BonusDice>
+          <Number>1</Number>
+          <Sides>6</Sides>
+          <Bonus>6</Bonus>
+        </BonusDice>
+      </SpellDice>
+      <Damage>Fire</Damage>
+      <SpellPower>Fire</SpellPower>
+    </SpellDamage>
+    <Cooldown>12</Cooldown>
+  </Spell>
+  <!-- ddo-builds patch: Epic Strike spell wiring (was missing or stub).
+       See docs/DATA_PATCHES.md "Epic Strike spells". -->
+  <Spell>
+    <Name>Storm Catcher</Name>
+    <Description>Epic Strike: Target enemy is struck by a bolt of lightning for 1d8+8 Electric damage per caster level (max caster level 20). They also take 1d6 Cold damage per caster level every 2 seconds for 8 seconds.
+
+Every Epic Strike shares a cooldown with every other Epic Strike. Using this
+ability will put every Epic Strike onto this ability's cooldown.</Description>
+    <Icon>StormCatcher</Icon>
+    <School>Evocation</School>
+    <Empower/>
+    <Maximize/>
+    <Quicken/>
+    <Intensify/>
+    <MaxCasterLevel>20</MaxCasterLevel>
+    <SpellDamage>
+      <SpellDice>
+        <PerCasterLevels>1</PerCasterLevels>
+        <BonusDice>
+          <Number>1</Number>
+          <Sides>8</Sides>
+          <Bonus>8</Bonus>
+        </BonusDice>
+      </SpellDice>
+      <Damage>Electric</Damage>
+      <SpellPower>Electric</SpellPower>
+    </SpellDamage>
+    <Cooldown>8</Cooldown>
+  </Spell>
+  <!-- ddo-builds patch: Epic Strike spell wiring (was missing or stub).
+       See docs/DATA_PATCHES.md "Epic Strike spells". -->
+  <Spell>
+    <Name>Strike a Chord</Name>
+    <Description>Epic Strike: Blasts a single target with a random note of music for 1d6+3 Sonic damage per character level. Grants a stack of Chords of Fate.
+
+Every Epic Strike shares a cooldown with every other Epic Strike. Using this
+ability will put every Epic Strike onto this ability's cooldown.</Description>
+    <Icon>FateEpicStrike</Icon>
+    <School>Bardic</School>
+    <Empower/>
+    <Maximize/>
+    <Quicken/>
+    <Intensify/>
+    <MaxCasterLevel>30</MaxCasterLevel>
+    <SpellDamage>
+      <SpellDice>
+        <PerCasterLevels>1</PerCasterLevels>
+        <BonusDice>
+          <Number>1</Number>
+          <Sides>6</Sides>
+          <Bonus>3</Bonus>
+        </BonusDice>
+      </SpellDice>
+      <Damage>Sonic</Damage>
+      <SpellPower>Sonic</SpellPower>
+    </SpellDamage>
+    <Cooldown>2</Cooldown>
+  </Spell>
+  <!-- ddo-builds patch: Epic Strike spell wiring (was missing or stub).
+       See docs/DATA_PATCHES.md "Epic Strike spells". -->
+  <Spell>
+    <Name>The Pluck of a String</Name>
+    <Description>Epic Strike: Ranged attack: your weapon sings, causing an additional 2d10 Sonic damage per character level (scales with 200% Ranged Power).
+
+Every Epic Strike shares a cooldown with every other Epic Strike. Using this
+ability will put every Epic Strike onto this ability's cooldown.</Description>
+    <Icon>FateEpicStrike</Icon>
+    <School>Bardic</School>
+    <Empower/>
+    <Maximize/>
+    <Quicken/>
+    <Intensify/>
+    <MaxCasterLevel>30</MaxCasterLevel>
+    <SpellDamage>
+      <SpellDice>
+        <PerCasterLevels>1</PerCasterLevels>
+        <BonusDice>
+          <Number>2</Number>
+          <Sides>10</Sides>
+          <Bonus>0</Bonus>
+        </BonusDice>
+      </SpellDice>
+      <Damage>Sonic</Damage>
+      <SpellPower>Sonic</SpellPower>
+    </SpellDamage>
+    <Cooldown>5</Cooldown>
+  </Spell>
+  <!-- ddo-builds patch: Epic Strike spell wiring (was missing or stub).
+       See docs/DATA_PATCHES.md "Epic Strike spells". -->
+  <Spell>
+    <Name>The Sword Sings</Name>
+    <Description>Epic Strike: Melee attack: your weapon sings, causing an additional 2d10 Sonic damage per character level (scales with 200% Melee Power).
+
+Every Epic Strike shares a cooldown with every other Epic Strike. Using this
+ability will put every Epic Strike onto this ability's cooldown.</Description>
+    <Icon>FateEpicStrike</Icon>
+    <School>Bardic</School>
+    <Empower/>
+    <Maximize/>
+    <Quicken/>
+    <Intensify/>
+    <MaxCasterLevel>30</MaxCasterLevel>
+    <SpellDamage>
+      <SpellDice>
+        <PerCasterLevels>1</PerCasterLevels>
+        <BonusDice>
+          <Number>2</Number>
+          <Sides>10</Sides>
+          <Bonus>0</Bonus>
+        </BonusDice>
+      </SpellDice>
+      <Damage>Sonic</Damage>
+      <SpellPower>Sonic</SpellPower>
+    </SpellDamage>
+    <Cooldown>4</Cooldown>
+  </Spell>
+  <!-- ddo-builds patch: Epic Strike spell wiring (was missing or stub).
+       See docs/DATA_PATCHES.md "Epic Strike spells". -->
+  <Spell>
+    <Name>Drifting Lotus</Name>
+    <Description>Epic Strike: Melee Cleave attack, dealing 1d6+5 Force damage per character level to all enemies struck (scales with the higher of Melee or Ranged Power; doubled vs Tainted Creatures).
+
+Every Epic Strike shares a cooldown with every other Epic Strike. Using this
+ability will put every Epic Strike onto this ability's cooldown.</Description>
+    <Icon>DriftingLotus</Icon>
+    <School>Evocation</School>
+    <Empower/>
+    <Maximize/>
+    <Quicken/>
+    <Intensify/>
+    <MaxCasterLevel>30</MaxCasterLevel>
+    <SpellDamage>
+      <SpellDice>
+        <PerCasterLevels>1</PerCasterLevels>
+        <BonusDice>
+          <Number>1</Number>
+          <Sides>6</Sides>
+          <Bonus>5</Bonus>
+        </BonusDice>
+      </SpellDice>
+      <Damage>Force</Damage>
+      <SpellPower>Force</SpellPower>
+    </SpellDamage>
+    <Cooldown>15</Cooldown>
+  </Spell>
+  <!-- ddo-builds patch: Epic Strike spell wiring (was missing or stub).
+       See docs/DATA_PATCHES.md "Epic Strike spells". -->
+  <Spell>
+    <Name>Orchid Blossom</Name>
+    <Description>Epic Strike: A blossom in a line explodes on contact, dealing 1d6+10 Force damage per character level to all enemies within (scales with the higher of Melee or Ranged Power; doubled vs Tainted Creatures).
+
+Every Epic Strike shares a cooldown with every other Epic Strike. Using this
+ability will put every Epic Strike onto this ability's cooldown.</Description>
+    <Icon>OrchidBlossom</Icon>
+    <School>Evocation</School>
+    <Empower/>
+    <Maximize/>
+    <Quicken/>
+    <Intensify/>
+    <MaxCasterLevel>30</MaxCasterLevel>
+    <SpellDamage>
+      <SpellDice>
+        <PerCasterLevels>1</PerCasterLevels>
+        <BonusDice>
+          <Number>1</Number>
+          <Sides>6</Sides>
+          <Bonus>10</Bonus>
+        </BonusDice>
+      </SpellDice>
+      <Damage>Force</Damage>
+      <SpellPower>Force</SpellPower>
+    </SpellDamage>
+    <Cooldown>15</Cooldown>
   </Spell>
 </Spells>
