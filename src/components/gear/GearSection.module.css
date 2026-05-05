@@ -597,8 +597,17 @@
 
 /* ── Mobile overrides ─────────────────────────────────────── */
 @media (max-width: 600px) {
-  /* 4-col paper-doll → 2-col on phones; 5-col filigree → 3 then 2. */
-  .slotGrid     { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  /* Keep the 4-col paper-doll grid — boxes just shrink. Tighten gaps + padding
+   * so labels/icons stay legible at narrow widths. */
+  .slotGrid { gap: 0.3rem; }
+  .slot {
+    padding: 0.35rem 0.3rem;
+    min-height: 72px;
+  }
+  .slotIcon { width: 30px; height: 30px; }
+  .slotLabel { font-size: 0.58rem; }
+  .slotName  { font-size: 0.68rem; }
+  /* Filigree grid: 5-col → 3 then 2 since chip text needs more room. */
   .filigreeGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 @media (max-width: 380px) {
