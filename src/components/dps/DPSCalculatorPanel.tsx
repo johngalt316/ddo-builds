@@ -18,6 +18,7 @@ import { useGameDataStore } from '@/store/gameDataStore';
 import { useBreakdowns } from '@/hooks/useBreakdowns';
 import { getMagicAbilities, type MagicAbility } from '@/engine/dps/abilities';
 import { newRotationStep, type RotationStep } from '@/engine/dps/rotation';
+import { findFirstAvailableSlot } from '@/engine/dps/timing';
 import { damagePerCast, type PerCastDamage } from '@/engine/dps/calculator';
 import {
   aggregateDebuffs,
@@ -273,7 +274,13 @@ function MagicRotationEditor({
   }, [abilities, activeAbilityIds]);
 
   function onAdd(ability: MagicAbility) {
-    setSteps([...steps, newRotationStep(ability.id)]);
+    // Try to slot the new cast into an existing cooldown gap so the
+    // rotation doesn't lengthen unnecessarily. Falls back to append when
+    // no suitable gap exists.
+    const idx  = findFirstAvailableSlot(steps, ability, abilityById, cooldownReductionPct);
+    const next = [...steps];
+    next.splice(idx, 0, newRotationStep(ability.id));
+    setSteps(next);
   }
   function onReorder(from: number, to: number) {
     if (from === to) return;

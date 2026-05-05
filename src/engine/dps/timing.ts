@@ -59,6 +59,56 @@ export interface TimelineTiming {
  * `cooldownReductionPct` is the SUMMED reduction (e.g. 20 means -20%).
  * Effective cooldown = base × (1 - pct/100), floored at 0.
  */
+/**
+ * Find the first index in `steps` where inserting `newAbility` would
+ * land in an existing cooldown gap — i.e. the new cast can fire there
+ * without lengthening the rotation cycle. A gap is fillable when:
+ *
+ *   1. `newAbility`'s own cooldown has elapsed by the gap's start
+ *      (no prior cast of the same ability earlier in the rotation
+ *      blocks it), AND
+ *   2. The gap is at least as wide as the new ability's cast time.
+ *
+ * Returns `steps.length` when no fillable gap exists; the caller can
+ * fall through to appending in that case.
+ */
+export function findFirstAvailableSlot(
+  steps: RotationStep[],
+  newAbility: MagicAbility,
+  abilityById: Map<string, MagicAbility>,
+  cooldownReductionPct: number,
+): number {
+  const cdMul       = Math.max(0, 1 - cooldownReductionPct / 100);
+  const newCdEff    = newAbility.cooldown * cdMul;
+  const newCastTime = newAbility.castTime;
+  const EPS = 1e-6;
+
+  const lastStart = new Map<string, number>();
+  let cursor = 0;
+
+  for (let i = 0; i < steps.length; i++) {
+    const step = steps[i];
+    if (!step) continue;
+    const ability = abilityById.get(step.abilityId);
+    if (!ability) continue;
+
+    const eff       = ability.cooldown * cdMul;
+    const cdReady   = (lastStart.get(ability.id) ?? -Infinity) + eff;
+    const startTime = Math.max(cursor, cdReady);
+    const gap       = startTime - cursor;
+
+    const newCdReady = (lastStart.get(newAbility.id) ?? -Infinity) + newCdEff;
+    if (newCdReady <= cursor + EPS && gap + EPS >= newCastTime) {
+      return i;   // insert before this step — fills the gap exactly
+    }
+
+    lastStart.set(ability.id, startTime);
+    cursor = startTime + ability.castTime;
+  }
+
+  return steps.length;
+}
+
 export function resolveTimeline(
   steps: RotationStep[],
   abilityById: Map<string, MagicAbility>,
