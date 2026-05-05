@@ -14,7 +14,7 @@
     },
     "requirementsFailedCount": 95,
     "totalSourcedEffects": 1079,
-    "totalAppliedBonuses": 1412
+    "totalAppliedBonuses": 1413
   },
   "abilityScores": {
     "STR": {
@@ -3208,8 +3208,8 @@
       ]
     },
     "Chaos": {
-      "total": 657,
-      "appliedCount": 12,
+      "total": 662,
+      "appliedCount": 13,
       "dominatedCount": 1,
       "sources": [
         {
@@ -3220,6 +3220,12 @@
         },
         {
           "source": "[D] Shiradi Champion: Shiradi Champion: Wild Magics",
+          "bonusType": "Destiny",
+          "value": 5,
+          "target": "Chaos"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Friend or Foe → Fey Form",
           "bonusType": "Destiny",
           "value": 5,
           "target": "Chaos"

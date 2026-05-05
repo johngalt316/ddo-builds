@@ -3225,12 +3225,17 @@ Special Delivery, end chest</Description>
     <MinLevel>30</MinLevel>
     <Type>Sun</Type>
     <Icon>HistoryBookWhite</Icon>
+    <!-- ddo-builds patch: see docs/DATA_PATCHES.md "Solar Gem of Spell
+         Critical Damage". Upstream encodes this as SpellCriticalDamage
+         + <Item>All</Item>, which our breakdown engine routes per-element.
+         In-game it acts as a true universal-pool bonus, so promote the
+         type to UniversalSpellCriticalDamage and clear the per-element
+         filter. -->
     <Effect>
-      <Type>SpellCriticalDamage</Type>
+      <Type>UniversalSpellCriticalDamage</Type>
       <Bonus>Legendary</Bonus>
       <AType>Simple</AType>
       <Amount size="1">15</Amount>
-      <Item>All</Item>
     </Effect>
   </Augment>
   <Augment>

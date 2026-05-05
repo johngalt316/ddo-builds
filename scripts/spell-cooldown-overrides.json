@@ -1,7 +1,0 @@
-{
-  "_comment": "Manually-verified spell cooldowns (seconds). These beat both description-mined values and level-based defaults during seedSpellCooldowns.mjs. Add a row whenever you confirm a spell's cooldown in-game and the description prose or default disagrees. Re-run `node scripts/seedSpellCooldowns.mjs` after edits to push values into spell-cooldowns.json, then `node scripts/applySpellCooldowns.mjs` to inject into Spells.xml.",
-  "cooldowns": {
-    "Magic Missile":  2,
-    "Force Missiles": 4
-  }
-}

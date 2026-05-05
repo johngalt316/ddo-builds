@@ -128,9 +128,6 @@ export function getMagicAbilities(
         if (!data) continue;
         if (data.damages.length === 0) continue;       // not a DPS spell
         // Per-class override (cost / cooldown / maxCL) wins when present.
-        // Cooldowns live directly on the parsed `<Spell>` data — populated
-        // via `scripts/applySpellCooldowns.mjs` from the JSON sources
-        // since upstream XML doesn't ship them.
         const classSpell = cls.spells.find(cs => cs.name === name);
         const cost     = classSpell?.cost           ?? data.cost           ?? 0;
         const cooldown = classSpell?.cooldown       ?? data.cooldown       ?? 0;

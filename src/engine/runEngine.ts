@@ -36,7 +36,6 @@ import skillsJson from '@/data/skills.json';
 import type { Skill } from '@/types/gameData';
 const ALL_SKILLS = skillsJson as unknown as Skill[];
 import { abilityModifier } from './abilityScores';
-import { lookupSlaChargePatch } from './dps/slaCharges';
 import type { Stat } from '@/types/build';
 
 /**
@@ -63,9 +62,10 @@ export interface CollectedSLA {
   maxCasterLevel: number;
   /** Cooldown in seconds between casts (Amount[3]). */
   cooldown: number;
-  /** Per-rest charges. 0 means unlimited. Sourced from Amount[0] when set,
-   *  otherwise from `SLA_CHARGE_PATCHES` for SLAs whose granting effect
-   *  doesn't carry the value. */
+  /** Per-rest charges. 0 means unlimited. Sourced from Amount[0] of
+   *  the granting `<Effect>` block — XML entries that need a non-zero
+   *  charge count carry it directly (see Past Life: Arcane Initiate
+   *  in Wizard.class.xml). */
   charges: number;
   /** Where it came from — full source label including prefix. */
   source: string;
@@ -249,23 +249,22 @@ export function runEngine(input: RunEngineInput): EngineResult {
   for (const { effect, source, rankCount } of sourced) {
     const isSLA = effect.types.includes('SpellLikeAbility');
     if (isSLA) {
-      // Item[0] = spell name; Item[1] = casting class. Amount[0] = per-rest
-      // charges (when the effect bothers to set it — most don't), Amount[1..3]
-      // = cost, maxCasterLevel, cooldown. When the effect ships with
-      // `<Amount>0 0 0 0</Amount>` (common for past-life-granted SLAs), we
-      // fall back to the manual `SLA_CHARGE_PATCHES` table so e.g. Past
-      // Life: Arcane Initiate's Magic Missile correctly reports 10 charges.
+      // Item[0] = spell name; Item[1] = casting class. Amount layout:
+      //   [0] = per-rest charges (0 = unlimited)
+      //   [1] = SP cost
+      //   [2] = max caster level
+      //   [3] = cooldown (seconds)
+      // SLAs that need a non-zero charge count carry it directly in the
+      // XML now (e.g. Past Life: Arcane Initiate in Wizard.class.xml).
       const name = effect.items?.[0] ?? '';
       if (name) {
-        const chargesRaw = effect.amount?.[0] ?? 0;
-        const charges = chargesRaw > 0 ? chargesRaw : lookupSlaChargePatch(source, name);
         slas.push({
           name,
           castingClass: resolveSLACastingClass(effect.items?.[1] ?? '', source),
           cost:           effect.amount?.[1] ?? 0,
           maxCasterLevel: effect.amount?.[2] ?? 0,
           cooldown:       effect.amount?.[3] ?? 0,
-          charges,
+          charges:        effect.amount?.[0] ?? 0,
           source,
           category: categorizeSLASource(source),
         });
