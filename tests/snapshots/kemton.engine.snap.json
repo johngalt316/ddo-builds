@@ -12,9 +12,9 @@
       "SliderValue": 6,
       "Slider": 3
     },
-    "requirementsFailedCount": 96,
+    "requirementsFailedCount": 95,
     "totalSourcedEffects": 1077,
-    "totalAppliedBonuses": 1411
+    "totalAppliedBonuses": 1412
   },
   "abilityScores": {
     "STR": {
@@ -1396,8 +1396,8 @@
     ]
   },
   "sneakAttackDice": {
-    "total": 47,
-    "appliedCount": 55,
+    "total": 48,
+    "appliedCount": 56,
     "dominatedCount": 0,
     "sources": [
       {
@@ -1573,6 +1573,11 @@
       },
       {
         "source": "[E] Mechanic: Mechanic: Sharpshooter IV",
+        "bonusType": "Enhancement",
+        "value": 1
+      },
+      {
+        "source": "[E] Mechanic: Mechanic: Improved Detection",
         "bonusType": "Enhancement",
         "value": 1
       },

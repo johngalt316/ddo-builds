@@ -217,8 +217,14 @@ and 1 extra Sneak Attack die with bows, crossbows, and thrown weapons.</Descript
         <Amount size="1">1</Amount>
         <Requirements>
           <Requirement>
+            <!-- ddo-builds patch (see docs/DATA_PATCHES.md): upstream uses
+                 <Item>Ranged</Item>, which doesn't match any defined stance
+                 (`Ranged Combat` is the auto-stance in Stances.xml). The
+                 effect therefore never fires for ranged builds. Renaming
+                 the requirement here keeps the gate (still requires the
+                 user to be in ranged combat) but matches a real stance. -->
             <Type>Stance</Type>
-            <Item>Ranged</Item>
+            <Item>Ranged Combat</Item>
           </Requirement>
         </Requirements>
       </Effect>
