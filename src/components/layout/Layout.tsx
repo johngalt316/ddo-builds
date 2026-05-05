@@ -23,6 +23,9 @@ export function Layout() {
       </main>
       <footer className={styles.footer}>
         <p>DDO Builds — a fan-made hobby project. Not affiliated with Standing Stone Games.</p>
+        <p className={styles.version} title="Auto-bumped on every push">
+          v{__APP_VERSION__} · <code>{__APP_SHA__}</code>
+        </p>
       </footer>
     </div>
   );

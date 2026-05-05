@@ -71,3 +71,14 @@
   color: var(--color-text-muted);
   border-top: 1px solid var(--color-border);
 }
+.footer p { margin: 0; }
+.version {
+  margin-top: 0.25rem !important;
+  font-size: 0.7rem;
+  opacity: 0.6;
+  font-variant-numeric: tabular-nums;
+}
+.version code {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.95em;
+}
