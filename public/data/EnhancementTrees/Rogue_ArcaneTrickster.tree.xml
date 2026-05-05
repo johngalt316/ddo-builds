@@ -1407,12 +1407,92 @@ spell effects on the target.</Description>
           <Item>ATAppliedForce</Item>
         </Requirement>
       </Requirements>
+      <!-- ddo-builds patch (see docs/DATA_PATCHES.md): the upstream
+           Stacks/Amount table indexes by metamagic-feat count, which our
+           engine doesn't compute. Replaced with N independent FeatCount
+           effects, one per metamagic feat — each grants +1 sneak die when
+           that feat is trained. Net behavior matches the description
+           "+1 Sneak Attack dice for every Metamagic feat you've trained."
+           Restore the original block on upstream XML refresh. -->
       <Effect>
-        <DisplayName>Arcane Trickster: Sharp Magic</DisplayName>
+        <DisplayName>Arcane Trickster: Sharp Magic (Empower Spell)</DisplayName>
         <Type>SneakAttackDice</Type>
         <Bonus>Enhancement</Bonus>
-        <AType>Stacks</AType>
-        <Amount size="31">0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15</Amount>
+        <Item>Empower Spell</Item>
+        <AType>FeatCount</AType>
+        <Amount size="1">1</Amount>
+      </Effect>
+      <Effect>
+        <DisplayName>Arcane Trickster: Sharp Magic (Empower Healing Spell)</DisplayName>
+        <Type>SneakAttackDice</Type>
+        <Bonus>Enhancement</Bonus>
+        <Item>Empower Healing Spell</Item>
+        <AType>FeatCount</AType>
+        <Amount size="1">1</Amount>
+      </Effect>
+      <Effect>
+        <DisplayName>Arcane Trickster: Sharp Magic (Maximize Spell)</DisplayName>
+        <Type>SneakAttackDice</Type>
+        <Bonus>Enhancement</Bonus>
+        <Item>Maximize Spell</Item>
+        <AType>FeatCount</AType>
+        <Amount size="1">1</Amount>
+      </Effect>
+      <Effect>
+        <DisplayName>Arcane Trickster: Sharp Magic (Heighten Spell)</DisplayName>
+        <Type>SneakAttackDice</Type>
+        <Bonus>Enhancement</Bonus>
+        <Item>Heighten Spell</Item>
+        <AType>FeatCount</AType>
+        <Amount size="1">1</Amount>
+      </Effect>
+      <Effect>
+        <DisplayName>Arcane Trickster: Sharp Magic (Intensify Spell)</DisplayName>
+        <Type>SneakAttackDice</Type>
+        <Bonus>Enhancement</Bonus>
+        <Item>Intensify Spell</Item>
+        <AType>FeatCount</AType>
+        <Amount size="1">1</Amount>
+      </Effect>
+      <Effect>
+        <DisplayName>Arcane Trickster: Sharp Magic (Quicken Spell)</DisplayName>
+        <Type>SneakAttackDice</Type>
+        <Bonus>Enhancement</Bonus>
+        <Item>Quicken Spell</Item>
+        <AType>FeatCount</AType>
+        <Amount size="1">1</Amount>
+      </Effect>
+      <Effect>
+        <DisplayName>Arcane Trickster: Sharp Magic (Enlarge Spell)</DisplayName>
+        <Type>SneakAttackDice</Type>
+        <Bonus>Enhancement</Bonus>
+        <Item>Enlarge Spell</Item>
+        <AType>FeatCount</AType>
+        <Amount size="1">1</Amount>
+      </Effect>
+      <Effect>
+        <DisplayName>Arcane Trickster: Sharp Magic (Extend Spell)</DisplayName>
+        <Type>SneakAttackDice</Type>
+        <Bonus>Enhancement</Bonus>
+        <Item>Extend Spell</Item>
+        <AType>FeatCount</AType>
+        <Amount size="1">1</Amount>
+      </Effect>
+      <Effect>
+        <DisplayName>Arcane Trickster: Sharp Magic (Embolden Spell)</DisplayName>
+        <Type>SneakAttackDice</Type>
+        <Bonus>Enhancement</Bonus>
+        <Item>Embolden Spell</Item>
+        <AType>FeatCount</AType>
+        <Amount size="1">1</Amount>
+      </Effect>
+      <Effect>
+        <DisplayName>Arcane Trickster: Sharp Magic (Accelerate Spell)</DisplayName>
+        <Type>SneakAttackDice</Type>
+        <Bonus>Enhancement</Bonus>
+        <Item>Accelerate Spell</Item>
+        <AType>FeatCount</AType>
+        <Amount size="1">1</Amount>
       </Effect>
     </EnhancementTreeItem>
     <EnhancementTreeItem>

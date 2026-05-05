@@ -13,8 +13,8 @@
       "Slider": 3
     },
     "requirementsFailedCount": 96,
-    "totalSourcedEffects": 1067,
-    "totalAppliedBonuses": 1401
+    "totalSourcedEffects": 1076,
+    "totalAppliedBonuses": 1410
   },
   "abilityScores": {
     "STR": {
@@ -1396,8 +1396,8 @@
     ]
   },
   "sneakAttackDice": {
-    "total": 38,
-    "appliedCount": 45,
+    "total": 46,
+    "appliedCount": 54,
     "dominatedCount": 0,
     "sources": [
       {
@@ -1491,9 +1491,64 @@
         "value": 0
       },
       {
-        "source": "[E] Arcane Trickster: Arcane Trickster: Sharp Magic: Arcane Trickster: Sharp Magic",
+        "source": "[E] Arcane Trickster: Arcane Trickster: Sharp Magic: Arcane Trickster: Sharp Magic (Empower Spell)",
         "bonusType": "Enhancement",
-        "value": 0
+        "value": 1,
+        "target": "Empower Spell"
+      },
+      {
+        "source": "[E] Arcane Trickster: Arcane Trickster: Sharp Magic: Arcane Trickster: Sharp Magic (Empower Healing Spell)",
+        "bonusType": "Enhancement",
+        "value": 0,
+        "target": "Empower Healing Spell"
+      },
+      {
+        "source": "[E] Arcane Trickster: Arcane Trickster: Sharp Magic: Arcane Trickster: Sharp Magic (Maximize Spell)",
+        "bonusType": "Enhancement",
+        "value": 1,
+        "target": "Maximize Spell"
+      },
+      {
+        "source": "[E] Arcane Trickster: Arcane Trickster: Sharp Magic: Arcane Trickster: Sharp Magic (Heighten Spell)",
+        "bonusType": "Enhancement",
+        "value": 1,
+        "target": "Heighten Spell"
+      },
+      {
+        "source": "[E] Arcane Trickster: Arcane Trickster: Sharp Magic: Arcane Trickster: Sharp Magic (Intensify Spell)",
+        "bonusType": "Enhancement",
+        "value": 1,
+        "target": "Intensify Spell"
+      },
+      {
+        "source": "[E] Arcane Trickster: Arcane Trickster: Sharp Magic: Arcane Trickster: Sharp Magic (Quicken Spell)",
+        "bonusType": "Enhancement",
+        "value": 1,
+        "target": "Quicken Spell"
+      },
+      {
+        "source": "[E] Arcane Trickster: Arcane Trickster: Sharp Magic: Arcane Trickster: Sharp Magic (Enlarge Spell)",
+        "bonusType": "Enhancement",
+        "value": 1,
+        "target": "Enlarge Spell"
+      },
+      {
+        "source": "[E] Arcane Trickster: Arcane Trickster: Sharp Magic: Arcane Trickster: Sharp Magic (Extend Spell)",
+        "bonusType": "Enhancement",
+        "value": 1,
+        "target": "Extend Spell"
+      },
+      {
+        "source": "[E] Arcane Trickster: Arcane Trickster: Sharp Magic: Arcane Trickster: Sharp Magic (Embolden Spell)",
+        "bonusType": "Enhancement",
+        "value": 1,
+        "target": "Embolden Spell"
+      },
+      {
+        "source": "[E] Arcane Trickster: Arcane Trickster: Sharp Magic: Arcane Trickster: Sharp Magic (Accelerate Spell)",
+        "bonusType": "Enhancement",
+        "value": 0,
+        "target": "Accelerate Spell"
       },
       {
         "source": "[E] Mechanic: Mechanic: Sharpshooter I",

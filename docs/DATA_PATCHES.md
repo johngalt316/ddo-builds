@@ -116,6 +116,20 @@ items list in place to match in-game behavior.
 
 ---
 
+## Inline XML edits
+
+Direct mutations to `public/data/EnhancementTrees/*.tree.xml`. Used when
+the upstream encoding requires engine support we don't have yet — easier
+to reshape the data into a form the existing engine handles than to add
+a new evaluator path. Restore the original block on each upstream XML
+refresh.
+
+| File | Site | Symptom | Override | Why |
+|---|---|---|---|---|
+| `Rogue_ArcaneTrickster.tree.xml` | `Arcane Trickster: Sharp Magic` effect | Single `AType=Stacks` effect with `<Amount size="31">0 0 1 0 2 0 …</Amount>` indexed by metamagic-feat count — our engine looks up `amount[rankCount-1]=amount[0]=0` instead of `amount[2 × metamagicCount]`. | Replaced with 10 `AType=FeatCount` effects, one per metamagic feat (`Empower Spell`, `Maximize Spell`, …), each granting `+1 SneakAttackDice` when its feat is trained. Net behavior matches "+1 sneak die per metamagic feat trained" without needing a new evaluator. | The description says "+1 Sneak Attack dice for every Metamagic feat you've trained." Enhancement is unique enough that a one-off XML reshape is cheaper than implementing generic stack-source counting. |
+
+---
+
 ## How to add a new patch
 
 1. Pick the right place based on the data source:
