@@ -150,20 +150,34 @@
   color: var(--color-gold);
 }
 
+.simulateRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0.4rem 0 0.85rem 0;
+}
 .simulateBtn {
   background: var(--color-gold);
   color: #1a1200;
   border: 0;
   border-radius: 4px;
   font: inherit;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: 700;
-  padding: 0.5rem 1rem;
+  padding: 0.55rem 1.4rem;
   cursor: pointer;
-  align-self: flex-end;
-  transition: background 0.12s;
+  transition: background 0.12s, opacity 0.12s;
 }
 .simulateBtn:hover { background: var(--color-gold-light); }
+.simulateBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.simulateClock {
+  font-size: 0.78rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-text-muted);
+}
 
 /* ── Magic rotation editor (palette + timeline) ──────────── */
 .editor {
@@ -216,19 +230,3 @@
   color: var(--color-gold);
 }
 
-/* ── Chart (placeholder) ─────────────────────────────────── */
-.chart {
-  background: var(--color-bg);
-  border: 1px dashed var(--color-border);
-  border-radius: 4px;
-  padding: 0.85rem;
-  min-height: 180px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.chartPlaceholder {
-  font-size: 0.8rem;
-  color: var(--color-text-muted);
-  font-style: italic;
-}

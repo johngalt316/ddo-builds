@@ -12,7 +12,7 @@
 //
 // Local state only — none of these controls drive the engine yet.
 
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useBuildStore } from '@/store/buildStore';
 import { useGameDataStore } from '@/store/gameDataStore';
 import { useBreakdowns } from '@/hooks/useBreakdowns';
@@ -34,6 +34,7 @@ import { RotationTimeline } from './RotationTimeline';
 import { ManageActiveDialog } from './ManageActiveDialog';
 import { DebuffsSummary, ManageDebuffsDialog } from './DebuffsPanel';
 import { RotationDPSSummary } from './RotationDPSSummary';
+import { RotationChart, type DamageEvent } from './RotationChart';
 import styles from './DPSCalculatorPanel.module.css';
 
 export type RotationType = 'melee' | 'ranged' | 'magic';
@@ -77,9 +78,6 @@ export function DPSCalculatorPanel() {
 
   function handleGenerate() {
     // 6.6 will populate this.
-  }
-  function handleSimulate() {
-    // 6.4 will populate this.
   }
 
   return (
@@ -154,13 +152,6 @@ export function DPSCalculatorPanel() {
             <span>R10</span>
           </span>
         </label>
-
-        <button
-          className={styles.simulateBtn}
-          onClick={handleSimulate}
-        >
-          ▶ Simulate
-        </button>
       </div>
 
       {/* Body — by rotation type */}
@@ -181,20 +172,6 @@ export function DPSCalculatorPanel() {
         </div>
       )}
 
-      {/* Stats display */}
-      <div className={styles.stats}>
-        <Metric label="DPS"    value="—" />
-        <Metric label="DPM"    value="—" />
-        <Metric label="SPM"    value="—" />
-        <Metric label="Damage" value="—" />
-      </div>
-
-      {/* Chart placeholder */}
-      <div className={styles.chart}>
-        <div className={styles.chartPlaceholder}>
-          Damage chart · stacked-by-element with overall (Phase 6.5)
-        </div>
-      </div>
     </section>
   );
 }
@@ -276,11 +253,98 @@ function MagicRotationEditor({
     return rotationDPS(steps, abilities, build, breakdowns, ctx, debuffs, cooldownReductionPct);
   }, [steps, abilities, build, breakdowns, debuffs, cooldownReductionPct]);
 
-  // Cycle length for the summary header, kept in sync with the timeline.
-  const rotationCycleSeconds = useMemo(() => {
-    if (steps.length === 0) return 0;
-    return resolveTimeline(steps, abilityById, cooldownReductionPct).totalSeconds;
-  }, [steps, abilityById, cooldownReductionPct]);
+  // Cycle length + per-cast damage events drive the chart, simulation
+  // playhead, and live stat readouts.
+  const { cycleSeconds: rotationCycleSeconds, damageEvents } = useMemo(() => {
+    if (steps.length === 0 || !breakdowns) {
+      return { cycleSeconds: 0, damageEvents: [] as DamageEvent[] };
+    }
+    const t = resolveTimeline(steps, abilityById, cooldownReductionPct);
+    const ctx = {
+      sneakAttackDice: breakdowns.sneakAttackDice.total,
+      metamagicSP:     300,
+    };
+    const events: DamageEvent[] = t.steps.map(r => ({
+      time:   r.startTime,
+      damage: damagePerCast(r.ability, build, breakdowns, ctx, debuffs).total,
+      spell:  r.ability.displayName,
+    }));
+    return { cycleSeconds: t.totalSeconds, damageEvents: events };
+  }, [steps, abilityById, cooldownReductionPct, build, breakdowns, debuffs]);
+
+  // ── Simulation animation ───────────────────────────────────────────
+  // simTime walks 0 → cycleSeconds in real time. requestAnimationFrame
+  // drives the playhead, the chart's reveal, and the live Damage stat.
+  const [simTime, setSimTime]       = useState(0);
+  const [simRunning, setSimRunning] = useState(false);
+  const simStartedAt = useRef(0);
+
+  // Auto-stop and reset to 0 when the rotation changes — the previous
+  // simulation no longer maps onto the new timeline.
+  useEffect(() => {
+    setSimRunning(false);
+    setSimTime(0);
+  }, [steps, breakdowns]);
+
+  useEffect(() => {
+    if (!simRunning || rotationCycleSeconds <= 0) return;
+    let cancelled = false;
+    simStartedAt.current = performance.now() - simTime * 1000;
+    let raf = 0;
+    const tick = (now: number) => {
+      if (cancelled) return;
+      const elapsed = (now - simStartedAt.current) / 1000;
+      if (elapsed >= rotationCycleSeconds) {
+        setSimTime(rotationCycleSeconds);
+        setSimRunning(false);
+        return;
+      }
+      setSimTime(elapsed);
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => {
+      cancelled = true;
+      cancelAnimationFrame(raf);
+    };
+    // simTime is read but not a dep — it's the cursor we're advancing.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [simRunning, rotationCycleSeconds]);
+
+  function onSimulateClick() {
+    if (rotationCycleSeconds <= 0) return;
+    if (simRunning) {
+      setSimRunning(false);
+      return;
+    }
+    // If we're at (or past) the end, restart from 0; otherwise resume.
+    if (simTime >= rotationCycleSeconds - 1e-3) setSimTime(0);
+    setSimRunning(true);
+  }
+
+  // Cumulative damage at the current sim time — drives the live stats.
+  const cumulativeDamage = useMemo(() => {
+    let s = 0;
+    for (const e of damageEvents) {
+      if (e.time <= simTime + 1e-6) s += e.damage; else break;
+    }
+    return s;
+  }, [damageEvents, simTime]);
+
+  // SP per minute = sum of (cost × cpm) over abilities in the rotation.
+  const spPerMinute = useMemo(() => {
+    if (rotationCycleSeconds <= 0) return 0;
+    const counts = new Map<string, number>();
+    for (const s of steps) counts.set(s.abilityId, (counts.get(s.abilityId) ?? 0) + 1);
+    const cyclesPerMin = 60 / rotationCycleSeconds;
+    let sp = 0;
+    for (const [id, count] of counts) {
+      const a = abilityById.get(id);
+      if (!a) continue;
+      sp += a.cost * count * cyclesPerMin;
+    }
+    return sp;
+  }, [steps, abilityById, rotationCycleSeconds]);
 
   // First-time / unset Active = "everything is active in catalog order" so
   // the panel works out of the box without forcing the user through the
@@ -365,11 +429,52 @@ function MagicRotationEditor({
         onReorder={onReorder}
         onRemove={onRemove}
         onClear={onClear}
+        playheadTime={simRunning || simTime > 0 ? simTime : undefined}
       />
       <RotationDPSSummary
         breakdown={rotationBreakdown}
         cycleSeconds={rotationCycleSeconds}
       />
+
+      {/* Live stats — DPS / DPM are static for the rotation; Damage
+          accumulates with the simulation cursor. */}
+      <div className={styles.stats}>
+        <Metric label="DPS"
+          value={rotationBreakdown ? Math.round(rotationBreakdown.totalDPS).toLocaleString() : '—'} />
+        <Metric label="DPM"
+          value={rotationBreakdown ? Math.round(rotationBreakdown.totalPerMinute).toLocaleString() : '—'} />
+        <Metric label="SPM"
+          value={spPerMinute > 0 ? Math.round(spPerMinute).toLocaleString() : '—'} />
+        <Metric label="Damage"
+          value={damageEvents.length > 0 ? Math.round(cumulativeDamage).toLocaleString() : '—'} />
+      </div>
+
+      <RotationChart
+        events={damageEvents}
+        cycleSeconds={rotationCycleSeconds}
+        currentTime={simTime}
+      />
+
+      <div className={styles.simulateRow}>
+        <button
+          type="button"
+          className={styles.simulateBtn}
+          onClick={onSimulateClick}
+          disabled={rotationCycleSeconds <= 0}
+          title={
+            rotationCycleSeconds <= 0
+              ? 'Add a spell to the rotation to simulate'
+              : (simRunning ? 'Pause simulation' : 'Run one rotation cycle')
+          }
+        >
+          {simRunning ? '⏸ Pause' : '▶ Simulate'}
+        </button>
+        <span className={styles.simulateClock}>
+          t = {simTime.toFixed(2)}s
+          {rotationCycleSeconds > 0 && ` / ${rotationCycleSeconds.toFixed(2)}s`}
+        </span>
+      </div>
+
       <ManageActiveDialog
         open={manageOpen}
         abilities={abilities}

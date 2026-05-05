@@ -1,0 +1,109 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin: 0.5rem 0;
+}
+
+.header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+}
+
+.label {
+  color: var(--color-text-muted);
+}
+
+.readout {
+  font-size: 0.75rem;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--color-text);
+  font-variant-numeric: tabular-nums;
+}
+.readout strong {
+  color: var(--color-gold);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+.readoutMax {
+  color: var(--color-text-muted);
+}
+.readoutAt {
+  color: var(--color-text-muted);
+  margin-left: 0.5rem;
+}
+
+.scroll {
+  background: rgba(0,0,0,0.15);
+  border-radius: 3px;
+  overflow-x: auto;
+  padding: 0;
+}
+
+.svg {
+  display: block;
+}
+
+.empty {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+  padding: 0.6rem 0.5rem;
+  background: rgba(0,0,0,0.15);
+  border-radius: 3px;
+  margin: 0.5rem 0;
+}
+
+.axisLine {
+  stroke: rgba(255,255,255,0.18);
+  stroke-width: 1;
+}
+
+.tickLabel {
+  font-size: 9px;
+  fill: var(--color-text-muted);
+  font-family: ui-sans-serif, system-ui, sans-serif;
+}
+
+.stepLine {
+  fill: none;
+  stroke: var(--color-gold);
+  stroke-width: 2;
+  stroke-linejoin: round;
+}
+.stepLineGhost {
+  fill: none;
+  stroke: var(--color-gold);
+  stroke-width: 1;
+  stroke-linejoin: round;
+  opacity: 0.18;
+}
+
+.areaFill {
+  fill: var(--color-gold);
+  opacity: 0.10;
+}
+
+.dotFired {
+  fill: var(--color-gold);
+  stroke: rgba(0,0,0,0.4);
+  stroke-width: 0.5;
+}
+.dotPending {
+  fill: rgba(255,255,255,0.18);
+  stroke: rgba(0,0,0,0.4);
+  stroke-width: 0.5;
+}
+
+.playhead {
+  stroke: var(--color-gold);
+  stroke-width: 2;
+  stroke-dasharray: 3 2;
+}

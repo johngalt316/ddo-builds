@@ -32,11 +32,15 @@ interface Props {
   onReorder: (fromIdx: number, toIdx: number) => void;
   onRemove: (key: string) => void;
   onClear: () => void;
+  /** When >= 0 a vertical playhead is drawn at this time (seconds).
+   *  Drives the simulation animation visual. */
+  playheadTime?: number;
 }
 
 export function RotationTimeline({
   steps, abilityById, cooldownReductionPct,
   auto, onAutoChange, onReorder, onRemove, onClear,
+  playheadTime,
 }: Props) {
   const dragFrom = useRef<number | null>(null);
   const [dragOver, setDragOver] = useState<number | null>(null);
@@ -132,6 +136,15 @@ export function RotationTimeline({
                 </div>
               ))}
             </div>
+
+            {/* Simulation playhead — only shown when a sim is running */}
+            {playheadTime !== undefined && playheadTime >= 0 && (
+              <div
+                className={styles.playhead}
+                style={{ left: `${Math.min(playheadTime, totalSeconds) * PX_PER_SECOND}px` }}
+                aria-hidden="true"
+              />
+            )}
 
             {/* Cast blocks */}
             <div className={styles.blocks} role="list" aria-label="Rotation timeline">

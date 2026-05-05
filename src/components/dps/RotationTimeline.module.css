@@ -102,6 +102,19 @@
   margin-top: 1px;
 }
 
+/* ── Simulation playhead ─────────────────────────────────── */
+.playhead {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--color-gold);
+  box-shadow: 0 0 6px rgba(201,162,39,0.6);
+  pointer-events: none;
+  z-index: 10;
+  transition: left 16ms linear;   /* matches a 60fps animation frame */
+}
+
 /* ── Blocks layer ────────────────────────────────────────── */
 .blocks {
   position: absolute;
