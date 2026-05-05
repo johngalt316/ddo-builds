@@ -10,9 +10,12 @@
 // orchestration in 6.4.5b.
 
 import type { EngineResult } from '@/engine/runEngine';
+import type { Build } from '@/types/build';
 import type { DamageComponent, ScaleInputs } from './damage';
-import { componentDamagePerTrigger } from './damage';
+import { componentDamagePerTrigger, abilityToBaseComponents } from './damage';
 import type { ProcContext } from './procs';
+import { expandActiveProcs } from './procs';
+import type { MagicAbility } from './abilities';
 import { projectileCount } from './spellRules';
 
 /**
@@ -185,6 +188,56 @@ export interface DamageBreakdown {
   totalPerMinute: number;
   totalDPS: number;
   byComponent: ComponentDamage[];
+}
+
+// ── Per-spell tooltip helper ─────────────────────────────────────────────
+
+export interface PerCastDamage {
+  /** Sum of every contributing component's damage per trigger. */
+  total: number;
+  /** Caster level used to size dice and projectile counts. */
+  casterLevel: number;
+  byComponent: ComponentDamage[];
+}
+
+/**
+ * Single-cast damage breakdown for one ability — what fires when this
+ * spell is cast once, with no rotation context. Sums the spell's base
+ * hit, per-spell procs that target this spell, and global per-cast procs
+ * that fire on every cast. Used by the rotation palette / spell tooltips
+ * so the user can cross-reference against in-game numbers.
+ */
+export function damagePerCast(
+  ability: MagicAbility,
+  build: Build,
+  engine: EngineResult,
+  ctx: EvalContext,
+): PerCastDamage {
+  const buildCL = engine.casterLevel.total;
+  const casterLevel =
+    ability.maxCasterLevel > 0
+      ? Math.min(buildCL, ability.maxCasterLevel)
+      : buildCL;
+
+  const base  = abilityToBaseComponents(ability, casterLevel);
+  const procs = expandActiveProcs(build, engine, ctx, [
+    { name: ability.name, casterLevel },
+  ]);
+
+  const byComponent: ComponentDamage[] = [...base, ...procs].map(c => {
+    const scaleInputs      = resolveScaleInputs(c, engine, ctx);
+    const damagePerTrigger = componentDamagePerTrigger(c, scaleInputs);
+    return {
+      component:        c,
+      scaleInputs,
+      damagePerTrigger,
+      triggersPerMinute: 0,        // per-cast view is rotation-agnostic
+      debuffMultiplier:  1,
+      damagePerMinute:   damagePerTrigger,
+    };
+  });
+  const total = byComponent.reduce((s, b) => s + b.damagePerTrigger, 0);
+  return { total, casterLevel, byComponent };
 }
 
 /** Roll up every component's per-minute damage and return a DPS total. */

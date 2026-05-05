@@ -140,6 +140,13 @@
 }
 .tileCost { color: var(--color-text-muted); }
 .tileCd { color: #88a8c8; }
+.tileDamage {
+  margin-top: 0.15rem;
+  font-size: 0.65rem;
+  font-variant-numeric: tabular-nums;
+  color: #c9a227;       /* gold to flag this as the cross-check line */
+  font-weight: 600;
+}
 .tileCharges {
   background: rgba(255, 184, 77, 0.15);
   color: #ffb84d;

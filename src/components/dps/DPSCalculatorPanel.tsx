@@ -18,6 +18,7 @@ import { useGameDataStore } from '@/store/gameDataStore';
 import { useBreakdowns } from '@/hooks/useBreakdowns';
 import { getMagicAbilities, type MagicAbility } from '@/engine/dps/abilities';
 import { newRotationStep, type RotationStep } from '@/engine/dps/rotation';
+import { damagePerCast, type PerCastDamage } from '@/engine/dps/calculator';
 import { RotationPalette } from './RotationPalette';
 import { RotationTimeline } from './RotationTimeline';
 import { ManageActiveDialog } from './ManageActiveDialog';
@@ -226,6 +227,20 @@ function MagicRotationEditor({
     return m;
   }, [abilities]);
 
+  // Per-spell damage estimate, refreshed on any build / engine change.
+  // Used by the palette tooltip + visible per-tile badge for cross-checking
+  // against in-game numbers. Sneak dice + metamagic SP are placeholders
+  // until the panel exposes proper inputs (Phase 6.4 follow-up).
+  const damageByAbility = useMemo(() => {
+    const m = new Map<string, PerCastDamage>();
+    if (!breakdowns) return m;
+    const ctx = { sneakAttackDice: 0, metamagicSP: 300 };
+    for (const a of abilities) {
+      m.set(a.id, damagePerCast(a, build, breakdowns, ctx));
+    }
+    return m;
+  }, [abilities, build, breakdowns]);
+
   // First-time / unset Active = "everything is active in catalog order" so
   // the panel works out of the box without forcing the user through the
   // Manage dialog. Once the user Applies in the dialog, `activeAbilityIds`
@@ -285,6 +300,7 @@ function MagicRotationEditor({
         onAdd={onAdd}
         onManage={() => setManageOpen(true)}
         onReorder={onReorderActive}
+        damageByAbility={damageByAbility}
       />
       <RotationTimeline
         steps={steps}

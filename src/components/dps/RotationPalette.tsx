@@ -11,6 +11,7 @@
 
 import { useRef, useState } from 'react';
 import type { MagicAbility } from '@/engine/dps/abilities';
+import type { PerCastDamage } from '@/engine/dps/calculator';
 import styles from './RotationPalette.module.css';
 
 interface Props {
@@ -22,9 +23,19 @@ interface Props {
   onManage: () => void;
   /** Reorder priority. From/to are indices within `abilities`. */
   onReorder: (fromIdx: number, toIdx: number) => void;
+  /** Pre-computed per-cast damage by ability id; tooltip surfaces total
+   *  + per-component breakdown for cross-checking against in-game. */
+  damageByAbility?: Map<string, PerCastDamage>;
 }
 
-export function RotationPalette({ abilities, totalTrained, onAdd, onManage, onReorder }: Props) {
+const fmt = (n: number) =>
+  n >= 10
+    ? Math.round(n).toLocaleString()
+    : n.toFixed(1);
+
+export function RotationPalette({
+  abilities, totalTrained, onAdd, onManage, onReorder, damageByAbility,
+}: Props) {
   const dragFrom = useRef<number | null>(null);
   const [dragOver, setDragOver] = useState<number | null>(null);
 
@@ -94,14 +105,26 @@ export function RotationPalette({ abilities, totalTrained, onAdd, onManage, onRe
                 styles.tile,
                 dragOver === i ? styles.tileDragOver : '',
               ].filter(Boolean).join(' ')}
-              title={[
-                a.displayName,
-                a.source === 'spell'
-                  ? `L${a.spellLevel} ${a.school}`
-                  : `SLA · ${a.school}${a.slaSource ? `\n${a.slaSource}` : ''}`,
-                `${a.cost} SP${a.cooldown ? ` · ${a.cooldown}s CD` : ''}`,
-                'Click to add to rotation · drag to reorder priority',
-              ].join('\n')}
+              title={(() => {
+                const parts: string[] = [
+                  a.displayName,
+                  a.source === 'spell'
+                    ? `L${a.spellLevel} ${a.school}`
+                    : `SLA · ${a.school}${a.slaSource ? `\n${a.slaSource}` : ''}`,
+                  `${a.cost} SP${a.cooldown ? ` · ${a.cooldown}s CD` : ''}`,
+                ];
+                const dmg = damageByAbility?.get(a.id);
+                if (dmg && dmg.total > 0) {
+                  parts.push('', `Damage / cast (CL ${dmg.casterLevel}): ~${fmt(dmg.total)}`);
+                  for (const c of dmg.byComponent) {
+                    if (c.damagePerTrigger > 0) {
+                      parts.push(`  • ${c.component.label}: ${fmt(c.damagePerTrigger)}`);
+                    }
+                  }
+                }
+                parts.push('', 'Click to add to rotation · drag to reorder priority');
+                return parts.join('\n');
+              })()}
             >
               <span className={styles.priorityBadge}>#{i + 1}</span>
               {a.icon && (
@@ -125,6 +148,15 @@ export function RotationPalette({ abilities, totalTrained, onAdd, onManage, onRe
                   </span>
                 )}
               </span>
+              {(() => {
+                const dmg = damageByAbility?.get(a.id);
+                if (!dmg || dmg.total <= 0) return null;
+                return (
+                  <span className={styles.tileDamage}>
+                    ~{fmt(dmg.total)} / cast
+                  </span>
+                );
+              })()}
             </div>
           ))}
         </div>
