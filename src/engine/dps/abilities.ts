@@ -92,7 +92,13 @@ export function deriveSlaTag(source: string, category: SLACategory): string {
   return 'SLA';
 }
 
+/** Source label pattern shared by every Epic Strike SLA. */
+const EPIC_STRIKE_SOURCE_RE = /Epic Strike\s*→/;
+
 function buildDisplayName(name: string, source: string, category: SLACategory): string {
+  // Epic Strike SLAs use uniquely-named spells (Nightmare Lance, Boulder Smash, …)
+  // — no need to disambiguate with a destiny tag.
+  if (EPIC_STRIKE_SOURCE_RE.test(source)) return name;
   return `[${deriveSlaTag(source, category)}] ${name}`;
 }
 
@@ -185,7 +191,7 @@ export function getMagicAbilities(
       // ("Epic Strike → Nightmare Lance" etc.) which the destiny trees
       // use uniformly. Other shared-CD groups can be added by detecting
       // their source pattern here.
-      cooldownGroup: /Epic Strike\s*→/.test(sla.source) ? 'epic-strike' : undefined,
+      cooldownGroup: EPIC_STRIKE_SOURCE_RE.test(sla.source) ? 'epic-strike' : undefined,
     });
   }
 
