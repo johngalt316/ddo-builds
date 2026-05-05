@@ -27,7 +27,7 @@ import {
 import { RotationPalette } from './RotationPalette';
 import { RotationTimeline } from './RotationTimeline';
 import { ManageActiveDialog } from './ManageActiveDialog';
-import { DebuffsPanel } from './DebuffsPanel';
+import { DebuffsSummary, ManageDebuffsDialog } from './DebuffsPanel';
 import styles from './DPSCalculatorPanel.module.css';
 
 export type RotationType = 'melee' | 'ranged' | 'magic';
@@ -238,6 +238,7 @@ function MagicRotationEditor({
   // reloads. The user picks Self / Party scope per debuff (informational
   // only — math is identical regardless of scope).
   const [debuffState, setDebuffState] = useState<DebuffState>(() => initialDebuffState());
+  const [debuffsOpen, setDebuffsOpen] = useState(false);
   const debuffs = useMemo(() => aggregateDebuffs(debuffState), [debuffState]);
 
   // Per-spell damage estimate, refreshed on any build / engine / debuff
@@ -310,7 +311,13 @@ function MagicRotationEditor({
 
   return (
     <div className={styles.editor}>
-      <DebuffsPanel state={debuffState} onChange={setDebuffState} />
+      <DebuffsSummary state={debuffState} onManage={() => setDebuffsOpen(true)} />
+      <ManageDebuffsDialog
+        open={debuffsOpen}
+        state={debuffState}
+        onChange={setDebuffState}
+        onClose={() => setDebuffsOpen(false)}
+      />
       <RotationPalette
         abilities={activeAbilities}
         totalTrained={abilities.length}

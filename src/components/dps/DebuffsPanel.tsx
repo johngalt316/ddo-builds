@@ -1,10 +1,17 @@
-// Phase 6.4.7b — Debuffs panel.
+// Phase 6.4.7b — Debuffs UI.
 //
-// Toggle-and-scope UI over `DEBUFF_CATALOG`. Each row enables a debuff,
-// chooses Self/Party scope (informational), and displays the effect
-// magnitude. Active debuffs aggregate into `Debuffs` upstream and flow
-// into `damagePerCast` so the rotation palette tile damage updates
-// live as toggles change.
+// Two pieces:
+//
+//   • <DebuffsSummary>      — compact inline row showing the currently
+//                             active debuffs as chips plus a Manage button.
+//                             Lives in the DPS panel above the rotation.
+//   • <ManageDebuffsDialog> — popup that toggles each catalog debuff +
+//                             selects Self/Party scope. Updates the parent
+//                             state live (toggling immediately reflects in
+//                             rotation tile damage).
+//
+// The summary collapses the previously-inline panel; full toggles live
+// in the dialog, mirroring how active spells are managed.
 
 import { useMemo } from 'react';
 import {
@@ -39,12 +46,65 @@ function formatEffect(entry: DebuffEntry): string {
   return parts.join(' · ');
 }
 
-interface Props {
+// ── Summary (collapsed default view) ────────────────────────────────────
+
+interface SummaryProps {
   state: DebuffState;
-  onChange: (state: DebuffState) => void;
+  onManage: () => void;
 }
 
-export function DebuffsPanel({ state, onChange }: Props) {
+export function DebuffsSummary({ state, onManage }: SummaryProps) {
+  const active = useMemo(
+    () => DEBUFF_CATALOG.filter(e => state[e.id]?.enabled),
+    [state],
+  );
+
+  return (
+    <section className={styles.summary}>
+      <div className={styles.summaryHeader}>
+        <span className={styles.summaryTitle}>Debuffs</span>
+        <span className={styles.summaryCount}>
+          {active.length} active
+        </span>
+        <button
+          type="button"
+          className={styles.manageBtn}
+          onClick={onManage}
+          title="Pick which target debuffs are active in the simulation"
+        >
+          + Manage
+        </button>
+      </div>
+      {active.length === 0 ? (
+        <div className={styles.summaryEmpty}>
+          No active debuffs — target damage uses baseline values.
+        </div>
+      ) : (
+        <div className={styles.chips}>
+          {active.map(e => (
+            <span key={e.id} className={styles.chip} title={`${e.description}\n${formatEffect(e)}`}>
+              {e.label}
+              <span className={styles.chipScope}>
+                {state[e.id]?.scope === 'party' ? 'party' : 'self'}
+              </span>
+            </span>
+          ))}
+        </div>
+      )}
+    </section>
+  );
+}
+
+// ── Dialog (full toggle UI) ─────────────────────────────────────────────
+
+interface DialogProps {
+  open: boolean;
+  state: DebuffState;
+  onChange: (state: DebuffState) => void;
+  onClose: () => void;
+}
+
+export function ManageDebuffsDialog({ open, state, onChange, onClose }: DialogProps) {
   const grouped = useMemo(() => {
     const m = new Map<DebuffSource, DebuffEntry[]>();
     for (const entry of DEBUFF_CATALOG) {
@@ -68,53 +128,74 @@ export function DebuffsPanel({ state, onChange }: Props) {
     onChange({ ...state, [id]: { ...cur, scope } });
   }
 
-  return (
-    <section className={styles.panel}>
-      <header className={styles.header}>
-        <span className={styles.title}>Active Debuffs</span>
-        <span className={styles.count}>
-          {activeCount} active of {DEBUFF_CATALOG.length}
-        </span>
-      </header>
+  if (!open) return null;
 
-      {grouped.map(([source, entries]) => (
-        <div key={source} className={styles.group}>
-          <h4 className={styles.groupHeading}>{SOURCE_LABEL[source]}</h4>
-          <div className={styles.rows}>
-            {entries.map(entry => {
-              const s = state[entry.id];
-              if (!s) return null;
-              return (
-                <div
-                  key={entry.id}
-                  className={s.enabled ? styles.rowActive : styles.row}
-                  title={entry.description}
-                >
-                  <label className={styles.toggle}>
-                    <input
-                      type="checkbox"
-                      checked={s.enabled}
-                      onChange={() => toggle(entry.id)}
-                    />
-                    <span className={styles.label}>{entry.label}</span>
-                  </label>
-                  <span className={styles.effect}>{formatEffect(entry)}</span>
-                  <select
-                    className={styles.scope}
-                    value={s.scope}
-                    disabled={!s.enabled}
-                    onChange={e => setScope(entry.id, e.target.value as DebuffScope)}
-                    aria-label={`${entry.label} scope`}
-                  >
-                    <option value="self">Self</option>
-                    <option value="party">Party</option>
-                  </select>
-                </div>
-              );
-            })}
-          </div>
+  return (
+    <div className={styles.scrim} onClick={onClose}>
+      <div
+        className={styles.dialog}
+        role="dialog"
+        aria-label="Manage active debuffs"
+        onClick={e => e.stopPropagation()}
+      >
+        <header className={styles.dialogHeader}>
+          <h3 className={styles.dialogTitle}>Manage Active Debuffs</h3>
+          <span className={styles.dialogCount}>
+            {activeCount} of {DEBUFF_CATALOG.length} active
+          </span>
+          <button
+            type="button"
+            className={styles.dialogCloseBtn}
+            onClick={onClose}
+            aria-label="Close"
+          >×</button>
+        </header>
+
+        <div className={styles.dialogBody}>
+          {grouped.map(([source, entries]) => (
+            <div key={source} className={styles.group}>
+              <h4 className={styles.groupHeading}>{SOURCE_LABEL[source]}</h4>
+              <div className={styles.rows}>
+                {entries.map(entry => {
+                  const s = state[entry.id];
+                  if (!s) return null;
+                  return (
+                    <div
+                      key={entry.id}
+                      className={s.enabled ? styles.rowActive : styles.row}
+                      title={entry.description}
+                    >
+                      <label className={styles.toggle}>
+                        <input
+                          type="checkbox"
+                          checked={s.enabled}
+                          onChange={() => toggle(entry.id)}
+                        />
+                        <span className={styles.label}>{entry.label}</span>
+                      </label>
+                      <span className={styles.effect}>{formatEffect(entry)}</span>
+                      <select
+                        className={styles.scope}
+                        value={s.scope}
+                        disabled={!s.enabled}
+                        onChange={e => setScope(entry.id, e.target.value as DebuffScope)}
+                        aria-label={`${entry.label} scope`}
+                      >
+                        <option value="self">Self</option>
+                        <option value="party">Party</option>
+                      </select>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          ))}
         </div>
-      ))}
-    </section>
+
+        <footer className={styles.dialogFooter}>
+          <button type="button" className={styles.doneBtn} onClick={onClose}>Done</button>
+        </footer>
+      </div>
+    </div>
   );
 }
