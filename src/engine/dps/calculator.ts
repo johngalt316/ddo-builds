@@ -200,18 +200,29 @@ export interface PerCastDamage {
   byComponent: ComponentDamage[];
 }
 
+/** No-debuff baseline (multiplier = 1.0 across the board). */
+export const NO_DEBUFFS: Debuffs = {
+  genericVulnPct: 0,
+  sonicVulnPct:   0,
+  effectiveMRR:   0,
+};
+
 /**
  * Single-cast damage breakdown for one ability — what fires when this
  * spell is cast once, with no rotation context. Sums the spell's base
  * hit, per-spell procs that target this spell, and global per-cast procs
  * that fire on every cast. Used by the rotation palette / spell tooltips
  * so the user can cross-reference against in-game numbers.
+ *
+ * `debuffs` defaults to the no-debuff baseline; pass aggregated values
+ * to see how active debuffs lift the per-cast number.
  */
 export function damagePerCast(
   ability: MagicAbility,
   build: Build,
   engine: EngineResult,
   ctx: EvalContext,
+  debuffs: Debuffs = NO_DEBUFFS,
 ): PerCastDamage {
   const buildCL = engine.casterLevel.total;
   const casterLevel =
@@ -227,16 +238,17 @@ export function damagePerCast(
   const byComponent: ComponentDamage[] = [...base, ...procs].map(c => {
     const scaleInputs      = resolveScaleInputs(c, engine, ctx);
     const damagePerTrigger = componentDamagePerTrigger(c, scaleInputs);
+    const debuffMultiplier = componentDebuffMultiplier(c, debuffs);
     return {
       component:        c,
       scaleInputs,
       damagePerTrigger,
       triggersPerMinute: 0,        // per-cast view is rotation-agnostic
-      debuffMultiplier:  1,
-      damagePerMinute:   damagePerTrigger,
+      debuffMultiplier,
+      damagePerMinute:   damagePerTrigger * debuffMultiplier,
     };
   });
-  const total = byComponent.reduce((s, b) => s + b.damagePerTrigger, 0);
+  const total = byComponent.reduce((s, b) => s + b.damagePerMinute, 0);
   return { total, casterLevel, byComponent };
 }
 

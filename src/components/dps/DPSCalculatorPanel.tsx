@@ -19,9 +19,15 @@ import { useBreakdowns } from '@/hooks/useBreakdowns';
 import { getMagicAbilities, type MagicAbility } from '@/engine/dps/abilities';
 import { newRotationStep, type RotationStep } from '@/engine/dps/rotation';
 import { damagePerCast, type PerCastDamage } from '@/engine/dps/calculator';
+import {
+  aggregateDebuffs,
+  initialDebuffState,
+  type DebuffState,
+} from '@/engine/dps/debuffs';
 import { RotationPalette } from './RotationPalette';
 import { RotationTimeline } from './RotationTimeline';
 import { ManageActiveDialog } from './ManageActiveDialog';
+import { DebuffsPanel } from './DebuffsPanel';
 import styles from './DPSCalculatorPanel.module.css';
 
 export type RotationType = 'melee' | 'ranged' | 'magic';
@@ -227,19 +233,26 @@ function MagicRotationEditor({
     return m;
   }, [abilities]);
 
-  // Per-spell damage estimate, refreshed on any build / engine change.
-  // Used by the palette tooltip + visible per-tile badge for cross-checking
-  // against in-game numbers. Sneak dice + metamagic SP are placeholders
-  // until the panel exposes proper inputs (Phase 6.4 follow-up).
+  // Active debuffs the user has toggled on. Lives in panel-local state
+  // for now; promote to persisted build state if it ever needs to survive
+  // reloads. The user picks Self / Party scope per debuff (informational
+  // only — math is identical regardless of scope).
+  const [debuffState, setDebuffState] = useState<DebuffState>(() => initialDebuffState());
+  const debuffs = useMemo(() => aggregateDebuffs(debuffState), [debuffState]);
+
+  // Per-spell damage estimate, refreshed on any build / engine / debuff
+  // change. Used by the palette tooltip + visible per-tile badge for
+  // cross-checking against in-game numbers. Sneak dice + metamagic SP
+  // are placeholders until the panel exposes proper inputs.
   const damageByAbility = useMemo(() => {
     const m = new Map<string, PerCastDamage>();
     if (!breakdowns) return m;
     const ctx = { sneakAttackDice: 0, metamagicSP: 300 };
     for (const a of abilities) {
-      m.set(a.id, damagePerCast(a, build, breakdowns, ctx));
+      m.set(a.id, damagePerCast(a, build, breakdowns, ctx, debuffs));
     }
     return m;
-  }, [abilities, build, breakdowns]);
+  }, [abilities, build, breakdowns, debuffs]);
 
   // First-time / unset Active = "everything is active in catalog order" so
   // the panel works out of the box without forcing the user through the
@@ -294,6 +307,7 @@ function MagicRotationEditor({
 
   return (
     <div className={styles.editor}>
+      <DebuffsPanel state={debuffState} onChange={setDebuffState} />
       <RotationPalette
         abilities={activeAbilities}
         totalTrained={abilities.length}
