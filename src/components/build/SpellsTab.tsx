@@ -213,9 +213,8 @@ function ClassSpellPanel({
   spellCatalog: DDOSpellData[];
 }) {
   const { build } = useBuild();
-  const trainSpell      = useBuildStore(s => s.trainSpell);
-  const untrainSpell    = useBuildStore(s => s.untrainSpell);
-  const toggleMetamagic = useBuildStore(s => s.toggleMetamagic);
+  const trainSpell   = useBuildStore(s => s.trainSpell);
+  const untrainSpell = useBuildStore(s => s.untrainSpell);
   const [picker, setPicker] = useState<{ spellLevel: number; slotIdx: number } | null>(null);
 
   const trained = build.trainedSpells?.[cls.name] ?? {};
@@ -241,24 +240,6 @@ function ClassSpellPanel({
 
   return (
     <div>
-      <div className={styles.metamagicRow} role="group" aria-label="Active metamagics">
-        <span className={styles.metamagicLabel}>Metamagics:</span>
-        {METAMAGICS.map(m => {
-          const on = activeMetamagics.includes(m.name);
-          return (
-            <button
-              key={m.name}
-              type="button"
-              className={on ? styles.metamagicOn : styles.metamagicOff}
-              onClick={() => toggleMetamagic(m.name)}
-              title={`Toggle ${m.name}`}
-            >
-              {m.name}
-            </button>
-          );
-        })}
-      </div>
-
       <div className={styles.slotGrid}>
         {slots.map((count, idx) => {
           const spellLevel = idx + 1;
@@ -375,6 +356,39 @@ function SpellSlotTile({
 }
 
 
+// ── Metamagics row ──────────────────────────────────────────────────
+//
+// Global toggles, not per-class. Lives at the top of the Stances &
+// Mantles sub-tab where other build-level runtime toggles already
+// gather. The engine treats these like stances: opt-in, affect damage
+// + SP costs while active.
+
+function MetamagicsSection() {
+  const activeMetamagics = useBuildStore(s => s.build.activeMetamagics ?? []);
+  const toggleMetamagic  = useBuildStore(s => s.toggleMetamagic);
+  return (
+    <section className={styles.stanceGroup}>
+      <h4 className={styles.stanceGroupHeading}>Metamagics</h4>
+      <div className={styles.metamagicRow} role="group" aria-label="Active metamagics">
+        {METAMAGICS.map(m => {
+          const on = activeMetamagics.includes(m.name);
+          return (
+            <button
+              key={m.name}
+              type="button"
+              className={on ? styles.metamagicOn : styles.metamagicOff}
+              onClick={() => toggleMetamagic(m.name)}
+              title={`Toggle ${m.name}`}
+            >
+              {m.name}
+            </button>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
 // ── Stances & Mantles panel ─────────────────────────────────────────
 
 function StancesPanel() {
@@ -431,19 +445,18 @@ function StancesPanel() {
   }
 
   if (!r) return <div className={styles.empty}>Loading…</div>;
-  if (stances.length === 0) {
-    return (
-      <div className={styles.empty}>
-        No stances or mantles available. Take a stance feat (Mountain Stance,
-        Power Attack, etc.) or an enhancement / destiny that grants one.
-      </div>
-    );
-  }
 
   const activeSet = new Set(active);
   return (
     <div className={styles.stancesContainer}>
-      {grouped.map(([group, list]) => (
+      <MetamagicsSection />
+      {stances.length === 0 ? (
+        <div className={styles.empty}>
+          No stances or mantles available. Take a stance feat (Mountain
+          Stance, Power Attack, etc.) or an enhancement / destiny that
+          grants one.
+        </div>
+      ) : grouped.map(([group, list]) => (
         <section key={group} className={styles.stanceGroup}>
           <h4 className={styles.stanceGroupHeading}>{group}</h4>
           <div className={styles.stanceCards}>
