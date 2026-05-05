@@ -798,6 +798,20 @@ Magical Resistance Rating, and -5 Spell Resistance.</Description>
           <Icon>NightmareLance</Icon>
           <CostPerRank size="1">2</CostPerRank>
           <Clickie />
+          <!-- ddo-builds patch (see docs/DATA_PATCHES.md): upstream marks
+               this enhancement as <Clickie/> but never wires an
+               <Effect><Type>SpellLikeAbility</Type></Effect>, so the SLA
+               never reaches the rotation palette. Added here so it flows
+               through getMagicAbilities. Amount layout for SLAs:
+                 [0]=charges/rest  [1]=cost  [2]=maxCL  [3]=cooldown -->
+          <Effect>
+            <Type>SpellLikeAbility</Type>
+            <Bonus>Enhancement</Bonus>
+            <Item>Nightmare Lance</Item>
+            <Item>None</Item>
+            <AType>SpellInfo</AType>
+            <Amount size="4">0 0 0 8</Amount>
+          </Effect>
         </EnhancementSelection>
         <EnhancementSelection>
           <Name>Shadowstrike (Melee)</Name>

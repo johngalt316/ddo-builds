@@ -15663,4 +15663,37 @@ Cooldown: 6 seconds</Description>
       <SpellPower>Negative</SpellPower>
     </SpellDamage>
   </Spell>
+  <!-- ddo-builds patch (see docs/DATA_PATCHES.md): the Shadowdancer
+       Epic Strike "Nightmare Lance" has no upstream Spells.xml entry,
+       so the engine had no damage shape to attach to its SLA. Added
+       here with the damage data quoted in the enhancement description
+       ("1d6+6 Force damage per character level"). -->
+  <Spell>
+    <Name>Nightmare Lance</Name>
+    <Description>Epic Strike: Conjure a lance of pure nightmares to impale your foes, dealing
+1d6+6 Force damage per character level to all enemies in a line. Cooldown: 8 seconds.
+
+Every Epic Strike shares a cooldown with every other Epic Strike. Using this
+ability will put every Epic Strike onto this ability's cooldown.</Description>
+    <Icon>NightmareLance</Icon>
+    <School>Conjuration</School>
+    <Empower/>
+    <Maximize/>
+    <Intensify/>
+    <Quicken/>
+    <MaxCasterLevel>30</MaxCasterLevel>
+    <SpellDamage>
+      <SpellDice>
+        <PerCasterLevels>1</PerCasterLevels>
+        <BonusDice>
+          <Number>1</Number>
+          <Sides>6</Sides>
+          <Bonus>6</Bonus>
+        </BonusDice>
+      </SpellDice>
+      <Damage>Force</Damage>
+      <SpellPower>Force</SpellPower>
+    </SpellDamage>
+    <Cooldown>8</Cooldown>
+  </Spell>
 </Spells>

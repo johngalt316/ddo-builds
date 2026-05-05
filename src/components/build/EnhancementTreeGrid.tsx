@@ -195,6 +195,7 @@ export function EnhancementTreeGrid({ tree, treeKind, destinyMode = false }: Pro
                     onSpend={() => item && trySpend(item)}
                     onRevoke={() => item && revoke(tree.name, item.internalName)}
                     core={false}
+                    selection={item ? selectionFor(item.internalName) : undefined}
                   />
                 ))}
               </div>
@@ -215,6 +216,7 @@ export function EnhancementTreeGrid({ tree, treeKind, destinyMode = false }: Pro
               onSpend={() => item && trySpend(item)}
               onRevoke={() => item && revoke(tree.name, item.internalName)}
               core={true}
+              selection={item ? selectionFor(item.internalName) : undefined}
             />
           ))}
         </div>
@@ -354,13 +356,18 @@ interface CellProps {
   onSpend: () => void;
   onRevoke: () => void;
   core: boolean;
+  /** Name of the user's chosen `Selector` option (when the parent
+   *  enhancement has one and the user has picked). Drives the tooltip
+   *  and icon override so they reflect the actual chosen ability
+   *  rather than the parent's "choose…" caption. */
+  selection?: string;
 }
 
 // Show-delay before the tooltip appears, in ms. Lower = snappier feel,
 // higher = fewer accidental flashes when sweeping the cursor across.
 const TOOLTIP_DELAY_MS = 150;
 
-function EnhancementCell({ item, ranks, unlocked, totalAPLeft, onSpend, onRevoke, core }: CellProps) {
+function EnhancementCell({ item, ranks, unlocked, totalAPLeft, onSpend, onRevoke, core, selection }: CellProps) {
   // Always-called hooks (must be at top level — early-returning a `null` cell
   // before the hooks would violate React's rules-of-hooks).
   const cellRef = useRef<HTMLDivElement>(null);
@@ -377,9 +384,17 @@ function EnhancementCell({ item, ranks, unlocked, totalAPLeft, onSpend, onRevoke
   const purchased = ranks > 0;
   const maxed     = ranks >= item.ranks;
   const canSpend  = !maxed && unlocked && totalAPLeft > 0;
-  const iconName  = (item.selector && item.selector.length > 0)
-    ? (item.selector[0]?.icon ?? item.icon)
-    : item.icon;
+
+  // For multi-selector enhancements: prefer the user's chosen option's
+  // name / description / icon over the parent's "choose…" caption.
+  // Fall back to the first option when nothing's been picked yet so the
+  // cell still has a visual; the tooltip stays generic in that case.
+  const chosenSelection = item.selector && item.selector.length > 0
+    ? (item.selector.find(s => s.name === selection) ?? item.selector[0])
+    : null;
+  const tipName        = chosenSelection && selection ? chosenSelection.name        : item.name;
+  const tipDescription = chosenSelection && selection ? chosenSelection.description : item.description;
+  const iconName       = chosenSelection ? (chosenSelection.icon ?? item.icon) : item.icon;
 
   // Class layering rule: `.locked` applies a heavy dim filter that visually
   // overrides `.purchased`'s blue outline. Don't apply it when the cell is
@@ -436,13 +451,13 @@ function EnhancementCell({ item, ranks, unlocked, totalAPLeft, onSpend, onRevoke
             left: tipPos.left,
           }}
         >
-          <div className={styles.tooltipName}>{item.name}</div>
+          <div className={styles.tooltipName}>{tipName}</div>
           <div className={styles.tooltipRank}>
             Rank {ranks}/{item.ranks}
             {item.ranks > 1 && item.minSpent > 0 && ` · ${item.minSpent} AP min`}
           </div>
-          {item.description && (
-            <div className={styles.tooltipDesc}>{item.description}</div>
+          {tipDescription && (
+            <div className={styles.tooltipDesc}>{tipDescription}</div>
           )}
         </div>,
         document.body,
