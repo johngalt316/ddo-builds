@@ -280,6 +280,53 @@ npm run build                    # produce dist/ for deploy
 docker compose up --build        # production preview at http://localhost:3000 (needs Docker Desktop)
 ```
 
+### Claude Code (optional — AI pair programmer)
+
+[Claude Code](https://claude.com/claude-code) is Anthropic's CLI for AI-
+assisted development. Most of this codebase was built collaboratively
+with it, and the project layout (small focused files, typed catalogs,
+data-patch ledger, dense file-header comments) is structured so Claude
+can navigate it without much hand-holding.
+
+**Install once** (free with a Claude.ai Pro / Max plan):
+
+```bash
+# macOS / Linux
+curl -fsSL https://claude.ai/install.sh | bash
+
+# Windows (PowerShell)
+irm https://claude.ai/install.ps1 | iex
+
+# Or, on any platform via npm
+npm install -g @anthropic-ai/claude-code
+```
+
+**Use it in this project**:
+
+```bash
+cd ddo-builds
+claude                           # starts the interactive REPL
+```
+
+Log in on first run (browser SSO). Inside the REPL:
+
+- `/help` — list every slash command
+- `/init` — Claude scans the repo and writes a `CLAUDE.md` summarizing
+  conventions for future sessions (skip if it already exists)
+- `/config` — settings (mobile push notifications, themes, etc.)
+- `/clear` — drop conversation context (start a fresh task)
+- `/exit` — quit
+
+Two project conventions worth knowing if Claude is going to run shell
+commands for you:
+
+- **Patches over engine surgery** — when upstream XML data is wrong,
+  prefer adding a row to `docs/DATA_PATCHES.md` and editing the data
+  rather than adding new evaluator paths in the engine.
+- **CRLF discipline** — `.gitattributes` pins data files to LF in the
+  working tree to keep snapshot tests stable across Windows / Linux.
+  Don't disable autocrlf locally without re-checking it.
+
 ### Data refresh
 
 ```bash
