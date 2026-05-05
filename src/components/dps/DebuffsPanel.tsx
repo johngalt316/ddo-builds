@@ -62,9 +62,8 @@ export function DebuffsSummary({ state, onManage }: SummaryProps) {
   return (
     <section className={styles.summary}>
       <div className={styles.summaryHeader}>
-        <span className={styles.summaryTitle}>Debuffs</span>
-        <span className={styles.summaryCount}>
-          {active.length} active
+        <span className={styles.summaryLabel}>
+          Debuffs · {active.length} active
         </span>
         <button
           type="button"

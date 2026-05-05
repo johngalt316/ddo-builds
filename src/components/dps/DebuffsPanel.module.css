@@ -1,56 +1,62 @@
-/* ── Summary (collapsed inline view) ─────────────────────────────── */
+/* ── Summary (collapsed inline view, matches RotationPalette layout) ── */
 
 .summary {
-  border: 1px solid var(--color-border);
-  border-radius: 4px;
-  background: var(--color-surface);
-  padding: 0.55rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
   margin: 0.5rem 0;
 }
 
 .summaryHeader {
   display: flex;
-  align-items: baseline;
-  gap: 0.6rem;
-}
-
-.summaryTitle {
-  font-weight: 600;
-  font-size: 0.85rem;
-}
-
-.summaryCount {
-  flex: 1;
+  align-items: center;
+  justify-content: space-between;
   font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+}
+
+.summaryLabel {
   color: var(--color-text-muted);
 }
 
 .manageBtn {
   font: inherit;
-  font-size: 0.75rem;
-  background: transparent;
-  color: var(--color-gold);
-  border: 1px solid var(--color-gold);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.6rem;
   border-radius: 3px;
-  padding: 0.15rem 0.55rem;
+  border: 1px solid var(--color-border);
+  background: rgba(0,0,0,0.3);
+  color: var(--color-gold);
   cursor: pointer;
+  transition: border-color 0.12s, background 0.12s;
 }
 .manageBtn:hover {
+  border-color: var(--color-gold);
   background: rgba(201,162,39,0.12);
 }
 
 .summaryEmpty {
-  margin-top: 0.4rem;
   font-size: 0.72rem;
   color: var(--color-text-muted);
   font-style: italic;
+  padding: 0.4rem 0.5rem;
+  background: rgba(0,0,0,0.15);
+  border-radius: 3px;
 }
 
 .chips {
-  margin-top: 0.4rem;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.35rem;
+  gap: 0.4rem;
+  padding: 0.5rem;
+  background: rgba(0,0,0,0.15);
+  border-radius: 3px;
 }
 
 .chip {
@@ -58,7 +64,7 @@
   align-items: center;
   gap: 0.3rem;
   font-size: 0.7rem;
-  padding: 0.15rem 0.45rem;
+  padding: 0.2rem 0.5rem;
   background: rgba(201,162,39,0.10);
   border: 1px solid rgba(201,162,39,0.45);
   color: var(--color-text);
