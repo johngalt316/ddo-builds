@@ -9,7 +9,7 @@ in the tree.
 
 | Path | Source | Used by | Sync command |
 |---|---|---|---|
-| `ddobuilderv2/` | [Maetrim/DDOBuilderV2](https://github.com/Maetrim/DDOBuilderV2) `Output/DataFiles/` | `public/data/` | manual today; `npm run sync-upstream` planned (Phase 2) |
+| `ddobuilderv2/` | [Maetrim/DDOBuilderV2](https://github.com/Maetrim/DDOBuilderV2) `Output/DataFiles/` | `public/data/` | `npm run sync-upstream` |
 
 ## Why this exists
 
@@ -22,14 +22,32 @@ fixes, but as a curated merge — never a blind overwrite.
 
 ## Update workflow
 
-1. Refresh the snapshot in `ddobuilderv2/` from the latest upstream clone.
-2. Update `ddobuilderv2/SYNC.md` with the new commit hash + date.
-3. `git diff external/ddobuilderv2/` shows what *they* changed.
-4. Compare each interesting upstream change against `public/data/`,
-   apply the ones we want, ignore the rest.
-5. Snapshot tests in `tests/` will fail loudly if a merge accidentally
-   regresses something we'd patched intentionally.
+```bash
+# 0. Pull the sibling DDOBuilderV2 clone first so it's at HEAD.
+git -C ../DDOBuilderV2 pull
 
-See `docs/DATA_PATCHES.md` for the historical patch ledger (entries
-marked "baked in" are now part of `public/data/` directly and don't
-need re-applying on each sync).
+# 1. Dry-run shows what they changed since the pinned commit.
+npm run sync-upstream
+
+# 2. Refresh external/ddobuilderv2/ + bump SYNC.md.
+npm run sync-upstream -- --apply
+
+# 3. Review with git — what THEY changed lives in external/.
+git diff external/ddobuilderv2/
+
+# 4. Manually merge curated changes into public/data/ (the
+#    authoritative copy). For each interesting upstream change:
+#      git diff external/ddobuilderv2/Spells.xml public/data/Spells.xml
+#    edit the relevant block in public/data/, commit.
+
+# 5. Snapshot tests catch silent regressions:
+#    npm test
+```
+
+By default the source path is `../DDOBuilderV2/Output/DataFiles`. Pass
+`--source=<path>` to override (`npm run sync-upstream -- --source=…`).
+
+See `docs/DATA_PATCHES.md` for the historical patch ledger — every
+entry there is already baked into `public/data/`. Use the ledger as a
+"things to look out for during merges" reference, not a re-apply
+checklist.

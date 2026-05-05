@@ -14,6 +14,7 @@
     "test:coverage": "vitest run --coverage",
     "import-items": "node scripts/buildItemIndex.mjs",
     "gen-effect-types": "node scripts/genEffectTypes.mjs",
+    "sync-upstream": "node scripts/syncUpstream.mjs",
     "verify": "node scripts/dev.mjs verify",
     "verify:full": "node scripts/dev.mjs verify:full",
     "snapshots:reset": "node scripts/dev.mjs snapshots:reset",
