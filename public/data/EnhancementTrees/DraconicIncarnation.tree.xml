@@ -730,6 +730,16 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
               <Item>Draconic Bloodline: Black</Item>
             </Requirement>
           </Requirements>
+        
+          <!-- ddo-builds patch: see docs/DATA_PATCHES.md "Clickie SLA wiring". -->
+          <Effect>
+            <Type>SpellLikeAbility</Type>
+            <Bonus>Enhancement</Bonus>
+            <Item>Black Dragon Breath</Item>
+            <Item>None</Item>
+            <AType>SpellInfo</AType>
+            <Amount size="4">0 25 0 12</Amount>
+          </Effect>
         </EnhancementSelection>
         <EnhancementSelection>
           <Name>Blue Dragon Breath</Name>
@@ -753,6 +763,16 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
               <Item>Draconic Bloodline: Blue</Item>
             </Requirement>
           </Requirements>
+        
+          <!-- ddo-builds patch: see docs/DATA_PATCHES.md "Clickie SLA wiring". -->
+          <Effect>
+            <Type>SpellLikeAbility</Type>
+            <Bonus>Enhancement</Bonus>
+            <Item>Blue Dragon Breath</Item>
+            <Item>None</Item>
+            <AType>SpellInfo</AType>
+            <Amount size="4">0 25 0 12</Amount>
+          </Effect>
         </EnhancementSelection>
         <EnhancementSelection>
           <Name>Green Dragon Breath</Name>
@@ -775,6 +795,16 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
               <Item>Draconic Bloodline: Green</Item>
             </Requirement>
           </Requirements>
+        
+          <!-- ddo-builds patch: see docs/DATA_PATCHES.md "Clickie SLA wiring". -->
+          <Effect>
+            <Type>SpellLikeAbility</Type>
+            <Bonus>Enhancement</Bonus>
+            <Item>Green Dragon Breath</Item>
+            <Item>None</Item>
+            <AType>SpellInfo</AType>
+            <Amount size="4">0 25 0 12</Amount>
+          </Effect>
         </EnhancementSelection>
         <EnhancementSelection>
           <Name>Red Dragon Breath</Name>
@@ -797,6 +827,16 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
               <Item>Draconic Bloodline: Red</Item>
             </Requirement>
           </Requirements>
+        
+          <!-- ddo-builds patch: see docs/DATA_PATCHES.md "Clickie SLA wiring". -->
+          <Effect>
+            <Type>SpellLikeAbility</Type>
+            <Bonus>Enhancement</Bonus>
+            <Item>Red Dragon Breath</Item>
+            <Item>None</Item>
+            <AType>SpellInfo</AType>
+            <Amount size="4">0 25 0 12</Amount>
+          </Effect>
         </EnhancementSelection>
         <EnhancementSelection>
           <Name>Shadow Dragon Breath</Name>
@@ -820,6 +860,16 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
               <Item>Draconic Bloodline: Shadow</Item>
             </Requirement>
           </Requirements>
+        
+          <!-- ddo-builds patch: see docs/DATA_PATCHES.md "Clickie SLA wiring". -->
+          <Effect>
+            <Type>SpellLikeAbility</Type>
+            <Bonus>Enhancement</Bonus>
+            <Item>Shadow Dragon Breath</Item>
+            <Item>None</Item>
+            <AType>SpellInfo</AType>
+            <Amount size="4">0 25 0 12</Amount>
+          </Effect>
         </EnhancementSelection>
         <EnhancementSelection>
           <Name>White Dragon Breath</Name>
@@ -842,6 +892,16 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
               <Item>Draconic Bloodline: White</Item>
             </Requirement>
           </Requirements>
+        
+          <!-- ddo-builds patch: see docs/DATA_PATCHES.md "Clickie SLA wiring". -->
+          <Effect>
+            <Type>SpellLikeAbility</Type>
+            <Bonus>Enhancement</Bonus>
+            <Item>White Dragon Breath</Item>
+            <Item>None</Item>
+            <AType>SpellInfo</AType>
+            <Amount size="4">0 25 0 12</Amount>
+          </Effect>
         </EnhancementSelection>
       </Selector>
     </EnhancementTreeItem>

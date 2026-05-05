@@ -13,7 +13,7 @@
       "Slider": 3
     },
     "requirementsFailedCount": 95,
-    "totalSourcedEffects": 1078,
+    "totalSourcedEffects": 1079,
     "totalAppliedBonuses": 1412
   },
   "abilityScores": {
@@ -7355,6 +7355,16 @@
       "cooldown": 0,
       "charges": 10,
       "source": "Past Life: Arcane Initiate"
+    },
+    {
+      "name": "Mending Burst",
+      "castingClass": "Character",
+      "category": "enhancement",
+      "cost": 20,
+      "maxCasterLevel": 0,
+      "cooldown": 6,
+      "charges": 0,
+      "source": "[D] Machrotechnic: Machrotechnic: Epic Strike → Mending Burst"
     },
     {
       "name": "Nightmare Lance",

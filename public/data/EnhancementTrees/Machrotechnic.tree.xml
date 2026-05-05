@@ -480,6 +480,16 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
           <Icon>MachroEpicStrike</Icon>
           <CostPerRank size="1">2</CostPerRank>
           <Clickie />
+        
+          <!-- ddo-builds patch: see docs/DATA_PATCHES.md "Clickie SLA wiring". -->
+          <Effect>
+            <Type>SpellLikeAbility</Type>
+            <Bonus>Enhancement</Bonus>
+            <Item>Galvanic Blast</Item>
+            <Item>None</Item>
+            <AType>SpellInfo</AType>
+            <Amount size="4">0 20 0 10</Amount>
+          </Effect>
         </EnhancementSelection>
         <EnhancementSelection>
           <Name>Mending Burst</Name>
@@ -495,6 +505,16 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
           <Icon>MachroMendingBurst</Icon>
           <CostPerRank size="1">2</CostPerRank>
           <Clickie />
+        
+          <!-- ddo-builds patch: see docs/DATA_PATCHES.md "Clickie SLA wiring". -->
+          <Effect>
+            <Type>SpellLikeAbility</Type>
+            <Bonus>Enhancement</Bonus>
+            <Item>Mending Burst</Item>
+            <Item>None</Item>
+            <AType>SpellInfo</AType>
+            <Amount size="4">0 20 0 6</Amount>
+          </Effect>
         </EnhancementSelection>
         <EnhancementSelection>
           <Name>Sonic Boom</Name>
@@ -511,6 +531,16 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
           <Icon>MachroSonicBoom</Icon>
           <CostPerRank size="1">2</CostPerRank>
           <Clickie />
+        
+          <!-- ddo-builds patch: see docs/DATA_PATCHES.md "Clickie SLA wiring". -->
+          <Effect>
+            <Type>SpellLikeAbility</Type>
+            <Bonus>Enhancement</Bonus>
+            <Item>Sonic Boom</Item>
+            <Item>None</Item>
+            <AType>SpellInfo</AType>
+            <Amount size="4">0 20 0 10</Amount>
+          </Effect>
         </EnhancementSelection>
       </Selector>
     </EnhancementTreeItem>

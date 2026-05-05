@@ -13,7 +13,7 @@
       "SliderValue": 3
     },
     "requirementsFailedCount": 107,
-    "totalSourcedEffects": 1104,
+    "totalSourcedEffects": 1107,
     "totalAppliedBonuses": 1337
   },
   "abilityScores": {
@@ -5593,6 +5593,16 @@
       "source": "[D] Shadowdancer: Shadowdancer: Step Through Shadows"
     },
     {
+      "name": "Dire Charge",
+      "castingClass": "Character",
+      "category": "enhancement",
+      "cost": 0,
+      "maxCasterLevel": 0,
+      "cooldown": 12,
+      "charges": 0,
+      "source": "[D] Legendary Dreadnought: Legendary Dreadnought: Dire Attack → Dire Charge"
+    },
+    {
       "name": "Evasive Trance",
       "castingClass": "Character",
       "category": "feat",
@@ -5603,6 +5613,16 @@
       "source": "Past Life: Disciple of the Fist"
     },
     {
+      "name": "Quick Cutter",
+      "castingClass": "Character",
+      "category": "enhancement",
+      "cost": 0,
+      "maxCasterLevel": 0,
+      "cooldown": 8,
+      "charges": 0,
+      "source": "[D] Fury of the Wild: Fury of the Wild: Strength or Swiftness → Quick Cutter"
+    },
+    {
       "name": "Shadow Walk",
       "castingClass": "Character",
       "category": "feat",
@@ -5611,6 +5631,16 @@
       "cooldown": 10,
       "charges": 0,
       "source": "Monk 19: Empty Body"
+    },
+    {
+      "name": "Shadowstrike (Melee)",
+      "castingClass": "Character",
+      "category": "enhancement",
+      "cost": 0,
+      "maxCasterLevel": 0,
+      "cooldown": 8,
+      "charges": 0,
+      "source": "[D] Shadowdancer: Shadowdancer: Epic Strike → Shadowstrike (Melee)"
     }
   ]
 }

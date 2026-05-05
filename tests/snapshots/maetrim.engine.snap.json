@@ -14,7 +14,7 @@
       "Slider": 1
     },
     "requirementsFailedCount": 170,
-    "totalSourcedEffects": 1154,
+    "totalSourcedEffects": 1155,
     "totalAppliedBonuses": 1309
   },
   "abilityScores": {
@@ -6164,6 +6164,16 @@
       "cooldown": 120,
       "charges": 0,
       "source": "[D] Shadowdancer: Shadowdancer: Step Through Shadows"
+    },
+    {
+      "name": "Drifting Lotus",
+      "castingClass": "Character",
+      "category": "enhancement",
+      "cost": 0,
+      "maxCasterLevel": 0,
+      "cooldown": 15,
+      "charges": 0,
+      "source": "[D] Grandmaster of Flowers: Grandmaster of Flowers: Grandmaster Strikes → Drifting Lotus"
     },
     {
       "name": "Evasive Trance",

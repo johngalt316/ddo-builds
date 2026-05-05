@@ -747,6 +747,16 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
           <Icon>DrfitingLotus</Icon>
           <CostPerRank size="1">1</CostPerRank>
           <Clickie/>
+        
+          <!-- ddo-builds patch: see docs/DATA_PATCHES.md "Clickie SLA wiring". -->
+          <Effect>
+            <Type>SpellLikeAbility</Type>
+            <Bonus>Enhancement</Bonus>
+            <Item>Drifting Lotus</Item>
+            <Item>None</Item>
+            <AType>SpellInfo</AType>
+            <Amount size="4">0 0 0 15</Amount>
+          </Effect>
         </EnhancementSelection>
         <EnhancementSelection>
           <Name>Orchid Blossom</Name>
@@ -763,6 +773,16 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
           <Icon>GoFSpenders</Icon>
           <CostPerRank size="1">1</CostPerRank>
           <Clickie/>
+        
+          <!-- ddo-builds patch: see docs/DATA_PATCHES.md "Clickie SLA wiring". -->
+          <Effect>
+            <Type>SpellLikeAbility</Type>
+            <Bonus>Enhancement</Bonus>
+            <Item>Orchid Blossom</Item>
+            <Item>None</Item>
+            <AType>SpellInfo</AType>
+            <Amount size="4">0 0 0 15</Amount>
+          </Effect>
         </EnhancementSelection>
       </Selector>
     </EnhancementTreeItem>

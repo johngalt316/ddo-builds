@@ -832,6 +832,16 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
           <Icon>Shadowstrike</Icon>
           <CostPerRank size="1">2</CostPerRank>
           <Clickie />
+        
+          <!-- ddo-builds patch: see docs/DATA_PATCHES.md "Clickie SLA wiring". -->
+          <Effect>
+            <Type>SpellLikeAbility</Type>
+            <Bonus>Enhancement</Bonus>
+            <Item>Shadowstrike (Melee)</Item>
+            <Item>None</Item>
+            <AType>SpellInfo</AType>
+            <Amount size="4">0 0 0 8</Amount>
+          </Effect>
         </EnhancementSelection>
         <EnhancementSelection>
           <Name>Shadowstrike (Ranged)</Name>
@@ -853,6 +863,16 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
           <Icon>ShadowstrikeRanged</Icon>
           <CostPerRank size="1">2</CostPerRank>
           <Clickie />
+        
+          <!-- ddo-builds patch: see docs/DATA_PATCHES.md "Clickie SLA wiring". -->
+          <Effect>
+            <Type>SpellLikeAbility</Type>
+            <Bonus>Enhancement</Bonus>
+            <Item>Shadowstrike (Ranged)</Item>
+            <Item>None</Item>
+            <AType>SpellInfo</AType>
+            <Amount size="4">0 0 0 8</Amount>
+          </Effect>
         </EnhancementSelection>
       </Selector>
     </EnhancementTreeItem>
@@ -1240,6 +1260,16 @@ Shadowdancer Epic strike if you have them trained.</Description>
           <Value>26</Value>
         </Requirement>
       </Requirements>
+    
+      <!-- ddo-builds patch: see docs/DATA_PATCHES.md "Clickie SLA wiring". -->
+      <Effect>
+        <Type>SpellLikeAbility</Type>
+        <Bonus>Enhancement</Bonus>
+        <Item>Shadowdancer: From the Shadows</Item>
+        <Item>None</Item>
+        <AType>SpellInfo</AType>
+        <Amount size="4">0 0 0 0</Amount>
+      </Effect>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Shadowdancer: Dark Mercy</Name>
@@ -1558,6 +1588,16 @@ Cooldown: 5 minutes.</Description>
           <Value>30</Value>
         </Requirement>
       </Requirements>
+    
+      <!-- ddo-builds patch: see docs/DATA_PATCHES.md "Clickie SLA wiring". -->
+      <Effect>
+        <Type>SpellLikeAbility</Type>
+        <Bonus>Enhancement</Bonus>
+        <Item>Shadowdancer: Shadow Mastery</Item>
+        <Item>None</Item>
+        <AType>SpellInfo</AType>
+        <Amount size="4">0 0 0 0</Amount>
+      </Effect>
     </EnhancementTreeItem>
   </EnhancementTree>
 </Enhancements>

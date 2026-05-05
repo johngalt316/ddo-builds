@@ -83,7 +83,8 @@ export function findFirstAvailableSlot(
   const newCastTime = newAbility.castTime;
   const EPS = 1e-6;
 
-  const lastStart = new Map<string, number>();
+  const lastStart  = new Map<string, number>();
+  const groupReady = new Map<string, number>();
   let cursor = 0;
 
   for (let i = 0; i < steps.length; i++) {
@@ -92,17 +93,27 @@ export function findFirstAvailableSlot(
     const ability = abilityById.get(step.abilityId);
     if (!ability) continue;
 
-    const eff       = ability.cooldown * cdMul;
-    const cdReady   = (lastStart.get(ability.id) ?? -Infinity) + eff;
-    const startTime = Math.max(cursor, cdReady);
+    const eff   = ability.cooldown * cdMul;
+    const own   = (lastStart.get(ability.id) ?? -Infinity) + eff;
+    const grp   = ability.cooldownGroup
+      ? (groupReady.get(ability.cooldownGroup) ?? -Infinity)
+      : -Infinity;
+    const startTime = Math.max(cursor, own, grp);
     const gap       = startTime - cursor;
 
-    const newCdReady = (lastStart.get(newAbility.id) ?? -Infinity) + newCdEff;
+    const newOwn   = (lastStart.get(newAbility.id) ?? -Infinity) + newCdEff;
+    const newGrp   = newAbility.cooldownGroup
+      ? (groupReady.get(newAbility.cooldownGroup) ?? -Infinity)
+      : -Infinity;
+    const newCdReady = Math.max(newOwn, newGrp);
     if (newCdReady <= cursor + EPS && gap + EPS >= newCastTime) {
       return i;   // insert before this step — fills the gap exactly
     }
 
     lastStart.set(ability.id, startTime);
+    if (ability.cooldownGroup) {
+      groupReady.set(ability.cooldownGroup, startTime + eff);
+    }
     cursor = startTime + ability.castTime;
   }
 
@@ -114,9 +125,12 @@ export function resolveTimeline(
   abilityById: Map<string, MagicAbility>,
   cooldownReductionPct: number,
 ): TimelineTiming {
-  const lastStart = new Map<string, number>();
-  // Charges-remaining ledger. Seeded lazily on first cast of a charged
-  // ability so we don't reserve entries for unlimited abilities.
+  const lastStart  = new Map<string, number>();
+  // Per-cooldown-group ready time. When firing a member of a group we
+  // push the group's ready time to startTime + that fire's cooldown,
+  // so any subsequent group member must wait at least that long.
+  // Powers the Epic Strike "shared cooldown" rule.
+  const groupReady = new Map<string, number>();
   const chargesLeft = new Map<string, number>();
   const out: ResolvedStep[] = [];
   const skipped: SkippedStep[] = [];
@@ -140,11 +154,18 @@ export function resolveTimeline(
     }
 
     const effectiveCooldown = ability.cooldown * cdMul;
-    const cdReady = (lastStart.get(ability.id) ?? -Infinity) + effectiveCooldown;
-    const startTime = Math.max(cursor, cdReady);
-    const endTime   = startTime + ability.castTime;
-    const hasGap    = startTime > cursor + 1e-6;
+    const ownReady   = (lastStart.get(ability.id) ?? -Infinity) + effectiveCooldown;
+    const groupCdReady = ability.cooldownGroup
+      ? (groupReady.get(ability.cooldownGroup) ?? -Infinity)
+      : -Infinity;
+    const cdReady    = Math.max(ownReady, groupCdReady);
+    const startTime  = Math.max(cursor, cdReady);
+    const endTime    = startTime + ability.castTime;
+    const hasGap     = startTime > cursor + 1e-6;
     lastStart.set(ability.id, startTime);
+    if (ability.cooldownGroup) {
+      groupReady.set(ability.cooldownGroup, startTime + effectiveCooldown);
+    }
     out.push({
       step, ability, startTime, endTime,
       effectiveCooldown,

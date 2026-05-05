@@ -396,6 +396,16 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
           <Icon>FateEpicStrike</Icon>
           <CostPerRank size="1">2</CostPerRank>
           <Clickie />
+        
+          <!-- ddo-builds patch: see docs/DATA_PATCHES.md "Clickie SLA wiring". -->
+          <Effect>
+            <Type>SpellLikeAbility</Type>
+            <Bonus>Enhancement</Bonus>
+            <Item>Strike a Chord</Item>
+            <Item>None</Item>
+            <AType>SpellInfo</AType>
+            <Amount size="4">0 2 0 2</Amount>
+          </Effect>
         </EnhancementSelection>
         <EnhancementSelection>
           <Name>The Pluck of a String</Name>
@@ -413,6 +423,16 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
           <Icon>FateEpicStrike</Icon>
           <CostPerRank size="1">2</CostPerRank>
           <Clickie />
+        
+          <!-- ddo-builds patch: see docs/DATA_PATCHES.md "Clickie SLA wiring". -->
+          <Effect>
+            <Type>SpellLikeAbility</Type>
+            <Bonus>Enhancement</Bonus>
+            <Item>The Pluck of a String</Item>
+            <Item>None</Item>
+            <AType>SpellInfo</AType>
+            <Amount size="4">0 0 0 5</Amount>
+          </Effect>
         </EnhancementSelection>
         <EnhancementSelection>
           <Name>The Sword Sings</Name>
@@ -430,6 +450,16 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
           <Icon>FateEpicStrike</Icon>
           <CostPerRank size="1">2</CostPerRank>
           <Clickie />
+        
+          <!-- ddo-builds patch: see docs/DATA_PATCHES.md "Clickie SLA wiring". -->
+          <Effect>
+            <Type>SpellLikeAbility</Type>
+            <Bonus>Enhancement</Bonus>
+            <Item>The Sword Sings</Item>
+            <Item>None</Item>
+            <AType>SpellInfo</AType>
+            <Amount size="4">0 0 0 4</Amount>
+          </Effect>
         </EnhancementSelection>
       </Selector>
     </EnhancementTreeItem>

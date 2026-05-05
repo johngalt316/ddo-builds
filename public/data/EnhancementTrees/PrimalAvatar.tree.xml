@@ -600,6 +600,16 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
               </Requirement>
             </RequiresOneOf>
           </Requirements>
+        
+          <!-- ddo-builds patch: see docs/DATA_PATCHES.md "Clickie SLA wiring". -->
+          <Effect>
+            <Type>SpellLikeAbility</Type>
+            <Bonus>Enhancement</Bonus>
+            <Item>Carrion Swarm</Item>
+            <Item>None</Item>
+            <AType>SpellInfo</AType>
+            <Amount size="4">0 2 0 6</Amount>
+          </Effect>
         </EnhancementSelection>
         <EnhancementSelection>
           <Name>Spring to Summer</Name>
@@ -634,6 +644,16 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
               </Requirement>
             </RequiresOneOf>
           </Requirements>
+        
+          <!-- ddo-builds patch: see docs/DATA_PATCHES.md "Clickie SLA wiring". -->
+          <Effect>
+            <Type>SpellLikeAbility</Type>
+            <Bonus>Enhancement</Bonus>
+            <Item>Spring to Summer</Item>
+            <Item>None</Item>
+            <AType>SpellInfo</AType>
+            <Amount size="4">0 2 0 12</Amount>
+          </Effect>
         </EnhancementSelection>
         <EnhancementSelection>
           <Name>Storm Catcher</Name>
@@ -668,6 +688,16 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
               </Requirement>
             </RequiresOneOf>
           </Requirements>
+        
+          <!-- ddo-builds patch: see docs/DATA_PATCHES.md "Clickie SLA wiring". -->
+          <Effect>
+            <Type>SpellLikeAbility</Type>
+            <Bonus>Enhancement</Bonus>
+            <Item>Storm Catcher</Item>
+            <Item>None</Item>
+            <AType>SpellInfo</AType>
+            <Amount size="4">0 2 0 8</Amount>
+          </Effect>
         </EnhancementSelection>
       </Selector>
     </EnhancementTreeItem>

@@ -462,6 +462,16 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
           <Icon>FeyLights</Icon>
           <CostPerRank size="1">1</CostPerRank>
           <Clickie />
+        
+          <!-- ddo-builds patch: see docs/DATA_PATCHES.md "Clickie SLA wiring". -->
+          <Effect>
+            <Type>SpellLikeAbility</Type>
+            <Bonus>Enhancement</Bonus>
+            <Item>Fey Lights</Item>
+            <Item>None</Item>
+            <AType>SpellInfo</AType>
+            <Amount size="4">0 10 0 6</Amount>
+          </Effect>
         </EnhancementSelection>
         <EnhancementSelection>
           <Name>Pin</Name>
@@ -476,6 +486,16 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
           <Icon>ShiradiStrike</Icon>
           <CostPerRank size="1">1</CostPerRank>
           <Clickie />
+        
+          <!-- ddo-builds patch: see docs/DATA_PATCHES.md "Clickie SLA wiring". -->
+          <Effect>
+            <Type>SpellLikeAbility</Type>
+            <Bonus>Enhancement</Bonus>
+            <Item>Pin</Item>
+            <Item>None</Item>
+            <AType>SpellInfo</AType>
+            <Amount size="4">0 0 0 15</Amount>
+          </Effect>
         </EnhancementSelection>
       </Selector>
     </EnhancementTreeItem>
@@ -833,6 +853,16 @@ Cost: 10 Spell Points.</Description>
           <Icon>BeguilingCharm</Icon>
           <CostPerRank size="1">1</CostPerRank>
           <Clickie />
+        
+          <!-- ddo-builds patch: see docs/DATA_PATCHES.md "Clickie SLA wiring". -->
+          <Effect>
+            <Type>SpellLikeAbility</Type>
+            <Bonus>Enhancement</Bonus>
+            <Item>Beguiling Charm</Item>
+            <Item>None</Item>
+            <AType>SpellInfo</AType>
+            <Amount size="4">0 10 0 15</Amount>
+          </Effect>
         </EnhancementSelection>
         <EnhancementSelection>
           <Name>Hunt's End</Name>
@@ -844,6 +874,16 @@ Cooldown: 9 seconds.</Description>
           <Icon>BeguileOrHuntsEnd</Icon>
           <CostPerRank size="1">1</CostPerRank>
           <Clickie />
+        
+          <!-- ddo-builds patch: see docs/DATA_PATCHES.md "Clickie SLA wiring". -->
+          <Effect>
+            <Type>SpellLikeAbility</Type>
+            <Bonus>Enhancement</Bonus>
+            <Item>Hunt's End</Item>
+            <Item>None</Item>
+            <AType>SpellInfo</AType>
+            <Amount size="4">0 0 0 9</Amount>
+          </Effect>
         </EnhancementSelection>
       </Selector>
     </EnhancementTreeItem>

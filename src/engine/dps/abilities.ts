@@ -55,6 +55,11 @@ export interface MagicAbility {
   slaCategory?: SLACategory;
   /** Human-readable source label, e.g. `[E] Arcane Trickster: Stolen Spell I`. */
   slaSource?: string;
+  /** Cooldown-sharing group. When set, firing this ability also pushes
+   *  every other ability with the same group onto cooldown — the
+   *  classic "Epic Strike shared cooldown" pattern. Undefined = the
+   *  ability is on its own private cooldown. */
+  cooldownGroup?: string;
 }
 
 /**
@@ -177,6 +182,13 @@ export function getMagicAbilities(
       castTime: 1.0,
       slaCategory: sla.category,
       slaSource: sla.source,
+      // Epic Strike SLAs share a cooldown across the whole group: firing
+      // any of them puts every other Epic Strike on cooldown until that
+      // one is ready again. Detected via the source label tail
+      // ("Epic Strike → Nightmare Lance" etc.) which the destiny trees
+      // use uniformly. Other shared-CD groups can be added by detecting
+      // their source pattern here.
+      cooldownGroup: /Epic Strike\s*→/.test(sla.source) ? 'epic-strike' : undefined,
     });
   }
 

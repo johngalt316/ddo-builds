@@ -1434,6 +1434,16 @@ Dice per Religious Lore feat you have.</Description>
           </Requirement>
         </Requirements>
       </Effect>
+    
+      <!-- ddo-builds patch: see docs/DATA_PATCHES.md "Clickie SLA wiring". -->
+      <Effect>
+        <Type>SpellLikeAbility</Type>
+        <Bonus>Enhancement</Bonus>
+        <Item>Exalted Angel: Ascendance</Item>
+        <Item>None</Item>
+        <AType>SpellInfo</AType>
+        <Amount size="4">0 0 0 0</Amount>
+      </Effect>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Exalted Angel: Enhanced Metamagics</Name>

@@ -253,6 +253,16 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
           <Icon>Adrenaline</Icon>
           <CostPerRank size="1">1</CostPerRank>
           <Clickie/>
+        
+          <!-- ddo-builds patch: see docs/DATA_PATCHES.md "Clickie SLA wiring". -->
+          <Effect>
+            <Type>SpellLikeAbility</Type>
+            <Bonus>Enhancement</Bonus>
+            <Item>Adrenaline</Item>
+            <Item>None</Item>
+            <AType>SpellInfo</AType>
+            <Amount size="4">0 0 0 9</Amount>
+          </Effect>
         </EnhancementSelection>
         <EnhancementSelection>
           <Name>Quick Cutter</Name>
@@ -274,6 +284,16 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
           <Icon>QuickCutter</Icon>
           <CostPerRank size="1">1</CostPerRank>
           <Clickie/>
+        
+          <!-- ddo-builds patch: see docs/DATA_PATCHES.md "Clickie SLA wiring". -->
+          <Effect>
+            <Type>SpellLikeAbility</Type>
+            <Bonus>Enhancement</Bonus>
+            <Item>Quick Cutter</Item>
+            <Item>None</Item>
+            <AType>SpellInfo</AType>
+            <Amount size="4">0 0 0 8</Amount>
+          </Effect>
         </EnhancementSelection>
       </Selector>
     </EnhancementTreeItem>
@@ -413,6 +433,16 @@ Two Handed Weapon while not Natural Fighting) to use.</Description>
           <Icon>SpeedOrStrength</Icon>
           <CostPerRank size="1">1</CostPerRank>
           <Clickie/>
+        
+          <!-- ddo-builds patch: see docs/DATA_PATCHES.md "Clickie SLA wiring". -->
+          <Effect>
+            <Type>SpellLikeAbility</Type>
+            <Bonus>Enhancement</Bonus>
+            <Item>Boulder's Might</Item>
+            <Item>None</Item>
+            <AType>SpellInfo</AType>
+            <Amount size="4">0 0 0 0</Amount>
+          </Effect>
         </EnhancementSelection>
         <EnhancementSelection>
           <Name>Fast and Furious</Name>

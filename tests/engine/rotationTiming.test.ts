@@ -192,3 +192,49 @@ describe('findFirstAvailableSlot', () => {
     expect(findFirstAvailableSlot(rot('MM', 'MM'), F, map, 50)).toBe(2);
   });
 });
+
+// ── Shared cooldown groups (Epic Strike pool) ────────────────────────
+
+describe('cooldownGroup — shared cooldown pool', () => {
+  it('firing one Epic Strike puts every member of the group on cooldown', () => {
+    // ES1 has 8s CD, ES2 has 3s CD. Firing ES1 should block ES2 for 8s.
+    const ES1 = ability('ES1', { castTime: 1, cooldown: 8, cooldownGroup: 'epic-strike' });
+    const ES2 = ability('ES2', { castTime: 1, cooldown: 3, cooldownGroup: 'epic-strike' });
+    const map = new Map([['ES1', ES1], ['ES2', ES2]]);
+    const t = resolveTimeline(rot('ES1', 'ES2'), map, 0);
+    expect(t.steps[0]!.startTime).toBe(0);
+    // ES2 must wait until ES1's group CD elapses (start=0, CD=8 → ready=8).
+    expect(t.steps[1]!.startTime).toBe(8);
+    expect(t.steps[1]!.hasGap).toBe(true);
+  });
+
+  it('a member with shorter own CD still respects the longer group CD', () => {
+    // ES1 self-CD 4s, group CD 8s after ES_LONG. ES1 cannot fire at t=4
+    // because the group is still on its 8s CD from ES_LONG.
+    const ES_LONG = ability('ES_LONG', { castTime: 1, cooldown: 8, cooldownGroup: 'epic-strike' });
+    const ES1     = ability('ES1',     { castTime: 1, cooldown: 4, cooldownGroup: 'epic-strike' });
+    const map = new Map([['ES_LONG', ES_LONG], ['ES1', ES1]]);
+    const t = resolveTimeline(rot('ES_LONG', 'ES1'), map, 0);
+    expect(t.steps[1]!.startTime).toBe(8);   // group CD wins over own CD
+  });
+
+  it('abilities outside the group are unaffected by group cooldown', () => {
+    const ES = ability('ES', { castTime: 1, cooldown: 8, cooldownGroup: 'epic-strike' });
+    const F  = ability('F',  { castTime: 1, cooldown: 0 });
+    const map = new Map([['ES', ES], ['F', F]]);
+    const t = resolveTimeline(rot('ES', 'F'), map, 0);
+    expect(t.steps[1]!.startTime).toBe(1);   // F fires right after ES ends
+    expect(t.steps[1]!.hasGap).toBe(false);
+  });
+
+  it("findFirstAvailableSlot: a new Epic Strike won't slot during the group's cooldown", () => {
+    // [ES1@0, F@1] — group ready at t=8. Adding ES2 (8s own CD) should
+    // not fit between ES1 and F (would land at t=1, but group blocks
+    // until t=8). Appends.
+    const ES1 = ability('ES1', { castTime: 1, cooldown: 8, cooldownGroup: 'epic-strike' });
+    const ES2 = ability('ES2', { castTime: 1, cooldown: 8, cooldownGroup: 'epic-strike' });
+    const F   = ability('F',   { castTime: 1, cooldown: 0 });
+    const map = new Map([['ES1', ES1], ['ES2', ES2], ['F', F]]);
+    expect(findFirstAvailableSlot(rot('ES1', 'F'), ES2, map, 0)).toBe(2);
+  });
+});

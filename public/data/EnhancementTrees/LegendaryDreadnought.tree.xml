@@ -313,6 +313,16 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
             <ModAbility>Charisma</ModAbility>
             <Tactical>Stun</Tactical>
           </DC>
+        
+          <!-- ddo-builds patch: see docs/DATA_PATCHES.md "Clickie SLA wiring". -->
+          <Effect>
+            <Type>SpellLikeAbility</Type>
+            <Bonus>Enhancement</Bonus>
+            <Item>Dire Charge</Item>
+            <Item>None</Item>
+            <AType>SpellInfo</AType>
+            <Amount size="4">0 0 0 12</Amount>
+          </Effect>
         </EnhancementSelection>
         <EnhancementSelection>
           <Name>Dire Shot</Name>
@@ -348,6 +358,16 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
             <ModAbility>Charisma</ModAbility>
             <Tactical>Stun</Tactical>
           </DC>
+        
+          <!-- ddo-builds patch: see docs/DATA_PATCHES.md "Clickie SLA wiring". -->
+          <Effect>
+            <Type>SpellLikeAbility</Type>
+            <Bonus>Enhancement</Bonus>
+            <Item>Dire Shot</Item>
+            <Item>None</Item>
+            <AType>SpellInfo</AType>
+            <Amount size="4">0 0 0 12</Amount>
+          </Effect>
         </EnhancementSelection>
       </Selector>
     </EnhancementTreeItem>

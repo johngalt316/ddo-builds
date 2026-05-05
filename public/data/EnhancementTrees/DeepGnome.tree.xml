@@ -366,7 +366,17 @@ damage and knocking down enemy on failed Reflex save.</Description>
             <Amount size="3">10 15 20</Amount>
             <ModAbility>Intelligence</ModAbility>
          </DC>
-      </EnhancementTreeItem>
+      
+      <!-- ddo-builds patch: see docs/DATA_PATCHES.md "Clickie SLA wiring". -->
+      <Effect>
+        <Type>SpellLikeAbility</Type>
+        <Bonus>Enhancement</Bonus>
+        <Item>Deep Gnome: Conjure Stone</Item>
+        <Item>None</Item>
+        <AType>SpellInfo</AType>
+        <Amount size="4">0 0 0 0</Amount>
+      </Effect>
+    </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Deep Gnome: Hardy Nature</Name>
          <InternalName>DeepGnomeHardyNature</InternalName>
