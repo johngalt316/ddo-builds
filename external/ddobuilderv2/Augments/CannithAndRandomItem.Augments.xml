@@ -1,0 +1,5330 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Augments>
+  <!--Competence Skills-->
+  <Augment>
+    <Name>Balance</Name>
+    <Icon>Cannith</Icon>
+    <Description>Competence bonus to Balance</Description>
+    <Type>Cannith Belt Suffix</Type>
+    <Type>Cannith Boots Prefix</Type>
+    <Type>Cannith Cloak Prefix</Type>
+    <Type>Cannith Ring Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Random Armor Extra</Type>
+    <Type>Random Belt Suffix</Type>
+    <Type>Random Boots Prefix</Type>
+    <Type>Random Cloak Prefix</Type>
+    <Type>Random Ring Prefix</Type>
+    <Type>Random Shield Extra</Type>
+    <Type>Cannith Rune Arm Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">3 4 5 6 7 8 9 10 11 12 13 14 15 15 16 16 16 17 17 17 18 18 18 18 19 19 19 19 20 20 20 21 21 22 22 22 22 22 22 22</LevelValue>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Competence</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">22</Amount>
+      <Item>Balance</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Bluff</Name>
+    <Icon>Cannith</Icon>
+    <Description>Competence bonus to Bluff</Description>
+    <Type>Cannith Gloves Prefix</Type>
+    <Type>Cannith Necklace Suffix</Type>
+    <Type>Cannith Ring Suffix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Random Necklace Suffix</Type>
+    <Type>Random Ring Suffix</Type>
+    <Type>Random Gloves Prefix</Type>
+    <Type>Cannith Rune Arm Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">3 4 5 6 7 8 9 10 11 12 13 14 15 15 16 16 16 17 17 17 18 18 18 18 19 19 19 19 20 20 20 21 21 22 22 22 22 22 22 22</LevelValue>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Competence</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">22</Amount>
+      <Item>Bluff</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Concentration</Name>
+    <Icon>Cannith</Icon>
+    <Description>Competence bonus to Concentration</Description>
+    <Type>Cannith Goggles Prefix</Type>
+    <Type>Cannith Helmet Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Random Goggles Prefix</Type>
+    <Type>Random Helmet Prefix</Type>
+    <Type>Cannith Rune Arm Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">3 4 5 6 7 8 9 10 11 12 13 14 15 15 16 16 16 17 17 17 18 18 18 18 19 19 19 19 20 20 20 21 21 22 22 22 22 22 22 22</LevelValue>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Competence</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">22</Amount>
+      <Item>Concentration</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Diplomacy</Name>
+    <Icon>Cannith</Icon>
+    <Description>Competence bonus to Diplomacy</Description>
+    <Type>Cannith Belt Prefix</Type>
+    <Type>Cannith Cloak Suffix</Type>
+    <Type>Cannith Helmet Suffix</Type>
+    <Type>Cannith Ring Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Random Belt Prefix</Type>
+    <Type>Random Cloak Suffix</Type>
+    <Type>Random Helmet Suffix</Type>
+    <Type>Random Ring Prefix</Type>
+    <Type>Cannith Rune Arm Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">3 4 5 6 7 8 9 10 11 12 13 14 15 15 16 16 16 17 17 17 18 18 18 18 19 19 19 19 20 20 20 21 21 22 22 22 22 22 22 22</LevelValue>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Competence</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">22</Amount>
+      <Item>Diplomacy</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Disable Device</Name>
+    <Icon>Cannith</Icon>
+    <Description>Competence bonus to Disable Device</Description>
+    <Type>Cannith Gloves Prefix</Type>
+    <Type>Cannith Goggles Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Random Goggles Prefix</Type>
+    <Type>Random Gloves Prefix</Type>
+    <Type>Cannith Rune Arm Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">3 4 5 6 7 8 9 10 11 12 13 14 15 15 16 16 16 17 17 17 18 18 18 18 19 19 19 19 20 20 20 21 21 22 22 22 22 22 22 22</LevelValue>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Competence</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">22</Amount>
+      <Item>Disable Device</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Haggle</Name>
+    <Icon>Cannith</Icon>
+    <Description>Competence bonus to Haggle</Description>
+    <Type>Cannith Helmet Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Random Helmet Prefix</Type>
+    <Type>Cannith Rune Arm Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">3 4 5 6 7 8 9 10 11 12 13 14 15 15 16 16 16 17 17 17 18 18 18 18 19 19 19 19 20 20 20 21 21 22 22 22 22 22 22 22</LevelValue>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Competence</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">22</Amount>
+      <Item>Haggle</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Heal</Name>
+    <Icon>Cannith</Icon>
+    <Description>Competence bonus to Heal</Description>
+    <Type>Cannith Gloves Suffix</Type>
+    <Type>Cannith Necklace Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Random Gloves Suffix</Type>
+    <Type>Random Necklace Prefix</Type>
+    <Type>Cannith Rune Arm Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">3 4 5 6 7 8 9 10 11 12 13 14 15 15 16 16 16 17 17 17 18 18 18 18 19 19 19 19 20 20 20 21 21 22 22 22 22 22 22 22</LevelValue>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Competence</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">22</Amount>
+      <Item>Heal</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Hide</Name>
+    <Icon>Cannith</Icon>
+    <Description>Competence bonus to Hide</Description>
+    <Type>Cannith Cloak Prefix</Type>
+    <Type>Cannith Ring Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Random Cloak Prefix</Type>
+    <Type>Random Ring Prefix</Type>
+    <Type>Cannith Rune Arm Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">3 4 5 6 7 8 9 10 11 12 13 14 15 15 16 16 16 17 17 17 18 18 18 18 19 19 19 19 20 20 20 21 21 22 22 22 22 22 22 22</LevelValue>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Competence</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">22</Amount>
+      <Item>Hide</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Intimidate</Name>
+    <Icon>Cannith</Icon>
+    <Description>Competence bonus to Intimidate</Description>
+    <Type>Cannith Armor Suffix</Type>
+    <Type>Cannith Bracers Suffix</Type>
+    <Type>Cannith Cloak Suffix</Type>
+    <Type>Cannith Gloves Suffix</Type>
+    <Type>Cannith Helmet Prefix</Type>
+    <Type>Cannith Shield Suffix</Type>
+    <Type>Cannith Orb Suffix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Random Armor Suffix</Type>
+    <Type>Random Bracers Suffix</Type>
+    <Type>Random Cloak Suffix</Type>
+    <Type>Random Gloves Suffix</Type>
+    <Type>Random Helmet Prefix</Type>
+    <Type>Random Shield Suffix</Type>
+    <Type>Cannith Rune Arm Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">3 4 5 6 7 8 9 10 11 12 13 14 15 15 16 16 16 17 17 17 18 18 18 18 19 19 19 19 20 20 20 21 21 22 22 22 22 22 22 22</LevelValue>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Competence</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">22</Amount>
+      <Item>Intimidate</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Jump</Name>
+    <Icon>Cannith</Icon>
+    <Description>Competence bonus to Jump</Description>
+    <Type>Cannith Belt Suffix</Type>
+    <Type>Cannith Boots Suffix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Random Belt Suffix</Type>
+    <Type>Random Boots Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">3 4 5 6 7 8 9 10 11 12 13 14 15 15 16 16 16 17 17 17 18 18 18 18 19 19 19 19 20 20 20 21 21 22 22 22 22 22 22 22</LevelValue>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Competence</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">22</Amount>
+      <Item>Jump</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Listen</Name>
+    <Icon>Cannith</Icon>
+    <Description>Competence bonus to Listen</Description>
+    <Type>Cannith Helmet Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Random Helmet Prefix</Type>
+    <Type>Cannith Rune Arm Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">3 4 5 6 7 8 9 10 11 12 13 14 15 15 16 16 16 17 17 17 18 18 18 18 19 19 19 19 20 20 20 21 21 22 22 22 22 22 22 22</LevelValue>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Competence</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">22</Amount>
+      <Item>Listen</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Move Silently</Name>
+    <Icon>Cannith</Icon>
+    <Description>Competence bonus to Move Silently</Description>
+    <Type>Cannith Armor Suffix</Type>
+    <Type>Cannith Belt Prefix</Type>
+    <Type>Cannith Boots Prefix</Type>
+    <Type>Cannith Bracers Suffix</Type>
+    <Type>Cannith Shield Suffix</Type>
+    <Type>Cannith Orb Suffix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Random Armor Suffix</Type>
+    <Type>Random Belt Prefix</Type>
+    <Type>Random Boots Prefix</Type>
+    <Type>Random Bracers Suffix</Type>
+    <Type>Random Shield Suffix</Type>
+    <Type>Cannith Rune Arm Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">3 4 5 6 7 8 9 10 11 12 13 14 15 15 16 16 16 17 17 17 18 18 18 18 19 19 19 19 20 20 20 21 21 22 22 22 22 22 22 22</LevelValue>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Competence</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">22</Amount>
+      <Item>Move Silently</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Open Lock</Name>
+    <Icon>Cannith</Icon>
+    <Description>Competence bonus to Open Lock</Description>
+    <Type>Cannith Gloves Prefix</Type>
+    <Type>Cannith Goggles Suffix</Type>
+    <Type>Cannith Ring Suffix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Random Gloves Prefix</Type>
+    <Type>Random Goggles Suffix</Type>
+    <Type>Random Ring Suffix</Type>
+    <Type>Cannith Rune Arm Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">3 4 5 6 7 8 9 10 11 12 13 14 15 15 16 16 16 17 17 17 18 18 18 18 19 19 19 19 20 20 20 21 21 22 22 22 22 22 22 22</LevelValue>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Competence</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">22</Amount>
+      <Item>Open Lock</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Perform</Name>
+    <Icon>Cannith</Icon>
+    <Description>Competence bonus to Perform</Description>
+    <Type>Cannith Bracers Extra</Type>
+    <Type>Cannith Gloves Prefix</Type>
+    <Type>Cannith Ring Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Random Bracers Extra</Type>
+    <Type>Random Gloves Prefix</Type>
+    <Type>Random Ring Prefix</Type>
+    <Type>Cannith Rune Arm Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">3 4 5 6 7 8 9 10 11 12 13 14 15 15 16 16 16 17 17 17 18 18 18 18 19 19 19 19 20 20 20 21 21 22 22 22 22 22 22 22</LevelValue>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Competence</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">22</Amount>
+      <Item>Perform</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Repair</Name>
+    <Icon>Cannith</Icon>
+    <Description>Competence bonus to Repair</Description>
+    <Type>Cannith Gloves Suffix</Type>
+    <Type>Cannith Necklace Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Random Gloves Suffix</Type>
+    <Type>Random Necklace Prefix</Type>
+    <Type>Cannith Rune Arm Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">3 4 5 6 7 8 9 10 11 12 13 14 15 15 16 16 16 17 17 17 18 18 18 18 19 19 19 19 20 20 20 21 21 22 22 22 22 22 22 22</LevelValue>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Competence</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">22</Amount>
+      <Item>Repair</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Search</Name>
+    <Icon>Cannith</Icon>
+    <Description>Competence bonus to Search</Description>
+    <Type>Cannith Goggles Prefix</Type>
+    <Type>Cannith Helmet Suffix</Type>
+    <Type>Cannith Necklace Suffix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Random Goggles Prefix</Type>
+    <Type>Random Helmet Suffix</Type>
+    <Type>Random Necklace Suffix</Type>
+    <Type>Cannith Rune Arm Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">3 4 5 6 7 8 9 10 11 12 13 14 15 15 16 16 16 17 17 17 18 18 18 18 19 19 19 19 20 20 20 21 21 22 22 22 22 22 22 22</LevelValue>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Competence</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">22</Amount>
+      <Item>Search</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Spellsight</Name>
+    <Icon>Cannith</Icon>
+    <Description>Competence bonus to Spellcraft</Description>
+    <Type>Cannith Boots Prefix</Type>
+    <Type>Cannith Bracers Suffix</Type>
+    <Type>Cannith Cloak Suffix</Type>
+    <Type>Cannith Helmet Suffix</Type>
+    <Type>Cannith Necklace Suffix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Random Cloak Suffix</Type>
+    <Type>Random Helmet Suffix</Type>
+    <Type>Random Necklace Suffix</Type>
+    <Type>Cannith Rune Arm Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">3 4 5 6 7 8 9 10 11 12 13 14 15 15 16 16 16 17 17 17 18 18 18 18 19 19 19 19 20 20 20 21 21 22 22 22 22 22 22 22</LevelValue>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Competence</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">22</Amount>
+      <Item>Spellcraft</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Spot</Name>
+    <Icon>Cannith</Icon>
+    <Description>Competence bonus to Spot</Description>
+    <Type>Cannith Goggles Suffix</Type>
+    <Type>Cannith Helmet Suffix</Type>
+    <Type>Cannith Necklace Suffix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Random Helmet Suffix</Type>
+    <Type>Random Goggles Suffix</Type>
+    <Type>Random Necklace Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">3 4 5 6 7 8 9 10 11 12 13 14 15 15 16 16 16 17 17 17 18 18 18 18 19 19 19 19 20 20 20 21 21 22 22 22 22 22 22 22</LevelValue>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Competence</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">22</Amount>
+      <Item>Spot</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Swim</Name>
+    <Icon>Cannith</Icon>
+    <Description>Competence bonus to Swim</Description>
+    <Type>Cannith Belt Suffix</Type>
+    <Type>Cannith Boots Suffix</Type>
+    <Type>Cannith Ring Suffix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Random Belt Suffix</Type>
+    <Type>Random Boots Suffix</Type>
+    <Type>Random Ring Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">3 4 5 6 7 8 9 10 11 12 13 14 15 15 16 16 16 17 17 17 18 18 18 18 19 19 19 19 20 20 20 21 21 22 22 22 22 22 22 22</LevelValue>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Competence</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">22</Amount>
+      <Item>Swim</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Tumble</Name>
+    <Icon>Cannith</Icon>
+    <Description>Competence bonus to Tumble</Description>
+    <Type>Cannith Belt Suffix</Type>
+    <Type>Cannith Boots Prefix</Type>
+    <Type>Cannith Bracers Suffix</Type>
+    <Type>Cannith Necklace Prefix</Type>
+    <Type>Cannith Ring Suffix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Random Belt Suffix</Type>
+    <Type>Random Boots Prefix</Type>
+    <Type>Random Bracers Suffix</Type>
+    <Type>Random Necklace Prefix</Type>
+    <Type>Random Ring Suffix</Type>
+    <Type>Cannith Rune Arm Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">3 4 5 6 7 8 9 10 11 12 13 14 15 15 16 16 16 17 17 17 18 18 18 18 19 19 19 19 20 20 20 21 21 22 22 22 22 22 22 22</LevelValue>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Competence</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">22</Amount>
+      <Item>Tumble</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Use Magic Device</Name>
+    <Icon>Cannith</Icon>
+    <Description>Competence bonus to Use Magic Device</Description>
+    <MinLevel>28</MinLevel>
+    <Type>Random Goggles Prefix</Type>
+    <Type>Random Gloves Suffix</Type>
+    <Type>Random Helmet Suffix</Type>
+    <EnterValue />
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Item>Use Magic Device</Item>
+      <Bonus>Competence</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">7</Amount>
+    </Effect>
+  </Augment>
+  <!--Insightful skills-->
+  <Augment>
+    <Name>Insightful Balance</Name>
+    <Icon>Cannith</Icon>
+    <Description>Insight bonus to Balance</Description>
+    <Type>Cannith Armor Extra</Type>
+    <Type>Cannith Belt Extra</Type>
+    <Type>Cannith Boots Suffix</Type>
+    <Type>Cannith Cloak Extra</Type>
+    <Type>Cannith Ring Suffix</Type>
+    <Type>Cannith Shield Extra</Type>
+    <Type>Cannith Orb Extra</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Cannith Melee Extra</Type>
+    <Type>Random Armor Extra</Type>
+    <Type>Random Boots Suffix</Type>
+    <Type>Random Cloak Extra</Type>
+    <Type>Random Ring Suffix</Type>
+    <Type>Random Shield Extra</Type>
+    <Type>Cannith Rune Arm Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 2 2 3 3 4 4 5 5 6 6 7 7 7 8 8 8 8 8 8 9 9 9 9 9 9 9 9 10 10 10 10 10 11 11 11 11 11 11 11</LevelValue>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">11</Amount>
+      <Item>Balance</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Bluff</Name>
+    <Icon>Cannith</Icon>
+    <Description>Insight bonus to Bluff</Description>
+    <Type>Cannith Gloves Extra</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Random Ring Extra</Type>
+    <Type>Random Gloves Extra</Type>
+    <Type>Cannith Rune Arm Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 2 2 3 3 4 4 5 5 6 6 7 7 7 8 8 8 8 8 8 9 9 9 9 9 9 9 9 10 10 10 10 10 11 11 11 11 11 11 11</LevelValue>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">11</Amount>
+      <Item>Bluff</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Concentration</Name>
+    <Icon>Cannith</Icon>
+    <Description>Insightful bonus to Concentration</Description>
+    <Type>Cannith Goggles Suffix</Type>
+    <Type>Cannith Helmet Extra</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Random Goggles Suffix</Type>
+    <Type>Random Helmet Extra</Type>
+    <Type>Cannith Rune Arm Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 2 2 3 3 4 4 5 5 6 6 7 7 7 8 8 8 8 8 8 9 9 9 9 9 9 9 9 10 10 10 10 10 11 11 11 11 11 11 11</LevelValue>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">11</Amount>
+      <Item>Concentration</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Diplomacy</Name>
+    <Icon>Cannith</Icon>
+    <Description>Insight bonus to Diplomacy</Description>
+    <Type>Cannith Ring Extra</Type>
+    <Type>Random Ring Suffix</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Cannith Rune Arm Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 2 2 3 3 4 4 5 5 6 6 7 7 7 8 8 8 8 8 8 9 9 9 9 9 9 9 9 10 10 10 10 10 11 11 11 11 11 11 11</LevelValue>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">22</Amount>
+      <Item>Diplomacy</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Disable Device</Name>
+    <Icon>Cannith</Icon>
+    <Description>Insight bonus to Disable Device</Description>
+    <Type>Cannith Gloves Suffix</Type>
+    <Type>Cannith Goggles Extra</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Random Gloves Suffix</Type>
+    <Type>Random Goggles Extra</Type>
+    <Type>Cannith Rune Arm Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 2 2 3 3 4 4 5 5 6 6 7 7 7 8 8 8 8 8 8 9 9 9 9 9 9 9 9 10 10 10 10 10 11 11 11 11 11 11 11</LevelValue>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">11</Amount>
+      <Item>Disable Device</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Haggle</Name>
+    <Icon>Cannith</Icon>
+    <Description>Insight bonus to Haggle</Description>
+    <Type>Cannith Helmet Extra</Type>
+    <Type>Random Helmet Extra</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Cannith Rune Arm Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 2 2 3 3 4 4 5 5 6 6 7 7 7 8 8 8 8 8 8 9 9 9 9 9 9 9 9 10 10 10 10 10 11 11 11 11 11 11 11</LevelValue>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">22</Amount>
+      <Item>Haggle</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Heal</Name>
+    <Icon>Cannith</Icon>
+    <Description>Insight bonus to Heal</Description>
+    <Type>Cannith Ring Extra</Type>
+    <Type>Cannith Necklace Extra</Type>
+    <Type>Random Necklace Extra</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Cannith Rune Arm Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 2 2 3 3 4 4 5 5 6 6 7 7 7 8 8 8 8 8 8 9 9 9 9 9 9 9 9 10 10 10 10 10 11 11 11 11 11 11 11</LevelValue>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">22</Amount>
+      <Item>Heal</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Hide</Name>
+    <Icon>Cannith</Icon>
+    <Description>Insight bonus to Hide</Description>
+    <Type>Cannith Cloak Extra</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Random Cloak Extra</Type>
+    <Type>Random Ring Extra</Type>
+    <Type>Cannith Rune Arm Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 2 2 3 3 4 4 5 5 6 6 7 7 7 8 8 8 8 8 8 9 9 9 9 9 9 9 9 10 10 10 10 10 11 11 11 11 11 11 11</LevelValue>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">11</Amount>
+      <Item>Hide</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Intimidate</Name>
+    <Icon>Cannith</Icon>
+    <Description>Insight bonus to Intimidate</Description>
+    <Type>Cannith Armor Extra</Type>
+    <Type>Cannith Bracers Extra</Type>
+    <Type>Cannith Helmet Suffix</Type>
+    <Type>Cannith Necklace Suffix</Type>
+    <Type>Cannith Shield Extra</Type>
+    <Type>Cannith Orb Extra</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Random Armor Extra</Type>
+    <Type>Random Bracers Extra</Type>
+    <Type>Random Helmet Suffix</Type>
+    <Type>Random Necklace Suffix</Type>
+    <Type>Random Shield Extra</Type>
+    <Type>Cannith Rune Arm Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 2 2 3 3 4 4 5 5 6 6 7 7 7 8 8 8 8 8 8 9 9 9 9 9 9 9 9 10 10 10 10 10 11 11 11 11 11 11 11</LevelValue>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">11</Amount>
+      <Item>Intimidate</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Jump</Name>
+    <Icon>Cannith</Icon>
+    <Description>Insight bonus to Jump</Description>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Cannith Boots Extra</Type>
+    <Type>Random Boots Extra</Type>
+    <Type>Cannith Rune Arm Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 2 2 3 3 4 4 5 5 6 6 7 7 7 8 8 8 8 8 8 9 9 9 9 9 9 9 9 10 10 10 10 10 11 11 11 11 11 11 11</LevelValue>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">11</Amount>
+      <Item>Jump</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Listen</Name>
+    <Icon>Cannith</Icon>
+    <Description>Insight bonus to Listen</Description>
+    <Type>Cannith Helmet Extra</Type>
+    <Type>Random Helmet Extra</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Cannith Rune Arm Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 2 2 3 3 4 4 5 5 6 6 7 7 7 8 8 8 8 8 8 9 9 9 9 9 9 9 9 10 10 10 10 10 11 11 11 11 11 11 11</LevelValue>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">22</Amount>
+      <Item>Listen</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Move Silently</Name>
+    <Icon>Cannith</Icon>
+    <Description>Insight bonus to Move Silently</Description>
+    <Type>Cannith Armor Extra</Type>
+    <Type>Cannith Belt Extra</Type>
+    <Type>Cannith Boots Extra</Type>
+    <Type>Cannith Shield Extra</Type>
+    <Type>Cannith Orb Extra</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Random Armor Extra</Type>
+    <Type>Random Belt Extra</Type>
+    <Type>Random Boots Extra</Type>
+    <Type>Random Shield Extra</Type>
+    <Type>Cannith Rune Arm Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 2 2 3 3 4 4 5 5 6 6 7 7 7 8 8 8 8 8 8 9 9 9 9 9 9 9 9 10 10 10 10 10 11 11 11 11 11 11 11</LevelValue>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">11</Amount>
+      <Item>Move Silently</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Open Lock</Name>
+    <Icon>Cannith</Icon>
+    <Description>Insight bonus to Open Lock</Description>
+    <Type>Cannith Gloves Extra</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Random Gloves Extra</Type>
+    <Type>Cannith Rune Arm Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 2 2 3 3 4 4 5 5 6 6 7 7 7 8 8 8 8 8 8 9 9 9 9 9 9 9 9 10 10 10 10 10 11 11 11 11 11 11 11</LevelValue>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">11</Amount>
+      <Item>Open Lock</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Perform</Name>
+    <Icon>Cannith</Icon>
+    <Description>Insight bonus to Perform</Description>
+    <Type>Cannith Gloves Extra</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Random Ring Extra</Type>
+    <Type>Random Gloves Extra</Type>
+    <Type>Cannith Rune Arm Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 2 2 3 3 4 4 5 5 6 6 7 7 7 8 8 8 8 8 8 9 9 9 9 9 9 9 9 10 10 10 10 10 11 11 11 11 11 11 11</LevelValue>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">11</Amount>
+      <Item>Perform</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Repair</Name>
+    <Icon>Cannith</Icon>
+    <Description>Insight bonus to Repair</Description>
+    <Type>Cannith Gloves Extra</Type>
+    <Type>Cannith Necklace Extra</Type>
+    <Type>Cannith Ring Extra</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Random Necklace Extra</Type>
+    <Type>Cannith Rune Arm Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 2 2 3 3 4 4 5 5 6 6 7 7 7 8 8 8 8 8 8 9 9 9 9 9 9 9 9 10 10 10 10 10 11 11 11 11 11 11 11</LevelValue>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">11</Amount>
+      <Item>Repair</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Search</Name>
+    <Icon>Cannith</Icon>
+    <Description>Insight bonus to Search</Description>
+    <Type>Random Helmet Extra</Type>
+    <Type>Random Goggles Extra</Type>
+    <Type>Cannith Goggles Extra</Type>
+    <Type>Cannith Helmet Extra</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Cannith Rune Arm Extra</Type>
+    <Type>Cannith Necklace Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 2 2 3 3 4 4 5 5 6 6 7 7 7 8 8 8 8 8 8 9 9 9 9 9 9 9 9 10 10 10 10 10 11 11 11 11 11 11 11</LevelValue>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">22</Amount>
+      <Item>Search</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Spellsight</Name>
+    <Icon>Cannith</Icon>
+    <Description>Insight bonus to Spellcraft</Description>
+    <Type>Cannith Boots Extra</Type>
+    <Type>Cannith Bracers Extra</Type>
+    <Type>Cannith Helmet Extra</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Cannith Rune Arm Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 2 2 3 3 4 4 5 5 6 6 7 7 7 8 8 8 8 8 8 9 9 9 9 9 9 9 9 10 10 10 10 10 11 11 11 11 11 11 11</LevelValue>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">22</Amount>
+      <Item>Spellcraft</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Spot</Name>
+    <Icon>Cannith</Icon>
+    <Description>Insight bonus to Spot</Description>
+    <Type>Random Goggles Extra</Type>
+    <Type>Random Necklace Extra</Type>
+    <Type>Cannith Goggles Extra</Type>
+    <Type>Cannith Helmet Extra</Type>
+    <Type>Cannith Necklace Extra</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Cannith Rune Arm Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 2 2 3 3 4 4 5 5 6 6 7 7 7 8 8 8 8 8 8 9 9 9 9 9 9 9 9 10 10 10 10 10 11 11 11 11 11 11 11</LevelValue>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">22</Amount>
+      <Item>Spot</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Swim</Name>
+    <Icon>Cannith</Icon>
+    <Description>Insight bonus to Swim</Description>
+    <Type>Cannith Belt Extra</Type>
+    <Type>Cannith Boots Extra</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Random Belt Extra</Type>
+    <Type>Random Boots Extra</Type>
+    <Type>Cannith Rune Arm Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 2 2 3 3 4 4 5 5 6 6 7 7 7 8 8 8 8 8 8 9 9 9 9 9 9 9 9 10 10 10 10 10 11 11 11 11 11 11 11</LevelValue>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">11</Amount>
+      <Item>Swim</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Tumble</Name>
+    <Icon>Cannith</Icon>
+    <Description>Insight bonus to Tumble</Description>
+    <Type>Cannith Belt Extra</Type>
+    <Type>Cannith Boots Extra</Type>
+    <Type>Cannith Necklace Extra</Type>
+    <Type>Cannith Ring Extra</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Random Belt Extra</Type>
+    <Type>Random Boots Extra</Type>
+    <Type>Random Necklace Extra</Type>
+    <Type>Cannith Rune Arm Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 2 2 3 3 4 4 5 5 6 6 7 7 7 8 8 8 8 8 8 9 9 9 9 9 9 9 9 10 10 10 10 10 11 11 11 11 11 11 11</LevelValue>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">11</Amount>
+      <Item>Tumble</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Use Magic Device</Name>
+    <Icon>Cannith</Icon>
+    <Description>Insight bonus to Use Magic Device</Description>
+    <Type>Random Goggles Suffix</Type>
+    <Type>Random Helmet Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 2 2 3 3 4 4 5 5 6 6 7 7 7 8 8 8 8 8 8 9 9 9 9 9 9 9 9 10 10 10 10 10 11 11 11 11 11 11 11</LevelValue>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Item>Use Magic Device</Item>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">7</Amount>
+    </Effect>
+  </Augment>
+  <!--Ability Bonuses-->
+  <Augment>
+    <Name>Strength</Name>
+    <Icon>Cannith</Icon>
+    <Description>Enhancement bonus to Strength</Description>
+    <Type>Cannith Belt Suffix</Type>
+    <Type>Cannith Boots Suffix</Type>
+    <Type>Cannith Bracers Prefix</Type>
+    <Type>Cannith Gloves Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Random Belt Suffix</Type>
+    <Type>Random Bracers Prefix</Type>
+    <Type>Random Boots Suffix</Type>
+    <Type>Random Gloves Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 2 2 3 4 4 5 5 5 6 6 6 7 7 8 8 8 9 9 9 10 10 11 11 11 12 12 12 13 13 14 14 14 15 15 15 15 15 15 15</LevelValue>
+    <Effect>
+      <Type>AbilityBonus</Type>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">15</Amount>
+      <Item>Strength</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Intelligence</Name>
+    <Icon>Cannith</Icon>
+    <Description>Enhancement bonus to Intelligence</Description>
+    <Type>Cannith Cloak Prefix</Type>
+    <Type>Cannith Goggles Prefix</Type>
+    <Type>Cannith Helmet Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Random Cloak Prefix</Type>
+    <Type>Random Goggles Prefix</Type>
+    <Type>Random Helmet Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 2 2 3 4 4 5 5 5 6 6 6 7 7 8 8 8 9 9 9 10 10 11 11 11 12 12 12 13 13 14 14 14 15 15 15 15 15 15 15</LevelValue>
+    <Effect>
+      <Type>AbilityBonus</Type>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">15</Amount>
+      <Item>Intelligence</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Wisdom</Name>
+    <Icon>Cannith</Icon>
+    <Description>Enhancement bonus to Wisdom</Description>
+    <Type>Cannith Cloak Prefix</Type>
+    <Type>Cannith Goggles Prefix</Type>
+    <Type>Cannith Helmet Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Random Cloak Suffix</Type>
+    <Type>Random Goggles Prefix</Type>
+    <Type>Random Helmet Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 2 2 3 4 4 5 5 5 6 6 6 7 7 8 8 8 9 9 9 10 10 11 11 11 12 12 12 13 13 14 14 14 15 15 15 15 15 15 15</LevelValue>
+    <Effect>
+      <Type>AbilityBonus</Type>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">15</Amount>
+      <Item>Wisdom</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Dexterity</Name>
+    <Icon>Cannith</Icon>
+    <Description>Enhancement bonus to Dexterity</Description>
+    <Type>Cannith Boots Prefix</Type>
+    <Type>Cannith Gloves Prefix</Type>
+    <Type>Cannith Ring Suffix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Random Boots Prefix</Type>
+    <Type>Random Gloves Prefix</Type>
+    <Type>Random Ring Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 2 2 3 4 4 5 5 5 6 6 6 7 7 8 8 8 9 9 9 10 10 11 11 11 12 12 12 13 13 14 14 14 15 15 15 15 15 15 15</LevelValue>
+    <Effect>
+      <Type>AbilityBonus</Type>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">15</Amount>
+      <Item>Dexterity</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Constitution</Name>
+    <Icon>Cannith</Icon>
+    <Description>Enhancement bonus to Constitution</Description>
+    <Type>Cannith Armor Prefix</Type>
+    <Type>Cannith Belt Prefix</Type>
+    <Type>Cannith Bracers Suffix</Type>
+    <Type>Cannith Necklace Prefix</Type>
+    <Type>Cannith Ring Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Random Armor Prefix</Type>
+    <Type>Random Belt Prefix</Type>
+    <Type>Random Bracers Suffix</Type>
+    <Type>Random Necklace Prefix</Type>
+    <Type>Random Ring Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 2 2 3 4 4 5 5 5 6 6 6 7 7 8 8 8 9 9 9 10 10 11 11 11 12 12 12 13 13 14 14 14 15 15 15 15 15 15 15</LevelValue>
+    <Effect>
+      <Type>AbilityBonus</Type>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">15</Amount>
+      <Item>Constitution</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Charisma</Name>
+    <Icon>Cannith</Icon>
+    <Description>Enhancement bonus to Charisma</Description>
+    <Type>Cannith Cloak Prefix</Type>
+    <Type>Cannith Necklace Suffix</Type>
+    <Type>Cannith Ring Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Random Cloak Prefix</Type>
+    <Type>Random Necklace Suffix</Type>
+    <Type>Random Ring Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 2 2 3 4 4 5 5 5 6 6 6 7 7 8 8 8 9 9 9 10 10 11 11 11 12 12 12 13 13 14 14 14 15 15 15 15 15 15 15</LevelValue>
+    <Effect>
+      <Type>AbilityBonus</Type>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">15</Amount>
+      <Item>Charisma</Item>
+    </Effect>
+  </Augment>
+  <!--Insightful Ability Bonuses-->
+  <Augment>
+    <Name>Insightful Strength</Name>
+    <Icon>Cannith</Icon>
+    <Description>Insight bonus to Strength</Description>
+    <Type>Cannith Belt Extra</Type>
+    <Type>Cannith Bracers Extra</Type>
+    <Type>Cannith Gloves Extra</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Random Belt Extra</Type>
+    <Type>Random Bracers Extra</Type>
+    <Type>Random Gloves Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">0 0 0 1 1 1 2 2 2 2 2 2 3 3 3 3 3 4 4 4 4 4 5 5 5 5 5 5 6 6 6 6 6 7 7 7 7 7 7 7</LevelValue>
+    <Effect>
+      <Type>AbilityBonus</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">7</Amount>
+      <Item>Strength</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Intelligence</Name>
+    <Icon>Cannith</Icon>
+    <Description>Insight bonus to Intelligence</Description>
+    <Type>Cannith Cloak Extra</Type>
+    <Type>Cannith Goggles Extra</Type>
+    <Type>Cannith Helmet Extra</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Random Cloak Extra</Type>
+    <Type>Random Helmet Extra</Type>
+    <Type>Random Goggles Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">0 0 0 1 1 1 2 2 2 2 2 2 3 3 3 3 3 4 4 4 4 4 5 5 5 5 5 5 6 6 6 6 6 7 7 7 7 7 7 7</LevelValue>
+    <Effect>
+      <Type>AbilityBonus</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">7</Amount>
+      <Item>Intelligence</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Wisdom</Name>
+    <Icon>Cannith</Icon>
+    <Description>Insight bonus to Wisdom</Description>
+    <Type>Cannith Cloak Extra</Type>
+    <Type>Cannith Goggles Extra</Type>
+    <Type>Cannith Helmet Extra</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Random Cloak Extra</Type>
+    <Type>Random Goggles Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">0 0 0 1 1 1 2 2 2 2 2 2 3 3 3 3 3 4 4 4 4 4 5 5 5 5 5 5 6 6 6 6 6 7 7 7 7 7 7 7</LevelValue>
+    <Effect>
+      <Type>AbilityBonus</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">7</Amount>
+      <Item>Wisdom</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Dexterity</Name>
+    <Icon>Cannith</Icon>
+    <Description>Insight bonus to Dexterity</Description>
+    <Type>Cannith Boots Extra</Type>
+    <Type>Cannith Gloves Extra</Type>
+    <Type>Cannith Ring Extra</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Random Boots Extra</Type>
+    <Type>Random Gloves Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">0 0 0 1 1 1 2 2 2 2 2 2 3 3 3 3 3 4 4 4 4 4 5 5 5 5 5 5 6 6 6 6 6 7 7 7 7 7 7 7</LevelValue>
+    <Effect>
+      <Type>AbilityBonus</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">7</Amount>
+      <Item>Dexterity</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Constitution</Name>
+    <Icon>Cannith</Icon>
+    <Description>Insight bonus to Constitution</Description>
+    <Type>Cannith Belt Extra</Type>
+    <Type>Cannith Necklace Extra</Type>
+    <Type>Cannith Ring Extra</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Random Armor Extra</Type>
+    <Type>Random Belt Extra</Type>
+    <Type>Random Ring Extra</Type>
+    <Type>Random Necklace Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">0 0 0 1 1 1 2 2 2 2 2 2 3 3 3 3 3 4 4 4 4 4 5 5 5 5 5 5 6 6 6 6 6 7 7 7 7 7 7 7</LevelValue>
+    <Effect>
+      <Type>AbilityBonus</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">7</Amount>
+      <Item>Constitution</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Charisma</Name>
+    <Icon>Cannith</Icon>
+    <Description>Insight bonus to Charisma</Description>
+    <Type>Cannith Cloak Extra</Type>
+    <Type>Cannith Necklace Extra</Type>
+    <Type>Cannith Ring Extra</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Random Cloak Extra</Type>
+    <Type>Random Ring Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">0 0 0 1 1 1 2 2 2 2 2 2 3 3 3 3 3 4 4 4 4 4 5 5 5 5 5 5 6 6 6 6 6 7 7 7 7 7 7 7</LevelValue>
+    <Effect>
+      <Type>AbilityBonus</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">7</Amount>
+      <Item>Charisma</Item>
+    </Effect>
+  </Augment>
+  <!--Others-->
+  <Augment>
+    <Name>Cannith Armor Enhancement</Name>
+    <Icon>Cannith</Icon>
+    <Description>Enhancement bonus to AC</Description>
+    <Type>Cannith Armor Enhancement</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 1 2 2 2 3 3 3 3 4 4 4 4 5 5 5 5 6 6 6 6 6 6 6 7 7 8 10 11 12 12 12 13 13 13 13 13 13 13 13</LevelValue>
+    <Effect>
+      <Type>ACBonus</Type>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">15</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Cannith Shield Enhancement</Name>
+    <Icon>Cannith</Icon>
+    <Description>Shield bonus to AC</Description>
+    <Type>Cannith Shield Enhancement</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 1 2 2 2 3 3 3 3 4 4 4 4 5 5 5 5 6 6 6 6 6 6 6 7 7 8 10 11 12 12 12 13 13 13 13 13 13 13 13</LevelValue>
+    <Effect>
+      <Type>ACBonus</Type>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">15</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Cannith Orb Enhancement</Name>
+    <Icon>Cannith</Icon>
+    <Description>Orb bonus to AC</Description>
+    <Type>Cannith Orb Enhancement</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 1 2 2 2 3 3 3 3 4 4 4 4 5 5 5 5 6 6 6 6 6 6 6 7 7 8 10 11 12 12 12 13 13 13 13 13 13 13 13</LevelValue>
+    <Effect>
+      <Type>SaveBonus</Type>
+      <Bonus>Orb</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">13</Amount>
+      <Item>All</Item>
+      <Requirements>
+        <Requirement>
+          <Type>Stance</Type>
+          <Item>Blocking</Item>
+        </Requirement>
+      </Requirements>
+    </Effect>
+    <Effect>
+      <Type>EnergyResistance</Type>
+      <Bonus>Orb</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">13</Amount>
+      <Item>Acid</Item>
+      <Item>Cold</Item>
+      <Item>Electric</Item>
+      <Item>Fire</Item>
+      <Item>Sonic</Item>
+      <Requirements>
+        <Requirement>
+          <Type>Stance</Type>
+          <Item>Blocking</Item>
+        </Requirement>
+      </Requirements>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Cannith Spell Casting Implement</Name>
+    <Icon>Cannith</Icon>
+    <Description>Orb bonus to spell power</Description>
+    <Type>Cannith Orb Spell Casting Implement</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 30 30 30 30 30 30 30 30 30 30</LevelValue>
+    <Effect>
+      <Type>SpellPower</Type>
+      <Bonus>Implement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">28</Amount>
+      <Item>All</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Armor AC Bonus</Name>
+    <Icon>Cannith</Icon>
+    <Description>Armor AC bonus</Description>
+    <Type>Cannith Armor AC Bonus</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 1 2 2 2 3 3 3 3 4 4 4 4 5 5 5 5 6 6 6 6 6 6 6 7 7 8 10 11 12 12 12 13 13 13 13 13 13 13 13</LevelValue>
+    <Effect>
+      <Type>ACBonus</Type>
+      <Bonus>Armor</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">15</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Shield Base Weapon Damage</Name>
+    <Icon>Cannith</Icon>
+    <Description>Base weapon damage of W[Dice]</Description>
+    <Type>Cannith Shield Weapon Base Damage</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 1 1 1 1 1 1 1 1 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 2 2 2 2 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4</LevelValue>
+    <Effect>
+      <Type>Weapon_BaseDamage</Type>
+      <Bonus>Base</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+      <Item>All</Item>
+      <IsItemSpecific />
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Shield AC Bonus</Name>
+    <Icon>Cannith</Icon>
+    <Description>Shield AC bonus</Description>
+    <Type>Cannith Shield AC Bonus</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 1 2 2 2 3 3 3 3 4 4 4 4 5 5 5 5 6 6 6 6 6 6 6 7 7 8 10 11 12 12 12 13 13 13 13 13 13 13 13</LevelValue>
+    <Effect>
+      <Type>ACBonus</Type>
+      <Bonus>Shield</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">15</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Armor Check Penalty</Name>
+    <Icon>Cannith</Icon>
+    <Description>Armor skill check penalty</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Cannith Armor Check Penalty</Type>
+    <EnterValue />
+    <Effect>
+      <Type>ArmorCheckPenalty</Type>
+      <Bonus>Armor</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">15</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Armor Max Dex Bonus</Name>
+    <Icon>Cannith</Icon>
+    <Description>Armor Max Dex Bonus. If this is a docent enter the value for your Body Feat type.</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Cannith Armor Max Dex/Dodge Bonus</Type>
+    <EnterValue />
+    <Effect>
+      <Type>MaxDexBonus</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">15</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Arcane Spell Failure</Name>
+    <Icon>Cannith</Icon>
+    <Description>Arcane spell failure due to shield.</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Cannith Shield Arcane Spell Failure</Type>
+    <EnterValue />
+    <Effect>
+      <Type>ArcaneSpellFailureShields</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">15</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Tower Shield max dexterity bonus</Name>
+    <Icon>Cannith</Icon>
+    <Description>Arcane spell failure due to shield.</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Cannith Tower Shield Max Dex Bonus</Type>
+    <EnterValue />
+    <Effect>
+      <Type>MaxDexBonusTowerShield</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">15</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Dodge</Name>
+    <Icon>Cannith</Icon>
+    <Description>Enhancement bonus to Dodge</Description>
+    <Type>Cannith Belt Prefix</Type>
+    <Type>Cannith Boots Prefix</Type>
+    <Type>Cannith Bracers Suffix</Type>
+    <Type>Cannith Cloak Suffix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Random Belt Prefix</Type>
+    <Type>Random Boots Prefix</Type>
+    <Type>Random Bracers Suffix</Type>
+    <Type>Random Cloak Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 2 2 3 4 4 5 5 5 6 6 6 7 7 8 8 8 9 9 9 10 10 11 11 11 12 12 12 13 13 14 14 14 15 15 15 15 15 15 15</LevelValue>
+    <Effect>
+      <Type>DodgeBonus</Type>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">15</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Doubleshot</Name>
+    <Icon>Cannith</Icon>
+    <Description>Enhancement bonus to Doubleshot</Description>
+    <Type>Cannith Belt Prefix</Type>
+    <Type>Cannith Gloves Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Ranged Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 1 2 2 3 3 3 3 3 4 4 4 4 5 5 5 5 6 6 6 6 6 7 7 7 7 8 8 8 8 9 9 9 9 9 9 9 9 9 9</LevelValue>
+    <Effect>
+      <Type>Doubleshot</Type>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">9</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Doublestrike</Name>
+    <Icon>Cannith</Icon>
+    <Description>Enhancement bonus to Doublestrike</Description>
+    <Type>Cannith Belt Prefix</Type>
+    <Type>Cannith Gloves Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Melee Suffix</Type>
+    <Type>Random Belt Prefix</Type>
+    <Type>Random Gloves Prefix</Type>
+    <Type>Random Weapon Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">2 2 3 4 4 5 5 6 6 6 7 7 8 8 9 9 9 10 10 11 11 12 12 12 13 13 14 14 15 15 15 16 16 17 17 17 17 17 17 17</LevelValue>
+    <Effect>
+      <Type>Doublestrike</Type>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">17</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Diversion</Name>
+    <Icon>Cannith</Icon>
+    <Description>Insight bonus to threat generation</Description>
+    <Type>Cannith Belt Prefix</Type>
+    <Type>Cannith Boots Suffix</Type>
+    <Type>Cannith Cloak Extra</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Random Belt Prefix</Type>
+    <Type>Random Cloak Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">0 -1 -1 -2 -2 -2 -3 -3 -3 -4 -4 -4 -5 -5 -5 -5 -6 -6 -6 -7 -7 -7 -8 -8 -8 -8 -9 -9 -9 -10 -10 -10 -11 -11 -11 -11 -11 -11 -11 -11</LevelValue>
+    <Effect>
+      <Type>ThreatBonusMelee</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">11</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Spell Resistance</Name>
+    <Icon>Cannith</Icon>
+    <Description>Enhancement bonus to Spell Resistance</Description>
+    <Type>Cannith Armor Prefix</Type>
+    <Type>Cannith Belt Prefix</Type>
+    <Type>Cannith Cloak Prefix</Type>
+    <Type>Cannith Ring Prefix</Type>
+    <Type>Cannith Shield Prefix</Type>
+    <Type>Cannith Orb Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Random Armor Prefix</Type>
+    <Type>Random Belt Prefix</Type>
+    <Type>Random Cloak Prefix</Type>
+    <Type>Random Ring Prefix</Type>
+    <Type>Random Shield Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">3 5 6 9 10 12 13 14 15 16 17 18 20 21 22 23 24 25 26 28 29 30 31 32 33 34 36 37 38 39 40 41 41 41 41 41 41 41 41 41</LevelValue>
+    <Effect>
+      <Type>SpellResistance</Type>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">51</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Deathblock</Name>
+    <Icon>Cannith</Icon>
+    <Description>This effect grants immunity to all death spells and magical death effects.</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Cannith Armor Suffix</Type>
+    <Type>Cannith Belt Suffix</Type>
+    <Type>Cannith Shield Suffix</Type>
+    <Type>Cannith Orb Suffix</Type>
+    <Type>Random Armor Extra</Type>
+    <Type>Random Belt Prefix</Type>
+    <Type>Random Bracers Prefix</Type>
+    <Type>Random Helmet Extra</Type>
+    <Type>Random Shield Extra</Type>
+    <Effect>
+      <Type>Immunity</Type>
+      <Bonus>Stacking</Bonus>
+      <AType>NotNeeded</AType>
+      <Item>Death Effects</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>False Life</Name>
+    <Icon>Cannith</Icon>
+    <Description>Grants the wearer False Life Hitpoints</Description>
+    <Type>Cannith Armor Suffix</Type>
+    <Type>Cannith Belt Suffix</Type>
+    <Type>Cannith Necklace Suffix</Type>
+    <Type>Cannith Ring Suffix</Type>
+    <Type>Cannith Shield Suffix</Type>
+    <Type>Cannith Orb Suffix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Random Armor Suffix</Type>
+    <Type>Random Belt Suffix</Type>
+    <Type>Random Boots Extra</Type>
+    <Type>Random Cloak Extra</Type>
+    <Type>Random Necklace Suffix</Type>
+    <Type>Random Ring Suffix</Type>
+    <Type>Random Shield Suffix</Type>
+    <Type>Cannith Rune Arm Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">4 7 8 12 14 15 17 18 20 21 23 24 26 27 29 30 32 33 35 36 38 39 41 42 44 45 47 48 50 51 53 54 56 57 57 57 57 57 57 57</LevelValue>
+    <Effect>
+      <Type>FalseLife</Type>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">57</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Spell Resistance</Name>
+    <Icon>Cannith</Icon>
+    <Description>Insight bonus to Spell Resistance</Description>
+    <Type>Cannith Belt Suffix</Type>
+    <Type>Cannith Bracers Prefix</Type>
+    <Type>Cannith Cloak Extra</Type>
+    <Type>Cannith Necklace Prefix</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Random Bracers Prefix</Type>
+    <Type>Random Belt Suffix</Type>
+    <Type>Random Cloak Extra</Type>
+    <Type>Random Necklace Prefix</Type>
+    <Type>Random Ring Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">0 0 0 0 0 0 0 0 0 8 9 9 10 11 11 12 12 13 13 14 15 15 16 16 17 17 18 19 19 20 20 21 21 21 21 21 21 21 21 21</LevelValue>
+    <Effect>
+      <Type>SpellResistance</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">25</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Spell Power</Name>
+    <Icon>Cannith</Icon>
+    <Description>Insight bonus to Spell Power</Description>
+    <Type>Cannith Orb Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">19 21 23 27 29 31 33 35 36 38 40 42 43 45 47 48 50 52 54 55 57 59 61 62 64 66 67 69 71 73 74 76 78 79 79 79 79 79 79 79</LevelValue>
+    <Effect>
+      <Type>SpellPower</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">25</Amount>
+      <Item>All</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Natural Armor</Name>
+    <Icon>Cannith</Icon>
+    <Description>Natural Armor bonus to AC</Description>
+    <Type>Cannith Belt Suffix</Type>
+    <Type>Cannith Cloak Suffix</Type>
+    <Type>Cannith Necklace Suffix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Random Belt Suffix</Type>
+    <Type>Random Cloak Suffix</Type>
+    <Type>Random Necklace Suffix</Type>
+    <Type>Cannith Rune Arm Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 2 2 3 4 4 5 5 5 6 6 6 7 7 8 8 8 9 9 9 10 10 11 11 11 12 12 12 13 13 14 14 14 15 15 15 15 15 15 15</LevelValue>
+    <Effect>
+      <Type>NaturalArmor</Type>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">15</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Parrying</Name>
+    <Icon>Cannith</Icon>
+    <Description>Grants an Insight bonus to both AC and saves</Description>
+    <Type>Cannith Armor Extra</Type>
+    <Type>Cannith Belt Suffix</Type>
+    <Type>Cannith Boots Suffix</Type>
+    <Type>Cannith Bracers Extra</Type>
+    <Type>Cannith Helmet Suffix</Type>
+    <Type>Cannith Shield Extra</Type>
+    <Type>Cannith Orb Extra</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Random Armor Extra</Type>
+    <Type>Random Bracers Extra</Type>
+    <Type>Random Boots Suffix</Type>
+    <Type>Random Ring Extra</Type>
+    <Type>Random Shield Extra</Type>
+    <Type>Random Weapon Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">0 0 0 1 1 1 2 2 2 2 2 2 3 3 3 3 3 4 4 4 4 4 5 5 5 5 5 5 6 6 6 6 6 7 7 7 7 7 7 7</LevelValue>
+    <Effect>
+      <Type>ACBonus</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">7</Amount>
+    </Effect>
+    <Effect>
+      <Type>SaveBonus</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">7</Amount>
+      <Item>All</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Shatter</Name>
+    <Icon>Cannith</Icon>
+    <Description>Grants an Equipment bonus to Sunder and Improved Sunder attempts</Description>
+    <Type>Cannith Belt Suffix</Type>
+    <Type>Cannith Gloves Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Cannith Melee Suffix</Type>
+    <Type>Random Belt Suffix</Type>
+    <Type>Random Gloves Prefix</Type>
+    <Type>Random Weapon Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 2 3 4 4 5 5 6 6 6 7 7 8 8 9 9 9 10 10 11 11 12 12 12 13 13 14 14 15 15 15 16 16 17 17 17 17 17 17 17</LevelValue>
+    <Effect>
+      <Type>TacticalDC</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">17</Amount>
+      <Item>Sunder</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Stunning</Name>
+    <Icon>Cannith</Icon>
+    <Description>Adds an equipment bonus to the DC of your Stunning Blow, Stunning Fist, or Kukan-Do check.</Description>
+    <Type>Cannith Belt Suffix</Type>
+    <Type>Cannith Gloves Prefix</Type>
+    <Type>Cannith Helmet Suffix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Cannith Melee Suffix</Type>
+    <Type>Random Belt Suffix</Type>
+    <Type>Random Gloves Prefix</Type>
+    <Type>Random Helmet Suffix</Type>
+    <Type>Random Weapon Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 2 3 4 4 5 5 6 6 6 7 7 8 8 9 9 9 10 10 11 11 12 12 12 13 13 14 14 15 15 15 16 16 17 17 17 17 17 17 17</LevelValue>
+    <Effect>
+      <Type>TacticalDC</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">17</Amount>
+      <Item>Stun</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Vertigo</Name>
+    <Icon>Cannith</Icon>
+    <Description>Adds an equipment bonus to the DC of your Trip and Improved Trip attempts</Description>
+    <Type>Cannith Belt Suffix</Type>
+    <Type>Cannith Gloves Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Cannith Melee Suffix</Type>
+    <Type>Random Belt Suffix</Type>
+    <Type>Random Gloves Prefix</Type>
+    <Type>Random Weapon Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 2 3 4 4 5 5 6 6 6 7 7 8 8 9 9 9 10 10 11 11 12 12 12 13 13 14 14 15 15 15 16 16 17 17 17 17 17 17 17</LevelValue>
+    <Effect>
+      <Type>TacticalDC</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">17</Amount>
+      <Item>Trip</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Assassinate</Name>
+    <Icon>Cannith</Icon>
+    <Description>Adds an Enhancement bonus to the DC of your Assassinate attempts</Description>
+    <Type>Cannith Belt Extra</Type>
+    <Type>Cannith Gloves Prefix</Type>
+    <Type>Cannith Goggles Extra</Type>
+    <Type>Cannith Ring Suffix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Cannith Melee Suffix</Type>
+    <Type>Random Belt Extra</Type>
+    <Type>Random Gloves Prefix</Type>
+    <Type>Random Goggles Extra</Type>
+    <Type>Random Ring Suffix</Type>
+    <Type>Random Weapon Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">2 2 3 4 4 5 5 6 6 6 7 7 8 8 9 9 9 10 10 11 11 12 12 12 13 13 14 14 15 15 15 16 16 16 16 16 16 16 16 16</LevelValue>
+    <Effect>
+      <Type>TacticalDC</Type>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+      <Item>Assassinate</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Dodge</Name>
+    <Icon>Cannith</Icon>
+    <Description>Insightful bonus to Dodge</Description>
+    <Type>Cannith Belt Extra</Type>
+    <Type>Cannith Boots Extra</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Random Belt Extra</Type>
+    <Type>Random Boots Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">0 0 0 1 1 1 2 2 2 2 2 2 3 3 3 3 3 4 4 4 4 4 5 5 5 5 5 5 6 6 6 6 6 7 7 7 7 7 7 7</LevelValue>
+    <Effect>
+      <Type>DodgeBonus</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">7</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Combat Mastery</Name>
+    <Icon>Cannith</Icon>
+    <Description>Grants an Enhancement bonus to all tactical feat attempts</Description>
+    <Type>Cannith Armor Prefix</Type>
+    <Type>Cannith Boots Prefix</Type>
+    <Type>Cannith Shield Prefix</Type>
+    <Type>Cannith Orb Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Random Armor Prefix</Type>
+    <Type>Random Boots Prefix</Type>
+    <Type>Random Shield Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 2 2 3 3 3 4 4 4 5 5 5 6 6 6 6 7 7 7 8 8 8 9 9 9 9 10 10 10 11 11 11 12 12 12 12 12 12 12 12</LevelValue>
+    <Effect>
+      <Type>TacticalDC</Type>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">12</Amount>
+      <Item>Trip</Item>
+      <Item>Sunder</Item>
+      <Item>Stun</Item>
+      <Item>General</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Feather Fall</Name>
+    <Icon>Cannith</Icon>
+    <Description>You fall like a feather rather than a sack of potatoes</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Cannith Boots Prefix</Type>
+    <Type>Cannith Cloak Prefix</Type>
+    <Type>Cannith Ring Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Random Boots Suffix</Type>
+    <Type>Random Cloak Suffix</Type>
+    <Type>Random Ring Suffix</Type>
+    <Effect>
+      <Type>Immunity</Type>
+      <Bonus>Stacking</Bonus>
+      <AType>NotNeeded</AType>
+      <Item>Falling damage</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Seeker</Name>
+    <Icon>Cannith</Icon>
+    <Description>Enhancement bonus to critical attack rolls and damage</Description>
+    <Type>Cannith Boots Prefix</Type>
+    <Type>Cannith Goggles Prefix</Type>
+    <Type>Cannith Handwraps Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Melee Prefix</Type>
+    <Type>Cannith Ranged Prefix</Type>
+    <Type>Cannith Thrown Prefix</Type>
+    <Type>Random Boots Prefix</Type>
+    <Type>Random Goggles Prefix</Type>
+    <Type>Random Weapon Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 2 2 3 4 4 5 5 5 6 6 6 7 7 8 8 8 9 9 9 10 10 11 11 11 12 12 12 13 13 14 14 14 15 15 15 15 15 15 15</LevelValue>
+    <Effect>
+      <Type>Weapon_AttackAndDamageCritical</Type>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">15</Amount>
+      <Item>All</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Striding</Name>
+    <Icon>Cannith</Icon>
+    <Description>Enhancement bonus to movement speed</Description>
+    <Type>Cannith Boots Prefix</Type>
+    <Type>Cannith Ring Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">15 15 15 15 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30</LevelValue>
+    <Effect>
+      <Type>MovementSpeed</Type>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">30</Amount>
+      <ApplyAsItemEffect />
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Diversion</Name>
+    <Icon>Cannith</Icon>
+    <Description>Enhancement bonus to threat generation</Description>
+    <Type>Cannith Boots Suffix</Type>
+    <Type>Cannith Cloak Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Cannith Melee Suffix</Type>
+    <Type>Cannith Ranged Suffix</Type>
+    <Type>Cannith Thrown Suffix</Type>
+    <Type>Random Boots Suffix</Type>
+    <Type>Random Cloak Prefix</Type>
+    <Type>Random Weapon Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">-2 -3 -4 -5 -6 -6 -7 -8 -8 -9 -9 -10 -11 -11 -12 -12 -13 -14 -14 -15 -15 -16 -17 -17 -18 -18 -19 -20 -20 -21 -21 -22 -23 -23 -23 -23 -23 -23 -23 -23</LevelValue>
+    <Effect>
+      <Type>ThreatBonusMelee</Type>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">-23</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>7d8 Acid Guard</Name>
+    <Icon>Cannith</Icon>
+    <Description>On being hit in melee combat you do 7d8 acid damage to your attacker</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Cannith Armor Suffix</Type>
+    <Type>Cannith Shield Suffix</Type>
+    <Type>Cannith Orb Suffix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Effect>
+      <Type>Guard</Type>
+      <Bonus>Equipment</Bonus>
+      <Dice>
+        <Number size="1">7</Number>
+        <Sides size="1">8</Sides>
+        <Damage>Acid</Damage>
+      </Dice>
+      <AType>NotNeeded</AType>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>7d8 Evil Guard</Name>
+    <Icon>Cannith</Icon>
+    <Description>On being hit in melee combat you do 7d8 evil damage to your attacker</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Cannith Armor Suffix</Type>
+    <Type>Cannith Shield Suffix</Type>
+    <Type>Cannith Orb Suffix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Effect>
+      <Type>Guard</Type>
+      <Bonus>Equipment</Bonus>
+      <Dice>
+        <Number size="1">7</Number>
+        <Sides size="1">8</Sides>
+        <Damage>Evil</Damage>
+      </Dice>
+      <AType>NotNeeded</AType>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>7d8 Fire Guard</Name>
+    <Icon>Cannith</Icon>
+    <Description>On being hit in melee combat you do 7d8 fire damage to your attacker</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Cannith Armor Suffix</Type>
+    <Type>Cannith Shield Suffix</Type>
+    <Type>Cannith Orb Suffix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Effect>
+      <Type>Guard</Type>
+      <Bonus>Equipment</Bonus>
+      <Dice>
+        <Number size="1">7</Number>
+        <Sides size="1">8</Sides>
+        <Damage>Fire</Damage>
+      </Dice>
+      <AType>NotNeeded</AType>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>7d8 Good Guard</Name>
+    <Icon>Cannith</Icon>
+    <Description>On being hit in melee combat you do 7d8 good damage to your attacker</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Cannith Armor Suffix</Type>
+    <Type>Cannith Shield Suffix</Type>
+    <Type>Cannith Orb Suffix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Effect>
+      <Type>Guard</Type>
+      <Bonus>Equipment</Bonus>
+      <Dice>
+        <Number size="1">7</Number>
+        <Sides size="1">8</Sides>
+        <Damage>Good</Damage>
+      </Dice>
+      <AType>NotNeeded</AType>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>7d8 Ice Guard</Name>
+    <Icon>Cannith</Icon>
+    <Description>On being hit in melee combat you do 7d8 cold damage to your attacker</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Cannith Armor Suffix</Type>
+    <Type>Cannith Shield Suffix</Type>
+    <Type>Cannith Orb Suffix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Effect>
+      <Type>Guard</Type>
+      <Bonus>Equipment</Bonus>
+      <Dice>
+        <Number size="1">7</Number>
+        <Sides size="1">8</Sides>
+        <Damage>Cold</Damage>
+      </Dice>
+      <AType>NotNeeded</AType>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>7d8 Lightning Guard</Name>
+    <Icon>Cannith</Icon>
+    <Description>On being hit in melee combat you do 7d8 electric damage to your attacker</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Cannith Armor Suffix</Type>
+    <Type>Cannith Shield Suffix</Type>
+    <Type>Cannith Orb Suffix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Effect>
+      <Type>Guard</Type>
+      <Bonus>Equipment</Bonus>
+      <Dice>
+        <Number size="1">7</Number>
+        <Sides size="1">8</Sides>
+        <Damage>Electric</Damage>
+      </Dice>
+      <AType>NotNeeded</AType>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>7d8 Piercing Guard</Name>
+    <Icon>Cannith</Icon>
+    <Description>On being hit in melee combat you do 7d8 pierce damage to your attacker</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Cannith Armor Suffix</Type>
+    <Type>Cannith Shield Suffix</Type>
+    <Type>Cannith Orb Suffix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Effect>
+      <Type>Guard</Type>
+      <Bonus>Equipment</Bonus>
+      <Dice>
+        <Number size="1">7</Number>
+        <Sides size="1">8</Sides>
+        <Damage>Pierce</Damage>
+      </Dice>
+      <AType>NotNeeded</AType>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>7d8 Solar Guard</Name>
+    <Icon>Cannith</Icon>
+    <Description>On being hit in melee combat you do 7d8 light damage to your attacker</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Cannith Armor Suffix</Type>
+    <Type>Cannith Shield Suffix</Type>
+    <Type>Cannith Orb Suffix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Effect>
+      <Type>Guard</Type>
+      <Bonus>Equipment</Bonus>
+      <Dice>
+        <Number size="1">7</Number>
+        <Sides size="1">8</Sides>
+        <Damage>Light</Damage>
+      </Dice>
+      <AType>NotNeeded</AType>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>7d8 Sonic Guard</Name>
+    <Icon>Cannith</Icon>
+    <Description>On being hit in melee combat you do 7d8 sonic damage to your attacker</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Cannith Armor Suffix</Type>
+    <Type>Cannith Shield Suffix</Type>
+    <Type>Cannith Orb Suffix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Effect>
+      <Type>Guard</Type>
+      <Bonus>Equipment</Bonus>
+      <Dice>
+        <Number size="1">7</Number>
+        <Sides size="1">8</Sides>
+        <Damage>Sonic</Damage>
+      </Dice>
+      <AType>NotNeeded</AType>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>7d8 undead Guard</Name>
+    <Icon>Cannith</Icon>
+    <Description>On being hit by undead in melee combat you do 7d8 untyped damage to your attacker</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Cannith Armor Suffix</Type>
+    <Type>Cannith Shield Suffix</Type>
+    <Type>Cannith Orb Suffix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Effect>
+      <Type>Guard</Type>
+      <Bonus>Equipment</Bonus>
+      <Dice>
+        <Number size="1">7</Number>
+        <Sides size="1">8</Sides>
+        <Damage>Untyped</Damage>
+      </Dice>
+      <AType>NotNeeded</AType>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Sheltering</Name>
+    <Icon>Cannith</Icon>
+    <Description>Enhancement bonus to your Physical and Magical Resistance Ratings.</Description>
+    <Type>Cannith Boots Suffix</Type>
+    <Type>Cannith Bracers Extra</Type>
+    <Type>Cannith Helmet Prefix</Type>
+    <Type>Cannith Necklace Suffix</Type>
+    <Type>Cannith Ring Suffix</Type>
+    <Type>Cannith Shield Suffix</Type>
+    <Type>Cannith Orb Suffix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Random Boots Suffix</Type>
+    <Type>Random Bracers Extra</Type>
+    <Type>Random Helmet Prefix</Type>
+    <Type>Random Necklace Suffix</Type>
+    <Type>Random Ring Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">3 4 5 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 38 38 38 38 38 38</LevelValue>
+    <Effect>
+      <Type>PRR</Type>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">38</Amount>
+    </Effect>
+    <Effect>
+      <Type>MRR</Type>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">38</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Combat Mastery</Name>
+    <Icon>Cannith</Icon>
+    <Description>Grants an Insight bonus to all tactical feat attempts</Description>
+    <Type>Cannith Armor Suffix</Type>
+    <Type>Cannith Boots Extra</Type>
+    <Type>Cannith Gloves Suffix</Type>
+    <Type>Cannith Shield Suffix</Type>
+    <Type>Cannith Orb Suffix</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Cannith Melee Suffix</Type>
+    <Type>Random Armor Suffix</Type>
+    <Type>Random Boots Extra</Type>
+    <Type>Random Gloves Suffix</Type>
+    <Type>Random Shield Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 1 1 2 2 2 2 2 2 3 3 3 3 3 3 3 4 4 4 4 4 4 5 5 5 5 5 5 5 6 6 6 6 6 6 6 6 6 6 6</LevelValue>
+    <Effect>
+      <Type>TacticalDC</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">6</Amount>
+      <Item>Trip</Item>
+      <Item>Sunder</Item>
+      <Item>Stun</Item>
+      <Item>General</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Fortification</Name>
+    <Icon>Cannith</Icon>
+    <Description>Insight bonus to Fortification</Description>
+    <Type>Cannith Boots Extra</Type>
+    <Type>Cannith Bracers Extra</Type>
+    <Type>Cannith Helmet Extra</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Random Armor Extra</Type>
+    <Type>Random Boots Extra</Type>
+    <Type>Random Helmet Extra</Type>
+    <Type>Random Shield Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">19 21 23 27 29 31 33 35 36 38 40 42 43 45 47 48 50 52 54 55 57 59 61 62 64 66 67 69 71 73 74 76 78 79 79 79 79 79 79 79</LevelValue>
+    <Effect>
+      <Type>Fortification</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">79</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Seeker</Name>
+    <Icon>Cannith</Icon>
+    <Description>Insight bonus to critical attack rolls and damage</Description>
+    <Type>Cannith Boots Extra</Type>
+    <Type>Cannith Goggles Extra</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Cannith Melee Extra</Type>
+    <Type>Cannith Ranged Extra</Type>
+    <Type>Cannith Thrown Extra</Type>
+    <Type>Random Boots Extra</Type>
+    <Type>Random Goggles Extra</Type>
+    <Type>Random Weapon Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">0 0 0 1 1 1 2 2 2 2 2 2 3 3 3 3 3 4 4 4 4 4 5 5 5 5 5 5 6 6 6 6 6 7 7 7 7 7 7 7</LevelValue>
+    <Effect>
+      <Type>Weapon_AttackAndDamageCritical</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">7</Amount>
+      <Item>All</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Disease Ward</Name>
+    <Icon>Cannith</Icon>
+    <Description>You have a Resistance bonus to saves versus Disease.</Description>
+    <Type>Cannith Armor Prefix</Type>
+    <Type>Cannith Bracers Prefix</Type>
+    <Type>Cannith Cloak Prefix</Type>
+    <Type>Cannith Necklace Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Rune Arm Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 2 2 3 3 3 4 4 4 5 5 5 6 6 6 6 7 7 7 8 8 8 9 9 9 9 10 10 10 11 11 11 12 12 12 12 12 12 12 12</LevelValue>
+    <Effect>
+      <Type>SaveBonus</Type>
+      <Bonus>Resistance</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">11</Amount>
+      <Item>Disease</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Disease Ward</Name>
+    <Icon>Cannith</Icon>
+    <Description>You have a Insight bonus to saves versus Disease.</Description>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Cannith Necklace Extra</Type>
+    <Type>Cannith Ring Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">0 0 0 1 1 1 1 1 1 2 2 2 2 2 2 2 3 3 3 3 3 3 4 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5</LevelValue>
+    <Effect>
+      <Type>SaveBonus</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">11</Amount>
+      <Item>Disease</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Enchantment Resistance</Name>
+    <Icon>Cannith</Icon>
+    <Description>You have a Resistance bonus to saves versus Enchantment.</Description>
+    <Type>Cannith Bracers Prefix</Type>
+    <Type>Cannith Cloak Prefix</Type>
+    <Type>Cannith Necklace Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Random Cloak Suffix</Type>
+    <Type>Random Necklace Prefix</Type>
+    <Type>Random Ring Extra</Type>
+    <Type>Cannith Rune Arm Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 2 2 3 3 3 4 4 4 5 5 5 6 6 6 6 7 7 7 8 8 8 9 9 9 9 10 10 10 11 11 11 12 12 12 12 12 12 12 12</LevelValue>
+    <Effect>
+      <Type>SaveBonus</Type>
+      <Bonus>Resistance</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">11</Amount>
+      <Item>Enchantment</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Fortitude</Name>
+    <Icon>Cannith</Icon>
+    <Description>You have a Resistance bonus to Fortitude saves</Description>
+    <Type>Cannith Bracers Prefix</Type>
+    <Type>Cannith Cloak Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Random Bracers Prefix</Type>
+    <Type>Random Cloak Prefix</Type>
+    <Type>Random Cloak Suffix</Type>
+    <Type>Random Gloves Suffix</Type>
+    <Type>Random Helmet Suffix</Type>
+    <Type>Cannith Rune Arm Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">2 3 3 4 4 4 5 5 5 6 6 6 7 7 7 7 8 8 8 9 9 9 10 10 10 10 11 11 11 12 12 12 13 13 13 13 13 13 13 13</LevelValue>
+    <Effect>
+      <Type>SaveBonus</Type>
+      <Bonus>Resistance</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">11</Amount>
+      <Item>Fortitude</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Illusion Resistance</Name>
+    <Icon>Cannith</Icon>
+    <Description>You have a Resistance bonus to saves versus Illusion</Description>
+    <Type>Cannith Bracers Prefix</Type>
+    <Type>Cannith Cloak Prefix</Type>
+    <Type>Cannith Necklace Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Random Cloak Suffix</Type>
+    <Type>Random Necklace Prefix</Type>
+    <Type>Random Ring Extra</Type>
+    <Type>Cannith Rune Arm Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 2 2 3 3 3 4 4 4 5 5 5 6 6 6 6 7 7 7 8 8 8 9 9 9 9 10 10 10 11 11 11 12 12 12 12 12 12 12 12</LevelValue>
+    <Effect>
+      <Type>SaveBonus</Type>
+      <Bonus>Resistance</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">11</Amount>
+      <Item>Illusion</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Acid Resistance</Name>
+    <Icon>Cannith</Icon>
+    <Description>You have an Insight bonus to resist Acid</Description>
+    <Type>Cannith Armor Extra</Type>
+    <Type>Cannith Bracers Prefix</Type>
+    <Type>Cannith Cloak Suffix</Type>
+    <Type>Cannith Shield Extra</Type>
+    <Type>Cannith Orb Extra</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Random Armor Extra</Type>
+    <Type>Random Cloak Suffix</Type>
+    <Type>Random Ring Extra</Type>
+    <Type>Random Shield Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 2 4 5 6 6 7 8 9 10 11 11 12 13 14 14 15 16 17 17 18 19 20 20 21 22 23 23 24 25 26 27 27 28 28 28 28 28 28 28</LevelValue>
+    <Effect>
+      <Type>EnergyResistance</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">28</Amount>
+      <Item>Acid</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Cold Resistance</Name>
+    <Icon>Cannith</Icon>
+    <Description>You have an Insight bonus to resist Cold</Description>
+    <Type>Cannith Armor Extra</Type>
+    <Type>Cannith Bracers Prefix</Type>
+    <Type>Cannith Cloak Suffix</Type>
+    <Type>Cannith Shield Extra</Type>
+    <Type>Cannith Orb Extra</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Random Armor Extra</Type>
+    <Type>Random Cloak Suffix</Type>
+    <Type>Random Ring Extra</Type>
+    <Type>Random Shield Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 2 4 5 6 6 7 8 9 10 11 11 12 13 14 14 15 16 17 17 18 19 20 20 21 22 23 23 24 25 26 27 27 28 28 28 28 28 28 28</LevelValue>
+    <Effect>
+      <Type>EnergyResistance</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">28</Amount>
+      <Item>Cold</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Electric Resistance</Name>
+    <Icon>Cannith</Icon>
+    <Description>You have an Insight bonus to resist Electric</Description>
+    <Type>Cannith Armor Extra</Type>
+    <Type>Cannith Bracers Prefix</Type>
+    <Type>Cannith Cloak Suffix</Type>
+    <Type>Cannith Shield Extra</Type>
+    <Type>Cannith Orb Extra</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Random Armor Extra</Type>
+    <Type>Random Cloak Suffix</Type>
+    <Type>Random Ring Extra</Type>
+    <Type>Random Shield Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 2 4 5 6 6 7 8 9 10 11 11 12 13 14 14 15 16 17 17 18 19 20 20 21 22 23 23 24 25 26 27 27 28 28 28 28 28 28 28</LevelValue>
+    <Effect>
+      <Type>EnergyResistance</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">28</Amount>
+      <Item>Electric</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Fire Resistance</Name>
+    <Icon>Cannith</Icon>
+    <Description>You have an Insight bonus to resist Fire</Description>
+    <Type>Cannith Armor Extra</Type>
+    <Type>Cannith Bracers Prefix</Type>
+    <Type>Cannith Cloak Suffix</Type>
+    <Type>Cannith Shield Extra</Type>
+    <Type>Cannith Orb Extra</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Random Armor Extra</Type>
+    <Type>Random Cloak Suffix</Type>
+    <Type>Random Ring Extra</Type>
+    <Type>Random Shield Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 2 4 5 6 6 7 8 9 10 11 11 12 13 14 14 15 16 17 17 18 19 20 20 21 22 23 23 24 25 26 27 27 28 28 28 28 28 28 28</LevelValue>
+    <Effect>
+      <Type>EnergyResistance</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">28</Amount>
+      <Item>Fire</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Light Resistance</Name>
+    <Icon>Cannith</Icon>
+    <Description>You have an Insight bonus to resist Light</Description>
+    <Type>Cannith Armor Extra</Type>
+    <Type>Cannith Bracers Prefix</Type>
+    <Type>Cannith Cloak Suffix</Type>
+    <Type>Cannith Shield Extra</Type>
+    <Type>Cannith Orb Extra</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Random Armor Extra</Type>
+    <Type>Random Cloak Suffix</Type>
+    <Type>Random Ring Extra</Type>
+    <Type>Random Shield Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 2 4 5 6 6 7 8 9 10 11 11 12 13 14 14 15 16 17 17 18 19 20 20 21 22 23 23 24 25 26 27 27 28 28 28 28 28 28 28</LevelValue>
+    <Effect>
+      <Type>EnergyResistance</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">28</Amount>
+      <Item>Light</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Negative energy Resistance</Name>
+    <Icon>Cannith</Icon>
+    <Description>You have an Insight bonus to resist Negative energy</Description>
+    <Type>Cannith Armor Extra</Type>
+    <Type>Cannith Bracers Prefix</Type>
+    <Type>Cannith Cloak Suffix</Type>
+    <Type>Cannith Shield Extra</Type>
+    <Type>Cannith Orb Extra</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Random Armor Extra</Type>
+    <Type>Random Cloak Suffix</Type>
+    <Type>Random Ring Extra</Type>
+    <Type>Random Shield Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 2 4 5 6 6 7 8 9 10 11 11 12 13 14 14 15 16 17 17 18 19 20 20 21 22 23 23 24 25 26 27 27 28 28 28 28 28 28 28</LevelValue>
+    <Effect>
+      <Type>EnergyResistance</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">28</Amount>
+      <Item>Negative</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Poison Resistance</Name>
+    <Icon>Cannith</Icon>
+    <Description>You have an Insight bonus to resist Poison</Description>
+    <Type>Cannith Armor Extra</Type>
+    <Type>Cannith Bracers Prefix</Type>
+    <Type>Cannith Cloak Suffix</Type>
+    <Type>Cannith Shield Extra</Type>
+    <Type>Cannith Orb Extra</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Random Armor Extra</Type>
+    <Type>Random Cloak Suffix</Type>
+    <Type>Random Ring Extra</Type>
+    <Type>Random Shield Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 2 4 5 6 6 7 8 9 10 11 11 12 13 14 14 15 16 17 17 18 19 20 20 21 22 23 23 24 25 26 27 27 28 28 28 28 28 28 28</LevelValue>
+    <Effect>
+      <Type>EnergyResistance</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">28</Amount>
+      <Item>Poison</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Sonic Resistance</Name>
+    <Icon>Cannith</Icon>
+    <Description>You have an Insight bonus to resist Sonic</Description>
+    <Type>Cannith Armor Extra</Type>
+    <Type>Cannith Bracers Prefix</Type>
+    <Type>Cannith Cloak Suffix</Type>
+    <Type>Cannith Shield Extra</Type>
+    <Type>Cannith Orb Extra</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Random Armor Extra</Type>
+    <Type>Random Cloak Suffix</Type>
+    <Type>Random Ring Extra</Type>
+    <Type>Random Shield Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 2 4 5 6 6 7 8 9 10 11 11 12 13 14 14 15 16 17 17 18 19 20 20 21 22 23 23 24 25 26 27 27 28 28 28 28 28 28 28</LevelValue>
+    <Effect>
+      <Type>EnergyResistance</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">28</Amount>
+      <Item>Sonic</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Poison Ward</Name>
+    <Icon>Cannith</Icon>
+    <Description>You have a Resistance bonus to saves versus Poison.</Description>
+    <Type>Cannith Bracers Prefix</Type>
+    <Type>Cannith Cloak Prefix</Type>
+    <Type>Cannith Necklace Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Rune Arm Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 2 2 3 3 3 4 4 4 5 5 5 6 6 6 6 7 7 7 8 8 8 9 9 9 9 10 10 10 11 11 11 12 12 12 12 12 12 12 12</LevelValue>
+    <Effect>
+      <Type>SaveBonus</Type>
+      <Bonus>Resistance</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">11</Amount>
+      <Item>Poison</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Poison Ward</Name>
+    <Icon>Cannith</Icon>
+    <Description>You have a Insight bonus to saves versus Poison.</Description>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Cannith Ring Extra</Type>
+    <Type>Cannith Necklace Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">0 0 0 1 1 1 1 1 1 2 2 2 2 2 2 2 3 3 3 3 3 3 4 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5</LevelValue>
+    <Effect>
+      <Type>SaveBonus</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">11</Amount>
+      <Item>Poison</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Protection</Name>
+    <Icon>Cannith</Icon>
+    <Description>You have a Deflection bonus to AC</Description>
+    <Type>Cannith Bracers Prefix</Type>
+    <Type>Cannith Ring Suffix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Random Bracers Prefix</Type>
+    <Type>Random Ring Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 2 2 3 3 3 4 4 4 5 5 5 6 6 6 6 7 7 7 8 8 8 9 9 9 9 10 10 10 11 11 11 12 12 12 12 12 12 12 12</LevelValue>
+    <Effect>
+      <Type>ACBonus</Type>
+      <Bonus>Deflection</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">11</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Reflex</Name>
+    <Icon>Cannith</Icon>
+    <Description>You have a Resistance bonus to Reflex saves</Description>
+    <Type>Cannith Bracers Prefix</Type>
+    <Type>Cannith Cloak Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Random Bracers Prefix</Type>
+    <Type>Random Cloak Prefix</Type>
+    <Type>Random Cloak Suffix</Type>
+    <Type>Random Gloves Suffix</Type>
+    <Type>Random Helmet Suffix</Type>
+    <Type>Cannith Rune Arm Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">2 3 3 4 4 4 5 5 5 6 6 6 7 7 7 7 8 8 8 9 9 9 10 10 10 10 11 11 11 12 12 12 13 13 13 13 13 13 13 13</LevelValue>
+    <Effect>
+      <Type>SaveBonus</Type>
+      <Bonus>Resistance</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">11</Amount>
+      <Item>Reflex</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Resistance</Name>
+    <Icon>Cannith</Icon>
+    <Description>You have a Resistance bonus to saves</Description>
+    <Type>Cannith Bracers Prefix</Type>
+    <Type>Cannith Gloves Suffix</Type>
+    <Type>Cannith Helmet Suffix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Random Bracers Prefix</Type>
+    <Type>Random Cloak Prefix</Type>
+    <Type>Random Cloak Suffix</Type>
+    <Type>Random Gloves Suffix</Type>
+    <Type>Random Helmet Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 2 2 3 3 3 4 4 4 5 5 5 6 6 6 6 7 7 7 8 8 8 9 9 9 9 10 10 10 11 11 11 12 12 12 12 12 12 12 12</LevelValue>
+    <Effect>
+      <Type>SaveBonus</Type>
+      <Bonus>Resistance</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">11</Amount>
+      <Item>All</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Spell Saves</Name>
+    <Icon>Cannith</Icon>
+    <Description>You have a Resistance bonus to saves versus Spells.</Description>
+    <Type>Cannith Bracers Prefix</Type>
+    <Type>Cannith Cloak Prefix</Type>
+    <Type>Cannith Necklace Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Rune Arm Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 2 2 3 3 3 4 4 4 5 5 5 6 6 6 6 7 7 7 8 8 8 9 9 9 9 10 10 10 11 11 11 12 12 12 12 12 12 12 12</LevelValue>
+    <Effect>
+      <Type>SaveBonus</Type>
+      <Bonus>Resistance</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">11</Amount>
+      <Item>Spell</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Spell Saves</Name>
+    <Icon>Cannith</Icon>
+    <Description>You have a Insight bonus to saves versus Spells.</Description>
+    <Type>Cannith Ring Extra</Type>
+    <Type>Cannith Necklace Extra</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">0 0 0 1 1 1 1 1 1 2 2 2 2 2 2 2 3 3 3 3 3 3 4 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5</LevelValue>
+    <Effect>
+      <Type>SaveBonus</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">11</Amount>
+      <Item>Spell</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Will</Name>
+    <Icon>Cannith</Icon>
+    <Description>You have a Resistance bonus to Will saves</Description>
+    <Type>Cannith Bracers Prefix</Type>
+    <Type>Cannith Cloak Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Random Bracers Prefix</Type>
+    <Type>Random Cloak Prefix</Type>
+    <Type>Random Cloak Suffix</Type>
+    <Type>Random Gloves Suffix</Type>
+    <Type>Random Helmet Suffix</Type>
+    <Type>Cannith Rune Arm Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">2 3 3 4 4 4 5 5 5 6 6 6 7 7 7 7 8 8 8 9 9 9 10 10 10 10 11 11 11 12 12 12 13 13 13 13 13 13 13 13</LevelValue>
+    <Effect>
+      <Type>SaveBonus</Type>
+      <Bonus>Resistance</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">11</Amount>
+      <Item>Will</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Fortification</Name>
+    <Icon>Cannith</Icon>
+    <Description>Enhancement bonus to Fortification</Description>
+    <Type>Cannith Armor Prefix</Type>
+    <Type>Cannith Bracers Suffix</Type>
+    <Type>Cannith Helmet Prefix</Type>
+    <Type>Cannith Shield Prefix</Type>
+    <Type>Cannith Orb Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Random Armor Prefix</Type>
+    <Type>Random Bracers Suffix</Type>
+    <Type>Random Helmet Prefix</Type>
+    <Type>Random Shield Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">38 43 47 55 59 63 66 70 73 77 80 84 87 90 94 97 101 104 108 111 115 118 122 125 128 132 135 139 142 146 149 153 156 159 159 159 159 159 159 159</LevelValue>
+    <Effect>
+      <Type>Fortification</Type>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">146</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Magical Sheltering</Name>
+    <Icon>Cannith</Icon>
+    <Description>Insight bonus to MRR</Description>
+    <Type>Cannith Bracers Suffix</Type>
+    <Type>Cannith Cloak Extra</Type>
+    <Type>Cannith Helmet Extra</Type>
+    <Type>Cannith Necklace Extra</Type>
+    <Type>Cannith Ring Extra</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 1 2 3 4 4 5 5 6 6 7 7 8 8 9 9 10 10 11 11 12 12 13 13 14 14 15 15 16 16 17 17 18 18 18 18 18 18 18 18</LevelValue>
+    <Effect>
+      <Type>MRR</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">16</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Physical Sheltering</Name>
+    <Icon>Cannith</Icon>
+    <Description>Insight bonus to MRR</Description>
+    <Type>Cannith Bracers Suffix</Type>
+    <Type>Cannith Cloak Extra</Type>
+    <Type>Cannith Helmet Extra</Type>
+    <Type>Cannith Necklace Extra</Type>
+    <Type>Cannith Ring Extra</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Random Armor Suffix</Type>
+    <Type>Random Belt Extra</Type>
+    <Type>Random Cloak Extra</Type>
+    <Type>Random Ring Suffix</Type>
+    <Type>Random Shield Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 1 2 3 4 4 5 5 6 6 7 7 8 8 9 9 10 10 11 11 12 12 13 13 14 14 15 15 16 16 17 17 18 18 18 18 18 18 18 18</LevelValue>
+    <Effect>
+      <Type>PRR</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">16</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Acid Absorption</Name>
+    <Icon>Cannith</Icon>
+    <Description>You have a Enhancement bonus to Acid Absorption</Description>
+    <Type>Cannith Armor Prefix</Type>
+    <Type>Cannith Cloak Suffix</Type>
+    <Type>Cannith Ring Prefix</Type>
+    <Type>Cannith Shield Prefix</Type>
+    <Type>Cannith Orb Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Random Armor Prefix</Type>
+    <Type>Random Cloak Suffix</Type>
+    <Type>Random Ring Prefix</Type>
+    <Type>Random Shield Prefix</Type>
+    <Type>Cannith Rune Arm Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">11 13 13 15 16 17 18 18 19 20 21 21 22 23 24 24 25 26 27 27 28 29 30 30 31 32 33 33 34 35 36 36 37 38 39 40 41 42 43 44</LevelValue>
+    <Effect>
+      <Type>EnergyAbsorbance</Type>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">38</Amount>
+      <Item>Acid</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Cold Absorption</Name>
+    <Icon>Cannith</Icon>
+    <Description>You have a Enhancement bonus to Cold Absorption</Description>
+    <Type>Cannith Armor Prefix</Type>
+    <Type>Cannith Cloak Suffix</Type>
+    <Type>Cannith Ring Prefix</Type>
+    <Type>Cannith Shield Prefix</Type>
+    <Type>Cannith Orb Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Random Armor Prefix</Type>
+    <Type>Random Cloak Suffix</Type>
+    <Type>Random Ring Prefix</Type>
+    <Type>Random Shield Prefix</Type>
+    <Type>Cannith Rune Arm Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">11 13 13 15 16 17 18 18 19 20 21 21 22 23 24 24 25 26 27 27 28 29 30 30 31 32 33 33 34 35 36 36 37 38 39 40 41 42 43 44</LevelValue>
+    <Effect>
+      <Type>EnergyAbsorbance</Type>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">38</Amount>
+      <Item>Cold</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Electric Absorption</Name>
+    <Icon>Cannith</Icon>
+    <Description>You have a Enhancement bonus to Electric Absorption</Description>
+    <Type>Cannith Armor Prefix</Type>
+    <Type>Cannith Cloak Suffix</Type>
+    <Type>Cannith Ring Prefix</Type>
+    <Type>Cannith Shield Prefix</Type>
+    <Type>Cannith Orb Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Random Armor Prefix</Type>
+    <Type>Random Cloak Suffix</Type>
+    <Type>Random Ring Prefix</Type>
+    <Type>Random Shield Prefix</Type>
+    <Type>Cannith Rune Arm Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">11 13 13 15 16 17 18 18 19 20 21 21 22 23 24 24 25 26 27 27 28 29 30 30 31 32 33 33 34 35 36 36 37 38 39 40 41 42 43 44</LevelValue>
+    <Effect>
+      <Type>EnergyAbsorbance</Type>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">38</Amount>
+      <Item>Electric</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Fire Absorption</Name>
+    <Icon>Cannith</Icon>
+    <Description>You have a Enhancement bonus to Fire Absorption</Description>
+    <Type>Cannith Armor Prefix</Type>
+    <Type>Cannith Cloak Suffix</Type>
+    <Type>Cannith Ring Prefix</Type>
+    <Type>Cannith Shield Prefix</Type>
+    <Type>Cannith Orb Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Random Armor Prefix</Type>
+    <Type>Random Cloak Suffix</Type>
+    <Type>Random Ring Prefix</Type>
+    <Type>Random Shield Prefix</Type>
+    <Type>Cannith Rune Arm Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">11 13 13 15 16 17 18 18 19 20 21 21 22 23 24 24 25 26 27 27 28 29 30 30 31 32 33 33 34 35 36 36 37 38 39 40 41 42 43 44</LevelValue>
+    <Effect>
+      <Type>EnergyAbsorbance</Type>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">38</Amount>
+      <Item>Fire</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Sonic Absorption</Name>
+    <Icon>Cannith</Icon>
+    <Description>You have a Enhancement bonus to Sonic Absorption</Description>
+    <Type>Cannith Armor Prefix</Type>
+    <Type>Cannith Cloak Suffix</Type>
+    <Type>Cannith Ring Prefix</Type>
+    <Type>Cannith Shield Prefix</Type>
+    <Type>Cannith Orb Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Random Armor Prefix</Type>
+    <Type>Random Cloak Suffix</Type>
+    <Type>Random Ring Prefix</Type>
+    <Type>Random Shield Prefix</Type>
+    <Type>Cannith Rune Arm Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">11 13 13 15 16 17 18 18 19 20 21 21 22 23 24 24 25 26 27 27 28 29 30 30 31 32 33 33 34 35 36 36 37 38 39 40 41 42 43 44</LevelValue>
+    <Effect>
+      <Type>EnergyAbsorbance</Type>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">38</Amount>
+      <Item>Sonic</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lesser Arcane Spell Dexterity</Name>
+    <Icon>Cannith</Icon>
+    <Description>A 5% reduction in your arcane spell failure chance.</Description>
+    <Type>Cannith Armor Prefix</Type>
+    <Type>Cannith Gloves Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Rune Arm Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">-5 -5 -5 -5 -5 -5 -5 -5 -5 -5 -5 -5 -5 -5 -5 -5 -5 -5 -5 -5 -5 -5 -5 -5 -5 -5 -5 -5 -5 -5 -5 -5 -5 -5 -5 -5 -5 -5 -5 -5</LevelValue>
+    <Effect>
+      <Type>ArcaneSpellFailure</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">-5</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Melee Alacrity</Name>
+    <Icon>Cannith</Icon>
+    <Description>You can attack in melee faster than normal.</Description>
+    <Type>Cannith Gloves Prefix</Type>
+    <Type>Cannith Goggles Suffix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Cannith Melee Prefix</Type>
+    <Type>Random Gloves Prefix</Type>
+    <Type>Random Goggles Suffix</Type>
+    <Type>Random Weapon Prefix</Type>
+    <Type>Cannith Rune Arm Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">5 5 5 5 5 5 5 6 6 7 8 9 9 10 11 12 12 13 14 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15</LevelValue>
+    <Effect>
+      <Type>WeaponAlacrityClass</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">15</Amount>
+      <Item>Melee</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Ranged Alacrity</Name>
+    <Icon>Cannith</Icon>
+    <Description>You can attack in ranged faster than normal.</Description>
+    <Type>Cannith Gloves Prefix</Type>
+    <Type>Cannith Goggles Suffix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Cannith Ranged Prefix</Type>
+    <Type>Cannith Rune Arm Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">5 5 5 5 5 5 5 6 6 7 8 9 9 10 11 12 12 13 14 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15</LevelValue>
+    <Effect>
+      <Type>WeaponAlacrityClass</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">15</Amount>
+      <Item>Ranged</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Silver Flame</Name>
+    <Icon>Cannith</Icon>
+    <Description>You are blessed by the Silver Fame and Turns now affect +6 Hit Dice</Description>
+    <MinLevel>6</MinLevel>
+    <Type>Cannith Gloves Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Melee Prefix</Type>
+    <Type>Cannith Ranged Prefix</Type>
+    <Type>Cannith Rune Arm Prefix</Type>
+    <Effect>
+      <Type>TurnDiceBonus</Type>
+      <Bonus>Silver Flame</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">6</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Combustion</Name>
+    <Icon>Cannith</Icon>
+    <Description>Your Fire based spells have an equipment bonus to their Spell Power</Description>
+    <Type>Cannith Armor Prefix</Type>
+    <Type>Cannith Gloves Prefix</Type>
+    <Type>Cannith Necklace Suffix</Type>
+    <Type>Cannith Ring Suffix</Type>
+    <Type>Cannith Shield Prefix</Type>
+    <Type>Cannith Orb Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Cannith Necklace Suffix</Type>
+    <Type>Cannith Melee Prefix</Type>
+    <Type>Cannith Ranged Prefix</Type>
+    <Type>Random Gloves Prefix</Type>
+    <Type>Random Ring Suffix</Type>
+    <Type>Random Shield Prefix</Type>
+    <Type>Random Weapon Prefix</Type>
+    <Type>Cannith Rune Arm Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">38 43 47 55 59 63 66 70 73 77 80 84 87 90 94 97 101 104 108 111 115 118 122 125 128 132 135 139 142 146 149 153 156 159 159 159 159 159 159 159</LevelValue>
+    <Effect>
+      <Type>SpellPower</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">159</Amount>
+      <Item>Fire</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Corrosion</Name>
+    <Icon>Cannith</Icon>
+    <Description>Your Acid based spells have an equipment bonus to their Spell Power</Description>
+    <Type>Cannith Armor Prefix</Type>
+    <Type>Cannith Gloves Prefix</Type>
+    <Type>Cannith Necklace Suffix</Type>
+    <Type>Cannith Ring Suffix</Type>
+    <Type>Cannith Shield Prefix</Type>
+    <Type>Cannith Orb Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Cannith Necklace Suffix</Type>
+    <Type>Cannith Melee Prefix</Type>
+    <Type>Cannith Ranged Prefix</Type>
+    <Type>Random Gloves Prefix</Type>
+    <Type>Random Ring Suffix</Type>
+    <Type>Random Shield Prefix</Type>
+    <Type>Random Weapon Prefix</Type>
+    <Type>Cannith Rune Arm Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">38 43 47 55 59 63 66 70 73 77 80 84 87 90 94 97 101 104 108 111 115 118 122 125 128 132 135 139 142 146 149 153 156 159 159 159 159 159 159 159</LevelValue>
+    <Effect>
+      <Type>SpellPower</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">159</Amount>
+      <Item>Acid</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Devotion</Name>
+    <Icon>Cannith</Icon>
+    <Description>Your Healing based spells have an equipment bonus to their Spell Power</Description>
+    <Type>Cannith Armor Prefix</Type>
+    <Type>Cannith Gloves Prefix</Type>
+    <Type>Cannith Necklace Suffix</Type>
+    <Type>Cannith Ring Suffix</Type>
+    <Type>Cannith Shield Prefix</Type>
+    <Type>Cannith Orb Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Cannith Necklace Suffix</Type>
+    <Type>Cannith Melee Prefix</Type>
+    <Type>Cannith Ranged Prefix</Type>
+    <Type>Random Gloves Prefix</Type>
+    <Type>Random Ring Suffix</Type>
+    <Type>Random Shield Prefix</Type>
+    <Type>Random Weapon Prefix</Type>
+    <Type>Cannith Rune Arm Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">38 43 47 55 59 63 66 70 73 77 80 84 87 90 94 97 101 104 108 111 115 118 122 125 128 132 135 139 142 146 149 153 156 159 159 159 159 159 159 159</LevelValue>
+    <Effect>
+      <Type>SpellPower</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">159</Amount>
+      <Item>Positive</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Glaciation</Name>
+    <Icon>Cannith</Icon>
+    <Description>Your Cold based spells have an equipment bonus to their Spell Power</Description>
+    <Type>Cannith Armor Prefix</Type>
+    <Type>Cannith Gloves Prefix</Type>
+    <Type>Cannith Necklace Suffix</Type>
+    <Type>Cannith Ring Suffix</Type>
+    <Type>Cannith Shield Prefix</Type>
+    <Type>Cannith Orb Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Cannith Necklace Suffix</Type>
+    <Type>Cannith Melee Prefix</Type>
+    <Type>Cannith Ranged Prefix</Type>
+    <Type>Random Gloves Prefix</Type>
+    <Type>Random Ring Suffix</Type>
+    <Type>Random Shield Prefix</Type>
+    <Type>Random Weapon Prefix</Type>
+    <Type>Cannith Rune Arm Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">38 43 47 55 59 63 66 70 73 77 80 84 87 90 94 97 101 104 108 111 115 118 122 125 128 132 135 139 142 146 149 153 156 159 159 159 159 159 159 159</LevelValue>
+    <Effect>
+      <Type>SpellPower</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">159</Amount>
+      <Item>Cold</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Impulse</Name>
+    <Icon>Cannith</Icon>
+    <Description>Your Force based spells have an equipment bonus to their Spell Power</Description>
+    <Type>Cannith Armor Prefix</Type>
+    <Type>Cannith Gloves Prefix</Type>
+    <Type>Cannith Necklace Suffix</Type>
+    <Type>Cannith Ring Suffix</Type>
+    <Type>Cannith Shield Prefix</Type>
+    <Type>Cannith Orb Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Cannith Necklace Suffix</Type>
+    <Type>Cannith Melee Prefix</Type>
+    <Type>Cannith Ranged Prefix</Type>
+    <Type>Random Gloves Prefix</Type>
+    <Type>Random Ring Suffix</Type>
+    <Type>Random Shield Prefix</Type>
+    <Type>Random Weapon Prefix</Type>
+    <Type>Cannith Rune Arm Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">38 43 47 55 59 63 66 70 73 77 80 84 87 90 94 97 101 104 108 111 115 118 122 125 128 132 135 139 142 146 149 153 156 159 159 159 159 159 159 159</LevelValue>
+    <Effect>
+      <Type>SpellPower</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">159</Amount>
+      <Item>Force</Item>
+      <Item>Physical</Item>
+      <Item>Untyped</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Magnetism</Name>
+    <Icon>Cannith</Icon>
+    <Description>Your Electric based spells have an equipment bonus to their Spell Power</Description>
+    <Type>Cannith Armor Prefix</Type>
+    <Type>Cannith Gloves Prefix</Type>
+    <Type>Cannith Necklace Suffix</Type>
+    <Type>Cannith Ring Suffix</Type>
+    <Type>Cannith Shield Prefix</Type>
+    <Type>Cannith Orb Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Cannith Necklace Suffix</Type>
+    <Type>Cannith Melee Prefix</Type>
+    <Type>Cannith Ranged Prefix</Type>
+    <Type>Random Gloves Prefix</Type>
+    <Type>Random Ring Suffix</Type>
+    <Type>Random Shield Prefix</Type>
+    <Type>Random Weapon Prefix</Type>
+    <Type>Cannith Rune Arm Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">38 43 47 55 59 63 66 70 73 77 80 84 87 90 94 97 101 104 108 111 115 118 122 125 128 132 135 139 142 146 149 153 156 159 159 159 159 159 159 159</LevelValue>
+    <Effect>
+      <Type>SpellPower</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">159</Amount>
+      <Item>Electric</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Nullification</Name>
+    <Icon>Cannith</Icon>
+    <Description>Your Negative/Poison based spells have an equipment bonus to their Spell Power</Description>
+    <Type>Cannith Armor Prefix</Type>
+    <Type>Cannith Gloves Prefix</Type>
+    <Type>Cannith Necklace Suffix</Type>
+    <Type>Cannith Ring Suffix</Type>
+    <Type>Cannith Shield Prefix</Type>
+    <Type>Cannith Orb Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Cannith Necklace Suffix</Type>
+    <Type>Cannith Melee Prefix</Type>
+    <Type>Cannith Ranged Prefix</Type>
+    <Type>Random Gloves Prefix</Type>
+    <Type>Random Ring Suffix</Type>
+    <Type>Random Shield Prefix</Type>
+    <Type>Random Weapon Prefix</Type>
+    <Type>Cannith Rune Arm Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">38 43 47 55 59 63 66 70 73 77 80 84 87 90 94 97 101 104 108 111 115 118 122 125 128 132 135 139 142 146 149 153 156 159 159 159 159 159 159 159</LevelValue>
+    <Effect>
+      <Type>SpellPower</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">159</Amount>
+      <Item>Negative</Item>
+      <Item>Poison</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Radiance</Name>
+    <Icon>Cannith</Icon>
+    <Description>Your Light based spells have an equipment bonus to their Spell Power</Description>
+    <Type>Cannith Armor Prefix</Type>
+    <Type>Cannith Gloves Prefix</Type>
+    <Type>Cannith Necklace Suffix</Type>
+    <Type>Cannith Ring Suffix</Type>
+    <Type>Cannith Shield Prefix</Type>
+    <Type>Cannith Orb Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Cannith Necklace Suffix</Type>
+    <Type>Cannith Melee Prefix</Type>
+    <Type>Cannith Ranged Prefix</Type>
+    <Type>Random Gloves Prefix</Type>
+    <Type>Random Ring Suffix</Type>
+    <Type>Random Shield Prefix</Type>
+    <Type>Random Weapon Prefix</Type>
+    <Type>Cannith Rune Arm Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">38 43 47 55 59 63 66 70 73 77 80 84 87 90 94 97 101 104 108 111 115 118 122 125 128 132 135 139 142 146 149 153 156 159 159 159 159 159 159 159</LevelValue>
+    <Effect>
+      <Type>SpellPower</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">159</Amount>
+      <Item>Light/Alignment</Item>
+      <Item>Chaos</Item>
+      <Item>Evil</Item>
+      <Item>Good</Item>
+      <Item>Lawful</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Reconstruction</Name>
+    <Icon>Cannith</Icon>
+    <Description>Your Repair based spells have an equipment bonus to their Spell Power</Description>
+    <Type>Cannith Armor Prefix</Type>
+    <Type>Cannith Gloves Prefix</Type>
+    <Type>Cannith Necklace Suffix</Type>
+    <Type>Cannith Ring Suffix</Type>
+    <Type>Cannith Shield Prefix</Type>
+    <Type>Cannith Orb Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Cannith Necklace Suffix</Type>
+    <Type>Cannith Melee Prefix</Type>
+    <Type>Cannith Ranged Prefix</Type>
+    <Type>Random Gloves Prefix</Type>
+    <Type>Random Ring Suffix</Type>
+    <Type>Random Shield Prefix</Type>
+    <Type>Random Weapon Prefix</Type>
+    <Type>Cannith Rune Arm Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">38 43 47 55 59 63 66 70 73 77 80 84 87 90 94 97 101 104 108 111 115 118 122 125 128 132 135 139 142 146 149 153 156 159 159 159 159 159 159 159</LevelValue>
+    <Effect>
+      <Type>SpellPower</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">159</Amount>
+      <Item>Repair</Item>
+      <Item>Rust</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Resonance</Name>
+    <Icon>Cannith</Icon>
+    <Description>Your Sonic based spells have an equipment bonus to their Spell Power</Description>
+    <Type>Cannith Armor Prefix</Type>
+    <Type>Cannith Gloves Prefix</Type>
+    <Type>Cannith Necklace Suffix</Type>
+    <Type>Cannith Ring Suffix</Type>
+    <Type>Cannith Shield Prefix</Type>
+    <Type>Cannith Orb Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Cannith Necklace Suffix</Type>
+    <Type>Cannith Melee Prefix</Type>
+    <Type>Cannith Ranged Prefix</Type>
+    <Type>Random Gloves Prefix</Type>
+    <Type>Random Ring Suffix</Type>
+    <Type>Random Shield Prefix</Type>
+    <Type>Random Weapon Prefix</Type>
+    <Type>Cannith Rune Arm Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">38 43 47 55 59 63 66 70 73 77 80 84 87 90 94 97 101 104 108 111 115 118 122 125 128 132 135 139 142 146 149 153 156 159 159 159 159 159 159 159</LevelValue>
+    <Effect>
+      <Type>SpellPower</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">159</Amount>
+      <Item>Sonic</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Wizardry</Name>
+    <Icon>Cannith</Icon>
+    <Description>Your gain an Enhancement bonus points to Spell Points</Description>
+    <Type>Cannith Gloves Prefix</Type>
+    <Type>Cannith Helmet Prefix</Type>
+    <Type>Cannith Ring Prefix</Type>
+    <Type>Cannith Shield Suffix</Type>
+    <Type>Cannith Orb Suffix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Random Gloves Prefix</Type>
+    <Type>Random Helmet Prefix</Type>
+    <Type>Random Ring Prefix</Type>
+    <Type>Random Shield Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">19 33 41 60 71 79 88 96 104 112 121 129 137 145 154 162 170 178 187 195 203 211 220 228 236 244 253 261 269 277 286 294 302 310 310 310 310 310 310 310</LevelValue>
+    <Effect>
+      <Type>SpellPoints</Type>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">310</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Armor Piercing</Name>
+    <Icon>Cannith</Icon>
+    <Description>Your physical attacks gain an Equipment bonus to bypass enemy Fortification</Description>
+    <Type>Cannith Gloves Suffix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Cannith Melee Prefix</Type>
+    <Type>Cannith Ranged Prefix</Type>
+    <Type>Cannith Thrown Prefix</Type>
+    <Type>Random Gloves Suffix</Type>
+    <Type>Random Weapon Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">2 3 4 5 6 6 7 8 8 9 9 10 11 11 12 12 13 14 14 15 15 16 17 17 18 18 19 20 20 21 21 22 23 23 23 23 23 23 23 23</LevelValue>
+    <Effect>
+      <Type>FortificationBypass</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">23</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Deadly</Name>
+    <Icon>Cannith</Icon>
+    <Description>Your physical attacks gain a Competence bonus to weapon damage</Description>
+    <Type>Cannith Gloves Suffix</Type>
+    <Type>Cannith Goggles Suffix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Cannith Melee Suffix</Type>
+    <Type>Cannith Ranged Suffix</Type>
+    <Type>Cannith Thrown Suffix</Type>
+    <Type>Random Gloves Suffix</Type>
+    <Type>Random Goggles Suffix</Type>
+    <Type>Random Weapon Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 2 2 3 3 3 4 4 4 5 5 5 6 6 6 6 7 7 7 8 8 8 9 9 9 9 10 10 10 11 11 11 12 12 12 12 12 12 12 12</LevelValue>
+    <Effect>
+      <Type>Weapon_Damage</Type>
+      <Bonus>Competence</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">12</Amount>
+      <Item>All</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Healing Amplification</Name>
+    <Icon>Cannith</Icon>
+    <Description>All incoming positive energy healing gains a Competence bonus</Description>
+    <Type>Cannith Armor Suffix</Type>
+    <Type>Cannith Gloves Suffix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Random Armor Suffix</Type>
+    <Type>Random Gloves Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">4 7 8 12 14 16 17 19 21 22 24 25 27 29 30 32 33 35 37 38 40 41 43 45 46 48 49 51 53 54 56 57 59 61 61 61 61 61 61 61</LevelValue>
+    <Effect>
+      <Type>HealingAmplification</Type>
+      <Bonus>Competence</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">61</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Assassinate</Name>
+    <Icon>Cannith</Icon>
+    <Description>Adds an Insight bonus to the DC of your Assassinate attempts</Description>
+    <Type>Cannith Gloves Suffix</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Cannith Melee Extra</Type>
+    <Type>Cannith Ranged Extra</Type>
+    <Type>Cannith Thrown Extra</Type>
+    <Type>Random Gloves Suffix</Type>
+    <Type>Random Weapon Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">0 0 0 0 0 0 0 0 0 2 3 3 3 3 3 4 4 4 4 5 5 5 5 5 6 6 6 6 6 7 7 7 7 7 7 7 7 7 7 7</LevelValue>
+    <Effect>
+      <Type>TacticalDC</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+      <Item>Assassinate</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Negative Healing Amplification</Name>
+    <Icon>Cannith</Icon>
+    <Description>All incoming negative energy healing gains a Competence bonus</Description>
+    <Type>Cannith Armor Suffix</Type>
+    <Type>Cannith Gloves Suffix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">4 7 8 12 14 16 17 19 21 22 24 25 27 29 30 32 33 35 37 38 40 41 43 45 46 48 49 51 53 54 56 57 59 61 61 61 61 61 61 61</LevelValue>
+    <Effect>
+      <Type>NegativeHealingAmplification</Type>
+      <Bonus>Competence</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">61</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Potency</Name>
+    <Icon>Cannith</Icon>
+    <Description>You gain an equipment bonus to Universal Spell Power</Description>
+    <Type>Cannith Gloves Suffix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Random Gloves Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">16 20 23 29 33 36 38 41 44 46 49 52 55 57 60 63 65 68 71 73 76 79 82 84 87 90 92 95 98 100 103 106 109 111 111 111 111 111 111 111</LevelValue>
+    <Effect>
+      <Type>SpellPower</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">111</Amount>
+      <Item>All</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Repair Amplification</Name>
+    <Icon>Cannith</Icon>
+    <Description>All incoming repair energy healing gains a Competence bonus</Description>
+    <Type>Cannith Armor Suffix</Type>
+    <Type>Cannith Gloves Suffix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Random Armor Suffix</Type>
+    <Type>Random Gloves Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">4 7 8 12 14 16 17 19 21 22 24 25 27 29 30 32 33 35 37 38 40 41 43 45 46 48 49 51 53 54 56 57 59 61 61 61 61 61 61 61</LevelValue>
+    <Effect>
+      <Type>RepairAmplification</Type>
+      <Bonus>Competence</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">61</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Shield Bash</Name>
+    <Icon>Cannith</Icon>
+    <Description>You gain a chance to perform an automatic shield bash when hit in combat</Description>
+    <Type>Cannith Gloves Suffix</Type>
+    <Type>Cannith Shield Suffix</Type>
+    <Type>Cannith Orb Suffix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Random Gloves Suffix</Type>
+    <Type>Random Shield Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">2 3 4 5 6 6 7 8 8 9 9 10 11 11 12 12 13 14 14 15 15 16 17 17 18 18 19 20 20 21 21 22 23 23 23 23 23 23 23 23</LevelValue>
+  </Augment>
+  <Augment>
+    <Name>Spell Lore</Name>
+    <Icon>Cannith</Icon>
+    <Description>All spells you cast gain a chance to critically hit</Description>
+    <Type>Cannith Gloves Suffix</Type>
+    <Type>Cannith Orb Suffix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Random Gloves Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 2 2 3 3 4 4 4 5 5 5 6 6 6 7 7 7 8 8 8 9 9 9 10 10 10 11 11 11 12 12 12 13 13 13 13 13 13 13 13</LevelValue>
+    <Effect>
+      <Type>SpellLore</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">13</Amount>
+      <Item>All</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Spell Lore: Acid</Name>
+    <Icon>Cannith</Icon>
+    <Description>Acid spells you cast gain a chance to critically hit</Description>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Ring Prefix</Type>
+    <Type>Cannith Orb Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">6 6 7 8 9 9 10 10 11 11 12 12 13 13 14 14 15 15 16 16 17 17 18 18 19 19 20 20 21 21 22 22 23 23 23 23 23 23 23 23</LevelValue>
+    <Effect>
+      <Type>SpellLore</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">13</Amount>
+      <Item>Acid</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Spell Lore: Cold</Name>
+    <Icon>Cannith</Icon>
+    <Description>Cold spells you cast gain a chance to critically hit</Description>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Ring Prefix</Type>
+    <Type>Cannith Orb Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">6 6 7 8 9 9 10 10 11 11 12 12 13 13 14 14 15 15 16 16 17 17 18 18 19 19 20 20 21 21 22 22 23 23 23 23 23 23 23 23</LevelValue>
+    <Effect>
+      <Type>SpellLore</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">13</Amount>
+      <Item>Cold</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Spell Lore: Electric</Name>
+    <Icon>Cannith</Icon>
+    <Description>Electric spells you cast gain a chance to critically hit</Description>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Ring Prefix</Type>
+    <Type>Cannith Orb Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">6 6 7 8 9 9 10 10 11 11 12 12 13 13 14 14 15 15 16 16 17 17 18 18 19 19 20 20 21 21 22 22 23 23 23 23 23 23 23 23</LevelValue>
+    <Effect>
+      <Type>SpellLore</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">13</Amount>
+      <Item>Electric</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Spell Lore: Fire</Name>
+    <Icon>Cannith</Icon>
+    <Description>Fire spells you cast gain a chance to critically hit</Description>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Ring Prefix</Type>
+    <Type>Cannith Orb Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">6 6 7 8 9 9 10 10 11 11 12 12 13 13 14 14 15 15 16 16 17 17 18 18 19 19 20 20 21 21 22 22 23 23 23 23 23 23 23 23</LevelValue>
+    <Effect>
+      <Type>SpellLore</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">13</Amount>
+      <Item>Fire</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Spell Lore: Force/Untyped</Name>
+    <Icon>Cannith</Icon>
+    <Description>Force/Untyped spells you cast gain a chance to critically hit</Description>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Ring Prefix</Type>
+    <Type>Cannith Orb Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">6 6 7 8 9 9 10 10 11 11 12 12 13 13 14 14 15 15 16 16 17 17 18 18 19 19 20 20 21 21 22 22 23 23 23 23 23 23 23 23</LevelValue>
+    <Effect>
+      <Type>SpellLore</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">13</Amount>
+      <Item>Force</Item>
+      <Item>Physical</Item>
+      <Item>Untyped</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Spell Lore: Light/Alignment</Name>
+    <Icon>Cannith</Icon>
+    <Description>Light/Alignment spells you cast gain a chance to critically hit</Description>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Ring Prefix</Type>
+    <Type>Cannith Orb Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">6 6 7 8 9 9 10 10 11 11 12 12 13 13 14 14 15 15 16 16 17 17 18 18 19 19 20 20 21 21 22 22 23 23 23 23 23 23 23 23</LevelValue>
+    <Effect>
+      <Type>SpellLore</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">13</Amount>
+      <Item>Light/Alignment</Item>
+      <Item>Chaos</Item>
+      <Item>Evil</Item>
+      <Item>Good</Item>
+      <Item>Lawful</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Spell Lore: Negative/Poison</Name>
+    <Icon>Cannith</Icon>
+    <Description>Negative/Poison spells you cast gain a chance to critically hit</Description>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Ring Prefix</Type>
+    <Type>Cannith Orb Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">6 6 7 8 9 9 10 10 11 11 12 12 13 13 14 14 15 15 16 16 17 17 18 18 19 19 20 20 21 21 22 22 23 23 23 23 23 23 23 23</LevelValue>
+    <Effect>
+      <Type>SpellLore</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">13</Amount>
+      <Item>Negative</Item>
+      <Item>Poison</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Spell Lore: Positive</Name>
+    <Icon>Cannith</Icon>
+    <Description>Positive spells you cast gain a chance to critically hit</Description>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Ring Prefix</Type>
+    <Type>Cannith Orb Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">6 6 7 8 9 9 10 10 11 11 12 12 13 13 14 14 15 15 16 16 17 17 18 18 19 19 20 20 21 21 22 22 23 23 23 23 23 23 23 23</LevelValue>
+    <Effect>
+      <Type>SpellLore</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">13</Amount>
+      <Item>Positive</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Spell Lore: Repair</Name>
+    <Icon>Cannith</Icon>
+    <Description>Repair spells you cast gain a chance to critically hit</Description>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Ring Prefix</Type>
+    <Type>Cannith Orb Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">6 6 7 8 9 9 10 10 11 11 12 12 13 13 14 14 15 15 16 16 17 17 18 18 19 19 20 20 21 21 22 22 23 23 23 23 23 23 23 23</LevelValue>
+    <Effect>
+      <Type>SpellLore</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">13</Amount>
+      <Item>Repair</Item>
+      <Item>Rust</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Spell Lore: Sonic</Name>
+    <Icon>Cannith</Icon>
+    <Description>Sonic spells you cast gain a chance to critically hit</Description>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Ring Prefix</Type>
+    <Type>Cannith Orb Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">6 6 7 8 9 9 10 10 11 11 12 12 13 13 14 14 15 15 16 16 17 17 18 18 19 19 20 20 21 21 22 22 23 23 23 23 23 23 23 23</LevelValue>
+    <Effect>
+      <Type>SpellLore</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">13</Amount>
+      <Item>Sonic</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Tendon Slice</Name>
+    <Icon>Cannith</Icon>
+    <Description>Any melee attack that does damage has a chance to Hamstring your opponent</Description>
+    <Type>Cannith Gloves Suffix</Type>
+    <Type>Cannith Goggles Extra</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Cannith Melee Suffix</Type>
+    <Type>Cannith Ranged Suffix</Type>
+    <Type>Cannith Thrown Suffix</Type>
+    <Type>Random Gloves Suffix</Type>
+    <Type>Random Goggles Extra</Type>
+    <Type>Random Weapon Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 2 2 3 3 3 4 4 4 5 5 5 6 6 6 6 7 7 7 8 8 8 9 9 9 9 10 10 10 11 11 11 12 12 12 12 12 12 12 12</LevelValue>
+  </Augment>
+  <Augment>
+    <Name>Insightful Accuracy</Name>
+    <Icon>Cannith</Icon>
+    <Description>All your attacks gain an Insight bonus to accuracy</Description>
+    <Type>Cannith Gloves Extra</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Random Gloves Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">0 1 1 2 2 2 3 3 3 4 4 4 5 5 5 5 6 6 6 7 7 7 8 8 8 8 9 9 9 10 10 10 11 11 11 11 11 11 11 11</LevelValue>
+    <Effect>
+      <Type>Weapon_Attack</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">11</Amount>
+      <Item>All</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Incite</Name>
+    <Icon>Cannith</Icon>
+    <Description>You gain a bonus to threat generation</Description>
+    <Type>Cannith Gloves Extra</Type>
+    <Type>Cannith Helmet Extra</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Random Helmet Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 2 3 4 4 5 5 6 6 7 7 8 9 9 10 10 10 11 12 12 13 13 14 14 15 16 16 17 17 18 18 19 19 20 20 20 20 20 20 20</LevelValue>
+    <Effect>
+      <Type>ThreatBonusMelee</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">20</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Shatter</Name>
+    <Icon>Cannith</Icon>
+    <Description>Grants an Insight bonus to Sunder and Improved Sunder attempts</Description>
+    <Type>Cannith Gloves Extra</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Cannith Melee Extra</Type>
+    <Type>Cannith Ranged Extra</Type>
+    <Type>Cannith Thrown Extra</Type>
+    <Type>Random Gloves Extra</Type>
+    <Type>Random Weapon Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">0 0 1 1 1 2 2 2 2 2 3 3 3 3 3 4 4 4 4 5 5 5 5 5 6 6 6 6 6 7 7 7 7 8 8 8 8 8 8 8</LevelValue>
+    <Effect>
+      <Type>TacticalDC</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">8</Amount>
+      <Item>Sunder</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Spell Penetration</Name>
+    <Icon>Cannith</Icon>
+    <Description>Insight bonus to Spell Penetration</Description>
+    <Type>Cannith Gloves Extra</Type>
+    <Type>Cannith Goggles Extra</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Random Goggles Extra</Type>
+    <Type>Random Gloves Extra</Type>
+    <Type>Cannith Rune Arm Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">0 0 0 1 1 1 1 1 1 2 2 2 2 2 2 2 3 3 3 3 3 3 4 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5</LevelValue>
+    <Effect>
+      <Type>SpellPenetrationBonus</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">3</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Combustion</Name>
+    <Icon>Cannith</Icon>
+    <Description>Your Fire based spells have an Insight bonus to their Spell Power</Description>
+    <Type>Cannith Gloves Extra</Type>
+    <Type>Cannith Melee Suffix</Type>
+    <Type>Cannith Ranged Suffix</Type>
+    <Type>Cannith Thrown Suffix</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Cannith Orb Suffix</Type>
+    <Type>Random Gloves Extra</Type>
+    <Type>Random Ring Extra</Type>
+    <Type>Random Shield Extra</Type>
+    <Type>Random Weapon Suffix</Type>
+    <Type>Cannith Rune Arm Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">19 21 23 27 29 31 33 35 36 38 40 42 43 45 47 48 50 52 54 55 57 59 61 62 64 66 67 69 71 73 74 76 78 79 79 79 79 79 79 79</LevelValue>
+    <Effect>
+      <Type>SpellPower</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">79</Amount>
+      <Item>Fire</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Corrosion</Name>
+    <Icon>Cannith</Icon>
+    <Description>Your Acid based spells have an Insight bonus to their Spell Power</Description>
+    <Type>Cannith Gloves Extra</Type>
+    <Type>Cannith Melee Suffix</Type>
+    <Type>Cannith Ranged Suffix</Type>
+    <Type>Cannith Thrown Suffix</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Cannith Orb Suffix</Type>
+    <Type>Random Gloves Extra</Type>
+    <Type>Random Ring Extra</Type>
+    <Type>Random Shield Extra</Type>
+    <Type>Random Weapon Suffix</Type>
+    <Type>Cannith Rune Arm Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">19 21 23 27 29 31 33 35 36 38 40 42 43 45 47 48 50 52 54 55 57 59 61 62 64 66 67 69 71 73 74 76 78 79 79 79 79 79 79 79</LevelValue>
+    <Effect>
+      <Type>SpellPower</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">79</Amount>
+      <Item>Acid</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Devotion</Name>
+    <Icon>Cannith</Icon>
+    <Description>Your Positive based spells have an Insight bonus to their Spell Power</Description>
+    <Type>Cannith Gloves Extra</Type>
+    <Type>Cannith Melee Suffix</Type>
+    <Type>Cannith Ranged Suffix</Type>
+    <Type>Cannith Thrown Suffix</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Cannith Orb Suffix</Type>
+    <Type>Random Gloves Extra</Type>
+    <Type>Random Ring Extra</Type>
+    <Type>Random Shield Extra</Type>
+    <Type>Random Weapon Suffix</Type>
+    <Type>Cannith Rune Arm Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">19 21 23 27 29 31 33 35 36 38 40 42 43 45 47 48 50 52 54 55 57 59 61 62 64 66 67 69 71 73 74 76 78 79 79 79 79 79 79 79</LevelValue>
+    <Effect>
+      <Type>SpellPower</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">79</Amount>
+      <Item>Positive</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Glaciation</Name>
+    <Icon>Cannith</Icon>
+    <Description>Your Cold based spells have an Insight bonus to their Spell Power</Description>
+    <Type>Cannith Gloves Extra</Type>
+    <Type>Cannith Melee Suffix</Type>
+    <Type>Cannith Ranged Suffix</Type>
+    <Type>Cannith Thrown Suffix</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Cannith Orb Suffix</Type>
+    <Type>Random Gloves Extra</Type>
+    <Type>Random Ring Extra</Type>
+    <Type>Random Shield Extra</Type>
+    <Type>Random Weapon Suffix</Type>
+    <Type>Cannith Rune Arm Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">19 21 23 27 29 31 33 35 36 38 40 42 43 45 47 48 50 52 54 55 57 59 61 62 64 66 67 69 71 73 74 76 78 79 79 79 79 79 79 79</LevelValue>
+    <Effect>
+      <Type>SpellPower</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">79</Amount>
+      <Item>Cold</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Impulse</Name>
+    <Icon>Cannith</Icon>
+    <Description>Your Force based spells have an Insight bonus to their Spell Power</Description>
+    <Type>Cannith Gloves Extra</Type>
+    <Type>Cannith Melee Suffix</Type>
+    <Type>Cannith Ranged Suffix</Type>
+    <Type>Cannith Thrown Suffix</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Cannith Orb Suffix</Type>
+    <Type>Random Gloves Extra</Type>
+    <Type>Random Ring Extra</Type>
+    <Type>Random Shield Extra</Type>
+    <Type>Random Weapon Suffix</Type>
+    <Type>Cannith Rune Arm Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">19 21 23 27 29 31 33 35 36 38 40 42 43 45 47 48 50 52 54 55 57 59 61 62 64 66 67 69 71 73 74 76 78 79 79 79 79 79 79 79</LevelValue>
+    <Effect>
+      <Type>SpellPower</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">79</Amount>
+      <Item>Force</Item>
+      <Item>Physical</Item>
+      <Item>Untyped</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Magnetism</Name>
+    <Icon>Cannith</Icon>
+    <Description>Your Electric based spells have an Insight bonus to their Spell Power</Description>
+    <Type>Cannith Gloves Extra</Type>
+    <Type>Cannith Melee Suffix</Type>
+    <Type>Cannith Ranged Suffix</Type>
+    <Type>Cannith Thrown Suffix</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Cannith Orb Suffix</Type>
+    <Type>Random Gloves Extra</Type>
+    <Type>Random Ring Extra</Type>
+    <Type>Random Shield Extra</Type>
+    <Type>Random Weapon Suffix</Type>
+    <Type>Cannith Rune Arm Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">19 21 23 27 29 31 33 35 36 38 40 42 43 45 47 48 50 52 54 55 57 59 61 62 64 66 67 69 71 73 74 76 78 79 79 79 79 79 79 79</LevelValue>
+    <Effect>
+      <Type>SpellPower</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">79</Amount>
+      <Item>Electric</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Nullification</Name>
+    <Icon>Cannith</Icon>
+    <Description>Your Negative/Poison based spells have an Insight bonus to their Spell Power</Description>
+    <Type>Cannith Gloves Extra</Type>
+    <Type>Cannith Melee Suffix</Type>
+    <Type>Cannith Ranged Suffix</Type>
+    <Type>Cannith Thrown Suffix</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Cannith Orb Suffix</Type>
+    <Type>Random Gloves Extra</Type>
+    <Type>Random Ring Extra</Type>
+    <Type>Random Shield Extra</Type>
+    <Type>Random Weapon Suffix</Type>
+    <Type>Cannith Rune Arm Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">19 21 23 27 29 31 33 35 36 38 40 42 43 45 47 48 50 52 54 55 57 59 61 62 64 66 67 69 71 73 74 76 78 79 79 79 79 79 79 79</LevelValue>
+    <Effect>
+      <Type>SpellPower</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">79</Amount>
+      <Item>Negative</Item>
+      <Item>Poison</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Radiance</Name>
+    <Icon>Cannith</Icon>
+    <Description>Your Light based spells have an Insight bonus to their Spell Power</Description>
+    <Type>Cannith Gloves Extra</Type>
+    <Type>Cannith Melee Suffix</Type>
+    <Type>Cannith Ranged Suffix</Type>
+    <Type>Cannith Thrown Suffix</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Cannith Orb Suffix</Type>
+    <Type>Random Gloves Extra</Type>
+    <Type>Random Ring Extra</Type>
+    <Type>Random Shield Extra</Type>
+    <Type>Random Weapon Suffix</Type>
+    <Type>Cannith Rune Arm Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">19 21 23 27 29 31 33 35 36 38 40 42 43 45 47 48 50 52 54 55 57 59 61 62 64 66 67 69 71 73 74 76 78 79 79 79 79 79 79 79</LevelValue>
+    <Effect>
+      <Type>SpellPower</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">79</Amount>
+      <Item>Light/Alignment</Item>
+      <Item>Chaos</Item>
+      <Item>Evil</Item>
+      <Item>Good</Item>
+      <Item>Lawful</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Reconstruction</Name>
+    <Icon>Cannith</Icon>
+    <Description>Your Repair based spells have an Insight bonus to their Spell Power</Description>
+    <Type>Cannith Gloves Extra</Type>
+    <Type>Cannith Melee Suffix</Type>
+    <Type>Cannith Ranged Suffix</Type>
+    <Type>Cannith Thrown Suffix</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Cannith Orb Suffix</Type>
+    <Type>Random Gloves Extra</Type>
+    <Type>Random Ring Extra</Type>
+    <Type>Random Shield Extra</Type>
+    <Type>Random Weapon Suffix</Type>
+    <Type>Cannith Rune Arm Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">19 21 23 27 29 31 33 35 36 38 40 42 43 45 47 48 50 52 54 55 57 59 61 62 64 66 67 69 71 73 74 76 78 79 79 79 79 79 79 79</LevelValue>
+    <Effect>
+      <Type>SpellPower</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">79</Amount>
+      <Item>Repair</Item>
+      <Item>Rust</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Resonance</Name>
+    <Icon>Cannith</Icon>
+    <Description>Your Sonic based spells have an Insight bonus to their Spell Power</Description>
+    <Type>Cannith Gloves Extra</Type>
+    <Type>Cannith Melee Suffix</Type>
+    <Type>Cannith Ranged Suffix</Type>
+    <Type>Cannith Thrown Suffix</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Cannith Orb Suffix</Type>
+    <Type>Random Gloves Extra</Type>
+    <Type>Random Ring Extra</Type>
+    <Type>Random Shield Extra</Type>
+    <Type>Random Weapon Suffix</Type>
+    <Type>Cannith Rune Arm Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">19 21 23 27 29 31 33 35 36 38 40 42 43 45 47 48 50 52 54 55 57 59 61 62 64 66 67 69 71 73 74 76 78 79 79 79 79 79 79 79</LevelValue>
+    <Effect>
+      <Type>SpellPower</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">79</Amount>
+      <Item>Sonic</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Stunning</Name>
+    <Icon>Cannith</Icon>
+    <Description>Adds an Insight bonus to the DC of your Stunning Blow, Stunning Fist, or Kukan-Do check.</Description>
+    <Type>Cannith Gloves Extra</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Cannith Melee Extra</Type>
+    <Type>Cannith Ranged Extra</Type>
+    <Type>Cannith Thrown Extra</Type>
+    <Type>Random Gloves Extra</Type>
+    <Type>Random Weapon Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">0 0 1 1 1 2 2 2 2 2 3 3 3 3 3 4 4 4 4 5 5 5 5 5 6 6 6 6 6 7 7 7 7 8 8 8 8 8 8 8</LevelValue>
+    <Effect>
+      <Type>TacticalDC</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">8</Amount>
+      <Item>Stun</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Tendon Slice</Name>
+    <Icon>Cannith</Icon>
+    <Description>Any melee attack that does damage has an Insight chance to Hamstring your opponent</Description>
+    <Type>Cannith Melee Suffix</Type>
+    <Type>Cannith Ranged Suffix</Type>
+    <Type>Cannith Thrown Suffix</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Random Gloves Extra</Type>
+    <Type>Random Weapon Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">0 0 0 1 1 1 1 1 1 2 2 2 2 2 2 2 3 3 3 3 3 3 4 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5</LevelValue>
+  </Augment>
+  <Augment>
+    <Name>Insightful Vertigo</Name>
+    <Icon>Cannith</Icon>
+    <Description>Adds an Insight bonus to the DC of your Trip and Improved Trip attempts</Description>
+    <Type>Cannith Gloves Extra</Type>
+    <Type>Cannith Melee Suffix</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Random Gloves Extra</Type>
+    <Type>Random Weapon Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">0 0 1 1 1 2 2 2 2 2 3 3 3 3 3 4 4 4 4 5 5 5 5 5 6 6 6 6 6 7 7 7 7 8 8 8 8 8 8 8</LevelValue>
+    <Effect>
+      <Type>TacticalDC</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">8</Amount>
+      <Item>Trip</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Blindness Immunity</Name>
+    <Icon>Cannith</Icon>
+    <Description>You are immune to blindness</Description>
+    <MinLevel>4</MinLevel>
+    <Type>Cannith Goggles Prefix</Type>
+    <Type>Cannith Ring Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Rune Arm Prefix</Type>
+    <Effect>
+      <Type>Immunity</Type>
+      <Bonus>Stacking</Bonus>
+      <AType>NotNeeded</AType>
+      <Item>Blindness</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Persuasion</Name>
+    <Icon>Cannith</Icon>
+    <Description>Competence bonus to a Charisma based skills</Description>
+    <MinLevel>4</MinLevel>
+    <Type>Cannith Goggles Prefix</Type>
+    <Type>Cannith Helmet Prefix</Type>
+    <Type>Cannith Ring Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Rune Arm Prefix</Type>
+    <Effect>
+      <Type>SkillBonusAbility</Type>
+      <Bonus>Competence</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">3</Amount>
+      <Item>Charisma</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Abjuration Focus</Name>
+    <Icon>Cannith</Icon>
+    <Description>Equipment bonus to Abjuration DC</Description>
+    <Type>Cannith Goggles Prefix</Type>
+    <Type>Cannith Necklace Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Orb Prefix</Type>
+    <Type>Random Helmet Suffix</Type>
+    <Type>Random Goggles Prefix</Type>
+    <Type>Random Necklace Prefix</Type>
+    <Type>Cannith Rune Arm Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 1 1 2 2 2 2 2 2 3 3 3 3 3 3 3 4 4 4 4 4 4 5 5 5 5 5 5 5 6 6 6 6 6 6 6 6 6 6 6</LevelValue>
+    <Effect>
+      <Type>SpellDC</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">6</Amount>
+      <Item>Abjuration</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Conjuration Focus</Name>
+    <Icon>Cannith</Icon>
+    <Description>Equipment bonus to Conjuration DC</Description>
+    <Type>Cannith Goggles Prefix</Type>
+    <Type>Cannith Necklace Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Orb Prefix</Type>
+    <Type>Random Helmet Suffix</Type>
+    <Type>Random Goggles Prefix</Type>
+    <Type>Random Necklace Prefix</Type>
+    <Type>Cannith Rune Arm Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 1 1 2 2 2 2 2 2 3 3 3 3 3 3 3 4 4 4 4 4 4 5 5 5 5 5 5 5 6 6 6 6 6 6 6 6 6 6 6</LevelValue>
+    <Effect>
+      <Type>SpellDC</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">6</Amount>
+      <Item>Conjuration</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Enchantment Focus</Name>
+    <Icon>Cannith</Icon>
+    <Description>Equipment bonus to Enchantment DC</Description>
+    <Type>Cannith Goggles Prefix</Type>
+    <Type>Cannith Necklace Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Orb Prefix</Type>
+    <Type>Random Helmet Suffix</Type>
+    <Type>Random Goggles Prefix</Type>
+    <Type>Random Necklace Prefix</Type>
+    <Type>Cannith Rune Arm Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 1 1 2 2 2 2 2 2 3 3 3 3 3 3 3 4 4 4 4 4 4 5 5 5 5 5 5 5 6 6 6 6 6 6 6 6 6 6 6</LevelValue>
+    <Effect>
+      <Type>SpellDC</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">6</Amount>
+      <Item>Enchantment</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Evocation Focus</Name>
+    <Icon>Cannith</Icon>
+    <Description>Equipment bonus to Evocation DC</Description>
+    <Type>Cannith Goggles Prefix</Type>
+    <Type>Cannith Necklace Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Orb Prefix</Type>
+    <Type>Random Helmet Suffix</Type>
+    <Type>Random Goggles Prefix</Type>
+    <Type>Random Necklace Prefix</Type>
+    <Type>Cannith Rune Arm Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 1 1 2 2 2 2 2 2 3 3 3 3 3 3 3 4 4 4 4 4 4 5 5 5 5 5 5 5 6 6 6 6 6 6 6 6 6 6 6</LevelValue>
+    <Effect>
+      <Type>SpellDC</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">6</Amount>
+      <Item>Evocation</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Illusion Focus</Name>
+    <Icon>Cannith</Icon>
+    <Description>Equipment bonus to Illusion DC</Description>
+    <Type>Cannith Goggles Prefix</Type>
+    <Type>Cannith Necklace Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Orb Prefix</Type>
+    <Type>Random Helmet Suffix</Type>
+    <Type>Random Goggles Prefix</Type>
+    <Type>Random Necklace Prefix</Type>
+    <Type>Cannith Rune Arm Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 1 1 2 2 2 2 2 2 3 3 3 3 3 3 3 4 4 4 4 4 4 5 5 5 5 5 5 5 6 6 6 6 6 6 6 6 6 6 6</LevelValue>
+    <Effect>
+      <Type>SpellDC</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">6</Amount>
+      <Item>Illusion</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Necromancy Focus</Name>
+    <Icon>Cannith</Icon>
+    <Description>Equipment bonus to Necromancy DC</Description>
+    <Type>Cannith Goggles Prefix</Type>
+    <Type>Cannith Necklace Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Orb Prefix</Type>
+    <Type>Random Helmet Suffix</Type>
+    <Type>Random Goggles Prefix</Type>
+    <Type>Random Necklace Prefix</Type>
+    <Type>Cannith Rune Arm Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 1 1 2 2 2 2 2 2 3 3 3 3 3 3 3 4 4 4 4 4 4 5 5 5 5 5 5 5 6 6 6 6 6 6 6 6 6 6 6</LevelValue>
+    <Effect>
+      <Type>SpellDC</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">6</Amount>
+      <Item>Necromancy</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Transmutation Focus</Name>
+    <Icon>Cannith</Icon>
+    <Description>Equipment bonus to Transmutation DC</Description>
+    <Type>Cannith Goggles Prefix</Type>
+    <Type>Cannith Necklace Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Orb Prefix</Type>
+    <Type>Random Helmet Suffix</Type>
+    <Type>Random Goggles Prefix</Type>
+    <Type>Random Necklace Prefix</Type>
+    <Type>Cannith Rune Arm Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 1 1 2 2 2 2 2 2 3 3 3 3 3 3 3 4 4 4 4 4 4 5 5 5 5 5 5 5 6 6 6 6 6 6 6 6 6 6 6</LevelValue>
+    <Effect>
+      <Type>SpellDC</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">6</Amount>
+      <Item>Transmutation</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Underwater Action</Name>
+    <Icon>Cannith</Icon>
+    <Description>You are immune to drowning</Description>
+    <MinLevel>1</MinLevel>
+    <Type>Cannith Goggles Prefix</Type>
+    <Type>Cannith Helmet Prefix</Type>
+    <Type>Cannith Ring Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Effect>
+      <Type>Immunity</Type>
+      <Bonus>Stacking</Bonus>
+      <AType>NotNeeded</AType>
+      <Item>Drowning</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Abjuration Focus</Name>
+    <Icon>Cannith</Icon>
+    <Description>Insight bonus to Abjuration DC</Description>
+    <Type>Cannith Goggles Suffix</Type>
+    <Type>Cannith Orb Suffix</Type>
+    <Type>Random Goggles Suffix</Type>
+    <Type>Cannith Rune Arm Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3</LevelValue>
+    <Effect>
+      <Type>SpellDC</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">3</Amount>
+      <Item>Abjuration</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Conjuration Focus</Name>
+    <Icon>Cannith</Icon>
+    <Description>Insight bonus to Conjuration DC</Description>
+    <Type>Cannith Goggles Suffix</Type>
+    <Type>Cannith Orb Suffix</Type>
+    <Type>Random Goggles Suffix</Type>
+    <Type>Cannith Rune Arm Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3</LevelValue>
+    <Effect>
+      <Type>SpellDC</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">3</Amount>
+      <Item>Conjuration</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Enchantment Focus</Name>
+    <Icon>Cannith</Icon>
+    <Description>Insight bonus to Enchantment DC</Description>
+    <Type>Cannith Goggles Suffix</Type>
+    <Type>Cannith Orb Suffix</Type>
+    <Type>Random Goggles Suffix</Type>
+    <Type>Cannith Rune Arm Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3</LevelValue>
+    <Effect>
+      <Type>SpellDC</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">3</Amount>
+      <Item>Enchantment</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Evocation Focus</Name>
+    <Icon>Cannith</Icon>
+    <Description>Insight bonus to Evocation DC</Description>
+    <Type>Cannith Goggles Suffix</Type>
+    <Type>Cannith Orb Suffix</Type>
+    <Type>Random Goggles Suffix</Type>
+    <Type>Cannith Rune Arm Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3</LevelValue>
+    <Effect>
+      <Type>SpellDC</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">3</Amount>
+      <Item>Evocation</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Illusion Focus</Name>
+    <Icon>Cannith</Icon>
+    <Description>Insight bonus to Illusion DC</Description>
+    <Type>Cannith Goggles Suffix</Type>
+    <Type>Cannith Orb Suffix</Type>
+    <Type>Random Goggles Suffix</Type>
+    <Type>Cannith Rune Arm Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3</LevelValue>
+    <Effect>
+      <Type>SpellDC</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">3</Amount>
+      <Item>Illusion</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Necromancy Focus</Name>
+    <Icon>Cannith</Icon>
+    <Description>Insight bonus to Necromancy DC</Description>
+    <Type>Cannith Goggles Suffix</Type>
+    <Type>Cannith Orb Suffix</Type>
+    <Type>Random Goggles Suffix</Type>
+    <Type>Cannith Rune Arm Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3</LevelValue>
+    <Effect>
+      <Type>SpellDC</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">3</Amount>
+      <Item>Necromancy</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Transmutation Focus</Name>
+    <Icon>Cannith</Icon>
+    <Description>Insight bonus to Transmutation DC</Description>
+    <Type>Cannith Goggles Suffix</Type>
+    <Type>Cannith Orb Suffix</Type>
+    <Type>Random Goggles Suffix</Type>
+    <Type>Cannith Rune Arm Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3</LevelValue>
+    <Effect>
+      <Type>SpellDC</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">3</Amount>
+      <Item>Transmutation</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>True Sight</Name>
+    <Icon>Cannith</Icon>
+    <Description>You gain the benefit of the spell True Seeing.</Description>
+    <MinLevel>2</MinLevel>
+    <Type>Cannith Goggles Suffix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Effect>
+      <Type>TrueSeeing</Type>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">1</Amount>
+      <Item>All</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Sacred</Name>
+    <Icon>Cannith</Icon>
+    <Description>You Turn Undead as if you were 2 levels higher</Description>
+    <MinLevel>2</MinLevel>
+    <Type>Cannith Armor Prefix</Type>
+    <Type>Cannith Helmet Prefix</Type>
+    <Type>Cannith Necklace Prefix</Type>
+    <Type>Cannith Ring Prefix</Type>
+    <Type>Cannith Shield Prefix</Type>
+    <Type>Cannith Orb Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Melee Prefix</Type>
+    <Type>Cannith Ranged Prefix</Type>
+    <Type>Cannith Thrown Prefix</Type>
+    <Effect>
+      <Type>TurnLevelBonus</Type>
+      <Bonus>Sacred</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Eternal Faith</Name>
+    <Icon>Cannith</Icon>
+    <Description>You Turn Undead as if you were 2 levels higher</Description>
+    <MinLevel>8</MinLevel>
+    <Type>Cannith Armor Suffix</Type>
+    <Type>Cannith Helmet Suffix</Type>
+    <Type>Cannith Necklace Suffix</Type>
+    <Type>Cannith Ring Suffix</Type>
+    <Type>Cannith Shield Suffix</Type>
+    <Type>Cannith Orb Suffix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Cannith Melee Suffix</Type>
+    <Type>Cannith Ranged Suffix</Type>
+    <Type>Cannith Thrown Suffix</Type>
+    <Type>Cannith Rune Arm Suffix</Type>
+    <Effect>
+      <Type>TurnLevelBonus</Type>
+      <Bonus>Eternal Faith</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+    </Effect>
+    <Effect>
+      <Type>TurnMaxDice</Type>
+      <Bonus>Eternal Faith</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+    </Effect>
+    <Effect>
+      <Type>TurnDiceBonus</Type>
+      <Bonus>Eternal Faith</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">4</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Spell Focus Mastery</Name>
+    <Icon>Cannith</Icon>
+    <Description>Equipment bonus to all spell DCs</Description>
+    <Type>Cannith Helmet Suffix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Cannith Orb Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 1 1 1 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5</LevelValue>
+    <Effect>
+      <Type>SpellDC</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">5</Amount>
+      <Item>All</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Acid Resistance</Name>
+    <Icon>Cannith</Icon>
+    <Description>You have an Enhancement bonus to resist Acid</Description>
+    <Type>Cannith Armor Suffix</Type>
+    <Type>Cannith Cloak Prefix</Type>
+    <Type>Cannith Helmet Extra</Type>
+    <Type>Cannith Ring Suffix</Type>
+    <Type>Cannith Shield Suffix</Type>
+    <Type>Cannith Orb Suffix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Random Armor Suffix</Type>
+    <Type>Random Bracers Prefix</Type>
+    <Type>Random Cloak Prefix</Type>
+    <Type>Random Ring Suffix</Type>
+    <Type>Random Shield Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">4 7 8 12 14 15 17 18 20 21 23 24 26 27 29 30 32 33 35 36 38 39 41 42 44 45 47 48 50 51 53 54 56 57 57 57 57 57 57 57</LevelValue>
+    <Effect>
+      <Type>EnergyResistance</Type>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">57</Amount>
+      <Item>Acid</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Cold Resistance</Name>
+    <Icon>Cannith</Icon>
+    <Description>You have an Enhancement bonus to resist Cold</Description>
+    <Type>Cannith Armor Suffix</Type>
+    <Type>Cannith Cloak Prefix</Type>
+    <Type>Cannith Helmet Extra</Type>
+    <Type>Cannith Ring Suffix</Type>
+    <Type>Cannith Shield Suffix</Type>
+    <Type>Cannith Orb Suffix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Random Armor Suffix</Type>
+    <Type>Random Bracers Prefix</Type>
+    <Type>Random Cloak Prefix</Type>
+    <Type>Random Ring Suffix</Type>
+    <Type>Random Shield Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">4 7 8 12 14 15 17 18 20 21 23 24 26 27 29 30 32 33 35 36 38 39 41 42 44 45 47 48 50 51 53 54 56 57 57 57 57 57 57 57</LevelValue>
+    <Effect>
+      <Type>EnergyResistance</Type>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">57</Amount>
+      <Item>Cold</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Electric Resistance</Name>
+    <Icon>Cannith</Icon>
+    <Description>You have an Enhancement bonus to resist Electric</Description>
+    <Type>Cannith Armor Suffix</Type>
+    <Type>Cannith Cloak Prefix</Type>
+    <Type>Cannith Helmet Extra</Type>
+    <Type>Cannith Ring Suffix</Type>
+    <Type>Cannith Shield Suffix</Type>
+    <Type>Cannith Orb Suffix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Random Armor Suffix</Type>
+    <Type>Random Bracers Prefix</Type>
+    <Type>Random Cloak Prefix</Type>
+    <Type>Random Ring Suffix</Type>
+    <Type>Random Shield Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">4 7 8 12 14 15 17 18 20 21 23 24 26 27 29 30 32 33 35 36 38 39 41 42 44 45 47 48 50 51 53 54 56 57 57 57 57 57 57 57</LevelValue>
+    <Effect>
+      <Type>EnergyResistance</Type>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">57</Amount>
+      <Item>Electric</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Fire Resistance</Name>
+    <Icon>Cannith</Icon>
+    <Description>You have an Enhancement bonus to resist Fire</Description>
+    <Type>Cannith Armor Suffix</Type>
+    <Type>Cannith Cloak Prefix</Type>
+    <Type>Cannith Helmet Extra</Type>
+    <Type>Cannith Ring Suffix</Type>
+    <Type>Cannith Shield Suffix</Type>
+    <Type>Cannith Orb Suffix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Random Armor Suffix</Type>
+    <Type>Random Bracers Prefix</Type>
+    <Type>Random Cloak Prefix</Type>
+    <Type>Random Ring Suffix</Type>
+    <Type>Random Shield Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">4 7 8 12 14 15 17 18 20 21 23 24 26 27 29 30 32 33 35 36 38 39 41 42 44 45 47 48 50 51 53 54 56 57 57 57 57 57 57 57</LevelValue>
+    <Effect>
+      <Type>EnergyResistance</Type>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">57</Amount>
+      <Item>Fire</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Sonic Resistance</Name>
+    <Icon>Cannith</Icon>
+    <Description>You have an Enhancement bonus to resist Sonic</Description>
+    <Type>Cannith Armor Suffix</Type>
+    <Type>Cannith Cloak Prefix</Type>
+    <Type>Cannith Helmet Extra</Type>
+    <Type>Cannith Ring Suffix</Type>
+    <Type>Cannith Shield Suffix</Type>
+    <Type>Cannith Orb Suffix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Random Armor Suffix</Type>
+    <Type>Random Bracers Prefix</Type>
+    <Type>Random Cloak Prefix</Type>
+    <Type>Random Ring Suffix</Type>
+    <Type>Random Shield Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">4 7 8 12 14 15 17 18 20 21 23 24 26 27 29 30 32 33 35 36 38 39 41 42 44 45 47 48 50 51 53 54 56 57 57 57 57 57 57 57</LevelValue>
+    <Effect>
+      <Type>EnergyResistance</Type>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">57</Amount>
+      <Item>Sonic</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Light Resistance</Name>
+    <Icon>Cannith</Icon>
+    <Description>You have an Enhancement bonus to resist Light</Description>
+    <Type>Cannith Armor Suffix</Type>
+    <Type>Cannith Cloak Prefix</Type>
+    <Type>Cannith Helmet Extra</Type>
+    <Type>Cannith Ring Suffix</Type>
+    <Type>Cannith Shield Suffix</Type>
+    <Type>Cannith Orb Suffix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Random Armor Suffix</Type>
+    <Type>Random Bracers Prefix</Type>
+    <Type>Random Cloak Prefix</Type>
+    <Type>Random Ring Suffix</Type>
+    <Type>Random Shield Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">4 7 8 12 14 15 17 18 20 21 23 24 26 27 29 30 32 33 35 36 38 39 41 42 44 45 47 48 50 51 53 54 56 57 57 57 57 57 57 57</LevelValue>
+    <Effect>
+      <Type>EnergyResistance</Type>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">57</Amount>
+      <Item>Light</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Negative Resistance</Name>
+    <Icon>Cannith</Icon>
+    <Description>You have an Enhancement bonus to resist Negative</Description>
+    <Type>Cannith Armor Suffix</Type>
+    <Type>Cannith Cloak Prefix</Type>
+    <Type>Cannith Helmet Extra</Type>
+    <Type>Cannith Ring Suffix</Type>
+    <Type>Cannith Shield Suffix</Type>
+    <Type>Cannith Orb Suffix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Random Armor Suffix</Type>
+    <Type>Random Bracers Prefix</Type>
+    <Type>Random Cloak Prefix</Type>
+    <Type>Random Ring Suffix</Type>
+    <Type>Random Shield Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">4 7 8 12 14 15 17 18 20 21 23 24 26 27 29 30 32 33 35 36 38 39 41 42 44 45 47 48 50 51 53 54 56 57 57 57 57 57 57 57</LevelValue>
+    <Effect>
+      <Type>EnergyResistance</Type>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">57</Amount>
+      <Item>Negative</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Poison Resistance</Name>
+    <Icon>Cannith</Icon>
+    <Description>You have an Enhancement bonus to resist Poison</Description>
+    <Type>Cannith Armor Suffix</Type>
+    <Type>Cannith Cloak Prefix</Type>
+    <Type>Cannith Helmet Extra</Type>
+    <Type>Cannith Ring Suffix</Type>
+    <Type>Cannith Shield Suffix</Type>
+    <Type>Cannith Orb Suffix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Random Armor Suffix</Type>
+    <Type>Random Bracers Prefix</Type>
+    <Type>Random Cloak Prefix</Type>
+    <Type>Random Ring Suffix</Type>
+    <Type>Random Shield Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">4 7 8 12 14 15 17 18 20 21 23 24 26 27 29 30 32 33 35 36 38 39 41 42 44 45 47 48 50 51 53 54 56 57 57 57 57 57 57 57</LevelValue>
+    <Effect>
+      <Type>EnergyResistance</Type>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">57</Amount>
+      <Item>Poison</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Regeneration</Name>
+    <Icon>Cannith</Icon>
+    <Description>This item is imbued with an undeniable goodness that slowly heals the wearer over time.
+Recovers 1 hp per minute.</Description>
+    <MinLevel>6</MinLevel>
+    <Type>Cannith Ring Suffix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+  </Augment>
+  <Augment>
+    <Name>Efficient Metamagic: Empower</Name>
+    <Icon>Cannith</Icon>
+    <Description>The additional spell point cost for using the Empower Metamagic feat is reduced by 2 SP.</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Cannith Rune Arm Extra</Type>
+    <Effect>
+      <Type>MetamagicCostEmpower</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">-2</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Efficient Metamagic: Enlarge</Name>
+    <Icon>Cannith</Icon>
+    <Description>The additional spell point cost for using the Enlarge Metamagic feat is reduced by 1 SP.</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Cannith Rune Arm Extra</Type>
+    <Effect>
+      <Type>MetamagicCostEnlarge</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">-2</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Efficient Metamagic: Extend</Name>
+    <Icon>Cannith</Icon>
+    <Description>The additional spell point cost for using the Extend Metamagic feat is reduced by 1 SP.</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Cannith Rune Arm Extra</Type>
+    <Effect>
+      <Type>MetamagicCostExtend</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">-1</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Efficient Metamagic: Empower Healing</Name>
+    <Icon>Cannith</Icon>
+    <Description>The additional spell point cost for using the Empower Healing Metamagic feat is reduced by 1 SP.</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Cannith Rune Arm Extra</Type>
+    <Effect>
+      <Type>MetamagicCostEmpowerHealing</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">-1</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Efficient Metamagic: Maximize</Name>
+    <Icon>Cannith</Icon>
+    <Description>The additional spell point cost for using the Maximize Metamagic feat is reduced by 2 SP.</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Cannith Trinket Extra</Type>
+    <Type>Cannith Rune Arm Extra</Type>
+    <Effect>
+      <Type>MetamagicCostMaximize</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">-2</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Blueshine</Name>
+    <Icon>Cannith</Icon>
+    <Description>This armor glistens with a blue-black sheen as if it were covered with an oily liquid
+sapphire. A suit of armor imbued with this property never tarnishes and is immune
+to acid damage and rusting effects. While wearing blueshine armor you gain a
++3 Competence bonus on Hide checks.</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Cannith Armor Prefix</Type>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Competence</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">3</Amount>
+      <Item>Hide</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Twilight</Name>
+    <Icon>Cannith</Icon>
+    <Description>The twilight armor reduces the chance of arcane spell failure by -10%.</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Cannith Armor Prefix</Type>
+    <Effect>
+      <Type>ArcaneSpellFailure</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">-10</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Wizardry</Name>
+    <Icon>Cannith</Icon>
+    <Description>you can an insight bonus to spell points</Description>
+    <Type>Random Gloves Extra</Type>
+    <Type>Random Necklace Suffix</Type>
+    <Type>Cannith Necklace Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">9 16 20 30 35 39 44 48 52 56 60 64 68 72 77 81 85 89 93 97 101 105 110 114 118 122 126 130 134 138 143 147 151 155 155 155 155 155 155 155</LevelValue>
+    <Effect>
+      <Type>SpellPoints</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">25</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Accuracy</Name>
+    <Icon>Cannith</Icon>
+    <Description>All your attacks gain a Competence bonus to accuracy</Description>
+    <Type>Random Gloves Prefix</Type>
+    <Type>Random Goggles Suffix</Type>
+    <Type>Random Helmet Suffix</Type>
+    <Type>Cannith Goggles Suffix</Type>
+    <Type>Cannith Helmet Suffix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">2 3 4 5 6 6 7 8 8 9 9 10 11 11 12 12 13 14 14 15 15 16 17 17 18 18 19 20 20 21 21 22 23 23 23 23 23 23 23 23</LevelValue>
+    <Effect>
+      <Type>Weapon_Attack</Type>
+      <Bonus>Competence</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">11</Amount>
+      <Item>All</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Deception</Name>
+    <Icon>Cannith</Icon>
+    <Description>Enhancement bonus to Deception</Description>
+    <MinLevel>28</MinLevel>
+    <Type>Random Weapon Suffix</Type>
+    <EnterValue />
+  </Augment>
+  <Augment>
+    <Name>Incite</Name>
+    <Icon>Cannith</Icon>
+    <Description>You gain a bonus to threat generation</Description>
+    <Type>Cannith Helmet Prefix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Random Helmet Extra</Type>
+    <Type>Random Gloves Extra</Type>
+    <Type>Random Weapon Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">7 9 10 12 14 15 16 17 18 19 20 21 23 24 25 26 27 28 29 30 31 32 33 34 35 37 38 39 40 41 42 43 44 45 45 45 45 45 45 45</LevelValue>
+    <Effect>
+      <Type>ThreatBonusMelee</Type>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">20</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Deadly</Name>
+    <Icon>Cannith</Icon>
+    <Description>Your physical attacks gain a insight bonus to weapon damage</Description>
+    <Type>Random Weapon Extra</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">0 0 0 1 1 1 1 1 1 2 2 2 2 2 2 2 3 3 3 3 3 3 4 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5</LevelValue>
+    <Effect>
+      <Type>Weapon_Damage</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">12</Amount>
+      <Item>All</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Doublestrike</Name>
+    <Icon>Cannith</Icon>
+    <Description>Insight bonus to Doublestrike</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Random Belt Extra</Type>
+    <Type>Random Gloves Extra</Type>
+    <EnterValue />
+    <Effect>
+      <Type>Doublestrike</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">17</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Enchantment Resistance</Name>
+    <Icon>Cannith</Icon>
+    <Description>You have a insight bonus to saves versus Enchantment.</Description>
+    <Type>Cannith Necklace Extra</Type>
+    <Type>Cannith Ring Extra</Type>
+    <Type>Random Cloak Extra</Type>
+    <Type>Random Necklace Extra</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">0 0 0 1 1 1 1 1 1 2 2 2 2 2 2 2 3 3 3 3 3 3 4 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5</LevelValue>
+    <Effect>
+      <Type>SaveBonus</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">11</Amount>
+      <Item>Enchantment</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful False Life</Name>
+    <Icon>Cannith</Icon>
+    <Description>Grants the wearer False Life Hitpoints</Description>
+    <MinLevel>30</MinLevel>
+    <Type>Random Belt Extra</Type>
+    <Type>Random Ring Extra</Type>
+    <EnterValue />
+    <Effect>
+      <Type>FalseLife</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">57</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Illusion Resistance</Name>
+    <Icon>Cannith</Icon>
+    <Description>You have a insight bonus to saves versus Illusion</Description>
+    <Type>Cannith Necklace Extra</Type>
+    <Type>Cannith Ring Extra</Type>
+    <Type>Random Cloak Extra</Type>
+    <Type>Random Necklace Extra</Type>
+    <Type>Cannith Trinket Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">0 0 0 1 1 1 1 1 1 2 2 2 2 2 2 2 3 3 3 3 3 3 4 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5</LevelValue>
+    <Effect>
+      <Type>SaveBonus</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">11</Amount>
+      <Item>Illusion</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Sheltering</Name>
+    <Icon>Cannith</Icon>
+    <Description>insight bonus to your Physical and Magical Resistance Ratings.</Description>
+    <Type>Random Bracers Suffix</Type>
+    <Type>Random Cloak Extra</Type>
+    <Type>Random Helmet Extra</Type>
+    <Type>Random Necklace Extra</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 1 2 3 4 4 5 5 6 6 7 7 8 8 9 9 10 10 11 11 12 12 13 13 14 14 15 15 16 16 17 17 18 18 18 18 18 18 18 18</LevelValue>
+    <Effect>
+      <Type>PRR</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">38</Amount>
+    </Effect>
+    <Effect>
+      <Type>MRR</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">38</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Physical Resistance Rating</Name>
+    <Icon>Cannith</Icon>
+    <Description>Physical Resistance Rating</Description>
+    <Type>Random Armor Prefix</Type>
+    <Type>Random Belt Prefix</Type>
+    <Type>Random Bracers Extra</Type>
+    <Type>Random Cloak Suffix</Type>
+    <Type>Random Ring Prefix</Type>
+    <Type>Random Shield Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">3 4 5 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 38 38 38 38 38 38</LevelValue>
+    <Effect>
+      <Type>PRR</Type>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">16</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Vitality</Name>
+    <Icon>Cannith</Icon>
+    <Description>A Vitality bonus to hitpoints</Description>
+    <Type>Random Armor Suffix</Type>
+    <Type>Cannith Armor Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">4 6 7 10 12 13 15 16 17 19 20 21 23 24 25 27 28 29 31 32 33 35 36 37 39 40 41 43 44 45 47 48 49 51 51 51 51 51 51 51</LevelValue>
+    <Effect>
+      <Type>Hitpoints</Type>
+      <Bonus>Vitality</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">20</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Speed</Name>
+    <Icon>Cannith</Icon>
+    <Description>Bonus to your base movement speed and to attack speed</Description>
+    <Type>Random Boots Prefix</Type>
+    <Type>Random Ring Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">15 15 15 15 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30</LevelValue>
+    <LevelValue2 size="40">1 2 2 4 4 5 5 6 6 7 8 9 9 10 11 12 12 13 14 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15</LevelValue2>
+    <Effect>
+      <Type>MovementSpeed</Type>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">30</Amount>
+      <ApplyAsItemEffect />
+    </Effect>
+    <Effect>
+      <Type>WeaponAlacrityClass</Type>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">10</Amount>
+      <Item>Melee</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Spell Lore Acid</Name>
+    <Icon>Cannith</Icon>
+    <Description>Enhancement bonus to spell critical chance</Description>
+    <Type>Cannith Orb Suffix</Type>
+    <Type>Random Ring Prefix</Type>
+    <Type>Random Weapon Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">6 6 7 8 9 9 10 10 11 11 12 12 13 13 14 14 15 15 16 16 17 17 18 18 19 19 20 20 21 21 22 22 23 23 23 23 23 23 23 23</LevelValue>
+    <Effect>
+      <Type>SpellLore</Type>
+      <Item>Acid</Item>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">27</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Spell Lore Cold</Name>
+    <Icon>Cannith</Icon>
+    <Description>Enhancement bonus to spell critical chance</Description>
+    <Type>Cannith Orb Suffix</Type>
+    <Type>Random Ring Prefix</Type>
+    <Type>Random Weapon Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">6 6 7 8 9 9 10 10 11 11 12 12 13 13 14 14 15 15 16 16 17 17 18 18 19 19 20 20 21 21 22 22 23 23 23 23 23 23 23 23</LevelValue>
+    <Effect>
+      <Type>SpellLore</Type>
+      <Item>Cold</Item>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">27</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Spell Lore Electric</Name>
+    <Icon>Cannith</Icon>
+    <Description>Enhancement bonus to spell critical chance</Description>
+    <Type>Cannith Orb Suffix</Type>
+    <Type>Random Ring Prefix</Type>
+    <Type>Random Weapon Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">6 6 7 8 9 9 10 10 11 11 12 12 13 13 14 14 15 15 16 16 17 17 18 18 19 19 20 20 21 21 22 22 23 23 23 23 23 23 23 23</LevelValue>
+    <Effect>
+      <Type>SpellLore</Type>
+      <Item>Electric</Item>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">27</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Spell Lore Fire</Name>
+    <Icon>Cannith</Icon>
+    <Description>Enhancement bonus to spell critical chance</Description>
+    <Type>Cannith Orb Suffix</Type>
+    <Type>Random Ring Prefix</Type>
+    <Type>Random Weapon Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">6 6 7 8 9 9 10 10 11 11 12 12 13 13 14 14 15 15 16 16 17 17 18 18 19 19 20 20 21 21 22 22 23 23 23 23 23 23 23 23</LevelValue>
+    <Effect>
+      <Type>SpellLore</Type>
+      <Item>Fire</Item>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">27</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Spell Lore Force</Name>
+    <Icon>Cannith</Icon>
+    <Description>Enhancement bonus to spell critical chance</Description>
+    <Type>Cannith Orb Suffix</Type>
+    <Type>Random Ring Prefix</Type>
+    <Type>Random Weapon Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">6 6 7 8 9 9 10 10 11 11 12 12 13 13 14 14 15 15 16 16 17 17 18 18 19 19 20 20 21 21 22 22 23 23 23 23 23 23 23 23</LevelValue>
+    <Effect>
+      <Type>SpellLore</Type>
+      <Item>Force</Item>
+      <Item>Physical</Item>
+      <Item>Untyped</Item>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">27</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Spell Lore Light</Name>
+    <Icon>Cannith</Icon>
+    <Description>Enhancement bonus to spell critical chance</Description>
+    <Type>Cannith Orb Suffix</Type>
+    <Type>Random Ring Prefix</Type>
+    <Type>Random Weapon Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">6 6 7 8 9 9 10 10 11 11 12 12 13 13 14 14 15 15 16 16 17 17 18 18 19 19 20 20 21 21 22 22 23 23 23 23 23 23 23 23</LevelValue>
+    <Effect>
+      <Type>SpellLore</Type>
+      <Item>Light/Alignment</Item>
+      <Item>Chaos</Item>
+      <Item>Evil</Item>
+      <Item>Good</Item>
+      <Item>Lawful</Item>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">27</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Spell Lore Negative</Name>
+    <Icon>Cannith</Icon>
+    <Description>Enhancement bonus to spell critical chance</Description>
+    <Type>Cannith Orb Suffix</Type>
+    <Type>Random Ring Prefix</Type>
+    <Type>Random Weapon Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">6 6 7 8 9 9 10 10 11 11 12 12 13 13 14 14 15 15 16 16 17 17 18 18 19 19 20 20 21 21 22 22 23 23 23 23 23 23 23 23</LevelValue>
+    <Effect>
+      <Type>SpellLore</Type>
+      <Item>Negative</Item>
+      <Item>Poison</Item>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">27</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Spell Lore Positive</Name>
+    <Icon>Cannith</Icon>
+    <Description>Enhancement bonus to spell critical chance</Description>
+    <Type>Cannith Orb Suffix</Type>
+    <Type>Random Ring Prefix</Type>
+    <Type>Random Weapon Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">6 6 7 8 9 9 10 10 11 11 12 12 13 13 14 14 15 15 16 16 17 17 18 18 19 19 20 20 21 21 22 22 23 23 23 23 23 23 23 23</LevelValue>
+    <Effect>
+      <Type>SpellLore</Type>
+      <Item>Positive</Item>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">27</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Spell Lore Repair</Name>
+    <Icon>Cannith</Icon>
+    <Description>Enhancement bonus to spell critical chance</Description>
+    <Type>Cannith Orb Suffix</Type>
+    <Type>Random Ring Prefix</Type>
+    <Type>Random Weapon Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">6 6 7 8 9 9 10 10 11 11 12 12 13 13 14 14 15 15 16 16 17 17 18 18 19 19 20 20 21 21 22 22 23 23 23 23 23 23 23 23</LevelValue>
+    <Effect>
+      <Type>SpellLore</Type>
+      <Item>Repair</Item>
+      <Item>Rust</Item>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">27</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Spell Lore Sonic</Name>
+    <Icon>Cannith</Icon>
+    <Description>Enhancement bonus to spell critical chance</Description>
+    <Type>Cannith Orb Suffix</Type>
+    <Type>Random Ring Prefix</Type>
+    <Type>Random Weapon Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">6 6 7 8 9 9 10 10 11 11 12 12 13 13 14 14 15 15 16 16 17 17 18 18 19 19 20 20 21 21 22 22 23 23 23 23 23 23 23 23</LevelValue>
+    <Effect>
+      <Type>SpellLore</Type>
+      <Item>Sonic</Item>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">27</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Spell Penetration</Name>
+    <Icon>Cannith</Icon>
+    <Description>Enhancement bonus to Spell Penetration</Description>
+    <Type>Cannith Gloves Prefix</Type>
+    <Type>Cannith Goggles Suffix</Type>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Trinket Suffix</Type>
+    <Type>Random Gloves Prefix</Type>
+    <Type>Random Goggles Suffix</Type>
+    <Type>Random Weapon Extra</Type>
+    <Type>Cannith Rune Arm Prefix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">1 1 2 2 3 3 3 3 4 4 4 4 5 5 5 5 5 6 6 6 6 7 7 7 7 8 8 8 8 9 9 9 9 10 10 10 10 10 10 10</LevelValue>
+    <Effect>
+      <Type>SpellPenetrationBonus</Type>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">3</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Fortitude</Name>
+    <Icon>Cannith</Icon>
+    <Description>You have a insight bonus to Fortitude saves</Description>
+    <Type>Random Helmet Extra</Type>
+    <Type>Random Ring Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">0 0 0 1 1 1 1 1 1 2 2 2 2 2 2 2 3 3 3 3 3 3 4 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5</LevelValue>
+    <Effect>
+      <Type>SaveBonus</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">11</Amount>
+      <Item>Fortitude</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Reflex</Name>
+    <Icon>Cannith</Icon>
+    <Description>You have a insight bonus to Reflex saves</Description>
+    <Type>Random Helmet Extra</Type>
+    <Type>Random Ring Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">0 0 0 1 1 1 1 1 1 2 2 2 2 2 2 2 3 3 3 3 3 3 4 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5</LevelValue>
+    <Effect>
+      <Type>SaveBonus</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">11</Amount>
+      <Item>Reflex</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Insightful Will</Name>
+    <Icon>Cannith</Icon>
+    <Description>You have a insight bonus to Will saves</Description>
+    <Type>Random Helmet Extra</Type>
+    <Type>Random Ring Suffix</Type>
+    <ChooseLevel />
+    <LevelValue size="40">0 0 0 1 1 1 1 1 1 2 2 2 2 2 2 2 3 3 3 3 3 3 4 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5</LevelValue>
+    <Effect>
+      <Type>SaveBonus</Type>
+      <Bonus>Insightful</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">11</Amount>
+      <Item>Will</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Aligned</Name>
+    <Icon>Cannith</Icon>
+    <Description>This weapon transmutes into a form that is able to bypass any alignment based Damage
+Reduction (Chaotic, Good, Evil, Lawful)</Description>
+    <Type>Cannith Weapon Suffix</Type>
+    <MinLevel>1</MinLevel>
+    <Effect>
+      <Type>DRBypass</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>NotNeeded</AType>
+      <Item>All</Item>
+      <Value>Chaotic</Value>
+    </Effect>
+    <Effect>
+      <Type>DRBypass</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>NotNeeded</AType>
+      <Item>All</Item>
+      <Value>Evil</Value>
+    </Effect>
+    <Effect>
+      <Type>DRBypass</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>NotNeeded</AType>
+      <Item>All</Item>
+      <Value>Good</Value>
+    </Effect>
+    <Effect>
+      <Type>DRBypass</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>NotNeeded</AType>
+      <Item>All</Item>
+      <Value>Lawful</Value>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Everbright</Name>
+    <Icon>Cannith</Icon>
+    <Description>An everbright weapon will never take damage from rust or acid and can emit a Blinding
+Flash 3/rest."</Description>
+    <Type>Cannith Weapon Suffix</Type>
+    <MinLevel>1</MinLevel>
+  </Augment>
+  <Augment>
+    <Name>Fearsome</Name>
+    <Icon>Cannith</Icon>
+    <Description>This item causes those who strike the user to be overcome with terror, as from the
+Fear spell (DC 17).</Description>
+    <Type>Cannith Armor Prefix</Type>
+    <MinLevel>1</MinLevel>
+  </Augment>
+  <Augment>
+    <Name>Ghost Touch</Name>
+    <Icon>Cannith</Icon>
+    <Description>An incorporeal creature's 50% chance to avoid damage does not apply to attacks with
+ghost touch weapons or ammunition.</Description>
+    <Type>Cannith Weapon Prefix</Type>
+    <MinLevel>1</MinLevel>
+    <Effect>
+      <Type>GhostTouch</Type>
+      <Bonus>Not Set</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">1</Amount>
+      <Item>All</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Invulnerability</Name>
+    <Icon>Cannith</Icon>
+    <Description>This armor grants the wearer damage reduction of 5/magic.</Description>
+    <Type>Cannith Armor Suffix</Type>
+    <MinLevel>1</MinLevel>
+    <Effect>
+      <Type>DR</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">5</Amount>
+      <Item>Magic</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Lesser Arcane Casting Dexterity</Name>
+    <Icon>Cannith</Icon>
+    <Description>This ability reduces the arcane spell failure chance by -5%.</Description>
+    <Type>Cannith Trinket Prefix</Type>
+    <Type>Cannith Rune Arm Prefix</Type>
+    <MinLevel>1</MinLevel>
+    <Effect>
+      <Type>ArcaneSpellFailure</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">-5</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Metalline</Name>
+    <Icon>Cannith</Icon>
+    <Description>This weapon transmutes into a form that is able to bypass any metal-based Damage
+Reduction that can be bypassed. (Adamantine, Alchemical Silver, Byeshk,
+Cold Iron or Mithral)</Description>
+    <Type>Cannith Weapon Suffix</Type>
+    <MinLevel>1</MinLevel>
+    <Effect>
+      <Type>DRBypass</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>NotNeeded</AType>
+      <Item>All</Item>
+      <Value>Adamantine</Value>
+    </Effect>
+    <Effect>
+      <Type>DRBypass</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>NotNeeded</AType>
+      <Item>All</Item>
+      <Value>Silver</Value>
+    </Effect>
+    <Effect>
+      <Type>DRBypass</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>NotNeeded</AType>
+      <Item>All</Item>
+      <Value>Byeshk</Value>
+    </Effect>
+    <Effect>
+      <Type>DRBypass</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>NotNeeded</AType>
+      <Item>All</Item>
+      <Value>Cold Iron</Value>
+    </Effect>
+    <Effect>
+      <Type>DRBypass</Type>
+      <Bonus>Equipment</Bonus>
+      <AType>NotNeeded</AType>
+      <Item>All</Item>
+      <Value>Mithral</Value>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Songblade</Name>
+    <Icon>Cannith</Icon>
+    <Description>Songblade items sing an eerie counterpoint to music.
+This gives a +2 Enhancement bonus to the Perform skills.</Description>
+    <Type>Cannith Shield Prefix</Type>
+    <Type>Cannith Weapon Prefix</Type>
+    <Type>Cannith Orb Prefix</Type>
+    <MinLevel>1</MinLevel>
+    <Effect>
+      <Type>SkillBonus</Type>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">2</Amount>
+      <Item>Perform</Item>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Twilight</Name>
+    <Icon>Cannith</Icon>
+    <Description>This suit of armor favored by eladrin spellcasters, becomes semi-incorporeal when donned.
+The twilight armor reduces the chance of arcane spell failure by -10%.</Description>
+    <Type>Cannith Armor Prefix</Type>
+    <MinLevel>1</MinLevel>
+    <Effect>
+      <Type>ArcaneSpellFailure</Type>
+      <Bonus>Enhancement</Bonus>
+      <AType>Simple</AType>
+      <Amount size="1">-10</Amount>
+    </Effect>
+  </Augment>
+  <Augment>
+    <Name>Unbalancing</Name>
+    <Icon>Cannith</Icon>
+    <Description>Anything that melee attacks a character with an Unbalancing item has a chance (10%)
+to be pulled off balance giving them a -2 penalty to their AC</Description>
+    <Type>Cannith Weapon Prefix</Type>
+    <MinLevel>1</MinLevel>
+  </Augment>
+  <Augment>
+    <Name>Vengeful</Name>
+    <Icon>Cannith</Icon>
+    <Description>When its wielder is hit in battle, this weapon has a 10% chance to cause him or her
+to become full of anger and go into a Rage.</Description>
+    <Type>Cannith Weapon Prefix</Type>
+    <MinLevel>1</MinLevel>
+  </Augment>
+</Augments>

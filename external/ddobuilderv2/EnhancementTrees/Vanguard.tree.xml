@@ -1,0 +1,1494 @@
+<Enhancements>
+  <EnhancementTree>
+    <Name>Vanguard</Name>
+    <Version>1</Version>
+    <Requirements>
+      <RequiresOneOf>
+        <Requirement>
+          <Type>Class</Type>
+          <Item>Fighter</Item>
+        </Requirement>
+        <Requirement>
+          <Type>Class</Type>
+          <Item>Paladin</Item>
+        </Requirement>
+      </RequiresOneOf>
+    </Requirements>
+    <Icon>FighterPaladin</Icon>
+    <Background>FighterBackground</Background>
+    <!--Core Items-->
+    <EnhancementTreeItem>
+      <Name>Vanguard: To the Fore!</Name>
+      <InternalName>VanguardCore1</InternalName>
+      <Description>While you have a shield equipped,you gain +1 to hit and damage with main hand weapon
+and with your shield bash attacks.</Description>
+      <Icon>VanguardToTheFore</Icon>
+      <XPosition>0</XPosition>
+      <YPosition>0</YPosition>
+      <CostPerRank size="1">1</CostPerRank>
+      <Ranks>1</Ranks>
+      <MinSpent>0</MinSpent>
+      <ArrowRight/>
+      <Requirements>
+        <RequiresOneOf>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Fighter</Item>
+            <Value>1</Value>
+          </Requirement>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Paladin</Item>
+            <Value>1</Value>
+          </Requirement>
+        </RequiresOneOf>
+      </Requirements>
+      <Effect>
+        <Type>Weapon_AttackAndDamage</Type>
+        <Bonus>Enhancement</Bonus>
+        <Item>All</Item>
+        <AType>Simple</AType>
+        <Amount size="1">1</Amount>
+        <Requirements>
+          <Requirement>
+            <Type>Stance</Type>
+            <Item>Sword and Board</Item>
+          </Requirement>
+        </Requirements>
+      </Effect>
+    </EnhancementTreeItem>
+    <EnhancementTreeItem>
+      <Name>Vanguard: Shield Combat I</Name>
+      <InternalName>VanguardCore2</InternalName>
+      <Description>+10% chance to make a secondary shield bash</Description>
+      <Icon>VanguardShieldCombatI</Icon>
+      <XPosition>1</XPosition>
+      <YPosition>0</YPosition>
+      <CostPerRank size="1">1</CostPerRank>
+      <Ranks>1</Ranks>
+      <MinSpent>5</MinSpent>
+      <ArrowRight/>
+      <Requirements>
+        <Requirement>
+          <Type>Enhancement</Type>
+          <Item>VanguardCore1</Item>
+        </Requirement>
+        <RequiresOneOf>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Fighter</Item>
+            <Value>3</Value>
+          </Requirement>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Paladin</Item>
+            <Value>3</Value>
+          </Requirement>
+        </RequiresOneOf>
+      </Requirements>
+      <Effect>
+        <Type>SecondaryShieldBash</Type>
+        <Bonus>Enhancement</Bonus>
+        <AType>Simple</AType>
+        <Amount size="1">10</Amount>
+        <Requirements>
+          <Requirement>
+            <Type>Stance</Type>
+            <Item>Sword and Board</Item>
+          </Requirement>
+        </Requirements>
+      </Effect>
+    </EnhancementTreeItem>
+    <EnhancementTreeItem>
+      <Name>Vanguard: Vicious Shield I</Name>
+      <InternalName>VanguardCore3</InternalName>
+      <Description>Additional +10% (total +20%) chance to make a secondary shield bash.
+While you have a shield equipped, +5% Combat Style bonus to melee attack speed.</Description>
+      <Icon>VanguardViciousShieldI</Icon>
+      <XPosition>2</XPosition>
+      <YPosition>0</YPosition>
+      <CostPerRank size="1">1</CostPerRank>
+      <Ranks>1</Ranks>
+      <MinSpent>10</MinSpent>
+      <ArrowRight/>
+      <Requirements>
+        <Requirement>
+          <Type>Enhancement</Type>
+          <Item>VanguardCore2</Item>
+        </Requirement>
+        <RequiresOneOf>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Fighter</Item>
+            <Value>6</Value>
+          </Requirement>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Paladin</Item>
+            <Value>6</Value>
+          </Requirement>
+        </RequiresOneOf>
+      </Requirements>
+      <Effect>
+        <Type>SecondaryShieldBash</Type>
+        <Bonus>Enhancement</Bonus>
+        <AType>Simple</AType>
+        <Amount size="1">10</Amount>
+        <Requirements>
+          <Requirement>
+            <Type>Stance</Type>
+            <Item>Sword and Board</Item>
+          </Requirement>
+        </Requirements>
+      </Effect>
+      <Effect>
+        <Type>Weapon_Alacrity</Type>
+        <Bonus>Combat Style</Bonus>
+        <Item>All</Item>
+        <AType>Simple</AType>
+        <Amount size="1">5</Amount>
+        <Requirements>
+          <Requirement>
+            <Type>Stance</Type>
+            <Item>Sword and Board</Item>
+          </Requirement>
+        </Requirements>
+      </Effect>
+    </EnhancementTreeItem>
+    <EnhancementTreeItem>
+      <Name>Vanguard: Shield Combat II</Name>
+      <InternalName>VanguardCore4</InternalName>
+      <Description>Additional +10% (total 30%) chance to make a secondary shield bash.
+While you have a shield equipped, +5% (total 10%) Combat style bonus to Melee
+Attack Speed.
+
+Your shield gains +1[W].</Description>
+      <Icon>VanguardShieldCombatII</Icon>
+      <XPosition>3</XPosition>
+      <YPosition>0</YPosition>
+      <CostPerRank size="1">1</CostPerRank>
+      <Ranks>1</Ranks>
+      <MinSpent>20</MinSpent>
+      <ArrowRight/>
+      <Requirements>
+        <Requirement>
+          <Type>Enhancement</Type>
+          <Item>VanguardCore3</Item>
+        </Requirement>
+        <RequiresOneOf>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Fighter</Item>
+            <Value>12</Value>
+          </Requirement>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Paladin</Item>
+            <Value>12</Value>
+          </Requirement>
+        </RequiresOneOf>
+      </Requirements>
+      <Effect>
+        <Type>SecondaryShieldBash</Type>
+        <Bonus>Enhancement</Bonus>
+        <AType>Simple</AType>
+        <Amount size="1">10</Amount>
+        <Requirements>
+          <Requirement>
+            <Type>Stance</Type>
+            <Item>Sword and Board</Item>
+          </Requirement>
+        </Requirements>
+      </Effect>
+      <Effect>
+        <Type>Weapon_Alacrity</Type>
+        <Bonus>Combat Style</Bonus>
+        <Item>All</Item>
+        <AType>Simple</AType>
+        <Amount size="1">5</Amount>
+        <Requirements>
+          <Requirement>
+            <Type>Stance</Type>
+            <Item>Sword and Board</Item>
+          </Requirement>
+        </Requirements>
+      </Effect>
+      <Effect>
+        <Type>Weapon_BaseDamage</Type>
+        <Bonus>Enhancement</Bonus>
+        <Item>Buckler</Item>
+        <Item>Small Shield</Item>
+        <Item>Large Shield</Item>
+        <Item>Tower Shield</Item>
+        <AType>Simple</AType>
+        <Amount size="1">1</Amount>
+      </Effect>
+    </EnhancementTreeItem>
+    <EnhancementTreeItem>
+      <Name>Vanguard: Vicious Shield II</Name>
+      <InternalName>VanguardCore5</InternalName>
+      <Description>Shield gains +1 Critical Threat Range, +1 Critical Multiplier, and +1[W].
+
+While you have a shield equipped, +5% (total 15%) Combat Style bonus to Melee
+Attack Speed.</Description>
+      <Icon>VanguardViciousShieldII</Icon>
+      <XPosition>4</XPosition>
+      <YPosition>0</YPosition>
+      <CostPerRank size="1">1</CostPerRank>
+      <Ranks>1</Ranks>
+      <MinSpent>30</MinSpent>
+      <ArrowRight/>
+      <Requirements>
+        <Requirement>
+          <Type>Enhancement</Type>
+          <Item>VanguardCore4</Item>
+        </Requirement>
+        <RequiresOneOf>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Fighter</Item>
+            <Value>18</Value>
+          </Requirement>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Paladin</Item>
+            <Value>18</Value>
+          </Requirement>
+        </RequiresOneOf>
+      </Requirements>
+      <Effect>
+        <Type>Weapon_CriticalRange</Type>
+        <Type>Weapon_CriticalMultiplier</Type>
+        <Bonus>Competence</Bonus>
+        <Item>Buckler</Item>
+        <Item>Small Shield</Item>
+        <Item>Large Shield</Item>
+        <Item>Tower Shield</Item>
+        <AType>Simple</AType>
+        <Amount size="1">1</Amount>
+        <ApplyAsItemEffect/>
+      </Effect>
+      <Effect>
+        <Type>Weapon_BaseDamage</Type>
+        <Bonus>Enhancement</Bonus>
+        <Item>Buckler</Item>
+        <Item>Small Shield</Item>
+        <Item>Large Shield</Item>
+        <Item>Tower Shield</Item>
+        <AType>Simple</AType>
+        <Amount size="1">1</Amount>
+      </Effect>
+      <Effect>
+        <Type>Weapon_Alacrity</Type>
+        <Bonus>Combat Style</Bonus>
+        <Item>All</Item>
+        <AType>Simple</AType>
+        <Amount size="1">5</Amount>
+        <Requirements>
+          <Requirement>
+            <Type>Stance</Type>
+            <Item>Sword and Board</Item>
+          </Requirement>
+        </Requirements>
+      </Effect>
+    </EnhancementTreeItem>
+    <EnhancementTreeItem>
+      <Name>Vanguard: Shield Champion</Name>
+      <InternalName>VanguardCore6</InternalName>
+      <Description>While you have a shield equipped, you gain +2 attack, +2 damage, and +5% Doublestrike,
++5% (total 20%) Combat Style bonus to Melee Attack Speed.
+
+Your shield gains +1[W].
+
+Your shield bashes stuns enemies 10% of the time.
+DC(10 + 1/2 Character level + strength modifier + stun bonus)</Description>
+      <Icon>VanguardShieldChampion</Icon>
+      <XPosition>5</XPosition>
+      <YPosition>0</YPosition>
+      <CostPerRank size="1">1</CostPerRank>
+      <Ranks>1</Ranks>
+      <MinSpent>40</MinSpent>
+      <Requirements>
+        <Requirement>
+          <Type>Enhancement</Type>
+          <Item>VanguardCore5</Item>
+        </Requirement>
+        <Requirement>
+          <Type>Exclusive</Type>
+          <Item>VanguardCore6</Item>
+          <Item>Capstone Enhancement</Item>
+        </Requirement>
+        <RequiresOneOf>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Fighter</Item>
+            <Value>20</Value>
+          </Requirement>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Paladin</Item>
+            <Value>20</Value>
+          </Requirement>
+        </RequiresOneOf>
+      </Requirements>
+      <Effect>
+        <Type>ExclusionGroup</Type>
+        <Bonus>Enhancement</Bonus>
+        <Item>VanguardCore6</Item>
+        <Item>Capstone Enhancement</Item>
+        <AType>NotNeeded</AType>
+      </Effect>
+      <Effect>
+        <Type>Weapon_AttackAndDamage</Type>
+        <Bonus>Enhancement</Bonus>
+        <Item>All</Item>
+        <AType>Simple</AType>
+        <Amount size="1">2</Amount>
+        <Requirements>
+          <Requirement>
+            <Type>Stance</Type>
+            <Item>Sword and Board</Item>
+          </Requirement>
+        </Requirements>
+      </Effect>
+      <Effect>
+        <Type>Doublestrike</Type>
+        <Bonus>Enhancement</Bonus>
+        <AType>Simple</AType>
+        <Amount size="1">5</Amount>
+        <Requirements>
+          <Requirement>
+            <Type>Stance</Type>
+            <Item>Sword and Board</Item>
+          </Requirement>
+        </Requirements>
+      </Effect>
+      <Effect>
+        <Type>Weapon_BaseDamage</Type>
+        <Bonus>Enhancement</Bonus>
+        <Item>Buckler</Item>
+        <Item>Small Shield</Item>
+        <Item>Large Shield</Item>
+        <Item>Tower Shield</Item>
+        <AType>Simple</AType>
+        <Amount size="1">1</Amount>
+      </Effect>
+      <Effect>
+        <Type>Weapon_Alacrity</Type>
+        <Bonus>Combat Style</Bonus>
+        <Item>All</Item>
+        <AType>Simple</AType>
+        <Amount size="1">5</Amount>
+        <Requirements>
+          <Requirement>
+            <Type>Stance</Type>
+            <Item>Sword and Board</Item>
+          </Requirement>
+        </Requirements>
+      </Effect>
+      <DC>
+        <Name>Vanguard: Shield Champion: Stun</Name>
+        <Description>Your shield bashes stuns enemies 10% of the time.
+DC(10 + 1/2 Character level + strength modifier + stun bonus)</Description>
+        <Icon>VanguardShieldChampion</Icon>
+        <DCType>Stun</DCType>
+        <DCVersus>Will</DCVersus>
+        <Amount size="1">10</Amount>
+        <ModAbility>Strength</ModAbility>
+        <Tactical>Stun</Tactical>
+        <HalfClassLevel>All</HalfClassLevel>
+      </DC>
+      <DC>
+        <Name>Vanguard: Shield Champion</Name>
+        <Description>Shield bash stuns 10% of the time</Description>
+        <Icon>VanguardShieldChampion</Icon>
+        <DCType>Stun</DCType>
+        <DCVersus>Will?</DCVersus>
+        <Amount size="1">10</Amount>
+        <ModAbility>Strength</ModAbility>
+        <Tactical>Stun</Tactical>
+        <HalfClassLevel>All</HalfClassLevel>
+      </DC>
+    </EnhancementTreeItem>
+    <!--Tier 1-->
+    <EnhancementTreeItem>
+      <Name>Vanguard: Shield Specialization I</Name>
+      <InternalName>VanguardShieldSpecializationI</InternalName>
+      <Description>While you have a shield equipped, you gain +1 to hit, damage, and armor class.</Description>
+      <Icon>VanguardShieldSpecializationI</Icon>
+      <XPosition>0</XPosition>
+      <YPosition>1</YPosition>
+      <CostPerRank size="1">2</CostPerRank>
+      <Ranks>1</Ranks>
+      <MinSpent>1</MinSpent>
+      <ArrowUp/>
+      <Requirements>
+        <RequiresOneOf>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Fighter</Item>
+            <Value>1</Value>
+          </Requirement>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Paladin</Item>
+            <Value>1</Value>
+          </Requirement>
+        </RequiresOneOf>
+      </Requirements>
+      <Effect>
+        <Type>Weapon_AttackAndDamage</Type>
+        <Bonus>Enhancement</Bonus>
+        <Item>All</Item>
+        <AType>Simple</AType>
+        <Amount size="1">1</Amount>
+        <Requirements>
+          <Requirement>
+            <Type>Stance</Type>
+            <Item>Shield</Item>
+          </Requirement>
+        </Requirements>
+      </Effect>
+      <Effect>
+        <Type>ACBonus</Type>
+        <Bonus>Enhancement</Bonus>
+        <AType>Simple</AType>
+        <Amount size="1">1</Amount>
+        <Requirements>
+          <Requirement>
+            <Type>Stance</Type>
+            <Item>Shield</Item>
+          </Requirement>
+        </Requirements>
+      </Effect>
+    </EnhancementTreeItem>
+    <EnhancementTreeItem>
+      <Name>Vanguard: No Weakness</Name>
+      <InternalName>VanguardNoWeakness</InternalName>
+      <Description>+[1/2/3] Fortitude saving throws.</Description>
+      <Icon>VanguardNoWeakness</Icon>
+      <XPosition>1</XPosition>
+      <YPosition>1</YPosition>
+      <CostPerRank size="1">1</CostPerRank>
+      <Ranks>3</Ranks>
+      <MinSpent>1</MinSpent>
+      <Requirements>
+        <RequiresOneOf>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Fighter</Item>
+            <Value>1</Value>
+          </Requirement>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Paladin</Item>
+            <Value>1</Value>
+          </Requirement>
+        </RequiresOneOf>
+      </Requirements>
+      <Effect>
+        <Type>SaveBonus</Type>
+        <Bonus>Enhancement</Bonus>
+        <Item>Fortitude</Item>
+        <AType>Stacks</AType>
+        <Amount size="3">1 2 3</Amount>
+      </Effect>
+    </EnhancementTreeItem>
+    <EnhancementTreeItem>
+      <Name>Vanguard: Shield Smash</Name>
+      <InternalName>VanguardShieldSmash</InternalName>
+      <Description>Deals +[25/50/75]% Damage
+Cooldown: [12/9/6] seconds
+Shield Attack: On damage you gain 1 stack of Battle Guard.
+Battle Guard: +10 PRR/MRR for 12 seconds, stacks 5 times. Each stack lasts 12 seconds.
+Blocking for more than 3 seconds removes all stacks.</Description>
+      <Icon>VanguardShieldSmash</Icon>
+      <XPosition>2</XPosition>
+      <YPosition>1</YPosition>
+      <CostPerRank size="1">1</CostPerRank>
+      <Ranks>3</Ranks>
+      <MinSpent>1</MinSpent>
+      <Clickie/>
+      <Requirements>
+        <RequiresOneOf>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Fighter</Item>
+            <Value>1</Value>
+          </Requirement>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Paladin</Item>
+            <Value>1</Value>
+          </Requirement>
+        </RequiresOneOf>
+      </Requirements>
+      <Effect>
+        <Type>CreateSlider</Type>
+        <Bonus>Enhancement</Bonus>
+        <Item>Shield Smash</Item>
+        <AType>Slider</AType>
+        <Amount size="3">0 0 5</Amount>
+      </Effect>
+      <Effect>
+        <Type>PRR</Type>
+        <Type>MRR</Type>
+        <Bonus>Enhancement</Bonus>
+        <Amount size="1">10</Amount>
+        <AType>SliderValue</AType>
+        <StackSource>Shield Smash</StackSource>
+      </Effect>
+    </EnhancementTreeItem>
+    <EnhancementTreeItem>
+      <Name>Vanguard: Unbalancing Shove</Name>
+      <InternalName>VanguardUnbalancingShove</InternalName>
+      <Description>When you shield bash, damaged enemies get -1 to saving throws for [2/4/6] seconds.</Description>
+      <Icon>VanguardUnbalancingShove</Icon>
+      <XPosition>3</XPosition>
+      <YPosition>1</YPosition>
+      <CostPerRank size="1">1</CostPerRank>
+      <Ranks>3</Ranks>
+      <MinSpent>1</MinSpent>
+      <Requirements>
+        <RequiresOneOf>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Fighter</Item>
+            <Value>1</Value>
+          </Requirement>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Paladin</Item>
+            <Value>1</Value>
+          </Requirement>
+        </RequiresOneOf>
+      </Requirements>
+    </EnhancementTreeItem>
+    <EnhancementTreeItem>
+      <Name>Vanguard: Armor Training</Name>
+      <InternalName>VanguardArmorTraining</InternalName>
+      <Description>+[1/2/3] to Balance, Intimidate, and Jump.
+Reduces total penalty to skills from armor and shield by [1/2/3] points.</Description>
+      <Icon>VanguardArmorTraining</Icon>
+      <XPosition>4</XPosition>
+      <YPosition>1</YPosition>
+      <CostPerRank size="1">1</CostPerRank>
+      <Ranks>3</Ranks>
+      <MinSpent>1</MinSpent>
+      <Requirements>
+        <RequiresOneOf>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Fighter</Item>
+            <Value>1</Value>
+          </Requirement>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Paladin</Item>
+            <Value>1</Value>
+          </Requirement>
+        </RequiresOneOf>
+      </Requirements>
+      <Effect>
+        <Type>SkillBonus</Type>
+        <Bonus>Enhancement</Bonus>
+        <Item>Balance</Item>
+        <Item>Intimidate</Item>
+        <Item>Jump</Item>
+        <AType>Stacks</AType>
+        <Amount size="3">1 2 3</Amount>
+      </Effect>
+      <Effect>
+        <Type>ArmorCheckPenalty</Type>
+        <Bonus>Enhancement</Bonus>
+        <AType>Stacks</AType>
+        <Amount size="3">1 2 3</Amount>
+      </Effect>
+    </EnhancementTreeItem>
+    <!--Tier 2-->
+    <EnhancementTreeItem>
+      <Name>Vanguard: Shield Specialization II</Name>
+      <InternalName>VanguardShieldSpecializationII</InternalName>
+      <Description>While you have a shield equipped, you gain +1 to hit, damage, and armor class.</Description>
+      <Icon>VanguardShieldSpecializationII</Icon>
+      <XPosition>0</XPosition>
+      <YPosition>2</YPosition>
+      <CostPerRank size="1">2</CostPerRank>
+      <Ranks>1</Ranks>
+      <MinSpent>5</MinSpent>
+      <ArrowUp/>
+      <Requirements>
+        <Requirement>
+          <Type>Enhancement</Type>
+          <Item>VanguardShieldSpecializationI</Item>
+        </Requirement>
+        <RequiresOneOf>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Fighter</Item>
+            <Value>2</Value>
+          </Requirement>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Paladin</Item>
+            <Value>2</Value>
+          </Requirement>
+        </RequiresOneOf>
+      </Requirements>
+      <Effect>
+        <Type>Weapon_AttackAndDamage</Type>
+        <Bonus>Enhancement</Bonus>
+        <Item>All</Item>
+        <AType>Simple</AType>
+        <Amount size="1">1</Amount>
+        <Requirements>
+          <Requirement>
+            <Type>Stance</Type>
+            <Item>Shield</Item>
+          </Requirement>
+        </Requirements>
+      </Effect>
+      <Effect>
+        <Type>ACBonus</Type>
+        <Bonus>Enhancement</Bonus>
+        <AType>Simple</AType>
+        <Amount size="1">1</Amount>
+        <Requirements>
+          <Requirement>
+            <Type>Stance</Type>
+            <Item>Shield</Item>
+          </Requirement>
+        </Requirements>
+      </Effect>
+    </EnhancementTreeItem>
+    <EnhancementTreeItem>
+      <Name>Vanguard: Brutality</Name>
+      <InternalName>VanguardBrutality</InternalName>
+      <Description>+[1/2/3] to the DC of Stunning abilities (e.g. Stunning Blow and Stunning Shield)</Description>
+      <Icon>VanguardBrutality</Icon>
+      <XPosition>1</XPosition>
+      <YPosition>2</YPosition>
+      <CostPerRank size="1">1</CostPerRank>
+      <Ranks>3</Ranks>
+      <MinSpent>5</MinSpent>
+      <Requirements>
+        <RequiresOneOf>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Fighter</Item>
+            <Value>2</Value>
+          </Requirement>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Paladin</Item>
+            <Value>2</Value>
+          </Requirement>
+        </RequiresOneOf>
+      </Requirements>
+      <Effect>
+        <Type>TacticalDC</Type>
+        <Bonus>Enhancement</Bonus>
+        <Item>Stun</Item>
+        <Item>Stunning Shield</Item>
+        <AType>Stacks</AType>
+        <Amount size="3">1 2 3</Amount>
+      </Effect>
+    </EnhancementTreeItem>
+    <EnhancementTreeItem>
+      <Name>Vanguard: Stunning Shield</Name>
+      <InternalName>VanguardStunningShield</InternalName>
+      <Description>Deals +[10/20/30]% Damage
+Cooldown: [45/30/15] seconds
+Shield Attack: This attack stuns enemies unless they make a Fortitude save vs
+DC(10 + highest ability modifier + character level + stunning bonuses).</Description>
+      <Icon>VanguardStunningShield</Icon>
+      <XPosition>2</XPosition>
+      <YPosition>2</YPosition>
+      <CostPerRank size="1">1</CostPerRank>
+      <Ranks>3</Ranks>
+      <MinSpent>5</MinSpent>
+      <Clickie/>
+      <Requirements>
+        <RequiresOneOf>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Fighter</Item>
+            <Value>2</Value>
+          </Requirement>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Paladin</Item>
+            <Value>2</Value>
+          </Requirement>
+        </RequiresOneOf>
+      </Requirements>
+      <DC>
+        <Name>Vanguard: Shield Champion</Name>
+        <Description>While shield equipped, Activate: Melee shield bash with shield for +[10/20/30]% Damage.</Description>
+        <Icon>VanguardStunningShield</Icon>
+        <DCType>Stun</DCType>
+        <DCVersus>Fortitude</DCVersus>
+        <Amount size="1">10</Amount>
+        <ModAbility>Strength</ModAbility>
+        <ModAbility>Dexterity</ModAbility>
+        <ModAbility>Constitution</ModAbility>
+        <ModAbility>Intelligence</ModAbility>
+        <ModAbility>Wisdom</ModAbility>
+        <ModAbility>Charisma</ModAbility>
+        <Tactical>Stun</Tactical>
+        <ClassLevel>All</ClassLevel>
+      </DC>
+    </EnhancementTreeItem>
+    <EnhancementTreeItem>
+      <Name>Vanguard: Missile Shield</Name>
+      <InternalName>VanguardMissileShield</InternalName>
+      <Description>While you have a shield equipped, you gain the benefits of the Deflect Arrows feat,
+knocking aside one incoming projectile that would have struck you every [6/4/2]
+seconds. Anti-requisite: Deflect Arrows.</Description>
+      <Icon>VanguardMissileShield</Icon>
+      <XPosition>3</XPosition>
+      <YPosition>2</YPosition>
+      <CostPerRank size="1">1</CostPerRank>
+      <Ranks>3</Ranks>
+      <MinSpent>5</MinSpent>
+      <Requirements>
+        <RequiresOneOf>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Fighter</Item>
+            <Value>2</Value>
+          </Requirement>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Paladin</Item>
+            <Value>2</Value>
+          </Requirement>
+        </RequiresOneOf>
+      </Requirements>
+      <Effect>
+        <Type>GrantFeat</Type>
+        <Bonus>Enhancement</Bonus>
+        <Item>Deflect Arrows</Item>
+        <AType>NotNeeded</AType>
+        <Requirements>
+          <Requirement>
+            <Type>Stance</Type>
+            <Item>Sword and Board</Item>
+          </Requirement>
+        </Requirements>
+      </Effect>
+    </EnhancementTreeItem>
+    <EnhancementTreeItem>
+      <Name>Vanguard: Action Boost Power</Name>
+      <InternalName>VanguardActionBoostMeleePower</InternalName>
+      <Description>+[10/20/30] Action Boost bonus to Melee and Ranged Power for 20 seconds.
+Usable 5 times per rest. Cooldown: 30 seconds</Description>
+      <Icon>VanguardActionBoostMeleePower</Icon>
+      <XPosition>4</XPosition>
+      <YPosition>2</YPosition>
+      <CostPerRank size="1">1</CostPerRank>
+      <Ranks>3</Ranks>
+      <MinSpent>5</MinSpent>
+      <Clickie/>
+      <Stance>
+        <Name>Vanguard: Power</Name>
+        <Icon>VanguardActionBoostMeleePower</Icon>
+        <Description>+[10/20/30] Action Boost bonus to Melee and Ranged Power for 20 seconds</Description>
+      </Stance>
+      <Requirements>
+        <RequiresOneOf>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Fighter</Item>
+            <Value>2</Value>
+          </Requirement>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Paladin</Item>
+            <Value>2</Value>
+          </Requirement>
+        </RequiresOneOf>
+      </Requirements>
+      <Effect>
+        <Type>MeleePower</Type>
+        <Type>RangedPower</Type>
+        <Bonus>Enhancement</Bonus>
+        <AType>Stacks</AType>
+        <Amount size="3">10 20 30</Amount>
+        <Requirements>
+          <Requirement>
+            <Type>Stance</Type>
+            <Item>Vanguard: Power</Item>
+          </Requirement>
+        </Requirements>
+      </Effect>
+    </EnhancementTreeItem>
+    <!--Tier 3-->
+    <EnhancementTreeItem>
+      <Name>Vanguard: Shield Specialization III</Name>
+      <InternalName>VanguardShieldSpecializationIII</InternalName>
+      <Description>While you have a shield equipped, you gain +1 to hit, damage, and armor class.</Description>
+      <Icon>VanguardShieldSpecializationIII</Icon>
+      <XPosition>0</XPosition>
+      <YPosition>3</YPosition>
+      <CostPerRank size="1">2</CostPerRank>
+      <Ranks>1</Ranks>
+      <MinSpent>10</MinSpent>
+      <ArrowUp/>
+      <Requirements>
+        <Requirement>
+          <Type>Enhancement</Type>
+          <Item>VanguardShieldSpecializationII</Item>
+        </Requirement>
+        <RequiresOneOf>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Fighter</Item>
+            <Value>3</Value>
+          </Requirement>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Paladin</Item>
+            <Value>3</Value>
+          </Requirement>
+        </RequiresOneOf>
+      </Requirements>
+      <Effect>
+        <Type>Weapon_AttackAndDamage</Type>
+        <Bonus>Enhancement</Bonus>
+        <Item>All</Item>
+        <AType>Simple</AType>
+        <Amount size="1">1</Amount>
+        <Requirements>
+          <Requirement>
+            <Type>Stance</Type>
+            <Item>Shield</Item>
+          </Requirement>
+        </Requirements>
+      </Effect>
+      <Effect>
+        <Type>ACBonus</Type>
+        <Bonus>Enhancement</Bonus>
+        <AType>Simple</AType>
+        <Amount size="1">1</Amount>
+        <Requirements>
+          <Requirement>
+            <Type>Stance</Type>
+            <Item>Shield</Item>
+          </Requirement>
+        </Requirements>
+      </Effect>
+    </EnhancementTreeItem>
+    <EnhancementTreeItem>
+      <Name>Vanguard: Follow Up</Name>
+      <InternalName>VanguardFollowUp</InternalName>
+      <Description>When you hit an enemy with an activated attack with certain stunning abilities
+(such as Stunning Blow or Stunning Shield), your Melee Power is increased by
+[5/10/15] points for 30 seconds whether the stun works or not.</Description>
+      <Icon>VanguardFollowUp</Icon>
+      <XPosition>1</XPosition>
+      <YPosition>3</YPosition>
+      <CostPerRank size="1">1</CostPerRank>
+      <Ranks>3</Ranks>
+      <MinSpent>10</MinSpent>
+      <Requirements>
+        <RequiresOneOf>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Fighter</Item>
+            <Value>3</Value>
+          </Requirement>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Paladin</Item>
+            <Value>3</Value>
+          </Requirement>
+        </RequiresOneOf>
+      </Requirements>
+      <Effect>
+        <Type>MeleePower</Type>
+        <Bonus>Enhancement</Bonus>
+        <AType>Stacks</AType>
+        <Amount size="3">5 10 15</Amount>
+        <Requirements>
+          <Requirement>
+            <Type>Stance</Type>
+            <Item>Stun Attack</Item>
+          </Requirement>
+        </Requirements>
+      </Effect>
+    </EnhancementTreeItem>
+    <EnhancementTreeItem>
+      <Name>Vanguard: Fatal Bulwark</Name>
+      <InternalName>VanguardFatalBulwark</InternalName>
+      <Description>Your shield gains +1 Critical Threat Range.</Description>
+      <Icon>VanguardFatalBulwark</Icon>
+      <XPosition>2</XPosition>
+      <YPosition>3</YPosition>
+      <CostPerRank size="1">2</CostPerRank>
+      <Ranks>1</Ranks>
+      <MinSpent>10</MinSpent>
+      <Requirements>
+        <RequiresOneOf>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Fighter</Item>
+            <Value>3</Value>
+          </Requirement>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Paladin</Item>
+            <Value>3</Value>
+          </Requirement>
+        </RequiresOneOf>
+      </Requirements>
+      <Effect>
+        <Type>Weapon_CriticalRange</Type>
+        <Bonus>Competence</Bonus>
+        <Item>Buckler</Item>
+        <Item>Small Shield</Item>
+        <Item>Large Shield</Item>
+        <Item>Tower Shield</Item>
+        <AType>Simple</AType>
+        <Amount size="1">1</Amount>
+        <ApplyAsItemEffect/>
+      </Effect>
+    </EnhancementTreeItem>
+    <EnhancementTreeItem>
+      <Name>Vanguard: Shield Riposte</Name>
+      <InternalName>VanguardShieldRiposte</InternalName>
+      <Description>When missed in melee while wearing a shield: Deals 1d[4/6/8] bludgeoning damage
+to your attacker. Scales with Melee Power.</Description>
+      <Icon>VanguardShieldRiposte</Icon>
+      <XPosition>3</XPosition>
+      <YPosition>3</YPosition>
+      <CostPerRank size="1">1</CostPerRank>
+      <Ranks>3</Ranks>
+      <MinSpent>10</MinSpent>
+      <Requirements>
+        <RequiresOneOf>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Fighter</Item>
+            <Value>3</Value>
+          </Requirement>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Paladin</Item>
+            <Value>3</Value>
+          </Requirement>
+        </RequiresOneOf>
+      </Requirements>
+    </EnhancementTreeItem>
+    <EnhancementTreeItem>
+      <Name>Vanguard: Ability I</Name>
+      <InternalName>VanguardAbilityScore</InternalName>
+      <Description>Choose one:</Description>
+      <Icon>StrDex</Icon>
+      <XPosition>4</XPosition>
+      <YPosition>3</YPosition>
+      <CostPerRank size="1">2</CostPerRank>
+      <Ranks>1</Ranks>
+      <MinSpent>10</MinSpent>
+      <Requirements>
+        <RequiresOneOf>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Fighter</Item>
+            <Value>3</Value>
+          </Requirement>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Paladin</Item>
+            <Value>3</Value>
+          </Requirement>
+        </RequiresOneOf>
+      </Requirements>
+      <Selector>
+        <EnhancementSelection>
+          <Name>+1 Strength</Name>
+          <Description>+1 Strength</Description>
+          <Icon>Strength</Icon>
+          <CostPerRank size="1">2</CostPerRank>
+          <Effect>
+            <Type>AbilityBonus</Type>
+            <Bonus>Enhancement</Bonus>
+            <Item>Strength</Item>
+            <AType>Simple</AType>
+            <Amount size="1">1</Amount>
+          </Effect>
+        </EnhancementSelection>
+        <EnhancementSelection>
+          <Name>+1 Dexterity</Name>
+          <Description>+1 Dexterity</Description>
+          <Icon>Dexterity</Icon>
+          <CostPerRank size="1">2</CostPerRank>
+          <Effect>
+            <Type>AbilityBonus</Type>
+            <Bonus>Enhancement</Bonus>
+            <Item>Dexterity</Item>
+            <AType>Simple</AType>
+            <Amount size="1">1</Amount>
+          </Effect>
+        </EnhancementSelection>
+      </Selector>
+    </EnhancementTreeItem>
+    <!--Tier 4-->
+    <EnhancementTreeItem>
+      <Name>Vanguard: Shield Specialization IV</Name>
+      <InternalName>VanguardShieldSpecializationIV</InternalName>
+      <Description>While you have a shield equipped, you gain +1 to hit, damage, and armor class.</Description>
+      <Icon>VanguardShieldSpecializationIV</Icon>
+      <XPosition>0</XPosition>
+      <YPosition>4</YPosition>
+      <CostPerRank size="1">2</CostPerRank>
+      <Ranks>1</Ranks>
+      <MinSpent>20</MinSpent>
+      <ArrowUp/>
+      <Requirements>
+        <Requirement>
+          <Type>Enhancement</Type>
+          <Item>VanguardShieldSpecializationIII</Item>
+        </Requirement>
+        <RequiresOneOf>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Fighter</Item>
+            <Value>4</Value>
+          </Requirement>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Paladin</Item>
+            <Value>4</Value>
+          </Requirement>
+        </RequiresOneOf>
+      </Requirements>
+      <Effect>
+        <Type>Weapon_AttackAndDamage</Type>
+        <Bonus>Enhancement</Bonus>
+        <Item>All</Item>
+        <AType>Simple</AType>
+        <Amount size="1">1</Amount>
+        <Requirements>
+          <Requirement>
+            <Type>Stance</Type>
+            <Item>Shield</Item>
+          </Requirement>
+        </Requirements>
+      </Effect>
+      <Effect>
+        <Type>ACBonus</Type>
+        <Bonus>Enhancement</Bonus>
+        <AType>Simple</AType>
+        <Amount size="1">1</Amount>
+        <Requirements>
+          <Requirement>
+            <Type>Stance</Type>
+            <Item>Shield</Item>
+          </Requirement>
+        </Requirements>
+      </Effect>
+    </EnhancementTreeItem>
+    <EnhancementTreeItem>
+      <Name>Vanguard: Vanguard Armor Mastery</Name>
+      <InternalName>VanguardArmorMastery</InternalName>
+      <Description>+[1/2/3] Armor Class and Armor Maximum Dexterity Bonus.
+(Maximum dexterity bonus limits your maximum Dodge as well).
+Undocumented: Also provides the same bonus to Tower Shield MDB.</Description>
+      <Icon>VanguardArmorMastery</Icon>
+      <XPosition>1</XPosition>
+      <YPosition>4</YPosition>
+      <CostPerRank size="1">1</CostPerRank>
+      <Ranks>3</Ranks>
+      <MinSpent>20</MinSpent>
+      <Requirements>
+        <RequiresOneOf>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Fighter</Item>
+            <Value>4</Value>
+          </Requirement>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Paladin</Item>
+            <Value>4</Value>
+          </Requirement>
+        </RequiresOneOf>
+      </Requirements>
+      <Effect>
+        <Type>ACBonus</Type>
+        <Type>MaxDexBonus</Type>
+        <Type>MaxDexBonusTowerShield</Type>
+        <Bonus>Enhancement</Bonus>
+        <AType>Stacks</AType>
+        <Amount size="3">1 2 3</Amount>
+      </Effect>
+    </EnhancementTreeItem>
+    <EnhancementTreeItem>
+      <Name>Vanguard: Shield Charge</Name>
+      <InternalName>VanguardShieldCharge</InternalName>
+      <Description>Deals +[10/20/30]% Damage
+Cooldown: [36/24/12] seconds
+Shield Attack: Rush forward up to 30 feet to your selected opponent and deliver
+a shield attack that hits enemies around you. Enemies can be knocked down.
+DC: 10 + Max[Str,Dex,Con,Int,Wis,Cha] Modifier + character level + trip bonuses.</Description>
+      <Icon>VanguardShieldCharge</Icon>
+      <XPosition>2</XPosition>
+      <YPosition>4</YPosition>
+      <CostPerRank size="1">1</CostPerRank>
+      <Ranks>3</Ranks>
+      <MinSpent>20</MinSpent>
+      <Clickie/>
+      <Requirements>
+        <RequiresOneOf>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Fighter</Item>
+            <Value>4</Value>
+          </Requirement>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Paladin</Item>
+            <Value>4</Value>
+          </Requirement>
+        </RequiresOneOf>
+      </Requirements>
+      <DC>
+        <Name>Vanguard: Shield Charge</Name>
+        <Description>Shield Attack: Rush forward up to 30 feet to your selected opponent and deliver
+a shield attack that hits enemies around you. Enemies can be knocked down.</Description>
+        <Icon>VanguardShieldCharge</Icon>
+        <DCType>Knock down</DCType>
+        <DCVersus>Will</DCVersus>
+        <Amount size="1">10</Amount>
+        <ModAbility>Strength</ModAbility>
+        <ModAbility>Dexterity</ModAbility>
+        <ModAbility>Constitution</ModAbility>
+        <ModAbility>Intelligence</ModAbility>
+        <ModAbility>Wisdom</ModAbility>
+        <ModAbility>Charisma</ModAbility>
+        <ClassLevel>All</ClassLevel>
+        <Tactical>Trip</Tactical>
+      </DC>
+    </EnhancementTreeItem>
+    <EnhancementTreeItem>
+      <Name>Vanguard: Myrmidon's Edge</Name>
+      <InternalName>VanguardMyrmidonsEdge</InternalName>
+      <Description>+[1/2/3] to attack rolls to confirm critical hits and +[1/2/3] damage on
+critical hits (before weapon multipliers).</Description>
+      <Icon>VanguardMyrmidonsEdge</Icon>
+      <XPosition>3</XPosition>
+      <YPosition>4</YPosition>
+      <CostPerRank size="1">1</CostPerRank>
+      <Ranks>3</Ranks>
+      <MinSpent>20</MinSpent>
+      <Requirements>
+        <RequiresOneOf>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Fighter</Item>
+            <Value>4</Value>
+          </Requirement>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Paladin</Item>
+            <Value>4</Value>
+          </Requirement>
+        </RequiresOneOf>
+      </Requirements>
+      <Effect>
+        <Type>Weapon_AttackAndDamageCritical</Type>
+        <Bonus>Enhancement</Bonus>
+        <Item>All</Item>
+        <AType>Stacks</AType>
+        <Amount size="3">1 2 3</Amount>
+      </Effect>
+    </EnhancementTreeItem>
+    <EnhancementTreeItem>
+      <Name>Vanguard: Ability II</Name>
+      <InternalName>VanguardAbilityScoreII</InternalName>
+      <Description>Choose one:</Description>
+      <Icon>StrDex</Icon>
+      <XPosition>4</XPosition>
+      <YPosition>4</YPosition>
+      <CostPerRank size="1">2</CostPerRank>
+      <Ranks>1</Ranks>
+      <MinSpent>20</MinSpent>
+      <Requirements>
+        <RequiresOneOf>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Fighter</Item>
+            <Value>4</Value>
+          </Requirement>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Paladin</Item>
+            <Value>4</Value>
+          </Requirement>
+        </RequiresOneOf>
+      </Requirements>
+      <Selector>
+        <EnhancementSelection>
+          <Name>+1 Strength</Name>
+          <Description>+1 Strength</Description>
+          <Icon>Strength</Icon>
+          <CostPerRank size="1">2</CostPerRank>
+          <Effect>
+            <Type>AbilityBonus</Type>
+            <Bonus>Enhancement</Bonus>
+            <Item>Strength</Item>
+            <AType>Simple</AType>
+            <Amount size="1">1</Amount>
+          </Effect>
+        </EnhancementSelection>
+        <EnhancementSelection>
+          <Name>+1 Dexterity</Name>
+          <Description>+1 Dexterity</Description>
+          <Icon>Dexterity</Icon>
+          <CostPerRank size="1">2</CostPerRank>
+          <Effect>
+            <Type>AbilityBonus</Type>
+            <Bonus>Enhancement</Bonus>
+            <Item>Dexterity</Item>
+            <AType>Simple</AType>
+            <Amount size="1">1</Amount>
+          </Effect>
+        </EnhancementSelection>
+      </Selector>
+    </EnhancementTreeItem>
+    <!--Tier 5-->
+    <EnhancementTreeItem>
+      <Name>Vanguard: Shield Specialization V</Name>
+      <InternalName>VanguardShieldToTheFace</InternalName>
+      <Description>While you have a shield equipped, you gain +3 to hit, damage, and armor class.</Description>
+      <Icon>VanguardShieldToTheFace</Icon>
+      <XPosition>0</XPosition>
+      <YPosition>5</YPosition>
+      <CostPerRank size="1">2</CostPerRank>
+      <Ranks>1</Ranks>
+      <MinSpent>30</MinSpent>
+      <Tier5/>
+      <Requirements>
+        <Requirement>
+          <Type>Level</Type>
+          <Value>12</Value>
+        </Requirement>
+        <Requirement>
+          <Type>Enhancement</Type>
+          <Item>VanguardShieldSpecializationIV</Item>
+        </Requirement>
+        <RequiresOneOf>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Fighter</Item>
+            <Value>5</Value>
+          </Requirement>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Paladin</Item>
+            <Value>5</Value>
+          </Requirement>
+        </RequiresOneOf>
+      </Requirements>
+      <Effect>
+        <Type>Weapon_AttackAndDamage</Type>
+        <Bonus>Enhancement</Bonus>
+        <Item>All</Item>
+        <AType>Simple</AType>
+        <Amount size="1">3</Amount>
+        <Requirements>
+          <Requirement>
+            <Type>Stance</Type>
+            <Item>Shield</Item>
+          </Requirement>
+        </Requirements>
+      </Effect>
+      <Effect>
+        <Type>ACBonus</Type>
+        <Bonus>Enhancement</Bonus>
+        <AType>Simple</AType>
+        <Amount size="1">3</Amount>
+        <Requirements>
+          <Requirement>
+            <Type>Stance</Type>
+            <Item>Shield</Item>
+          </Requirement>
+        </Requirements>
+      </Effect>
+    </EnhancementTreeItem>
+    <EnhancementTreeItem>
+      <Name>Vanguard: Disorienting Smash</Name>
+      <InternalName>VanguardDisorientatingSmash</InternalName>
+      <Description>When you shield bash, damaged enemies gain 1d4 stacks of Vulnerability.
+This can occur at most once every [3/2/1] second(s).
+
+Vulnerability: You take 1% more damage for 3 seconds. This effect stacks up to
+20 times, and loses one stack every 3 seconds.</Description>
+      <Icon>VanguardDisorientatingSmash</Icon>
+      <XPosition>1</XPosition>
+      <YPosition>5</YPosition>
+      <CostPerRank size="1">1</CostPerRank>
+      <Ranks>3</Ranks>
+      <MinSpent>30</MinSpent>
+      <Tier5/>
+      <Requirements>
+        <Requirement>
+          <Type>Level</Type>
+          <Value>12</Value>
+        </Requirement>
+        <RequiresOneOf>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Fighter</Item>
+            <Value>5</Value>
+          </Requirement>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Paladin</Item>
+            <Value>5</Value>
+          </Requirement>
+        </RequiresOneOf>
+      </Requirements>
+    </EnhancementTreeItem>
+    <EnhancementTreeItem>
+      <Name>Vanguard: Shield Rush</Name>
+      <InternalName>VanguardShieldRush</InternalName>
+      <Description>Deals +[20/40/60]% Damage
+Cooldown: [40/30/20] seconds
+Shield Attack: Move forward in a line, delivering a shield bash attack to every
+creature hit. Each opponent is knocked down. The knockdown is negated on a
+Fortitude saving throw vs DC (20 + highest ability modifier + class level +
+bonus to trip attacks).</Description>
+      <Icon>VanguardShieldRush</Icon>
+      <XPosition>2</XPosition>
+      <YPosition>5</YPosition>
+      <CostPerRank size="1">1</CostPerRank>
+      <Ranks>3</Ranks>
+      <MinSpent>30</MinSpent>
+      <Clickie/>
+      <Tier5/>
+      <Requirements>
+        <Requirement>
+          <Type>Level</Type>
+          <Value>12</Value>
+        </Requirement>
+        <RequiresOneOf>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Fighter</Item>
+            <Value>5</Value>
+          </Requirement>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Paladin</Item>
+            <Value>5</Value>
+          </Requirement>
+        </RequiresOneOf>
+      </Requirements>
+      <DC>
+        <Name>Vanguard: Shield Rush</Name>
+        <Description>Shield Attack: Move forward in a line, delivering a shield bash attack to every
+creature hit. Each opponent is knocked down. The knockdown is negated on a
+Fortitude saving throw vs DC (20 + highest ability modifier + class level +
+bonus to trip attacks).</Description>
+        <Icon>VanguardShieldRush</Icon>
+        <DCType>Knockdown</DCType>
+        <DCVersus>Fortitude</DCVersus>
+        <Amount size="1">20</Amount>
+        <ModAbility>Strength</ModAbility>
+        <ModAbility>Dexterity</ModAbility>
+        <ModAbility>Constitution</ModAbility>
+        <ModAbility>Intelligence</ModAbility>
+        <ModAbility>Wisdom</ModAbility>
+        <ModAbility>Charisma</ModAbility>
+        <Tactical>Trip</Tactical>
+        <ClassLevel>All</ClassLevel>
+      </DC>
+    </EnhancementTreeItem>
+    <EnhancementTreeItem>
+      <Name>Vanguard: Armored Strength</Name>
+      <InternalName>VanguardArmoredStrength</InternalName>
+      <Description>+15 to Melee Power, +10% chance to make a Secondary Shield Bash.</Description>
+      <Icon>VanguardArmoredStrength</Icon>
+      <XPosition>3</XPosition>
+      <YPosition>5</YPosition>
+      <CostPerRank size="1">2</CostPerRank>
+      <Ranks>1</Ranks>
+      <MinSpent>30</MinSpent>
+      <Tier5/>
+      <Requirements>
+        <Requirement>
+          <Type>Level</Type>
+          <Value>12</Value>
+        </Requirement>
+        <RequiresOneOf>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Fighter</Item>
+            <Value>5</Value>
+          </Requirement>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Paladin</Item>
+            <Value>5</Value>
+          </Requirement>
+        </RequiresOneOf>
+      </Requirements>
+      <Effect>
+        <Type>MeleePower</Type>
+        <Type>SecondaryShieldBash</Type>
+        <Bonus>Enhancement</Bonus>
+        <AType>Simple</AType>
+        <Amount size="1">15</Amount>
+      </Effect>
+    </EnhancementTreeItem>
+    <EnhancementTreeItem>
+      <Name>Vanguard: Brutal Impact</Name>
+      <InternalName>VanguardBrutalImpact</InternalName>
+      <Description>+1 Critical Damage Multiplier on a roll of a 19-20.
+You gain a +25% Competence bonus to Maximum Hit Points.</Description>
+      <Icon>VanguardBrutalImpact</Icon>
+      <XPosition>4</XPosition>
+      <YPosition>5</YPosition>
+      <CostPerRank size="1">2</CostPerRank>
+      <Ranks>1</Ranks>
+      <MinSpent>30</MinSpent>
+      <Tier5/>
+      <Requirements>
+        <Requirement>
+          <Type>Level</Type>
+          <Value>12</Value>
+        </Requirement>
+        <RequiresOneOf>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Fighter</Item>
+            <Value>5</Value>
+          </Requirement>
+          <Requirement>
+            <Type>ClassMinLevel</Type>
+            <Item>Paladin</Item>
+            <Value>5</Value>
+          </Requirement>
+        </RequiresOneOf>
+      </Requirements>
+      <Effect>
+        <Type>Weapon_CriticalMultiplier19To20</Type>
+        <Bonus>Competence</Bonus>
+        <Item>All</Item>
+        <AType>Simple</AType>
+        <Amount size="1">1</Amount>
+        <ApplyAsItemEffect/>
+      </Effect>
+      <Effect>
+        <Type>Hitpoints</Type>
+        <Bonus>Competence</Bonus>
+        <AType>Simple</AType>
+        <Amount size="1">25</Amount>
+        <Percent/>
+        <ApplyAsItemEffect/>
+      </Effect>
+    </EnhancementTreeItem>
+  </EnhancementTree>
+</Enhancements>

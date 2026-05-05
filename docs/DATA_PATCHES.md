@@ -1,8 +1,17 @@
 # Data Patches Ledger
 
-Tracks places where the engine overrides the upstream DDOBuilderV2 / wiki data
-because the source values don't match observed in-game behavior. Each entry
-should eventually be filed upstream so the patch can be removed.
+> **Ownership model (2026-05):** `public/data/` is now our authoritative
+> data source. We pull upstream DDOBuilderV2 changes in selectively via
+> `external/ddobuilderv2/` (see `external/README.md`) instead of
+> mirroring blindly. Many entries below describe the **historical
+> reason** an override was needed; the actual fix lives directly in
+> `public/data/` now. They're kept for context so future syncs know not
+> to silently revert them.
+
+Tracks places where our data deliberately diverges from upstream
+DDOBuilderV2 / wiki because the source values don't match observed
+in-game behavior. Each entry should eventually be filed upstream so
+the divergence narrows over time.
 
 Each row describes:
 - **Patch site** – the file + symbol where the override lives.
