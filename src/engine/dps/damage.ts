@@ -14,17 +14,23 @@ import type { MagicAbility } from './abilities';
 import { avgPerHit, projectileCount } from './spellRules';
 
 /**
- * Per-component scaling profile — which stat pool drives the damage.
+ * Per-component scaling profile — which SP pool feeds `scaleMult`. The
+ * formula is identical across profiles; only the spell-power input changes.
  *
- *   • spell           — uses Spell Power / Crit Chance / Crit Damage of the
- *                        component's damage element. Standard for spell hits
- *                        and most procs (e.g. Rupturing Echoes Sonic).
- *   • sneak           — sneak-attack-style damage; uses Force SP halved (or
- *                        an Ambush-specific override). Confirm in 6.4.3.
- *   • dark-imbuement  — Arcane Trickster capstone: uses Force SP × MP/RP
- *                        multiplier (~2.45×).
+ *   • spell           — full element Spell Power for the component's damage
+ *                        type. Used by spell base hits.
+ *   • sneak           — Force SP × 0.5. Magical Ambush uses this (its
+ *                        description explicitly says "scales with 50% of
+ *                        force spell power"); other procs do NOT.
+ *   • proc            — on-spellcast proc damage: scales only with active
+ *                        metamagic toggles (Maximize / Empower / Intensify),
+ *                        NOT with the build's element Spell Power. End-game
+ *                        baseline with all three toggles active is ~300.
+ *   • dark-imbuement  — Arcane Trickster capstone: Force SP × (1 + max(MP,
+ *                        RP)/100). The MP/RP multiplier is the part that
+ *                        drives the spreadsheet's ~2.45× display value.
  */
-export type DamageScaleProfile = 'spell' | 'sneak' | 'dark-imbuement';
+export type DamageScaleProfile = 'spell' | 'sneak' | 'proc' | 'dark-imbuement';
 
 /**
  * When does the component fire and how many times per fire?
