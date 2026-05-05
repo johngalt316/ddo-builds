@@ -230,3 +230,35 @@
   color: var(--color-gold);
 }
 
+/* ── Mobile overrides ─────────────────────────────────────── */
+@media (max-width: 600px) {
+  .panel { padding: 0.75rem; }
+
+  /* Title + Phase tag share a row only when there's room. */
+  .header { flex-wrap: wrap; gap: 0.5rem; }
+
+  /* Each control field gets its own row at narrow widths so labels
+   * don't get squeezed and the slider can stretch. */
+  .controls { gap: 0.6rem; }
+  .field {
+    min-width: 0;
+    width: 100%;
+  }
+  .slider, .sliderTicks { width: 100%; }
+
+  /* Optimizer split-button: full row, button takes the slack. */
+  .optimizer { width: 100%; }
+  .optimizerBtn {
+    flex: 1;
+    text-align: left;
+  }
+  /* Anchor the menu to the chevron so it doesn't shoot off-screen. */
+  .optimizerMenu { right: auto; left: 0; }
+
+  /* Stats: 4-up too cramped, 2x2 reads better. */
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .metricValue { font-size: 1rem; }
+
+  .simulateRow { flex-wrap: wrap; }
+  .simulateBtn { flex: 1; }
+}

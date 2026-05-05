@@ -594,3 +594,13 @@
   border-color: var(--color-gold);
   color: var(--color-gold);
 }
+
+/* ── Mobile overrides ─────────────────────────────────────── */
+@media (max-width: 600px) {
+  /* 4-col paper-doll → 2-col on phones; 5-col filigree → 3 then 2. */
+  .slotGrid     { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .filigreeGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 380px) {
+  .filigreeGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}

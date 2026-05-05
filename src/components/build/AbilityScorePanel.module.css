@@ -178,3 +178,23 @@
   color: var(--color-text-muted);
   text-align: right;
 }
+
+/* ── Mobile overrides ─────────────────────────────────────── */
+@media (max-width: 600px) {
+  .panel { padding: 0.75rem; }
+
+  /* Drop the wide 5-column grid down to a compact 4-col layout that
+   * fits a phone: STR / 8/X(±M) / [-+] / cost. The Tomes/LevelUps
+   * columns wrap below the controls instead of stealing horizontal
+   * space the score itself needs. */
+  .headerRow { display: none; }
+  .row {
+    grid-template-columns: 70px 1fr auto auto;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+  }
+
+  .levelUpGrid {
+    grid-template-columns: repeat(auto-fill, minmax(7rem, 1fr));
+  }
+}

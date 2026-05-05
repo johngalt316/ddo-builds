@@ -4,6 +4,12 @@
   padding: 1.25rem 1.5rem 2rem;
 }
 
+/* Trim outer gutters on phones so content doesn't lose ~50px each side
+ * to padding. The cards' own internal padding still keeps things readable. */
+@media (max-width: 600px) {
+  .page { padding: 0.75rem 0.5rem 1.25rem; }
+}
+
 .toolbar {
   display: flex;
   align-items: center;

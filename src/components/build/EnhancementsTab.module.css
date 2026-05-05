@@ -224,3 +224,10 @@
   gap: 0.75rem;
   align-items: flex-start;
 }
+
+/* ── Mobile overrides ─────────────────────────────────────── */
+@media (max-width: 600px) {
+  /* Three AP-pool boxes side by side don't fit; stack vertically and
+   * let the Reset button sit underneath. */
+  .apPools { grid-template-columns: 1fr; }
+}
