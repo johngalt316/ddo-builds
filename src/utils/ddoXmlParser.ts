@@ -37,7 +37,12 @@ function parseXml(xml: string): Document {
   // Strip UTF-8 BOM (U+FEFF) that DDOBuilderV2 prepends to all its XML files.
   // DOMParser requires <?xml...> to be the very first character; a BOM causes
   // the entire document to be returned as a parsererror.
-  const clean = xml.charCodeAt(0) === 0xFEFF ? xml.slice(1) : xml;
+  let clean = xml.charCodeAt(0) === 0xFEFF ? xml.slice(1) : xml;
+  // Normalize line endings to LF so parsed text content is platform-
+  // independent. Windows checkouts have CRLF in the source XML; CI on Linux
+  // has LF; without this, description fields drift into snapshots and CI
+  // can't match what was committed locally.
+  clean = clean.replace(/\r\n?/g, '\n');
   return parser.parseFromString(clean, 'application/xml');
 }
 

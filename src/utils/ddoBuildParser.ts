@@ -126,8 +126,11 @@ export interface ParseOptions {
 }
 
 export function parseDDOBuildFile(xmlText: string, options?: ParseOptions): DDOBuildImport | null {
+  // Strip UTF-8 BOM and normalize line endings to LF so parsed text is
+  // platform-independent (Windows checkouts use CRLF, CI uses LF).
   const stripped = xmlText.charCodeAt(0) === 0xFEFF ? xmlText.slice(1) : xmlText;
-  const doc = xmlParser.parseFromString(stripped, 'application/xml');
+  const normalized = stripped.replace(/\r\n?/g, '\n');
+  const doc = xmlParser.parseFromString(normalized, 'application/xml');
   if (doc.querySelector('parsererror')) return null;
 
   const character = doc.querySelector('Character');

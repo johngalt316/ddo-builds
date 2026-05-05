@@ -29,7 +29,7 @@
   "sample": {
     "magicMissile": {
       "name": "Magic Missile",
-      "description": "A missile of magical energy darts forth and unerringly strikes its target inflicting\r\n1d2+3 force damage. For every 2 caster levels beyond first you gain an\r\nadditional missile, up to a maximum of 5 missiles at 9th level and higher.",
+      "description": "A missile of magical energy darts forth and unerringly strikes its target inflicting\n1d2+3 force damage. For every 2 caster levels beyond first you gain an\nadditional missile, up to a maximum of 5 missiles at 9th level and higher.",
       "icon": "MagicMissile",
       "school": "Evocation",
       "metamagic": {
@@ -58,7 +58,7 @@
     },
     "sleep": {
       "name": "Sleep",
-      "description": "Induces a magical slumber, rendering creatures Helpless until attacked. Ineffective on Undead,\r\nConstructs, or Oozes. A successful Will save negates this effect.",
+      "description": "Induces a magical slumber, rendering creatures Helpless until attacked. Ineffective on Undead,\nConstructs, or Oozes. A successful Will save negates this effect.",
       "icon": "Sleep",
       "school": "Enchantment",
       "metamagic": {
@@ -81,7 +81,7 @@
     },
     "sonicBlast": {
       "name": "Sonic Blast",
-      "description": "Blasts an enemy with loud high-pitched sounds, dealing 1d6+1 Sonic damage per caster level.\r\n(Maximum damage 10d6+10.) The target must make a successful Will save to avoid\r\nbe Dazed for a short period of time, or until they take damage.",
+      "description": "Blasts an enemy with loud high-pitched sounds, dealing 1d6+1 Sonic damage per caster level.\n(Maximum damage 10d6+10.) The target must make a successful Will save to avoid\nbe Dazed for a short period of time, or until they take damage.",
       "icon": "SonicBlast",
       "school": "Evocation",
       "metamagic": {

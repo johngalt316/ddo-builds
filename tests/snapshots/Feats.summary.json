@@ -5,7 +5,7 @@
   "unknownEffectTypes": [],
   "sampleFeat": {
     "name": "Adamantine Body",
-    "description": "Docents you equip provide armor equivalent to Full Plate. This is treated\r\nas metallic heavy armor. You have damage reduction 2/Adamantine, a 35% arcane\r\nspell failure chance, -5 armor check penalty to certain skills and a +1 maximum\r\ndexterity bonus.",
+    "description": "Docents you equip provide armor equivalent to Full Plate. This is treated\nas metallic heavy armor. You have damage reduction 2/Adamantine, a 35% arcane\nspell failure chance, -5 armor check penalty to certain skills and a +1 maximum\ndexterity bonus.",
     "icon": "WarforgedFeat",
     "groups": [
       "Standard",

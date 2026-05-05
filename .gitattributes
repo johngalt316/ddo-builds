@@ -1,0 +1,25 @@
+# Default: let git auto-detect text vs binary; keep working-tree line
+# endings native to the platform but normalize to LF in the repo.
+* text=auto eol=lf
+
+# Source files — always LF in working tree too, so snapshots produced on
+# Windows match what CI on Linux produces. (The parsers also normalize
+# CRLF→LF, so this is belt-and-suspenders.)
+*.xml         text eol=lf
+*.json        text eol=lf
+*.jsonc       text eol=lf
+*.DDOBuild    text eol=lf
+*.ddocp       text eol=lf
+*.ts          text eol=lf
+*.tsx         text eol=lf
+*.js          text eol=lf
+*.mjs         text eol=lf
+*.css         text eol=lf
+*.md          text eol=lf
+
+# Binaries — keep as-is.
+*.png         binary
+*.jpg         binary
+*.jpeg        binary
+*.ico         binary
+*.zip         binary
