@@ -71,16 +71,17 @@ export interface MagicAbility {
 export function deriveSlaTag(source: string, category: SLACategory): string {
   if (source.startsWith('[PL] ') || category === 'feat') return 'PL';
   // [E]/[D]/[R] <Tree Name>: …  → tree-name based tag.
-  const m = source.match(/^\[(?:E|D|R)\]\s+([^:]+):/);
-  if (m) {
-    const treeName = m[1].trim();
+  const treeName = source.match(/^\[(?:E|D|R)\]\s+([^:]+):/)?.[1]?.trim();
+  if (treeName) {
     const words = treeName.split(/\s+/);
     if (words.length >= 2) {
       return words.map(w => w[0]?.toUpperCase() ?? '').join('').slice(0, 4);
     }
-    return words[0].length <= 4
-      ? words[0]
-      : words[0][0]?.toUpperCase() + words[0].slice(1, 4).toLowerCase();
+    // split on a non-empty trimmed string yields at least one non-empty word.
+    const first = words[0]!;
+    return first.length <= 4
+      ? first
+      : first[0]!.toUpperCase() + first.slice(1, 4).toLowerCase();
   }
   if (category === 'gear') return 'Gear';
   return 'SLA';

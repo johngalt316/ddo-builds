@@ -2,8 +2,23 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "ddo-builds",
   "compatibility_date": "2024-12-01",
+  "main": "worker/index.ts",
   "assets": {
     "directory": "./dist",
-    "not_found_handling": "single-page-application"
-  }
+    "not_found_handling": "single-page-application",
+    "binding": "ASSETS"
+  },
+  // Run `npx wrangler kv namespace create SHARE` once and paste the
+  // returned id below.
+  "kv_namespaces": [
+    { "binding": "SHARE_KV", "id": "7b42c1c571d24910a2114696da391c5a", "preview_id": "0f504c6e111f46f6aa65df3d4a44bfe3" }
+  ],
+  // Per-IP rate limit on POST /api/share. period must be 10 or 60.
+  "ratelimits": [
+    {
+      "name": "SHARE_LIMITER",
+      "namespace_id": "1001",
+      "simple": { "limit": 10, "period": 60 }
+    }
+  ]
 }
