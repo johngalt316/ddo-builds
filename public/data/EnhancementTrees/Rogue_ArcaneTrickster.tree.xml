@@ -1494,6 +1494,14 @@ spell effects on the target.</Description>
         <AType>FeatCount</AType>
         <Amount size="1">1</Amount>
       </Effect>
+      <Effect>
+        <DisplayName>Arcane Trickster: Sharp Magic (Eschew Materials)</DisplayName>
+        <Type>SneakAttackDice</Type>
+        <Bonus>Enhancement</Bonus>
+        <Item>Eschew Materials</Item>
+        <AType>FeatCount</AType>
+        <Amount size="1">1</Amount>
+      </Effect>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Arcane Trickster: Ability II</Name>

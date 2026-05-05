@@ -13,8 +13,8 @@
       "Slider": 3
     },
     "requirementsFailedCount": 96,
-    "totalSourcedEffects": 1076,
-    "totalAppliedBonuses": 1410
+    "totalSourcedEffects": 1077,
+    "totalAppliedBonuses": 1411
   },
   "abilityScores": {
     "STR": {
@@ -1396,8 +1396,8 @@
     ]
   },
   "sneakAttackDice": {
-    "total": 46,
-    "appliedCount": 54,
+    "total": 47,
+    "appliedCount": 55,
     "dominatedCount": 0,
     "sources": [
       {
@@ -1549,6 +1549,12 @@
         "bonusType": "Enhancement",
         "value": 0,
         "target": "Accelerate Spell"
+      },
+      {
+        "source": "[E] Arcane Trickster: Arcane Trickster: Sharp Magic: Arcane Trickster: Sharp Magic (Eschew Materials)",
+        "bonusType": "Enhancement",
+        "value": 1,
+        "target": "Eschew Materials"
       },
       {
         "source": "[E] Mechanic: Mechanic: Sharpshooter I",
