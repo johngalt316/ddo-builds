@@ -248,7 +248,9 @@ export function RotationTimeline({
                       const cpm         = occurrences * cyclesPerMinute;
                       const lines: string[] = [
                         `#${i + 1} · ${r.ability.displayName}`,
-                        `${r.ability.cost} SP · ${r.ability.castTime}s cast`,
+                        r.ability.cost > 0
+                          ? `${r.ability.cost} SP · ${r.ability.castTime}s cast`
+                          : `${r.ability.castTime}s cast`,
                         r.effectiveCooldown > 0
                           ? `Cooldown ${r.effectiveCooldown.toFixed(1)}s${r.effectiveCooldown !== r.ability.cooldown ? ` (base ${r.ability.cooldown}s)` : ''}`
                           : 'No cooldown',

@@ -112,7 +112,10 @@ export function RotationPalette({
                   a.source === 'spell'
                     ? `L${a.spellLevel} ${a.school}`
                     : `SLA · ${a.school}${a.slaSource ? `\n${a.slaSource}` : ''}`,
-                  `${a.cost} SP${a.cooldown ? ` · ${a.cooldown}s CD` : ''}`,
+                  [
+                    a.cost > 0    ? `${a.cost} SP`        : '',
+                    a.cooldown > 0 ? `${a.cooldown}s CD`   : '',
+                  ].filter(Boolean).join(' · ') || 'no resource cost',
                 ];
                 const info = damageByAbility?.get(a.id);
                 const dmg  = info?.damage;
@@ -152,7 +155,7 @@ export function RotationPalette({
                 {a.source === 'spell'
                   ? <span className={styles.tileLevel}>L{a.spellLevel}</span>
                   : <span className={styles.tileSla} title="Spell-like ability">SLA</span>}
-                <span className={styles.tileCost}>{a.cost} SP</span>
+                {a.cost > 0 && <span className={styles.tileCost}>{a.cost} SP</span>}
                 {a.cooldown > 0 && <span className={styles.tileCd}>{a.cooldown}s</span>}
                 {a.charges > 0 && (
                   <span className={styles.tileCharges} title={`${a.charges} charges per rest`}>

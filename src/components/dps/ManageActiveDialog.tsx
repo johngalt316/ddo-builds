@@ -253,7 +253,7 @@ export function ManageActiveDialog({ open, abilities, active, onClose, onApply }
                       {a.displayName}
                       {a.placeholderDamage && (
                         <span className={styles.placeholderTag} title="Damage rolls not yet modeled — value is a placeholder.">
-                          ⚠ no rolls
+                          ⚠ TODO
                         </span>
                       )}
                     </span>
@@ -263,8 +263,7 @@ export function ManageActiveDialog({ open, abilities, active, onClose, onApply }
                         : <span>SLA</span>}
                       <span>·</span>
                       <span>{a.school}</span>
-                      <span>·</span>
-                      <span>{a.cost} SP</span>
+                      {a.cost > 0 && (<><span>·</span><span>{a.cost} SP</span></>)}
                       {a.cooldown > 0 && (<><span>·</span><span>{a.cooldown}s CD</span></>)}
                       {a.charges > 0 && (<><span>·</span><span>{a.charges}× /rest</span></>)}
                     </span>
@@ -380,7 +379,7 @@ function renderAddRow(a: MagicAbility, add: (id: string) => void) {
         {a.displayName}
         {a.placeholderDamage && (
           <span className={styles.placeholderTag} title="Damage rolls not yet modeled — value is a placeholder.">
-            ⚠ no rolls
+            ⚠ TODO
           </span>
         )}
       </span>
@@ -392,8 +391,7 @@ function renderAddRow(a: MagicAbility, add: (id: string) => void) {
           </>
         )}
         <span>{a.school}</span>
-        <span>·</span>
-        <span>{a.cost} SP</span>
+        {a.cost > 0 && (<><span>·</span><span>{a.cost} SP</span></>)}
         {a.cooldown > 0 && (<><span>·</span><span>{a.cooldown}s CD</span></>)}
       </span>
     </button>
