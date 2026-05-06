@@ -30,6 +30,7 @@ import {
   initialDebuffState,
   type DebuffState,
 } from '@/engine/dps/debuffs';
+import { spellDamageMultiplier } from '@/engine/dps/difficulty';
 import { RotationPalette } from './RotationPalette';
 import { RotationTimeline } from './RotationTimeline';
 import { ManageActiveDialog } from './ManageActiveDialog';
@@ -176,6 +177,7 @@ export function DPSCalculatorPanel() {
           setManageOpen={setManageOpen}
           auto={auto}
           setAuto={setAuto}
+          difficulty={difficulty}
         />
       ) : (
         <div className={styles.timelinePlaceholder}>
@@ -198,6 +200,9 @@ interface MagicRotationEditorProps {
   setManageOpen: (next: boolean) => void;
   auto: boolean;
   setAuto: (next: boolean) => void;
+  /** Reaper difficulty index (0 = Elite, 10 = R10). Used to scale all
+   *  spell-typed damage by the wiki's per-difficulty multiplier. */
+  difficulty: DifficultyIndex;
 }
 
 function MagicRotationEditor({
@@ -205,6 +210,7 @@ function MagicRotationEditor({
   activeAbilityIds, setActiveAbilityIds,
   manageOpen, setManageOpen,
   auto, setAuto,
+  difficulty,
 }: MagicRotationEditorProps) {
   const build       = useBuildStore(s => s.build);
   const spells      = useGameDataStore(s => s.spells);
@@ -244,7 +250,17 @@ function MagicRotationEditor({
   // only — math is identical regardless of scope).
   const [debuffState, setDebuffState] = useState<DebuffState>(() => initialDebuffState());
   const [debuffsOpen, setDebuffsOpen] = useState(false);
-  const debuffs = useMemo(() => aggregateDebuffs(debuffState), [debuffState]);
+  // Aggregate user-toggled debuffs, then layer the Reaper damage-dealt
+  // multiplier on top. All damage in the magic rotation is spell-typed,
+  // so we use `spellDamageMultiplier` (which differs from physical only
+  // at R7+).
+  const debuffs = useMemo(
+    () => ({
+      ...aggregateDebuffs(debuffState),
+      damageDealtMultiplier: spellDamageMultiplier(difficulty),
+    }),
+    [debuffState, difficulty],
+  );
 
   // Per-spell damage estimate, refreshed on any build / engine / debuff
   // change. Used by the palette tooltip + visible per-tile badge for

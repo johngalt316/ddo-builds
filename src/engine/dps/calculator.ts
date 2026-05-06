@@ -133,6 +133,12 @@ export interface Debuffs {
    *  components multiply by `100 / (effectiveMRR + 100)`. Set to 0 for
    *  the no-debuff baseline (multiplier = 1.0). */
   effectiveMRR: number;
+  /** Flat multiplier applied to every component's damage — used for the
+   *  Reaper difficulty damage-dealt reduction. Defaults to 1 (no scaling)
+   *  when omitted. Computed by `spellDamageMultiplier(difficultyIdx)` for
+   *  the spell rotations we model today; physical-type rotations (future
+   *  Phase 6.7+) would use `physicalDamageMultiplier` instead. */
+  damageDealtMultiplier?: number;
 }
 
 /** Casts/minute summed across the whole rotation. */
@@ -176,6 +182,13 @@ export function componentDebuffMultiplier(
   if (c.useGenericVuln && d.genericVulnPct > 0) m *= 1 + d.genericVulnPct / 100;
   if (c.useSonicVuln   && d.sonicVulnPct   > 0) m *= 1 + d.sonicVulnPct   / 100;
   if (c.useMRR) m *= 100 / (d.effectiveMRR + 100);
+  // Flat damage-dealt scaling (Reaper difficulty). Applied uniformly to
+  // every component since all of them are spell-typed in our current
+  // model, and spell-type damage takes the same reduction at every
+  // difficulty regardless of the component's element/MRR flags.
+  if (d.damageDealtMultiplier !== undefined && d.damageDealtMultiplier !== 1) {
+    m *= d.damageDealtMultiplier;
+  }
   return m;
 }
 
