@@ -7386,9 +7386,9 @@
       "name": "Reconstruct",
       "castingClass": "Character",
       "category": "enhancement",
-      "cost": 35,
+      "cost": 25,
       "maxCasterLevel": 0,
-      "cooldown": 30,
+      "cooldown": 6,
       "charges": 0,
       "source": "[E] Bladeforged: Bladeforged: Communion of Scribing"
     },

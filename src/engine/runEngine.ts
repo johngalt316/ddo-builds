@@ -254,17 +254,23 @@ export function runEngine(input: RunEngineInput): EngineResult {
       //   [1] = SP cost
       //   [2] = max caster level
       //   [3] = cooldown (seconds)
-      // SLAs that need a non-zero charge count carry it directly in the
-      // XML now (e.g. Past Life: Arcane Initiate in Wizard.class.xml).
+      // Multi-rank SLAs (e.g. Reconstruct, Acid Blast) use a 4×N table
+      // where N = number of ranks. The player's actual `rankCount`
+      // selects which 4-slot slice applies. Falls back to slice 0 when
+      // the table is single-rank or the player rank is out of range.
       const name = effect.items?.[0] ?? '';
       if (name) {
+        const amt    = effect.amount ?? [];
+        const ranks  = Math.max(1, Math.floor(amt.length / 4));
+        const rank   = Math.min(Math.max(1, rankCount), ranks);
+        const base   = (rank - 1) * 4;
         slas.push({
           name,
           castingClass: resolveSLACastingClass(effect.items?.[1] ?? '', source),
-          cost:           effect.amount?.[1] ?? 0,
-          maxCasterLevel: effect.amount?.[2] ?? 0,
-          cooldown:       effect.amount?.[3] ?? 0,
-          charges:        effect.amount?.[0] ?? 0,
+          cost:           amt[base + 1] ?? 0,
+          maxCasterLevel: amt[base + 2] ?? 0,
+          cooldown:       amt[base + 3] ?? 0,
+          charges:        amt[base + 0] ?? 0,
           source,
           category: categorizeSLASource(source),
         });

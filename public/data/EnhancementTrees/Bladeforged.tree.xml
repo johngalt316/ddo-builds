@@ -300,12 +300,17 @@ Cooldown: [30/15/6] seconds.</Description>
          <Ranks>3</Ranks>
          <MinSpent>5</MinSpent>
          <Clickie/>
+         <!-- ddo-builds patch: rank 2 cost was 15 (looks like the cd
+              value was repeated as cost). Description says cost
+              [35/30/25], cooldown [30/15/6]; corrected rank 2 cost
+              from 15 → 30. The Renegade Mastermaker version of the
+              same SLA already had the correct progression. -->
          <Effect>
             <Type>SpellLikeAbility</Type>
             <Bonus>Enhancement</Bonus>
             <Item>Reconstruct</Item>
             <AType>SpellInfo</AType>
-            <Amount size="12">0 35 0 30 0 15 0 15 0 25 0 6</Amount>
+            <Amount size="12">0 35 0 30 0 30 0 15 0 25 0 6</Amount>
             <Item>None</Item>
          </Effect>
       </EnhancementTreeItem>

@@ -169,6 +169,31 @@ describe('enhancement source walker', () => {
     expect(sla!.cooldown).toBe(6);
   });
 
+  it('multi-rank SLA cost/cd progress with rank (Bladeforged Reconstruct)', async () => {
+    const { runEngine } = await import('@/engine/runEngine');
+    // Bladeforged Reconstruct grants Reconstruct as a 3-rank SLA with
+    // cost [35/30/25] and cooldown [30/15/6] per the in-game tooltip.
+    // Rank 3 should report 25 SP + 6s cd (verifies the engine reads the
+    // right slice of the 12-entry amount table).
+    const build = syntheticBuild({
+      raceId: 'bladeforged',
+      classes: [{ classId: 'fighter', levels: 20 }],
+      enhancements: [{
+        treeId: 'Bladeforged',
+        enhancements: [{
+          enhancementId: 'BladeforgedCommunionOfScribing',
+          tier: 0, rank: 3,
+        }],
+      }],
+    });
+    const r = runEngine({ build, ...gameData });
+    const sla = r.slas.find(s => s.name === 'Reconstruct'
+      && s.source.includes('Bladeforged: Communion of Scribing'));
+    expect(sla).toBeDefined();
+    expect(sla!.cost).toBe(25);
+    expect(sla!.cooldown).toBe(6);
+  });
+
   it('emits the selection.effects[] for a selector enhancement (Stolen Spell)', () => {
     // Stolen Spell I in the Arcane Trickster tree — selection picks an SLA.
     const tree = gameData.enhancementTrees.find(t => t.name === 'Arcane Trickster');

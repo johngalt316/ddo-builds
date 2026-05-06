@@ -404,7 +404,10 @@ Cooldown: 3 seconds</Description>
             <Bonus>Enhancement</Bonus>
             <Item>Good Hope</Item>
             <AType>SpellInfo</AType>
-            <Amount size="12">0 10 0 3 0 5 0 5 0 2 0 3</Amount>
+            <!-- ddo-builds patch: rank 2 cd was 5 (looks like the cost
+                 value repeated as cd). Description says cooldown 3
+                 seconds at all ranks; corrected rank 2 cd from 5 → 3. -->
+            <Amount size="12">0 10 0 3 0 5 0 3 0 2 0 3</Amount>
             <Item>Favored Soul</Item>
          </Effect>
       </EnhancementTreeItem>
