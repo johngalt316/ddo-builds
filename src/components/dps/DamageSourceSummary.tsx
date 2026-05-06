@@ -8,11 +8,32 @@
 
 import { useMemo } from 'react';
 import type { DamageBreakdown } from '@/engine/dps/calculator';
+import type { SpellDamageType } from '@/engine/breakdowns';
 import styles from './DamageSourceSummary.module.css';
 
 interface Props {
   breakdown: DamageBreakdown | null;
 }
+
+/** Map our SpellDamageType to the icon basename in
+ *  /assets/images/DamageTypeIcons/. Sourced from ddowiki's Floating
+ *  Damage Text page; some categories don't have a wiki icon and
+ *  fall back to "Untyped". */
+const DAMAGE_TYPE_ICON: Record<SpellDamageType, string> = {
+  'Acid':            'Acid.jpg',
+  'Chaos':           'Chaotic.jpg',
+  'Cold':            'Cold.jpg',
+  'Electric':        'Electric.jpg',
+  'Evil':            'Evil.jpg',
+  'Fire':            'Fire_damage.jpg',
+  'Force':           'Force_damage.jpg',
+  'Light/Alignment': 'Light_damage.jpg',
+  'Negative':        'Negative.png',
+  'Poison':          'Poison.jpg',
+  'Positive':        'Good_damage.jpg',
+  'Repair':          'Repair.jpg',
+  'Sonic':           'Sonic_damage.jpg',
+};
 
 const fmt0 = (n: number) => Math.round(n).toLocaleString();
 const fmt1 = (n: number) => (Math.round(n * 10) / 10).toLocaleString();
@@ -73,6 +94,14 @@ export function DamageSourceSummary({ breakdown }: Props) {
               `Spell power: ${fmt0(r.spellPower)} · crit: ${(r.critChance * 100).toFixed(1)}%`,
             ].filter(Boolean).join('\n')}
           >
+            {DAMAGE_TYPE_ICON[r.damageType] && (
+              <img
+                src={`/assets/images/DamageTypeIcons/${DAMAGE_TYPE_ICON[r.damageType]}`}
+                alt={r.damageType}
+                className={styles.rowIcon}
+                onError={e => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
+              />
+            )}
             <span className={styles.rowName}>{r.label}</span>
             <span className={styles.rowBar} aria-hidden="true">
               <span

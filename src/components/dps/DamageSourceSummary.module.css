@@ -39,7 +39,7 @@
 
 .row {
   display: grid;
-  grid-template-columns: minmax(8rem, 14rem) 1fr 4rem;
+  grid-template-columns: 18px minmax(7rem, 13rem) 1fr 4rem;
   align-items: center;
   gap: 0.5rem;
   padding: 0.18rem 0.35rem;
@@ -51,6 +51,14 @@
 }
 .row:hover {
   background: rgba(255, 255, 255, 0.04);
+}
+
+.rowIcon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  border-radius: 2px;
+  background: rgba(0, 0, 0, 0.25);   /* contrast for thumbnails with light backgrounds */
 }
 
 .rowName {
