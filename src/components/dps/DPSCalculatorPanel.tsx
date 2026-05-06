@@ -42,6 +42,12 @@ import { DamageSourceSummary } from './DamageSourceSummary';
 import styles from './DPSCalculatorPanel.module.css';
 
 export type RotationType = 'melee' | 'ranged' | 'magic';
+
+/** Stable empty-array ref so the panel's `magicSteps` selector returns
+ *  the same reference each render when the build has no rotation set
+ *  yet. Without this, `?? []` would mint a fresh array per render and
+ *  invalidate every downstream useMemo that depends on `steps`. */
+const EMPTY_STEPS: RotationStep[] = [];
 export type OptimizerObjective = 'burst' | 'sustained' | 'efficient';
 /**
  * Difficulty index: 0 = Elite, 1 = R1, …, 10 = R10. Casual/Normal/Hard are
@@ -67,18 +73,19 @@ export function DPSCalculatorPanel() {
   const [objectiveOpen, setObjectiveOpen] = useState(false);
 
   // ── Magic rotation state (6.2) ──────────────────────────────────────
-  // Per-rotation-type lists keep edits stable when the user toggles types
-  // (melee/ranged are placeholders today but the shape generalizes).
-  const [magicSteps, setMagicSteps] = useState<RotationStep[]>([]);
-  // Active priority list: ordered subset of trained damaging spells. The
-  // ORDER carries meaning — it's the spell priority the optimizer / palette
-  // present to the user. `undefined` = first-time use, default to
-  // "everything active in catalog order". Once the user Applies in Manage,
-  // this becomes a concrete ordered array the user controls.
-  const [activeAbilityIds, setActiveAbilityIds] = useState<string[] | undefined>(undefined);
+  // Persisted on the Build (`build.dpsRotation`) so the rotation
+  // round-trips through share-URL encoding. Local mutators delegate to
+  // `setDpsRotation` which merges into the saved blob.
+  const dpsRotation     = useBuildStore(s => s.build.dpsRotation);
+  const setDpsRotation  = useBuildStore(s => s.setDpsRotation);
+  const magicSteps        = dpsRotation?.magicSteps ?? EMPTY_STEPS;
+  const activeAbilityIds  = dpsRotation?.activeAbilityIds;        // undefined = first-time
+  const auto              = dpsRotation?.auto ?? false;
+  const setMagicSteps        = (next: RotationStep[])      => setDpsRotation({ magicSteps: next });
+  const setActiveAbilityIds  = (next: string[])            => setDpsRotation({ activeAbilityIds: next });
+  const setAuto              = (next: boolean)             => setDpsRotation({ auto: next });
+
   const [manageOpen, setManageOpen] = useState(false);
-  // Auto: locks rotation order (the optimizer is the authority).
-  const [auto, setAuto] = useState(false);
 
   function handleGenerate() {
     // 6.6 will populate this.

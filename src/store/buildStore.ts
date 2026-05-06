@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import type { AbilityScores, Alignment, Build, ClassLevel, EnhancementSelection, EnhancementSet, GearItem, GearSet, GearSlot, SelectedFeat, Stat } from '@/types/build';
+import type { AbilityScores, Alignment, Build, ClassLevel, DpsRotationState, EnhancementSelection, EnhancementSet, GearItem, GearSet, GearSlot, SelectedFeat, Stat } from '@/types/build';
 import { DEFAULT_BUILD, DEFAULT_ENHANCEMENT_SET_NAME, emptyEnhancementSet, getActiveEnhancementSet, migrateEnhancementSets, withActiveEnhancementSet } from '@/types/build';
 import { resolveLevelClasses, aggregateClasses } from '@/utils/levelClasses';
 
@@ -97,6 +97,10 @@ interface BuildState {
   togglePartyBuff: (name: string) => void;
   // Set a racial or universal AP tome value (clamped to its cap).
   setEnhancementTome: (kind: 'racial' | 'universal', value: number) => void;
+  // Persist the DPS calculator's rotation state on the build so it
+  // round-trips through share URLs. Pass a partial — fields you don't
+  // pass keep their previous value (or stay undefined).
+  setDpsRotation: (next: Partial<DpsRotationState>) => void;
 }
 
 /** Tree-shape used by the AP-cost helpers — only the items we need are
@@ -628,6 +632,12 @@ export const useBuildStore = create<BuildState>((set, get) => ({
       if (clamped === 0) delete next[kind];
       else next[kind] = clamped;
       return { build: { ...s.build, enhancementTomes: next } };
+    }),
+
+  setDpsRotation: (next) =>
+    set(s => {
+      const merged: DpsRotationState = { ...(s.build.dpsRotation ?? {}), ...next };
+      return { build: { ...s.build, dpsRotation: merged } };
     }),
 
   setTotalLevels: (totalLevel) =>

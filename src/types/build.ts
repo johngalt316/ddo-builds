@@ -224,6 +224,36 @@ export interface Build {
    * If false, no guild buffs apply regardless of guildLevel.
    */
   applyGuildBuffs?: boolean;
+  /**
+   * Saved DPS-calculator rotation state. Persisted on the Build so it
+   * round-trips through share-URL encoding (the receiver opens the
+   * link and sees the same rotation the sender had configured).
+   * Sparse — missing keys mean "no rotation configured yet".
+   */
+  dpsRotation?: DpsRotationState;
+}
+
+/**
+ * Persisted state for the DPS calculator's magic rotation editor.
+ * Shape mirrors `RotationStep` from engine/dps/rotation.ts but is
+ * declared inline here to keep types/ free of engine imports.
+ */
+export interface DpsRotationStep {
+  /** Stable React key for drag/drop ordering. */
+  key: string;
+  /** Joins to MagicAbility.id. */
+  abilityId: string;
+}
+
+export interface DpsRotationState {
+  /** Magic-rotation steps in order (drag-to-reorder list). */
+  magicSteps?: DpsRotationStep[];
+  /** Ordered subset of trained damaging spells the user marked active.
+   *  `undefined` means "first-time use, default to catalog order". */
+  activeAbilityIds?: string[];
+  /** When true, the optimizer is the authority on rotation order
+   *  (drag/reorder disabled in the timeline). */
+  auto?: boolean;
 }
 
 export const DEFAULT_ABILITY_SCORES: AbilityScores = {
