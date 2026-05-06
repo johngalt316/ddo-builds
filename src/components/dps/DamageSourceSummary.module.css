@@ -1,0 +1,81 @@
+.summary {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin: 0.5rem 0;
+  padding: 0.55rem 0.75rem;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+}
+.label   { color: var(--color-text-muted); }
+.total   { color: var(--color-gold); font-variant-numeric: tabular-nums; }
+.empty {
+  font-style: italic;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.rows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: minmax(8rem, 14rem) 1fr 4rem;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.18rem 0.35rem;
+  font-size: 0.78rem;
+  font-variant-numeric: tabular-nums;
+  border-radius: 3px;
+  cursor: help;
+  transition: background 0.12s;
+}
+.row:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.rowName {
+  color: var(--color-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rowBar {
+  position: relative;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.rowBarFill {
+  position: absolute;
+  top: 0; left: 0; bottom: 0;
+  background: linear-gradient(90deg, rgba(201,162,39,0.55), rgba(201,162,39,0.85));
+  border-radius: 2px;
+}
+
+.rowPct {
+  text-align: right;
+  font-weight: 700;
+  color: var(--color-gold);
+}

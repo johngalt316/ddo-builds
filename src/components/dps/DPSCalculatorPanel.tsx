@@ -38,6 +38,7 @@ import { ActiveProcsList } from './ActiveProcsList';
 import { BuffsList } from './BuffsList';
 import { RotationDPSSummary } from './RotationDPSSummary';
 import { RotationChart, type DamageEvent } from './RotationChart';
+import { DamageSourceSummary } from './DamageSourceSummary';
 import styles from './DPSCalculatorPanel.module.css';
 
 export type RotationType = 'melee' | 'ranged' | 'magic';
@@ -564,6 +565,8 @@ function MagicRotationEditor({
         cycleSeconds={rotationCycleSeconds}
         currentTime={simTime}
       />
+
+      <DamageSourceSummary breakdown={rotationBreakdown} />
 
       <div className={styles.simulateRow}>
         <button
