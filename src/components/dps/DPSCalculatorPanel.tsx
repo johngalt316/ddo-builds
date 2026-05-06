@@ -446,24 +446,16 @@ function MagicRotationEditor({
     return sp;
   }, [steps, abilityById, rotationCycleSeconds]);
 
-  // First-time / unset Active = top-N highest-DPC damaging abilities so
-  // the panel works out of the box without dropping every clicky into
-  // the palette. Once the user Applies in the Manage dialog,
-  // `activeAbilityIds` becomes a concrete ordered array driving palette
-  // + priority order (and unsets this default).
+  // First-time / unset Active = top-N highest-DPC damaging abilities,
+  // SEEDED ONCE on build load and then persisted to `activeAbilityIds`.
+  // After the seed lands the list is whatever the user has configured —
+  // it doesn't re-rank when gear / metamagics / enhancements change,
+  // since auto-resorting a list the user is actively editing causes
+  // jarring glitches.
   const DEFAULT_ACTIVE_LIMIT = 10;
-  const activeAbilities = useMemo(() => {
-    if (activeAbilityIds !== undefined) {
-      const byId = new Map<string, MagicAbility>();
-      for (const a of abilities) byId.set(a.id, a);
-      return activeAbilityIds.flatMap(id => {
-        const a = byId.get(id);
-        return a ? [a] : [];
-      });
-    }
-    // Default seed: top 10 damage abilities by standalone DPC, falling
-    // back to DPS, then catalog order. Boost / heal abilities aren't
-    // included by default — the user adds those explicitly via Manage.
+  useEffect(() => {
+    if (activeAbilityIds !== undefined) return;             // already configured
+    if (abilities.length === 0) return;                     // catalog still loading
     const ranked = abilities
       .filter(a => a.category === 'damage')
       .map(a => {
@@ -474,9 +466,24 @@ function MagicRotationEditor({
       })
       .sort((x, y) => y.dpc - x.dpc || y.dps - x.dps || x.a.name.localeCompare(y.a.name))
       .slice(0, DEFAULT_ACTIVE_LIMIT)
-      .map(({ a }) => a);
-    return ranked;
-  }, [abilities, activeAbilityIds, damageByAbility]);
+      .map(({ a }) => a.id);
+    setActiveAbilityIds(ranked);
+    // setActiveAbilityIds is a store action — its identity isn't stable
+    // across renders, but listing it in deps is harmless because the
+    // early returns above gate the body on the actual conditions of
+    // interest. The body fires at most once per build (until the user
+    // explicitly clears via Manage, which leaves `[]`, not `undefined`).
+  }, [activeAbilityIds, abilities, damageByAbility, setActiveAbilityIds]);
+
+  const activeAbilities = useMemo(() => {
+    if (activeAbilityIds === undefined) return [];          // pre-seed render
+    const byId = new Map<string, MagicAbility>();
+    for (const a of abilities) byId.set(a.id, a);
+    return activeAbilityIds.flatMap(id => {
+      const a = byId.get(id);
+      return a ? [a] : [];
+    });
+  }, [abilities, activeAbilityIds]);
 
   function onAdd(ability: MagicAbility) {
     if (auto) {
