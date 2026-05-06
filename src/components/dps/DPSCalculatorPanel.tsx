@@ -33,6 +33,7 @@ import { RotationPalette } from './RotationPalette';
 import { RotationTimeline } from './RotationTimeline';
 import { ManageActiveDialog } from './ManageActiveDialog';
 import { DebuffsSummary, ManageDebuffsDialog } from './DebuffsPanel';
+import { ActiveProcsList } from './ActiveProcsList';
 import { RotationDPSSummary } from './RotationDPSSummary';
 import { RotationChart, type DamageEvent } from './RotationChart';
 import styles from './DPSCalculatorPanel.module.css';
@@ -405,6 +406,11 @@ function MagicRotationEditor({
 
   return (
     <div className={styles.editor}>
+      <ActiveProcsList
+        build={build}
+        engine={breakdowns}
+        sneakAttackDice={breakdowns?.sneakAttackDice.total ?? 0}
+      />
       <DebuffsSummary state={debuffState} onManage={() => setDebuffsOpen(true)} />
       <ManageDebuffsDialog
         open={debuffsOpen}

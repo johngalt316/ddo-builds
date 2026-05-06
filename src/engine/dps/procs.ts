@@ -159,6 +159,21 @@ const STATIC_PROC_CATALOG: StaticProcEntry[] = [
     useGenericVuln: true, useMRR: true,
   },
   {
+    // Carried by alchemical Earth Attunement gear (e.g. Bound Elemental
+    // Ring of Acid, The Autumn Equinox, The Theurgy of Autumn).
+    // Reference spreadsheet "Acid Attunement" row: 50d10 Acid (avg 275),
+    // scales with full Acid Spell Power (profile 'spell', not 'proc').
+    // In-game description says "stacking acid damage over time"; the
+    // spreadsheet models the average instant per-cast contribution.
+    id: 'earth-attunement',
+    label: 'Acid Attunement',
+    source: { kind: 'item-buff', name: 'AlchemicalEarthAttunement' },
+    diceCount: 50, diceSides: 10,
+    damageType: 'Acid',
+    scaleProfile: 'spell',
+    useGenericVuln: true, useMRR: true,
+  },
+  {
     id: 'woeful-energy',
     label: 'Woeful Energy',
     source: { kind: 'augment', name: 'Woeful Energy (Legendary)' },
@@ -225,11 +240,84 @@ export const MAGICAL_AMBUSH: Proc = {
   },
 };
 
+/**
+ * Shiradi Champion Destiny Mantle — Tier 1 enhancement
+ * `U51ShiradiChampionPrism` (rank ≥ 1) grants the mantle. The Tier 2
+ * enhancement `U51ShiradiChampionStay` (selector) locks the proc damage
+ * to a specific element:
+ *
+ *   • Stay Good   → Light/Alignment
+ *   • Stay Loud   → Sonic
+ *   • Stay Strong → Force
+ *   • Stay Toxic  → Poison
+ *
+ * Reference spreadsheet "Prism - Force" row: 10d77 (avg 539) of the
+ * locked element, 7% chance per spellcast, scale 'spell' (full element
+ * SP), Y/N/Y debuff flags.
+ *
+ * The 7% chance is baked into avgDicePerHit so the per-cast trigger
+ * yields the expected average damage. Without a Stay X selection the
+ * proc is "rainbow" (random element) — too complex to surface in our
+ * per-element breakdown, so we emit nothing in that case.
+ */
+const STAY_TO_ELEMENT: Record<string, SpellDamageType> = {
+  'Stay Good':   'Light/Alignment',
+  'Stay Loud':   'Sonic',
+  'Stay Strong': 'Force',
+  'Stay Toxic':  'Poison',
+};
+
+function shiradiStaySelection(build: Build): { selection: string; element: SpellDamageType } | null {
+  const sc = build.destinyEnhancements.find(d => d.treeId === 'Shiradi Champion');
+  if (!sc) return null;
+  const hasPrism = sc.enhancements.some(e => e.enhancementId === 'U51ShiradiChampionPrism' && e.rank >= 1);
+  if (!hasPrism) return null;
+  const stay = sc.enhancements.find(e => e.enhancementId === 'U51ShiradiChampionStay');
+  const sel  = stay?.selection;
+  if (!sel) return null;
+  const element = STAY_TO_ELEMENT[sel];
+  if (!element) return null;
+  return { selection: sel, element };
+}
+
+export const SHIRADI_MANTLE: Proc = {
+  id: 'shiradi-mantle',
+  label: 'Shiradi Mantle',
+  isActive: (build) => shiradiStaySelection(build) !== null,
+  toComponents: (build) => {
+    const choice = shiradiStaySelection(build);
+    if (!choice) return [];
+    // Reference spreadsheet "Prism - Force" row: Base Avg = 539 (full
+    // damage on successful proc, includes Imbue Dice scaling at R3 —
+    // raw 10d77 average is only 390). The 7% chance is baked into the
+    // per-cast avgDicePerHit so the trigger yields the expected
+    // long-run average contribution.
+    const avgFullHit = 539;
+    const chance     = 0.07;
+    return [{
+      label: `Shiradi Mantle (${choice.selection})`,
+      trigger: { kind: 'per-cast' },
+      qtyPerTrigger: 1,
+      avgDicePerHit: avgFullHit * chance,           // 37.73
+      damageType: choice.element,
+      scaleProfile: 'spell',
+      useGenericVuln: true,
+      useMRR: true,
+    }];
+  },
+};
+
 // Re-exports for tests / breakdown UI to address procs by static-catalog id.
-export const DRIPPING_WITH_MAGMA  = entryToProc(STATIC_PROC_CATALOG[0]!);
-export const WOEFUL_ENERGY        = entryToProc(STATIC_PROC_CATALOG[1]!);
-export const WOEFUL_ECHOES        = entryToProc(STATIC_PROC_CATALOG[2]!);
-export const REVEL_IN_BLOOD_MAGIC = entryToProc(STATIC_PROC_CATALOG[3]!);
+function staticById(id: string): Proc {
+  const e = STATIC_PROC_CATALOG.find(x => x.id === id);
+  if (!e) throw new Error(`Static proc id not found in catalog: ${id}`);
+  return entryToProc(e);
+}
+export const DRIPPING_WITH_MAGMA  = staticById('dripping-with-magma');
+export const EARTH_ATTUNEMENT     = staticById('earth-attunement');
+export const WOEFUL_ENERGY        = staticById('woeful-energy');
+export const WOEFUL_ECHOES        = staticById('woeful-echoes');
+export const REVEL_IN_BLOOD_MAGIC = staticById('revel-in-blood-magic');
 
 // ── Aggregation ──────────────────────────────────────────────────────────
 
@@ -237,6 +325,7 @@ export const REVEL_IN_BLOOD_MAGIC = entryToProc(STATIC_PROC_CATALOG[3]!);
  *  static catalog or as new dynamic procs are added. */
 export const PROC_CATALOG: Proc[] = [
   MAGICAL_AMBUSH,
+  SHIRADI_MANTLE,
   ...STATIC_PROC_CATALOG.map(entryToProc),
 ];
 

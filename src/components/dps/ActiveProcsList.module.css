@@ -1,0 +1,66 @@
+/* Active procs row — mirrors DebuffsSummary visual style. */
+
+.summary {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin: 0.5rem 0;
+}
+
+.summaryHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+}
+
+.summaryLabel {
+  color: var(--color-text-muted);
+}
+
+.summaryEmpty {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+  padding: 0.4rem 0.5rem;
+  background: rgba(0,0,0,0.15);
+  border-radius: 3px;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0.5rem;
+  background: rgba(0,0,0,0.15);
+  border-radius: 3px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.7rem;
+  padding: 0.2rem 0.55rem;
+  background: rgba(106, 159, 216, 0.10);
+  border: 1px solid rgba(106, 159, 216, 0.45);
+  color: var(--color-text);
+  border-radius: 3px;
+  cursor: help;
+  font-variant-numeric: tabular-nums;
+}
+
+.chipLabel {
+  font-weight: 600;
+}
+
+.chipEffect {
+  font-size: 0.65rem;
+  color: var(--color-text-muted);
+  padding-left: 0.3rem;
+  border-left: 1px solid rgba(106, 159, 216, 0.35);
+}
