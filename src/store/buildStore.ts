@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import type { AbilityScores, Alignment, Build, ClassLevel, EnhancementSelection, EnhancementSet, GearItem, GearSet, GearSlot, SelectedFeat, Stat } from '@/types/build';
-import { DEFAULT_BUILD, DEFAULT_ENHANCEMENT_SET_NAME, emptyEnhancementSet, getActiveEnhancementSet, withActiveEnhancementSet } from '@/types/build';
+import { DEFAULT_BUILD, DEFAULT_ENHANCEMENT_SET_NAME, emptyEnhancementSet, getActiveEnhancementSet, migrateEnhancementSets, withActiveEnhancementSet } from '@/types/build';
 import { resolveLevelClasses, aggregateClasses } from '@/utils/levelClasses';
 
 const MAX_HEROIC_AP = 80;
@@ -315,7 +315,7 @@ export const MAX_ARTIFACT_FILIGREE = 5;
 export const useBuildStore = create<BuildState>((set, get) => ({
   build: { ...DEFAULT_BUILD },
 
-  setBuild: (build) => set({ build }),
+  setBuild: (build) => set({ build: migrateEnhancementSets(build) }),
   updateName: (name) => set(s => ({ build: { ...s.build, name } })),
   updateRace: (raceId) => set(s => ({ build: { ...s.build, raceId } })),
   updateAlignment: (alignment) => set(s => ({ build: { ...s.build, alignment } })),

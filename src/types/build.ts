@@ -268,6 +268,17 @@ export const DEFAULT_BUILD: Build = {
   specialFeats: [],
 };
 
+/** Stable empty-set ref so callers reading from a malformed build don't
+ *  see a fresh ref each render (which would invalidate every useMemo /
+ *  useEffect depending on the active set). */
+const EMPTY_ENHANCEMENT_SET: EnhancementSet = Object.freeze({
+  name: DEFAULT_ENHANCEMENT_SET_NAME,
+  enhancements:             [],
+  destinyEnhancements:      [],
+  reaperEnhancements:       [],
+  selectedEnhancementTrees: [],
+}) as EnhancementSet;
+
 /**
  * Read the currently-active EnhancementSet from a Build. After
  * migration there's always at least one set, so this never returns
@@ -280,8 +291,12 @@ export function getActiveEnhancementSet(build: Build): EnhancementSet {
     const found = sets.find(s => s.name === build.activeEnhancementSet);
     return found ?? sets[0]!;
   }
-  // Defensive: a malformed build with no sets — synthesize an empty one.
-  return emptyEnhancementSet();
+  // Defensive: a malformed build with no sets — return a frozen
+  // module-level empty set so the reference is stable across calls.
+  // (A fresh `emptyEnhancementSet()` per call would change ref every
+  // render and trigger infinite re-render loops in any consumer that
+  // depends on the active set.)
+  return EMPTY_ENHANCEMENT_SET;
 }
 
 /**
