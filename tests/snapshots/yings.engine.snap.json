@@ -1936,6 +1936,58 @@
       }
     ]
   },
+  "imbueDice": {
+    "total": 10,
+    "appliedCount": 9,
+    "dominatedCount": 0,
+    "sources": [
+      {
+        "source": "Scion of Arborea",
+        "bonusType": "Enhancement",
+        "value": 1
+      },
+      {
+        "source": "[E] Henshin Mystic: Henshin Mystic: Riddle of Fire",
+        "bonusType": "Enhancement",
+        "value": 1
+      },
+      {
+        "source": "[E] Henshin Mystic: Henshin Mystic: Ki Bolt",
+        "bonusType": "Enhancement",
+        "value": 1
+      },
+      {
+        "source": "[E] Henshin Mystic: Henshin Mystic: Cauldron of Flame",
+        "bonusType": "Enhancement",
+        "value": 1
+      },
+      {
+        "source": "[E] Henshin Mystic: Henshin Mystic: Incinerating Wave",
+        "bonusType": "Enhancement",
+        "value": 1
+      },
+      {
+        "source": "[E] Henshin Mystic: Henshin Mystic: Improved Cauldron",
+        "bonusType": "Enhancement",
+        "value": 1
+      },
+      {
+        "source": "[A] Bracers: Bracers of the Battlerager → Emerald of Arcane Empowerment",
+        "bonusType": "Enhancement",
+        "value": 1
+      },
+      {
+        "source": "Embodiment of Law",
+        "bonusType": "Feat",
+        "value": 2
+      },
+      {
+        "source": "[D] Legendary Dreadnought: Legendary Dreadnought: Esoteric Touch",
+        "bonusType": "Destiny",
+        "value": 1
+      }
+    ]
+  },
   "meleeSpeed": {
     "total": 0,
     "appliedCount": 0,

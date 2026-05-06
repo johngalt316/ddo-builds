@@ -127,6 +127,16 @@ export function breakdownSneakAttackDice(bonuses: Bonus[], rules: StackingRules)
   return stackBonuses(ofType(bonuses, 'SneakAttackDice'), rules);
 }
 
+// ── Imbue Dice ───────────────────────────────────────────────────────────
+//
+// Number of imbue dice the build has from Arcane Trickster, Dark Hunter,
+// and similar trees. Drives Shiradi Mantle damage scaling: base 7d77
+// plus +1d77 per 7 imbue dice.
+
+export function breakdownImbueDice(bonuses: Bonus[], rules: StackingRules): BreakdownResult {
+  return stackBonuses(ofType(bonuses, 'ImbueDice'), rules);
+}
+
 // ── Melee / Ranged Power ─────────────────────────────────────────────────
 
 export function breakdownMeleePower(bonuses: Bonus[], rules: StackingRules): BreakdownResult {

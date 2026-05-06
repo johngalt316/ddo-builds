@@ -18,6 +18,7 @@ import { buildStackingRules, type Bonus, type BreakdownResult } from './bonusSta
 import {
   breakdownAbilityScore, breakdownHitPoints, breakdownSave,
   breakdownDoublestrike, breakdownDoubleshot, breakdownSneakAttackDice,
+  breakdownImbueDice,
   breakdownMeleePower, breakdownRangedPower,
   breakdownHealingAmp, breakdownNegativeHealingAmp, breakdownRepairAmp,
   breakdownAC, breakdownDodge, breakdownPRR, breakdownMRR, breakdownSpellResistance,
@@ -115,6 +116,7 @@ export interface EngineResult {
   /** Total sneak-attack dice. Same value drives melee + ranged sneak
    *  attacks AND spell procs that read sneak dice (Magical Ambush). */
   sneakAttackDice: BreakdownResult;
+  imbueDice: BreakdownResult;
   meleeSpeed: BreakdownResult;
   rangedSpeed: BreakdownResult;
   healingAmp: BreakdownResult;
@@ -548,6 +550,7 @@ export function runEngine(input: RunEngineInput): EngineResult {
     doublestrike:      breakdownDoublestrike(allBonuses, rules),
     doubleshot:        breakdownDoubleshot(allBonuses, rules),
     sneakAttackDice:   breakdownSneakAttackDice(allBonuses, rules),
+    imbueDice:         breakdownImbueDice(allBonuses, rules),
     meleeSpeed:        breakdownMeleeSpeed(allBonuses, rules),
     rangedSpeed:       breakdownRangedSpeed(allBonuses, rules),
     healingAmp:        breakdownHealingAmp(allBonuses, rules),

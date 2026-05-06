@@ -158,6 +158,7 @@ function engineSummary(build: Build, gameData: ReturnType<typeof loadGameData>) 
     doublestrike:    summarizeBreakdown(r.doublestrike),
     doubleshot:      summarizeBreakdown(r.doubleshot),
     sneakAttackDice: summarizeBreakdown(r.sneakAttackDice),
+    imbueDice:       summarizeBreakdown(r.imbueDice),
     meleeSpeed:      summarizeBreakdown(r.meleeSpeed),
     rangedSpeed:     summarizeBreakdown(r.rangedSpeed),
     healingAmp:      summarizeBreakdown(r.healingAmp),

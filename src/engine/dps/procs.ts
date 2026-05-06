@@ -283,19 +283,29 @@ function shiradiStaySelection(build: Build): { selection: string; element: Spell
 
 /** Per-missile fire chance for Shiradi spells (Prism + Stay X). */
 const SHIRADI_SPELL_CHANCE = 0.07;
-/** Full-hit average damage on a successful proc — 10d77 with R3 Imbue
- *  Dice scaling, per the reference spreadsheet's "Prism - Force" row.
- *  Raw 10d77 average is only 390, but the spreadsheet calibrates to
- *  in-game observation. */
-const SHIRADI_AVG_FULL_HIT = 539;
+
+/**
+ * Average dice value for Shiradi Mantle's full hit. Base is 7d77, plus
+ * +1d77 for every multiple of 7 imbue dice the build has.
+ *   imbue 0..6   →  7d77
+ *   imbue 7..13  →  8d77
+ *   imbue 14..20 →  9d77
+ *   imbue 21..27 → 10d77
+ * d77 average = (1 + 77) / 2 = 39, so total avg = diceCount × 39.
+ */
+function shiradiAvgFullHit(imbueDice: number): number {
+  const diceCount = 7 + Math.floor(Math.max(0, imbueDice) / 7);
+  return diceCount * (1 + 77) / 2;
+}
 
 export const SHIRADI_MANTLE: Proc = {
   id: 'shiradi-mantle',
   label: 'Shiradi Mantle',
   isActive: (build) => shiradiStaySelection(build) !== null,
-  toComponents: (build, _engine, _ctx, activeSpells) => {
+  toComponents: (build, engine, _ctx, activeSpells) => {
     const choice = shiradiStaySelection(build);
     if (!choice) return [];
+    const avgFullHit = shiradiAvgFullHit(engine.imbueDice.total);
     // The proc's chance is rolled PER MISSILE/RAY, but caps at most
     // one fire per cast. So effective per-cast fire probability for a
     // spell with N missiles is 1 - (1 - p)^N. Applies to every spell
@@ -308,7 +318,7 @@ export const SHIRADI_MANTLE: Proc = {
         label: `Shiradi Mantle (${choice.selection}, ${s.name})`,
         trigger: { kind: 'per-cast', spell: s.name },
         qtyPerTrigger: 1,
-        avgDicePerHit: SHIRADI_AVG_FULL_HIT * pFire,
+        avgDicePerHit: avgFullHit * pFire,
         damageType: choice.element,
         scaleProfile: 'spell',
         useGenericVuln: true,

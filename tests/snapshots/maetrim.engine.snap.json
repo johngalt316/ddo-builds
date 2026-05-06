@@ -2038,6 +2038,43 @@
       }
     ]
   },
+  "imbueDice": {
+    "total": 8,
+    "appliedCount": 6,
+    "dominatedCount": 0,
+    "sources": [
+      {
+        "source": "Embodiment of Law",
+        "bonusType": "Feat",
+        "value": 2
+      },
+      {
+        "source": "[E] Henshin Mystic: Henshin Mystic: Riddle of Fire",
+        "bonusType": "Enhancement",
+        "value": 1
+      },
+      {
+        "source": "[E] Henshin Mystic: Henshin Mystic: Ki Bolt",
+        "bonusType": "Enhancement",
+        "value": 1
+      },
+      {
+        "source": "[E] Henshin Mystic: Henshin Mystic: Cauldron of Flame",
+        "bonusType": "Enhancement",
+        "value": 1
+      },
+      {
+        "source": "[D] Legendary Dreadnought: Legendary Dreadnought: Esoteric Touch",
+        "bonusType": "Destiny",
+        "value": 1
+      },
+      {
+        "source": "[FS] Snake Bite (3-piece tier ≥ 3)",
+        "bonusType": "Stacking",
+        "value": 2
+      }
+    ]
+  },
   "meleeSpeed": {
     "total": 0,
     "appliedCount": 0,

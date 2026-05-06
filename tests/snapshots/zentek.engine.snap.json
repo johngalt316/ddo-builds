@@ -510,6 +510,18 @@
       }
     ]
   },
+  "imbueDice": {
+    "total": 2,
+    "appliedCount": 1,
+    "dominatedCount": 0,
+    "sources": [
+      {
+        "source": "Harbinger of Chaos",
+        "bonusType": "Feat",
+        "value": 2
+      }
+    ]
+  },
   "meleeSpeed": {
     "total": 0,
     "appliedCount": 0,
