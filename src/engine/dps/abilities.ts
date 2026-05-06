@@ -60,6 +60,13 @@ export interface MagicAbility {
    *  classic "Epic Strike shared cooldown" pattern. Undefined = the
    *  ability is on its own private cooldown. */
   cooldownGroup?: string;
+  /** True for self-buff clickies (e.g. Wellspring of Power) — abilities
+   *  with no per-cast damage that the user wants in the rotation as
+   *  buff triggers. The DPS calculator skips the "damages required"
+   *  filter for these, so they slot in like any other SLA. The buff
+   *  effect itself (SP / crit-damage modulation of subsequent casts)
+   *  is modeled separately by the buff catalog when implemented. */
+  isUtility?: boolean;
 }
 
 /**
@@ -195,6 +202,34 @@ export function getMagicAbilities(
     });
   }
 
+  // ── Utility self-buff clickies (no damage, but selectable) ──────────
+  // Some feats grant clicky self-buffs that aren't tagged
+  // `<Type>SpellLikeAbility</Type>` in the source XML, so they don't
+  // surface through `engine.slas`. The user still wants them in the
+  // rotation palette to model their cooldown / cast time / buff
+  // contribution. List them here, gated on the granting feat being
+  // trained.
+  for (const u of UTILITY_ABILITIES) {
+    if (!u.isAvailable(build)) continue;
+    slaAbilities.push({
+      id:             `utility::${u.featId}`,
+      source:         'sla',
+      name:           u.name,
+      displayName:    u.name,
+      icon:           u.icon,
+      school:         '',
+      cost:           u.cost,
+      cooldown:       u.cooldown,
+      charges:        0,
+      maxCasterLevel: 0,
+      damages:        [],
+      castTime:       u.castTime,
+      slaCategory:    'feat',
+      slaSource:      `${u.featId} (feat)`,
+      isUtility:      true,
+    });
+  }
+
   classSpells.sort((a, b) =>
     (a.spellLevel ?? 0) - (b.spellLevel ?? 0) || a.name.localeCompare(b.name));
   slaAbilities.sort((a, b) => {
@@ -205,3 +240,33 @@ export function getMagicAbilities(
 
   return [...classSpells, ...slaAbilities];
 }
+
+/** Self-buff clickies that the engine doesn't surface through
+ *  `<SpellLikeAbility>` effects but the user wants in their rotation. */
+interface UtilityAbilityEntry {
+  featId:     string;
+  name:       string;
+  icon:       string;
+  cost:       number;
+  cooldown:   number;
+  castTime:   number;
+  isAvailable: (build: Build) => boolean;
+}
+
+const UTILITY_ABILITIES: UtilityAbilityEntry[] = [
+  {
+    // Epic feat at character level 21. Activate for +150 Universal
+    // Spell Power and +20% Spell Critical Damage for 30s; 3-minute
+    // cooldown. Modeled here because the source XML tags it as a
+    // stance, not a SpellLikeAbility, so the standard SLA collector
+    // skips it.
+    featId:   'Wellspring of Power',
+    name:     'Wellspring of Power',
+    icon:     'WellspringOfPower',
+    cost:     0,
+    cooldown: 180,
+    castTime: 0.5,
+    isAvailable: (build) =>
+      build.feats.some(f => f.featId === 'Wellspring of Power'),
+  },
+];

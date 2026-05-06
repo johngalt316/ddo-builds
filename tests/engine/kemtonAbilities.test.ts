@@ -69,6 +69,27 @@ describe('getMagicAbilities — kemton', () => {
     expect(magicMissile!.charges).toBe(0);
   });
 
+  it('Wellspring of Power is selectable as a utility ability when trained', () => {
+    // Sanity check: kemton has the feat in their build.feats list.
+    expect(build.feats.some(f => f.featId === 'Wellspring of Power')).toBe(true);
+
+    const abilities = getMagicAbilities(build, spells, classes, []);
+    const wellspring = abilities.find(a =>
+      a.source === 'sla' && a.name === 'Wellspring of Power');
+    expect(wellspring).toBeDefined();
+    expect(wellspring!.isUtility).toBe(true);
+    expect(wellspring!.damages.length).toBe(0);
+    expect(wellspring!.cooldown).toBe(180);
+    expect(wellspring!.cost).toBe(0);
+    expect(wellspring!.icon).toBe('WellspringOfPower');
+  });
+
+  it('Wellspring is omitted when the feat isn\'t trained', () => {
+    const stripped = { ...build, feats: build.feats.filter(f => f.featId !== 'Wellspring of Power') };
+    const abilities = getMagicAbilities(stripped, spells, classes, []);
+    expect(abilities.find(a => a.name === 'Wellspring of Power')).toBeUndefined();
+  });
+
   it('SLA cooldowns and charges fall back / patch correctly', () => {
     const abilities = getMagicAbilities(build, spells, classes, [
       // Stolen Spell - Magic Missile (AT enhancement) — provides own values.
