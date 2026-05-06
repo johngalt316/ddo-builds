@@ -336,6 +336,11 @@ function shiradiPerSpell(
       scaleProfile,
       useGenericVuln: true,
       useMRR: true,
+      // Surface the underlying mechanic for tooltips: full hit damage
+      // before the per-cast pFire multiplier, plus the per-missile
+      // roll rate. Doesn't affect the calculator math.
+      fullHitAvg:        avgFullHit,
+      perMissileChance:  SHIRADI_SPELL_CHANCE,
     };
   });
 }

@@ -74,7 +74,14 @@ function procSummary(
   if (c.useMRR)         flags.push('MRR');
   const debuffs = flags.length > 0 ? flags.join(' · ') : 'none';
 
-  const effect = `${fmt1(c.avgDicePerHit)} avg ${c.damageType}`;
+  // Chip face: prefer the full hit damage when the proc has chance
+  // baked into avgDicePerHit (Shiradi-style). Otherwise show the
+  // raw per-cast avg as before.
+  const displayAvg = c.fullHitAvg ?? c.avgDicePerHit;
+  const chanceTag  = c.perMissileChance !== undefined
+    ? ` · ${(c.perMissileChance * 100).toFixed(0)}%/missile`
+    : '';
+  const effect = `${fmt1(displayAvg)} avg ${c.damageType}${chanceTag}`;
   const chip   = `${effect} · ${triggerLabel}`;
 
   // Show the full per-trigger math. critMultBonus stored as a fraction
@@ -83,12 +90,32 @@ function procSummary(
   const critMultDisplay = `+${fmt2(inputs.critMultBonus)} (×${fmt2(inputs.critMultBonus + 1)})`;
   const profile = c.scaleProfile;
 
-  const tooltip = [
+  const lines: string[] = [
     proc.label,
     '',
     `Damage type: ${c.damageType}`,
     `Trigger: ${triggerLabel}`,
     `Debuffs: ${debuffs}`,
+  ];
+
+  if (c.fullHitAvg !== undefined && c.perMissileChance !== undefined) {
+    // Chance-baked proc: surface the underlying mechanic explicitly.
+    const probeMissiles = c.qtyPerTrigger;
+    const pFire = c.avgDicePerHit / c.fullHitAvg;
+    lines.push(
+      '',
+      `Full hit (on fire): ${fmt2(c.fullHitAvg)} avg ${c.damageType}`,
+      `Per-missile chance: ${(c.perMissileChance * 100).toFixed(0)}%`,
+      `Cap: 1 fire per cast`,
+      '',
+      `Per-cast pFire (this probe spell, ${probeMissiles} missile${probeMissiles === 1 ? '' : 's'})`,
+      `  = 1 - (1 - ${(c.perMissileChance * 100).toFixed(0)}%)^${probeMissiles}`,
+      `  = ${(pFire * 100).toFixed(1)}%`,
+      `Effective avg dice per cast = ${fmt2(c.fullHitAvg)} × ${(pFire * 100).toFixed(1)}% = ${fmt2(c.avgDicePerHit)}`,
+    );
+  }
+
+  lines.push(
     '',
     'Inputs:',
     `  qty per trigger: ${c.qtyPerTrigger}`,
@@ -105,9 +132,9 @@ function procSummary(
     '',
     `dmg per trigger = ${c.qtyPerTrigger} × ${fmt2(c.avgDicePerHit)} × ${fmt2(sm)}`,
     `              = ${fmt0(dpt)}`,
-  ].join('\n');
+  );
 
-  return { effect, chip, tooltip };
+  return { effect, chip, tooltip: lines.join('\n') };
 }
 
 export function ActiveProcsList({ build, engine, sneakAttackDice }: Props) {

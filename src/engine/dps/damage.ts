@@ -61,6 +61,13 @@ export interface DamageComponent {
   useGenericVuln?: boolean;
   useSonicVuln?:   boolean;
   useMRR?:         boolean;
+  /** UI-only hint: when `avgDicePerHit` has a chance baked in (e.g.
+   *  Shiradi Mantle's 7d77 × pFire), `fullHitAvg` is the unmodified
+   *  on-fire damage and `perMissileChance` the per-missile roll rate.
+   *  Doesn't affect the calculator math — only used by tooltips that
+   *  want to surface the underlying mechanic. */
+  fullHitAvg?: number;
+  perMissileChance?: number;
 }
 
 /**
