@@ -281,30 +281,40 @@ function shiradiStaySelection(build: Build): { selection: string; element: Spell
   return { selection: sel, element };
 }
 
+/** Per-missile fire chance for Shiradi spells (Prism + Stay X). */
+const SHIRADI_SPELL_CHANCE = 0.07;
+/** Full-hit average damage on a successful proc — 10d77 with R3 Imbue
+ *  Dice scaling, per the reference spreadsheet's "Prism - Force" row.
+ *  Raw 10d77 average is only 390, but the spreadsheet calibrates to
+ *  in-game observation. */
+const SHIRADI_AVG_FULL_HIT = 539;
+
 export const SHIRADI_MANTLE: Proc = {
   id: 'shiradi-mantle',
   label: 'Shiradi Mantle',
   isActive: (build) => shiradiStaySelection(build) !== null,
-  toComponents: (build) => {
+  toComponents: (build, _engine, _ctx, activeSpells) => {
     const choice = shiradiStaySelection(build);
     if (!choice) return [];
-    // Reference spreadsheet "Prism - Force" row: Base Avg = 539 (full
-    // damage on successful proc, includes Imbue Dice scaling at R3 —
-    // raw 10d77 average is only 390). The 7% chance is baked into the
-    // per-cast avgDicePerHit so the trigger yields the expected
-    // long-run average contribution.
-    const avgFullHit = 539;
-    const chance     = 0.07;
-    return [{
-      label: `Shiradi Mantle (${choice.selection})`,
-      trigger: { kind: 'per-cast' },
-      qtyPerTrigger: 1,
-      avgDicePerHit: avgFullHit * chance,           // 37.73
-      damageType: choice.element,
-      scaleProfile: 'spell',
-      useGenericVuln: true,
-      useMRR: true,
-    }];
+    // The proc's chance is rolled PER MISSILE/RAY, but caps at most
+    // one fire per cast. So effective per-cast fire probability for a
+    // spell with N missiles is 1 - (1 - p)^N. Applies to every spell
+    // in the rotation; emit one component per active spell so the
+    // calculator weights each by its own cpm.
+    return activeSpells.map(s => {
+      const missiles = projectileCount(s.name, s.casterLevel);
+      const pFire    = 1 - Math.pow(1 - SHIRADI_SPELL_CHANCE, missiles);
+      return {
+        label: `Shiradi Mantle (${choice.selection}, ${s.name})`,
+        trigger: { kind: 'per-cast', spell: s.name },
+        qtyPerTrigger: 1,
+        avgDicePerHit: SHIRADI_AVG_FULL_HIT * pFire,
+        damageType: choice.element,
+        scaleProfile: 'spell',
+        useGenericVuln: true,
+        useMRR: true,
+      };
+    });
   },
 };
 
