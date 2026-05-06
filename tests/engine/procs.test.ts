@@ -88,12 +88,28 @@ describe('MAGICAL_AMBUSH.toComponents', () => {
       label: 'Magical Ambush (Magic Missile)',
       trigger: { kind: 'per-cast', spell: 'Magic Missile' },
       qtyPerTrigger: 5, avgDicePerHit: 133,
-      damageType: 'Force', scaleProfile: 'spell',
+      damageType: 'Force', scaleProfile: 'sneak',     // baseline: 50% Force SP
     });
     expect(comps[1]).toMatchObject({ qtyPerTrigger: 10, avgDicePerHit: 133 });   // PL Arcane Initiate caps at 10
     expect(comps[2]).toMatchObject({ qtyPerTrigger: 4,  avgDicePerHit: 133 });
     expect(comps[3]).toMatchObject({ qtyPerTrigger: 3,  avgDicePerHit: 133 });
     expect(comps[4]).toMatchObject({ qtyPerTrigger: 1,  avgDicePerHit: 133 });   // single-hit fallback
+  });
+
+  it("Master of Trickery capstone bumps scale profile to 'spell' (full Force SP)", () => {
+    const withCapstone = build({
+      classes: [{ classId: 'arcane_trickster', levels: 20 }],
+      destinyEnhancements: [],
+    });
+    // Inject the capstone into the build's enhancement set.
+    const sets = (withCapstone as unknown as { enhancementSets: { name: string; enhancements: { treeId: string; enhancements: { enhancementId: string; tier: number; rank: number }[] }[] }[] }).enhancementSets;
+    sets[0]!.enhancements.push({
+      treeId: 'Arcane Trickster',
+      enhancements: [{ enhancementId: 'ArcaneTricksterCore6', tier: 0, rank: 1 }],
+    });
+    const comps = MAGICAL_AMBUSH.toComponents(withCapstone, ENGINE, ctx38,
+      [{ name: 'Magic Missile', casterLevel: 20 }]);
+    expect(comps[0]?.scaleProfile).toBe('spell');
   });
 
   it('avgDicePerHit scales linearly with sneak dice', () => {

@@ -110,14 +110,25 @@ describe("resolveScaleInputs — 'spell' profile", () => {
 });
 
 describe("resolveScaleInputs — 'sneak' profile (Magical Ambush)", () => {
-  it('halves element SP, crit comes from the same element', () => {
+  it('halves element SP and adds metamagic SP on top', () => {
     const e = engine({
       spellPower: { Force: 1182 },
       critChance: { Force: 68 },
       critDamage: { Force: 149 },
     });
     const comp: DamageComponent = { ...baseComponent, damageType: 'Force', scaleProfile: 'sneak' };
+    // 1182 × 0.5 + 300 metamagic SP = 891
     expect(resolveScaleInputs(comp, e, { sneakAttackDice: 38, metamagicSP: 300 }))
+      .toEqual({ spellPower: 891, critChance: 0.68, critMultBonus: 1.49 });
+  });
+  it('with no metamagic, falls back to plain 0.5 × element SP', () => {
+    const e = engine({
+      spellPower: { Force: 1182 },
+      critChance: { Force: 68 },
+      critDamage: { Force: 149 },
+    });
+    const comp: DamageComponent = { ...baseComponent, damageType: 'Force', scaleProfile: 'sneak' };
+    expect(resolveScaleInputs(comp, e, { sneakAttackDice: 38, metamagicSP: 0 }))
       .toEqual({ spellPower: 591, critChance: 0.68, critMultBonus: 1.49 });
   });
 });
@@ -154,7 +165,8 @@ describe("resolveScaleInputs — 'dark-imbuement' profile (bug-modeled)", () => 
     const comp: DamageComponent = { ...baseComponent, damageType: 'Force', scaleProfile: 'dark-imbuement' };
     expect(resolveScaleInputs(comp, e, { sneakAttackDice: 38, metamagicSP: 300 }))
       .toEqual({
-        spellPower: 1182 * 2.42,        // = 2860.44
+        // (1182 + 300 metamagic) × 2.42 = 1482 × 2.42 = 3586.44
+        spellPower: 1482 * 2.42,
         critChance: 0.68,
         critMultBonus: 1.04,
       });
@@ -265,7 +277,10 @@ describe('evaluateComponent / evaluateAll', () => {
     critChance:  { Force: 68 },
     critDamage:  { Force: 149 },
   });
-  const ctx = { sneakAttackDice: 38, metamagicSP: 300 };
+  // The spreadsheet's "Magic Missile (base)" row treats 1182 SP as the
+  // already-with-metamagic total, so set metamagicSP to 0 here to avoid
+  // double-counting when checking the calibration.
+  const ctx = { sneakAttackDice: 38, metamagicSP: 0 };
 
   it('reproduces the spreadsheet\'s Magic Missile (base) row to within rounding', () => {
     // Spreadsheet: scale 43.24 × qty 5 × avg 18.5 = 4000.11 / cast

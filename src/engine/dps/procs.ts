@@ -211,28 +211,40 @@ const STATIC_PROC_CATALOG: StaticProcEntry[] = [
  * Magical Ambush — Arcane Trickster level 8 automatic feat.
  *
  *   "Your offensive instantaneous damaging spells deal additional 1d6 force
- *    damage equal to your sneak attack dice. Scales with force spell power."
+ *    damage equal to your sneak attack dice. Scales with 50% of force spell
+ *    power."
+ *
+ * The AT capstone "Master of Trickery" (`ArcaneTricksterCore6`) bumps the
+ * scaling to 100% of Force Spell Power per the in-game description.
  *
  * Stays in code (not the static catalog) because:
  *   • dice count = sneak attack dice (build-derived)
  *   • qty per trigger = projectileCount(spell, CL) (per-spell)
- *   • scale profile = 'spell' against Force damage type (full Force SP).
+ *   • scale profile = 'sneak' (50% Force SP) without the capstone, or
+ *     'spell' (full Force SP) with it.
  */
+function hasMasterOfTrickery(build: Build): boolean {
+  const at = getActiveEnhancementSet(build).enhancements.find(t => t.treeId === 'Arcane Trickster');
+  if (!at) return false;
+  return at.enhancements.some(e => e.enhancementId === 'ArcaneTricksterCore6' && e.rank >= 1);
+}
+
 export const MAGICAL_AMBUSH: Proc = {
   id: 'magical-ambush',
   label: 'Magical Ambush',
   isActive: (build) =>
     build.classes.some(c => c.classId === 'arcane_trickster' && c.levels >= 8),
-  toComponents: (_build, _engine, ctx, activeSpells) => {
+  toComponents: (build, _engine, ctx, activeSpells) => {
     if (ctx.sneakAttackDice <= 0) return [];
     const avg = ctx.sneakAttackDice * 3.5;   // Nd6 average
+    const profile = hasMasterOfTrickery(build) ? 'spell' : 'sneak';
     return activeSpells.map(s => ({
       label: `Magical Ambush (${s.name})`,
       trigger: { kind: 'per-cast', spell: s.name },
       qtyPerTrigger: projectileCount(s.name, s.casterLevel),
       avgDicePerHit: avg,
       damageType: 'Force',
-      scaleProfile: 'spell',
+      scaleProfile: profile,
       useGenericVuln: true,
       useMRR: true,
     }));

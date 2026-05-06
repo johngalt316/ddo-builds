@@ -37,23 +37,25 @@ export interface EvalContext extends ProcContext {
 /**
  * Pull the right SP / crit chance / crit-damage-bonus for a component
  * based on its damage type and scale profile. The crit chance & crit
- * damage normally come from the component's damage element; only the
- * spell-power input differs per profile:
+ * damage normally come from the component's damage element. Active
+ * metamagics (Empower / Maximize / Intensify) add a flat SP bonus on
+ * top of the profile-specific spell power, mirroring how the in-game
+ * spell card shows the boosted total during casting.
  *
- *   • 'spell'           → engine.spellPowers[damageType]
- *   • 'sneak'           → engine.spellPowers[damageType] × 0.5
- *                          (Magical Ambush — wiki: "scales with 50% of
- *                          force spell power"; using `damageType` keeps
- *                          this generic for any future sneak-style proc)
- *   • 'proc'            → ctx.metamagicSP (no element SP per wiki rule)
- *   • 'dark-imbuement'  → forceSP × (1 + max(MP, RP) / 100)
+ *   • 'spell'           → element SP + metamagic SP
+ *   • 'sneak'           → element SP × 0.5 + metamagic SP
+ *                          (Magical Ambush baseline — wiki: "scales
+ *                          with 50% of force spell power"; the 50%
+ *                          only applies to the element pool, metamagic
+ *                          is a flat additive)
+ *   • 'proc'            → metamagic SP only (no element SP per wiki —
+ *                          on-spellcast procs don't read element pools)
+ *   • 'dark-imbuement'  → (forceSP + metamagic SP) × (1 + max(MP, RP) / 100)
  *                          (bug-modeled — Dark Imbuement consumes both
  *                          Force SP AND MP/RP in-game)
- *   • 'random'          → mean SP / crit / crit-mult across all 13
- *                          spell-damage elements. Used by Shiradi
- *                          Mantle's Prism base proc, which deals a
- *                          random damage type per fire scaling with
- *                          that element's spell power.
+ *   • 'random'          → mean(element SP) + metamagic SP, averaged
+ *                          across all 13 spell-damage elements. Used
+ *                          by Shiradi Mantle's Prism base proc.
  */
 export function resolveScaleInputs(
   component: DamageComponent,
@@ -64,9 +66,11 @@ export function resolveScaleInputs(
   const elementSP   = engine.spellPowers[dt]?.total ?? 0;
   const meleePower  = engine.meleePower.total;
   const rangedPower = engine.rangedPower.total;
+  const mmSP        = ctx.metamagicSP;
 
   if (component.scaleProfile === 'random') {
     // Average SP / crit / crit-mult across every spell damage element.
+    // Metamagic SP adds flat on top of the averaged pool.
     let sumSP = 0, sumCrit = 0, sumCritMult = 0;
     for (const el of SPELL_DAMAGE_TYPES) {
       sumSP       += engine.spellPowers[el]?.total          ?? 0;
@@ -75,7 +79,7 @@ export function resolveScaleInputs(
     }
     const n = SPELL_DAMAGE_TYPES.length;
     return {
-      spellPower:    sumSP / n,
+      spellPower:    sumSP / n + mmSP,
       critChance:    sumCrit / n / 100,
       critMultBonus: sumCritMult / n / 100,
     };
@@ -84,17 +88,17 @@ export function resolveScaleInputs(
   let spellPower: number;
   switch (component.scaleProfile) {
     case 'spell':
-      spellPower = elementSP;
+      spellPower = elementSP + mmSP;
       break;
     case 'sneak':
-      spellPower = elementSP * 0.5;
+      spellPower = elementSP * 0.5 + mmSP;
       break;
     case 'proc':
-      spellPower = ctx.metamagicSP;
+      spellPower = mmSP;
       break;
     case 'dark-imbuement': {
       const forceSP = engine.spellPowers.Force?.total ?? 0;
-      spellPower = forceSP * (1 + Math.max(meleePower, rangedPower) / 100);
+      spellPower = (forceSP + mmSP) * (1 + Math.max(meleePower, rangedPower) / 100);
       break;
     }
   }
