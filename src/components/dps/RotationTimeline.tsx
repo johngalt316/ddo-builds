@@ -115,19 +115,16 @@ export function RotationTimeline({
   }
 
   function onDragStart(e: React.DragEvent<HTMLDivElement>, idx: number) {
-    if (auto) { e.preventDefault(); return; }
     dragFrom.current = idx;
     e.dataTransfer.effectAllowed = 'move';
     e.dataTransfer.setData('text/plain', String(idx));
   }
   function onDragOver(e: React.DragEvent<HTMLDivElement>, idx: number) {
-    if (auto) return;
     e.preventDefault();
     e.dataTransfer.dropEffect = 'move';
     if (dragOver !== idx) setDragOver(idx);
   }
   function onDrop(e: React.DragEvent<HTMLDivElement>, idx: number) {
-    if (auto) return;
     e.preventDefault();
     const from = dragFrom.current;
     dragFrom.current = null;
@@ -152,19 +149,19 @@ export function RotationTimeline({
             <span className={styles.cdNote}> · CD −{cooldownReductionPct.toFixed(0)}%</span>
           )}
         </span>
-        <label className={styles.autoToggle} title="When on, the rotation order is managed by the optimizer (drag/reorder disabled).">
+        <label className={styles.autoToggle} title="When on, clicking a spell auto-fills the rotation toward a 1-minute cycle. When off, each click adds one cast at the earliest cooldown-respecting slot.">
           <input
             type="checkbox"
             checked={auto}
             onChange={e => onAutoChange(e.target.checked)}
           />
-          <span>Auto</span>
+          <span>Auto-fill</span>
         </label>
         <button
           type="button"
           className={styles.clearBtn}
           onClick={onClear}
-          disabled={auto || steps.length === 0}
+          disabled={steps.length === 0}
         >Clear</button>
       </div>
 
@@ -235,7 +232,7 @@ export function RotationTimeline({
                   <div
                     key={step.key}
                     role="listitem"
-                    draggable={!auto}
+                    draggable
                     onDragStart={e => onDragStart(e, i)}
                     onDragOver={e => onDragOver(e, i)}
                     onDrop={e => onDrop(e, i)}
@@ -243,7 +240,6 @@ export function RotationTimeline({
                     className={[
                       styles.block,
                       dragOver === i ? styles.blockDragOver : '',
-                      auto ? styles.blockLocked : '',
                       r.hasGap ? styles.blockAfterGap : '',
                     ].filter(Boolean).join(' ')}
                     style={{ width: `${width}px`, left: `${left}px` }}
@@ -280,7 +276,7 @@ export function RotationTimeline({
                           }
                         }
                       }
-                      lines.push(auto ? 'Auto: order locked by optimizer' : 'Drag to reorder · click × to remove');
+                      lines.push('Drag to reorder · click × to remove');
                       return lines.filter(Boolean).join('\n');
                     })()}
                   >
@@ -296,15 +292,13 @@ export function RotationTimeline({
                     {r.hasGap && (
                       <span className={styles.gapMarker} aria-hidden="true" title="Waiting on cooldown">⏳</span>
                     )}
-                    {!auto && (
-                      <button
-                        type="button"
-                        className={styles.blockRemove}
-                        onClick={e => { e.stopPropagation(); onRemove(step.key); }}
-                        aria-label={`Remove ${r.ability.displayName} from rotation`}
-                        title={`Remove ${r.ability.displayName}`}
-                      >×</button>
-                    )}
+                    <button
+                      type="button"
+                      className={styles.blockRemove}
+                      onClick={e => { e.stopPropagation(); onRemove(step.key); }}
+                      aria-label={`Remove ${r.ability.displayName} from rotation`}
+                      title={`Remove ${r.ability.displayName}`}
+                    >×</button>
                   </div>
                 );
               })}
