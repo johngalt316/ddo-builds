@@ -311,11 +311,23 @@ function MagicRotationEditor({
       sneakAttackDice: breakdowns.sneakAttackDice.total,
       metamagicSP:     computeMetamagicSP(build.activeMetamagics),
     };
-    const events: DamageEvent[] = t.steps.map(r => ({
-      time:   r.startTime,
-      damage: damagePerCast(r.ability, build, breakdowns, ctx, debuffs).total,
-      spell:  r.ability.displayName,
-    }));
+    const events: DamageEvent[] = t.steps.map(r => {
+      const perCast = damagePerCast(r.ability, build, breakdowns, ctx, debuffs);
+      // Aggregate by groupLabel when set so per-spell duplicates of the
+      // same proc (e.g. Magical Ambush) collapse into one entry.
+      const byComponent = new Map<string, number>();
+      for (const c of perCast.byComponent) {
+        if (c.damagePerTrigger <= 0) continue;
+        const key = c.component.groupLabel ?? c.component.label;
+        byComponent.set(key, (byComponent.get(key) ?? 0) + c.damagePerTrigger);
+      }
+      return {
+        time:        r.startTime,
+        damage:      perCast.total,
+        spell:       r.ability.displayName,
+        byComponent,
+      };
+    });
     return { cycleSeconds: t.totalSeconds, damageEvents: events };
   }, [steps, abilityById, cooldownReductionPct, build, breakdowns, debuffs]);
 
@@ -566,7 +578,11 @@ function MagicRotationEditor({
         currentTime={simTime}
       />
 
-      <DamageSourceSummary breakdown={rotationBreakdown} />
+      <DamageSourceSummary
+        breakdown={rotationBreakdown}
+        events={damageEvents}
+        currentTime={simRunning || simTime > 0 ? simTime : undefined}
+      />
 
       <div className={styles.simulateRow}>
         <button

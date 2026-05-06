@@ -49,6 +49,13 @@ export type DamageTrigger =
 
 export interface DamageComponent {
   label: string;
+  /** Optional grouping key for UI aggregation. When a proc emits one
+   *  component per active spell (e.g. Magical Ambush emits "Magical
+   *  Ambush (Magic Missile)" + "Magical Ambush (Force Missiles)"…),
+   *  set `groupLabel` to the bare proc name so the damage-source
+   *  summary collapses every per-spell row into a single total. Falls
+   *  back to `label` when undefined. */
+  groupLabel?: string;
   trigger: DamageTrigger;
   /** Hits per trigger (5 missiles, 4 rays, 1 hit, …). */
   qtyPerTrigger: number;

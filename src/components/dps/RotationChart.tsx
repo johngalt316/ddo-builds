@@ -21,6 +21,12 @@ export interface DamageEvent {
   damage: number;
   /** For the tooltip — what was cast. */
   spell: string;
+  /** Per-component damage contribution at this cast. Used by
+   *  DamageSourceSummary to compute live cumulative breakdowns
+   *  during simulation playback. Keys are the component label
+   *  ("Magic Missile (base)", "Magical Ambush (Magic Missile)", …);
+   *  values are the on-fire damage per trigger for that cast. */
+  byComponent: Map<string, number>;
 }
 
 interface Props {

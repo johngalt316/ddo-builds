@@ -240,6 +240,7 @@ export const MAGICAL_AMBUSH: Proc = {
     const profile = hasMasterOfTrickery(build) ? 'spell' : 'sneak';
     return activeSpells.map(s => ({
       label: `Magical Ambush (${s.name})`,
+      groupLabel: 'Magical Ambush',
       trigger: { kind: 'per-cast', spell: s.name },
       qtyPerTrigger: projectileCount(s.name, s.casterLevel),
       avgDicePerHit: avg,
@@ -339,6 +340,7 @@ function shiradiPerSpell(
     const pFire    = 1 - Math.pow(1 - SHIRADI_SPELL_CHANCE, missiles);
     return {
       label: `${labelPrefix} (${s.name})`,
+      groupLabel: labelPrefix,
       trigger: { kind: 'per-cast', spell: s.name },
       qtyPerTrigger: 1,
       avgDicePerHit: avgFullHit * pFire,
