@@ -133,13 +133,21 @@
   animation: popoverFadeIn 0.12s ease-out;
 }
 
-/* On narrow viewports anchor relative to right edge so we don't
-   overflow off-screen for chips near the right side. */
+/* On narrow viewports anchor to the viewport itself instead of the
+   chip — the chip's position can't push the popover off-screen, and
+   the user always knows where to look. Sits as a bottom sheet with
+   safe-area-inset-bottom respected so it clears the iOS home bar. */
 @media (max-width: 600px) {
   .popover {
-    left: auto;
-    right: 0;
-    max-width: 90vw;
+    position: fixed;
+    top: auto;
+    left: 0.5rem;
+    right: 0.5rem;
+    bottom: calc(env(safe-area-inset-bottom, 0px) + 0.5rem);
+    max-width: none;
+    max-height: 70vh;
+    overflow-y: auto;
+    box-shadow: 0 -8px 24px rgba(0,0,0,0.6);
   }
 }
 
