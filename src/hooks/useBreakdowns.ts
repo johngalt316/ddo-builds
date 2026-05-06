@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 import { useBuildStore } from '@/store/buildStore';
 import { useGameDataStore } from '@/store/gameDataStore';
 import { runEngine, type EngineResult } from '@/engine/runEngine';
+import type { Build } from '@/types/build';
 
 /**
  * Runs the Phase-2 engine over the current build state and returns
@@ -12,6 +13,15 @@ import { runEngine, type EngineResult } from '@/engine/runEngine';
  */
 export function useBreakdowns(): EngineResult | null {
   const build = useBuildStore(s => s.build);
+  return useBreakdownsForBuild(build);
+}
+
+/**
+ * Same as `useBreakdowns()` but lets the caller pass an arbitrary
+ * Build snapshot — used by the DPS comparison view to evaluate a
+ * non-active enhancement set without mutating the store.
+ */
+export function useBreakdownsForBuild(build: Build): EngineResult | null {
   const status = useGameDataStore(s => s.status);
   const classes = useGameDataStore(s => s.classes);
   const races = useGameDataStore(s => s.races);

@@ -15,7 +15,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useBuildStore } from '@/store/buildStore';
 import { useGameDataStore } from '@/store/gameDataStore';
-import { useBreakdowns } from '@/hooks/useBreakdowns';
+import { useBreakdowns, useBreakdownsForBuild } from '@/hooks/useBreakdowns';
 import { getMagicAbilities, type MagicAbility } from '@/engine/dps/abilities';
 import type { RotationStep } from '@/engine/dps/rotation';
 import { fillToOneMinute, resolveTimeline } from '@/engine/dps/timing';
@@ -200,6 +200,17 @@ function MagicRotationEditor({
   const spells      = useGameDataStore(s => s.spells);
   const classes     = useGameDataStore(s => s.classes);
   const breakdowns  = useBreakdowns();
+  // ── Side-by-side comparison ─────────────────────────────────────────
+  // Pick another EnhancementSet to evaluate against the active one. The
+  // engine + rotation are re-run with `activeEnhancementSet` swapped to
+  // the chosen set's name; nothing in the store mutates.
+  const [compareSetName, setCompareSetName] = useState<string | null>(null);
+  const compareBuild = useMemo<typeof build>(() => {
+    if (!compareSetName) return build;
+    if (compareSetName === build.activeEnhancementSet) return build;
+    return { ...build, activeEnhancementSet: compareSetName };
+  }, [build, compareSetName]);
+  const compareBreakdowns = useBreakdownsForBuild(compareBuild);
   // Build's spell cooldown reduction (sum of all sources, percent).
   const cooldownReductionPct = breakdowns?.spellCooldownReduction.total ?? 0;
   // SLAs come and go with build state — feed them into the catalog so
@@ -271,6 +282,20 @@ function MagicRotationEditor({
     };
     return rotationDPS(steps, abilities, build, breakdowns, ctx, debuffs, cooldownReductionPct);
   }, [steps, abilities, build, breakdowns, debuffs, cooldownReductionPct]);
+
+  // Parallel rotation breakdown for the comparison set. Same rotation,
+  // same gear, same debuffs — only `activeEnhancementSet` differs.
+  // Recomputed whenever the user picks a different compare set.
+  const compareRotationBreakdown = useMemo(() => {
+    if (!compareSetName || !compareBreakdowns) return null;
+    if (compareSetName === build.activeEnhancementSet) return null;
+    const ctx = {
+      sneakAttackDice: compareBreakdowns.sneakAttackDice.total,
+      metamagicSP:     300,
+    };
+    const compareCdr = compareBreakdowns.spellCooldownReduction.total;
+    return rotationDPS(steps, abilities, compareBuild, compareBreakdowns, ctx, debuffs, compareCdr);
+  }, [compareSetName, compareBuild, compareBreakdowns, steps, abilities, debuffs, build.activeEnhancementSet]);
 
   // Cycle length + per-cast damage events drive the chart, simulation
   // playhead, and live stat readouts.
@@ -484,6 +509,52 @@ function MagicRotationEditor({
         <Metric label="Damage"
           value={damageEvents.length > 0 ? Math.round(cumulativeDamage).toLocaleString() : '—'} />
       </div>
+
+      {/* Comparison row — pick another EnhancementSet to evaluate
+          alongside the active one (same rotation, same gear). */}
+      {(build.enhancementSets?.length ?? 0) > 1 && (
+        <div className={styles.compareRow}>
+          <label className={styles.compareLabel}>
+            Compare vs.
+            <select
+              className={styles.compareSelect}
+              value={compareSetName ?? ''}
+              onChange={e => setCompareSetName(e.target.value || null)}
+            >
+              <option value="">(none)</option>
+              {(build.enhancementSets ?? [])
+                .filter(s => s.name !== build.activeEnhancementSet)
+                .map(s => <option key={s.name} value={s.name}>{s.name}</option>)}
+            </select>
+          </label>
+          {compareSetName && compareRotationBreakdown && rotationBreakdown && (() => {
+            const activeDps  = rotationBreakdown.totalDPS;
+            const compareDps = compareRotationBreakdown.totalDPS;
+            const delta      = activeDps > 0 ? (compareDps - activeDps) / activeDps * 100 : 0;
+            const sign       = delta >= 0 ? '+' : '';
+            const better     = delta > 0;
+            return (
+              <div className={styles.compareStats}>
+                <span className={styles.compareCol}>
+                  <span className={styles.compareColLabel}>{build.activeEnhancementSet}</span>
+                  <span className={styles.compareColValue}>
+                    {Math.round(activeDps).toLocaleString()} DPS
+                  </span>
+                </span>
+                <span className={styles.compareCol}>
+                  <span className={styles.compareColLabel}>{compareSetName}</span>
+                  <span className={styles.compareColValue}>
+                    {Math.round(compareDps).toLocaleString()} DPS
+                  </span>
+                </span>
+                <span className={better ? styles.compareDeltaUp : styles.compareDeltaDown}>
+                  {sign}{delta.toFixed(1)}%
+                </span>
+              </div>
+            );
+          })()}
+        </div>
+      )}
 
       <RotationChart
         events={damageEvents}

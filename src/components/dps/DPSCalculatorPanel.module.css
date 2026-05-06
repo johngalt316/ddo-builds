@@ -200,6 +200,86 @@
   margin-bottom: 0.85rem;
 }
 
+/* ── Compare row (DPS A vs DPS B) ───────────────────────────────── */
+.compareRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0 0 0.85rem;
+  padding: 0.55rem 0.75rem;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+}
+.compareLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+}
+.compareSelect {
+  font: inherit;
+  font-size: 0.78rem;
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 500;
+  padding: 0.2rem 0.5rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 3px;
+  color: var(--color-text);
+  cursor: pointer;
+}
+.compareStats {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex: 1;
+  flex-wrap: wrap;
+  font-variant-numeric: tabular-nums;
+}
+.compareCol {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  padding-right: 0.6rem;
+  border-right: 1px solid var(--color-border);
+}
+.compareCol:last-of-type { border-right: none; }
+.compareColLabel {
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+}
+.compareColValue {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+.compareDeltaUp, .compareDeltaDown {
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: 3px;
+}
+.compareDeltaUp {
+  color: #6fcf6f;
+  background: rgba(111,207,111,0.12);
+  border: 1px solid rgba(111,207,111,0.45);
+}
+.compareDeltaDown {
+  color: #ff8a8a;
+  background: rgba(255,138,138,0.10);
+  border: 1px solid rgba(255,138,138,0.45);
+}
+
 /* ── Stats row ────────────────────────────────────────────── */
 .stats {
   display: grid;
