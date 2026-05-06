@@ -630,6 +630,7 @@ function parseEnhancementItem(el: Element, isCore: boolean): EnhancementItemData
     effects,
     stances,
     requirements,
+    clickie:         hasFlag('Clickie'),
     arrowUp:         hasFlag('ArrowUp'),
     arrowLeft:       hasFlag('ArrowLeft'),
     arrowRight:      hasFlag('ArrowRight'),

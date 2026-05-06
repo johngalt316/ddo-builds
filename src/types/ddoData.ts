@@ -470,6 +470,12 @@ export interface EnhancementItemData {
   stances: DDOStanceData[];
   /** Requirements for taking this enhancement (class min level, AP spent, etc.) */
   requirements: DDORequirements;
+  /** Source XML carries `<Clickie/>` — the enhancement is an activatable
+   *  ability (action boost, reaper boost, racial clicky, etc.). The DPS
+   *  calculator surfaces these as utility SLAs so the user can drop them
+   *  into a rotation. Cooldown / cost get parsed from the description
+   *  text since the source data doesn't carry them as structured fields. */
+  clickie: boolean;
   // Dependency arrows (stored on the source/prerequisite item)
   arrowUp: boolean;
   arrowLeft: boolean;

@@ -18,7 +18,8 @@ import { useGameDataStore } from '@/store/gameDataStore';
 import { useBreakdowns, useBreakdownsForBuild } from '@/hooks/useBreakdowns';
 import { getMagicAbilities, type MagicAbility } from '@/engine/dps/abilities';
 import type { RotationStep } from '@/engine/dps/rotation';
-import { fillToOneMinute, resolveTimeline } from '@/engine/dps/timing';
+import { fillToOneMinute, findFirstAvailableSlot, resolveTimeline } from '@/engine/dps/timing';
+import { newRotationStep } from '@/engine/dps/rotation';
 import {
   damagePerCast,
   rotationDPS,
@@ -81,7 +82,11 @@ export function DPSCalculatorPanel() {
   const setDpsRotation  = useBuildStore(s => s.setDpsRotation);
   const magicSteps        = dpsRotation?.magicSteps ?? EMPTY_STEPS;
   const activeAbilityIds  = dpsRotation?.activeAbilityIds;        // undefined = first-time
-  const auto              = dpsRotation?.auto ?? false;
+  // Auto = "auto-fill the timeline toward a 1-minute cycle on each
+  // palette click". Default-on so a single click materializes a usable
+  // rotation; flip it off to add one cast at a time, with cooldown
+  // spacing handled by `findFirstAvailableSlot`.
+  const auto              = dpsRotation?.auto ?? true;
   const setMagicSteps        = (next: RotationStep[])      => setDpsRotation({ magicSteps: next });
   const setActiveAbilityIds  = (next: string[])            => setDpsRotation({ activeAbilityIds: next });
   const setAuto              = (next: boolean)             => setDpsRotation({ auto: next });
@@ -215,6 +220,7 @@ function MagicRotationEditor({
   const build       = useBuildStore(s => s.build);
   const spells      = useGameDataStore(s => s.spells);
   const classes     = useGameDataStore(s => s.classes);
+  const enhancementTrees = useGameDataStore(s => s.enhancementTrees);
   const breakdowns  = useBreakdowns();
   // ── Side-by-side comparison ─────────────────────────────────────────
   // Pick another EnhancementSet to evaluate against the active one. The
@@ -235,8 +241,8 @@ function MagicRotationEditor({
   const slas = useMemo(() => breakdowns?.slas ?? [], [breakdowns]);
 
   const abilities = useMemo(
-    () => getMagicAbilities(build, spells, classes, slas),
-    [build, spells, classes, slas],
+    () => getMagicAbilities(build, spells, classes, slas, enhancementTrees),
+    [build, spells, classes, slas, enhancementTrees],
   );
   const abilityById = useMemo(() => {
     const m = new Map<string, MagicAbility>();
@@ -440,26 +446,54 @@ function MagicRotationEditor({
     return sp;
   }, [steps, abilityById, rotationCycleSeconds]);
 
-  // First-time / unset Active = "everything is active in catalog order" so
-  // the panel works out of the box without forcing the user through the
-  // Manage dialog. Once the user Applies in the dialog, `activeAbilityIds`
-  // becomes a concrete ordered array driving palette + priority order.
+  // First-time / unset Active = top-N highest-DPC damaging abilities so
+  // the panel works out of the box without dropping every clicky into
+  // the palette. Once the user Applies in the Manage dialog,
+  // `activeAbilityIds` becomes a concrete ordered array driving palette
+  // + priority order (and unsets this default).
+  const DEFAULT_ACTIVE_LIMIT = 10;
   const activeAbilities = useMemo(() => {
-    if (activeAbilityIds === undefined) return abilities;
-    const byId = new Map<string, MagicAbility>();
-    for (const a of abilities) byId.set(a.id, a);
-    return activeAbilityIds.flatMap(id => {
-      const a = byId.get(id);
-      return a ? [a] : [];
-    });
-  }, [abilities, activeAbilityIds]);
+    if (activeAbilityIds !== undefined) {
+      const byId = new Map<string, MagicAbility>();
+      for (const a of abilities) byId.set(a.id, a);
+      return activeAbilityIds.flatMap(id => {
+        const a = byId.get(id);
+        return a ? [a] : [];
+      });
+    }
+    // Default seed: top 10 damage abilities by standalone DPS, falling
+    // back to DPC, then catalog order. Boost / heal abilities aren't
+    // included by default — the user adds those explicitly via Manage.
+    const ranked = abilities
+      .filter(a => a.category === 'damage')
+      .map(a => {
+        const info = damageByAbility.get(a.id);
+        const dps  = info?.dps           ?? 0;
+        const dpc  = info?.damage.total  ?? 0;
+        return { a, dps, dpc };
+      })
+      .sort((x, y) => y.dps - x.dps || y.dpc - x.dpc || x.a.name.localeCompare(y.a.name))
+      .slice(0, DEFAULT_ACTIVE_LIMIT)
+      .map(({ a }) => a);
+    return ranked;
+  }, [abilities, activeAbilityIds, damageByAbility]);
 
   function onAdd(ability: MagicAbility) {
-    // One click fills the rotation toward 60 seconds: repeatedly slot the
-    // ability into existing cooldown gaps, falling back to append, until
-    // adding one more would push the cycle past a minute. Lets the user
-    // build a full one-minute plan with single clicks rather than spamming.
-    setSteps(fillToOneMinute(steps, ability, abilityById, cooldownReductionPct));
+    if (auto) {
+      // Auto-fill: a single click materializes a full one-minute plan
+      // by repeatedly slotting the ability into cooldown gaps, falling
+      // back to append, until one more cast would push the cycle past
+      // a minute.
+      setSteps(fillToOneMinute(steps, ability, abilityById, cooldownReductionPct));
+      return;
+    }
+    // Manual: insert one cast at the earliest position that respects
+    // the ability's own cooldown (using the same gap-fitting helper
+    // as auto-fill, so the placement is consistent across modes).
+    const idx  = findFirstAvailableSlot(steps, ability, abilityById, cooldownReductionPct);
+    const next = [...steps];
+    next.splice(idx, 0, newRotationStep(ability.id));
+    setSteps(next);
   }
   function onReorder(from: number, to: number) {
     if (from === to) return;
@@ -478,10 +512,11 @@ function MagicRotationEditor({
 
   // In-place reorder of the active priority list, driven by drag/drop on
   // the palette. We materialize the current order (resolving the `undefined`
-  // "first-time" default) then splice/insert and persist.
+  // "first-time" default to whatever's currently in the palette) then
+  // splice/insert and persist.
   function onReorderActive(from: number, to: number) {
     if (from === to) return;
-    const current = activeAbilityIds ?? abilities.map(a => a.id);
+    const current = activeAbilityIds ?? activeAbilities.map(a => a.id);
     if (from < 0 || from >= current.length || to < 0 || to >= current.length) return;
     const next = [...current];
     const [moved] = next.splice(from, 1);
@@ -491,9 +526,9 @@ function MagicRotationEditor({
   }
 
   // Snapshot the working "active" list the dialog should boot with —
-  // either the user's saved priority list or the full catalog as a
-  // first-time default.
-  const dialogInitial = activeAbilityIds ?? abilities.map(a => a.id);
+  // either the user's saved priority list or the auto-derived top-10
+  // (matching what the palette currently shows).
+  const dialogInitial = activeAbilityIds ?? activeAbilities.map(a => a.id);
 
   return (
     <div className={styles.editor}>

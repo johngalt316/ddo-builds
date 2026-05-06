@@ -13,7 +13,7 @@
 //     fast browsing of the rest of the trained book.
 
 import { useEffect, useMemo, useRef, useState } from 'react';
-import type { MagicAbility } from '@/engine/dps/abilities';
+import type { AbilityCategory, MagicAbility } from '@/engine/dps/abilities';
 import styles from './ManageActiveDialog.module.css';
 
 interface Props {
@@ -25,10 +25,22 @@ interface Props {
   onApply: (next: string[]) => void;
 }
 
+const TABS: { id: AbilityCategory; label: string }[] = [
+  { id: 'damage', label: 'Damage' },
+  { id: 'boost',  label: 'Boosts' },
+  { id: 'heal',   label: 'Heals'  },
+];
+
 export function ManageActiveDialog({ open, abilities, active, onClose, onApply }: Props) {
   // Working copy so the user can review changes before committing.
   const [draft, setDraft] = useState<string[]>(active);
   const [filter, setFilter] = useState('');
+  const [tab, setTab] = useState<AbilityCategory>('damage');
+  // When false, charge-based abilities (per-rest SLAs / clickies with
+  // limited charges) are hidden from the Available list. Many builds
+  // pick up dozens of charge clickies they don't actively rotate; the
+  // toggle keeps the list short by default.
+  const [includeCharged, setIncludeCharged] = useState(false);
   const dragFrom = useRef<number | null>(null);
   const [dragOver, setDragOver] = useState<number | null>(null);
 
@@ -36,8 +48,23 @@ export function ManageActiveDialog({ open, abilities, active, onClose, onApply }
     if (open) {
       setDraft([...active]);
       setFilter('');
+      setTab('damage');
+      setIncludeCharged(false);
     }
   }, [open, active]);
+
+  // Per-tab counts so the tab strip can show a quick "(N)" hint
+  // for the inactive Available pool the user is browsing.
+  const inactiveCountsByTab = useMemo(() => {
+    const draftSet = new Set(draft);
+    const counts: Record<AbilityCategory, number> = { damage: 0, boost: 0, heal: 0 };
+    for (const a of abilities) {
+      if (draftSet.has(a.id)) continue;
+      if (!includeCharged && a.charges > 0) continue;
+      counts[a.category]++;
+    }
+    return counts;
+  }, [abilities, draft, includeCharged]);
 
   const abilityById = useMemo(() => {
     const m = new Map<string, MagicAbility>();
@@ -47,19 +74,24 @@ export function ManageActiveDialog({ open, abilities, active, onClose, onApply }
 
   const draftSet = useMemo(() => new Set(draft), [draft]);
 
-  // Inactive abilities split into class spells (by level) + SLAs (by category).
+  // Inactive abilities filtered by current tab + charge toggle, then
+  // split for the rendering pass below.
   const inactiveSections = useMemo(() => {
     const lc = filter.trim().toLowerCase();
     const filtered = abilities.filter(a => {
       if (draftSet.has(a.id)) return false;
+      if (a.category !== tab) return false;
+      if (!includeCharged && a.charges > 0) return false;
       if (!lc) return true;
       return a.name.toLowerCase().includes(lc)
           || a.school.toLowerCase().includes(lc)
           || (a.slaSource?.toLowerCase().includes(lc) ?? false);
     });
-    // Class spells grouped by spell level.
+    // Class spells (in the Damage / Heals tab) group by spell level.
+    // SLA-style entries (Boosts tab + any SLA-sourced damage/heal) get
+    // a single combined section so the user doesn't see one-row
+    // "Spell-Like Abilities" headers.
     const byLevel = new Map<number, MagicAbility[]>();
-    // SLAs grouped under one section regardless of category.
     const slaList: MagicAbility[] = [];
     for (const a of filtered) {
       if (a.source === 'sla') {
@@ -75,7 +107,7 @@ export function ManageActiveDialog({ open, abilities, active, onClose, onApply }
       levels: [...byLevel.entries()].sort(([a], [b]) => a - b),
       slas: slaList,
     };
-  }, [abilities, draftSet, filter]);
+  }, [abilities, draftSet, filter, tab, includeCharged]);
 
   // Resolved active list — drops ids whose ability is no longer trained.
   const activeResolved = useMemo(() => {
@@ -238,14 +270,41 @@ export function ManageActiveDialog({ open, abilities, active, onClose, onApply }
           </section>
 
           <section className={styles.section}>
-            <h4 className={styles.sectionHeading}>Available · click to add</h4>
+            <div className={styles.availableHeader}>
+              <h4 className={styles.sectionHeading}>Available · click to add</h4>
+              <label className={styles.chargedToggle} title="Per-rest charges (e.g. Reaper Boosts) consume a charge each cast">
+                <input
+                  type="checkbox"
+                  checked={includeCharged}
+                  onChange={e => setIncludeCharged(e.target.checked)}
+                />
+                Show charge-limited abilities
+              </label>
+            </div>
+            <div className={styles.tabStrip} role="tablist" aria-label="Filter by category">
+              {TABS.map(t => (
+                <button
+                  key={t.id}
+                  type="button"
+                  role="tab"
+                  aria-selected={tab === t.id}
+                  className={tab === t.id ? styles.tabActive : styles.tab}
+                  onClick={() => setTab(t.id)}
+                >
+                  {t.label}
+                  {inactiveCountsByTab[t.id] > 0 && (
+                    <span className={styles.tabCount}> ({inactiveCountsByTab[t.id]})</span>
+                  )}
+                </button>
+              ))}
+            </div>
             {inactiveSections.levels.length === 0 && inactiveSections.slas.length === 0 ? (
               <div className={styles.empty}>
                 {abilities.length === 0
                   ? 'No damaging spells trained or SLAs granted. Train spells in the Spells tab first.'
                   : filter
-                    ? `No matches for "${filter}".`
-                    : 'Every available ability is in the active list.'}
+                    ? `No matches for "${filter}" in ${tab}.`
+                    : `No ${tab} abilities left to add${!includeCharged ? ' (try enabling charge-limited)' : ''}.`}
               </div>
             ) : (
               <>
@@ -259,7 +318,9 @@ export function ManageActiveDialog({ open, abilities, active, onClose, onApply }
                 ))}
                 {inactiveSections.slas.length > 0 && (
                   <div className={styles.group}>
-                    <h5 className={styles.groupHeading}>Spell-Like Abilities</h5>
+                    <h5 className={styles.groupHeading}>
+                      {tab === 'boost' ? 'Boosts & Clickies' : 'Spell-Like Abilities'}
+                    </h5>
                     <div className={styles.rows}>
                       {inactiveSections.slas.map(a => renderAddRow(a, add))}
                     </div>

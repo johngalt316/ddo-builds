@@ -286,3 +286,53 @@
   color: #1a1200;
 }
 .applyBtn:hover { background: var(--color-gold-light); }
+
+/* ── Available section: tab strip + charge toggle ───────────────────── */
+
+.availableHeader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.4rem;
+}
+.chargedToggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+.chargedToggle input { margin: 0; cursor: pointer; }
+
+.tabStrip {
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+.tab,
+.tabActive {
+  font: inherit;
+  font-size: 0.82rem;
+  padding: 0.35rem 0.85rem;
+  border: none;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  margin-bottom: -1px;             /* overlap the section's bottom border */
+}
+.tab:hover { color: var(--color-text); }
+.tabActive {
+  color: var(--color-text);
+  border-bottom-color: var(--color-gold);
+  font-weight: 600;
+}
+.tabCount {
+  color: var(--color-text-muted);
+  font-weight: 400;
+}
