@@ -34,6 +34,7 @@ import { RotationTimeline } from './RotationTimeline';
 import { ManageActiveDialog } from './ManageActiveDialog';
 import { DebuffsSummary, ManageDebuffsDialog } from './DebuffsPanel';
 import { ActiveProcsList } from './ActiveProcsList';
+import { BuffsList } from './BuffsList';
 import { RotationDPSSummary } from './RotationDPSSummary';
 import { RotationChart, type DamageEvent } from './RotationChart';
 import styles from './DPSCalculatorPanel.module.css';
@@ -459,6 +460,7 @@ function MagicRotationEditor({
 
   return (
     <div className={styles.editor}>
+      <BuffsList build={build} />
       <ActiveProcsList
         build={build}
         engine={breakdowns}

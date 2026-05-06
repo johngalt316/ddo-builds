@@ -58,7 +58,11 @@ function procSummary(
   // would feed into scaleMult for this component.
   const inputs   = resolveScaleInputs(c, engine, ctx);
   const sm       = scaleMult(inputs);
-  const dpt      = c.qtyPerTrigger * c.avgDicePerHit * sm;
+  // For chance-baked procs, "damage per trigger" should reflect the
+  // damage on a SUCCESSFUL fire (full hit × scaleMult), not the
+  // chance-adjusted long-run average. Use fullHitAvg when present.
+  const triggerAvg = c.fullHitAvg ?? c.avgDicePerHit;
+  const dpt        = c.qtyPerTrigger * triggerAvg * sm;
 
   const t = c.trigger;
   const triggerLabel =
@@ -122,7 +126,7 @@ function procSummary(
     '',
     'Inputs:',
     `  qty per trigger: ${c.qtyPerTrigger}`,
-    `  avg dice per hit: ${fmt2(c.avgDicePerHit)}`,
+    `  avg dice per hit (on fire): ${fmt2(triggerAvg)}`,
     `  scale profile: ${profile}`,
     `  spell power: ${fmt0(inputs.spellPower)}`,
     `  crit chance: ${(inputs.critChance * 100).toFixed(1)}%`,
@@ -133,9 +137,18 @@ function procSummary(
     `         = ${fmt2(1 + inputs.spellPower / 100)} × ${fmt2(1 + inputs.critChance * (inputs.critMultBonus + 2))}`,
     `         = ${fmt2(sm)}`,
     '',
-    `dmg per trigger = ${c.qtyPerTrigger} × ${fmt2(c.avgDicePerHit)} × ${fmt2(sm)}`,
+    `dmg per trigger (on fire) = ${c.qtyPerTrigger} × ${fmt2(triggerAvg)} × ${fmt2(sm)}`,
     `              = ${fmt0(dpt)}`,
   );
+
+  // For chance-baked procs, also surface the long-run per-cast
+  // contribution (full damage × pFire for the probe spell).
+  if (c.fullHitAvg !== undefined) {
+    const expectedPerCast = c.qtyPerTrigger * c.avgDicePerHit * sm;
+    lines.push(
+      `Expected per cast (× probe pFire) = ${fmt0(expectedPerCast)}`,
+    );
+  }
 
   return { effect, chip, tooltip: lines.join('\n') };
 }
