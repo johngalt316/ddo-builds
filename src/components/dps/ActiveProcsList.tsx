@@ -9,7 +9,7 @@
 // in the DPS panel.
 
 import { useMemo } from 'react';
-import { PROC_CATALOG, type Proc } from '@/engine/dps/procs';
+import { PROC_CATALOG, type Proc, computeMetamagicSP } from '@/engine/dps/procs';
 import type { Build } from '@/types/build';
 import type { EngineResult } from '@/engine/runEngine';
 import type { DamageComponent } from '@/engine/dps/damage';
@@ -46,7 +46,7 @@ function procSummary(
   engine: EngineResult,
   sneakAttackDice: number,
 ): { effect: string; chip: string; tooltip: string } | null {
-  const ctx = { sneakAttackDice, metamagicSP: 300 };
+  const ctx = { sneakAttackDice, metamagicSP: computeMetamagicSP(build.activeMetamagics) };
   // Probe with one dummy spell so per-spell procs (Magical Ambush) emit.
   // Static / global procs ignore the spell list.
   const probeSpells = [{ name: '*', casterLevel: engine.casterLevel.total }];

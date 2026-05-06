@@ -211,14 +211,12 @@ const STATIC_PROC_CATALOG: StaticProcEntry[] = [
  * Magical Ambush — Arcane Trickster level 8 automatic feat.
  *
  *   "Your offensive instantaneous damaging spells deal additional 1d6 force
- *    damage equal to your sneak attack dice. Scales with 50% of force spell
- *    power."
+ *    damage equal to your sneak attack dice. Scales with force spell power."
  *
  * Stays in code (not the static catalog) because:
  *   • dice count = sneak attack dice (build-derived)
  *   • qty per trigger = projectileCount(spell, CL) (per-spell)
- *   • scale profile = 'sneak' (the wiki's "specified" exception that does
- *     scale with force SP — at 50%)
+ *   • scale profile = 'spell' against Force damage type (full Force SP).
  */
 export const MAGICAL_AMBUSH: Proc = {
   id: 'magical-ambush',
@@ -234,7 +232,7 @@ export const MAGICAL_AMBUSH: Proc = {
       qtyPerTrigger: projectileCount(s.name, s.casterLevel),
       avgDicePerHit: avg,
       damageType: 'Force',
-      scaleProfile: 'sneak',
+      scaleProfile: 'spell',
       useGenericVuln: true,
       useMRR: true,
     }));
@@ -391,6 +389,32 @@ export const SHIRADI_MANTLE_STAY: Proc = {
     );
   },
 };
+
+/**
+ * Per-metamagic SP contribution for the on-cast 'proc' scaling pool.
+ * Per the wiki: only Empower, Maximize, and Intensify drive proc spell
+ * power (Heighten / Quicken / Enlarge / Extend / Accelerate / Embolden
+ * don't). Empower Healing applies only to healing-flavored procs which
+ * the engine doesn't currently surface, so we leave it out of the
+ * damage-side pool by default.
+ */
+const METAMAGIC_SP_TABLE: Record<string, number> = {
+  'Empower':   75,
+  'Maximize':  150,
+  'Intensify': 75,
+};
+
+/**
+ * Sum the SP contribution of every metamagic in `activeMetamagics`. Used
+ * by the calculator to derive the 'proc' scale profile's SP input
+ * dynamically from the build's active toggles instead of hardcoding 300.
+ */
+export function computeMetamagicSP(activeMetamagics: readonly string[] | undefined): number {
+  if (!activeMetamagics) return 0;
+  let sum = 0;
+  for (const name of activeMetamagics) sum += METAMAGIC_SP_TABLE[name] ?? 0;
+  return sum;
+}
 
 // Re-exports for tests / breakdown UI to address procs by static-catalog id.
 function staticById(id: string): Proc {

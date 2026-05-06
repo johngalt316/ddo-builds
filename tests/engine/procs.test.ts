@@ -88,7 +88,7 @@ describe('MAGICAL_AMBUSH.toComponents', () => {
       label: 'Magical Ambush (Magic Missile)',
       trigger: { kind: 'per-cast', spell: 'Magic Missile' },
       qtyPerTrigger: 5, avgDicePerHit: 133,
-      damageType: 'Force', scaleProfile: 'sneak',
+      damageType: 'Force', scaleProfile: 'spell',
     });
     expect(comps[1]).toMatchObject({ qtyPerTrigger: 10, avgDicePerHit: 133 });   // PL Arcane Initiate caps at 10
     expect(comps[2]).toMatchObject({ qtyPerTrigger: 4,  avgDicePerHit: 133 });

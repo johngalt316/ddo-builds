@@ -24,6 +24,7 @@ import {
   rotationDPS,
   type AbilityDamageInfo,
 } from '@/engine/dps/calculator';
+import { computeMetamagicSP } from '@/engine/dps/procs';
 import {
   aggregateDebuffs,
   initialDebuffState,
@@ -256,7 +257,7 @@ function MagicRotationEditor({
     if (!breakdowns) return m;
     const ctx = {
       sneakAttackDice: breakdowns.sneakAttackDice.total,
-      metamagicSP:     300,
+      metamagicSP:     computeMetamagicSP(build.activeMetamagics),
     };
     const cdMul = Math.max(0, 1 - cooldownReductionPct / 100);
     for (const a of abilities) {
@@ -279,7 +280,7 @@ function MagicRotationEditor({
     if (!breakdowns) return null;
     const ctx = {
       sneakAttackDice: breakdowns.sneakAttackDice.total,
-      metamagicSP:     300,
+      metamagicSP:     computeMetamagicSP(build.activeMetamagics),
     };
     return rotationDPS(steps, abilities, build, breakdowns, ctx, debuffs, cooldownReductionPct);
   }, [steps, abilities, build, breakdowns, debuffs, cooldownReductionPct]);
@@ -292,11 +293,11 @@ function MagicRotationEditor({
     if (compareSetName === build.activeEnhancementSet) return null;
     const ctx = {
       sneakAttackDice: compareBreakdowns.sneakAttackDice.total,
-      metamagicSP:     300,
+      metamagicSP:     computeMetamagicSP(build.activeMetamagics),
     };
     const compareCdr = compareBreakdowns.spellCooldownReduction.total;
     return rotationDPS(steps, abilities, compareBuild, compareBreakdowns, ctx, debuffs, compareCdr);
-  }, [compareSetName, compareBuild, compareBreakdowns, steps, abilities, debuffs, build.activeEnhancementSet]);
+  }, [compareSetName, compareBuild, compareBreakdowns, steps, abilities, debuffs, build.activeEnhancementSet, build.activeMetamagics]);
 
   // Cycle length + per-cast damage events drive the chart, simulation
   // playhead, and live stat readouts.
@@ -307,7 +308,7 @@ function MagicRotationEditor({
     const t = resolveTimeline(steps, abilityById, cooldownReductionPct);
     const ctx = {
       sneakAttackDice: breakdowns.sneakAttackDice.total,
-      metamagicSP:     300,
+      metamagicSP:     computeMetamagicSP(build.activeMetamagics),
     };
     const events: DamageEvent[] = t.steps.map(r => ({
       time:   r.startTime,
