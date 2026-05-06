@@ -12,7 +12,7 @@
 //   • "Available · click to add" section grouped by spell level for
 //     fast browsing of the rest of the trained book.
 
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import type { AbilityCategory, MagicAbility } from '@/engine/dps/abilities';
 import styles from './ManageActiveDialog.module.css';
 
@@ -261,8 +261,7 @@ export function ManageActiveDialog({ open, abilities, active, onClose, onApply }
                       {a.source === 'spell'
                         ? <span>L{a.spellLevel}</span>
                         : <span>SLA</span>}
-                      <span>·</span>
-                      <span>{a.school}</span>
+                      {a.school && (<><span>·</span><span>{a.school}</span></>)}
                       {a.cost > 0 && (<><span>·</span><span>{a.cost} SP</span></>)}
                       {a.cooldown > 0 && (<><span>·</span><span>{a.cooldown}s CD</span></>)}
                       {a.charges > 0 && (<><span>·</span><span>{a.charges}× /rest</span></>)}
@@ -384,15 +383,18 @@ function renderAddRow(a: MagicAbility, add: (id: string) => void) {
         )}
       </span>
       <span className={styles.rowMeta}>
-        {a.source === 'sla' && a.slaSource && (
-          <>
-            <span className={styles.slaSource} title={a.slaSource}>{a.slaSource}</span>
-            <span>·</span>
-          </>
-        )}
-        <span>{a.school}</span>
-        {a.cost > 0 && (<><span>·</span><span>{a.cost} SP</span></>)}
-        {a.cooldown > 0 && (<><span>·</span><span>{a.cooldown}s CD</span></>)}
+        {(() => {
+          const segs: ReactNode[] = [];
+          if (a.source === 'sla' && a.slaSource) {
+            segs.push(<span key="src" className={styles.slaSource} title={a.slaSource}>{a.slaSource}</span>);
+          }
+          if (a.school)        segs.push(<span key="sch">{a.school}</span>);
+          if (a.cost > 0)      segs.push(<span key="sp">{a.cost} SP</span>);
+          if (a.cooldown > 0)  segs.push(<span key="cd">{a.cooldown}s CD</span>);
+          return segs.flatMap((s, i) =>
+            i === 0 ? [s] : [<span key={`sep${i}`}>·</span>, s]
+          );
+        })()}
       </span>
     </button>
   );

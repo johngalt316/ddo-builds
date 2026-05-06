@@ -110,8 +110,9 @@ export function RotationPalette({
                 const parts: string[] = [
                   a.displayName,
                   a.source === 'spell'
-                    ? `L${a.spellLevel} ${a.school}`
-                    : `SLA · ${a.school}${a.slaSource ? `\n${a.slaSource}` : ''}`,
+                    ? [`L${a.spellLevel}`, a.school].filter(Boolean).join(' ')
+                    : [`SLA`, a.school].filter(Boolean).join(' · ')
+                        + (a.slaSource ? `\n${a.slaSource}` : ''),
                   [
                     a.cost > 0    ? `${a.cost} SP`        : '',
                     a.cooldown > 0 ? `${a.cooldown}s CD`   : '',
