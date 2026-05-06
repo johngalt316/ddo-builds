@@ -391,6 +391,7 @@ function renderAddRow(a: MagicAbility, add: (id: string) => void) {
           if (a.school)        segs.push(<span key="sch">{a.school}</span>);
           if (a.cost > 0)      segs.push(<span key="sp">{a.cost} SP</span>);
           if (a.cooldown > 0)  segs.push(<span key="cd">{a.cooldown}s CD</span>);
+          if (a.charges > 0)   segs.push(<span key="ch" title={`${a.charges} charges per rest`}>{a.charges}× /rest</span>);
           return segs.flatMap((s, i) =>
             i === 0 ? [s] : [<span key={`sep${i}`}>·</span>, s]
           );
