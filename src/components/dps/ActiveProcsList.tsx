@@ -76,12 +76,15 @@ function procSummary(
 
   // Chip face: prefer the full hit damage when the proc has chance
   // baked into avgDicePerHit (Shiradi-style). Otherwise show the
-  // raw per-cast avg as before.
-  const displayAvg = c.fullHitAvg ?? c.avgDicePerHit;
-  const chanceTag  = c.perMissileChance !== undefined
+  // raw per-cast avg as before. The 'random' scale profile rolls a
+  // different element each fire, so the displayed type is "Random"
+  // rather than the (placeholder) damageType field.
+  const displayAvg  = c.fullHitAvg ?? c.avgDicePerHit;
+  const displayType = c.scaleProfile === 'random' ? 'Random' : c.damageType;
+  const chanceTag   = c.perMissileChance !== undefined
     ? ` · ${(c.perMissileChance * 100).toFixed(0)}%/missile`
     : '';
-  const effect = `${fmt1(displayAvg)} avg ${c.damageType}${chanceTag}`;
+  const effect = `${fmt1(displayAvg)} avg ${displayType}${chanceTag}`;
   const chip   = `${effect} · ${triggerLabel}`;
 
   // Show the full per-trigger math. critMultBonus stored as a fraction
@@ -93,7 +96,7 @@ function procSummary(
   const lines: string[] = [
     proc.label,
     '',
-    `Damage type: ${c.damageType}`,
+    `Damage type: ${displayType}`,
     `Trigger: ${triggerLabel}`,
     `Debuffs: ${debuffs}`,
   ];
@@ -104,7 +107,7 @@ function procSummary(
     const pFire = c.avgDicePerHit / c.fullHitAvg;
     lines.push(
       '',
-      `Full hit (on fire): ${fmt2(c.fullHitAvg)} avg ${c.damageType}`,
+      `Full hit (on fire): ${fmt2(c.fullHitAvg)} avg ${displayType}`,
       `Per-missile chance: ${(c.perMissileChance * 100).toFixed(0)}%`,
       `Cap: 1 fire per cast`,
       '',
