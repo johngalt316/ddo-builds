@@ -8,7 +8,7 @@
 // Layout mirrors DebuffsSummary so they sit naturally next to each other
 // in the DPS panel.
 
-import { useMemo } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { PROC_CATALOG, type Proc, computeMetamagicSP } from '@/engine/dps/procs';
 import type { Build } from '@/types/build';
 import type { EngineResult } from '@/engine/runEngine';
@@ -194,24 +194,80 @@ export function ActiveProcsList({ build, engine, sneakAttackDice }: Props) {
       ) : (
         <div className={styles.chips}>
           {active.map(({ proc, summary }) => (
-            <span
+            <ProcChip
               key={proc.id}
-              className={summary!.placeholder ? styles.chipPlaceholder : styles.chip}
-              title={summary!.tooltip}
-            >
-              <span className={styles.chipLabel}>
-                {proc.label}
-                {summary!.placeholder && (
-                  <span className={styles.placeholderTag}>⚠ TODO</span>
-                )}
-              </span>
-              {!summary!.placeholder && (
-                <span className={styles.chipEffect}>{summary!.effect}</span>
-              )}
-            </span>
+              proc={proc}
+              summary={summary!}
+            />
           ))}
         </div>
       )}
     </section>
+  );
+}
+
+/**
+ * One proc chip with a click-to-toggle popover replacing the
+ * desktop-only `title` tooltip. Click anywhere outside the chip — or
+ * press Escape — to dismiss. Works on touch the same way as desktop:
+ * tap once to reveal, tap outside to close.
+ */
+interface ProcChipProps {
+  proc: Proc;
+  summary: { effect: string; chip: string; tooltip: string; placeholder: boolean };
+}
+
+function ProcChip({ proc, summary }: ProcChipProps) {
+  const [open, setOpen] = useState(false);
+  const wrapperRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    const onDown = (e: MouseEvent | TouchEvent) => {
+      if (wrapperRef.current?.contains(e.target as Node)) return;
+      setOpen(false);
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(false);
+    };
+    // mousedown so we close BEFORE another button's click handler runs.
+    document.addEventListener('mousedown', onDown);
+    document.addEventListener('touchstart', onDown);
+    document.addEventListener('keydown', onKey);
+    return () => {
+      document.removeEventListener('mousedown', onDown);
+      document.removeEventListener('touchstart', onDown);
+      document.removeEventListener('keydown', onKey);
+    };
+  }, [open]);
+
+  return (
+    <div
+      ref={wrapperRef}
+      className={styles.chipWrapper}
+    >
+      <button
+        type="button"
+        className={summary.placeholder ? styles.chipPlaceholder : styles.chip}
+        aria-expanded={open}
+        aria-haspopup="dialog"
+        onClick={() => setOpen(o => !o)}
+      >
+        <span className={styles.chipLabel}>
+          {proc.label}
+          {summary.placeholder && (
+            <span className={styles.placeholderTag}>⚠ TODO</span>
+          )}
+        </span>
+        {!summary.placeholder && (
+          <span className={styles.chipEffect}>{summary.effect}</span>
+        )}
+      </button>
+      {open && (
+        <div className={styles.popover} role="dialog" aria-label={`${proc.label} details`}>
+          <pre className={styles.popoverContent}>{summary.tooltip}</pre>
+        </div>
+      )}
+    </div>
   );
 }
