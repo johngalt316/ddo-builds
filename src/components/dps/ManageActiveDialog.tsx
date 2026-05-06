@@ -23,6 +23,10 @@ interface Props {
   active: string[];
   onClose: () => void;
   onApply: (next: string[]) => void;
+  /** Reset the draft to the top-N highest-DPC damaging abilities — wired
+   *  by the parent so the same auto-seed logic that runs on first build
+   *  load is re-runnable on demand. Hidden when not provided. */
+  onResetToTop?: () => string[];
 }
 
 const TABS: { id: AbilityCategory; label: string }[] = [
@@ -34,7 +38,7 @@ const TABS: { id: AbilityCategory; label: string }[] = [
   { id: 'utility', label: 'Utility' },
 ];
 
-export function ManageActiveDialog({ open, abilities, active, onClose, onApply }: Props) {
+export function ManageActiveDialog({ open, abilities, active, onClose, onApply, onResetToTop }: Props) {
   // Working copy so the user can review changes before committing.
   const [draft, setDraft] = useState<string[]>(active);
   const [filter, setFilter] = useState('');
@@ -47,6 +51,11 @@ export function ManageActiveDialog({ open, abilities, active, onClose, onApply }
   const dragFrom = useRef<number | null>(null);
   const [dragOver, setDragOver] = useState<number | null>(null);
 
+  // Re-init the working draft only on the open transition (false→true),
+  // not whenever the parent's `active` prop reference changes. The
+  // parent re-renders constantly while editing other panes; including
+  // `active` in deps was wiping the user's in-progress edits the moment
+  // anything else moved in the engine state.
   useEffect(() => {
     if (open) {
       setDraft([...active]);
@@ -54,7 +63,8 @@ export function ManageActiveDialog({ open, abilities, active, onClose, onApply }
       setTab('damage');
       setIncludeCharged(true);
     }
-  }, [open, active]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [open]);
 
   // Per-tab counts so the tab strip can show a quick "(N)" hint
   // for the inactive Available pool the user is browsing.
@@ -210,6 +220,14 @@ export function ManageActiveDialog({ open, abilities, active, onClose, onApply }
           />
           <button type="button" className={styles.linkBtn} onClick={selectAll}>Select all</button>
           <button type="button" className={styles.linkBtn} onClick={clearAll}>Clear</button>
+          {onResetToTop && (
+            <button
+              type="button"
+              className={styles.linkBtn}
+              onClick={() => setDraft(onResetToTop())}
+              title="Replace the active list with the top-10 highest-DPC damage abilities"
+            >Top 10</button>
+          )}
         </div>
 
         <div className={styles.body}>

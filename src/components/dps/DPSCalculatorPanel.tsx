@@ -452,12 +452,11 @@ function MagicRotationEditor({
   // After the seed lands the list is whatever the user has configured —
   // it doesn't re-rank when gear / metamagics / enhancements change,
   // since auto-resorting a list the user is actively editing causes
-  // jarring glitches.
+  // jarring glitches. The user can re-trigger the seed via the "Top 10"
+  // button in the Manage dialog.
   const DEFAULT_ACTIVE_LIMIT = 10;
-  useEffect(() => {
-    if (activeAbilityIds !== undefined) return;             // already configured
-    if (abilities.length === 0) return;                     // catalog still loading
-    const ranked = abilities
+  const computeTopByDPC = (): string[] =>
+    abilities
       .filter(a => a.category === 'damage')
       .map(a => {
         const info = damageByAbility.get(a.id);
@@ -468,13 +467,13 @@ function MagicRotationEditor({
       .sort((x, y) => y.dpc - x.dpc || y.dps - x.dps || x.a.name.localeCompare(y.a.name))
       .slice(0, DEFAULT_ACTIVE_LIMIT)
       .map(({ a }) => a.id);
-    setActiveAbilityIds(ranked);
-    // setActiveAbilityIds is a store action — its identity isn't stable
-    // across renders, but listing it in deps is harmless because the
-    // early returns above gate the body on the actual conditions of
-    // interest. The body fires at most once per build (until the user
-    // explicitly clears via Manage, which leaves `[]`, not `undefined`).
-  }, [activeAbilityIds, abilities, damageByAbility, setActiveAbilityIds]);
+
+  useEffect(() => {
+    if (activeAbilityIds !== undefined) return;             // already configured
+    if (abilities.length === 0) return;                     // catalog still loading
+    setActiveAbilityIds(computeTopByDPC());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeAbilityIds, abilities, damageByAbility]);
 
   const activeAbilities = useMemo(() => {
     if (activeAbilityIds === undefined) return [];          // pre-seed render
@@ -686,6 +685,7 @@ function MagicRotationEditor({
         active={dialogInitial}
         onClose={() => setManageOpen(false)}
         onApply={setActiveAbilityIds}
+        onResetToTop={computeTopByDPC}
       />
     </div>
   );
