@@ -84,6 +84,25 @@ describe('aggregateDebuffs — stacking', () => {
       genericVulnPct: 20,
       sonicVulnPct:   25,
       effectiveMRR:   -25,
+      elementVulnPct: { Sonic: 25 },
     });
+  });
+
+  it('Word of Detonation (Fire) routes to elementVulnPct.Fire', () => {
+    const state = enable(initialDebuffState(), 'word-of-detonation-fire');
+    const out = aggregateDebuffs(state);
+    expect(out.elementVulnPct?.Fire).toBe(25);
+  });
+
+  it('Legendary Ash stacks +21 MRR reduction', () => {
+    const state = enable(initialDebuffState(), 'legendary-ash');
+    expect(aggregateDebuffs(state).effectiveMRR).toBe(-21);
+  });
+
+  it('Harmonic Resonance routes to Sonic via both new + legacy fields', () => {
+    const state = enable(initialDebuffState(), 'harmonic-resonance');
+    const out = aggregateDebuffs(state);
+    expect(out.sonicVulnPct).toBe(30);
+    expect(out.elementVulnPct?.Sonic).toBe(30);
   });
 });

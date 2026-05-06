@@ -11,7 +11,7 @@
 
 import type { EngineResult } from '@/engine/runEngine';
 import type { Build } from '@/types/build';
-import { SPELL_DAMAGE_TYPES } from '@/engine/breakdowns';
+import { SPELL_DAMAGE_TYPES, type SpellDamageType } from '@/engine/breakdowns';
 import type { DamageComponent, ScaleInputs } from './damage';
 import { componentDamagePerTrigger, abilityToBaseComponents } from './damage';
 import type { ProcContext, ActiveSpell } from './procs';
@@ -127,12 +127,21 @@ export interface Rotation {
 export interface Debuffs {
   /** Generic vulnerability % to add to flagged components. */
   genericVulnPct: number;
-  /** Sonic-only vulnerability % to add to sonic-flagged components. */
+  /** Sonic-only vulnerability % to add to sonic-flagged components.
+   *  Kept for backwards compatibility with existing tests / fixtures;
+   *  new code should populate `elementVulnPct.Sonic` instead. */
   sonicVulnPct: number;
   /** Target's effective MRR after any debuff (can be negative). MRR-flagged
    *  components multiply by `100 / (effectiveMRR + 100)`. Set to 0 for
    *  the no-debuff baseline (multiplier = 1.0). */
   effectiveMRR: number;
+  /** Per-element damage-vulnerability percentages applied to components
+   *  whose `damageType` matches the element. The element key on the
+   *  component is the implicit opt-in (no `useFireVuln`-style flag is
+   *  needed — a Fire spell automatically benefits from Fire vuln).
+   *  Stacks additively with `genericVulnPct` and the legacy
+   *  `sonicVulnPct` (for Sonic only). */
+  elementVulnPct?: Partial<Record<SpellDamageType, number>>;
   /** Flat multiplier applied to every component's damage — used for the
    *  Reaper difficulty damage-dealt reduction. Defaults to 1 (no scaling)
    *  when omitted. Computed by `spellDamageMultiplier(difficultyIdx)` for
@@ -181,6 +190,14 @@ export function componentDebuffMultiplier(
   let m = 1;
   if (c.useGenericVuln && d.genericVulnPct > 0) m *= 1 + d.genericVulnPct / 100;
   if (c.useSonicVuln   && d.sonicVulnPct   > 0) m *= 1 + d.sonicVulnPct   / 100;
+  // Per-element vulnerability applies whenever the component's damage
+  // type matches a populated entry in `elementVulnPct` (no opt-in flag
+  // — element type is the implicit signal). Skip Sonic to avoid
+  // double-counting with the legacy `sonicVulnPct` channel.
+  if (d.elementVulnPct && c.damageType !== 'Sonic') {
+    const ev = d.elementVulnPct[c.damageType];
+    if (ev && ev > 0) m *= 1 + ev / 100;
+  }
   if (c.useMRR) m *= 100 / (d.effectiveMRR + 100);
   // Flat damage-dealt scaling (Reaper difficulty). Applied uniformly to
   // every component since all of them are spell-typed in our current

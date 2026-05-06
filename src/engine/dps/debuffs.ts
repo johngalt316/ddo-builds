@@ -118,6 +118,85 @@ export const DEBUFF_CATALOG: DebuffEntry[] = [
     effect: { elementVulnPct: { Sonic: 25 } },
     defaultScope: 'party',
   },
+
+  // ── Weapon-procced item debuffs (assumes fully stacked) ──────────────
+  // Sources: Mind Tear, Flamehorn, LGS Ash, etc. (50% proc on hit).
+  // Per-stack: −7 MRR, −20 USP. 3-stack cap → −21 MRR fully stacked.
+  // The USP reduction affects the target's casting, not ours, so it
+  // doesn't enter the damage math.
+  {
+    id: 'legendary-ash',
+    label: 'Legendary Ash',
+    description: 'Weapon proc: 3 stacks × −7 MRR (max −21 MRR). Also −20 USP/stack on the target.',
+    source: 'item',
+    effect: { mrrReduction: 21 },
+    defaultScope: 'self',
+  },
+  // Sources: Constricting Nightmare, Shadowhorn, Aspect of Tar.
+  // Single-stack proc — does not stack with itself.
+  {
+    id: 'ooze',
+    label: 'Ooze',
+    description: 'Weapon proc: −10 MRR and −10 PRR (single stack).',
+    source: 'item',
+    effect: { mrrReduction: 10, prrReduction: 10 },
+    defaultScope: 'self',
+  },
+  // Sources: Soul Tear, Melthorn, LGS Dust. Per-stack: −7 PRR, −20
+  // Positive Heal Amp. 5-stack cap. PRR-only, informational on the
+  // damage side until the engine grows physical-damage components.
+  {
+    id: 'legendary-dust',
+    label: 'Legendary Dust',
+    description: 'Weapon proc: 5 stacks × −7 PRR (max −35 PRR). Also reduces target healing.',
+    source: 'item',
+    effect: { prrReduction: 35 },
+    defaultScope: 'self',
+  },
+  // Vulnerability (general). Sources: Fetters of Unreality, Sparkhorn,
+  // Flamebitten, Frostbite weapons. +1% damage taken / stack, max 20
+  // stacks → +20% at full stacks. Stacks with itself; standard
+  // generic-vuln channel.
+  {
+    id: 'vulnerable',
+    label: 'Vulnerable (Mythic)',
+    description: 'Weapon proc stacks: +1% damage taken / stack (max 20 stacks → +20%).',
+    source: 'item',
+    effect: { genericVulnPct: 20 },
+    defaultScope: 'self',
+  },
+  // Fatesinger Tier 5. +10% sonic vulnerability per stack, max 3 →
+  // +30% Sonic at full stacks. Also drops 15 AC per stack but AC is
+  // phys-only so we leave that off the damage path.
+  {
+    id: 'harmonic-resonance',
+    label: 'Harmonic Resonance',
+    description: 'Fatesinger T5: 3 stacks × +10% Sonic vulnerability (max +30%).',
+    source: 'caster-spell',
+    effect: { elementVulnPct: { Sonic: 30 } },
+    defaultScope: 'self',
+  },
+  // Shadowdancer Tier 4. −3 SR/PRR/MRR per stack, max 3 → −9 of each
+  // at full stacks. The SR reduction is informational (we route MRR
+  // for damage already).
+  {
+    id: 'darkness',
+    label: 'Darkness',
+    description: 'Shadowdancer T4: 3 stacks × −3 PRR / MRR / SR (max −9 of each).',
+    source: 'caster-spell',
+    effect: { mrrReduction: 9, prrReduction: 9 },
+    defaultScope: 'self',
+  },
+  // Soul Eater Tier 2. −2 SR/PRR/MRR per stack, max 5 → −10 of each
+  // when fully stacked. Procs on Consume.
+  {
+    id: 'taint-the-aura',
+    label: 'Taint the Aura',
+    description: 'Soul Eater T2: 5 stacks × −2 PRR / MRR / SR (max −10 of each).',
+    source: 'caster-spell',
+    effect: { mrrReduction: 10, prrReduction: 10 },
+    defaultScope: 'self',
+  },
 ];
 
 // ── Aggregation ──────────────────────────────────────────────────────────
@@ -145,17 +224,29 @@ export function aggregateDebuffs(
   let genericVulnPct = 0;
   let sonicVulnPct   = 0;
   let mrrSubtract    = 0;
+  const elementVulnPct: Partial<Record<SpellDamageType, number>> = {};
   for (const entry of catalog) {
     if (!state[entry.id]?.enabled) continue;
     const e = entry.effect;
     if (e.genericVulnPct)            genericVulnPct += e.genericVulnPct;
-    if (e.elementVulnPct?.Sonic)     sonicVulnPct   += e.elementVulnPct.Sonic;
     if (e.mrrReduction)              mrrSubtract    += e.mrrReduction;
+    if (e.elementVulnPct) {
+      for (const [el, v] of Object.entries(e.elementVulnPct)) {
+        if (!v) continue;
+        const key = el as SpellDamageType;
+        elementVulnPct[key] = (elementVulnPct[key] ?? 0) + v;
+        // Keep the legacy `sonicVulnPct` field populated so existing
+        // tests + fixtures that read it continue to work.
+        if (key === 'Sonic') sonicVulnPct += v;
+      }
+    }
   }
+  const hasElementVuln = Object.keys(elementVulnPct).length > 0;
   return {
     genericVulnPct,
     sonicVulnPct,
     // Baseline MRR 0; debuffs make it negative. Avoid -0 when no debuff applies.
     effectiveMRR: mrrSubtract ? -mrrSubtract : 0,
+    ...(hasElementVuln ? { elementVulnPct } : {}),
   };
 }
