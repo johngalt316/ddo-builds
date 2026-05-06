@@ -151,6 +151,10 @@ function entryToProc(entry: StaticProcEntry): Proc {
  * description explicitly says it scales with element spell power.
  */
 const STATIC_PROC_CATALOG: StaticProcEntry[] = [
+  // ── Mythic item-buff DoT procs (50d20 of the element) ────────────────
+  // All of these share the wording "Your attacks and offensive spells
+  // have a high chance to deal very strong <element> damage over time"
+  // and use the same dice template per the AT DPS reference spreadsheet.
   {
     id: 'dripping-with-magma',
     label: 'Dripping with Magma',
@@ -160,18 +164,85 @@ const STATIC_PROC_CATALOG: StaticProcEntry[] = [
     useGenericVuln: true, useMRR: true,
   },
   {
+    id: 'bitter-frostbite',
+    label: 'Bitter Frostbite',
+    source: { kind: 'item-buff', name: 'Bitter Frostbite' },
+    diceCount: 50, diceSides: 20,
+    damageType: 'Cold',
+    useGenericVuln: true, useMRR: true,
+  },
+  {
+    id: 'grip-of-venom',
+    label: 'Grip of Venom',
+    source: { kind: 'item-buff', name: 'Grip of Venom' },
+    diceCount: 50, diceSides: 20,
+    damageType: 'Poison',
+    useGenericVuln: true, useMRR: true,
+  },
+  {
+    id: 'lightning-lash',
+    label: 'Lightning Lash',
+    source: { kind: 'item-buff', name: 'Lightning Lash' },
+    diceCount: 50, diceSides: 20,
+    damageType: 'Electric',
+    useGenericVuln: true, useMRR: true,
+  },
+  {
     // Carried by alchemical Earth Attunement gear (e.g. Bound Elemental
-    // Ring of Acid, The Autumn Equinox, The Theurgy of Autumn) and the
-    // Lamordia Legendary augments. In-game description: "Attacks and
-    // offensive spells deal stacking acid damage over time."
-    //
-    // It's an item proc, so scaleProfile defaults to 'proc' — the
-    // damage scales with metamagics only, not with Acid Spell Power.
+    // Ring of Acid, The Autumn Equinox, The Theurgy of Autumn).
+    // In-game description: "Attacks and offensive spells deal stacking
+    // acid damage over time." Distinct dice from the Mythic family —
+    // 50d10 instead of 50d20 per the spreadsheet.
     id: 'earth-attunement',
     label: 'Alchemical Earth Attunement',
     source: { kind: 'item-buff', name: 'AlchemicalEarthAttunement' },
     diceCount: 50, diceSides: 10,
     damageType: 'Acid',
+    useGenericVuln: true, useMRR: true,
+  },
+
+  // ── Lamordia "Woeful X" augment family (50d20 of the element) ────────
+  // Augment-source variants of the Mythic item-buff DoTs. Same template
+  // and dice; the user typically slots one or the other (they don't
+  // double up since the in-game effect category is shared).
+  {
+    id: 'woeful-magma',
+    label: 'Woeful Magma',
+    source: { kind: 'augment', name: 'Woeful Magma (Legendary)' },
+    diceCount: 50, diceSides: 20,
+    damageType: 'Fire',
+    useGenericVuln: true, useMRR: true,
+  },
+  {
+    id: 'woeful-frostbite',
+    label: 'Woeful Frostbite',
+    source: { kind: 'augment', name: 'Woeful Frostbite (Legendary)' },
+    diceCount: 50, diceSides: 20,
+    damageType: 'Cold',
+    useGenericVuln: true, useMRR: true,
+  },
+  {
+    id: 'woeful-lightning',
+    label: 'Woeful Lightning',
+    source: { kind: 'augment', name: 'Woeful Lightning (Legendary)' },
+    diceCount: 50, diceSides: 20,
+    damageType: 'Electric',
+    useGenericVuln: true, useMRR: true,
+  },
+  {
+    id: 'woeful-acidburn',
+    label: 'Woeful Acidburn',
+    source: { kind: 'augment', name: 'Woeful Acidburn (Legendary)' },
+    diceCount: 50, diceSides: 20,
+    damageType: 'Acid',
+    useGenericVuln: true, useMRR: true,
+  },
+  {
+    id: 'woeful-venom',
+    label: 'Woeful Venom',
+    source: { kind: 'augment', name: 'Woeful Venom (Legendary)' },
+    diceCount: 50, diceSides: 20,
+    damageType: 'Poison',
     useGenericVuln: true, useMRR: true,
   },
   {
@@ -192,6 +263,8 @@ const STATIC_PROC_CATALOG: StaticProcEntry[] = [
     damageType: 'Sonic',
     useGenericVuln: true, useSonicVuln: true, useMRR: true,
   },
+
+  // ── Other modeled procs ──────────────────────────────────────────────
   {
     // Carried by The Slayer of the Living. Wiki: "On offensive spellcast:
     // 2d6 Force Damage." Affected by Force crit chance + crit damage; no
@@ -203,6 +276,38 @@ const STATIC_PROC_CATALOG: StaticProcEntry[] = [
     diceCount: 2, diceSides: 6,
     damageType: 'Force',
   },
+  {
+    // "On Harmful Spellcast: Do an additional 2 to 12 Light damage. This
+    // effect scales with Light Spell Power. Cooldown: 1 second." The
+    // explicit dice + element + scaling are all spelled out in the
+    // ItemBuffs.xml display text. Modeled as 2d6 (avg 7, range 2-12) on
+    // the 'spell' profile. The 1s ICD is currently ignored — most spell
+    // rotations cast slower than 1/sec, so it's effectively never gating
+    // (TODO: revisit once the ICD trigger is implemented).
+    id: 'radiant-glory',
+    label: 'Radiant Glory',
+    source: { kind: 'item-buff', name: 'Radiant Glory' },
+    diceCount: 2, diceSides: 6,
+    damageType: 'Light/Alignment',
+    scaleProfile: 'spell',
+    useGenericVuln: true, useMRR: true,
+  },
+
+  // ── TODO: damage values not yet known ────────────────────────────────
+  // The following on-spellcast procs exist in ItemBuffs.xml /
+  // Augment XMLs but their damage dice / proc rates aren't sourced —
+  // descriptions are vague ("small chance / massive damage", "1d3
+  // negative levels", "blind enemies with light damage") and the
+  // upstream XML has no <Effect> blocks. Land them here once the
+  // damage values come from the AT DPS reference spreadsheet:
+  //
+  //   - AlchemicalAirAttunement   (item-buff, "small chance, massive Electric")
+  //   - AlchemicalFireAttunement  (item-buff, "small chance, massive Fire")
+  //   - AlchemicalWaterAttunement (item-buff, "10 stacks of Cold over time")
+  //   - Legendary Vile Grip of the Hidden Hand (item-buff, "massive Evil")
+  //   - Legendary Steam           (item-buff, "Untyped damage")
+  //   - Legendary Radiance        (item-buff, "Light damage on blind")
+  //   - Legendary Negation        (item-buff, debuff — 1d3 negative levels, 30s CD)
 ];
 
 // ── Dynamic procs (build-derived dice / qty) ─────────────────────────────
