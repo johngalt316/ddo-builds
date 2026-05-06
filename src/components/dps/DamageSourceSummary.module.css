@@ -80,10 +80,15 @@
   top: 0; left: 0; bottom: 0;
   background: linear-gradient(90deg, rgba(201,162,39,0.55), rgba(201,162,39,0.85));
   border-radius: 2px;
+  /* Smooth growth/shrinkage as cumulative % values change during sim
+     playback. Without this, width updates each RAF tick are jarring;
+     with it, the bars visibly inflate as more casts land. */
+  transition: width 0.25s ease-out;
 }
 
 .rowPct {
   text-align: right;
   font-weight: 700;
   color: var(--color-gold);
+  font-variant-numeric: tabular-nums;
 }
