@@ -13,6 +13,8 @@ import { PROC_CATALOG, type Proc } from '@/engine/dps/procs';
 import type { Build } from '@/types/build';
 import type { EngineResult } from '@/engine/runEngine';
 import type { DamageComponent } from '@/engine/dps/damage';
+import { scaleMult } from '@/engine/dps/damage';
+import { resolveScaleInputs } from '@/engine/dps/calculator';
 import styles from './ActiveProcsList.module.css';
 
 interface Props {
@@ -22,26 +24,42 @@ interface Props {
   sneakAttackDice: number;
 }
 
+const fmt0 = (n: number) => Math.round(n).toLocaleString();
+const fmt1 = (n: number) => (Math.round(n * 10) / 10).toLocaleString();
+const fmt2 = (n: number) => (Math.round(n * 100) / 100).toLocaleString();
+
 /**
- * Build a "10d20 Fire · per cast" style summary for one proc, derived
- * from its first DamageComponent. We use a probe context so dynamic
- * procs (Magical Ambush, Shiradi Mantle) emit something even outside
- * a rotation. Returns null when the proc emits no components at all
- * (e.g. Magical Ambush with 0 sneak dice).
+ * Build a multi-line tooltip for one proc that shows:
+ *   - effect summary (avg dice / damage type / trigger pattern)
+ *   - inputs (SP, crit chance, crit-mult bonus per scale profile)
+ *   - the scaleMult formula expanded
+ *   - resulting damage per trigger
+ *   - debuff flags
+ *
+ * Dynamic procs (Magical Ambush, Shiradi Mantle) emit through a probe
+ * context so they produce a sample component even outside a rotation;
+ * the tooltip uses the build's actual SP / crit values from the engine.
  */
 function procSummary(
   proc: Proc,
   build: Build,
   engine: EngineResult,
   sneakAttackDice: number,
-): { effect: string; trigger: string; debuffs: string } | null {
-  const ctx = { sneakAttackDice };
+): { effect: string; chip: string; tooltip: string } | null {
+  const ctx = { sneakAttackDice, metamagicSP: 300 };
   // Probe with one dummy spell so per-spell procs (Magical Ambush) emit.
   // Static / global procs ignore the spell list.
   const probeSpells = [{ name: '*', casterLevel: engine.casterLevel.total }];
   const components = proc.toComponents(build, engine, ctx, probeSpells);
   if (components.length === 0) return null;
   const c: DamageComponent = components[0]!;
+
+  // Resolve the actual SP / crit / critMult inputs the calculator
+  // would feed into scaleMult for this component.
+  const inputs   = resolveScaleInputs(c, engine, ctx);
+  const sm       = scaleMult(inputs);
+  const dpt      = c.qtyPerTrigger * c.avgDicePerHit * sm;
+
   const t = c.trigger;
   const triggerLabel =
     t.kind === 'per-cast'
@@ -49,13 +67,47 @@ function procSummary(
       : t.kind === 'per-hit'
         ? `per hit (${c.qtyPerTrigger}× per cast)`
         : `${(t.chance * 100).toFixed(0)}% on cast (ICD ${t.cooldownSec}s)`;
-  const effect = `${Math.round(c.avgDicePerHit * 10) / 10} avg ${c.damageType}`;
+
   const flags: string[] = [];
   if (c.useGenericVuln) flags.push('GV');
   if (c.useSonicVuln)   flags.push('SonicV');
   if (c.useMRR)         flags.push('MRR');
-  const debuffs = flags.length > 0 ? flags.join(' · ') : 'no debuffs';
-  return { effect, trigger: triggerLabel, debuffs };
+  const debuffs = flags.length > 0 ? flags.join(' · ') : 'none';
+
+  const effect = `${fmt1(c.avgDicePerHit)} avg ${c.damageType}`;
+  const chip   = `${effect} · ${triggerLabel}`;
+
+  // Show the full per-trigger math. critMultBonus stored as a fraction
+  // (0.49 for a +1.49 modifier above 1.0, etc.) — display the bonus the
+  // way the spreadsheet does and the actual ×crit multiplier in parens.
+  const critMultDisplay = `+${fmt2(inputs.critMultBonus)} (×${fmt2(inputs.critMultBonus + 1)})`;
+  const profile = c.scaleProfile;
+
+  const tooltip = [
+    proc.label,
+    '',
+    `Damage type: ${c.damageType}`,
+    `Trigger: ${triggerLabel}`,
+    `Debuffs: ${debuffs}`,
+    '',
+    'Inputs:',
+    `  qty per trigger: ${c.qtyPerTrigger}`,
+    `  avg dice per hit: ${fmt2(c.avgDicePerHit)}`,
+    `  scale profile: ${profile}`,
+    `  spell power: ${fmt0(inputs.spellPower)}`,
+    `  crit chance: ${(inputs.critChance * 100).toFixed(1)}%`,
+    `  crit mult bonus: ${critMultDisplay}`,
+    '',
+    'scaleMult = (1 + SP/100) × (1 + crit × (critMult + 2))',
+    `         = (1 + ${fmt0(inputs.spellPower)}/100) × (1 + ${(inputs.critChance * 100).toFixed(1)}% × (${fmt2(inputs.critMultBonus)} + 2))`,
+    `         = ${fmt2(1 + inputs.spellPower / 100)} × ${fmt2(1 + inputs.critChance * (inputs.critMultBonus + 2))}`,
+    `         = ${fmt2(sm)}`,
+    '',
+    `dmg per trigger = ${c.qtyPerTrigger} × ${fmt2(c.avgDicePerHit)} × ${fmt2(sm)}`,
+    `              = ${fmt0(dpt)}`,
+  ].join('\n');
+
+  return { effect, chip, tooltip };
 }
 
 export function ActiveProcsList({ build, engine, sneakAttackDice }: Props) {
@@ -84,7 +136,7 @@ export function ActiveProcsList({ build, engine, sneakAttackDice }: Props) {
             <span
               key={proc.id}
               className={styles.chip}
-              title={`${proc.label}\n${summary!.effect} · ${summary!.trigger}\nDebuffs: ${summary!.debuffs}`}
+              title={summary!.tooltip}
             >
               <span className={styles.chipLabel}>{proc.label}</span>
               <span className={styles.chipEffect}>{summary!.effect}</span>
