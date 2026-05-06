@@ -64,3 +64,32 @@
   padding-left: 0.3rem;
   border-left: 1px solid rgba(106, 159, 216, 0.35);
 }
+
+/* Placeholder chip: same shape, dimmed border + amber tint to signal
+   the source is recognized but damage isn't modeled yet. */
+.chipPlaceholder {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.7rem;
+  padding: 0.2rem 0.55rem;
+  background: rgba(201, 162, 39, 0.08);
+  border: 1px dashed rgba(201, 162, 39, 0.45);
+  color: var(--color-text-muted);
+  border-radius: 3px;
+  cursor: help;
+  font-variant-numeric: tabular-nums;
+}
+
+.placeholderTag {
+  margin-left: 0.4rem;
+  padding: 0 0.35rem;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #d39a3a;
+  background: rgba(201, 162, 39, 0.12);
+  border: 1px solid rgba(201, 162, 39, 0.4);
+  border-radius: 3px;
+  vertical-align: middle;
+}

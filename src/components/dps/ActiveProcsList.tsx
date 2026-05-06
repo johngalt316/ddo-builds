@@ -45,7 +45,7 @@ function procSummary(
   build: Build,
   engine: EngineResult,
   sneakAttackDice: number,
-): { effect: string; chip: string; tooltip: string } | null {
+): { effect: string; chip: string; tooltip: string; placeholder: boolean } | null {
   const ctx = { sneakAttackDice, metamagicSP: computeMetamagicSP(build.activeMetamagics) };
   // Probe with one dummy spell so per-spell procs (Magical Ambush) emit.
   // Static / global procs ignore the spell list.
@@ -53,6 +53,24 @@ function procSummary(
   const components = proc.toComponents(build, engine, ctx, probeSpells);
   if (components.length === 0) return null;
   const c: DamageComponent = components[0]!;
+
+  // Placeholder procs: source is recognized but dice / rate aren't
+  // confirmed yet. Show a stripped chip with a TODO message instead
+  // of computing the (zero) scale chain.
+  if (c.placeholderDamage) {
+    return {
+      effect:      'TODO — damage not yet modeled',
+      chip:        'TODO — damage not yet modeled',
+      tooltip: [
+        proc.label,
+        '',
+        `Damage type: ${c.damageType}`,
+        'Status: TODO — proc recognized but dice / rate not yet confirmed',
+        'Currently contributes 0 to total damage.',
+      ].join('\n'),
+      placeholder: true,
+    };
+  }
 
   // Resolve the actual SP / crit / critMult inputs the calculator
   // would feed into scaleMult for this component.
@@ -150,7 +168,7 @@ function procSummary(
     );
   }
 
-  return { effect, chip, tooltip: lines.join('\n') };
+  return { effect, chip, tooltip: lines.join('\n'), placeholder: false };
 }
 
 export function ActiveProcsList({ build, engine, sneakAttackDice }: Props) {
@@ -178,11 +196,18 @@ export function ActiveProcsList({ build, engine, sneakAttackDice }: Props) {
           {active.map(({ proc, summary }) => (
             <span
               key={proc.id}
-              className={styles.chip}
+              className={summary!.placeholder ? styles.chipPlaceholder : styles.chip}
               title={summary!.tooltip}
             >
-              <span className={styles.chipLabel}>{proc.label}</span>
-              <span className={styles.chipEffect}>{summary!.effect}</span>
+              <span className={styles.chipLabel}>
+                {proc.label}
+                {summary!.placeholder && (
+                  <span className={styles.placeholderTag}>⚠ TODO</span>
+                )}
+              </span>
+              {!summary!.placeholder && (
+                <span className={styles.chipEffect}>{summary!.effect}</span>
+              )}
             </span>
           ))}
         </div>

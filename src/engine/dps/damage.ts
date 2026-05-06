@@ -75,6 +75,12 @@ export interface DamageComponent {
    *  want to surface the underlying mechanic. */
   fullHitAvg?: number;
   perMissileChance?: number;
+  /** When true, this component is a known proc whose damage hasn't
+   *  been confirmed against the spreadsheet yet. The calculator
+   *  contributes its 0 dice as 0 dmg, and the UI surfaces a "TODO"
+   *  badge so the user knows the source is recognized but the math
+   *  isn't modeled. */
+  placeholderDamage?: boolean;
 }
 
 /**

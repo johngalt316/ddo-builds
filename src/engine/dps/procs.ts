@@ -113,10 +113,17 @@ interface StaticProcEntry {
   useGenericVuln?: boolean;
   useSonicVuln?:   boolean;
   useMRR?:         boolean;
+  /** When true, the proc shows in the Active Procs list with a TODO
+   *  badge but contributes 0 to total damage. Used for procs whose
+   *  upstream XML carries no `<Effect>` block and whose dice / rate
+   *  haven't been confirmed against the AT DPS reference spreadsheet. */
+  placeholderDamage?: boolean;
 }
 
 function entryToProc(entry: StaticProcEntry): Proc {
-  const avg = entry.diceCount * (entry.diceSides + 1) / 2;
+  const avg = entry.placeholderDamage
+    ? 0
+    : entry.diceCount * (entry.diceSides + 1) / 2;
   const predicate: (build: Build) => boolean =
     entry.source.kind === 'item-buff'
       ? (build) => hasItemBuff(build, entry.source.name)
@@ -135,6 +142,7 @@ function entryToProc(entry: StaticProcEntry): Proc {
       useGenericVuln: entry.useGenericVuln,
       useSonicVuln:   entry.useSonicVuln,
       useMRR:         entry.useMRR,
+      placeholderDamage: entry.placeholderDamage,
     }],
   };
 }
@@ -294,20 +302,75 @@ const STATIC_PROC_CATALOG: StaticProcEntry[] = [
   },
 
   // ── TODO: damage values not yet known ────────────────────────────────
-  // The following on-spellcast procs exist in ItemBuffs.xml /
-  // Augment XMLs but their damage dice / proc rates aren't sourced —
-  // descriptions are vague ("small chance / massive damage", "1d3
-  // negative levels", "blind enemies with light damage") and the
-  // upstream XML has no <Effect> blocks. Land them here once the
-  // damage values come from the AT DPS reference spreadsheet:
-  //
-  //   - AlchemicalAirAttunement   (item-buff, "small chance, massive Electric")
-  //   - AlchemicalFireAttunement  (item-buff, "small chance, massive Fire")
-  //   - AlchemicalWaterAttunement (item-buff, "10 stacks of Cold over time")
-  //   - Legendary Vile Grip of the Hidden Hand (item-buff, "massive Evil")
-  //   - Legendary Steam           (item-buff, "Untyped damage")
-  //   - Legendary Radiance        (item-buff, "Light damage on blind")
-  //   - Legendary Negation        (item-buff, debuff — 1d3 negative levels, 30s CD)
+  // These procs are recognized (their source gear/augments are
+  // detected and the chip shows up in the Active Procs list with a
+  // "TODO" badge) but contribute 0 damage until the dice / proc rate
+  // are confirmed against the AT DPS reference spreadsheet. The
+  // upstream XML carries only a <DisplayText> — no <Effect> block.
+  {
+    id: 'alchemical-air-attunement',
+    label: 'Alchemical Air Attunement',
+    source: { kind: 'item-buff', name: 'AlchemicalAirAttunement' },
+    diceCount: 0, diceSides: 0, damageType: 'Electric',
+    placeholderDamage: true,
+    useGenericVuln: true, useMRR: true,
+  },
+  {
+    id: 'alchemical-fire-attunement',
+    label: 'Alchemical Fire Attunement',
+    source: { kind: 'item-buff', name: 'AlchemicalFireAttunement' },
+    diceCount: 0, diceSides: 0, damageType: 'Fire',
+    placeholderDamage: true,
+    useGenericVuln: true, useMRR: true,
+  },
+  {
+    id: 'alchemical-water-attunement',
+    label: 'Alchemical Water Attunement',
+    source: { kind: 'item-buff', name: 'AlchemicalWaterAttunement' },
+    diceCount: 0, diceSides: 0, damageType: 'Cold',
+    placeholderDamage: true,
+    useGenericVuln: true, useMRR: true,
+  },
+  {
+    id: 'legendary-vile-grip',
+    label: 'Legendary Vile Grip of the Hidden Hand',
+    source: { kind: 'item-buff', name: 'Legendary Vile Grip of the Hidden Hand' },
+    diceCount: 0, diceSides: 0, damageType: 'Evil',
+    placeholderDamage: true,
+    useGenericVuln: true, useMRR: true,
+  },
+  {
+    id: 'legendary-steam',
+    label: 'Legendary Steam',
+    source: { kind: 'item-buff', name: 'Legendary Steam' },
+    // Description says "Untyped damage" but our damage-type union
+    // doesn't include 'Untyped' (DDO's Untyped doesn't bypass anything
+    // material so we'd treat it like force). Park as Force for now.
+    diceCount: 0, diceSides: 0, damageType: 'Force',
+    placeholderDamage: true,
+    useGenericVuln: true, useMRR: true,
+  },
+  {
+    id: 'legendary-radiance',
+    label: 'Legendary Radiance',
+    source: { kind: 'item-buff', name: 'Legendary Radiance' },
+    diceCount: 0, diceSides: 0, damageType: 'Light/Alignment',
+    placeholderDamage: true,
+    useGenericVuln: true, useMRR: true,
+  },
+  {
+    // Debuff-flavored proc (1d3 negative levels, 30s CD). Won't
+    // contribute direct damage even when modeled — the negative
+    // levels reduce the target's max HP and to-hit, which is a
+    // category we don't model yet. Surface it as TODO so users
+    // know the gear's effect is recognized.
+    id: 'legendary-negation',
+    label: 'Legendary Negation',
+    source: { kind: 'item-buff', name: 'Legendary Negation' },
+    diceCount: 0, diceSides: 0, damageType: 'Negative',
+    placeholderDamage: true,
+    useGenericVuln: true, useMRR: true,
+  },
 ];
 
 // ── Dynamic procs (build-derived dice / qty) ─────────────────────────────
