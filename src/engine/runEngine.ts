@@ -432,9 +432,16 @@ export function runEngine(input: RunEngineInput): EngineResult {
   }
 
   // ── Spell Points seed ──────────────────────────────────────────────
-  // Build per-class seed rows: class table SP at this level + casting-stat
-  // contribution (mod × levels × 5, only if positive). Effect bonuses with
-  // EffectType=SpellPoints stack on top inside breakdownSpellPoints.
+  // Build per-class seed rows: class table SP + casting-stat bonus.
+  //
+  // Formula matches DDOBuilderV2 / in-game DDO:
+  //   bonus_SP = (class_level + 9) × casting_stat_modifier
+  // and only contributes when the class actually grants base SP at this
+  // level (table > 0). The earlier `mod × levels × 5` shortcut was
+  // ~3× too generous for level-20 casters and ~5× off for half-casters.
+  //
+  // Effect bonuses with EffectType=SpellPoints stack on top inside
+  // breakdownSpellPoints.
   const spSeedBonuses: Bonus[] = [];
   for (const cl of build.classes) {
     if (cl.levels <= 0) continue;
@@ -442,25 +449,24 @@ export function runEngine(input: RunEngineInput): EngineResult {
       c.name.toLowerCase().replace(/[\s']+/g, '_').replace(/-/g, '_') === cl.classId);
     if (!cdata) continue;
     const tableSp = cdata.spellPointsPerLevel?.[cl.levels] ?? 0;
-    if (tableSp > 0) {
+    if (tableSp <= 0) continue;          // non-caster level / no SP yet → nothing else fires
+    spSeedBonuses.push({
+      bonusType: '',
+      value: tableSp,
+      source: `${cdata.name} class table (level ${cl.levels})`,
+    });
+    if (!cdata.castingStat) continue;
+    const stat = STAT_NAMES_LC[cdata.castingStat.toLowerCase()];
+    if (!stat) continue;
+    const mod = abilityModifier(abilityScores[stat].total);
+    if (mod <= 0) continue;
+    const bonusSP = (cl.levels + 9) * mod;
+    if (bonusSP > 0) {
       spSeedBonuses.push({
         bonusType: '',
-        value: tableSp,
-        source: `${cdata.name} class table (level ${cl.levels})`,
+        value: bonusSP,
+        source: `${cdata.name} ${cdata.castingStat} mod (+${mod}) × (${cl.levels} + 9)`,
       });
-    }
-    if (cdata.castingStat) {
-      const stat = STAT_NAMES_LC[cdata.castingStat.toLowerCase()];
-      if (stat) {
-        const mod = abilityModifier(abilityScores[stat].total);
-        if (mod > 0) {
-          spSeedBonuses.push({
-            bonusType: '',
-            value: mod * cl.levels * 5,
-            source: `${cdata.name} ${cdata.castingStat} mod (+${mod} × ${cl.levels} levels × 5)`,
-          });
-        }
-      }
     }
   }
 
