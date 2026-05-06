@@ -11,7 +11,7 @@
 // removes. "Auto" checkbox locks reordering — used when the optimizer
 // (6.6) is the authority on rotation order.
 
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { MagicAbility } from '@/engine/dps/abilities';
 import type { RotationStep } from '@/engine/dps/rotation';
 import { resolveTimeline } from '@/engine/dps/timing';
@@ -47,12 +47,24 @@ export function RotationTimeline({
   playheadTime, activeBuffs,
 }: Props) {
   const dragFrom = useRef<number | null>(null);
+  const scrollRef = useRef<HTMLDivElement | null>(null);
   const [dragOver, setDragOver] = useState<number | null>(null);
 
   const { steps: resolved, skipped, totalSeconds } = resolveTimeline(
     steps, abilityById, cooldownReductionPct,
   );
   const totalPx = totalSeconds * PX_PER_SECOND;
+
+  // Auto-scroll: keep the playhead at the 80% mark of the visible
+  // viewport as the simulation advances. Mirrors RotationChart's
+  // behavior so the two views scroll together.
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el || playheadTime === undefined || playheadTime < 0) return;
+    const playheadX = Math.min(playheadTime, totalSeconds) * PX_PER_SECOND;
+    const target    = playheadX - el.clientWidth * 0.8;
+    if (target > el.scrollLeft) el.scrollLeft = target;
+  }, [playheadTime, totalSeconds]);
 
   // Map every input step to either a resolved entry or a placeholder for
   // unknown abilities (dropped from the timing walk so they don't affect
@@ -129,7 +141,7 @@ export function RotationTimeline({
           Empty rotation. Click an ability from the palette above to add it here.
         </div>
       ) : (
-        <div className={styles.scroll}>
+        <div className={styles.scroll} ref={scrollRef}>
           <div className={styles.track} style={{ minWidth: `${totalPx}px` }}>
             {/* Time ruler */}
             <div className={styles.ruler} aria-hidden="true">

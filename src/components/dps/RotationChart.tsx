@@ -6,9 +6,11 @@
 // per-cast contribution at the moment it fires.
 //
 // `currentTime` drives an animated reveal: the line draws only up to
-// the playhead and the cumulative-damage readout follows along.
+// the playhead and the cumulative-damage readout follows along. As
+// the playhead advances past the 80% mark of the visible scroll area
+// we shift the viewport right to keep it on screen.
 
-import { useMemo } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import styles from './RotationChart.module.css';
 
 /** A single cast event — when it fires + how much it deals. */
@@ -44,6 +46,19 @@ export function RotationChart({
   currentTime,
   pxPerSecond = DEFAULT_PX_PER_SEC,
 }: Props) {
+  const scrollRef = useRef<HTMLDivElement | null>(null);
+  // Auto-scroll: as the playhead advances past 80% of the visible width,
+  // shift the scroll right so the playhead stays at the 80% mark. Never
+  // scrolls left — when the playhead is in the natural left portion of
+  // the cycle we leave the user's manual scroll position alone.
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const playheadX = Math.min(currentTime, cycleSeconds) * pxPerSecond;
+    const target   = playheadX - el.clientWidth * 0.8;
+    if (target > el.scrollLeft) el.scrollLeft = target;
+  }, [currentTime, cycleSeconds, pxPerSecond]);
+
   const totalDamage = useMemo(
     () => events.reduce((s, e) => s + e.damage, 0),
     [events],
@@ -121,7 +136,7 @@ export function RotationChart({
         </span>
       </div>
 
-      <div className={styles.scroll}>
+      <div className={styles.scroll} ref={scrollRef}>
         <svg
           className={styles.svg}
           width={width}
