@@ -410,17 +410,12 @@ export function computeReaperCharges(
         boostsTaken++;
         continue;
       }
-      // Prefer the structured `MaxReaperCharge` effect when the XML
-      // carries one (each rank's amount adds, normally 1). Falls back
-      // to a regex on the description for items not yet annotated.
-      const maxReaperCharge = item.effects
+      // `MaxReaperCharge` effect emitted by the 3 reaper-tree
+      // "Reaper's Charge" enhancements (DireCharge / DAReapersCharge
+      // / GrimReapersCharge), each granting 1 to the shared pool.
+      chargeEnhancements += item.effects
         .filter(eff => eff.types.includes('MaxReaperCharge'))
         .reduce((sum, eff) => sum + (eff.amount?.[Math.min(e.rank, eff.amount.length) - 1] ?? 0), 0);
-      if (maxReaperCharge > 0) {
-        chargeEnhancements += maxReaperCharge;
-      } else if (/\+1 (?:to )?(?:maximum )?reaper charge/i.test(item.description)) {
-        chargeEnhancements++;
-      }
     }
   }
   if (boostsTaken === 0) return 0;          // never used → 0
