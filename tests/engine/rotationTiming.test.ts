@@ -191,6 +191,37 @@ describe('findFirstAvailableSlot', () => {
     const map = new Map([['MM', MM], ['F', F]]);
     expect(findFirstAvailableSlot(rot('MM', 'MM'), F, map, 50)).toBe(2);
   });
+
+  it("can wait inside a wide gap for the new ability's own CD to elapse", () => {
+    // Rotation [NL, MM, NL] — NL is 1s/8s, MM is 1s/2s.
+    // Resolved timeline: NL@0, MM@1, NL@8 (group/own CD).
+    // Cursor before NL@8 = 2; gap = 6s.
+    // Adding another MM: its CD-ready time is 1+2=3. cursor=2.
+    // The old logic required CD-ready ≤ cursor; new logic allows the
+    // cast to start at max(cursor, CD-ready)=3 and finish at 4 ≤ 8.
+    // Should fit at idx 2 (between MM and NL).
+    const NL = ability('NL', { castTime: 1, cooldown: 8, cooldownGroup: 'epic-strike' });
+    const MM = ability('MM', { castTime: 1, cooldown: 2 });
+    const map = new Map([['NL', NL], ['MM', MM]]);
+    expect(findFirstAvailableSlot(rot('NL', 'MM', 'NL'), MM, map, 0)).toBe(2);
+  });
+
+  it('NL+MM scenario: clicking MM after a full NL rotation fills inter-NL gaps', () => {
+    // 8 NLs spaced 8s apart (kemton-style cycle). Click MM (2s CD, 1s
+    // cast) → first MM fits in idx 1 (the 7s gap between NL@0 and NL@8).
+    const NL = ability('NL', { castTime: 1, cooldown: 8, cooldownGroup: 'epic-strike' });
+    const MM = ability('MM', { castTime: 1, cooldown: 2 });
+    const map = new Map([['NL', NL], ['MM', MM]]);
+    const eightNLs = rot('NL', 'NL', 'NL', 'NL', 'NL', 'NL', 'NL', 'NL');
+    expect(findFirstAvailableSlot(eightNLs, MM, map, 0)).toBe(1);
+    // After fillToOneMinute completes, MMs should outnumber NLs.
+    const filled = fillToOneMinute(eightNLs, MM, map, 0);
+    const mmCount = filled.filter(s => s.abilityId === 'MM').length;
+    const nlCount = filled.filter(s => s.abilityId === 'NL').length;
+    expect(nlCount).toBe(8);
+    expect(mmCount).toBeGreaterThanOrEqual(20);   // ~3-4 MMs per inter-NL gap
+    expect(resolveTimeline(filled, map, 0).totalSeconds).toBeLessThanOrEqual(60);
+  });
 });
 
 // ── Shared cooldown groups (Epic Strike pool) ────────────────────────

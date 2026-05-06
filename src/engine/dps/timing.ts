@@ -61,16 +61,24 @@ export interface TimelineTiming {
  */
 /**
  * Find the first index in `steps` where inserting `newAbility` would
- * land in an existing cooldown gap — i.e. the new cast can fire there
- * without lengthening the rotation cycle. A gap is fillable when:
+ * fit into an existing cooldown gap — i.e. the new cast can complete
+ * without delaying the next step in the rotation. A gap before step
+ * `i` is fillable when:
  *
- *   1. `newAbility`'s own cooldown has elapsed by the gap's start
- *      (no prior cast of the same ability earlier in the rotation
- *      blocks it), AND
- *   2. The gap is at least as wide as the new ability's cast time.
+ *   max(cursor, newAbility's CD ready) + newCastTime ≤ steps[i].startTime
  *
- * Returns `steps.length` when no fillable gap exists; the caller can
- * fall through to appending in that case.
+ * — meaning the new cast may wait *inside* the gap for its own CD to
+ * elapse, as long as it still finishes before the existing step is
+ * scheduled to start.
+ *
+ * Also considers the tail gap: if the last step ends at `cursor` but
+ * the rotation cycle's effective length (driven by another step's CD
+ * pushing the next iteration's start) leaves idle time past the end,
+ * a fitting cast lands at the tail too. Reflected by checking
+ * `steps.length` as a final candidate position.
+ *
+ * Returns `steps.length` when no in-rotation gap fits; the caller
+ * appends in that case.
  */
 export function findFirstAvailableSlot(
   steps: RotationStep[],
@@ -99,15 +107,18 @@ export function findFirstAvailableSlot(
       ? (groupReady.get(ability.cooldownGroup) ?? -Infinity)
       : -Infinity;
     const startTime = Math.max(cursor, own, grp);
-    const gap       = startTime - cursor;
 
     const newOwn   = (lastStart.get(newAbility.id) ?? -Infinity) + newCdEff;
     const newGrp   = newAbility.cooldownGroup
       ? (groupReady.get(newAbility.cooldownGroup) ?? -Infinity)
       : -Infinity;
-    const newCdReady = Math.max(newOwn, newGrp);
-    if (newCdReady <= cursor + EPS && gap + EPS >= newCastTime) {
-      return i;   // insert before this step — fills the gap exactly
+    const newCdReady       = Math.max(newOwn, newGrp);
+    const earliestNewStart = Math.max(cursor, newCdReady);
+    // Fits if the new cast can start at-or-after the gap's open AND
+    // finish before the existing step begins. Allows waiting *inside*
+    // the gap for the new ability's own CD to elapse.
+    if (earliestNewStart + newCastTime <= startTime + EPS) {
+      return i;
     }
 
     lastStart.set(ability.id, startTime);
