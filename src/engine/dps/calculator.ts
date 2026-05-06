@@ -11,6 +11,7 @@
 
 import type { EngineResult } from '@/engine/runEngine';
 import type { Build } from '@/types/build';
+import { SPELL_DAMAGE_TYPES } from '@/engine/breakdowns';
 import type { DamageComponent, ScaleInputs } from './damage';
 import { componentDamagePerTrigger, abilityToBaseComponents } from './damage';
 import type { ProcContext, ActiveSpell } from './procs';
@@ -36,7 +37,7 @@ export interface EvalContext extends ProcContext {
 /**
  * Pull the right SP / crit chance / crit-damage-bonus for a component
  * based on its damage type and scale profile. The crit chance & crit
- * damage always come from the component's damage element; only the
+ * damage normally come from the component's damage element; only the
  * spell-power input differs per profile:
  *
  *   • 'spell'           → engine.spellPowers[damageType]
@@ -48,6 +49,11 @@ export interface EvalContext extends ProcContext {
  *   • 'dark-imbuement'  → forceSP × (1 + max(MP, RP) / 100)
  *                          (bug-modeled — Dark Imbuement consumes both
  *                          Force SP AND MP/RP in-game)
+ *   • 'random'          → mean SP / crit / crit-mult across all 13
+ *                          spell-damage elements. Used by Shiradi
+ *                          Mantle's Prism base proc, which deals a
+ *                          random damage type per fire scaling with
+ *                          that element's spell power.
  */
 export function resolveScaleInputs(
   component: DamageComponent,
@@ -58,6 +64,22 @@ export function resolveScaleInputs(
   const elementSP   = engine.spellPowers[dt]?.total ?? 0;
   const meleePower  = engine.meleePower.total;
   const rangedPower = engine.rangedPower.total;
+
+  if (component.scaleProfile === 'random') {
+    // Average SP / crit / crit-mult across every spell damage element.
+    let sumSP = 0, sumCrit = 0, sumCritMult = 0;
+    for (const el of SPELL_DAMAGE_TYPES) {
+      sumSP       += engine.spellPowers[el]?.total          ?? 0;
+      sumCrit     += engine.spellCriticalChance[el]?.total  ?? 0;
+      sumCritMult += engine.spellCriticalDamage[el]?.total  ?? 0;
+    }
+    const n = SPELL_DAMAGE_TYPES.length;
+    return {
+      spellPower:    sumSP / n,
+      critChance:    sumCrit / n / 100,
+      critMultBonus: sumCritMult / n / 100,
+    };
+  }
 
   let spellPower: number;
   switch (component.scaleProfile) {

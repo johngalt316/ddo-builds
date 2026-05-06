@@ -30,7 +30,7 @@ import { avgPerHit, projectileCount } from './spellRules';
  *                        RP)/100). The MP/RP multiplier is the part that
  *                        drives the spreadsheet's ~2.45× display value.
  */
-export type DamageScaleProfile = 'spell' | 'sneak' | 'proc' | 'dark-imbuement';
+export type DamageScaleProfile = 'spell' | 'sneak' | 'proc' | 'dark-imbuement' | 'random';
 
 /**
  * When does the component fire and how many times per fire?

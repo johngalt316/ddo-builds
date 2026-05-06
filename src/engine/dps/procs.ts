@@ -242,24 +242,31 @@ export const MAGICAL_AMBUSH: Proc = {
 };
 
 /**
- * Shiradi Champion Destiny Mantle — Tier 1 enhancement
- * `U51ShiradiChampionPrism` (rank ≥ 1) grants the mantle. The Tier 2
- * enhancement `U51ShiradiChampionStay` (selector) locks the proc damage
- * to a specific element:
+ * Shiradi Champion Destiny Mantle.
  *
- *   • Stay Good   → Light/Alignment
- *   • Stay Loud   → Sonic
- *   • Stay Strong → Force
- *   • Stay Toxic  → Poison
+ * Two distinct procs work together:
  *
- * Reference spreadsheet "Prism - Force" row: 10d77 (avg 539) of the
- * locked element, 7% chance per spellcast, scale 'spell' (full element
- * SP), Y/N/Y debuff flags.
+ *   1. Prism (`U51ShiradiChampionPrism`, Tier 1) — base mantle:
+ *      7d77 of a RANDOM damage type at 7% per spell hit (capped 1
+ *      fire per cast). Each fire scales with the rolled element's
+ *      Spell Power, so long-run avg damage uses mean-element scaling
+ *      (the 'random' scale profile).
  *
- * The 7% chance is baked into avgDicePerHit so the per-cast trigger
- * yields the expected average damage. Without a Stay X selection the
- * proc is "rainbow" (random element) — too complex to surface in our
- * per-element breakdown, so we emit nothing in that case.
+ *   2. Stay X (`U51ShiradiChampionStay`, Tier 2 selector) — locks
+ *      the proc damage to a specific element with rank-scaling dice:
+ *        rank 1 → 1d77 of locked element
+ *        rank 2 → 3d77
+ *        rank 3 → 7d77 + 1d77 per 7 bonus Imbue Dice
+ *      Uses standard 'spell' scale profile against the locked element.
+ *      Independent 7%-per-missile / cap-1-per-cast roll.
+ *
+ *   Stay Good   → Light/Alignment
+ *   Stay Loud   → Sonic
+ *   Stay Strong → Force
+ *   Stay Toxic  → Poison
+ *
+ * Both procs roll per missile but fire at most once per cast, so the
+ * effective per-cast probability is 1 - (1 - 7%)^missileCount.
  */
 const STAY_TO_ELEMENT: Record<string, SpellDamageType> = {
   'Stay Good':   'Light/Alignment',
@@ -268,63 +275,115 @@ const STAY_TO_ELEMENT: Record<string, SpellDamageType> = {
   'Stay Toxic':  'Poison',
 };
 
-function shiradiStaySelection(build: Build): { selection: string; element: SpellDamageType } | null {
+/** Per-missile fire chance for Shiradi spells (Prism + Stay X). */
+const SHIRADI_SPELL_CHANCE = 0.07;
+/** d77 average. */
+const D77_AVG = (1 + 77) / 2;
+
+function hasShiradiPrism(build: Build): boolean {
+  const sc = getActiveEnhancementSet(build).destinyEnhancements.find(d => d.treeId === 'Shiradi Champion');
+  if (!sc) return false;
+  return sc.enhancements.some(e => e.enhancementId === 'U51ShiradiChampionPrism' && e.rank >= 1);
+}
+
+function shiradiStaySelection(
+  build: Build,
+): { selection: string; element: SpellDamageType; rank: number } | null {
   const sc = getActiveEnhancementSet(build).destinyEnhancements.find(d => d.treeId === 'Shiradi Champion');
   if (!sc) return null;
-  const hasPrism = sc.enhancements.some(e => e.enhancementId === 'U51ShiradiChampionPrism' && e.rank >= 1);
-  if (!hasPrism) return null;
   const stay = sc.enhancements.find(e => e.enhancementId === 'U51ShiradiChampionStay');
-  const sel  = stay?.selection;
+  if (!stay) return null;
+  const sel = stay.selection;
   if (!sel) return null;
   const element = STAY_TO_ELEMENT[sel];
   if (!element) return null;
-  return { selection: sel, element };
+  return { selection: sel, element, rank: stay.rank };
 }
-
-/** Per-missile fire chance for Shiradi spells (Prism + Stay X). */
-const SHIRADI_SPELL_CHANCE = 0.07;
 
 /**
- * Average dice value for Shiradi Mantle's full hit. Base is 7d77, plus
- * +1d77 for every multiple of 7 imbue dice the build has.
- *   imbue 0..6   →  7d77
- *   imbue 7..13  →  8d77
- *   imbue 14..20 →  9d77
- *   imbue 21..27 → 10d77
- * d77 average = (1 + 77) / 2 = 39, so total avg = diceCount × 39.
+ * Stay X dice-count by rank. Rank 3 adds bonus dice from imbue:
+ * +1d77 per 7 bonus imbue dice.
  */
-function shiradiAvgFullHit(imbueDice: number): number {
-  const diceCount = 7 + Math.floor(Math.max(0, imbueDice) / 7);
-  return diceCount * (1 + 77) / 2;
+function stayXDiceCount(rank: number, imbueDice: number): number {
+  if (rank <= 0) return 0;
+  if (rank === 1) return 1;
+  if (rank === 2) return 3;
+  // rank 3 (or higher, defensive) — base 7d77 + imbue scaling.
+  return 7 + Math.floor(Math.max(0, imbueDice) / 7);
 }
 
-export const SHIRADI_MANTLE: Proc = {
-  id: 'shiradi-mantle',
-  label: 'Shiradi Mantle',
+/**
+ * Per-spell components for one Shiradi-flavor proc. `avgFullHit` is
+ * the dice-count × 39 (d77 average) for a successful proc; we apply
+ * the 1 - (1 - p)^missiles per-cast probability to that.
+ */
+function shiradiPerSpell(
+  activeSpells: ActiveSpell[],
+  avgFullHit: number,
+  damageType: SpellDamageType,
+  scaleProfile: 'spell' | 'random',
+  labelPrefix: string,
+): DamageComponent[] {
+  return activeSpells.map(s => {
+    const missiles = projectileCount(s.name, s.casterLevel);
+    const pFire    = 1 - Math.pow(1 - SHIRADI_SPELL_CHANCE, missiles);
+    return {
+      label: `${labelPrefix} (${s.name})`,
+      trigger: { kind: 'per-cast', spell: s.name },
+      qtyPerTrigger: 1,
+      avgDicePerHit: avgFullHit * pFire,
+      damageType,
+      scaleProfile,
+      useGenericVuln: true,
+      useMRR: true,
+    };
+  });
+}
+
+/**
+ * Shiradi Mantle (Prism) — the base mantle's random-element proc.
+ * Active whenever the player has taken `U51ShiradiChampionPrism`.
+ * Always 7d77 (no rank scaling); imbue-dice scaling is exclusive to
+ * Stay X rank 3.
+ */
+export const SHIRADI_MANTLE_PRISM: Proc = {
+  id: 'shiradi-mantle-prism',
+  label: 'Shiradi Mantle (Prism)',
+  isActive: hasShiradiPrism,
+  toComponents: (_build, _engine, _ctx, activeSpells) =>
+    shiradiPerSpell(
+      activeSpells,
+      7 * D77_AVG,             // 7d77 = avg 273
+      'Force',                 // placeholder — 'random' scale profile
+                               // averages SP / crit / crit-mult across
+                               // all elements, so this field doesn't
+                               // drive the math.
+      'random',
+      'Shiradi Mantle (Prism, random)',
+    ),
+};
+
+/**
+ * Shiradi Mantle (Stay X) — element-locked variant. Granted by the
+ * Tier 2 `U51ShiradiChampionStay` selector. Rank 3 adds the
+ * imbue-dice scaling (+1d77 per 7 imbue).
+ */
+export const SHIRADI_MANTLE_STAY: Proc = {
+  id: 'shiradi-mantle-stay',
+  label: 'Shiradi Mantle (Stay)',
   isActive: (build) => shiradiStaySelection(build) !== null,
   toComponents: (build, engine, _ctx, activeSpells) => {
     const choice = shiradiStaySelection(build);
     if (!choice) return [];
-    const avgFullHit = shiradiAvgFullHit(engine.imbueDice.total);
-    // The proc's chance is rolled PER MISSILE/RAY, but caps at most
-    // one fire per cast. So effective per-cast fire probability for a
-    // spell with N missiles is 1 - (1 - p)^N. Applies to every spell
-    // in the rotation; emit one component per active spell so the
-    // calculator weights each by its own cpm.
-    return activeSpells.map(s => {
-      const missiles = projectileCount(s.name, s.casterLevel);
-      const pFire    = 1 - Math.pow(1 - SHIRADI_SPELL_CHANCE, missiles);
-      return {
-        label: `Shiradi Mantle (${choice.selection}, ${s.name})`,
-        trigger: { kind: 'per-cast', spell: s.name },
-        qtyPerTrigger: 1,
-        avgDicePerHit: avgFullHit * pFire,
-        damageType: choice.element,
-        scaleProfile: 'spell',
-        useGenericVuln: true,
-        useMRR: true,
-      };
-    });
+    const dice = stayXDiceCount(choice.rank, engine.imbueDice.total);
+    if (dice <= 0) return [];
+    return shiradiPerSpell(
+      activeSpells,
+      dice * D77_AVG,
+      choice.element,
+      'spell',
+      `Shiradi Mantle (${choice.selection})`,
+    );
   },
 };
 
@@ -346,7 +405,8 @@ export const REVEL_IN_BLOOD_MAGIC = staticById('revel-in-blood-magic');
  *  static catalog or as new dynamic procs are added. */
 export const PROC_CATALOG: Proc[] = [
   MAGICAL_AMBUSH,
-  SHIRADI_MANTLE,
+  SHIRADI_MANTLE_PRISM,
+  SHIRADI_MANTLE_STAY,
   ...STATIC_PROC_CATALOG.map(entryToProc),
 ];
 
