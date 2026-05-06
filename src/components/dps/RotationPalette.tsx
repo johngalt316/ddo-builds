@@ -11,7 +11,7 @@
 
 import { useRef, useState } from 'react';
 import type { MagicAbility } from '@/engine/dps/abilities';
-import type { PerCastDamage } from '@/engine/dps/calculator';
+import type { AbilityDamageInfo } from '@/engine/dps/calculator';
 import styles from './RotationPalette.module.css';
 
 interface Props {
@@ -23,9 +23,10 @@ interface Props {
   onManage: () => void;
   /** Reorder priority. From/to are indices within `abilities`. */
   onReorder: (fromIdx: number, toIdx: number) => void;
-  /** Pre-computed per-cast damage by ability id; tooltip surfaces total
-   *  + per-component breakdown for cross-checking against in-game. */
-  damageByAbility?: Map<string, PerCastDamage>;
+  /** Pre-computed per-cast damage + standalone DPS by ability id.
+   *  Tooltip surfaces total DPC, DPS (DPC ÷ effective cycle time), and
+   *  the per-component breakdown for cross-checking against in-game. */
+  damageByAbility?: Map<string, AbilityDamageInfo>;
 }
 
 const fmt = (n: number) =>
@@ -113,12 +114,18 @@ export function RotationPalette({
                     : `SLA · ${a.school}${a.slaSource ? `\n${a.slaSource}` : ''}`,
                   `${a.cost} SP${a.cooldown ? ` · ${a.cooldown}s CD` : ''}`,
                 ];
-                const dmg = damageByAbility?.get(a.id);
-                if (dmg && dmg.total > 0) {
-                  parts.push('', `Damage / cast (CL ${dmg.casterLevel}): ~${fmt(dmg.total)}`);
+                const info = damageByAbility?.get(a.id);
+                const dmg  = info?.damage;
+                if (info && dmg && dmg.total > 0) {
+                  parts.push(
+                    '',
+                    `DPC (damage per cast, CL ${dmg.casterLevel}): ~${fmt(dmg.total)}`,
+                    `DPS (spammed alone, ${info.cycleTime.toFixed(1)}s cycle): ~${fmt(info.dps)}`,
+                  );
                   for (const c of dmg.byComponent) {
                     if (c.damagePerTrigger > 0) {
-                      parts.push(`  • ${c.component.label}: ${fmt(c.damagePerTrigger)}`);
+                      const compDps = c.damagePerTrigger / info.cycleTime;
+                      parts.push(`  • ${c.component.label}: ${fmt(c.damagePerTrigger)} dpc · ${fmt(compDps)} dps`);
                     }
                   }
                 }
@@ -149,11 +156,11 @@ export function RotationPalette({
                 )}
               </span>
               {(() => {
-                const dmg = damageByAbility?.get(a.id);
-                if (!dmg || dmg.total <= 0) return null;
+                const info = damageByAbility?.get(a.id);
+                if (!info || info.damage.total <= 0) return null;
                 return (
                   <span className={styles.tileDamage}>
-                    ~{fmt(dmg.total)} / cast
+                    ~{fmt(info.damage.total)} dpc · ~{fmt(info.dps)} dps
                   </span>
                 );
               })()}

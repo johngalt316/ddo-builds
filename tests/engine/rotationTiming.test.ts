@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { resolveTimeline, findFirstAvailableSlot } from '../../src/engine/dps/timing';
+import { resolveTimeline, findFirstAvailableSlot, fillToOneMinute, FILL_TARGET_SECONDS } from '../../src/engine/dps/timing';
 import type { MagicAbility } from '../../src/engine/dps/abilities';
 import type { RotationStep } from '../../src/engine/dps/rotation';
 
@@ -236,5 +236,55 @@ describe('cooldownGroup — shared cooldown pool', () => {
     const F   = ability('F',   { castTime: 1, cooldown: 0 });
     const map = new Map([['ES1', ES1], ['ES2', ES2], ['F', F]]);
     expect(findFirstAvailableSlot(rot('ES1', 'F'), ES2, map, 0)).toBe(2);
+  });
+});
+
+describe('fillToOneMinute', () => {
+  it('fills an empty rotation with N copies of a 1s-cast spell up to 60s', () => {
+    const A = ability('A', { castTime: 1, cooldown: 0 });
+    const map = new Map([['A', A]]);
+    const out = fillToOneMinute([], A, map, 0);
+    expect(out).toHaveLength(FILL_TARGET_SECONDS);                        // exactly 60 casts
+    expect(resolveTimeline(out, map, 0).totalSeconds).toBeCloseTo(60, 5);
+  });
+
+  it('respects cooldown — slots only as many casts as the rotation can take in 60s', () => {
+    // 1s cast, 8s CD ability with no filler → first cast at 0, then forced
+    // to wait 8s each. With CD measured from cast start: t=0,8,16,…,56 →
+    // 8 casts (next would land at t=64, past target).
+    const NL = ability('NL', { castTime: 1, cooldown: 8 });
+    const map = new Map([['NL', NL]]);
+    const out = fillToOneMinute([], NL, map, 0);
+    expect(out.length).toBe(8);
+    expect(resolveTimeline(out, map, 0).totalSeconds).toBeLessThanOrEqual(60);
+  });
+
+  it('appending after an existing rotation does not exceed target', () => {
+    // Pre-fill with 50 1s casts of A (totalSeconds=50). Add B (1s cast, 0 CD)
+    // → fills the remaining 10s with 10 B casts.
+    const A = ability('A', { castTime: 1, cooldown: 0 });
+    const B = ability('B', { castTime: 1, cooldown: 0 });
+    const map = new Map([['A', A], ['B', B]]);
+    const seedSteps: RotationStep[] = Array.from({ length: 50 }, (_, i) => ({
+      key: `A-${i}`, abilityId: 'A',
+    }));
+    const out = fillToOneMinute(seedSteps, B, map, 0);
+    const aCount = out.filter(s => s.abilityId === 'A').length;
+    const bCount = out.filter(s => s.abilityId === 'B').length;
+    expect(aCount).toBe(50);
+    expect(bCount).toBe(10);
+    expect(resolveTimeline(out, map, 0).totalSeconds).toBeLessThanOrEqual(60);
+  });
+
+  it('returns input unchanged if rotation is already at or past 60s', () => {
+    const A = ability('A', { castTime: 1, cooldown: 0 });
+    const B = ability('B', { castTime: 1, cooldown: 0 });
+    const map = new Map([['A', A], ['B', B]]);
+    const seedSteps: RotationStep[] = Array.from({ length: 60 }, (_, i) => ({
+      key: `A-${i}`, abilityId: 'A',
+    }));
+    const out = fillToOneMinute(seedSteps, B, map, 0);
+    expect(out).toHaveLength(60);
+    expect(out.every(s => s.abilityId === 'A')).toBe(true);
   });
 });

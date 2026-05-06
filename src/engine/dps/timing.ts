@@ -14,7 +14,7 @@
 // further casts once the pool is empty.
 
 import type { MagicAbility } from './abilities';
-import type { RotationStep } from './rotation';
+import { type RotationStep, newRotationStep } from './rotation';
 
 export interface ResolvedStep {
   step: RotationStep;
@@ -118,6 +118,40 @@ export function findFirstAvailableSlot(
   }
 
   return steps.length;
+}
+
+/** Maximum rotation cycle length (seconds) the auto-fill click targets. */
+export const FILL_TARGET_SECONDS = 60;
+
+/**
+ * Repeatedly insert `ability` into the rotation — preferring cooldown-gap
+ * fills (which don't lengthen the cycle) and falling back to append —
+ * until adding one more would push the cycle past `FILL_TARGET_SECONDS`.
+ *
+ * Used to make a single click on the palette materialize a full one-minute
+ * rotation rather than a single cast. The caller can still drag/remove
+ * individual steps after.
+ *
+ * Hard-capped at 200 iterations as a safety net (cast time is at least
+ * 1.0s in the catalog so the natural bound is ~60, but a future
+ * faster-cast spell shouldn't loop forever).
+ */
+export function fillToOneMinute(
+  steps: RotationStep[],
+  ability: MagicAbility,
+  abilityById: Map<string, MagicAbility>,
+  cooldownReductionPct: number,
+): RotationStep[] {
+  let next = [...steps];
+  for (let i = 0; i < 200; i++) {
+    const idx       = findFirstAvailableSlot(next, ability, abilityById, cooldownReductionPct);
+    const candidate = [...next];
+    candidate.splice(idx, 0, newRotationStep(ability.id));
+    const { totalSeconds } = resolveTimeline(candidate, abilityById, cooldownReductionPct);
+    if (totalSeconds > FILL_TARGET_SECONDS + 1e-6) break;
+    next = candidate;
+  }
+  return next;
 }
 
 export function resolveTimeline(

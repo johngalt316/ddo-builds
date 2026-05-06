@@ -203,6 +203,20 @@ export interface PerCastDamage {
   byComponent: ComponentDamage[];
 }
 
+/**
+ * Damage info for one ability surfaced into the palette UI. Combines the
+ * per-cast breakdown (DPC) with the build-aware cycle time and resulting
+ * standalone DPS so tooltips / tiles can show both side by side.
+ */
+export interface AbilityDamageInfo {
+  damage: PerCastDamage;
+  /** Effective seconds between casts if this spell were spammed alone —
+   *  max(effectiveCooldown, castTime, 1e-3). Drives `dps`. */
+  cycleTime: number;
+  /** Damage per second when spammed standalone: `damage.total / cycleTime`. */
+  dps: number;
+}
+
 /** No-debuff baseline (multiplier = 1.0 across the board). */
 export const NO_DEBUFFS: Debuffs = {
   genericVulnPct: 0,

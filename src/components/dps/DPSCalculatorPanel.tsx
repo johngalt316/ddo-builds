@@ -17,12 +17,12 @@ import { useBuildStore } from '@/store/buildStore';
 import { useGameDataStore } from '@/store/gameDataStore';
 import { useBreakdowns } from '@/hooks/useBreakdowns';
 import { getMagicAbilities, type MagicAbility } from '@/engine/dps/abilities';
-import { newRotationStep, type RotationStep } from '@/engine/dps/rotation';
-import { findFirstAvailableSlot, resolveTimeline } from '@/engine/dps/timing';
+import type { RotationStep } from '@/engine/dps/rotation';
+import { fillToOneMinute, resolveTimeline } from '@/engine/dps/timing';
 import {
   damagePerCast,
   rotationDPS,
-  type PerCastDamage,
+  type AbilityDamageInfo,
 } from '@/engine/dps/calculator';
 import {
   aggregateDebuffs,
@@ -229,18 +229,36 @@ function MagicRotationEditor({
   // change. Used by the palette tooltip + visible per-tile badge for
   // cross-checking against in-game numbers. Metamagic SP still defaults
   // to 300 until we expose a panel input that reads metamagic toggles.
+  //
+  // Each entry carries:
+  //   • damage      — full per-cast breakdown (DPC) including procs/buffs.
+  //   • cycleTime   — effective seconds between casts if the spell were
+  //                   spammed alone (max of effective cooldown and cast
+  //                   time, never zero).
+  //   • dps         — DPC ÷ cycleTime — the spell's sustained throughput
+  //                   when spammed standalone, useful for comparing
+  //                   spells in the palette regardless of their
+  //                   cooldowns.
   const damageByAbility = useMemo(() => {
-    const m = new Map<string, PerCastDamage>();
+    const m = new Map<string, AbilityDamageInfo>();
     if (!breakdowns) return m;
     const ctx = {
       sneakAttackDice: breakdowns.sneakAttackDice.total,
       metamagicSP:     300,
     };
+    const cdMul = Math.max(0, 1 - cooldownReductionPct / 100);
     for (const a of abilities) {
-      m.set(a.id, damagePerCast(a, build, breakdowns, ctx, debuffs));
+      const damage     = damagePerCast(a, build, breakdowns, ctx, debuffs);
+      const effectiveCD = a.cooldown * cdMul;
+      const cycleTime  = Math.max(effectiveCD, a.castTime, 1e-3);
+      m.set(a.id, {
+        damage,
+        cycleTime,
+        dps: damage.total / cycleTime,
+      });
     }
     return m;
-  }, [abilities, build, breakdowns, debuffs]);
+  }, [abilities, build, breakdowns, debuffs, cooldownReductionPct]);
 
   // Whole-rotation breakdown — total per-min damage + per-component
   // contributions. Drives the RotationDPSSummary below the timeline.
@@ -362,13 +380,11 @@ function MagicRotationEditor({
   }, [abilities, activeAbilityIds]);
 
   function onAdd(ability: MagicAbility) {
-    // Try to slot the new cast into an existing cooldown gap so the
-    // rotation doesn't lengthen unnecessarily. Falls back to append when
-    // no suitable gap exists.
-    const idx  = findFirstAvailableSlot(steps, ability, abilityById, cooldownReductionPct);
-    const next = [...steps];
-    next.splice(idx, 0, newRotationStep(ability.id));
-    setSteps(next);
+    // One click fills the rotation toward 60 seconds: repeatedly slot the
+    // ability into existing cooldown gaps, falling back to append, until
+    // adding one more would push the cycle past a minute. Lets the user
+    // build a full one-minute plan with single clicks rather than spamming.
+    setSteps(fillToOneMinute(steps, ability, abilityById, cooldownReductionPct));
   }
   function onReorder(from: number, to: number) {
     if (from === to) return;
