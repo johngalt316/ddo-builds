@@ -43,11 +43,11 @@ export interface EvalContext extends ProcContext {
  * spell card shows the boosted total during casting.
  *
  *   • 'spell'           → element SP + metamagic SP
- *   • 'sneak'           → element SP × 0.5 + metamagic SP
- *                          (Magical Ambush baseline — wiki: "scales
- *                          with 50% of force spell power"; the 50%
- *                          only applies to the element pool, metamagic
- *                          is a flat additive)
+ *   • 'sneak'           → (element SP + metamagic SP) × 0.5
+ *                          (Magical Ambush baseline — the proc reads
+ *                          the spell's effective Force SP at cast
+ *                          time, including metamagic, then applies
+ *                          its 50% scaling factor)
  *   • 'proc'            → metamagic SP only (no element SP per wiki —
  *                          on-spellcast procs don't read element pools)
  *   • 'dark-imbuement'  → (forceSP + metamagic SP) × (1 + max(MP, RP) / 100)
@@ -91,7 +91,7 @@ export function resolveScaleInputs(
       spellPower = elementSP + mmSP;
       break;
     case 'sneak':
-      spellPower = elementSP * 0.5 + mmSP;
+      spellPower = (elementSP + mmSP) * 0.5;
       break;
     case 'proc':
       spellPower = mmSP;

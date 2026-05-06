@@ -110,16 +110,16 @@ describe("resolveScaleInputs — 'spell' profile", () => {
 });
 
 describe("resolveScaleInputs — 'sneak' profile (Magical Ambush)", () => {
-  it('halves element SP and adds metamagic SP on top', () => {
+  it('halves the metamagic-included Force SP', () => {
     const e = engine({
       spellPower: { Force: 1182 },
       critChance: { Force: 68 },
       critDamage: { Force: 149 },
     });
     const comp: DamageComponent = { ...baseComponent, damageType: 'Force', scaleProfile: 'sneak' };
-    // 1182 × 0.5 + 300 metamagic SP = 891
+    // (1182 + 300 metamagic) × 0.5 = 741
     expect(resolveScaleInputs(comp, e, { sneakAttackDice: 38, metamagicSP: 300 }))
-      .toEqual({ spellPower: 891, critChance: 0.68, critMultBonus: 1.49 });
+      .toEqual({ spellPower: 741, critChance: 0.68, critMultBonus: 1.49 });
   });
   it('with no metamagic, falls back to plain 0.5 × element SP', () => {
     const e = engine({
