@@ -164,6 +164,8 @@ of this effect. (Activation Cost: 15 Ki. Cooldown: 6 seconds).</Description>
           </Requirement>
         </Requirements>
       </Effect>
+         <Cooldown>6</Cooldown>
+         <Category>utility</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Ninja Spy: Poisoned Darts</Name>
@@ -196,6 +198,9 @@ Cooldown: 15 seconds</Description>
           <Value>12</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>15</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Ninja Spy: Diversion</Name>
@@ -258,6 +263,8 @@ Passive: +5 Melee and Ranged Power</Description>
         <AType>Simple</AType>
         <Amount size="1">5</Amount>
       </Effect>
+         <Cooldown>180</Cooldown>
+         <Category>boost</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Ninja Spy: Ninja Master</Name>
@@ -701,6 +708,8 @@ Rank 3: While centered and Sneaking, your passive Ki regeneration is increased b
                 </Attack>
         </EnhancementSelection>
       </Selector>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
     </EnhancementTreeItem>
     <!--Tier 3-->
     <EnhancementTreeItem>
@@ -870,6 +879,8 @@ The enemy makes recurring Fortitude saves to shake the effect.</Description>
           </DC>
         </EnhancementSelection>
       </Selector>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Ninja Spy: Sneak Attack Training III</Name>
@@ -943,6 +954,8 @@ can stack up to 20 times. On timer expiration, 5 stacks of Ninja Poison are
 removed at a time.)</Description>
         <Group>Imbue</Group>
       </Stance>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Ninja Spy: Ability I</Name>
@@ -1262,6 +1275,9 @@ Your opponent takes half damage on a successful Fortitude save
           </Requirement>
         </Requirements>
       </Effect>
+         <Cooldown>15</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Ninja Spy: Deadly Striker</Name>
@@ -1537,6 +1553,7 @@ Cooldown: 20 seconds.</Description>
           </Requirement>
         </Requirements>
       </Effect>
+         <Category>boost</Category>
     </EnhancementTreeItem>
   </EnhancementTree>
 </Enhancements>

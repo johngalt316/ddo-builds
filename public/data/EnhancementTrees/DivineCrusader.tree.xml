@@ -363,6 +363,8 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
         <AType>SpellInfo</AType>
         <Amount size="4">0 0 0 0</Amount>
       </Effect>
+         <Category>heal</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <!--Tier 2-->
     <EnhancementTreeItem>
@@ -1252,6 +1254,8 @@ The Resurrection portion of this ability may only affect you once per rest.</Des
           <Value>30</Value>
         </Requirement>
       </Requirements>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
   </EnhancementTree>
 </Enhancements>

@@ -119,6 +119,9 @@ This ability has double normal spell range.</Description>
             <AType>Simple</AType>
             <Amount size="1">3</Amount>
          </Effect>
+         <Cooldown>3</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Henshin Mystic: Sounding Staff</Name>
@@ -238,6 +241,9 @@ damage by half.</Description>
             <AType>Simple</AType>
             <Amount size="1">3</Amount>
          </Effect>
+         <Cooldown>9</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Henshin Mystic: Cauldron Of Flame</Name>
@@ -541,6 +547,9 @@ for 30 seconds, and gains 2 stacks of Vulnerable.</Description>
                <Clickie/>
             </EnhancementSelection>
          </Selector>
+         <Cooldown>15</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Henshin Mystic: Henshin Staff Training I</Name>
@@ -868,6 +877,9 @@ for 30 seconds, and gains 2 stacks of Vulnerable.</Description>
                <Clickie/>
             </EnhancementSelection>
          </Selector>
+         <Cooldown>15</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Henshin Mystic: Henshin Staff Training II</Name>
@@ -940,6 +952,8 @@ for 10 seconds.</Description>
             </Requirements>
             <ApplyAsItemEffect/>
          </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Henshin Mystic: Elemental Ki Strikes</Name>
@@ -1032,6 +1046,9 @@ The target receives periodic saves to attempt to break free of this effect.</Des
                </DC>
             </EnhancementSelection>
          </Selector>
+         <Cooldown>3</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Henshin Mystic: Contemplation</Name>
@@ -1149,6 +1166,9 @@ for 30 seconds, and gains 2 stacks of Vulnerable.</Description>
                <Clickie/>
             </EnhancementSelection>
          </Selector>
+         <Cooldown>15</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Henshin Mystic: Henshin Staff Training III</Name>
@@ -1214,6 +1234,8 @@ dealing +1d6 Fire damage on hit, and an additional 1d6 Force damage on critical.
             <Icon>HMLightingTheCandle</Icon>
             <Group>Imbue</Group>
          </Stance>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Henshin Mystic: Embrace the Void</Name>
@@ -1419,6 +1441,9 @@ for 30 seconds, and gains 2 stacks of Vulnerable.</Description>
                <Clickie/>
             </EnhancementSelection>
          </Selector>
+         <Cooldown>15</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Henshin Mystic: Henshin Staff Training IV</Name>
@@ -1634,6 +1659,9 @@ existence.</Description>
                <Item>HMElementalWordsIV</Item>
             </Requirement>
          </Requirements>
+         <Cooldown>3</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Henshin Mystic: Henshin Staff Training V</Name>
@@ -1797,6 +1825,9 @@ Positive Energy healing. (This healing effect is unaffected by Spell Power.)</De
                </Requirements>
             </EnhancementSelection>
          </Selector>
+         <Cooldown>6</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
    </EnhancementTree>
 </Enhancements>

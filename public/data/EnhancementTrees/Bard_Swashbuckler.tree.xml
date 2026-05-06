@@ -312,6 +312,7 @@ Light Pick: +1 Range</Description>
             <Item>Light Pick</Item>
             <ApplyAsItemEffect />
          </Effect>
+         <Category>debuff</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Swashbuckler: Uncanny Dodge</Name>
@@ -738,6 +739,9 @@ Cooldown: 12 seconds</Description>
                <Clickie/>
             </EnhancementSelection>
          </Selector>
+         <Cooldown>12</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Swashbuckler: Insults</Name>
@@ -876,6 +880,9 @@ Cooldown: 12 seconds</Description>
                <Value>2</Value>
             </Requirement>
          </Requirements>
+         <Cooldown>12</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Swashbuckler: Deflect Arrows</Name>
@@ -995,6 +1002,8 @@ Usable 5 times per rest.</Description>
                <Clickie/>
             </EnhancementSelection>
          </Selector>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
       </EnhancementTreeItem>
       <!--Tier 3-->
       <EnhancementTreeItem>
@@ -1155,6 +1164,8 @@ Fighting line of feats.</Description>
             <Icon>SBResonantArms</Icon>
             <Group>Imbue</Group>
          </Stance>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Swashbuckler: Different Tack</Name>
@@ -1398,6 +1409,9 @@ stunned for three seconds (Perform + d20 saves for the Stun).
                <Clickie/>
             </EnhancementSelection>
          </Selector>
+         <Cooldown>18</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Swashbuckler: Battering Barrage</Name>
@@ -1585,6 +1599,9 @@ Cooldown: 20 seconds</Description>
                <Value>12</Value>
             </Requirement>
          </Requirements>
+         <Cooldown>20</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Swashbuckler: Second Skin</Name>

@@ -580,6 +580,7 @@ Cooldown: 8 seconds.</Description>
                <Item>WCInspiredBravery</Item>
             </Requirement>
          </Requirements>
+         <Cooldown>8</Cooldown>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Warchanter: Words of Encouragement</Name>
@@ -680,6 +681,8 @@ Fire, and Sonic damage</Description>
                <Value>2</Value>
             </Requirement>
          </Requirements>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
       </EnhancementTreeItem>
       <!--Tier 3-->
       <EnhancementTreeItem>
@@ -907,6 +910,8 @@ DC Value is assuming full Bard level</Description>
             <ModAbility>Charisma</ModAbility>
             <Tactical>Stun</Tactical>
          </DC>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Warchanter: Ability I</Name>
@@ -1183,6 +1188,9 @@ for twenty seconds. This ability can be used while feared, and dispels Fear effe
                </Effect>
             </EnhancementSelection>
          </Selector>
+         <Cooldown>30</Cooldown>
+         <Category>cc</Category>
+         <UsesActionBoostCharge/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Warchanter: Chant of Power</Name>
@@ -1316,6 +1324,8 @@ DC Value is assuming full Bard level</Description>
             <ModAbility>Charisma</ModAbility>
             <Tactical>Stun</Tactical>
          </DC>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Warchanter: Kingly Recovery</Name>
@@ -1343,6 +1353,8 @@ insanity, nauseated, poisoned, and stunned. [1/2/3] use(s) per rest.</Descriptio
                <Value>12</Value>
             </Requirement>
          </Requirements>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
    </EnhancementTree>
 </Enhancements>

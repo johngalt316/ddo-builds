@@ -593,6 +593,9 @@ effect can stack up to 5 times.
           <Value>2</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>6</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Tempest: Whirling Blades II</Name>
@@ -662,6 +665,8 @@ effect can stack up to 5 times.
           <Clickie />
         </EnhancementSelection>
       </Selector>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
     </EnhancementTreeItem>
     <!--Tier 3-->
     <EnhancementTreeItem>
@@ -710,6 +715,8 @@ This damage scales with 100% Melee Power.</Description>
         </Requirements>
         <Item>All</Item>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Tempest: Improved Mobility</Name>
@@ -935,6 +942,7 @@ Cooldown: 90 seconds.</Description>
       <MinSpent>20</MinSpent>
       <Clickie />
       <ArrowUp />
+         <Cooldown>90</Cooldown>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Tempest: The Growing Storm</Name>
@@ -958,6 +966,9 @@ Cooldown: 30 seconds</Description>
           <Value>4</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>30</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Tempest: Whirling Blades IV</Name>
@@ -1261,6 +1272,9 @@ even for THF, until activated again or until you swap weapons.</Description>
         </Requirements>
         <Item>All</Item>
       </Effect>
+         <Cooldown>15</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
   </EnhancementTree>
 </Enhancements>

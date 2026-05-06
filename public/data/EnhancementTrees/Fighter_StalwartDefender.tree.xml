@@ -124,6 +124,7 @@ Cannot be used while Raged.</Description>
         <AType>Simple</AType>
         <Amount size="1">-1</Amount>
       </Effect>
+         <Category>debuff</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Stalwart Defender: Overbalance</Name>
@@ -371,6 +372,10 @@ Passive: You gain +10 Physical and Magical Resistance Rating, +2 Strength,
         <AType>Simple</AType>
         <Amount size="1">-1</Amount>
       </Effect>
+         <Cooldown>180</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
+         <UsesActionBoostCharge/>
     </EnhancementTreeItem>
     <!--Tier 1-->
     <EnhancementTreeItem>
@@ -538,6 +543,9 @@ and Magical Resistance Rating for 20 seconds. (Cooldown: 30 seconds.)</Descripti
           <Value>1</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>30</Cooldown>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Stalwart Defender: Threatening Countenance</Name>
@@ -1078,6 +1086,9 @@ Stalwart Defense, you gain a +[10/15/25]% Competence bonus to maximum hit points
           <Value>4</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>30</Cooldown>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Stalwart Defender: Swift Defense</Name>
@@ -1406,6 +1417,9 @@ Cooldown: 10 seconds.</Description>
           <Value>12</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>10</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Stalwart Defender: Greater Stalwart Defense III</Name>

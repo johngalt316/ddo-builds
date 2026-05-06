@@ -212,6 +212,8 @@ Cooldown: 2 minutes</Description>
         <AType>Simple</AType>
         <Amount size="1">5</Amount>
       </Effect>
+         <Cooldown>120</Cooldown>
+         <Category>boost</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Magus of the Eclipse: Nightwind</Name>
@@ -362,6 +364,9 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
           </Effect>
         </EnhancementSelection>
       </Selector>
+         <Cooldown>6</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Magus of the Eclipse: Cloak of Silver</Name>
@@ -515,6 +520,8 @@ Light instead. This does not stack with Fire Shield: Cold or Cold Energy Sheathe
           </RequiresOneOf>
         </Requirements>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Magus of the Eclipse: Self or Summons</Name>
@@ -684,6 +691,7 @@ Rank 3: You no longer fail Will saves on a natural 1.</Description>
           <Clickie />
         </EnhancementSelection>
       </Selector>
+         <Category>utility</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Magus of the Eclipse: Moonlight</Name>
@@ -745,6 +753,9 @@ that enhance Spells beyond Spell Power, but also cannot be dispelled.
           </Effect>
         </EnhancementSelection>
       </Selector>
+         <Cooldown>25</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Magus of the Eclipse: Frostlight Improvement I</Name>
@@ -1357,6 +1368,9 @@ Cooldown: 5 minutes.</Description>
           <Value>30</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>300</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Magus of the Eclipse: Full Moon's Magic</Name>
@@ -1416,6 +1430,9 @@ Cost: 40 Spell Points.</Description>
           </Effect>
         </EnhancementSelection>
       </Selector>
+         <Cooldown>18</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Magus of the Eclipse: Enhanced Metamagics: Intensify</Name>

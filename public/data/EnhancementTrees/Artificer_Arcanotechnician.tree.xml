@@ -100,6 +100,7 @@ Cooldown: 30 seconds.</Description>
         <Item>Physical</Item>
         <Item>Untyped</Item>
       </Effect>
+         <Cooldown>30</Cooldown>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Arcanotechnician: Thaumaturgical Battery</Name>
@@ -190,6 +191,9 @@ Cooldown: 7 seconds.</Description>
         <Item>Physical</Item>
         <Item>Untyped</Item>
       </Effect>
+         <Cooldown>7</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Arcanotechnician: Runic Efficacy</Name>
@@ -354,6 +358,8 @@ Cooldown: [12/8/4] seconds</Description>
         <Amount size="12">0 4 -1 12 0 3 -1 8 0 2 -1 4</Amount>
         <Item>Artificer</Item>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Arcanotechnician: Energy of the Creator</Name>
@@ -686,6 +692,8 @@ Cooldown: [15/10/5] seconds.</Description>
         <Amount size="12">0 8 0 15 0 6 0 10 0 4 0 5</Amount>
         <Item>Artificer</Item>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Arcanotechnician: Efficient Metamagic</Name>
@@ -898,6 +906,8 @@ Cooldown: [18/12/6] seconds.</Description>
         <Amount size="12">0 12 0 18 0 8 0 12 0 6 0 6</Amount>
         <Item>Artificer</Item>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Arcanotechnician: Efficient Heighten</Name>
@@ -1104,6 +1114,8 @@ Cooldown: [18/12/6] seconds.</Description>
         <Amount size="12">0 12 0 18 0 8 0 12 0 6 0 6</Amount>
         <Item>Artificer</Item>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Arcanotechnician: Charged Recoil</Name>

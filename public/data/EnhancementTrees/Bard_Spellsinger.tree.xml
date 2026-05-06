@@ -591,6 +591,8 @@ Metamagic Feats can be used at no additional cost.</Description>
           </Effect>
         </EnhancementSelection>
       </Selector>
+         <Category>heal</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Spellsinger: Charlatan</Name>
@@ -889,6 +891,7 @@ from their reverie.</Description>
         <DCVersus>Will</DCVersus>
         <Skill>Perform</Skill>
       </DC>
+         <Category>boost</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Spellsinger: Reviving Verse</Name>
@@ -1005,6 +1008,8 @@ Cooldown: [12/9/6] seconds.</Description>
           </Effect>
         </EnhancementSelection>
       </Selector>
+         <Category>heal</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Spellsinger: Spell Song Trance</Name>
@@ -1261,6 +1266,7 @@ A successful Will save negates this effect.</Description>
           <Item>SSSustainingSong</Item>
         </Requirement>
       </Requirements>
+         <Category>cc</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Spellsinger: Advanced Musical Studies</Name>
@@ -1442,6 +1448,8 @@ Max caster level: 25. Affects liches.</Description>
         <Amount size="12">0 30 25 20 0 25 25 16 0 20 25 12</Amount>
         <Item>Bard</Item>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
   </EnhancementTree>
 </Enhancements>

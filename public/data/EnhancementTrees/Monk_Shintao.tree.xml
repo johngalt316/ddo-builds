@@ -294,6 +294,9 @@ Passive: +5 Melee Power, +1[W] while Centered.</Description>
           </Requirement>
         </Requirements>
       </Effect>
+         <Cooldown>180</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Shintao: To Seek Perfection</Name>
@@ -461,6 +464,9 @@ Insight bonus to Dodge for 6 seconds.</Description>
           <Item>Dodge</Item>
         </Requirement>
       </Requirements>
+         <Cooldown>15</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Shintao: Disciplined Training</Name>
@@ -688,6 +694,8 @@ Will saves to avoid their fate.</Description>
         <ModAbility>Wisdom</ModAbility>
         <Tactical>Stun</Tactical>
       </DC>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Shintao: Iron Skin</Name>
@@ -806,6 +814,9 @@ The target receives periodic saves to attempt to break free of this effect.</Des
           </DC>
         </EnhancementSelection>
       </Selector>
+         <Cooldown>3</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Shintao: Quick Strike</Name>
@@ -835,6 +846,8 @@ Centered Melee Attack: You gain a [5/15/25]% Morale bonus to Doublestrike for
         <Amount size="3">5 15 25</Amount>
         <ApplyAsItemEffect />
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <!--Tier 3-->
     <EnhancementTreeItem>
@@ -932,6 +945,8 @@ fortification by 25%. A successful Will save negates this effect.</Description>
         <ModAbility>Wisdom</ModAbility>
         <Tactical>Stun</Tactical>
       </DC>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Shintao: Hands of Mercy</Name>
@@ -1001,6 +1016,9 @@ Cooldown: 9 seconds.</Description>
           </Requirements>
         </EnhancementSelection>
       </Selector>
+         <Cooldown>9</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Shintao: Fists of Light</Name>
@@ -1092,6 +1110,9 @@ another 1d50 to Undead on Vorpal.</Description>
           </Requirements>
         </EnhancementSelection>
       </Selector>
+         <Cooldown>3</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Shintao: Ability I</Name>
@@ -1230,6 +1251,7 @@ Will saves to avoid this fate.</Description>
         <ModAbility>Wisdom</ModAbility>
         <Tactical>Stun</Tactical>
       </DC>
+         <Category>cc</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Shintao: Greater Hands of Mercy</Name>
@@ -1448,6 +1470,7 @@ by this ability.</Description>
         <ModAbility>Wisdom</ModAbility>
         <Tactical>Stun</Tactical>
       </DC>
+         <Category>cc</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Shintao: Violence Begets Violence</Name>
@@ -1627,6 +1650,8 @@ Water Stance: +5 Maximum Dodge Bonus</Description>
           </Requirement>
         </Requirements>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Shintao: Rise of the Phoenix</Name>
@@ -1654,6 +1679,7 @@ Cooldown: 15 minutes</Description>
           <Value>12</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>900</Cooldown>
     </EnhancementTreeItem>
   </EnhancementTree>
 </Enhancements>

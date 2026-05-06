@@ -438,6 +438,9 @@ Cooldown: 20 seconds</Description>
         <Item>Untyped</Item>
         <Item>Physical</Item>
       </Effect>
+         <Cooldown>20</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Season's Herald: Storm of Vengeance</Name>
@@ -519,6 +522,9 @@ Cooldown: 120 seconds</Description>
         <Item>Untyped</Item>
         <Item>Physical</Item>
       </Effect>
+         <Cooldown>120</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Season's Herald: Hierophant</Name>
@@ -729,6 +735,8 @@ Cooldown: [10/6/4] seconds</Description>
         <Amount size="12">0 6 0 10 0 5 0 6 0 3 0 4</Amount>
         <Item>Druid</Item>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Wax and Wane I</Name>
@@ -1140,6 +1148,8 @@ Cooldown: [12/10/8] seconds</Description>
         <Amount size="12">0 6 0 12 0 5 0 10 0 3 0 8</Amount>
         <Item>Druid</Item>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Season's Herald: Wax and Wane II</Name>
@@ -1227,6 +1237,8 @@ Summer: Fire, Light, Positive, Force and Physical</Description>
           <Value>2</Value>
         </Requirement>
       </Requirements>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
     </EnhancementTreeItem>
     <!--Tier 3-->
     <EnhancementTreeItem>
@@ -1343,6 +1355,8 @@ Cooldown: [10/8/6] seconds.</Description>
         <Amount size="12">0 10 0 10 0 8 0 8 0 6 0 6</Amount>
         <Item>Druid</Item>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Season's Herald: Wax and Wane III</Name>
@@ -1462,6 +1476,8 @@ Cooldown: [8/4/2] seconds.</Description>
           <Value>4</Value>
         </Requirement>
       </Requirements>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Season's Herald: Strength of the Solstice</Name>
@@ -1525,6 +1541,8 @@ Cooldown: [12/10/8] seconds</Description>
         <Amount size="12">0 12 0 12 0 10 0 10 0 8 0 8</Amount>
         <Item>Druid</Item>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Season's Herald: Wax and Wane IV</Name>
@@ -1651,6 +1669,7 @@ Cooldown: 6 seconds.</Description>
           <Value>12</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>6</Cooldown>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Season's Herald: Elemental Mastery</Name>
@@ -1758,6 +1777,8 @@ Cooldown: [20/15/10] seconds.</Description>
         <Amount size="12">0 12 0 20 0 9 0 15 0 6 0 10</Amount>
         <Item>Druid</Item>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Season's Herald: Time and Tide</Name>
@@ -1822,6 +1843,8 @@ Cooldown: 1 minute</Description>
           <Value>12</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>60</Cooldown>
+         <Category>boost</Category>
     </EnhancementTreeItem>
   </EnhancementTree>
 </Enhancements>

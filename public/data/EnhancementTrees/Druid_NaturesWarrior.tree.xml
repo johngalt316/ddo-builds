@@ -1034,6 +1034,9 @@ Cooldown: 30 seconds</Description>
           <Value>2</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>30</Cooldown>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
     </EnhancementTreeItem>
     <!--Tier 3-->
     <EnhancementTreeItem>
@@ -1193,6 +1196,9 @@ you gain 35% Incorporeal defense for 10 seconds.</Description>
           </Requirement>
         </Requirements>
       </Effect>
+         <Cooldown>60</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Nature's Warrior: Essence of the Shrike</Name>
@@ -1637,6 +1643,8 @@ Requires: Any Wolf, Bear or Tree form.</Description>
           <Item>NWFatalHarrier</Item>
         </Requirement>
       </Requirements>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Nature's Warrior: Swift Hunter</Name>
@@ -1792,6 +1800,8 @@ Target must also make a Fortitude save or will be silenced for 15 seconds.</Desc
         <ModAbility>Wisdom</ModAbility>
         <Tactical>Stun</Tactical>
       </DC>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Nature's Warrior: Jaws of the Wolf</Name>
@@ -1869,6 +1879,8 @@ melee power. A successful Balance check negates Knockdown.</Description>
         <ModAbility>Wisdom</ModAbility>
         <Tactical>Trip</Tactical>
       </DC>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
   </EnhancementTree>
 </Enhancements>

@@ -462,6 +462,9 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
           </Effect>
         </EnhancementSelection>
       </Selector>
+         <Cooldown>4</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Fatesinger: Harmonic Resonance</Name>
@@ -581,6 +584,8 @@ you gain 6 Temporary Hit Points per Character Level. This can only occur once
 every 10 seconds.</Description>
         <Group>Mantle</Group>
       </Stance>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Fatesinger: Discord</Name>
@@ -645,6 +650,9 @@ Cooldown: 15 seconds</Description>
           <Clickie />
         </EnhancementSelection>
       </Selector>
+         <Cooldown>15</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Fatesinger: Grandeur</Name>
@@ -1359,6 +1367,8 @@ of Fate.</Description>
           <CostPerRank size="1">2</CostPerRank>
         </EnhancementSelection>
       </Selector>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Fatesinger: Metamagics Attunement</Name>
@@ -1581,6 +1591,9 @@ Cooldown: 5 minutes</Description>
           <Value>30</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>300</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Fatesinger: Cut the Strings</Name>
@@ -1608,6 +1621,9 @@ Cooldown: 60 seconds.</Description>
           <Value>30</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>60</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
   </EnhancementTree>
 </Enhancements>

@@ -43,6 +43,8 @@ Switching weapons activates a 30 seconds cooldown timer.</Description>
         <AType>Slider</AType>
         <Amount size="3">0 0 200</Amount>
       </Effect>
+         <Cooldown>20</Cooldown>
+         <Category>boost</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Occult Slayer: Resistance</Name>
@@ -366,6 +368,9 @@ Cooldown: 12 seconds</Description>
           <Value>1</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>12</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Occult Slayer: Parrying Bond</Name>
@@ -653,6 +658,9 @@ Cooldown: 30 seconds</Description>
           <Value>2</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>30</Cooldown>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
     </EnhancementTreeItem>
     <!--Tier 3-->
     <EnhancementTreeItem>
@@ -907,6 +915,9 @@ This damage is increased by the target's Spell Power.</Description>
           <Item>OSArcaneEncumbrance</Item>
         </Requirement>
       </Requirements>
+         <Cooldown>12</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Occult Slayer: Driving Force</Name>
@@ -927,6 +938,7 @@ Cooldown: [48/36/24] seconds.</Description>
           <Value>4</Value>
         </Requirement>
       </Requirements>
+         <Category>boost</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Occult Slayer: Ability II</Name>
@@ -1076,6 +1088,8 @@ Cooldown: [12/6/3] seconds</Description>
           <Value>12</Value>
         </Requirement>
       </Requirements>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Occult Slayer: Occult Metalline</Name>
@@ -1177,6 +1191,8 @@ Passive: +[10/20/30] HP, +[4/8/12] Magical Resistance</Description>
         <AType>Stacks</AType>
         <Amount size="3">4 8 12</Amount>
       </Effect>
+         <Category>heal</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
   </EnhancementTree>
 </Enhancements>

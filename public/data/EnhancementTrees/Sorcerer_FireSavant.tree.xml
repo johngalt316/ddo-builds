@@ -1034,6 +1034,8 @@ level and max caster level. You also gain a +10 racial bonus to Fire resistance,
         <Item>Multivial of Frost</Item>
         <Item>Frost Obliteration</Item>
       </Effect>
+         <Category>heal</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <!--Tier 1-->
     <EnhancementTreeItem>
@@ -1908,6 +1910,9 @@ Cooldown: 20 seconds.</Description>
           <Value>12</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>20</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Fire Savant: Heat Death</Name>

@@ -152,6 +152,8 @@ of this effect. (Activation Cost: 15 Ki. Cooldown: 6 seconds).</Description>
                </Requirement>
             </Requirements>
          </Effect>
+         <Cooldown>6</Cooldown>
+         <Category>utility</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Ninja Spy: Poisoned Darts</Name>
@@ -183,6 +185,9 @@ Activation Cost: 15 Ki. Cooldown: 15 seconds</Description>
                <Value>12</Value>
             </Requirement>
          </Requirements>
+         <Cooldown>15</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Ninja Spy: Diversion</Name>
@@ -225,6 +230,7 @@ Activation Cost: 50 Ki. Cooldown: 3 minutes</Description>
                </Requirement>
             </Requirements>
          </Effect>
+         <Cooldown>180</Cooldown>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Ninja Spy: Ninja Master</Name>
@@ -397,6 +403,8 @@ Passive: +1 to Hit and Damage while Centered, does not apply to Handwraps or Qua
                </Requirement>
             </Requirements>
          </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Ninja Spy: Stealthy</Name>
@@ -741,6 +749,8 @@ Passive: +1 to Hit and +2 Damage while Centered, does not apply to Handwraps or 
                </Requirement>
             </Requirements>
          </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Ninja Spy: Agility</Name>
@@ -897,6 +907,9 @@ The target receives periodic saves to attempt to break free of this effect.</Des
                </DC>
             </EnhancementSelection>
          </Selector>
+         <Cooldown>3</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Ninja Spy: Action Boost: Melee/Ranged Power</Name>
@@ -917,6 +930,9 @@ Usable 5 times per rest. Cooldown: 30 seconds.</Description>
                <Value>2</Value>
             </Requirement>
          </Requirements>
+         <Cooldown>30</Cooldown>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
       </EnhancementTreeItem>
       <!--Tier 3-->
       <EnhancementTreeItem>
@@ -1093,6 +1109,8 @@ Passive: +1 to Hit and Damage while Centered, does not apply to Handwraps or Qua
                </Requirement>
             </Requirements>
          </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Ninja Spy: Flash Bang</Name>
@@ -1150,6 +1168,7 @@ save and momentarily dazing opponents on a failed fortitude save.</Description>
             <ModAbility>Wisdom</ModAbility>
             <Tactical>Assassinate</Tactical>
          </DC>
+         <Category>boost</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Ninja Spy: Sneak Attack Training III</Name>
@@ -1223,6 +1242,8 @@ can stack up to 20 times. On timer expiration, 5 stacks of Ninja Poison are
 removed at a time.)</Description>
             <Group>Imbue</Group>
          </Stance>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Ninja Spy: Ability I</Name>
@@ -1520,6 +1541,8 @@ Passive: +1 to Hit and +2 Damage while Centered, does not apply to Handwraps or 
                </Requirement>
             </Requirements>
          </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Ninja Spy: Deadly Exploits</Name>
@@ -1750,6 +1773,9 @@ Quarterstaves.</Description>
                </Requirement>
             </Requirements>
          </Effect>
+         <Cooldown>15</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Ninja Spy: Deadly Striker</Name>
@@ -1847,6 +1873,7 @@ Kamas and Shuriken gain double this bonus.</Description>
             <Item>Kama</Item>
             <Item>Shuriken</Item>
          </Effect>
+         <Category>debuff</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Ninja Spy: Crippling Strike</Name>
@@ -1953,6 +1980,9 @@ DCs for 12 seconds.</Description>
                <Value>12</Value>
             </Requirement>
          </Requirements>
+         <Cooldown>20</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
    </EnhancementTree>
 </Enhancements>

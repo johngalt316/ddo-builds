@@ -548,6 +548,8 @@ Shares cooldown with Great Cleave.</Description>
         <ModAbility>Wisdom</ModAbility>
         <Tactical>Trip</Tactical>
       </DC>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Tabaxi Trailblazer: Springing Pounce</Name>

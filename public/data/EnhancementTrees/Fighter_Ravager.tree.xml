@@ -306,6 +306,8 @@ Does not affect bosses. (Cost 1 Rage. Cooldown: 30 seconds)</Description>
         <Other>1d20</Other>
         <Skill>Intimidate</Skill>
       </DC>
+         <Cooldown>30</Cooldown>
+         <Category>cc</Category>
     </EnhancementTreeItem>
     <!--Tier 1 Enhancements-->
     <EnhancementTreeItem>
@@ -362,6 +364,9 @@ Cooldown: 6 seconds</Description>
           <Value>1</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>6</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Ravager: Do You Like Pain?</Name>
@@ -468,6 +473,8 @@ Fighting or fighting in an animal form.</Description>
         </Requirements>
         <Item>All</Item>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Ravager: Hardy Rage</Name>
@@ -486,6 +493,12 @@ Fighting or fighting in an animal form.</Description>
           <Value>1</Value>
         </Requirement>
       </Requirements>
+      <Effect>
+        <Type>ExtraActionBoost</Type>
+        <Bonus>Enhancement</Bonus>
+        <AType>Stacks</AType>
+        <Amount size="3">1 2 3</Amount>
+      </Effect>
     </EnhancementTreeItem>
     <!--Tier 2 Enhancements-->
     <EnhancementTreeItem>
@@ -584,6 +597,9 @@ Cooldown: 6 seconds
           <Value>2</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>6</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Ravager: Action Boost: Melee Power</Name>
@@ -605,6 +621,9 @@ Cooldown: 30 seconds</Description>
           <Value>2</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>30</Cooldown>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
     </EnhancementTreeItem>
     <!--Tier 3 Enhancements-->
     <EnhancementTreeItem>
@@ -648,6 +667,9 @@ Cooldown: 12 seconds</Description>
           <Value>3</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>12</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Ravager: Festering Wound</Name>

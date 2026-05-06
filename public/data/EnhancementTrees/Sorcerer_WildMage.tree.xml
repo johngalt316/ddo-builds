@@ -123,6 +123,7 @@ Passive: +10 Chaos Spell Power.</Description>
         <Amount size="1">10</Amount>
         <Item>Chaos</Item>
       </Effect>
+         <Cooldown>15</Cooldown>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>WMCore4</InternalName>
@@ -300,6 +301,8 @@ with all spells. Your may use Riches of Randomness one additional time per rest.
         <Amount size="1">1</Amount>
         <Item>All</Item>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <!--Tier 1 Enhancements-->
     <EnhancementTreeItem>
@@ -331,6 +334,8 @@ Cooldown: [12/8/4] seconds.</Description>
         <Amount size="12">0 4 10 12 0 3 10 8 0 2 10 4</Amount>
         <Item>Wild Mage</Item>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>WMChaosControlI</InternalName>
@@ -461,6 +466,8 @@ Luck bonus to increase the odds of positive surges.</Description>
           </Requirement>
         </Requirements>
       </Effect>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>WMChaosControlII</InternalName>
@@ -609,6 +616,8 @@ Cooldown: [12/8/6] seconds.</Description>
         <Amount size="12">0 8 10 12 0 6 10 8 0 4 10 6</Amount>
         <Item>Wild Mage</Item>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>WMPowerInChaos</InternalName>
@@ -997,6 +1006,9 @@ Cooldown: 6 seconds</Description>
         <Amount size="4">0 25 10 6</Amount>
         <Item>Wild Mage</Item>
       </Effect>
+         <Cooldown>6</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>WMBendLuck</InternalName>

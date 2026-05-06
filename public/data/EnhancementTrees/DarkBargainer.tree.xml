@@ -415,6 +415,8 @@ and take 1d2 Evil Damage per Caster Level every 2 seconds.</Description>
         <AType>SpellInfo</AType>
         <Amount size="4">0 4 0 12</Amount>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <!--Tier 2-->
     <EnhancementTreeItem>
@@ -470,6 +472,9 @@ Cooldown: 6 seconds</Description>
         <AType>SpellInfo</AType>
         <Amount size="4">0 4 0 6</Amount>
       </Effect>
+         <Cooldown>6</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Dhampir Dark Bargainer: Embrace Death</Name>
@@ -543,6 +548,8 @@ This is a Major Form, and counts as a Shroud for the purpose of Pale Master.</De
           </Requirement>
         </Requirements>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Dhampir Dark Bargainer: Rush of Bats</Name>
@@ -614,6 +621,8 @@ Cooldown: 12 seconds</Description>
         <Tactical>Stun</Tactical>
         <School>Enchantment</School>
       </DC>
+         <Cooldown>12</Cooldown>
+         <Category>cc</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Dhampir Dark Bargainer: Vampiric Blast</Name>
@@ -651,6 +660,8 @@ instead Negative Energy.</Description>
           </Requirement>
         </Requirements>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Dhampir Dark Bargainer: Deathly Bite</Name>
@@ -753,6 +764,9 @@ Cost: 8 SP</Description>
       <Ranks>1</Ranks>
       <MinSpent>15</MinSpent>
       <Clickie />
+         <Cooldown>15</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Dhampir Dark Bargainer: Form of the Lord Vampire</Name>

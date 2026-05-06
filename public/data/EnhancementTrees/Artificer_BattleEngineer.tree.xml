@@ -841,6 +841,8 @@ Damage scales with 200% Ranged Power.</Description>
           <Clickie />
         </EnhancementSelection>
       </Selector>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Battle Engineer: Caustic Strike</Name>
@@ -885,6 +887,9 @@ Damage scales with 200% Melee Power.</Description>
           <Clickie />
         </EnhancementSelection>
       </Selector>
+         <Cooldown>6</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Battle Engineer: Extra Action Boost</Name>
@@ -903,6 +908,12 @@ Damage scales with 200% Melee Power.</Description>
           <Value>2</Value>
         </Requirement>
       </Requirements>
+      <Effect>
+        <Type>ExtraActionBoost</Type>
+        <Bonus>Enhancement</Bonus>
+        <AType>Stacks</AType>
+        <Amount size="3">1 2 3</Amount>
+      </Effect>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Battle Engineer: Action Boost Selector</Name>
@@ -940,6 +951,8 @@ to your attack rolls for 20 seconds.</Description>
           <Clickie />
         </EnhancementSelection>
       </Selector>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
     </EnhancementTreeItem>
     <!--Tier 3-->
     <EnhancementTreeItem>
@@ -1059,6 +1072,9 @@ by it will extend the duration. Cooldown: 25 seconds</Description>
           <Value>3</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>25</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Battle Engineer: Shatter Defenses</Name>
@@ -1145,6 +1161,7 @@ This ability shares a cooldown with sunder.</Description>
           </DC>
         </EnhancementSelection>
       </Selector>
+         <Category>debuff</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Battle Engineer: Thundershock Imbue</Name>
@@ -1172,6 +1189,8 @@ scaling with Electric Spell Power.</Description>
 damage on each hit, scaling with Electric Spell Power.</Description>
         <Group>Imbue</Group>
       </Stance>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Battle Engineer: Ability I</Name>
@@ -1392,6 +1411,8 @@ Cooldown: 30 seconds.</Description>
           </Attack>
         </EnhancementSelection>
       </Selector>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Battle Engineer: Agility Engine</Name>
@@ -1652,6 +1673,8 @@ You deal +0.5[W] damage.</Description>
         </Requirements>
         <Item>All</Item>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Battle Engineer: Thunder Shock Weapon</Name>
@@ -1733,6 +1756,8 @@ the Trip effect.</Description>
           </DC>
         </EnhancementSelection>
       </Selector>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Battle Engineer: Unlock Potential</Name>

@@ -378,6 +378,9 @@ Cooldown: 1 minute</Description>
       <MinSpent>5</MinSpent>
       <Clickie />
       <ArrowUp />
+         <Cooldown>60</Cooldown>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Razorclaw Shifter: Magic Fang</Name>
@@ -402,6 +405,7 @@ Cooldown: 20 seconds</Description>
         <Amount size="40">1 1 1 1 2 2 2 2 2 3 3 3 3 3 4 4 4 4 4 5 5 5 5 5 6 6 6 6 6 7 7 7 7 7 8 8 8 8 8 9</Amount>
         <Item>All</Item>
       </Effect>
+         <Cooldown>20</Cooldown>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Razorclaw Shifter: Shred</Name>
@@ -434,6 +438,8 @@ Fortitude save negates. DC: 10 + Half Character Level + Max[Wis/Str] + Sunder bo
         <ModAbility>Wisdom</ModAbility>
         <Tactical>Sunder</Tactical>
       </DC>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <!--Tier 3-->
     <EnhancementTreeItem>
@@ -485,6 +491,7 @@ Your Iconic Rage now uncenters you.</Description>
       <Ranks>3</Ranks>
       <MinSpent>10</MinSpent>
       <Clickie />
+         <Category>debuff</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Razorclaw Shifter: Stronger Howl</Name>
@@ -696,6 +703,9 @@ Cooldown: 1 minute 15 Seconds.</Description>
       <Ranks>1</Ranks>
       <MinSpent>15</MinSpent>
       <Clickie />
+         <Cooldown>60</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
   </EnhancementTree>
 </Enhancements>

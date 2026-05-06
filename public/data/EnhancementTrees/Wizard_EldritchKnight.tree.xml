@@ -67,6 +67,9 @@ tree, including this one, grants +10 Maximum Hit Points.</Description>
             <AType>Simple</AType>
             <Amount size="1">10</Amount>
          </Effect>
+         <Cooldown>12</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Eldritch Knight: Spellsword</Name>
@@ -214,6 +217,8 @@ with Fire Spell power.</Description>
             <AType>Simple</AType>
             <Amount size="1">10</Amount>
          </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Eldritch Knight: Imbue the Blade</Name>
@@ -513,6 +518,7 @@ Activation Cost: [8/6/4] Spell Points</Description>
             <Amount size="3">3 6 10</Amount>
             <Percent/>
          </Effect>
+         <Category>utility</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Eldritch Knight: Arcane Siphon</Name>
@@ -547,6 +553,9 @@ for 20 seconds.</Description>
                </Requirement>
             </Requirements>
          </Effect>
+         <Cooldown>12</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Eldritch Knight: Item Defense</Name>
@@ -702,6 +711,8 @@ Activation Cost: [8/6/4] Spell points</Description>
                <Value>2</Value>
             </Requirement>
          </Requirements>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Eldritch Knight: Shield Training</Name>
@@ -1018,6 +1029,8 @@ Knight's Strike: +30 Universal spell power and +3% Critical Spell Damage for 30 
                </Requirement>
             </Requirements>
          </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Eldritch Knight: Offhand Defenses</Name>
@@ -1485,6 +1498,7 @@ Cooldown: 3 Minutes</Description>
             <Amount size="4">0 30 0 180</Amount>
             <Item>Wizard</Item>
          </Effect>
+         <Cooldown>180</Cooldown>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Eldritch Knight: Eldritch Tempest</Name>
@@ -1518,6 +1532,8 @@ all nearby enemies. This additional force damage is affected by your spell power
                <Value>12</Value>
             </Requirement>
          </Requirements>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
    </EnhancementTree>
 </Enhancements>

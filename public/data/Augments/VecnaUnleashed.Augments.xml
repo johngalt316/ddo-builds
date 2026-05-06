@@ -173,6 +173,12 @@ This weapon has Ghost Touch and can bypass the Ethereality of Incorporeal creatu
       <Type>Orange</Type>
       <Type>Yellow</Type>
       <Icon>HistoryBookYellow</Icon>
+      <Effect>
+         <Type>ExtraActionBoost</Type>
+         <Bonus>Enhancement</Bonus>
+         <AType>Simple</AType>
+         <Amount size="1">3</Amount>
+      </Effect>
    </Augment>
    <Augment>
       <Name>Legendary Guide to Animal Handling</Name>

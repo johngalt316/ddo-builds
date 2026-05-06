@@ -77,6 +77,8 @@ While under this effect you do not automatically fail Saving Throws on a roll of
           <Clickie />
         </EnhancementSelection>
       </Selector>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Purple Dragon Knight: Adaptability</Name>
@@ -250,6 +252,8 @@ While under this effect you do not automatically fail Saving Throws on a roll of
           <Clickie />
         </EnhancementSelection>
       </Selector>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Purple Dragon Knight: Greater Adaptability</Name>
@@ -425,6 +429,8 @@ While under this effect you do not automatically fail Saving Throws on a roll of
           <Clickie />
         </EnhancementSelection>
       </Selector>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
     </EnhancementTreeItem>
     <!--Tier 1-->
     <EnhancementTreeItem>
@@ -1142,6 +1148,9 @@ Cooldown: 30 seconds</Description>
           <Item>PDKPurpleDragonFocus</Item>
         </Requirement>
       </Requirements>
+         <Cooldown>30</Cooldown>
+         <Category>cc</Category>
+         <UsesActionBoostCharge/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Purple Dragon Knight: Shield Deflection</Name>
@@ -1342,6 +1351,8 @@ Effects that grant extra Action Boost uses give you additional uses per rest of 
         <Amount size="4">0 0 0 0</Amount>
         <Item>None</Item>
       </Effect>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
     </EnhancementTreeItem>
     <!--Tier 4-->
     <EnhancementTreeItem>
@@ -1366,6 +1377,9 @@ Cooldown: 30 seconds</Description>
           <Item>PDKRallyingCry</Item>
         </Requirement>
       </Requirements>
+         <Cooldown>30</Cooldown>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Purple Dragon Knight: For Cormyr!</Name>
@@ -1394,6 +1408,8 @@ a Morale bonus to weapon damage equal to your Charisma modifier for two minutes.
         <Amount size="4">0 0 0 0</Amount>
         <Item>None</Item>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Purple Dragon Knight: Action Surge IV</Name>
@@ -1582,6 +1598,8 @@ Effects that grant extra Action Boost uses give you additional uses per rest of 
         <Amount size="4">0 0 0 0</Amount>
         <Item>None</Item>
       </Effect>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
     </EnhancementTreeItem>
   </EnhancementTree>
 </Enhancements>

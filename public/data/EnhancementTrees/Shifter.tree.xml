@@ -291,6 +291,7 @@ hate, making enemies more likely to attack you.</Description>
           </Effect>
         </EnhancementSelection>
       </Selector>
+         <Category>debuff</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Shifter: Hunt &amp; Track</Name>
@@ -551,6 +552,8 @@ Saving Throws, plus an additional 1 per 10 Character Levels you have for 20 seco
           </Requirements>
         </EnhancementSelection>
       </Selector>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Shifter: Magic Fang</Name>
@@ -575,6 +578,7 @@ Cooldown: 20 seconds</Description>
         <Amount size="40">1 1 1 1 2 2 2 2 2 3 3 3 3 3 4 4 4 4 4 5 5 5 5 5 6 6 6 6 6 7 7 7 7 7 8 8 8 8 8 9</Amount>
         <Item>All</Item>
       </Effect>
+         <Cooldown>20</Cooldown>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Shifter: Maul</Name>
@@ -591,6 +595,8 @@ may also intimidate the target based on the player's intimidate skill.</Descript
       <Ranks>1</Ranks>
       <MinSpent>5</MinSpent>
       <Clickie />
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <!--Tier 3-->
     <EnhancementTreeItem>
@@ -951,6 +957,7 @@ Cooldown: [20/15/10] seconds</Description>
       <Ranks>3</Ranks>
       <MinSpent>15</MinSpent>
       <Clickie />
+         <Category>cc</Category>
     </EnhancementTreeItem>
   </EnhancementTree>
 </Enhancements>

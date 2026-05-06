@@ -97,6 +97,7 @@ Cooldown: 1 Minute</Description>
             <Amount size="3">0 3 10</Amount>
             <Item>Diplomacy</Item>
          </Effect>
+         <Cooldown>60</Cooldown>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Inquisitive: Mind Like Iron</Name>
@@ -372,6 +373,7 @@ Spell Point Cost: [30/20/10]</Description>
             <Item>InquisitiveConjureBolts</Item>
             <Item>Conjure Bolts</Item>
          </Effect>
+         <Category>utility</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Inquisitive: Law on your side</Name>
@@ -395,6 +397,8 @@ deal 1d10 Law damage per Imbue Dice on hit to Chaotic creatures and 1d6 Law dama
 on hit to all other creatures, scaling with 200% Ranged Power.</Description>
             <Group>Imbue</Group>
          </Stance>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Inquisitive: Inquisitive Skills</Name>
@@ -580,6 +584,9 @@ Cooldown: 30 seconds.</Description>
                <Value>2</Value>
             </Requirement>
          </Requirements>
+         <Cooldown>30</Cooldown>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
       </EnhancementTreeItem>
       <!--Inquisitive Tier 3 Enhancements-->
       <EnhancementTreeItem>
@@ -655,6 +662,9 @@ Ranged Power.</Description>
                <Clickie/>
             </EnhancementSelection>
          </Selector>
+         <Cooldown>6</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Inquisitive: Improved Observation</Name>
@@ -703,6 +713,8 @@ Cooldown: 18 seconds</Description>
                <Value>3</Value>
             </Requirement>
          </Requirements>
+         <Cooldown>18</Cooldown>
+         <Category>cc</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Inquisitive: Ability Score I</Name>
@@ -1146,6 +1158,9 @@ Cooldown: 30 seconds</Description>
             <AType>Simple</AType>
             <Amount size="1">10</Amount>
          </Effect>
+         <Cooldown>30</Cooldown>
+         <Category>cc</Category>
+         <UsesActionBoostCharge/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Inquisitive: Arresting Assault</Name>
@@ -1170,6 +1185,8 @@ Cooldown: 1 minute</Description>
                <Value>12</Value>
             </Requirement>
          </Requirements>
+         <Cooldown>60</Cooldown>
+         <Category>cc</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Inquisitive: Improved Uncanny Dodge</Name>

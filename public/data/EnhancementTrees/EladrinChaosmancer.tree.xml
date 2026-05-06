@@ -273,6 +273,7 @@ Character Levels, for 10 seconds.</Description>
       <MinSpent>1</MinSpent>
       <Clickie />
       <ArrowRight />
+         <Category>boost</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>EladrinWMStepThroughTheFade</InternalName>
@@ -645,6 +646,9 @@ Can only be used if you have Spring Affinity Active.</Description>
           <Item>EladrinWMMajorSpringAttunement</Item>
         </Requirement>
       </Requirements>
+         <Cooldown>10</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>EladrinWMScorchingSummer</InternalName>
@@ -678,6 +682,9 @@ Can only be used if you have Summer Affinity Active.</Description>
           <Item>EladrinWMMajorSummerAttunement</Item>
         </Requirement>
       </Requirements>
+         <Cooldown>10</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>EladrinWChaosControlII</InternalName>
@@ -722,6 +729,9 @@ Can only be used if you have Autumn Affinity Active.</Description>
           <Item>EladrinWMMajorAutumnAttunement</Item>
         </Requirement>
       </Requirements>
+         <Cooldown>10</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>EladrinWMWinterHail</InternalName>
@@ -755,6 +765,9 @@ Can only be used if you have Winter Affinity Active.</Description>
           <Item>EladrinWMMajorWinterAttunement</Item>
         </Requirement>
       </Requirements>
+         <Cooldown>10</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
   </EnhancementTree>
 </Enhancements>

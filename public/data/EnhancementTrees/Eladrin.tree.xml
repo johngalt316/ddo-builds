@@ -413,6 +413,8 @@ Levels, for 10 seconds.</Description>
           </Requirement>
         </Requirements>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>EladrinStepThroughTheFade</InternalName>
@@ -813,6 +815,9 @@ is extended.</Description>
         <Amount size="4">0 2 0 3</Amount>
         <Item>None</Item>
       </Effect>
+         <Cooldown>3</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>EladrinSummerSpell</InternalName>
@@ -842,6 +847,9 @@ Cooldown: 3 seconds</Description>
         <Amount size="4">0 10 0 3</Amount>
         <Item>None</Item>
       </Effect>
+         <Cooldown>3</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>EladrinSkill</InternalName>
@@ -900,6 +908,7 @@ Cooldown: 3 seconds</Description>
         <Amount size="4">0 2 0 3</Amount>
         <Item>None</Item>
       </Effect>
+         <Cooldown>3</Cooldown>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>EladrinSWinterSpell</InternalName>
@@ -929,6 +938,8 @@ Cooldown: 3 seconds</Description>
         <Amount size="4">0 15 0 3</Amount>
         <Item>None</Item>
       </Effect>
+         <Cooldown>3</Cooldown>
+         <Category>utility</Category>
     </EnhancementTreeItem>
   </EnhancementTree>
 </Enhancements>

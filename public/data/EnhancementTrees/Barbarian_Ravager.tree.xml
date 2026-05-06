@@ -302,6 +302,8 @@ Does not affect bosses. (Cost 1 Rage. Cooldown: 30 seconds)</Description>
         <Other>1d20</Other>
         <Skill>Intimidate</Skill>
       </DC>
+         <Cooldown>30</Cooldown>
+         <Category>cc</Category>
     </EnhancementTreeItem>
     <!--Tier 1-->
     <EnhancementTreeItem>
@@ -358,6 +360,9 @@ Cooldown: 6 seconds</Description>
           <Value>1</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>6</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Ravager: Do You Like Pain?</Name>
@@ -440,6 +445,8 @@ Damage is doubled when Two Handed Fighting or fighting in an animal form..</Desc
         </Requirements>
         <Item>Two Handed</Item>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Ravager: Hardy Rage</Name>
@@ -580,6 +587,9 @@ Cooldown: 6 seconds</Description>
           <Value>2</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>6</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Ravager: Action Boost: Melee Power</Name>
@@ -601,6 +611,9 @@ Cooldown: 30 seconds</Description>
           <Value>2</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>30</Cooldown>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
     </EnhancementTreeItem>
     <!--Tier 3-->
     <EnhancementTreeItem>
@@ -644,6 +657,9 @@ Cooldown: 12 seconds</Description>
           <Value>3</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>12</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Ravager: Festering Wound</Name>

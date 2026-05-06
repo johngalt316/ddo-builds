@@ -296,6 +296,9 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
           </Effect>
         </EnhancementSelection>
       </Selector>
+         <Cooldown>8</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Fury of the Wild: Savage Take Down</Name>
@@ -381,6 +384,8 @@ the highest of 100% Positive Spell Power or 200% Melee Power.</Description>
           </Requirement>
         </Requirements>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Fury of the Wild: Enduring</Name>
@@ -456,6 +461,9 @@ Cooldown: 12 seconds</Description>
           <Clickie/>
         </EnhancementSelection>
       </Selector>
+         <Cooldown>12</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Fury of the Wild: Fear my Vengeance</Name>
@@ -564,6 +572,7 @@ previous one expires.</Description>
           </Requirement>
         </Requirements>
       </Effect>
+         <Category>boost</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Fury of the Wild: Gird against Demons</Name>
@@ -1154,6 +1163,9 @@ Cooldown: 5 minutes.</Description>
           <Value>30</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>300</Cooldown>
+         <Category>heal</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Fury of the Wild: Nature's Fury</Name>
@@ -1255,6 +1267,7 @@ Cooldown of 30 seconds.</Description>
         <ModAbility>Constitution</ModAbility>
         <Tactical>Trip</Tactical>
       </DC>
+         <Category>cc</Category>
     </EnhancementTreeItem>
   </EnhancementTree>
 </Enhancements>

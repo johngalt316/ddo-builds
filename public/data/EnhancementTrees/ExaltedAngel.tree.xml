@@ -201,6 +201,7 @@ Cooldown: 3 seconds</Description>
         <Amount size="1">1</Amount>
         <ApplyAsItemEffect />
       </Effect>
+         <Cooldown>3</Cooldown>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Exalted Angel: Heavenly Leap</Name>
@@ -422,6 +423,8 @@ This has a cooldown of 5 seconds before it can trigger again.</Description>
           </Stance>
         </EnhancementSelection>
       </Selector>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Exalted Angel: Holy Strike</Name>
@@ -508,6 +511,8 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
           </Effect>
         </EnhancementSelection>
       </Selector>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Exalted Angel: Bane of Undeath</Name>
@@ -630,6 +635,9 @@ Cooldown: 20 seconds</Description>
           <Value>20</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>20</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Exalted Angel: Angelic Body</Name>
@@ -973,6 +981,9 @@ Cost: 12 Spell Points</Description>
           </Effect>
         </EnhancementSelection>
       </Selector>
+         <Cooldown>12</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Exalted Angel: Angelic Soul</Name>
@@ -1346,6 +1357,9 @@ Cost: 40 Spell Points</Description>
           </Effect>
         </EnhancementSelection>
       </Selector>
+         <Cooldown>10</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Exalted Angel: Blessed Water</Name>
@@ -1444,6 +1458,8 @@ Dice per Religious Lore feat you have.</Description>
         <AType>SpellInfo</AType>
         <Amount size="4">0 0 0 0</Amount>
       </Effect>
+         <Category>heal</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Exalted Angel: Enhanced Metamagics</Name>

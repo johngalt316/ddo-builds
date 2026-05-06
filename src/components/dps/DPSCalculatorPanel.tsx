@@ -221,6 +221,7 @@ function MagicRotationEditor({
   const spells      = useGameDataStore(s => s.spells);
   const classes     = useGameDataStore(s => s.classes);
   const enhancementTrees = useGameDataStore(s => s.enhancementTrees);
+  const augments         = useGameDataStore(s => s.augments);
   const breakdowns  = useBreakdowns();
   // ── Side-by-side comparison ─────────────────────────────────────────
   // Pick another EnhancementSet to evaluate against the active one. The
@@ -241,8 +242,8 @@ function MagicRotationEditor({
   const slas = useMemo(() => breakdowns?.slas ?? [], [breakdowns]);
 
   const abilities = useMemo(
-    () => getMagicAbilities(build, spells, classes, slas, enhancementTrees),
-    [build, spells, classes, slas, enhancementTrees],
+    () => getMagicAbilities(build, spells, classes, slas, enhancementTrees, augments),
+    [build, spells, classes, slas, enhancementTrees, augments],
   );
   const abilityById = useMemo(() => {
     const m = new Map<string, MagicAbility>();

@@ -167,6 +167,8 @@ and slashing damage. Activation Cost: 20 spell points. Cooldown: 10 seconds.</De
           </Requirement>
         </Requirements>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Arcane Archer (Elf): Metalline Arrows</Name>
@@ -221,6 +223,8 @@ Activation Cost: 20 spell points. Cooldown: 10 seconds.</Description>
           </Requirement>
         </Requirements>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Arcane Archer (Elf): Aligned Arrows</Name>
@@ -275,6 +279,8 @@ damage reduction. Activation Cost: 20 spell points. Cooldown: 10 seconds.</Descr
           </Requirement>
         </Requirements>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Arcane Archer (Elf): Shadow Arrows</Name>
@@ -435,6 +441,8 @@ Activation cost: 2 spell points. Cooldown: 3 seconds</Description>
       <Ranks>1</Ranks>
       <MinSpent>1</MinSpent>
       <Clickie />
+         <Cooldown>3</Cooldown>
+         <Category>boost</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Arcane Archer (Elf): Energy of the Wild</Name>
@@ -560,6 +568,8 @@ Passive: +5 Universal Spell Power</Description>
         <AType>Simple</AType>
         <Amount size="1">5</Amount>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Arcane Archer (Elf): Awareness</Name>
@@ -604,6 +614,9 @@ from your target.</Description>
       <Ranks>1</Ranks>
       <MinSpent>5</MinSpent>
       <Clickie />
+         <Cooldown>3</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Arcane Archer (Elf): Force Arrows</Name>
@@ -642,6 +655,8 @@ This damage scales with 75% of your Spell Power.</Description>
           </Requirement>
         </Requirements>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Arcane Archer (Elf): Elemental Inferno</Name>
@@ -659,6 +674,8 @@ for 6 seconds. This effect can stack 20 times, and loses one stack on expiration
       <Ranks>1</Ranks>
       <MinSpent>5</MinSpent>
       <Clickie />
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Arcane Archer (Elf): Elemental Arrows II</Name>
@@ -825,6 +842,8 @@ Passive: +5 Universal Spell Power</Description>
           <Clickie />
         </EnhancementSelection>
       </Selector>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
     </EnhancementTreeItem>
     <!--Tier 3-->
     <EnhancementTreeItem>
@@ -860,6 +879,9 @@ Will DC 18 + Half Character Level + Wisdom Modifier negates.)</Description>
         <HalfClassLevel>All</HalfClassLevel>
         <ModAbility>Wisdom</ModAbility>
       </DC>
+         <Cooldown>3</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Arcane Archer (Elf): Terror Arrows</Name>
@@ -906,6 +928,7 @@ On Vorpal: Target is subject to a Phantasmal Killer effect.</Description>
         <ModAbility>Wisdom</ModAbility>
         <School>Enchantment</School>
       </DC>
+         <Category>cc</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Arcane Archer (Elf): Soul Magic</Name>
@@ -1205,6 +1228,7 @@ On Save: -10% Movement and Attack speed.</Description>
         <ModAbility>Wisdom</ModAbility>
         <School>Enchantment</School>
       </DC>
+         <Category>cc</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Arcane Archer (Elf): Smiting Arrows</Name>
@@ -1490,6 +1514,9 @@ Cooldown: 20 seconds.</Description>
           <Value>12</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>20</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Arcane Archer (Elf): Opening Volley</Name>
@@ -1511,6 +1538,8 @@ receive increased damage.</Description>
           <Value>12</Value>
         </Requirement>
       </Requirements>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Arcane Archer (Elf): Improved Elemental Arrows</Name>

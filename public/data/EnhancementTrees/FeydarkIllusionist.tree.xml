@@ -100,6 +100,7 @@ tree, including this one, your Familiar grants you +5 Force and +5 Universal Spe
             <AType>Simple</AType>
             <Amount size="1">5</Amount>
          </Effect>
+         <Category>utility</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Feydark Illusionist: Ability I</Name>
@@ -226,6 +227,7 @@ Cooldown: 8 seconds</Description>
             <AType>Simple</AType>
             <Amount size="1">5</Amount>
          </Effect>
+         <Cooldown>8</Cooldown>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Feydark Illusionist: Ability II</Name>
@@ -420,6 +422,8 @@ Passive: +2 Intelligence, Wisdom and Charisma. +2 Illusion DCs.</Description>
             <AType>Simple</AType>
             <Amount size="1">5</Amount>
          </Effect>
+         <Cooldown>180</Cooldown>
+         <Category>boost</Category>
       </EnhancementTreeItem>
       <!--Tier 1-->
       <EnhancementTreeItem>
@@ -677,6 +681,8 @@ Cooldown: [8/6/4] seconds</Description>
                <Value>2</Value>
             </Requirement>
          </Requirements>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <!--Tier 3-->
       <EnhancementTreeItem>
@@ -723,6 +729,8 @@ Cooldown: 30 seconds</Description>
                <Value>3</Value>
             </Requirement>
          </Requirements>
+         <Cooldown>30</Cooldown>
+         <Category>utility</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Feydark Illusionist: Magical Attunement I</Name>
@@ -887,6 +895,8 @@ Cooldown: [12/10/8] seconds</Description>
                <Value>4</Value>
             </Requirement>
          </Requirements>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Feydark Illusionist: Magical Attunement II</Name>
@@ -1156,6 +1166,8 @@ Cooldown: [35/30/25] seconds</Description>
                <Value>12</Value>
             </Requirement>
          </Requirements>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Feydark Illusionist: Force in Tandem</Name>

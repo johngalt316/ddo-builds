@@ -43,6 +43,7 @@ Cooldown: 4 Seconds.</Description>
             <Item>Spot</Item>
             <Item>Listen</Item>
          </Effect>
+         <Cooldown>4</Cooldown>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Horizon Walker: Improved Marking</Name>
@@ -113,6 +114,8 @@ In addition you gain Haste SLA: 0 SP cost, 2 minute cooldown</Description>
             <Amount size="4">0 0 0 120</Amount>
             <Item>None</Item>
          </Effect>
+         <Cooldown>120</Cooldown>
+         <Category>utility</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Horizon Walker: Dauntless Marking</Name>
@@ -177,6 +180,8 @@ Passive: Your Marked Targets get -20% to movement speed.</Description>
             <Amount size="4">0 0 0 600</Amount>
             <Item>None</Item>
          </Effect>
+         <Cooldown>600</Cooldown>
+         <Category>utility</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Horizon Walker: Horizon</Name>
@@ -255,6 +260,9 @@ Cooldown: 6 seconds.</Description>
          <MinSpent>1</MinSpent>
          <Clickie/>
          <ArrowUp/>
+         <Cooldown>6</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Horizon Walker: Planar Dodge</Name>
@@ -322,6 +330,7 @@ Arrows in other trees.</Description>
             <Item>HWConjureArrow</Item>
             <Item>Conjure Arrows</Item>
          </Effect>
+         <Category>utility</Category>
       </EnhancementTreeItem>
       <!--Tier 2-->
       <EnhancementTreeItem>
@@ -514,6 +523,8 @@ equal to 1/2 of your Dexterity modifier for [30/60/120] seconds.</Description>
             </Requirements>
             <ApplyAsItemEffect/>
          </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Horizon Walker: Two Places At Once</Name>
@@ -682,6 +693,8 @@ On bosses, this does not immobilize or stun.</Description>
                <Value>4</Value>
             </Requirement>
          </Requirements>
+         <Cooldown>20</Cooldown>
+         <Category>cc</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Horizon Walker: Walker's Guidance</Name>
@@ -701,6 +714,8 @@ Traps for 12 seconds. 60 second cooldown.</Description>
                <Value>4</Value>
             </Requirement>
          </Requirements>
+         <Cooldown>60</Cooldown>
+         <Category>boost</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Horizon Walker: Scattershot</Name>
@@ -724,6 +739,8 @@ Shares Charges and a Cooldown with Manyshot.</Description>
                <Value>4</Value>
             </Requirement>
          </Requirements>
+         <Cooldown>2</Cooldown>
+         <Category>debuff</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Horizon Walker: Ability II</Name>
@@ -873,6 +890,8 @@ your Character Level for 12 seconds. 12 second cooldown.</Description>
             <Amount size="4">0 0 0 12</Amount>
             <Item>None</Item>
          </Effect>
+         <Cooldown>12</Cooldown>
+         <Category>boost</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Horizon Walker: Powershot</Name>

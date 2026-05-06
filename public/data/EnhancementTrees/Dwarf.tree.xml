@@ -317,6 +317,8 @@ Cooldown: 10 seconds.</Description>
             <Amount size="4">0 0 0 10</Amount>
             <Item>None</Item>
          </Effect>
+         <Cooldown>10</Cooldown>
+         <Category>utility</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Dwarf: Tactics</Name>
@@ -510,6 +512,9 @@ Cooldown: 1 minute.</Description>
             <Amount size="4">0 0 0 60</Amount>
             <Item>None</Item>
          </Effect>
+         <Cooldown>60</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Dwarf: Dwarven Runes</Name>
@@ -549,6 +554,9 @@ to movement speed, sink in water, and cannot fly. (Cooldown: 3 minutes.)</Descri
                <Item>DwarfChildOfTheMountain</Item>
             </Requirement>
          </Requirements>
+         <Cooldown>180</Cooldown>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Dwarf: Weapon Training III</Name>
@@ -680,6 +688,7 @@ Target corporeal creature is grabbed by earthen hands and rendered helpless.</De
             <ModAbility>Constitution</ModAbility>
             <School>Transmutation</School>
          </DC>
+         <Category>cc</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Dwarf Fortress</Name>

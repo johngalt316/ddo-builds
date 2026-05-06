@@ -217,6 +217,9 @@ Cooldown: 3 minutes</Description>
         <Amount size="4">0 0 0 180</Amount>
         <Item>None</Item>
       </Effect>
+         <Cooldown>180</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Morninglord: Bane of the Restless</Name>
@@ -343,6 +346,7 @@ Tier 3: Aid, Spell Resistance, and Death Ward</Description>
         <Amount size="12">0 0 0 60 0 0 0 60 0 0 0 60</Amount>
         <Item>All</Item>
       </Effect>
+         <Category>boost</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Morninglord: Enchantment Lore</Name>
@@ -509,6 +513,7 @@ Cooldown: 2 minutes</Description>
           <Item>MorninglordEnchantmentLore</Item>
         </Requirement>
       </Requirements>
+         <Cooldown>120</Cooldown>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Morninglord: Fey Sight</Name>

@@ -126,6 +126,7 @@ Cooldown: 1 minute</Description>
                <Item>ShadarKaiCore2</Item>
             </Requirement>
          </Requirements>
+         <Cooldown>60</Cooldown>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Shadar-Kai: Shadow Jaunt</Name>
@@ -151,6 +152,8 @@ Cooldown: 1 minute</Description>
                <Item>ShadarKaiCore3</Item>
             </Requirement>
          </Requirements>
+         <Cooldown>60</Cooldown>
+         <Category>utility</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Shadar-Kai: Empowered Jaunt</Name>
@@ -371,6 +374,9 @@ Cooldown: 30 seconds</Description>
                <Item>ShadarKaiStealthy</Item>
             </Requirement>
          </Requirements>
+         <Cooldown>30</Cooldown>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
       </EnhancementTreeItem>
        <!--Tier 3-->
     <EnhancementTreeItem>
@@ -407,6 +413,8 @@ Cooldown: 3 Seconds</Description>
             <Amount size="4">0 0 0 3</Amount>
             <Item>None</Item>
          </Effect>
+         <Cooldown>3</Cooldown>
+         <Category>utility</Category>
     </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Shadar-Kai: Improved Ghostly Essence</Name>
@@ -467,6 +475,8 @@ Cooldown: 18 seconds</Description>
       <Ranks>1</Ranks>
       <MinSpent>15</MinSpent>
       <Clickie/>
+         <Cooldown>18</Cooldown>
+         <Category>cc</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Shadar-Kai: Assassin's Mark</Name>
@@ -522,6 +532,8 @@ with Melee or Ranged power, and you gain 5 Cold resistance.</Description>
 with Melee or Ranged power, and you gain 5 Cold resistance.</Description>
             <Group>Imbue</Group>
          </Stance>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Shadar-Kai: Gloom Stalker</Name>

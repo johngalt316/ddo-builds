@@ -313,6 +313,8 @@ Cooldown: [30/15/6] seconds.</Description>
             <Amount size="12">0 35 0 30 0 30 0 15 0 25 0 6</Amount>
             <Item>None</Item>
          </Effect>
+         <Category>heal</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Bladeforged: Tactics</Name>
@@ -453,6 +455,7 @@ making enemies more likely to attack you.</Description>
                  </Requirement>
              </Requirements>
          </Effect>
+         <Category>debuff</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Bladeforged: Improved Power Attack</Name>
@@ -506,6 +509,8 @@ has an additional -[1/2/3] to your attack bonus.</Description>
                </Requirement>
             </Requirements>
          </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Bladeforged: Construct Toughness II</Name>
@@ -618,6 +623,8 @@ You deal +0.5[W] damage.</Description>
                </Requirement>
             </Requirements>
          </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Bladeforged: Resolve</Name>
@@ -633,6 +640,9 @@ Cooldown: 3 minutes.</Description>
          <Ranks>1</Ranks>
          <MinSpent>15</MinSpent>
          <Clickie/>
+         <Cooldown>180</Cooldown>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Bladeforged: Power of the Forge</Name>

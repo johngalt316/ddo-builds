@@ -344,6 +344,9 @@ and +20 Universal spell power.</Description>
         <AType>Simple</AType>
         <Amount size="1">20</Amount>
       </Effect>
+         <Cooldown>300</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <!--Harper Tier 1 Enhancements-->
     <EnhancementTreeItem>
@@ -485,6 +488,9 @@ Antireq: Cannot be taken with the Halfling racial enhancement.</Description>
           </Requirement>
         </RequiresNoneOf>
       </Requirements>
+         <Cooldown>30</Cooldown>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>HarperMagicalEndurance</InternalName>
@@ -610,6 +616,8 @@ to 1/2 of your Intelligence modifier for [30/60/120] seconds</Description>
         <Item>All</Item>
         <ApplyAsItemEffect/>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>HarperLeadership</InternalName>
@@ -898,6 +906,8 @@ Metamagic: Quicken, Enlarge (no extra cost). Spell resistance: No</Description>
         <Amount size="12">0 3 0 60 0 2 0 30 0 1 0 15</Amount>
         <Item>None</Item>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>HarperVigorOfLifeI</InternalName>
@@ -1180,6 +1190,7 @@ Passive: +1 DC for your spells</Description>
         <AType>Simple</AType>
         <Amount size="1">1</Amount>
       </Effect>
+         <Cooldown>300</Cooldown>
     </EnhancementTreeItem>
   </EnhancementTree>
 </Enhancements>

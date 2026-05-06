@@ -181,6 +181,9 @@ Passive: +10 Positive Spell Power</Description>
         <AType>Simple</AType>
         <Amount size="1">5</Amount>
       </Effect>
+         <Cooldown>6</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Deepwood Stalker: Advanced Sneak Attack</Name>
@@ -305,6 +308,8 @@ Passive: +10 Positive Spell Power</Description>
         <AType>Simple</AType>
         <Amount size="1">5</Amount>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Deepwood Stalker: Horizon Shot</Name>
@@ -531,6 +536,9 @@ Melee Attack: On Sneak Attack: Slow your enemy's movement by 50% for 10 seconds.
           <Value>1</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>15</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <!--Tier 2-->
     <EnhancementTreeItem>
@@ -634,6 +642,7 @@ Cooldown: 6 seconds</Description>
         <Amount size="4">0 0 0 6</Amount>
         <Item>Ranger</Item>
       </Effect>
+         <Cooldown>6</Cooldown>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Deepwood Stalker: Improved Weapon Finesse</Name>
@@ -700,6 +709,8 @@ Cooldown: 6 seconds</Description>
           <Clickie />
         </EnhancementSelection>
       </Selector>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
     </EnhancementTreeItem>
     <!--Tier 3-->
     <EnhancementTreeItem>
@@ -817,6 +828,9 @@ Cooldown: 10 seconds</Description>
           <Value>3</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>10</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Deepwood Stalker: Ability I</Name>
@@ -950,6 +964,9 @@ the exact same ability.</Description>
           <Item>DSKiller</Item>
         </Requirement>
       </Requirements>
+         <Cooldown>15</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Deepwood Stalker: Leg Shot</Name>
@@ -975,6 +992,9 @@ Ranged Attack: On Damage: Slow your enemy's movement by 50% for 10 seconds.</Des
           <Item>DSAimedShot</Item>
         </Requirement>
       </Requirements>
+         <Cooldown>10</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Deepwood Stalker: Ability II</Name>
@@ -1434,6 +1454,8 @@ and Shortbows when toggled on.</Description>
         </Requirements>
         <ApplyAsItemEffect />
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Deepwood Stalker: Strikes Like Lightning</Name>
@@ -1518,6 +1540,9 @@ threat. On hit, blinds the opponent for 6 seconds.</Description>
         <BaseClassLevel>Ranger</BaseClassLevel>
         <Tactical>Sunder</Tactical>
       </DC>
+         <Cooldown>12</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Deepwood Stalker: Improved Archer's Focus</Name>

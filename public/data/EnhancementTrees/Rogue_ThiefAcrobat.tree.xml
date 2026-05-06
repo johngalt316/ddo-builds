@@ -509,6 +509,9 @@ Passively provides: [5/10/15]% melee threat reduction.</Description>
         <AType>Stacks</AType>
         <Amount size="3">-5 -10 -15</Amount>
       </Effect>
+         <Cooldown>8</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Thief-Acrobat: Fast Movement</Name>
@@ -688,6 +691,8 @@ for 10 seconds. </Description>
           <Value>2</Value>
         </Requirement>
       </Requirements>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Thief-Acrobat: Haste Boost</Name>
@@ -718,6 +723,8 @@ for 10 seconds. </Description>
           <BonusAlacrity size="3">10 20 30</BonusAlacrity>
         </FollowOn>
       </Attack>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
     </EnhancementTreeItem>
     <!--Tier 3-->
     <EnhancementTreeItem>
@@ -865,6 +872,8 @@ Melee Quarterstaff Trip Attack: Trips all nearby enemies.</Description>
         <ModAbility>Intelligence</ModAbility>
         <ModAbility>Dexterity</ModAbility>
       </DC>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Thief Acrobat: Ability I</Name>
@@ -1021,6 +1030,8 @@ Melee Quarterstaff Attack: Whirl through enemies in a line.</Description>
           <Item>TASweepingStrikes</Item>
         </Requirement>
       </Requirements>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Thief Acrobat: Ability II</Name>
@@ -1196,6 +1207,8 @@ and 5 Maximum Dexterity Bonus with Light Armor.</Description>
           </RequiresOneOf>
         </Requirements>
       </Effect>
+         <Cooldown>90</Cooldown>
+         <Category>boost</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Thief-Acrobat: Vault</Name>
@@ -1233,6 +1246,7 @@ Requires you to have a quarterstaff equipped. (Cooldown: 15 seconds)</Descriptio
         <Amount size="4">0 0 0 15</Amount>
         <Item>None</Item>
       </Effect>
+         <Cooldown>15</Cooldown>
     </EnhancementTreeItem>
   </EnhancementTree>
 </Enhancements>

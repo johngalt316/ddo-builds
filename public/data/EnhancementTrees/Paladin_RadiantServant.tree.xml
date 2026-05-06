@@ -84,6 +84,8 @@ D&amp;D Dice: Heals 2d6+4 hp plus +1 per caster level (max 10).</Description>
           <Amount size="4">0 10 0 3</Amount>
           <Item>Cleric</Item>
        </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>SFRSCore3</InternalName>
@@ -119,6 +121,8 @@ level - a successful Will save reduces the damage by half.</Description>
           <AType>Simple</AType>
           <Amount size="1">1</Amount>
        </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>SFRSCore4</InternalName>
@@ -197,6 +201,9 @@ Healing Amplification. (Cooldown: 30 seconds)</Description>
           <AType>Simple</AType>
           <Amount size="1">1</Amount>
        </Effect>
+         <Cooldown>30</Cooldown>
+         <Category>heal</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>SFRSCore6</InternalName>
@@ -327,6 +334,8 @@ Rank 3: Removes all Blindness, Curse, Disease, Paralysis, Petrification and Pois
           <Value>1</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>2</Cooldown>
+         <Category>cc</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>PRSBliss</InternalName>
@@ -431,6 +440,7 @@ cost [1/2/4] fewer spell points.</Description>
           <Value>2</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>6</Cooldown>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Radiant Servant: Divine Healing</Name>
@@ -453,6 +463,9 @@ Note: Rank 1 ticks every 2 seconds, while Ranks 2 and 3 both tick every second.<
           <Value>2</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>2</Cooldown>
+         <Category>heal</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Radiant Servant: Improved Turning</Name>
@@ -610,6 +623,9 @@ insanity, nauseated, poisoned, and stunned. (Cooldown: 5 minutes)</Description>
         <Amount size="4">0 0 0 300</Amount>
         <Item>Sacred Fist</Item>
       </Effect>
+         <Cooldown>300</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Radiant Servant: Martyrdom</Name>
@@ -634,6 +650,8 @@ This ability toggles off on death.</Description>
           <Value>3</Value>
         </Requirement>
       </Requirements>
+         <Category>heal</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Radiant Servant: Ability I</Name>
@@ -882,6 +900,9 @@ they remain within it. Undead enemies are damaged for the same amount.
             <Value>12</Value>
          </Requirement>
       </Requirements>
+         <Cooldown>6</Cooldown>
+         <Category>heal</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Radiant Servant: Cure Focus</Name>
@@ -950,6 +971,8 @@ Activation Cost: 30 Spell Points. Cooldown: 1 minute.</Description>
             <Value>12</Value>
          </Requirement>
       </Requirements>
+         <Cooldown>60</Cooldown>
+         <Category>cc</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Radiant Servant: Reactive Heal</Name>
@@ -977,6 +1000,9 @@ affected by spell power. (Cooldown: 6 seconds)</Description>
             <Value>12</Value>
          </Requirement>
       </Requirements>
+         <Cooldown>6</Cooldown>
+         <Category>heal</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Radiant Servant: Divine Energy Resistance</Name>
@@ -1014,6 +1040,8 @@ Cost: 75 spell points</Description>
         <Amount size="4">0 75 0 6</Amount>
         <Item>Sacred Fist</Item>
       </Effect>
+         <Cooldown>6</Cooldown>
+         <Category>boost</Category>
     </EnhancementTreeItem>
   </EnhancementTree>
 </Enhancements>

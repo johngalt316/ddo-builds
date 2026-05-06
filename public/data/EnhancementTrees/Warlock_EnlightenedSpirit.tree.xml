@@ -42,6 +42,8 @@ Cooldown: 8 seconds.</Description>
 deals the same damage as your Eldritch Blast to all foes in range every few seconds.</Description>
             <Group>Blast Shape</Group>
          </Stance>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Enlightened Spirit: Aura of Courage</Name>
@@ -80,6 +82,8 @@ Passive: +5 Healing Amplification.</Description>
             <AType>Simple</AType>
             <Amount size="1">5</Amount>
          </Effect>
+         <Cooldown>2</Cooldown>
+         <Category>cc</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Enlightened Spirit: Shape Vestments</Name>
@@ -214,6 +218,9 @@ proficiency with all Martial weapons.</Description>
             <Item>Longbow</Item>
             <Item>Throwing Axe</Item>
          </Effect>
+         <Cooldown>2</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Enlightened Spirit: Celestial Spirit</Name>
@@ -273,6 +280,7 @@ When enabled, you Gain +3 bonus Imbue Dice.</Description>
                </Requirement>
             </Requirements>
          </Effect>
+         <Category>cc</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Enlightened Spirit: Ultimate Enlightenment</Name>
@@ -509,6 +517,7 @@ making enemies more likely to attack you.</Description>
                </Effect>
             </EnhancementSelection>
          </Selector>
+         <Category>debuff</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Enlightened Spirit: Rewards of Tribute</Name>
@@ -578,6 +587,9 @@ Metamagic: Extend, Quicken, Enlarge. Spell Resistance: No.</Description>
             <Amount size="12">0 60 0 2 0 50 0 2 0 40 0 2</Amount>
             <Item>Warlock</Item>
          </Effect>
+         <Cooldown>2</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Enlightened Spirit: Spiritual Bastion</Name>
@@ -715,6 +727,9 @@ Cooldown: 30 seconds.</Description>
                <Value>2</Value>
             </Requirement>
          </Requirements>
+         <Cooldown>30</Cooldown>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
       </EnhancementTreeItem>
       <!--Tier 3-->
       <EnhancementTreeItem>
@@ -740,6 +755,8 @@ Metamagic: Empower, Maximize, Quicken, Intensify. Spell Resistance: No.</Descrip
                <Value>3</Value>
             </Requirement>
          </Requirements>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Enlightened Spirit: Spiritual Ward</Name>
@@ -977,6 +994,8 @@ spells cast by all classes)</Description>
 1d6 Light damage that scales with Spell Power.</Description>
             <Group>Imbue</Group>
          </Stance>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Enlightened Spirit: Brilliance</Name>
@@ -1105,6 +1124,8 @@ Metamagic: Empower, Maximize, Quicken, Intensify. Spell Resistance: No.</Descrip
                <Value>12</Value>
             </Requirement>
          </Requirements>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Enlightened Spirit: Beacon</Name>
@@ -1185,6 +1206,9 @@ Cost: 8 spell points</Description>
                <Value>12</Value>
             </Requirement>
          </Requirements>
+         <Cooldown>30</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Enlightened Spirit: Displace Summons</Name>
@@ -1259,6 +1283,8 @@ Cooldown: 3 seconds.</Description>
             <Amount size="4">0 6 0 3</Amount>
             <Item>Warlock</Item>
          </Effect>
+         <Cooldown>3</Cooldown>
+         <Category>utility</Category>
       </EnhancementTreeItem>
    </EnhancementTree>
 </Enhancements>

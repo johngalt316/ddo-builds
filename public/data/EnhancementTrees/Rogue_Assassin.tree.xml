@@ -99,6 +99,8 @@ Cooldown: 6 seconds</Description>
           <Value>6</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>6</Cooldown>
+         <Category>boost</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Assassin: Nimbleness</Name>
@@ -386,6 +388,8 @@ of highest of Melee or Ranged power.</Description>
           <Value>1</Value>
         </Requirement>
       </Requirements>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Assassin: Shiv</Name>
@@ -409,6 +413,9 @@ Bluff duration is 1 second plus 1 second per four Rogue levels.</Description>
           <Value>1</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>12</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Assassin: Sneak Attack Training I</Name>
@@ -623,6 +630,9 @@ This damage scales with 200% Melee Power.</Description>
           <Value>2</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>6</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Assassin: Sneak Attack Training II</Name>
@@ -673,6 +683,9 @@ Ranged Power for 20 seconds. (Cooldown: 30 seconds)</Description>
           <Value>2</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>30</Cooldown>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
     </EnhancementTreeItem>
     <!--Tier 3-->
     <EnhancementTreeItem>
@@ -842,6 +855,8 @@ Deals [4/6/8]d8 unholy damage and blinds the target.</Description>
         <Tactical>Assassinate</Tactical>
         <ClassLevel>Rogue</ClassLevel>
       </DC>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Assassin: Sneak Attack Training III</Name>
@@ -942,6 +957,9 @@ Shares a cooldown with A Good Death and Merciful Strike (melee/ranged versions).
           <Value>4</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>15</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Assassin: Killer</Name>

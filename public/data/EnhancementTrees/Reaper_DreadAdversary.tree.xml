@@ -311,6 +311,7 @@ and gain a +[10/20/30]% Bonus to Doublestrike and Doubleshot for 30 seconds.</De
                <Value>4</Value>
             </Requirement>
          </Requirements>
+         <Category>boost</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Reaper's Strength or Dexterity I</Name>
@@ -846,6 +847,7 @@ of their Dodge. This lasts for 30 seconds.</Description>
                <Value>21</Value>
             </Requirement>
          </Requirements>
+         <Category>boost</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Reaper's Deadly Strikes</Name>
@@ -866,6 +868,8 @@ seconds.</Description>
                <Value>21</Value>
             </Requirement>
          </Requirements>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Reaper's Shot IV</Name>
@@ -984,6 +988,12 @@ seconds.</Description>
                <Value>27</Value>
             </Requirement>
          </Requirements>
+         <Effect>
+            <Type>MaxReaperCharge</Type>
+            <Bonus>Stacking</Bonus>
+            <AType>Stacks</AType>
+            <Amount size="1">1</Amount>
+         </Effect>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Reaper's Strength or Dexterity IV</Name>

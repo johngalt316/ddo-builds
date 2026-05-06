@@ -638,6 +638,8 @@ damage scales with Fire Spell Power.</Description>
           <Value>2</Value>
         </Requirement>
       </Requirements>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>AotSMindwrack</InternalName>
@@ -798,6 +800,8 @@ of Force dealing damage to all enemies in a straight line. While active you have
           </Requirement>
         </Requirements>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>AotSDevilsBulwarkI</InternalName>
@@ -892,6 +896,8 @@ Cooldown: [8/6/5] seconds.</Description>
           <Value>3</Value>
         </Requirement>
       </Requirements>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>AotSAbilityI</InternalName>
@@ -1098,6 +1104,8 @@ Cooldown: [8/6/5] seconds.</Description>
           <Value>12</Value>
         </Requirement>
       </Requirements>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>AotSDevilsBulwarkIII</InternalName>
@@ -1174,6 +1182,9 @@ Cooldown: 3 minutes</Description>
           <Value>12</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>180</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>AotSDarkLore</InternalName>

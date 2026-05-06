@@ -190,6 +190,7 @@ Power to all spells and +2 to your Maximum Spell points.</Description>
         <AType>Simple</AType>
         <Amount size="1">5</Amount>
       </Effect>
+         <Cooldown>6</Cooldown>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Archmage: Specialization II</Name>
@@ -389,6 +390,7 @@ Cooldown: 6 seconds</Description>
         <AType>Simple</AType>
         <Amount size="1">5</Amount>
       </Effect>
+         <Cooldown>6</Cooldown>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Archmage: Specialization III</Name>
@@ -588,6 +590,8 @@ Cooldown: 6 seconds</Description>
         <AType>Simple</AType>
         <Amount size="1">5</Amount>
       </Effect>
+         <Cooldown>6</Cooldown>
+         <Category>utility</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Archmage: Specialization IV</Name>
@@ -804,6 +808,7 @@ Passive: +1 Caster Level and Max Caster Level with all spells.</Description>
         <AType>Simple</AType>
         <Amount size="1">5</Amount>
       </Effect>
+         <Cooldown>6</Cooldown>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Archmage: Specialization V</Name>
@@ -1020,6 +1025,7 @@ Passive: +1 Caster Level and Max Caster Level with all spells.</Description>
         <AType>Simple</AType>
         <Amount size="1">5</Amount>
       </Effect>
+         <Cooldown>6</Cooldown>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Archmage: Master of Magic</Name>
@@ -1785,6 +1791,8 @@ Scale with 100% Spell Power.</Description>
         <Amount size="12">0 8 0 15 0 6 0 10 0 4 0 5</Amount>
         <Item>Wizard</Item>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Archmage: Spell Penetration</Name>
@@ -2210,6 +2218,8 @@ Cooldown: [18/12/6] seconds.</Description>
           <Amount size="12">0 12 0 18 0 8 0 12 0 6 0 6</Amount>
           <Item>Wizard</Item>
        </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Archmage: Arcane Supremacy</Name>

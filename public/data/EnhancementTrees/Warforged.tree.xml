@@ -536,6 +536,8 @@ making enemies more likely to attack you. (Cooldown: 2 seconds)</Description>
           </Requirement>
         </Requirements>
       </Effect>
+         <Cooldown>2</Cooldown>
+         <Category>debuff</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Warforged: Improved Power Attack</Name>
@@ -595,6 +597,8 @@ an additional -[1/2/3] to your attack bonus.</Description>
           </RequiresOneOf>
         </Requirements>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Warforged: Construct Toughness III</Name>
@@ -729,6 +733,8 @@ Cooldown: 15 seconds</Description>
           </Requirement>
         </Requirements>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Warforged: Resolve</Name>
@@ -744,6 +750,9 @@ Cooldown: 3 minutes.</Description>
       <Ranks>1</Ranks>
       <MinSpent>15</MinSpent>
       <Clickie />
+         <Cooldown>180</Cooldown>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Warforged: Construct Toughness IV</Name>

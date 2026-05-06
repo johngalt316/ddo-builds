@@ -296,6 +296,7 @@ making enemies more likely to attack you.</Description>
              </Effect>
             </EnhancementSelection>
          </Selector>
+         <Category>debuff</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Half-Orc: Orcish Weapon Training I</Name>
@@ -521,6 +522,8 @@ preventing spellcasting and uncenters you.</Description>
             </Requirements>
             <ApplyAsItemEffect/>
          </Effect>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
       </EnhancementTreeItem>
        <!--Tier 3-->
       <EnhancementTreeItem>
@@ -555,6 +558,7 @@ failure based on your Charisma.
             <Amount size="4">0 0 0 15</Amount>
             <Item>None</Item>
          </Effect>
+         <Cooldown>15</Cooldown>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Half-Orc: Great Weapon Aptitude</Name>
@@ -643,6 +647,8 @@ also has an additional -[1/2/3] to your attack bonus.</Description>
         </Requirements>
             <Item>Melee</Item>
          </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Half-Orc: Orcish Weapon Training III</Name>
@@ -698,6 +704,9 @@ Melee Attack: Brutally smash an enemy. This attack is guaranteed to be a Critica
          <Ranks>1</Ranks>
          <MinSpent>15</MinSpent>
          <Clickie/>
+         <Cooldown>30</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Half-Orc: Brutality</Name>

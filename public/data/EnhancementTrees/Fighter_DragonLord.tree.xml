@@ -203,6 +203,8 @@ damage on each hit in the element of your Draconic Soul. This damage scales with
         <Amount size="9">4 0 5 0 6 0 7 0 9</Amount>
         <ApplyAsItemEffect />
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>DragonLordCore3</InternalName>
@@ -345,6 +347,9 @@ by 1.</Description>
         <Amount size="1">3</Amount>
         <Item>All</Item>
       </Effect>
+         <Cooldown>20</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>DragonLordCore4</InternalName>
@@ -747,6 +752,9 @@ The bonus of all of your Draconic Auras increases by 2.</Description>
         <AType>Simple</AType>
         <Amount size="1">10</Amount>
       </Effect>
+         <Cooldown>20</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <!--Tier 1 Enhancements-->
     <EnhancementTreeItem>
@@ -1182,6 +1190,9 @@ Cooldown: 30 seconds.</Description>
           <CostPerRank size="1">1</CostPerRank>
         </EnhancementSelection>
       </Selector>
+         <Cooldown>30</Cooldown>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>DragonLordDragonslayer</InternalName>
@@ -1450,6 +1461,8 @@ or be Dazed. Affected enemies have a 25% chance to be broken out of Daze on dama
         <Tactical>Stun</Tactical>
         <Tactical2>Breath Weapon</Tactical2>
       </DC>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>DragonLordMightOrOutburst</InternalName>
@@ -1587,6 +1600,8 @@ When you use Dragon's Roar, you have a chance to restore 1 charge.</Description>
         <Item>DragonLordMightOrOutburst</Item>
         <Item>Battle Trance</Item>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>DragonLordAbilityI</InternalName>
@@ -1888,6 +1903,9 @@ Note: Also greatly slows the movement speed of enemy struck for ~2 seconds.</Des
           <Value>4</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>12</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>DragonLordAbilityII</InternalName>
@@ -2070,6 +2088,9 @@ Speed for 6 seconds.</Description>
           <Value>12</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>15</Cooldown>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>DragonLordConqueror</InternalName>

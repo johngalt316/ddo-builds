@@ -549,6 +549,9 @@ Cooldown: 9 seconds.</Description>
           </Effect>
         </EnhancementSelection>
       </Selector>
+         <Cooldown>9</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Stormsinger: Efficient Metamagic I</Name>
@@ -1085,6 +1088,8 @@ Max caster level: 25. Affects liches. </Description>
         <Amount size="12">0 30 25 20 0 25 25 16 0 20 25 12</Amount>
         <Item>Stormsinger</Item>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Stormsinger: Eye of the Storm</Name>

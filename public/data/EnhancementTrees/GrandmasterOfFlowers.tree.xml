@@ -584,6 +584,9 @@ and most forms of knockdown.</Description>
         <Item>Most forms of Knockdown</Item>
         <AType>NotNeeded</AType>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
+         <UsesActionBoostCharge/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Grandmaster of Flowers: Gain Strength</Name>
@@ -640,6 +643,8 @@ Cooldown: [120/90/60] seconds.</Description>
           </Effect>
         </EnhancementSelection>
       </Selector>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Grandmaster of Flowers: Enlightenment</Name>
@@ -785,6 +790,9 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
           </Effect>
         </EnhancementSelection>
       </Selector>
+         <Cooldown>15</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Grandmaster of Flowers: A Dance of Flowers</Name>
@@ -1577,6 +1585,7 @@ instead paralyzed by temporal shock for six seconds.</Description>
         <ModAbility>Charisma</ModAbility>
         <Tactical>Stun</Tactical>
       </DC>
+         <Category>cc</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Grandmaster of Flowers: Split the Soul</Name>
@@ -1612,6 +1621,8 @@ Defensive (Light) portions.</Description>
           <Value>30</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>300</Cooldown>
+         <Category>boost</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Grandmaster of Flowers: Legendary Flurry of Blows</Name>

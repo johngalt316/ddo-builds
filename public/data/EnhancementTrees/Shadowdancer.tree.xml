@@ -185,6 +185,8 @@ Cooldown: 2 minutes.</Description>
         <AType>Simple</AType>
         <Amount size="1">5</Amount>
       </Effect>
+         <Cooldown>120</Cooldown>
+         <Category>utility</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Shadowdancer: The Darkest Luck</Name>
@@ -875,6 +877,9 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
           </Effect>
         </EnhancementSelection>
       </Selector>
+         <Cooldown>8</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <!--Tier 3-->
     <EnhancementTreeItem>
@@ -1451,6 +1456,7 @@ effect. They must succeed on a Will saving throw to prevent their death.
           </Effect>
         </EnhancementSelection>
       </Selector>
+         <Cooldown>60</Cooldown>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Shadowdancer: Just a Taste</Name>
@@ -1598,6 +1604,9 @@ Cooldown: 5 minutes.</Description>
         <AType>SpellInfo</AType>
         <Amount size="4">0 0 0 0</Amount>
       </Effect>
+         <Cooldown>300</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
   </EnhancementTree>
 </Enhancements>

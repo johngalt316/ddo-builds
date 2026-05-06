@@ -167,6 +167,8 @@ Critical Damage.</Description>
         <AType>Simple</AType>
         <Amount size="1">5</Amount>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Apothecary: Spill the Bad Stuff</Name>
@@ -232,6 +234,8 @@ Critical Damage.</Description>
         <AType>Simple</AType>
         <Amount size="1">5</Amount>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Apothecary: Curative Admixture: Heal</Name>
@@ -305,6 +309,8 @@ Critical Damage.</Description>
         <AType>Simple</AType>
         <Amount size="1">5</Amount>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Apothecary: Genius Never Dies</Name>
@@ -470,6 +476,8 @@ Artificer/Alchemist Knowledge: Potions.</Description>
           </Effect>
         </EnhancementSelection>
       </Selector>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Apothecary: Apothecary Skills</Name>
@@ -779,6 +787,8 @@ temp ability damage and many afflictions.</Description>
         <AType>SpellInfo</AType>
         <Amount size="12">0 6 20 12 0 3 20 8 0 1 20 6</Amount>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Apothecary: Safety Goggles</Name>
@@ -1188,6 +1198,8 @@ Artificer/Alchemist Knowledge: Potions.</Description>
           </Effect>
         </EnhancementSelection>
       </Selector>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Apothecary: Gloves of the Master Apothecary</Name>
@@ -1319,6 +1331,8 @@ Mesmerized, Paralyzed, Petrified, or Stunned must make a Fortitude save
         <Other>d20</Other>
         <Skill>Heal</Skill>
       </DC>
+         <Category>heal</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Apothecary: Sleep or Death</Name>
@@ -1362,6 +1376,8 @@ Target enemy falls asleep for 6 seconds with no save.</Description>
           <Clickie />
         </EnhancementSelection>
       </Selector>
+         <Cooldown>30</Cooldown>
+         <Category>boost</Category>
     </EnhancementTreeItem>
   </EnhancementTree>
 </Enhancements>

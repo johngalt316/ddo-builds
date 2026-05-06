@@ -321,6 +321,8 @@ Fear and shaken effects are removed from you after [12/6/3] seconds.</Descriptio
         <Amount size="4">0 0 0 2</Amount>
         <Item>None</Item>
       </Effect>
+         <Category>heal</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Halfling: Break Out The Leeches</Name>
@@ -350,6 +352,8 @@ This ability shares a counter with Lesser Dragonmark of Healing.</Description>
         <Amount size="4">0 0 0 0</Amount>
         <Item>None</Item>
       </Effect>
+         <Category>heal</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Halfling: Nimble Reaction</Name>
@@ -413,6 +417,9 @@ This ability shares a counter with Lesser Dragonmark of Healing.</Description>
       <Ranks>3</Ranks>
       <MinSpent>5</MinSpent>
       <Clickie />
+         <Cooldown>30</Cooldown>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
     </EnhancementTreeItem>
     <!--Tier 3-->
     <EnhancementTreeItem>
@@ -440,6 +447,8 @@ This ability shares a counter with Lesser Dragonmark of Healing.</Description>
         <Amount size="4">0 0 0 5</Amount>
         <Item>None</Item>
       </Effect>
+         <Category>heal</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Halfling: Skillful Thrower</Name>

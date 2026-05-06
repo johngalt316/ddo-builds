@@ -284,6 +284,7 @@ Swords: You gain 15 Melee Power and Ranged Power for 60 seconds.</Description>
                </Requirement>
             </Requirements>
          </Effect>
+         <Category>boost</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Vistani: Blade Master</Name>
@@ -492,6 +493,9 @@ This puts Ten Thousand Stars and Manyshot on a 10 second cooldown.</Description>
                </Requirement>
             </Requirements>
          </Effect>
+         <Cooldown>10</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <!--Tier 2-->
       <EnhancementTreeItem>
@@ -634,6 +638,8 @@ Cooldown: 30 seconds</Description>
                      <BonusAlacrity size="3">10 20 30</BonusAlacrity>
                    </FollowOn>
                 </Attack>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
       </EnhancementTreeItem>
       <!--Tier 3-->
       <EnhancementTreeItem>
@@ -687,6 +693,9 @@ Cooldown: 15 seconds</Description>
                <Value>3</Value>
             </Requirement>
          </Requirements>
+         <Cooldown>15</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Vistani: Mist Stalker III</Name>
@@ -1237,6 +1246,7 @@ Throwing Dagger Missile Attack: Your throwing knife gains 100 doubleshot for
                </Effect>
             </EnhancementSelection>
          </Selector>
+         <Category>boost</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Vistani: Mist Stalker V</Name>
@@ -1293,6 +1303,8 @@ Cooldown: 60 seconds.</Description>
                </Requirement>
             </Requirements>
          </Effect>
+         <Cooldown>60</Cooldown>
+         <Category>boost</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Vistani: Blessed Blades</Name>
@@ -1318,6 +1330,9 @@ requires a throwing Dagger.)</Description>
                <Value>12</Value>
             </Requirement>
          </Requirements>
+         <Cooldown>10</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Vistani: Vendetta</Name>
@@ -1362,6 +1377,9 @@ multiplier to your equipped Daggers, Kukris,  or throwing knife for 15 seconds.
             <Item>Kukri</Item>
             <Item>Throwing Dagger</Item>
          </Effect>
+         <Cooldown>60</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
    </EnhancementTree>
 </Enhancements>

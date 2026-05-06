@@ -376,6 +376,8 @@ damage and knocking down enemy on failed Reflex save.</Description>
         <AType>SpellInfo</AType>
         <Amount size="4">0 0 0 0</Amount>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Deep Gnome: Hardy Nature</Name>
@@ -422,6 +424,8 @@ Cooldown: 8 seconds</Description>
             <Amount size="12">0 10 0 8 0 5 0 8 0 2 0 8</Amount>
             <Item>None</Item>
          </Effect>
+         <Cooldown>8</Cooldown>
+         <Category>cc</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Deep Gnome: Permanent Blur</Name>
@@ -530,6 +534,7 @@ Cooldown: [20/15/10] seconds.</Description>
              <Amount size="12">0 10 0 20 0 10 0 15 0 10 0 10</Amount>
             <Item>None</Item>
          </Effect>
+         <Category>utility</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Deep Gnome Spell Focus: Illusion</Name>
@@ -602,6 +607,7 @@ Cooldown: 16 seconds</Description>
             <Amount size="12">0 25 0 16 0 15 0 16 0 5 0 16</Amount>
             <Item>None</Item>
          </Effect>
+         <Cooldown>16</Cooldown>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Deep Gnome: Favored Enemy</Name>

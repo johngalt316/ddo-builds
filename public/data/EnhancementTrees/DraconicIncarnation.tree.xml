@@ -904,6 +904,9 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
           </Effect>
         </EnhancementSelection>
       </Selector>
+         <Cooldown>12</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>U51DraconicIncarnationDragocScales</InternalName>
@@ -1106,6 +1109,8 @@ This has a cooldown of 5 seconds.</Description>
 This has a cooldown of 5 seconds.</Description>
         <Group>Mantle</Group>
       </Stance>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Draconic Incarnation: Coalescence</Name>
@@ -1221,6 +1226,9 @@ Cooldown: 30 Seconds.</Description>
           <Value>23</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>30</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>U51DraconicIncarnationDauntingRoar</InternalName>
@@ -1773,6 +1781,9 @@ Cooldown: 5 minutes.</Description>
           <Value>30</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>300</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>U51DraconicIncarnationSpreadYourWings</InternalName>

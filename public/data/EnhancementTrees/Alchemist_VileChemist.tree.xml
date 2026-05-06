@@ -113,6 +113,8 @@ This damage scales with your Spell Power.</Description>
         <AType>Simple</AType>
         <Amount size="1">5</Amount>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Vile Chemist: Hidden Blades I</Name>
@@ -521,6 +523,8 @@ levels, for 1 minute per caster level.</Description>
         <Amount size="12">0 8 20 20 0 4 20 16 0 2 20 12</Amount>
         <Item>Alchemist</Item>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Vile Chemist: Deadly Poison I</Name>
@@ -803,6 +807,8 @@ Rank 3: Cause Poison-immune enemies to become vulnerable to Poison for 12 second
           <Clickie />
         </EnhancementSelection>
       </Selector>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Vile Chemist: Venom Affinity</Name>
@@ -938,6 +944,8 @@ Poison-immune enemies to become vulnerable to Poison for 12 seconds.</Descriptio
         <Amount size="12">0 8 10 12 0 6 10 10 0 4 10 6</Amount>
         <Item>Alchemist</Item>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Vile Chemist: Deadly Poison III</Name>
@@ -1375,6 +1383,8 @@ Poison-immune enemies to become vulnerable to Poison for 12 seconds.</Descriptio
         <Amount size="4">0 8 20 10</Amount>
         <Item>Alchemist</Item>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Vile Chemist: Fatal Poison</Name>

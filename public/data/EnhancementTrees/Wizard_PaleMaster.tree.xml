@@ -2241,6 +2241,8 @@ Amplification. +2 Spell Penetration.</Description>
         <AType>SpellInfo</AType>
         <Amount size="12">0 2 0 12 0 2 0 8 0 2 0 4</Amount>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <!--Tier 1-->
     <EnhancementTreeItem>
@@ -2272,6 +2274,8 @@ Cooldown: [12/8/4] seconds.</Description>
         <AType>SpellInfo</AType>
         <Amount size="12">0 6 0 12 0 4 0 8 0 2 0 4</Amount>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Pale Master: Negative Energy Conduit</Name>
@@ -2349,6 +2353,9 @@ your Knight's Damage, Attack Speed, Movement Speed, and Fortification.</Descript
           <Value>1</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>20</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Pale Master: Deathless Vigor</Name>
@@ -2641,6 +2648,8 @@ Cooldown: [15/10/5] seconds.</Description>
         <AType>SpellInfo</AType>
         <Amount size="12">0 10 0 15 0 8 0 10 0 5 0 5</Amount>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Pale Master: Negative Energy Adept</Name>
@@ -3213,6 +3222,8 @@ Cooldown: [18/12/6] seconds..</Description>
         <AType>SpellInfo</AType>
         <Amount size="12">0 20 0 18 0 15 0 12 0 10 0 6</Amount>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Pale Master: Animate Ally</Name>
@@ -3241,6 +3252,8 @@ Metamagic: Quicken, Enlarge. Spell Resistance: No</Description>
           <Value>12</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>18</Cooldown>
+         <Category>utility</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Pale Master: Necromantic Focus</Name>
@@ -3323,6 +3336,7 @@ spell. This may only trigger once every 60 seconds.</Description>
           <CostPerRank size="1">1</CostPerRank>
         </EnhancementSelection>
       </Selector>
+         <Category>boost</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Pale Master: Ascendant Shroud</Name>

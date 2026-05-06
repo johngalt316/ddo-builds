@@ -987,6 +987,8 @@ caster level and max caster level. You also gain a +10 racial bonus to acid resi
         <AType>Simple</AType>
         <Amount size="1">-1</Amount>
       </Effect>
+         <Category>heal</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <!--Tier 1-->
     <EnhancementTreeItem>
@@ -1867,6 +1869,9 @@ Cooldown: 20 seconds.</Description>
           <Value>12</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>20</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Earth Savant: Earthgrab</Name>
@@ -1919,6 +1924,8 @@ bludgeoning damage over time on a failed Reflex save.</Description>
         <ModAbility>Charisma</ModAbility>
         <BaseClassLevel>Sorcerer</BaseClassLevel>
       </DC>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Earth Savant: Conjuration Focus</Name>

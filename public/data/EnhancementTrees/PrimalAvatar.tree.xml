@@ -700,6 +700,9 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
           </Effect>
         </EnhancementSelection>
       </Selector>
+         <Cooldown>8</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>U51PrimalAvatarNaturesFriend</InternalName>
@@ -912,6 +915,9 @@ Cooldown: 12 seconds.</Description>
           <Value>20</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>12</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <!--Tier 2 Enhancements-->
     <EnhancementTreeItem>
@@ -1060,6 +1066,8 @@ these effects.</Description>
           </Stance>
         </EnhancementSelection>
       </Selector>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Primal Avatar: Thrive</Name>
@@ -1228,6 +1236,8 @@ Requires you to be attuned to the path of Sky.</Description>
           </Effect>
         </EnhancementSelection>
       </Selector>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>U51PrimalAvatarSpiritBoon</InternalName>
@@ -1867,6 +1877,8 @@ Is considered a Druid spell for interactions with other abilities.</Description>
           </Requirements>
         </EnhancementSelection>
       </Selector>
+         <Cooldown>20</Cooldown>
+         <Category>utility</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>U51PrimalAvatarAncientWisdom</InternalName>
@@ -2020,6 +2032,10 @@ Cooldown: 5 minutes</Description>
           </Requirements>
         </EnhancementSelection>
       </Selector>
+         <Cooldown>300</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
+         <UsesActionBoostCharge/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>U51PrimalAvatarEpicImprovedIntensifySpell</InternalName>

@@ -52,6 +52,8 @@ Dice, scaling with 200% Melee Power. Each core ability in this tree grants you
 scaling with 200% Melee Power.</Description>
         <Group>Imbue</Group>
       </Stance>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Sacred Fist: Strike Evil</Name>
@@ -559,6 +561,7 @@ Intimidate skill. (Activation Cost: 15 Ki. Cooldown: 15 seconds)</Description>
          <Other>d20</Other>
          <Skill>Concentration</Skill>
       </DC>
+         <Cooldown>15</Cooldown>
     </EnhancementTreeItem>
     <!--Tier 2-->
     <EnhancementTreeItem>
@@ -630,6 +633,9 @@ Cost: 12 Ki Cooldown: 5 seconds.</Description>
           <Value>2</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>5</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Sacred Fist: Critical Mastery</Name>
@@ -712,6 +718,8 @@ Usable 5 times per rest.</Description>
           <Value>2</Value>
         </Requirement>
       </Requirements>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
     </EnhancementTreeItem>
     <!--Tier 3-->
     <EnhancementTreeItem>
@@ -777,6 +785,8 @@ Melee and Ranged Power by 5 for 10 seconds.</Description>
           <Value>3</Value>
         </Requirement>
       </Requirements>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Sacred Fist: Light of Hope</Name>

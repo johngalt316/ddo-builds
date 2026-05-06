@@ -538,6 +538,8 @@ Blocking for more than 3 seconds removes all stacks.</Description>
         <AType>SliderValue</AType>
         <StackSource>Shield Smash</StackSource>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Vanguard: Unbalancing Shove</Name>
@@ -738,6 +740,8 @@ DC(10 + highest ability modifier + character level + stunning bonuses).</Descrip
         <Tactical>Stun</Tactical>
         <ClassLevel>All</ClassLevel>
       </DC>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Vanguard: Missile Shield</Name>
@@ -822,6 +826,8 @@ Usable 5 times per rest. Cooldown: 30 seconds</Description>
           </Requirement>
         </Requirements>
       </Effect>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
     </EnhancementTreeItem>
     <!--Tier 3-->
     <EnhancementTreeItem>
@@ -1405,6 +1411,7 @@ bonus to trip attacks).</Description>
         <Tactical>Trip</Tactical>
         <ClassLevel>All</ClassLevel>
       </DC>
+         <Category>cc</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Vanguard: Armored Strength</Name>

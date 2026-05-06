@@ -400,6 +400,9 @@ You may use this 5 times per rest.</Description>
         </Requirements>
         <ApplyAsItemEffect />
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
+         <UsesActionBoostCharge/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>KenseiCore5</InternalName>
@@ -469,6 +472,8 @@ Passive: +20 Melee Power and Ranged Power.
         <Item>All</Item>
         <ApplyAsItemEffect />
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>KenseiCore6</InternalName>
@@ -897,6 +902,8 @@ Note: This enhancement does not grant exotic proficiency.</Description>
           </Attack>
         </EnhancementSelection>
       </Selector>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>KenseiReedInTheWind</InternalName>
@@ -947,6 +954,8 @@ Guard being applied.</Description>
           <BonusDamagePercent size="3">20 40 60</BonusDamagePercent>
         </ThisAttack>
       </Attack>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <!--Kensei Tier 2 Enhancements-->
     <EnhancementTreeItem>
@@ -2313,6 +2322,8 @@ Focus Melee Attack: On Damage: Target loses 15% fortification for 10 seconds.</D
           </Attack>
         </EnhancementSelection>
       </Selector>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>KenseiAbilityI</InternalName>
@@ -2421,6 +2432,8 @@ There is a 10% chance to regain an expended charge of this enhancement.</Descrip
           <BonusMeleePower size="1">20</BonusMeleePower>
         </FollowOn>
       </Attack>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>KenseiWeaponGroupSecializationIV</InternalName>
@@ -3141,6 +3154,8 @@ On Damage: If the target is below 30% health, deal 500 damage that scales with
           </Attack>
         </EnhancementSelection>
       </Selector>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>KenseiWeaponGroupSecializationV</InternalName>
@@ -3306,6 +3321,7 @@ considered a critical threat.</Description>
           </Attack>
         </EnhancementSelection>
       </Selector>
+         <Category>debuff</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>KenseiKeenEdge</InternalName>

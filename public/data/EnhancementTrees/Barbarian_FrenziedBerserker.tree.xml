@@ -131,6 +131,8 @@ This Frenzy adds 1d8 Bane damage to your attacks, scaling with 100% Melee Power.
           </Requirement>
         </Requirements>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Frenzied Berserker: Frenzied Toughness II</Name>
@@ -263,6 +265,8 @@ Cooldown: 30 seconds.</Description>
         <Amount size="8">0 0 0 0 0 2 2 2</Amount>
         <ApplyAsItemEffect />
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Frenzied Berserker: Storm's Eye</Name>
@@ -332,6 +336,9 @@ Cooldown: 2.5 minutes.</Description>
         <Amount size="1">4</Amount>
         <Item>Constitution</Item>
       </Effect>
+         <Cooldown>150</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <!--Tier 1-->
     <EnhancementTreeItem>
@@ -379,6 +386,9 @@ Cooldown: 12 seconds</Description>
           <Value>1</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>12</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Frenzied Berserker: Die Harder</Name>
@@ -551,6 +561,7 @@ constitution until you rest or die. (Cooldown: 3 seconds)</Description>
       </Requirements>
       <Clickie />
       <ArrowUp />
+         <Cooldown>3</Cooldown>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Frenzied Berserker: Extra Action Boost</Name>
@@ -562,6 +573,12 @@ constitution until you rest or die. (Cooldown: 3 seconds)</Description>
       <CostPerRank size="1">1</CostPerRank>
       <Ranks>3</Ranks>
       <MinSpent>5</MinSpent>
+      <Effect>
+        <Type>ExtraActionBoost</Type>
+        <Bonus>Enhancement</Bonus>
+        <AType>Stacks</AType>
+        <Amount size="3">1 2 3</Amount>
+      </Effect>
       <Requirements>
         <Requirement>
           <Type>ClassMinLevel</Type>
@@ -595,6 +612,9 @@ Cooldown: 30 seconds.</Description>
           <Value>2</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>30</Cooldown>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
     </EnhancementTreeItem>
     <!--Tier 3-->
     <EnhancementTreeItem>
@@ -674,6 +694,8 @@ Cooldown: [9/6/3] seconds</Description>
           <Value>3</Value>
         </Requirement>
       </Requirements>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Frenzied Berserker: Constitution I</Name>
@@ -745,6 +767,9 @@ Cooldown: 20 seconds</Description>
         </Requirement>
       </Requirements>
       <Clickie />
+         <Cooldown>20</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Frenzied Berserker: Wade In</Name>
@@ -1079,6 +1104,8 @@ on a failed Fortitude save.</Description>
         <ModAbility>Strength</ModAbility>
         <ClassLevel>Barbarian</ClassLevel>
       </DC>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
   </EnhancementTree>
 </Enhancements>

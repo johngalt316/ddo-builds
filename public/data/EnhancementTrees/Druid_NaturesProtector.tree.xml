@@ -114,6 +114,7 @@ Cooldown: 6 seconds.</Description>
                </Requirement>
             </Requirements>
          </Effect>
+         <Cooldown>6</Cooldown>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Nature's Protector: Magical Beast</Name>
@@ -900,6 +901,8 @@ Resistance Rating for 20 seconds. Consumes one action boost.</Description>
                <Value>2</Value>
             </Requirement>
          </Requirements>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
       </EnhancementTreeItem>
       <!--Tier 3-->
       <EnhancementTreeItem>
@@ -1868,6 +1871,7 @@ A successful Balance check negates the knockdown.</Description>
             <ModAbility>Wisdom</ModAbility>
             <Tactical>Trip</Tactical>
          </DC>
+         <Category>cc</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Nature's Protector: Lightning Strikes the Mountain</Name>
@@ -1962,6 +1966,7 @@ Bonuses are doubled if Nature's Protector stance is active.</Description>
                </Requirement>
             </Requirements>
          </Effect>
+         <Category>debuff</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Nature's Protector: Ursa's Protector III</Name>

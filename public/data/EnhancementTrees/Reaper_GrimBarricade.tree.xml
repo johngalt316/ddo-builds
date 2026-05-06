@@ -401,6 +401,7 @@ and gain a +5/10/15 Reaper Bonus to Saving Throws for 30 seconds.</Description>
                <Value>4</Value>
             </Requirement>
          </Requirements>
+         <Category>boost</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Reaper's Constitution I</Name>
@@ -1094,6 +1095,7 @@ and gain a +[10/20/30] Profane Bonus to PRR for 30 Seconds.</Description>
                <Value>21</Value>
             </Requirement>
          </Requirements>
+         <Category>boost</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Reaper's Steadfastness</Name>
@@ -1114,6 +1116,7 @@ to Energy Resistance for 30 Seconds.</Description>
                <Value>21</Value>
             </Requirement>
          </Requirements>
+         <Category>boost</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Reaper's Heightened Evasion I</Name>
@@ -1341,6 +1344,12 @@ to Energy Resistance for 30 Seconds.</Description>
                <Value>27</Value>
             </Requirement>
          </Requirements>
+         <Effect>
+            <Type>MaxReaperCharge</Type>
+            <Bonus>Stacking</Bonus>
+            <AType>Stacks</AType>
+            <Amount size="1">1</Amount>
+         </Effect>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Reaper's Constitution V</Name>

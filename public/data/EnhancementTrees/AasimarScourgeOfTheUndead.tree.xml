@@ -418,6 +418,8 @@ the higher of your Melee or Ranged Power. On Vorpal, enemies are Blinded.</Descr
         </Dice>
         <Item>All</Item>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Aasimar Scourge: Divine Resolve</Name>
@@ -583,6 +585,9 @@ Damage to Undead creatures.</Description>
       <Ranks>3</Ranks>
       <MinSpent>10</MinSpent>
       <Clickie />
+         <Cooldown>15</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Aasimar Scourge: Divine Charge</Name>
@@ -690,6 +695,9 @@ Stage 6: After 75 seconds of this stance being active, you can no longer contain
       <Ranks>1</Ranks>
       <MinSpent>15</MinSpent>
       <Clickie />
+         <Category>damage</Category>
+         <PlaceholderDamage/>
+         <UsesActionBoostCharge/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Aasimar Scourge: Improved Recovery III</Name>

@@ -256,6 +256,7 @@ Blight now reduces saves by 4 and positive healing by 60% for 10 seconds.</Descr
         <Item>Wisdom</Item>
         <Item>Constitution</Item>
       </Effect>
+         <Category>boost</Category>
     </EnhancementTreeItem>
     <!--Tier 1 Enhancements-->
     <EnhancementTreeItem>
@@ -844,6 +845,8 @@ Cost: [8/6/4] SP.</Description>
         <Item>Enveloping Swarm</Item>
         <Item>Blight Caster</Item>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Blight Caster: Sharp Edges III</Name>
@@ -984,6 +987,8 @@ separately</Description>
         <ClassLevel>Blight Caster</ClassLevel>
         <School>Conjuration</School>
       </DC>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Blight Caster: Thorn or Bile III</Name>
@@ -1247,6 +1252,8 @@ Spell Point Cost: [30/25/20]</Description>
         <Item>Grasping Thorns</Item>
         <Item>Blight Caster</Item>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Blight Caster: Doomsayer</Name>

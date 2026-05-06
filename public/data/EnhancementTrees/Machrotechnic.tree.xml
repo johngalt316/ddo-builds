@@ -543,6 +543,9 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
           </Effect>
         </EnhancementSelection>
       </Selector>
+         <Cooldown>10</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Machrotechnic: Blast Shields</Name>
@@ -620,6 +623,8 @@ healing from all sources (except Untyped).</Description>
           <Value>20</Value>
         </Requirement>
       </Requirements>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Machrotechnic: Rune Arm Use</Name>
@@ -702,6 +707,9 @@ Cooldown: 15 seconds.</Description>
           <Clickie />
         </EnhancementSelection>
       </Selector>
+         <Cooldown>15</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Machrotechnic: Forcefield Generator</Name>
@@ -788,6 +796,8 @@ This is increased to 15% if you are wearing a Rune Arm.</Description>
           </Requirement>
         </Requirements>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <!--Tier 3 Enhancements-->
     <EnhancementTreeItem>
@@ -1603,6 +1613,9 @@ Cooldown: 5 minutes.</Description>
           <Value>30</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>300</Cooldown>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Machrotechnic: Forcefield Generator</Name>

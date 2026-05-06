@@ -55,6 +55,8 @@ attack evil creatures.</Description>
                </Requirement>
             </Requirements>
          </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Knight of the Chalice: Courage of Heaven</Name>
@@ -617,6 +619,8 @@ Cooldown: 20 seconds</Description>
                </Requirement>
             </Requirements>
          </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Knight of the Chalice: Critical Mastery</Name>
@@ -695,6 +699,9 @@ Shares a cooldown with the Cleave feat.</Description>
                <Clickie/>
             </EnhancementSelection>
          </Selector>
+         <Cooldown>5</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Knight of the Chalice: Action Boost</Name>
@@ -731,6 +738,8 @@ Melee and Ranged Power for 20 Seconds</Description>
                <Clickie/>
             </EnhancementSelection>
          </Selector>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
       </EnhancementTreeItem>
       <!--Tier 3 Enhancements-->
       <EnhancementTreeItem>
@@ -818,6 +827,9 @@ Temporary Spell Points if you strike an Undead or Evil Outsider with this attack
                <Clickie/>
             </EnhancementSelection>
          </Selector>
+         <Cooldown>3</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Knight of the Chalice: Lead the Charge</Name>
@@ -840,6 +852,9 @@ a mighty strike. Shares a cooldown with Shield Charge.
                <Value>3</Value>
             </Requirement>
          </Requirements>
+         <Cooldown>12</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Knight of the Chalice: Exalted Smite</Name>
@@ -889,6 +904,8 @@ Melee and Ranged Power by 5 for 10 seconds.</Description>
                <Clickie/>
             </EnhancementSelection>
          </Selector>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Knight of the Chalice: Ability I</Name>
@@ -1356,6 +1373,9 @@ Vulnerability: You take 1% more damage for 3 seconds. This effect stacks up to
                <Clickie/>
             </EnhancementSelection>
          </Selector>
+         <Cooldown>5</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Knight of the Chalice: Holy Retribution</Name>
@@ -1419,6 +1439,9 @@ save or die.</Description>
                <Clickie/>
             </EnhancementSelection>
          </Selector>
+         <Cooldown>30</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
    </EnhancementTree>
 </Enhancements>

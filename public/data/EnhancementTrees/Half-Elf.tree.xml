@@ -256,6 +256,8 @@ of a Natural 1.</Description>
                <Clickie/>
             </EnhancementSelection>
          </Selector>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Half-Elf: Elven Dexterity / Human Adaptability</Name>
@@ -663,6 +665,8 @@ of a Natural 1.</Description>
                </Requirements>
             </EnhancementSelection>
          </Selector>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
       </EnhancementTreeItem>
        <!--Tier 1-->
       <EnhancementTreeItem>
@@ -710,6 +714,9 @@ score must be positive to use this ability. (Cooldown: 2 minute).</Description>
          <Ranks>1</Ranks>
          <MinSpent>1</MinSpent>
          <Clickie/>
+         <Cooldown>120</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Half-Elf: Skill Focus</Name>
@@ -1411,6 +1418,9 @@ from the Thief-Acrobat tree. (Cooldown: 12 seconds)</Description>
                </Requirements>
             </EnhancementSelection>
          </Selector>
+         <Cooldown>12</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Half-Elf: Improved Dilettante II</Name>
@@ -2123,6 +2133,9 @@ per point of Concentration skill you have. (Cooldown: 1 minute)</Description>
             <Amount size="4">0 0 0 60</Amount>
             <Item>None</Item>
          </Effect>
+         <Cooldown>60</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Half-Elf: Improved Recovery II</Name>

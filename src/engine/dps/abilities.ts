@@ -14,7 +14,7 @@
 
 import type { Build } from '@/types/build';
 import { getActiveEnhancementSet } from '@/types/build';
-import type { DDOSpellData, DDOSpellDamage, DDOClassData, EnhancementTreeData } from '@/types/ddoData';
+import type { DDOSpellData, DDOSpellDamage, DDOClassData, EnhancementTreeData, DDOAugmentData } from '@/types/ddoData';
 import type { CollectedSLA, SLACategory } from '@/engine/runEngine';
 
 export interface MagicAbility {
@@ -190,6 +190,7 @@ export function getMagicAbilities(
   classCatalog: DDOClassData[],
   slas: CollectedSLA[],
   enhancementTrees: EnhancementTreeData[] = [],
+  augments: DDOAugmentData[] = [],
 ): MagicAbility[] {
   const spellByName = new Map<string, DDOSpellData>();
   for (const s of spellCatalog) spellByName.set(s.name, s);
@@ -308,7 +309,7 @@ export function getMagicAbilities(
   // Every `<Clickie/>`-tagged enhancement the user has spent ranks in
   // becomes a utility ability. Cooldown is best-effort scraped from the
   // description text since the source data doesn't carry it as a field.
-  for (const c of collectClickieAbilities(build, enhancementTrees)) {
+  for (const c of collectClickieAbilities(build, enhancementTrees, augments)) {
     slaAbilities.push(c);
   }
 
@@ -443,11 +444,12 @@ export function computeReaperCharges(
 export function computeActionBoostCharges(
   build: Build,
   trees: EnhancementTreeData[],
+  augments: DDOAugmentData[] = [],
 ): number {
   let extra = 0;
-  // Walk every taken enhancement (heroic + destiny + reaper) for description
-  // matches. The reaper trees don't grant action-boost charges, but the
-  // walk's symmetric and the regex won't false-match.
+
+  // Enhancement-tree contributions — read `ExtraActionBoost` effects
+  // off taken items, indexed by the user's rank.
   if (trees.length > 0) {
     const treeIdx = new Map<string, EnhancementTreeData>();
     for (const t of trees) treeIdx.set(t.name.toLowerCase(), t);
@@ -462,55 +464,35 @@ export function computeActionBoostCharges(
           const item = tree.items.find(i => i.internalName === e.enhancementId)
                     ?? tree.items.find(i => i.name === e.enhancementId);
           if (!item) continue;
-          // Prefer the structured `ExtraActionBoost` effect when the
-          // XML carries one (Half-Orc + most other Extra Action Boost
-          // enhancements already do — Battle Engineer / Frenzied
-          // Berserker variants don't yet, hence the regex fallback).
-          const fromEffect = item.effects
+          extra += item.effects
             .filter(eff => eff.types.includes('ExtraActionBoost'))
             .reduce((sum, eff) => sum + (eff.amount?.[Math.min(e.rank, eff.amount.length) - 1] ?? 0), 0);
-          if (fromEffect > 0) extra += fromEffect;
-          else                extra += extractActionBoostExtras(item.description, e.rank);
         }
       }
     }
   }
-  // Augment descriptions on equipped gear ("+N Enhancement bonus to
-  // Action Boost charges" — Vecna Unleashed's Legendary Moment to
-  // Legendary Moment etc.).
-  for (const gearSet of build.gearSets ?? []) {
-    if (gearSet.name !== build.activeGearSet) continue;
-    for (const item of gearSet.items) {
-      for (const aug of item.augmentSlots ?? []) {
-        if (!aug.selectedAugment) continue;
-        // We don't have augment descriptions in the GearItem; the
-        // augment catalog isn't passed in here. Fall back to a
-        // name-based heuristic for the few augments that grant charges.
-        const m = aug.selectedAugment.match(/\+(\d+).*action boost charges?/i);
-        if (m) extra += parseInt(m[1]!, 10);
+
+  // Augment contributions — read `ExtraActionBoost` effects off
+  // currently-slotted augments via the catalog lookup.
+  if (augments.length > 0) {
+    const augIdx = new Map<string, DDOAugmentData>();
+    for (const a of augments) augIdx.set(a.name, a);
+    for (const gearSet of build.gearSets ?? []) {
+      if (gearSet.name !== build.activeGearSet) continue;
+      for (const item of gearSet.items) {
+        for (const slot of item.augmentSlots ?? []) {
+          if (!slot.selectedAugment) continue;
+          const aug = augIdx.get(slot.selectedAugment);
+          if (!aug) continue;
+          extra += aug.effects
+            .filter(eff => eff.types.includes('ExtraActionBoost'))
+            .reduce((sum, eff) => sum + (eff.amount?.[0] ?? 0), 0);
+        }
       }
     }
   }
-  return 5 + extra;
-}
 
-function extractActionBoostExtras(description: string, rank: number): number {
-  if (!description) return 0;
-  // "+N Enhancement bonus to Action Boost charges" — direct add.
-  const direct = description.match(/\+(\d+)\b[^.\n]*action boost charges?/i);
-  if (direct) return parseInt(direct[1]!, 10);
-  // "use each of your action boosts [1/2/3] additional times per rest"
-  // — value is per-rank from a [a/b/c] table; pick the user's rank.
-  const tabular = description.match(/\[([\d/]+)\][^.\n]*additional times per rest/i);
-  if (tabular) {
-    const tiers = tabular[1]!.split('/').map(s => parseInt(s, 10));
-    const idx = Math.min(rank, tiers.length) - 1;
-    return tiers[idx] ?? 0;
-  }
-  // "use each of your action boosts N additional times per rest" — fixed N.
-  const fixed = description.match(/(\d+)\s+additional times? per rest/i);
-  if (fixed) return parseInt(fixed[1]!, 10);
-  return 0;
+  return 5 + extra;
 }
 
 /**
@@ -526,6 +508,7 @@ function extractActionBoostExtras(description: string, rank: number): number {
 function collectClickieAbilities(
   build: Build,
   trees: EnhancementTreeData[],
+  augments: DDOAugmentData[],
 ): MagicAbility[] {
   if (trees.length === 0) return [];
   const treeIdx = new Map<string, EnhancementTreeData>();
@@ -544,7 +527,7 @@ function collectClickieAbilities(
   // timeline can't yet model "shared pool depletes faster when multiple
   // boosts are slotted", but the per-ability cap is at least honest.
   const reaperCharges      = computeReaperCharges(build, trees);
-  const actionBoostCharges = computeActionBoostCharges(build, trees);
+  const actionBoostCharges = computeActionBoostCharges(build, trees, augments);
 
   const out: MagicAbility[] = [];
   const seen = new Set<string>();

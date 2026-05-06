@@ -121,6 +121,7 @@ also work for Sacred Fist as long as they are centered.</Description>
                </Requirement>
             </Requirements>
          </Effect>
+         <Category>debuff</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Sacred Defender: Divine Righteousness</Name>
@@ -161,6 +162,8 @@ Activation Cost: 1 use of Turn Undead. Cooldown: 6 seconds</Description>
             <Amount size="1">-1</Amount>
             <Item>Positive</Item>
          </Effect>
+         <Cooldown>6</Cooldown>
+         <Category>debuff</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Sacred Defender: Redemption</Name>
@@ -408,6 +411,8 @@ and you receive a reactive heal for 250 points of Positive Energy healing.</Desc
             <Amount size="1">-1</Amount>
             <Item>Positive</Item>
          </Effect>
+         <Category>heal</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <!--Tier 1-->
       <EnhancementTreeItem>
@@ -777,6 +782,8 @@ Rating and Magical Resistance Rating for 20 seconds.</Description>
                <Value>2</Value>
             </Requirement>
          </Requirements>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
       </EnhancementTreeItem>
       <!--Tier 3-->
       <EnhancementTreeItem>

@@ -72,6 +72,8 @@ of a Natural 1.</Description>
           <Clickie />
         </EnhancementSelection>
       </Selector>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Human: Adaptability</Name>
@@ -244,6 +246,8 @@ While under this effect you do not automatically fail Saving Throws on a roll of
           <Clickie />
         </EnhancementSelection>
       </Selector>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Human: Greater Adaptability</Name>
@@ -419,6 +423,8 @@ While under this effect you do not automatically fail Saving Throws on a roll of
           <Clickie />
         </EnhancementSelection>
       </Selector>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
     </EnhancementTreeItem>
     <!--Tier 1-->
     <EnhancementTreeItem>
@@ -1719,6 +1725,8 @@ Effects that grant extra Action Boost uses give you additional uses per rest of 
         <Amount size="4">0 0 0 0</Amount>
         <Item>None</Item>
       </Effect>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
     </EnhancementTreeItem>
     <!--Tier 4-->
     <EnhancementTreeItem>
@@ -1914,6 +1922,8 @@ of this ability.</Description>
         <Amount size="4">0 0 0 0</Amount>
         <Item>None</Item>
       </Effect>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
     </EnhancementTreeItem>
   </EnhancementTree>
 </Enhancements>

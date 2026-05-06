@@ -159,6 +159,8 @@ and slashing damage. Activation Cost: 20 spell points. Cooldown: 10 seconds.</De
           </Requirement>
         </Requirements>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Arcane Archer: Metalline Arrows</Name>
@@ -214,6 +216,8 @@ Activation Cost: 20 spell points. Cooldown: 10 seconds.</Description>
           </Requirement>
         </Requirements>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Arcane Archer: Aligned Arrows</Name>
@@ -269,6 +273,8 @@ damage reduction. Activation Cost: 20 spell points. Cooldown: 10 seconds.</Descr
           </Requirement>
         </Requirements>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Arcane Archer: Shadow Arrows</Name>
@@ -443,6 +449,8 @@ Activation cost: 2 spell points. Cooldown: 3 seconds</Description>
           <Value>1</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>3</Cooldown>
+         <Category>boost</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Arcane Archer: Energy of the Wild</Name>
@@ -582,6 +590,8 @@ Passive: +5 Universal Spell Power</Description>
         <AType>Simple</AType>
         <Amount size="1">5</Amount>
       </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Arcane Archer: Awareness</Name>
@@ -640,6 +650,9 @@ from your target.</Description>
           <Value>2</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>3</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Arcane Archer: Force Arrows</Name>
@@ -685,6 +698,9 @@ Activation Cost: 20 spell points. Cooldown: 10 seconds</Description>
           </Requirement>
         </Requirements>
       </Effect>
+         <Cooldown>10</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Arcane Archer: Elemental Inferno</Name>
@@ -712,6 +728,8 @@ Activation cost: 6 SP. Cooldown 3 seconds</Description>
           <Value>2</Value>
         </Requirement>
       </Requirements>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Arcane Archer: Elemental Arrows II</Name>
@@ -890,6 +908,8 @@ Passive: +5 Universal Spell Power</Description>
           <Clickie />
         </EnhancementSelection>
       </Selector>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
     </EnhancementTreeItem>
     <!--Tier 3-->
     <EnhancementTreeItem>
@@ -932,6 +952,9 @@ Will DC 18 + Half Ranger Level + Wisdom Modifier negates.)</Description>
         <HalfClassLevel>Ranger</HalfClassLevel>
         <ModAbility>Wisdom</ModAbility>
       </DC>
+         <Cooldown>3</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Arcane Archer: Terror Arrows</Name>
@@ -985,6 +1008,7 @@ On Vorpal: Target is subject to a Phantasmal Killer effect.</Description>
         <ModAbility>Wisdom</ModAbility>
         <School>Enchantment</School>
       </DC>
+         <Category>cc</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Arcane Archer: Soul Magic</Name>
@@ -1308,6 +1332,7 @@ On Save: -10% Movement and Attack speed.</Description>
         <ModAbility>Wisdom</ModAbility>
         <School>Enchantment</School>
       </DC>
+         <Category>cc</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Arcane Archer: Smiting Arrows</Name>
@@ -1619,6 +1644,9 @@ Cooldown: 20 seconds.</Description>
           <Value>12</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>20</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Arcane Archer: Opening Volley</Name>
@@ -1646,6 +1674,9 @@ Cost: 5 spell points. Cooldown: 18 seconds.</Description>
           <Value>12</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>18</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Arcane Archer: Improved Elemental Arrows</Name>

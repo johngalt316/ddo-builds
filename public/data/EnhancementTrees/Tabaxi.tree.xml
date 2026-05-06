@@ -253,6 +253,9 @@ Melee Attack: Strike all nearby foes in front of you for +20% damage.
       <MinSpent>1</MinSpent>
       <Clickie />
       <ArrowUp />
+         <Cooldown>6</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Tabaxi: Acrobatic</Name>

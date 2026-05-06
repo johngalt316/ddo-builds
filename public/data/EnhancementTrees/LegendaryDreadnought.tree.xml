@@ -370,6 +370,7 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
           </Effect>
         </EnhancementSelection>
       </Selector>
+         <Category>cc</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Legendary Dreadnought: Dread Mantle</Name>
@@ -403,6 +404,7 @@ Terror:-1 Melee and Ranged Power, -3 Spell Power, -1 Armor Class. Stacks up to
 15 times.</Description>
         <Group>Mantle</Group>
       </Stance>
+         <Cooldown>0.1</Cooldown>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Legendary Dreadnought: Shrug Off Punishment</Name>
@@ -627,6 +629,9 @@ Cooldown: 30 seconds</Description>
           </Requirement>
         </Requirements>
       </Effect>
+         <Cooldown>30</Cooldown>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Legendary Dreadnought: Strike Twice</Name>
@@ -1057,6 +1062,9 @@ Cooldown: 30 seconds</Description>
           <Clickie/>
         </EnhancementSelection>
       </Selector>
+         <Cooldown>30</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Legendary Dreadnought: Sundering Swings</Name>
@@ -1133,6 +1141,9 @@ Cooldown: 5 minutes</Description>
           <Value>30</Value>
         </Requirement>
       </Requirements>
+         <Cooldown>300</Cooldown>
+         <Category>cc</Category>
+         <UsesActionBoostCharge/>
     </EnhancementTreeItem>
   </EnhancementTree>
 </Enhancements>

@@ -69,6 +69,9 @@ Passive: +2 Armor Class, +5 Fire Spell Power, +5 Light Spell Power</Description>
             <Item>Good</Item>
             <Item>Lawful</Item>
          </Effect>
+         <Cooldown>12</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>War Soul: Resilience of Battle</Name>
@@ -184,6 +187,8 @@ Passive:
             <Item>Good</Item>
             <Item>Lawful</Item>
          </Effect>
+         <Cooldown>60</Cooldown>
+         <Category>boost</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>War Soul: War Caster: Blur</Name>
@@ -446,6 +451,9 @@ Divine Vessel now triggers on reaching 20 stacks of Divine Conduit, instead of 2
             <Item>Good</Item>
             <Item>Lawful</Item>
          </Effect>
+         <Cooldown>300</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <!--Tier 1-->
       <EnhancementTreeItem>
@@ -584,6 +592,9 @@ Cooldown: 20 seconds</Description>
             <Item>WSDivineMight</Item>
             <Item>Battle Trance</Item>
          </Effect>
+         <Cooldown>20</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>War Soul: Toughness</Name>
@@ -824,6 +835,9 @@ Cooldown: 90 seconds minute</Description>
                <Value>2</Value>
             </Requirement>
          </Requirements>
+         <Cooldown>90</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>War Soul: Action Boost Haste</Name>
@@ -843,6 +857,8 @@ Cooldown: 90 seconds minute</Description>
                <Value>2</Value>
             </Requirement>
          </Requirements>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
       </EnhancementTreeItem>
       <!--Tier 3-->
       <EnhancementTreeItem>
@@ -906,6 +922,9 @@ Non-boss enemies have a small chance to be blinded with no save.
                <Clickie/>
             </EnhancementSelection>
          </Selector>
+         <Cooldown>6</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>War Soul: Righteous Weapons III</Name>
@@ -1087,6 +1106,8 @@ with your Fire Spell Power.</Description>
             <Icon>WSFiresOfFury</Icon>
             <Group>Imbue</Group>
          </Stance>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>War Soul: Righteous Weapons IV</Name>
@@ -1338,6 +1359,8 @@ Shares its cooldown with the Great Cleave feat.</Description>
                <Clickie/>
             </EnhancementSelection>
          </Selector>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>War Soul: Wrathful Weapons</Name>
@@ -1500,6 +1523,9 @@ Cooldown: 2 minutes</Description>
                <Value>12</Value>
             </Requirement>
          </Requirements>
+         <Cooldown>120</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
    </EnhancementTree>
 </Enhancements>

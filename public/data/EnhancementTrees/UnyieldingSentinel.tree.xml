@@ -265,6 +265,9 @@ Cooldown: 6 seconds.</Description>
             <Amount size="4">0 15 0 6</Amount>
             <Item>None</Item>
          </Effect>
+         <Cooldown>6</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <InternalName>U51UnyieldingSentinelEpicStrike</InternalName>
@@ -354,6 +357,8 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
           </Effect>
         </EnhancementSelection>
          </Selector>
+         <Cooldown>12</Cooldown>
+         <Category>boost</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <InternalName>U51UnyieldingSentinelAttackAndDefend</InternalName>
@@ -455,6 +460,9 @@ Cooldown: 8 seconds.</Description>
             <Amount size="4">0 5 0 8</Amount>
             <Item>None</Item>
          </Effect>
+         <Cooldown>8</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <InternalName>U51UnyieldingSentinelMantleOftheSemtinel</InternalName>
@@ -519,6 +527,8 @@ and Compulsions as per a Protection from Alignment spell.</Description>
                </Requirement>
             </Requirements>
          </Effect>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <InternalName>U51UnyieldingSentinelCommandingPresence</InternalName>
@@ -566,6 +576,9 @@ Cooldown: 20 seconds.</Description>
                <Value>20</Value>
             </Requirement>
          </Requirements>
+         <Cooldown>20</Cooldown>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <InternalName>U51UnyieldingSentinelShieldProwess</InternalName>
@@ -870,6 +883,8 @@ Stun DCs) or be Stunned for 4 seconds. Requires a Shield equipped to activate.</
                <Item>U51UnyieldingSentinelKnightsChallenge</Item>
             </Requirement>
          </Requirements>
+         <Category>damage</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <InternalName>U51UnyieldingSentinelTheBestDefense</InternalName>
@@ -925,6 +940,7 @@ Cost: 15 Spell points</Description>
             <Amount size="4">0 15 0 6</Amount>
             <Item>None</Item>
          </Effect>
+         <Cooldown>6</Cooldown>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <InternalName>U51UnyieldingSentinelStrengthOfVitality</InternalName>
@@ -991,6 +1007,9 @@ Cooldown: 5 minutes</Description>
                <Value>30</Value>
             </Requirement>
          </Requirements>
+         <Cooldown>300</Cooldown>
+         <Category>heal</Category>
+         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <InternalName>U51UnyieldingSentinelDeificResilience</InternalName>
