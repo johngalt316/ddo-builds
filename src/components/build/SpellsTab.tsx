@@ -364,7 +364,11 @@ function SpellSlotTile({
 // + SP costs while active.
 
 function MetamagicsSection() {
-  const activeMetamagics = useBuildStore(s => s.build.activeMetamagics ?? []);
+  // Use the stable EMPTY_METAMAGICS reference instead of an inline `?? []`
+  // — a fresh `[]` each selector call would fail useSyncExternalStore's
+  // Object.is equality check and force-rerender on every store snapshot,
+  // looping forever.
+  const activeMetamagics = useBuildStore(s => s.build.activeMetamagics ?? EMPTY_METAMAGICS);
   const toggleMetamagic  = useBuildStore(s => s.toggleMetamagic);
   return (
     <section className={styles.stanceGroup}>
@@ -577,6 +581,7 @@ function stanceSummary(description: string, rank: number = 1): string {
 // when activePartyBuffs is undefined — otherwise React's useSyncExternalStore
 // sees a fresh `[]` snapshot every render and triggers an infinite update loop.
 const EMPTY_BUFFS: readonly string[] = [];
+const EMPTY_METAMAGICS: readonly string[] = [];
 // Same trick for stances when the engine hasn't loaded yet — keeps useMemo
 // dependency identity stable across renders.
 const EMPTY_STANCES: readonly AvailableStance[] = [];

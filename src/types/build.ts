@@ -312,14 +312,20 @@ export function withActiveEnhancementSet(
   const active = getActiveEnhancementSet(build);
   const next   = mutator(active);
   const sets   = build.enhancementSets ?? [];
+  // Ensure both fields are always populated after this — a malformed
+  // input build (sets present but activeEnhancementSet undefined, or
+  // vice versa) is healed here so downstream consumers never see a
+  // partial state that would break getActiveEnhancementSet.
+  const nextSets = sets.length === 0
+    ? [next]
+    : sets.map(s => (s.name === active.name ? next : s));
+  const nextActive = next.name === active.name
+    ? (build.activeEnhancementSet || next.name)
+    : next.name;
   return {
     ...build,
-    enhancementSets: sets.length === 0
-      ? [next]
-      : sets.map(s => (s.name === active.name ? next : s)),
-    activeEnhancementSet: next.name === active.name
-      ? build.activeEnhancementSet
-      : next.name,
+    enhancementSets:      nextSets,
+    activeEnhancementSet: nextActive,
   };
 }
 
