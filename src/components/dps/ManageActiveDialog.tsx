@@ -26,9 +26,12 @@ interface Props {
 }
 
 const TABS: { id: AbilityCategory; label: string }[] = [
-  { id: 'damage', label: 'Damage' },
-  { id: 'boost',  label: 'Boosts' },
-  { id: 'heal',   label: 'Heals'  },
+  { id: 'damage',  label: 'Damage'  },
+  { id: 'cc',      label: 'CC'      },
+  { id: 'debuff',  label: 'Debuff'  },
+  { id: 'heal',    label: 'Heals'   },
+  { id: 'boost',   label: 'Boosts'  },
+  { id: 'utility', label: 'Utility' },
 ];
 
 export function ManageActiveDialog({ open, abilities, active, onClose, onApply }: Props) {
@@ -57,7 +60,9 @@ export function ManageActiveDialog({ open, abilities, active, onClose, onApply }
   // for the inactive Available pool the user is browsing.
   const inactiveCountsByTab = useMemo(() => {
     const draftSet = new Set(draft);
-    const counts: Record<AbilityCategory, number> = { damage: 0, boost: 0, heal: 0 };
+    const counts: Record<AbilityCategory, number> = {
+      damage: 0, cc: 0, debuff: 0, heal: 0, boost: 0, utility: 0,
+    };
     for (const a of abilities) {
       if (draftSet.has(a.id)) continue;
       if (!includeCharged && a.charges > 0) continue;
@@ -244,7 +249,14 @@ export function ManageActiveDialog({ open, abilities, active, onClose, onApply }
                         onError={e => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
                       />
                     )}
-                    <span className={styles.rowName}>{a.displayName}</span>
+                    <span className={styles.rowName}>
+                      {a.displayName}
+                      {a.placeholderDamage && (
+                        <span className={styles.placeholderTag} title="Damage rolls not yet modeled — value is a placeholder.">
+                          ⚠ no rolls
+                        </span>
+                      )}
+                    </span>
                     <span className={styles.rowMeta}>
                       {a.source === 'spell'
                         ? <span>L{a.spellLevel}</span>
@@ -350,6 +362,9 @@ function renderAddRow(a: MagicAbility, add: (id: string) => void) {
       title={[
         `Add ${a.displayName} to active priority`,
         a.source === 'sla' && a.slaSource ? `Source: ${a.slaSource}` : '',
+        a.placeholderDamage
+          ? 'Damage values not yet modeled — placeholder; rotation DPS will read 0 until rolls are added.'
+          : '',
       ].filter(Boolean).join('\n')}
     >
       <span className={styles.addIcon} aria-hidden="true">+</span>
@@ -361,7 +376,14 @@ function renderAddRow(a: MagicAbility, add: (id: string) => void) {
           onError={e => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
         />
       )}
-      <span className={styles.rowName}>{a.displayName}</span>
+      <span className={styles.rowName}>
+        {a.displayName}
+        {a.placeholderDamage && (
+          <span className={styles.placeholderTag} title="Damage rolls not yet modeled — value is a placeholder.">
+            ⚠ no rolls
+          </span>
+        )}
+      </span>
       <span className={styles.rowMeta}>
         {a.source === 'sla' && a.slaSource && (
           <>

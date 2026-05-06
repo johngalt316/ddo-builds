@@ -336,3 +336,18 @@
   color: var(--color-text-muted);
   font-weight: 400;
 }
+
+/* Inline badge marking abilities whose damage rolls aren't modeled yet */
+.placeholderTag {
+  margin-left: 0.4rem;
+  padding: 0 0.35rem;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #d39a3a;
+  background: rgba(201, 162, 39, 0.12);
+  border: 1px solid rgba(201, 162, 39, 0.4);
+  border-radius: 3px;
+  vertical-align: middle;
+  cursor: help;
+}

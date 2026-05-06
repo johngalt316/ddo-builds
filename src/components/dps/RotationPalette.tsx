@@ -142,7 +142,12 @@ export function RotationPalette({
                   onError={e => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
                 />
               )}
-              <span className={styles.tileName}>{a.displayName}</span>
+              <span className={styles.tileName}>
+                {a.displayName}
+                {a.placeholderDamage && (
+                  <span className={styles.placeholderTag} title="Damage rolls not yet modeled — value is a placeholder.">⚠</span>
+                )}
+              </span>
               <span className={styles.tileMeta}>
                 {a.source === 'spell'
                   ? <span className={styles.tileLevel}>L{a.spellLevel}</span>

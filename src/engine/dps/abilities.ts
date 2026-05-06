@@ -69,15 +69,24 @@ export interface MagicAbility {
    *  is modeled separately by the buff catalog when implemented. */
   isUtility?: boolean;
   /** UI bucket for the Manage / palette tabs:
-   *    - 'damage' — has at least one non-healing damage roll
-   *    - 'heal'   — only healing-flavored damage types (Positive,
-   *                 Negative for undead-heals, Repair)
-   *    - 'boost'  — utility / clickie with no damage rolls
+   *    - 'damage'  — has at least one offensive damage roll (real or placeholder)
+   *    - 'heal'    — only healing-flavored damage types (Positive, Repair)
+   *    - 'boost'   — duration-bounded self-buff with no damage component
+   *    - 'cc'      — crowd control (stun / paralyze / hold / daze / fear …)
+   *    - 'debuff'  — applies a negative effect to enemies (vulnerability,
+   *                  threat, fortification reduction)
+   *    - 'utility' — movement, summons, lock-bash, illusion, etc.
    *  Computed by `categorizeAbility` once at construction. */
   category: AbilityCategory;
+  /** True when the ability has no damage rolls in our catalog yet but
+   *  deals damage in-game (typically clickies whose tree XML doesn't
+   *  carry roll data). The DPS calculator treats these as zero-damage
+   *  for now; the UI surfaces a placeholder indicator so the user
+   *  knows the displayed damage isn't real. */
+  placeholderDamage?: boolean;
 }
 
-export type AbilityCategory = 'damage' | 'heal' | 'boost';
+export type AbilityCategory = 'damage' | 'heal' | 'boost' | 'cc' | 'debuff' | 'utility';
 
 /** Damage types that count as healing (vs. offensive). Negative is
  *  ambiguous — it heals undead but damages everyone else. We treat it
@@ -91,6 +100,43 @@ function categorizeAbility(damages: DDOSpellDamage[], isUtility: boolean | undef
   if (damages.length === 0) return 'boost';
   if (damages.every(d => HEAL_DAMAGE_TYPES.has(d.damageType))) return 'heal';
   return 'damage';
+}
+
+/**
+ * Classify a clickie enhancement from its description text. Returns
+ * `null` when the entry is a no-duration passive (e.g. "Improved Power
+ * Attack: your attacks deal +N damage") that the user shouldn't see
+ * in the rotation palette — those belong on the Stances/Enhancements
+ * pages, not as click-to-cast abilities.
+ *
+ * Order matters: damage / heal / cc detection wins over the generic
+ * "has duration → boost" fallback so a stunning attack with a damage
+ * line lands in the Damage tab where the user expects it.
+ */
+export function classifyClickie(description: string): { category: AbilityCategory; placeholderDamage: boolean } | null {
+  const desc = (description ?? '').toLowerCase();
+  if (!desc) return null;
+
+  const hasDamage = /\bdamage\b|\d+d\d+|deal[s]? \w+ damage|\bnecrotic\b|\beldritch\b/.test(desc)
+                 && !/^passive[: ]/.test(desc);
+  const hasHeal   = /\b(heal|cure|restore[s]? \d|positive energy|hit points per caster level)\b/.test(desc);
+  const hasCC     = /\b(stun|paralyze|hold|daze|fear|sleep|charm|incapacit|knockdown|trip|petrif|flat-?footed|helpless)\w*/.test(desc);
+  const hasDebuff = /\b(vulnerab|fortification reduc|threat|hate|more likely to attack|expos|reduces? .* (?:armor|prr|saving|ac|dr))\w*/.test(desc);
+  const hasDuration = /\bfor (?:up to )?\d+(?:\.\d+)? (?:second|minute|turn)s?\b|action boost/.test(desc);
+
+  if (hasDamage)   return { category: 'damage',  placeholderDamage: true  };
+  if (hasHeal)     return { category: 'heal',    placeholderDamage: true  };
+  if (hasCC)       return { category: 'cc',      placeholderDamage: false };
+  if (hasDebuff)   return { category: 'debuff',  placeholderDamage: false };
+  if (hasDuration) return { category: 'boost',   placeholderDamage: false };
+
+  // Movement / summons / illusion / utility clickies — keep them in
+  // the palette but under the Utility tab so they don't pollute Boosts.
+  if (/\b(teleport|jaunt|misty step|dimension door|invisibil|displacement|summon|find familiar|conjure|stoneskin|mage armor|spell resistance|deathward|death ward|true seeing|freedom of movement|haste|expeditious)\w*/.test(desc)) {
+    return { category: 'utility', placeholderDamage: false };
+  }
+  // No active effect we recognize → passive enhancement (filter out).
+  return null;
 }
 
 /**
@@ -376,6 +422,14 @@ function collectClickieAbilities(
       if (grantsSLA(item.effects)) continue;
       if (item.selector?.some(sel => grantsSLA(sel.effects))) continue;
 
+      // Description-driven categorization. `null` means "passive
+      // enhancement, no duration, no active effect" — those (e.g.
+      // Improved Power Attack, Bladeforged: Resolve as a HP regen
+      // passive) belong on the Enhancements / Stances pages, not in
+      // the active-spells palette.
+      const classified = classifyClickie(item.description);
+      if (!classified) continue;
+
       const id = `clickie::${tree.name}::${item.internalName || item.name}`;
       if (seen.has(id)) continue;
       seen.add(id);
@@ -403,7 +457,8 @@ function collectClickieAbilities(
         slaCategory:    'enhancement',
         slaSource:      `[${scope}] ${tree.name}: ${item.name}`,
         isUtility:      true,
-        category:       'boost',
+        category:          classified.category,
+        placeholderDamage: classified.placeholderDamage,
       });
     }
   }

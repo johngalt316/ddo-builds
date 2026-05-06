@@ -116,6 +116,14 @@
   text-overflow: ellipsis;
 }
 
+/* Tiny "damage not modeled yet" warning glyph; matches the dialog's tag */
+.placeholderTag {
+  margin-left: 0.25rem;
+  font-size: 0.7em;
+  color: #d39a3a;
+  cursor: help;
+}
+
 .tileMeta {
   display: flex;
   gap: 0.3rem;
