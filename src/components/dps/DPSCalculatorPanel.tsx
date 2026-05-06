@@ -263,10 +263,10 @@ function MagicRotationEditor({
   // at R7+).
   const debuffs = useMemo(
     () => ({
-      ...aggregateDebuffs(debuffState),
+      ...aggregateDebuffs(debuffState, undefined, build),
       damageDealtMultiplier: spellDamageMultiplier(difficulty),
     }),
-    [debuffState, difficulty],
+    [debuffState, difficulty, build],
   );
 
   // Per-spell damage estimate, refreshed on any build / engine / debuff
@@ -546,10 +546,11 @@ function MagicRotationEditor({
         engine={breakdowns}
         sneakAttackDice={breakdowns?.sneakAttackDice.total ?? 0}
       />
-      <DebuffsSummary state={debuffState} onManage={() => setDebuffsOpen(true)} />
+      <DebuffsSummary state={debuffState} build={build} onManage={() => setDebuffsOpen(true)} />
       <ManageDebuffsDialog
         open={debuffsOpen}
         state={debuffState}
+        build={build}
         onChange={setDebuffState}
         onClose={() => setDebuffsOpen(false)}
       />

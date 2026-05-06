@@ -11,6 +11,8 @@
 
 import type { SpellDamageType } from '@/engine/breakdowns';
 import type { Debuffs } from './calculator';
+import type { Build } from '@/types/build';
+import { hasItemBuff, hasAugmentSlotted } from './procs';
 
 /** Where the user wants to attribute this debuff in the rotation model.
  *  Currently informational only — the math doesn't change with scope. */
@@ -51,6 +53,39 @@ export interface DebuffEntry {
   /** Default scope shown to the user when first encountered. The user
    *  can override per debuff. Doesn't affect damage math. */
   defaultScope: DebuffScope;
+  /** Auto-apply triggers — when the build carries any of the listed
+   *  item-buff types or augment names, the debuff is treated as active
+   *  even if the user hasn't manually toggled it. The Manage dialog
+   *  shows these as locked-on with an "auto" badge. */
+  autoApplyWhen?: {
+    itemBuffs?: string[];
+    augments?:  string[];
+  };
+}
+
+/** Returns true when any of the entry's auto-apply triggers match the
+ *  current build's gear / augments. Used by the aggregator + UI to
+ *  fold detection into the existing per-debuff state. */
+export function isDebuffAutoActive(entry: DebuffEntry, build: Build): boolean {
+  const a = entry.autoApplyWhen;
+  if (!a) return false;
+  if (a.itemBuffs?.some(b => hasItemBuff(build, b))) return true;
+  if (a.augments?.some(n => hasAugmentSlotted(build, n))) return true;
+  return false;
+}
+
+/** Set of debuff ids whose auto-apply triggers fire on the current
+ *  build. Lets the UI render those entries as locked-on with an
+ *  "auto" badge regardless of the user's manual toggle state. */
+export function autoActiveDebuffIds(
+  build: Build,
+  catalog: DebuffEntry[] = DEBUFF_CATALOG,
+): Set<string> {
+  const out = new Set<string>();
+  for (const e of catalog) {
+    if (isDebuffAutoActive(e, build)) out.add(e.id);
+  }
+  return out;
 }
 
 /**
@@ -131,6 +166,10 @@ export const DEBUFF_CATALOG: DebuffEntry[] = [
     source: 'item',
     effect: { mrrReduction: 21 },
     defaultScope: 'self',
+    autoApplyWhen: {
+      itemBuffs: ['Mind Tear'],
+      augments:  ['Flamehorn', 'LGS Ash'],
+    },
   },
   // Sources: Constricting Nightmare, Shadowhorn, Aspect of Tar.
   // Single-stack proc — does not stack with itself.
@@ -141,6 +180,10 @@ export const DEBUFF_CATALOG: DebuffEntry[] = [
     source: 'item',
     effect: { mrrReduction: 10, prrReduction: 10 },
     defaultScope: 'self',
+    autoApplyWhen: {
+      itemBuffs: ['Constricting Nightmare', 'Aspect of Tar'],
+      augments:  ['Shadowhorn'],
+    },
   },
   // Sources: Soul Tear, Melthorn, LGS Dust. Per-stack: −7 PRR, −20
   // Positive Heal Amp. 5-stack cap. PRR-only, informational on the
@@ -152,6 +195,10 @@ export const DEBUFF_CATALOG: DebuffEntry[] = [
     source: 'item',
     effect: { prrReduction: 35 },
     defaultScope: 'self',
+    autoApplyWhen: {
+      itemBuffs: ['Soul Tear'],
+      augments:  ['Melthorn', 'LGS Dust'],
+    },
   },
   // Vulnerability (general). Sources: Fetters of Unreality, Sparkhorn,
   // Flamebitten, Frostbite weapons. +1% damage taken / stack, max 20
@@ -164,6 +211,9 @@ export const DEBUFF_CATALOG: DebuffEntry[] = [
     source: 'item',
     effect: { genericVulnPct: 20 },
     defaultScope: 'self',
+    autoApplyWhen: {
+      itemBuffs: ['Flamebitten', 'Frostbite', 'Sparkhorn', 'Fetters of Unreality'],
+    },
   },
   // Fatesinger Tier 5. +10% sonic vulnerability per stack, max 3 →
   // +30% Sonic at full stacks. Also drops 15 AC per stack but AC is
@@ -220,13 +270,16 @@ export function initialDebuffState(catalog: DebuffEntry[] = DEBUFF_CATALOG): Deb
 export function aggregateDebuffs(
   state: DebuffState,
   catalog: DebuffEntry[] = DEBUFF_CATALOG,
+  build?: Build,
 ): Debuffs {
   let genericVulnPct = 0;
   let sonicVulnPct   = 0;
   let mrrSubtract    = 0;
   const elementVulnPct: Partial<Record<SpellDamageType, number>> = {};
   for (const entry of catalog) {
-    if (!state[entry.id]?.enabled) continue;
+    const userEnabled = !!state[entry.id]?.enabled;
+    const autoEnabled = build ? isDebuffAutoActive(entry, build) : false;
+    if (!userEnabled && !autoEnabled) continue;
     const e = entry.effect;
     if (e.genericVulnPct)            genericVulnPct += e.genericVulnPct;
     if (e.mrrReduction)              mrrSubtract    += e.mrrReduction;

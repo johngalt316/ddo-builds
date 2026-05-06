@@ -67,13 +67,13 @@ function activeGearItems(build: Build): GearItem[] {
   return set?.items ?? [];
 }
 
-function hasItemBuff(build: Build, buffType: string): boolean {
+export function hasItemBuff(build: Build, buffType: string): boolean {
   return activeGearItems(build).some(it =>
     it.buffs.some(b => b.type === buffType),
   );
 }
 
-function hasAugmentSlotted(build: Build, augmentName: string): boolean {
+export function hasAugmentSlotted(build: Build, augmentName: string): boolean {
   return activeGearItems(build).some(it =>
     it.augmentSlots?.some(s => s.selectedAugment === augmentName),
   );

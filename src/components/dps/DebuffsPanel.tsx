@@ -16,11 +16,13 @@
 import { useMemo } from 'react';
 import {
   DEBUFF_CATALOG,
+  autoActiveDebuffIds,
   type DebuffEntry,
   type DebuffSource,
   type DebuffScope,
   type DebuffState,
 } from '@/engine/dps/debuffs';
+import type { Build } from '@/types/build';
 import styles from './DebuffsPanel.module.css';
 
 const SOURCE_LABEL: Record<DebuffSource, string> = {
@@ -50,13 +52,15 @@ function formatEffect(entry: DebuffEntry): string {
 
 interface SummaryProps {
   state: DebuffState;
+  build: Build;
   onManage: () => void;
 }
 
-export function DebuffsSummary({ state, onManage }: SummaryProps) {
+export function DebuffsSummary({ state, build, onManage }: SummaryProps) {
+  const auto = useMemo(() => autoActiveDebuffIds(build), [build]);
   const active = useMemo(
-    () => DEBUFF_CATALOG.filter(e => state[e.id]?.enabled),
-    [state],
+    () => DEBUFF_CATALOG.filter(e => state[e.id]?.enabled || auto.has(e.id)),
+    [state, auto],
   );
 
   return (
@@ -80,14 +84,25 @@ export function DebuffsSummary({ state, onManage }: SummaryProps) {
         </div>
       ) : (
         <div className={styles.chips}>
-          {active.map(e => (
-            <span key={e.id} className={styles.chip} title={`${e.description}\n${formatEffect(e)}`}>
-              {e.label}
-              <span className={styles.chipScope}>
-                {state[e.id]?.scope === 'party' ? 'party' : 'self'}
+          {active.map(e => {
+            const isAuto = auto.has(e.id);
+            const titleParts = [
+              e.description,
+              formatEffect(e),
+              isAuto ? 'Auto-applied: triggered by your equipped gear.' : '',
+            ].filter(Boolean);
+            return (
+              <span key={e.id} className={styles.chip} title={titleParts.join('\n')}>
+                {e.label}
+                {isAuto && <span className={styles.chipAuto}>auto</span>}
+                {!isAuto && (
+                  <span className={styles.chipScope}>
+                    {state[e.id]?.scope === 'party' ? 'party' : 'self'}
+                  </span>
+                )}
               </span>
-            </span>
-          ))}
+            );
+          })}
         </div>
       )}
     </section>
@@ -99,11 +114,12 @@ export function DebuffsSummary({ state, onManage }: SummaryProps) {
 interface DialogProps {
   open: boolean;
   state: DebuffState;
+  build: Build;
   onChange: (state: DebuffState) => void;
   onClose: () => void;
 }
 
-export function ManageDebuffsDialog({ open, state, onChange, onClose }: DialogProps) {
+export function ManageDebuffsDialog({ open, state, build, onChange, onClose }: DialogProps) {
   const grouped = useMemo(() => {
     const m = new Map<DebuffSource, DebuffEntry[]>();
     for (const entry of DEBUFF_CATALOG) {
@@ -114,7 +130,12 @@ export function ManageDebuffsDialog({ open, state, onChange, onClose }: DialogPr
     return [...m.entries()];
   }, []);
 
-  const activeCount = Object.values(state).filter(s => s.enabled).length;
+  const auto = useMemo(() => autoActiveDebuffIds(build), [build]);
+  // Auto-applied debuffs are also "active" for the count even if the
+  // user hasn't manually toggled them.
+  const activeCount = DEBUFF_CATALOG.filter(e =>
+    state[e.id]?.enabled || auto.has(e.id),
+  ).length;
 
   function toggle(id: string) {
     const cur = state[id];
@@ -158,25 +179,31 @@ export function ManageDebuffsDialog({ open, state, onChange, onClose }: DialogPr
                 {entries.map(entry => {
                   const s = state[entry.id];
                   if (!s) return null;
+                  const isAuto = auto.has(entry.id);
+                  const effectivelyActive = s.enabled || isAuto;
                   return (
                     <div
                       key={entry.id}
-                      className={s.enabled ? styles.rowActive : styles.row}
-                      title={entry.description}
+                      className={effectivelyActive ? styles.rowActive : styles.row}
+                      title={isAuto
+                        ? `${entry.description}\nAuto-applied: triggered by your equipped gear.`
+                        : entry.description}
                     >
                       <label className={styles.toggle}>
                         <input
                           type="checkbox"
-                          checked={s.enabled}
+                          checked={effectivelyActive}
+                          disabled={isAuto}
                           onChange={() => toggle(entry.id)}
                         />
                         <span className={styles.label}>{entry.label}</span>
+                        {isAuto && <span className={styles.autoBadge}>auto</span>}
                       </label>
                       <span className={styles.effect}>{formatEffect(entry)}</span>
                       <select
                         className={styles.scope}
                         value={s.scope}
-                        disabled={!s.enabled}
+                        disabled={!effectivelyActive || isAuto}
                         onChange={e => setScope(entry.id, e.target.value as DebuffScope)}
                         aria-label={`${entry.label} scope`}
                       >

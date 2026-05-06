@@ -4,9 +4,12 @@ import { describe, it, expect } from 'vitest';
 import {
   DEBUFF_CATALOG,
   aggregateDebuffs,
+  autoActiveDebuffIds,
   initialDebuffState,
   type DebuffState,
 } from '@/engine/dps/debuffs';
+import type { Build, GearItem } from '@/types/build';
+import { DEFAULT_BUILD } from '@/types/build';
 
 const enable = (state: DebuffState, ...ids: string[]): DebuffState => {
   const out = { ...state };
@@ -104,5 +107,56 @@ describe('aggregateDebuffs — stacking', () => {
     const out = aggregateDebuffs(state);
     expect(out.sonicVulnPct).toBe(30);
     expect(out.elementVulnPct?.Sonic).toBe(30);
+  });
+});
+
+describe('auto-apply detection', () => {
+  function buildWithAugment(augmentName: string): Build {
+    const item: GearItem = {
+      slot: 'MainHand',
+      name: 'Test Weapon', icon: '',
+      buffs: [],
+      augmentSlots: [{ slotType: 'Yellow', selectedAugment: augmentName }],
+    };
+    return {
+      ...DEFAULT_BUILD,
+      gearSets: [{ name: 'Test', items: [item] }],
+      activeGearSet: 'Test',
+    };
+  }
+
+  function buildWithItemBuff(buffType: string): Build {
+    const item: GearItem = {
+      slot: 'MainHand',
+      name: 'Test Weapon', icon: '',
+      buffs: [{ type: buffType }],
+    };
+    return {
+      ...DEFAULT_BUILD,
+      gearSets: [{ name: 'Test', items: [item] }],
+      activeGearSet: 'Test',
+    };
+  }
+
+  it('Flamehorn augment auto-applies Legendary Ash', () => {
+    const build = buildWithAugment('Flamehorn');
+    const ids = autoActiveDebuffIds(build);
+    expect(ids.has('legendary-ash')).toBe(true);
+  });
+
+  it('Mind Tear item buff auto-applies Legendary Ash', () => {
+    const build = buildWithItemBuff('Mind Tear');
+    expect(autoActiveDebuffIds(build).has('legendary-ash')).toBe(true);
+  });
+
+  it('aggregateDebuffs with build picks up auto-applied Ash even when state is empty', () => {
+    const build = buildWithAugment('Flamehorn');
+    const out = aggregateDebuffs(initialDebuffState(), undefined, build);
+    expect(out.effectiveMRR).toBe(-21);
+  });
+
+  it('build with no triggering gear yields no auto-apply', () => {
+    const build: Build = { ...DEFAULT_BUILD, gearSets: [], activeGearSet: '' };
+    expect(autoActiveDebuffIds(build).size).toBe(0);
   });
 });

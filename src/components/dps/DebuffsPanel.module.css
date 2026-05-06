@@ -81,6 +81,36 @@
   border-left: 1px solid rgba(201,162,39,0.35);
 }
 
+/* "auto" badge for debuffs auto-applied by the user's gear. Uses
+   the gold accent so it's visually distinct from the self/party
+   scope badge but stays in the same family. */
+.chipAuto {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0 0.35rem;
+  margin-left: 0.25rem;
+  color: #d39a3a;
+  background: rgba(201, 162, 39, 0.12);
+  border: 1px solid rgba(201, 162, 39, 0.4);
+  border-radius: 3px;
+}
+
+/* Same badge style on the dialog's row label. */
+.autoBadge {
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0 0.35rem;
+  margin-left: 0.4rem;
+  color: #d39a3a;
+  background: rgba(201, 162, 39, 0.12);
+  border: 1px solid rgba(201, 162, 39, 0.4);
+  border-radius: 3px;
+}
+
 /* ── Dialog ───────────────────────────────────────────────────────── */
 
 .scrim {
