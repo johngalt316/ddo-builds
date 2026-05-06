@@ -1,18 +1,14 @@
-// Phase 6.5 — Instantaneous DPS chart over one rotation cycle.
+// Phase 6.5 — Per-second damage chart over one rotation cycle.
 //
 // X axis = rotation cycle time (matches the timeline's PX_PER_SECOND
 // scale so the playhead lines up visually with the casts above).
-// Y axis = damage per second over a 4-second sliding window centered
-// on each sample. Smooths short bursts, surfaces the rotation's peaks
-// and troughs.
-//
-// Treats the rotation as cyclic for window math: events from the end
-// of the cycle still contribute to samples near t=0 (steady-state).
+// Y axis = total damage that lands within each 1-second bin. Step
+// function: each second is a horizontal bar at its bin's total.
 //
 // `currentTime` drives an animated reveal: the line draws only up to
-// the playhead and the live-DPS readout follows along. As the
-// playhead advances past the 80% mark of the visible scroll area we
-// shift the viewport right to keep it on screen.
+// the playhead and the live readout follows along. As the playhead
+// advances past the 80% mark of the visible scroll area we shift the
+// viewport right to keep it on screen.
 
 import { useEffect, useMemo, useRef } from 'react';
 import styles from './RotationChart.module.css';
@@ -41,13 +37,6 @@ const DEFAULT_PX_PER_SEC = 70;
 const HEIGHT_PX          = 100;
 const PADDING_TOP        = 8;
 const PADDING_BOTTOM     = 18;   // leaves room for the time labels under the chart
-/** Sliding-window width for instantaneous DPS (seconds). Wide enough
- *  to smooth bursty single-cast spikes, narrow enough that rotation
- *  peaks (e.g. NL fires) are still visible. */
-const WINDOW_SECONDS     = 4;
-/** Sample density along the curve. 0.1s = 600 samples for a 60s
- *  cycle; smooth without inflating the SVG path. */
-const SAMPLE_STEP        = 0.1;
 
 const fmt = (n: number) => Math.round(n).toLocaleString();
 
@@ -82,78 +71,63 @@ export function RotationChart({
     [events],
   );
 
-  // Sample the sliding-window DPS curve. For each sample at time s,
-  // sum the damage of every event whose start time falls in
-  // [s - WINDOW, s] (with cycle wrap-around — events from the prior
-  // cycle still contribute when the window straddles t=0). Divide
-  // by the window width to convert to damage-per-second.
-  const samples = useMemo<{ t: number; dps: number }[]>(() => {
+  // Bucket damage into 1-second bins. Bin i covers [i, i+1) and holds
+  // the total damage of every cast whose start time falls inside.
+  const bins = useMemo<number[]>(() => {
     if (cycleSeconds <= 0 || events.length === 0) return [];
-    // Pre-extend events with a copy shifted -cycleSeconds so prior-
-    // cycle events naturally land inside the window without modular
-    // arithmetic in the inner loop.
-    const extended = [
-      ...events.map(e => ({ time: e.time - cycleSeconds, damage: e.damage })),
-      ...events,
-    ].sort((a, b) => a.time - b.time);
-    const out: { t: number; dps: number }[] = [];
-    const stepCount = Math.ceil(cycleSeconds / SAMPLE_STEP);
-    for (let i = 0; i <= stepCount; i++) {
-      const t = Math.min(i * SAMPLE_STEP, cycleSeconds);
-      const lo = t - WINDOW_SECONDS;
-      let dmg = 0;
-      // Could binary-search; linear is fine for typical event counts.
-      for (const e of extended) {
-        if (e.time < lo) continue;
-        if (e.time > t) break;
-        dmg += e.damage;
-      }
-      out.push({ t, dps: dmg / WINDOW_SECONDS });
+    const count = Math.max(1, Math.ceil(cycleSeconds));
+    const arr = new Array<number>(count).fill(0);
+    for (const e of events) {
+      const idx = Math.min(count - 1, Math.max(0, Math.floor(e.time)));
+      arr[idx] = (arr[idx] ?? 0) + e.damage;
     }
-    return out;
+    return arr;
   }, [events, cycleSeconds]);
 
-  // Live DPS at currentTime — drives the readout next to the title.
-  const liveDps = useMemo(() => {
-    if (samples.length === 0) return 0;
-    const idx = Math.min(samples.length - 1, Math.max(0, Math.round(currentTime / SAMPLE_STEP)));
-    return samples[idx]?.dps ?? 0;
-  }, [samples, currentTime]);
+  // Live damage at currentTime — total in the bin containing the playhead.
+  const liveDamage = useMemo(() => {
+    if (bins.length === 0) return 0;
+    const idx = Math.min(bins.length - 1, Math.max(0, Math.floor(currentTime)));
+    return bins[idx] ?? 0;
+  }, [bins, currentTime]);
 
   if (cycleSeconds <= 0 || events.length === 0) {
     return (
       <div className={styles.empty}>
-        Build a rotation above to see the instantaneous DPS chart.
+        Build a rotation above to see the per-second damage chart.
       </div>
     );
   }
 
   const width        = Math.max(120, cycleSeconds * pxPerSecond);
   const innerHeight  = HEIGHT_PX - PADDING_TOP - PADDING_BOTTOM;
-  const peakDps      = Math.max(1, ...samples.map(s => s.dps));
-  const yMax         = peakDps;
+  const peakDamage   = Math.max(1, ...bins);
+  const yMax         = peakDamage;
   const avgDps       = totalDamage / cycleSeconds;
   const playheadX    = Math.min(currentTime, cycleSeconds) * pxPerSecond;
   const totalPx      = cycleSeconds * pxPerSecond;
 
-  const yFor = (dps: number) =>
-    PADDING_TOP + (1 - dps / yMax) * innerHeight;
+  const yFor = (dmg: number) =>
+    PADDING_TOP + (1 - dmg / yMax) * innerHeight;
   const xFor = (sec: number) => sec * pxPerSecond;
 
-  // Smooth curve through the sliding-window samples.
-  const pathPoints: string[] = [];
-  for (let i = 0; i < samples.length; i++) {
-    const s = samples[i]!;
-    const cmd = i === 0 ? 'M' : 'L';
-    pathPoints.push(`${cmd} ${xFor(s.t).toFixed(2)} ${yFor(s.dps).toFixed(2)}`);
+  // Step function: each bin renders as a horizontal segment at its
+  // value spanning [i, i+1). Consecutive bins are linked by vertical
+  // jumps. Both ends of the curve drop to baseline.
+  const pathPoints: string[] = [`M 0 ${yFor(0).toFixed(2)}`];
+  for (let i = 0; i < bins.length; i++) {
+    const v = bins[i]!;
+    pathPoints.push(`L ${xFor(i).toFixed(2)} ${yFor(v).toFixed(2)}`);
+    const xRight = xFor(Math.min(i + 1, cycleSeconds));
+    pathPoints.push(`L ${xRight.toFixed(2)} ${yFor(v).toFixed(2)}`);
   }
+  pathPoints.push(`L ${xFor(cycleSeconds).toFixed(2)} ${yFor(0).toFixed(2)}`);
   const fullPath = pathPoints.join(' ');
 
-  // Filled area: close the curve down to the baseline.
+  // Filled area: close the step path down to the baseline.
   const areaPath = [
     fullPath,
-    `L ${xFor(cycleSeconds).toFixed(2)} ${yFor(0)}`,
-    `L 0 ${yFor(0)}`, 'Z',
+    `L 0 ${yFor(0).toFixed(2)}`, 'Z',
   ].join(' ');
 
   // Time-axis ticks — one per second up to 8s, every 2s up to 30s, else 5s.
@@ -170,11 +144,11 @@ export function RotationChart({
     <div className={styles.wrapper}>
       <div className={styles.header}>
         <span className={styles.label}>
-          DPS Chart · {WINDOW_SECONDS}s window
+          Damage / second
         </span>
         <span className={styles.readout}>
-          <strong>{fmt(liveDps)}</strong>
-          <span className={styles.readoutMax}> dps · avg {fmt(avgDps)} · peak {fmt(peakDps)}</span>
+          <strong>{fmt(liveDamage)}</strong>
+          <span className={styles.readoutMax}> in this second · avg {fmt(avgDps)} · peak {fmt(peakDamage)}</span>
           <span className={styles.readoutAt}> @ t={Math.min(currentTime, cycleSeconds).toFixed(1)}s</span>
         </span>
       </div>
@@ -185,7 +159,7 @@ export function RotationChart({
           width={width}
           height={HEIGHT_PX}
           role="img"
-          aria-label={`Instantaneous DPS over rotation cycle (${WINDOW_SECONDS}-second sliding window)`}
+          aria-label="Per-second damage over rotation cycle"
         >
           {/* Y-axis baseline */}
           <line
