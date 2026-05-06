@@ -638,8 +638,6 @@ damage scales with Fire Spell Power.</Description>
           <Value>2</Value>
         </Requirement>
       </Requirements>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>AotSMindwrack</InternalName>
@@ -800,8 +798,6 @@ of Force dealing damage to all enemies in a straight line. While active you have
           </Requirement>
         </Requirements>
       </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>AotSDevilsBulwarkI</InternalName>

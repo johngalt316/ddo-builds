@@ -1034,8 +1034,6 @@ level and max caster level. You also gain a +10 racial bonus to Fire resistance,
         <Item>Multivial of Frost</Item>
         <Item>Frost Obliteration</Item>
       </Effect>
-         <Category>heal</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <!--Tier 1-->
     <EnhancementTreeItem>

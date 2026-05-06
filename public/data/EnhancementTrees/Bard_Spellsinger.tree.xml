@@ -891,7 +891,6 @@ from their reverie.</Description>
         <DCVersus>Will</DCVersus>
         <Skill>Perform</Skill>
       </DC>
-         <Category>boost</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Spellsinger: Reviving Verse</Name>
@@ -1266,7 +1265,6 @@ A successful Will save negates this effect.</Description>
           <Item>SSSustainingSong</Item>
         </Requirement>
       </Requirements>
-         <Category>cc</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Spellsinger: Advanced Musical Studies</Name>

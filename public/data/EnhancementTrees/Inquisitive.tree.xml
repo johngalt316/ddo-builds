@@ -97,7 +97,6 @@ Cooldown: 1 Minute</Description>
             <Amount size="3">0 3 10</Amount>
             <Item>Diplomacy</Item>
          </Effect>
-         <Cooldown>60</Cooldown>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Inquisitive: Mind Like Iron</Name>
@@ -373,7 +372,6 @@ Spell Point Cost: [30/20/10]</Description>
             <Item>InquisitiveConjureBolts</Item>
             <Item>Conjure Bolts</Item>
          </Effect>
-         <Category>utility</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Inquisitive: Law on your side</Name>
@@ -397,8 +395,6 @@ deal 1d10 Law damage per Imbue Dice on hit to Chaotic creatures and 1d6 Law dama
 on hit to all other creatures, scaling with 200% Ranged Power.</Description>
             <Group>Imbue</Group>
          </Stance>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Inquisitive: Inquisitive Skills</Name>

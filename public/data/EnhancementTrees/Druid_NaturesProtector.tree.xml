@@ -114,7 +114,6 @@ Cooldown: 6 seconds.</Description>
                </Requirement>
             </Requirements>
          </Effect>
-         <Cooldown>6</Cooldown>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Nature's Protector: Magical Beast</Name>
@@ -1966,7 +1965,6 @@ Bonuses are doubled if Nature's Protector stance is active.</Description>
                </Requirement>
             </Requirements>
          </Effect>
-         <Category>debuff</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Nature's Protector: Ursa's Protector III</Name>

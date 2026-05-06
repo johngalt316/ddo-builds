@@ -388,8 +388,6 @@ of highest of Melee or Ranged power.</Description>
           <Value>1</Value>
         </Requirement>
       </Requirements>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Assassin: Shiv</Name>
@@ -855,8 +853,6 @@ Deals [4/6/8]d8 unholy damage and blinds the target.</Description>
         <Tactical>Assassinate</Tactical>
         <ClassLevel>Rogue</ClassLevel>
       </DC>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Assassin: Sneak Attack Training III</Name>

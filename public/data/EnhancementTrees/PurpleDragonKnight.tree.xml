@@ -1408,8 +1408,6 @@ a Morale bonus to weapon damage equal to your Charisma modifier for two minutes.
         <Amount size="4">0 0 0 0</Amount>
         <Item>None</Item>
       </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Purple Dragon Knight: Action Surge IV</Name>

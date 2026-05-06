@@ -509,8 +509,6 @@ has an additional -[1/2/3] to your attack bonus.</Description>
                </Requirement>
             </Requirements>
          </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Bladeforged: Construct Toughness II</Name>
@@ -623,8 +621,6 @@ You deal +0.5[W] damage.</Description>
                </Requirement>
             </Requirements>
          </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Bladeforged: Resolve</Name>

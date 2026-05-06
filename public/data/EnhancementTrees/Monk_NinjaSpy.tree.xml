@@ -954,8 +954,6 @@ can stack up to 20 times. On timer expiration, 5 stacks of Ninja Poison are
 removed at a time.)</Description>
         <Group>Imbue</Group>
       </Stance>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Ninja Spy: Ability I</Name>

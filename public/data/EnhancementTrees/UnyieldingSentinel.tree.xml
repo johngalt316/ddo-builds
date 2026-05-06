@@ -527,8 +527,6 @@ and Compulsions as per a Protection from Alignment spell.</Description>
                </Requirement>
             </Requirements>
          </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <InternalName>U51UnyieldingSentinelCommandingPresence</InternalName>
@@ -940,7 +938,6 @@ Cost: 15 Spell points</Description>
             <Amount size="4">0 15 0 6</Amount>
             <Item>None</Item>
          </Effect>
-         <Cooldown>6</Cooldown>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <InternalName>U51UnyieldingSentinelStrengthOfVitality</InternalName>

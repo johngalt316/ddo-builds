@@ -459,8 +459,6 @@ Passive: +1 to hit and damage with handwraps while centered.</Description>
                </Requirement>
             </Requirements>
          </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Shintao: Reed in the Wind</Name>
@@ -553,7 +551,6 @@ Intimidate skill. (Activation Cost: 15 Ki. Cooldown: 15 seconds)</Description>
          <Other>d20</Other>
          <Skill>Concentration</Skill>
       </DC>
-         <Cooldown>15</Cooldown>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Shintao: Exemplar</Name>
@@ -678,8 +675,6 @@ Passive: +1 to hit and +2 damage with handwraps while centered.</Description>
                </Requirement>
             </Requirements>
          </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Shintao: Smite Tainted Creature</Name>
@@ -960,8 +955,6 @@ Passive: +1 to hit and damage with handwraps while centered.</Description>
                </Requirement>
             </Requirements>
          </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Shintao: Jade Strike</Name>
@@ -1182,8 +1175,6 @@ Passive: +1 to hit and +2 damage with handwraps while centered.</Description>
                </Requirement>
             </Requirements>
          </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Shintao: Tomb of Jade</Name>
@@ -1626,8 +1617,6 @@ Water Stance:
                </Requirement>
             </Requirements>
          </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Shintao: Rise of the Phoenix</Name>
@@ -1654,7 +1643,6 @@ This ability may only be used once per rest. (Cooldown: 15 minutes)</Description
                <Value>12</Value>
             </Requirement>
          </Requirements>
-         <Cooldown>900</Cooldown>
       </EnhancementTreeItem>
    </EnhancementTree>
 </Enhancements>

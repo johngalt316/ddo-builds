@@ -131,8 +131,6 @@ This Frenzy adds 1d8 Bane damage to your attacks, scaling with 100% Melee Power.
           </Requirement>
         </Requirements>
       </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Frenzied Berserker: Frenzied Toughness II</Name>
@@ -265,8 +263,6 @@ Cooldown: 30 seconds.</Description>
         <Amount size="8">0 0 0 0 0 2 2 2</Amount>
         <ApplyAsItemEffect />
       </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Frenzied Berserker: Storm's Eye</Name>
@@ -561,7 +557,6 @@ constitution until you rest or die. (Cooldown: 3 seconds)</Description>
       </Requirements>
       <Clickie />
       <ArrowUp />
-         <Cooldown>3</Cooldown>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Frenzied Berserker: Extra Action Boost</Name>

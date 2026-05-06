@@ -1456,7 +1456,6 @@ effect. They must succeed on a Will saving throw to prevent their death.
           </Effect>
         </EnhancementSelection>
       </Selector>
-         <Cooldown>60</Cooldown>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Shadowdancer: Just a Taste</Name>

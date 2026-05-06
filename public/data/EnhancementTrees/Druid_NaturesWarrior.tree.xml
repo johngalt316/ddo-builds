@@ -1800,8 +1800,6 @@ Target must also make a Fortitude save or will be silenced for 15 seconds.</Desc
         <ModAbility>Wisdom</ModAbility>
         <Tactical>Stun</Tactical>
       </DC>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Nature's Warrior: Jaws of the Wolf</Name>
@@ -1879,8 +1877,6 @@ melee power. A successful Balance check negates Knockdown.</Description>
         <ModAbility>Wisdom</ModAbility>
         <Tactical>Trip</Tactical>
       </DC>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
   </EnhancementTree>
 </Enhancements>

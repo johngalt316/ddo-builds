@@ -1048,8 +1048,6 @@ You also gain a +10 racial bonus to electrical resistance, +20 Physical Resistan
         <Item>Autumn Decay</Item>
         <!---TBD Earth spells-->
       </Effect>
-         <Category>heal</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <!--Tier 1-->
     <EnhancementTreeItem>
@@ -1782,7 +1780,6 @@ Spell-Like Ability.</Description>
           <Value>4</Value>
         </Requirement>
       </Requirements>
-         <Cooldown>3</Cooldown>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Air Savant: Spell Critical: Electric IV</Name>
@@ -1976,7 +1973,6 @@ Cooldown: 3 seconds.</Description>
         <Amount size="4">0 10 0 3</Amount>
         <Item>Sorcerer</Item>
       </Effect>
-         <Cooldown>3</Cooldown>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Air Savant: Evocation Focus</Name>

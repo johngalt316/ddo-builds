@@ -803,8 +803,6 @@ DND Dice: Deals 1d6+2 Electric damage per caster level, max 10d6+20</Description
           </Effect>
         </EnhancementSelection>
       </Selector>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Bombardier: Arcane Knowledge</Name>
@@ -1081,8 +1079,6 @@ DND Dice: Deals 1d6+2 Electric damage per caster level, max 10d6+20</Description
           </Effect>
         </EnhancementSelection>
       </Selector>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Bombardier: Efficient Metamagics I</Name>
@@ -1443,8 +1439,6 @@ DND Dice: Deals 1d6+2 Electric damage per caster level, max 10d6+20</Description
           </Effect>
         </EnhancementSelection>
       </Selector>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Bombardier: Efficient Metamagics II</Name>
@@ -1690,7 +1684,6 @@ you Invisible and Displaced for 12 seconds.</Description>
         <Amount size="12">0 25 -1 12 0 20 -1 12 0 15 -1 12</Amount>
         <Item>Alchemist</Item>
       </Effect>
-         <Category>boost</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Bombardier: Efficient Heighten</Name>
@@ -1960,8 +1953,6 @@ damage per Caster Level to all enemies nearby. (Max Caster Level 10)</Descriptio
           </Effect>
         </EnhancementSelection>
       </Selector>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Bombardier: Augmentation</Name>

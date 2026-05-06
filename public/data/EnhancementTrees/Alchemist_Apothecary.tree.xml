@@ -167,8 +167,6 @@ Critical Damage.</Description>
         <AType>Simple</AType>
         <Amount size="1">5</Amount>
       </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Apothecary: Spill the Bad Stuff</Name>
@@ -234,8 +232,6 @@ Critical Damage.</Description>
         <AType>Simple</AType>
         <Amount size="1">5</Amount>
       </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Apothecary: Curative Admixture: Heal</Name>
@@ -476,8 +472,6 @@ Artificer/Alchemist Knowledge: Potions.</Description>
           </Effect>
         </EnhancementSelection>
       </Selector>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Apothecary: Apothecary Skills</Name>
@@ -1198,8 +1192,6 @@ Artificer/Alchemist Knowledge: Potions.</Description>
           </Effect>
         </EnhancementSelection>
       </Selector>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Apothecary: Gloves of the Master Apothecary</Name>
@@ -1331,8 +1323,6 @@ Mesmerized, Paralyzed, Petrified, or Stunned must make a Fortitude save
         <Other>d20</Other>
         <Skill>Heal</Skill>
       </DC>
-         <Category>heal</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Apothecary: Sleep or Death</Name>

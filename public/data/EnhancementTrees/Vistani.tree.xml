@@ -284,7 +284,6 @@ Swords: You gain 15 Melee Power and Ranged Power for 60 seconds.</Description>
                </Requirement>
             </Requirements>
          </Effect>
-         <Category>boost</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Vistani: Blade Master</Name>
@@ -1246,7 +1245,6 @@ Throwing Dagger Missile Attack: Your throwing knife gains 100 doubleshot for
                </Effect>
             </EnhancementSelection>
          </Selector>
-         <Category>boost</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Vistani: Mist Stalker V</Name>
@@ -1330,9 +1328,6 @@ requires a throwing Dagger.)</Description>
                <Value>12</Value>
             </Requirement>
          </Requirements>
-         <Cooldown>10</Cooldown>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Vistani: Vendetta</Name>

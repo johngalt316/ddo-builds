@@ -126,7 +126,6 @@ Cooldown: 1 minute</Description>
                <Item>ShadarKaiCore2</Item>
             </Requirement>
          </Requirements>
-         <Cooldown>60</Cooldown>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Shadar-Kai: Shadow Jaunt</Name>
@@ -532,8 +531,6 @@ with Melee or Ranged power, and you gain 5 Cold resistance.</Description>
 with Melee or Ranged power, and you gain 5 Cold resistance.</Description>
             <Group>Imbue</Group>
          </Stance>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Shadar-Kai: Gloom Stalker</Name>

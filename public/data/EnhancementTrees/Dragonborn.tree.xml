@@ -294,7 +294,6 @@ making enemies more likely to attack you.</Description>
                </Effect>
             </EnhancementSelection>
          </Selector>
-         <Category>debuff</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Dragonborn: Draconic Visage</Name>
@@ -411,8 +410,6 @@ feats, No SR, Scales with 50% of spell power.</Description>
             <School>Evocation</School>
             <Tactical>Breath Weapon</Tactical>
          </DC>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Dragonborn: Extra Action Boost</Name>

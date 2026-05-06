@@ -584,8 +584,6 @@ you gain 6 Temporary Hit Points per Character Level. This can only occur once
 every 10 seconds.</Description>
         <Group>Mantle</Group>
       </Stance>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Fatesinger: Discord</Name>
@@ -1367,8 +1365,6 @@ of Fate.</Description>
           <CostPerRank size="1">2</CostPerRank>
         </EnhancementSelection>
       </Selector>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Fatesinger: Metamagics Attunement</Name>

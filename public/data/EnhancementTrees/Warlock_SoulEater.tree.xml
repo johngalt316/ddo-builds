@@ -338,8 +338,6 @@ Cooldown 10 seconds</Description>
                <Value>1</Value>
             </Requirement>
          </Requirements>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Soul Eater: Subtle Spellcasting</Name>
@@ -504,8 +502,6 @@ the Healing Amplification of the opponent by [40/80/120] for 12 seconds.</Descri
             <ModAbility>Intelligence</ModAbility>
             <ModAbility>Charisma</ModAbility>
          </DC>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Soul Eater: Feeding Frenzy</Name>
@@ -580,7 +576,6 @@ Cooldown: 3 seconds</Description>
             <Amount size="4">0 10 0 3</Amount>
             <Item>Warlock</Item>
          </Effect>
-         <Cooldown>3</Cooldown>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Soul Eater: Hungry for Destruction II</Name>
@@ -786,8 +781,6 @@ power. This cone attack has standard range for cone spells.</Description>
                 </Requirement>
             </Requirements>
          </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Soul Eater: Ability I</Name>
@@ -1013,8 +1006,6 @@ scales with 150% spell power. Cooldown 8 seconds.</Description>
                <Value>12</Value>
             </Requirement>
          </Requirements>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Soul Eater: Supreme Hunger</Name>
@@ -1131,7 +1122,6 @@ Cooldown: 8 seconds.</Description>
             <Amount size="4">0 40 0 8</Amount>
             <Item>Warlock</Item>
          </Effect>
-         <Cooldown>8</Cooldown>
       </EnhancementTreeItem>
    </EnhancementTree>
 </Enhancements>

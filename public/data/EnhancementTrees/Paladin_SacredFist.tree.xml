@@ -52,8 +52,6 @@ Dice, scaling with 200% Melee Power. Each core ability in this tree grants you
 scaling with 200% Melee Power.</Description>
         <Group>Imbue</Group>
       </Stance>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Sacred Fist: Strike Evil</Name>
@@ -561,7 +559,6 @@ Intimidate skill. (Activation Cost: 15 Ki. Cooldown: 15 seconds)</Description>
          <Other>d20</Other>
          <Skill>Concentration</Skill>
       </DC>
-         <Cooldown>15</Cooldown>
     </EnhancementTreeItem>
     <!--Tier 2-->
     <EnhancementTreeItem>
@@ -718,8 +715,6 @@ Usable 5 times per rest.</Description>
           <Value>2</Value>
         </Requirement>
       </Requirements>
-         <Category>boost</Category>
-         <UsesActionBoostCharge/>
     </EnhancementTreeItem>
     <!--Tier 3-->
     <EnhancementTreeItem>

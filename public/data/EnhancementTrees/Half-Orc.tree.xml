@@ -558,7 +558,6 @@ failure based on your Charisma.
             <Amount size="4">0 0 0 15</Amount>
             <Item>None</Item>
          </Effect>
-         <Cooldown>15</Cooldown>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Half-Orc: Great Weapon Aptitude</Name>
@@ -647,8 +646,6 @@ also has an additional -[1/2/3] to your attack bonus.</Description>
         </Requirements>
             <Item>Melee</Item>
          </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Half-Orc: Orcish Weapon Training III</Name>

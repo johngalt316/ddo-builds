@@ -616,8 +616,6 @@ to 1/2 of your Intelligence modifier for [30/60/120] seconds</Description>
         <Item>All</Item>
         <ApplyAsItemEffect/>
       </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>HarperLeadership</InternalName>
@@ -1190,7 +1188,6 @@ Passive: +1 DC for your spells</Description>
         <AType>Simple</AType>
         <Amount size="1">1</Amount>
       </Effect>
-         <Cooldown>300</Cooldown>
     </EnhancementTreeItem>
   </EnhancementTree>
 </Enhancements>

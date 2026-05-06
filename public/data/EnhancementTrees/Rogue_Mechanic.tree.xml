@@ -576,8 +576,6 @@ The damage scales with 200% Ranged Power</Description>
         <DCVersus>Fortitude</DCVersus>
         <Skill>Disable Device</Skill>
       </DC>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Mechanic: Mechanics</Name>
@@ -980,8 +978,6 @@ and PRR of your opponent by 2 for 30 seconds.</Description>
         <Other>1d20</Other>
         <Skill>Disable Device</Skill>
       </DC>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Mechanic: Use Magical Device</Name>
@@ -1444,8 +1440,6 @@ enemies after 2 seconds, and knocks them to the ground.</Description>
         <Other>1d20</Other>
         <Skill>Disable Device</Skill>
       </DC>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Mechanic: Expert Builder</Name>

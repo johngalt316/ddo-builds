@@ -100,7 +100,6 @@ tree, including this one, your Familiar grants you +5 Force and +5 Universal Spe
             <AType>Simple</AType>
             <Amount size="1">5</Amount>
          </Effect>
-         <Category>utility</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Feydark Illusionist: Ability I</Name>
@@ -227,7 +226,6 @@ Cooldown: 8 seconds</Description>
             <AType>Simple</AType>
             <Amount size="1">5</Amount>
          </Effect>
-         <Cooldown>8</Cooldown>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Feydark Illusionist: Ability II</Name>

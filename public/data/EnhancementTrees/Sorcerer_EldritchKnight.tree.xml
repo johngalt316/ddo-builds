@@ -218,8 +218,6 @@ with Fire Spell power.</Description>
         <AType>Simple</AType>
         <Amount size="1">10</Amount>
       </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Eldritch Knight: Imbue the Blade</Name>
@@ -717,8 +715,6 @@ Activation Cost: [8/6/4] Spell points</Description>
           <Value>2</Value>
         </Requirement>
       </Requirements>
-         <Category>boost</Category>
-         <UsesActionBoostCharge/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Eldritch Knight: Shield Training</Name>
@@ -1031,8 +1027,6 @@ Knight's Strike: +30 Universal spell power and +3% Critical Spell Damage for 30 
           </Requirement>
         </Requirements>
       </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Eldritch Knight: Offhand Defenses</Name>
@@ -1491,7 +1485,6 @@ Cooldown: 3 Minutes</Description>
         <Amount size="4">0 30 0 180</Amount>
         <Item>Sorcerer</Item>
       </Effect>
-         <Cooldown>180</Cooldown>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Eldritch Knight: Eldritch Tempest</Name>

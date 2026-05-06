@@ -413,8 +413,6 @@ Levels, for 10 seconds.</Description>
           </Requirement>
         </Requirements>
       </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>EladrinStepThroughTheFade</InternalName>
@@ -908,7 +906,6 @@ Cooldown: 3 seconds</Description>
         <Amount size="4">0 2 0 3</Amount>
         <Item>None</Item>
       </Effect>
-         <Cooldown>3</Cooldown>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>EladrinSWinterSpell</InternalName>

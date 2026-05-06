@@ -47,8 +47,6 @@ Passive: +5 Fire Spell Power</Description>
 under [75/50/25]% HP. This damage scales with 100% Spell Power.</Description>
             <Group>Imbue</Group>
          </Stance>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Tiefling: Charisma I</Name>
@@ -288,7 +286,6 @@ Cooldown: 30 Seconds</Description>
             <Amount size="4">0 10 0 30</Amount>
             <Item>None</Item>
          </Effect>
-         <Cooldown>30</Cooldown>
       </EnhancementTreeItem>
        <!--Tier 2-->
       <EnhancementTreeItem>

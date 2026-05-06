@@ -910,7 +910,6 @@ and your melee weapon attacks add a stack of Vulnerability once per second.</Des
           </Effect>
         </EnhancementSelection>
       </Selector>
-         <Category>cc</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Aasimar: Improved Recovery III</Name>

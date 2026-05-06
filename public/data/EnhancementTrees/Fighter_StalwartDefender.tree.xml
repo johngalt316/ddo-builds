@@ -124,7 +124,6 @@ Cannot be used while Raged.</Description>
         <AType>Simple</AType>
         <Amount size="1">-1</Amount>
       </Effect>
-         <Category>debuff</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Stalwart Defender: Overbalance</Name>

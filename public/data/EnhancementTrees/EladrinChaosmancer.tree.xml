@@ -273,7 +273,6 @@ Character Levels, for 10 seconds.</Description>
       <MinSpent>1</MinSpent>
       <Clickie />
       <ArrowRight />
-         <Category>boost</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>EladrinWMStepThroughTheFade</InternalName>

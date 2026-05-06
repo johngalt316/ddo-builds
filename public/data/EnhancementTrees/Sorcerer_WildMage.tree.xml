@@ -123,7 +123,6 @@ Passive: +10 Chaos Spell Power.</Description>
         <Amount size="1">10</Amount>
         <Item>Chaos</Item>
       </Effect>
-         <Cooldown>15</Cooldown>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>WMCore4</InternalName>
@@ -301,8 +300,6 @@ with all spells. Your may use Riches of Randomness one additional time per rest.
         <Amount size="1">1</Amount>
         <Item>All</Item>
       </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <!--Tier 1 Enhancements-->
     <EnhancementTreeItem>
@@ -466,8 +463,6 @@ Luck bonus to increase the odds of positive surges.</Description>
           </Requirement>
         </Requirements>
       </Effect>
-         <Category>boost</Category>
-         <UsesActionBoostCharge/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>WMChaosControlII</InternalName>

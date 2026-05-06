@@ -1077,8 +1077,6 @@ to Fire resistance.</Description>
         <Item>Ki Explosion</Item>
         <Item>Scorching Summer</Item>
       </Effect>
-         <Category>heal</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <!--Tier 1-->
     <EnhancementTreeItem>
@@ -2008,8 +2006,6 @@ for half damage, and an additional Reflex save or be encased in ice.</Descriptio
         <ModAbility>Charisma</ModAbility>
         <School>Evocation</School>
       </DC>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Water Savant: Evocation Focus</Name>

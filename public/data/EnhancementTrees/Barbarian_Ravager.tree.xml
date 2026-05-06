@@ -445,8 +445,6 @@ Damage is doubled when Two Handed Fighting or fighting in an animal form..</Desc
         </Requirements>
         <Item>Two Handed</Item>
       </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Ravager: Hardy Rage</Name>

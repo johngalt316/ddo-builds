@@ -381,7 +381,6 @@ Passive: +4 Charisma.</Description>
             <Item>Cure Critical Wounds, Mass</Item>
             <Item>Heal, Mass</Item>
          </Effect>
-         <Cooldown>10</Cooldown>
       </EnhancementTreeItem>
       <!--Tier 1-->
       <EnhancementTreeItem>
@@ -585,8 +584,6 @@ Favored Soul level for 20 seconds. 6 second cooldown.</Description>
                <Value>2</Value>
             </Requirement>
          </Requirements>
-         <Cooldown>6</Cooldown>
-         <Category>boost</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Beacon of Hope: Divine Durability II</Name>
@@ -718,8 +715,6 @@ equal to 3 + Favored Soul level for 20 seconds. 6 Second cooldown.</Description>
                <Value>3</Value>
             </Requirement>
          </Requirements>
-         <Cooldown>6</Cooldown>
-         <Category>boost</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Beacon of Hope: Efficient Empower Healing</Name>
@@ -860,7 +855,6 @@ Cooldown: 4 seconds</Description>
             <Amount size="12">0 10 0 4 0 8 0 4 0 5 0 4</Amount>
             <Item>Favored Soul</Item>
          </Effect>
-         <Cooldown>4</Cooldown>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Beacon of Hope: Hope for Victory</Name>
@@ -882,8 +876,6 @@ Soul level. This lasts for 20 seconds, 6 second cooldown.</Description>
                <Value>4</Value>
             </Requirement>
          </Requirements>
-         <Cooldown>6</Cooldown>
-         <Category>boost</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Beacon of Hope: Optimism</Name>
@@ -1044,7 +1036,6 @@ and preserves current spell points.
             <Amount size="4">0 15 0 9</Amount>
             <Item>Favored Soul</Item>
          </Effect>
-         <Cooldown>9</Cooldown>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Beacon of Hope: Hope for Success</Name>
@@ -1070,8 +1061,6 @@ Critical Threat Range and Multiplier for 20 seconds. 1 Minute cooldown.</Descrip
                <Value>12</Value>
             </Requirement>
          </Requirements>
-         <Cooldown>60</Cooldown>
-         <Category>debuff</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Beacon of Hope: Heal</Name>
@@ -1174,8 +1163,6 @@ Costs 40 Spell Points. 30 second cooldown.</Description>
             <Amount size="4">0 40 0 30</Amount>
             <Item>Favored Soul</Item>
          </Effect>
-         <Cooldown>30</Cooldown>
-         <Category>boost</Category>
       </EnhancementTreeItem>
    </EnhancementTree>
 </Enhancements>

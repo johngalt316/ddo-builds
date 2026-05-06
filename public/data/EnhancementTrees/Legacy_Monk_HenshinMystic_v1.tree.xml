@@ -1234,8 +1234,6 @@ dealing +1d6 Fire damage on hit, and an additional 1d6 Force damage on critical.
             <Icon>HMLightingTheCandle</Icon>
             <Group>Imbue</Group>
          </Stance>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Henshin Mystic: Embrace the Void</Name>

@@ -312,7 +312,6 @@ Light Pick: +1 Range</Description>
             <Item>Light Pick</Item>
             <ApplyAsItemEffect />
          </Effect>
-         <Category>debuff</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Swashbuckler: Uncanny Dodge</Name>
@@ -1164,8 +1163,6 @@ Fighting line of feats.</Description>
             <Icon>SBResonantArms</Icon>
             <Group>Imbue</Group>
          </Stance>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Swashbuckler: Different Tack</Name>

@@ -126,8 +126,6 @@ caster level - a successful Will save reduces the damage by half.
             <AType>Simple</AType>
             <Amount size="1">1</Amount>
          </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Radiant Servant: Improved Empower Healing</Name>
@@ -450,7 +448,6 @@ cost [1/2/4] fewer spell points.</Description>
                <Item>RSDivineCleansing</Item>
             </Requirement>
          </Requirements>
-         <Cooldown>6</Cooldown>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Radiant Servant: Divine Healing</Name>
@@ -652,8 +649,6 @@ This ability toggles off on death.</Description>
                <Value>3</Value>
             </Requirement>
          </Requirements>
-         <Category>heal</Category>
-         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Radiant Servant: Ability I</Name>

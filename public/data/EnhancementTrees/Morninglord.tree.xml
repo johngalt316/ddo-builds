@@ -513,7 +513,6 @@ Cooldown: 2 minutes</Description>
           <Item>MorninglordEnchantmentLore</Item>
         </Requirement>
       </Requirements>
-         <Cooldown>120</Cooldown>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Morninglord: Fey Sight</Name>

@@ -77,9 +77,6 @@ Note: Proc rate appears to be about 5%</Description>
           <Value>3</Value>
         </Requirement>
       </Requirements>
-         <Cooldown>1</Cooldown>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Angel of Vengeance: Aura of Menace</Name>
@@ -105,7 +102,6 @@ attack, and armor class of nearby enemies by 2. Cooldown: 1 second</Description>
           <Value>6</Value>
         </Requirement>
       </Requirements>
-         <Cooldown>1</Cooldown>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Angel of Vengeance: Summon Archon</Name>
@@ -145,9 +141,6 @@ Cost: 20 spell points. Cooldown: 6 second.</Description>
         <Amount size="4">0 20 0 6</Amount>
         <Item>Favored Soul</Item>
       </Effect>
-         <Cooldown>6</Cooldown>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Angel of Vengeance: Vengeful Magic</Name>
@@ -1054,8 +1047,6 @@ and can only target another player or a hireling. Duration: 10 minutes.</Descrip
           <Value>4</Value>
         </Requirement>
       </Requirements>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Angel of Vengeance: Efficient Heighten</Name>
@@ -1519,8 +1510,6 @@ Archon's Fury: 2d6+1 Fire damage every 2 seconds for 10 seconds, stacks up to 10
           <Value>12</Value>
         </Requirement>
       </Requirements>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
   </EnhancementTree>
 </Enhancements>

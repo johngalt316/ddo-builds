@@ -384,8 +384,6 @@ the highest of 100% Positive Spell Power or 200% Melee Power.</Description>
           </Requirement>
         </Requirements>
       </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Fury of the Wild: Enduring</Name>
@@ -572,7 +570,6 @@ previous one expires.</Description>
           </Requirement>
         </Requirements>
       </Effect>
-         <Category>boost</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Fury of the Wild: Gird against Demons</Name>
@@ -1267,7 +1264,6 @@ Cooldown of 30 seconds.</Description>
         <ModAbility>Constitution</ModAbility>
         <Tactical>Trip</Tactical>
       </DC>
-         <Category>cc</Category>
     </EnhancementTreeItem>
   </EnhancementTree>
 </Enhancements>

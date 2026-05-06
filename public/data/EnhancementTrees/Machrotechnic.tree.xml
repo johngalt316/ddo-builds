@@ -623,8 +623,6 @@ healing from all sources (except Untyped).</Description>
           <Value>20</Value>
         </Requirement>
       </Requirements>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Machrotechnic: Rune Arm Use</Name>
@@ -796,8 +794,6 @@ This is increased to 15% if you are wearing a Rune Arm.</Description>
           </Requirement>
         </Requirements>
       </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <!--Tier 3 Enhancements-->
     <EnhancementTreeItem>

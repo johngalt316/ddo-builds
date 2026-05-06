@@ -642,7 +642,6 @@ Cooldown: 6 seconds</Description>
         <Amount size="4">0 0 0 6</Amount>
         <Item>Ranger</Item>
       </Effect>
-         <Cooldown>6</Cooldown>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Deepwood Stalker: Improved Weapon Finesse</Name>
@@ -1454,8 +1453,6 @@ and Shortbows when toggled on.</Description>
         </Requirements>
         <ApplyAsItemEffect />
       </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Deepwood Stalker: Strikes Like Lightning</Name>

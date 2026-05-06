@@ -100,7 +100,6 @@ Cooldown: 30 seconds.</Description>
         <Item>Physical</Item>
         <Item>Untyped</Item>
       </Effect>
-         <Cooldown>30</Cooldown>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Arcanotechnician: Thaumaturgical Battery</Name>

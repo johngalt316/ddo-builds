@@ -465,7 +465,6 @@ school and Will as its saving throw.</Description>
         <Amount size="4">0 0 0 0</Amount>
         <Item>None</Item>
       </Effect>
-         <Category>cc</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Gnome: Nimble Reaction</Name>

@@ -473,8 +473,6 @@ Fighting or fighting in an animal form.</Description>
         </Requirements>
         <Item>All</Item>
       </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Ravager: Hardy Rage</Name>

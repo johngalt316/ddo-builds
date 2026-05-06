@@ -872,8 +872,6 @@ Melee Quarterstaff Trip Attack: Trips all nearby enemies.</Description>
         <ModAbility>Intelligence</ModAbility>
         <ModAbility>Dexterity</ModAbility>
       </DC>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Thief Acrobat: Ability I</Name>
@@ -1246,7 +1244,6 @@ Requires you to have a quarterstaff equipped. (Cooldown: 15 seconds)</Descriptio
         <Amount size="4">0 0 0 15</Amount>
         <Item>None</Item>
       </Effect>
-         <Cooldown>15</Cooldown>
     </EnhancementTreeItem>
   </EnhancementTree>
 </Enhancements>

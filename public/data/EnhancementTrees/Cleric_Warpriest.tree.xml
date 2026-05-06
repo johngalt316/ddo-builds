@@ -520,8 +520,6 @@ abilities.</Description>
                </Requirement>
             </Requirements>
          </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Warpriest: Toughness</Name>
@@ -1037,8 +1035,6 @@ with Fire Spell Power.</Description>
             <Icon>WSFiresOfFury</Icon>
             <Group>Imbue</Group>
          </Stance>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Warpriest: Righteous Weapons IV</Name>
@@ -1287,8 +1283,6 @@ Shares its cooldown with the Great Cleave feat.</Description>
                <Clickie/>
             </EnhancementSelection>
          </Selector>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Warpriest: Wrathful Weapons</Name>

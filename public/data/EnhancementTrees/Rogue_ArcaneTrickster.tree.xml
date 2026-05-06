@@ -722,9 +722,6 @@ spell but does apply magical ambush.</Description>
         <Other>d20</Other>
         <Skill>Disable Device</Skill>
       </DC>
-         <Cooldown>1</Cooldown>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Arcane Trickster: Magic Fingers</Name>
@@ -901,9 +898,6 @@ apply magical ambush.</Description>
         <Other>d20</Other>
         <Skill>Disable Device</Skill>
       </DC>
-         <Cooldown>1</Cooldown>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Arcane Trickster: Protective Gear</Name>
@@ -1634,7 +1628,6 @@ abilities. This is not considered a spell.</Description>
         <DCVersus>Will</DCVersus>
         <Skill>Disable Device</Skill>
       </DC>
-         <Cooldown>1</Cooldown>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Arcane Trickster: Extra Hand</Name>

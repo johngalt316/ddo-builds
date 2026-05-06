@@ -84,8 +84,6 @@ D&amp;D Dice: Heals 2d6+4 hp plus +1 per caster level (max 10).</Description>
           <Amount size="4">0 10 0 3</Amount>
           <Item>Cleric</Item>
        </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>SFRSCore3</InternalName>
@@ -121,8 +119,6 @@ level - a successful Will save reduces the damage by half.</Description>
           <AType>Simple</AType>
           <Amount size="1">1</Amount>
        </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>SFRSCore4</InternalName>
@@ -440,7 +436,6 @@ cost [1/2/4] fewer spell points.</Description>
           <Value>2</Value>
         </Requirement>
       </Requirements>
-         <Cooldown>6</Cooldown>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Radiant Servant: Divine Healing</Name>
@@ -650,8 +645,6 @@ This ability toggles off on death.</Description>
           <Value>3</Value>
         </Requirement>
       </Requirements>
-         <Category>heal</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Radiant Servant: Ability I</Name>

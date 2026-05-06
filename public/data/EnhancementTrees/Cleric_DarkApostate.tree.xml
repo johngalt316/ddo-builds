@@ -157,8 +157,6 @@ only take 50% healing from Positive Energy and take 100% more damage from Light.
         </Requirements>
         <ApplyAsItemEffect/>
       </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Dark Apostate: Enhanced Shadowform I</Name>
@@ -516,7 +514,6 @@ this effect. Bane counters and dispels Bless. Cooldown 10 seconds.</Description>
         <Amount size="4">0 4 0 10</Amount>
         <Item>Dark Apostate</Item>
       </Effect>
-         <Category>cc</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Dark Apostate: Apostate's Skills</Name>
@@ -607,8 +604,6 @@ twisting them into evil versions of themselves - they deal an additional 1d6 Evi
 Damage on hit (scaling with 100% evil spell power).</Description>
         <Group>Imbue</Group>
       </Stance>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Dark Apostate: Traditionalist Caster</Name>
@@ -860,8 +855,6 @@ and the spell Bestow Curse now deals 6d6 Bane damage to Undead per bonus Imbue D
         <Amount size="4">0 0 0 10</Amount>
         <Item>Dark Apostate</Item>
       </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Dark Apostate: Enhanced Curse II</Name>
@@ -1111,7 +1104,6 @@ been absorbed.</Description>
           <Value>12</Value>
         </Requirement>
       </Requirements>
-         <Category>boost</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Dark Apostate: Necromantic Devotion</Name>

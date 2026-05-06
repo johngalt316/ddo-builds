@@ -548,8 +548,6 @@ This is a Major Form, and counts as a Shroud for the purpose of Pale Master.</De
           </Requirement>
         </Requirements>
       </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Dhampir Dark Bargainer: Rush of Bats</Name>
@@ -660,8 +658,6 @@ instead Negative Energy.</Description>
           </Requirement>
         </Requirements>
       </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Dhampir Dark Bargainer: Deathly Bite</Name>

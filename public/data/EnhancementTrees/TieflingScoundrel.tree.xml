@@ -278,7 +278,6 @@ Cooldown: 30 Seconds</Description>
         <Amount size="4">0 10 0 30</Amount>
         <Item>None</Item>
       </Effect>
-         <Cooldown>30</Cooldown>
     </EnhancementTreeItem>
     <!--Tier 2-->
     <EnhancementTreeItem>

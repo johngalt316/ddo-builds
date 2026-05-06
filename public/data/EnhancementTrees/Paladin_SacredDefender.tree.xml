@@ -121,7 +121,6 @@ also work for Sacred Fist as long as they are centered.</Description>
                </Requirement>
             </Requirements>
          </Effect>
-         <Category>debuff</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Sacred Defender: Divine Righteousness</Name>
@@ -411,8 +410,6 @@ and you receive a reactive heal for 250 points of Positive Energy healing.</Desc
             <Amount size="1">-1</Amount>
             <Item>Positive</Item>
          </Effect>
-         <Category>heal</Category>
-         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <!--Tier 1-->
       <EnhancementTreeItem>

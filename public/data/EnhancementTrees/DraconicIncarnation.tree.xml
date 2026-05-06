@@ -1109,8 +1109,6 @@ This has a cooldown of 5 seconds.</Description>
 This has a cooldown of 5 seconds.</Description>
         <Group>Mantle</Group>
       </Stance>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Draconic Incarnation: Coalescence</Name>

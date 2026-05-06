@@ -81,7 +81,6 @@ While your Hunting Bird is by your side, it grants you a +2 bonus to Spot and Li
             <Item>Spot</Item>
             <Item>Listen</Item>
          </Effect>
-         <Category>utility</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Falconry: Ability I</Name>
@@ -674,8 +673,6 @@ also trips the target, causing them to become Helpless. Your target is slowed by
                </DC>
             </EnhancementSelection>
          </Selector>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Falconry: Meticulous Weaponry</Name>
@@ -854,8 +851,6 @@ slowed by 30% for 10 seconds whether they make the saving throw or not.</Descrip
                </DC>
             </EnhancementSelection>
          </Selector>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Falconry: Conditioning</Name>
@@ -981,8 +976,6 @@ Each attack from your Hunting Bird has a chance to reset 1 charge.</Description>
             </Requirements>
             <ApplyAsItemEffect/>
          </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Falconry: No Mercy</Name>
@@ -1086,8 +1079,6 @@ each opponent struck.</Description>
                </DC>
             </EnhancementSelection>
          </Selector>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Falconry: Expose Weakness</Name>
@@ -1278,8 +1269,6 @@ Saving Throw, and on a failed save, dies.</Description>
                </DC>
             </EnhancementSelection>
          </Selector>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Falconry: Thrill of the Hunt</Name>

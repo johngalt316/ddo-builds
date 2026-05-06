@@ -2241,8 +2241,6 @@ Amplification. +2 Spell Penetration.</Description>
         <AType>SpellInfo</AType>
         <Amount size="12">0 2 0 12 0 2 0 8 0 2 0 4</Amount>
       </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <!--Tier 1-->
     <EnhancementTreeItem>
@@ -3336,7 +3334,6 @@ spell. This may only trigger once every 60 seconds.</Description>
           <CostPerRank size="1">1</CostPerRank>
         </EnhancementSelection>
       </Selector>
-         <Category>boost</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Pale Master: Ascendant Shroud</Name>

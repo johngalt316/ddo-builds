@@ -1066,8 +1066,6 @@ these effects.</Description>
           </Stance>
         </EnhancementSelection>
       </Selector>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Primal Avatar: Thrive</Name>

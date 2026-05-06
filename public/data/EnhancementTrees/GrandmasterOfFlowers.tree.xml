@@ -584,9 +584,6 @@ and most forms of knockdown.</Description>
         <Item>Most forms of Knockdown</Item>
         <AType>NotNeeded</AType>
       </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
-         <UsesActionBoostCharge/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Grandmaster of Flowers: Gain Strength</Name>
@@ -1585,7 +1582,6 @@ instead paralyzed by temporal shock for six seconds.</Description>
         <ModAbility>Charisma</ModAbility>
         <Tactical>Stun</Tactical>
       </DC>
-         <Category>cc</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Grandmaster of Flowers: Split the Soul</Name>

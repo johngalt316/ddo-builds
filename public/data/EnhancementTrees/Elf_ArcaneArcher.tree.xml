@@ -167,8 +167,6 @@ and slashing damage. Activation Cost: 20 spell points. Cooldown: 10 seconds.</De
           </Requirement>
         </Requirements>
       </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Arcane Archer (Elf): Metalline Arrows</Name>
@@ -223,8 +221,6 @@ Activation Cost: 20 spell points. Cooldown: 10 seconds.</Description>
           </Requirement>
         </Requirements>
       </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Arcane Archer (Elf): Aligned Arrows</Name>
@@ -279,8 +275,6 @@ damage reduction. Activation Cost: 20 spell points. Cooldown: 10 seconds.</Descr
           </Requirement>
         </Requirements>
       </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Arcane Archer (Elf): Shadow Arrows</Name>
@@ -568,8 +562,6 @@ Passive: +5 Universal Spell Power</Description>
         <AType>Simple</AType>
         <Amount size="1">5</Amount>
       </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Arcane Archer (Elf): Awareness</Name>
@@ -655,8 +647,6 @@ This damage scales with 75% of your Spell Power.</Description>
           </Requirement>
         </Requirements>
       </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Arcane Archer (Elf): Elemental Inferno</Name>
@@ -674,8 +664,6 @@ for 6 seconds. This effect can stack 20 times, and loses one stack on expiration
       <Ranks>1</Ranks>
       <MinSpent>5</MinSpent>
       <Clickie />
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Arcane Archer (Elf): Elemental Arrows II</Name>
@@ -928,7 +916,6 @@ On Vorpal: Target is subject to a Phantasmal Killer effect.</Description>
         <ModAbility>Wisdom</ModAbility>
         <School>Enchantment</School>
       </DC>
-         <Category>cc</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Arcane Archer (Elf): Soul Magic</Name>
@@ -1228,7 +1215,6 @@ On Save: -10% Movement and Attack speed.</Description>
         <ModAbility>Wisdom</ModAbility>
         <School>Enchantment</School>
       </DC>
-         <Category>cc</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Arcane Archer (Elf): Smiting Arrows</Name>
@@ -1538,8 +1524,6 @@ receive increased damage.</Description>
           <Value>12</Value>
         </Requirement>
       </Requirements>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Arcane Archer (Elf): Improved Elemental Arrows</Name>

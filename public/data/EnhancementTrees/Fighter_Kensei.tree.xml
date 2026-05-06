@@ -472,8 +472,6 @@ Passive: +20 Melee Power and Ranged Power.
         <Item>All</Item>
         <ApplyAsItemEffect />
       </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>KenseiCore6</InternalName>
@@ -954,8 +952,6 @@ Guard being applied.</Description>
           <BonusDamagePercent size="3">20 40 60</BonusDamagePercent>
         </ThisAttack>
       </Attack>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <!--Kensei Tier 2 Enhancements-->
     <EnhancementTreeItem>
@@ -2432,8 +2428,6 @@ There is a 10% chance to regain an expended charge of this enhancement.</Descrip
           <BonusMeleePower size="1">20</BonusMeleePower>
         </FollowOn>
       </Attack>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>KenseiWeaponGroupSecializationIV</InternalName>

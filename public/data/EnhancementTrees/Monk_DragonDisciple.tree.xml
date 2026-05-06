@@ -491,8 +491,6 @@ of the Poison Spell Power.</Description>
           <Value>1</Value>
         </Requirement>
       </Requirements>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Dragon Disciple: Study of Scales</Name>
@@ -654,8 +652,6 @@ depending on element) + Breath Weapon bonuses.</Description>
             <Amount size="4">0 0 0 0</Amount>
             <Item>Dragon Disciple</Item>
           </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Dragon Disciple: Power Begets Power</Name>
@@ -829,8 +825,6 @@ bonuses + Breath Weapon bonuses.</Description>
             <Amount size="4">0 0 0 0</Amount>
             <Item>Dragon Disciple</Item>
           </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Dragon Disciple: Way of the Dragon</Name>
@@ -1460,8 +1454,6 @@ and have their movement speed reduced by 90% for 6 seconds.</Description>
             <Amount size="4">0 0 0 0</Amount>
             <Item>Dragon Disciple</Item>
           </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Dragon Disciple: Peace in Destruction</Name>

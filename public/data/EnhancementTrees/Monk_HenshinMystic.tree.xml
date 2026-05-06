@@ -589,7 +589,6 @@ Activation Cost: 5 Ki. Cooldown: 6 seconds</Description>
         <Other>d20</Other>
         <Skill>Concentration</Skill>
       </DC>
-         <Cooldown>6</Cooldown>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Henshin Mystic: Exemplar</Name>
@@ -865,8 +864,6 @@ of the highest of Melee and Ranged Power.</Description>
         <Icon>MDDPowerInPracticeAcid</Icon>
         <Group>Imbue</Group>
       </Stance>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Henshin Mystic: Henshin Training II</Name>
@@ -1328,8 +1325,6 @@ restores 1 charge of this ability.</Description>
         </Requirements>
         <ApplyAsItemEffect />
       </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Henshin Mystic: Ability I</Name>

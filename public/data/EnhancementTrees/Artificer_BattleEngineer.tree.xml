@@ -1189,8 +1189,6 @@ scaling with Electric Spell Power.</Description>
 damage on each hit, scaling with Electric Spell Power.</Description>
         <Group>Imbue</Group>
       </Stance>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Battle Engineer: Ability I</Name>
@@ -1673,8 +1671,6 @@ You deal +0.5[W] damage.</Description>
         </Requirements>
         <Item>All</Item>
       </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Battle Engineer: Thunder Shock Weapon</Name>

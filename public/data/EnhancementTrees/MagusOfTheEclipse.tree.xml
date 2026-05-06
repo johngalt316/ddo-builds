@@ -520,8 +520,6 @@ Light instead. This does not stack with Fire Shield: Cold or Cold Energy Sheathe
           </RequiresOneOf>
         </Requirements>
       </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Magus of the Eclipse: Self or Summons</Name>
@@ -691,7 +689,6 @@ Rank 3: You no longer fail Will saves on a natural 1.</Description>
           <Clickie />
         </EnhancementSelection>
       </Selector>
-         <Category>utility</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Magus of the Eclipse: Moonlight</Name>
@@ -753,9 +750,6 @@ that enhance Spells beyond Spell Power, but also cannot be dispelled.
           </Effect>
         </EnhancementSelection>
       </Selector>
-         <Cooldown>25</Cooldown>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Magus of the Eclipse: Frostlight Improvement I</Name>

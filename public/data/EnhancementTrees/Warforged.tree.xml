@@ -597,8 +597,6 @@ an additional -[1/2/3] to your attack bonus.</Description>
           </RequiresOneOf>
         </Requirements>
       </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Warforged: Construct Toughness III</Name>
@@ -733,8 +731,6 @@ Cooldown: 15 seconds</Description>
           </Requirement>
         </Requirements>
       </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Warforged: Resolve</Name>

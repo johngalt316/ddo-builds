@@ -1669,7 +1669,6 @@ Cooldown: 6 seconds.</Description>
           <Value>12</Value>
         </Requirement>
       </Requirements>
-         <Cooldown>6</Cooldown>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Season's Herald: Elemental Mastery</Name>

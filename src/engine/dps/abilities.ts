@@ -117,8 +117,29 @@ export function classifyClickie(description: string): { category: AbilityCategor
   const desc = (description ?? '').toLowerCase();
   if (!desc) return null;
 
-  const hasDamage = /\bdamage\b|\d+d\d+|deal[s]? \w+ damage|\bnecrotic\b|\beldritch\b/.test(desc)
-                 && !/^passive[: ]/.test(desc);
+  // ── Reject passive enhancements DDOBuilderV2 mis-tags as <Clickie/> ──
+  // These don't represent a click-to-cast ability — they're either
+  // toggleable stances (off/on, no GCD) or passive +N damage riders.
+  if (/^\s*(toggle:|imbue toggle:|passive[: ])/.test(desc)) return null;
+  if (/^\s*your\s+\w+\s+(feat|attack|rage|melee|ranged|spells?)\b/.test(desc)) return null;
+
+  // ── Require an activation marker ──────────────────────────────────────
+  // The item must have explicit text indicating it's an activated ability.
+  // Without one, we treat it as a passive even if the source XML carried
+  // a stray <Clickie/> tag.
+  const isActive =
+       /\bactivate(?:s|d)?\b/.test(desc)
+    || /\bclick to\b/.test(desc)
+    || /\bon (?:use|activation|click)\b/.test(desc)
+    || /\baction boost:/.test(desc)
+    || /\bspell.?like ability:/.test(desc)
+    || /\bcooldown\s*[:=]/.test(desc)
+    || /\b(?:melee|ranged|shield) attack:/.test(desc)
+    || /\bperform (?:a |an |either )/.test(desc)
+    || /\bfor \d+ (?:second|minute)s? you (?:gain|are|become)/.test(desc);
+  if (!isActive) return null;
+
+  const hasDamage = /\bdamage\b|\d+d\d+|deal[s]? \w+ damage|\bnecrotic\b|\beldritch\b/.test(desc);
   const hasHeal   = /\b(heal|cure|restore[s]? \d|positive energy|hit points per caster level)\b/.test(desc);
   const hasCC     = /\b(stun|paralyze|hold|daze|fear|sleep|charm|incapacit|knockdown|trip|petrif|flat-?footed|helpless)\w*/.test(desc);
   const hasDebuff = /\b(vulnerab|fortification reduc|threat|hate|more likely to attack|expos|reduces? .* (?:armor|prr|saving|ac|dr))\w*/.test(desc);
@@ -130,12 +151,9 @@ export function classifyClickie(description: string): { category: AbilityCategor
   if (hasDebuff)   return { category: 'debuff',  placeholderDamage: false };
   if (hasDuration) return { category: 'boost',   placeholderDamage: false };
 
-  // Movement / summons / illusion / utility clickies — keep them in
-  // the palette but under the Utility tab so they don't pollute Boosts.
   if (/\b(teleport|jaunt|misty step|dimension door|invisibil|displacement|summon|find familiar|conjure|stoneskin|mage armor|spell resistance|deathward|death ward|true seeing|freedom of movement|haste|expeditious)\w*/.test(desc)) {
     return { category: 'utility', placeholderDamage: false };
   }
-  // No active effect we recognize → passive enhancement (filter out).
   return null;
 }
 

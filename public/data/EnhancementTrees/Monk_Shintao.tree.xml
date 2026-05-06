@@ -1650,8 +1650,6 @@ Water Stance: +5 Maximum Dodge Bonus</Description>
           </Requirement>
         </Requirements>
       </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Shintao: Rise of the Phoenix</Name>
@@ -1679,7 +1677,6 @@ Cooldown: 15 minutes</Description>
           <Value>12</Value>
         </Requirement>
       </Requirements>
-         <Cooldown>900</Cooldown>
     </EnhancementTreeItem>
   </EnhancementTree>
 </Enhancements>

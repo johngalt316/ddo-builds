@@ -36,8 +36,26 @@ function parseCooldownSeconds(description) {
 function classifyClickie(description) {
   const desc = (description || '').toLowerCase();
   if (!desc) return null;
-  const hasDamage = /\bdamage\b|\d+d\d+|deal[s]? \w+ damage|\bnecrotic\b|\beldritch\b/.test(desc)
-                 && !/^passive[: ]/.test(desc);
+
+  // Reject passive enhancements that the source mis-tags as <Clickie/>.
+  if (/^\s*(toggle:|imbue toggle:|passive[: ])/.test(desc)) return null;
+  if (/^\s*your\s+\w+\s+(feat|attack|rage|melee|ranged|spells?)\b/.test(desc)) return null;
+
+  // Require an explicit activation marker. Without one, the item is
+  // a passive enhancement even if it carried <Clickie/>.
+  const isActive =
+       /\bactivate(?:s|d)?\b/.test(desc)
+    || /\bclick to\b/.test(desc)
+    || /\bon (?:use|activation|click)\b/.test(desc)
+    || /\baction boost:/.test(desc)
+    || /\bspell.?like ability:/.test(desc)
+    || /\bcooldown\s*[:=]/.test(desc)
+    || /\b(?:melee|ranged|shield) attack:/.test(desc)
+    || /\bperform (?:a |an |either )/.test(desc)
+    || /\bfor \d+ (?:second|minute)s? you (?:gain|are|become)/.test(desc);
+  if (!isActive) return null;
+
+  const hasDamage = /\bdamage\b|\d+d\d+|deal[s]? \w+ damage|\bnecrotic\b|\beldritch\b/.test(desc);
   const hasHeal   = /\b(heal|cure|restore[s]? \d|positive energy|hit points per caster level)\b/.test(desc);
   const hasCC     = /\b(stun|paralyze|hold|daze|fear|sleep|charm|incapacit|knockdown|trip|petrif|flat-?footed|helpless)\w*/.test(desc);
   const hasDebuff = /\b(vulnerab|fortification reduc|threat|hate|more likely to attack|expos|reduces? .* (?:armor|prr|saving|ac|dr))\w*/.test(desc);
@@ -131,7 +149,42 @@ function bakeFile(path) {
         continue;
       }
 
-      // Compute additions.
+      // Re-classify with the current rules. When the result is `null`
+      // (passive — should never have been tagged) and the item already
+      // carries baked tags from a previous run, strip them.
+      const classified = classifyClickie(itemDescription);
+      let buffered = itemBuffer;
+      if (!classified && (itemHasCategory || itemHasPlaceholder || itemHasCooldown || itemHasActionBoostFlag)) {
+        // Drop stale Category / PlaceholderDamage / UsesActionBoostCharge
+        // / Cooldown lines — the cleanup pass for items that no longer
+        // satisfy the activation gate. Leaves Effect blocks and other
+        // hand-edited tags alone.
+        const stripped = buffered.filter(l =>
+          !/^\s*<Category>[^<]*<\/Category>\s*$/.test(l)
+          && !/^\s*<PlaceholderDamage\s*\/>\s*$/.test(l)
+          && !/^\s*<Cooldown>[^<]*<\/Cooldown>\s*$/.test(l)
+          && !/^\s*<UsesActionBoostCharge\s*\/>\s*$/.test(l)
+        );
+        if (stripped.length !== buffered.length) {
+          changed -= (buffered.length - stripped.length);    // negative = removals
+          buffered = stripped;
+        }
+        out.push(...buffered);
+        itemBuffer = [];
+        continue;
+      }
+
+      // Active clickie — compute additions for any field still missing.
+      // Skip annotation entirely when the item didn't classify (passive
+      // mis-tagged as <Clickie/>) so the cleanup pass above keeps it
+      // bare. Otherwise we'd oscillate: strip tags one run, add Cooldown
+      // back the next run, strip again, …
+      if (!classified) {
+        out.push(...buffered);
+        itemBuffer = [];
+        continue;
+      }
+
       const additions = [];
       const indent = '         ';     // matches existing tree-item child indent
 
@@ -141,12 +194,9 @@ function bakeFile(path) {
       }
 
       if (!itemHasCategory) {
-        const c = classifyClickie(itemDescription);
-        if (c) {
-          additions.push(`${indent}<Category>${c.category}</Category>`);
-          if (c.placeholderDamage && !itemHasPlaceholder) {
-            additions.push(`${indent}<PlaceholderDamage/>`);
-          }
+        additions.push(`${indent}<Category>${classified.category}</Category>`);
+        if (classified.placeholderDamage && !itemHasPlaceholder) {
+          additions.push(`${indent}<PlaceholderDamage/>`);
         }
       }
 
@@ -156,17 +206,17 @@ function bakeFile(path) {
       }
 
       if (additions.length === 0) {
-        out.push(...itemBuffer);
+        out.push(...buffered);
         itemBuffer = [];
         continue;
       }
 
       // Insert additions just before the closing </EnhancementTreeItem>.
-      const closeIdx = itemBuffer.length - 1;
+      const closeIdx = buffered.length - 1;
       const merged = [
-        ...itemBuffer.slice(0, closeIdx),
+        ...buffered.slice(0, closeIdx),
         ...additions,
-        itemBuffer[closeIdx],
+        buffered[closeIdx],
       ];
       out.push(...merged);
       changed += additions.length;
@@ -174,7 +224,7 @@ function bakeFile(path) {
     }
   }
 
-  if (changed > 0) {
+  if (changed !== 0) {
     writeFileSync(path, out.join('\n'), 'utf8');
   }
   return changed;
@@ -189,8 +239,9 @@ function main() {
   for (const f of files) {
     const path = resolve(TREES_DIR, f);
     const n = bakeFile(path);
-    if (n > 0) {
-      console.log(`  ${f.padEnd(60)} +${n} tags`);
+    if (n !== 0) {
+      const sign = n > 0 ? '+' : '';
+      console.log(`  ${f.padEnd(60)} ${sign}${n} tags`);
       touchedFiles++;
       totalChanges += n;
     }

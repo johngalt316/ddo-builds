@@ -826,8 +826,6 @@ Usable 5 times per rest. Cooldown: 30 seconds</Description>
           </Requirement>
         </Requirements>
       </Effect>
-         <Category>boost</Category>
-         <UsesActionBoostCharge/>
     </EnhancementTreeItem>
     <!--Tier 3-->
     <EnhancementTreeItem>

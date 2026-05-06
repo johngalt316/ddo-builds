@@ -658,8 +658,6 @@ helpless. A successful Fortitude save negates this effect.</Description>
         <ModAbility>Intelligence</ModAbility>
         <Tactical>Sunder</Tactical>
       </DC>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Renegade Mastermaker: Armor Mastery</Name>
@@ -717,7 +715,6 @@ Cooldown: 3 minutes.</Description>
         <Amount size="4">0 4 0 180</Amount>
         <Item>Artificer</Item>
       </Effect>
-         <Cooldown>180</Cooldown>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Renegade Mastermaker: Action Boost Choice</Name>

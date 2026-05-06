@@ -1254,8 +1254,6 @@ The Resurrection portion of this ability may only affect you once per rest.</Des
           <Value>30</Value>
         </Requirement>
       </Requirements>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
   </EnhancementTree>
 </Enhancements>

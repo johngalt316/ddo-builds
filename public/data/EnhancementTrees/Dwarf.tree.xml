@@ -688,7 +688,6 @@ Target corporeal creature is grabbed by earthen hands and rendered helpless.</De
             <ModAbility>Constitution</ModAbility>
             <School>Transmutation</School>
          </DC>
-         <Category>cc</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Dwarf Fortress</Name>

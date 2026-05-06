@@ -256,7 +256,6 @@ Blight now reduces saves by 4 and positive healing by 60% for 10 seconds.</Descr
         <Item>Wisdom</Item>
         <Item>Constitution</Item>
       </Effect>
-         <Category>boost</Category>
     </EnhancementTreeItem>
     <!--Tier 1 Enhancements-->
     <EnhancementTreeItem>
@@ -987,8 +986,6 @@ separately</Description>
         <ClassLevel>Blight Caster</ClassLevel>
         <School>Conjuration</School>
       </DC>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Blight Caster: Thorn or Bile III</Name>

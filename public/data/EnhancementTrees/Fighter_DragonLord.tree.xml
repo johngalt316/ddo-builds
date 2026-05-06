@@ -203,8 +203,6 @@ damage on each hit in the element of your Draconic Soul. This damage scales with
         <Amount size="9">4 0 5 0 6 0 7 0 9</Amount>
         <ApplyAsItemEffect />
       </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>DragonLordCore3</InternalName>
@@ -1461,8 +1459,6 @@ or be Dazed. Affected enemies have a 25% chance to be broken out of Daze on dama
         <Tactical>Stun</Tactical>
         <Tactical2>Breath Weapon</Tactical2>
       </DC>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>DragonLordMightOrOutburst</InternalName>
@@ -1600,8 +1596,6 @@ When you use Dragon's Roar, you have a chance to restore 1 charge.</Description>
         <Item>DragonLordMightOrOutburst</Item>
         <Item>Battle Trance</Item>
       </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <InternalName>DragonLordAbilityI</InternalName>

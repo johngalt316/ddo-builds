@@ -352,8 +352,6 @@ scaling with that type's Spell Power.</Description>
           <Value>20</Value>
         </Requirement>
       </Requirements>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Shiradi Champion: Wild Magics</Name>
@@ -1447,9 +1445,6 @@ new ones for 10 seconds.</Description>
           <Clickie />
         </EnhancementSelection>
       </Selector>
-         <Cooldown>300</Cooldown>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
   </EnhancementTree>
 </Enhancements>

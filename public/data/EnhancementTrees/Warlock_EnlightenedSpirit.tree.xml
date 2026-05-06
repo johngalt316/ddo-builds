@@ -42,8 +42,6 @@ Cooldown: 8 seconds.</Description>
 deals the same damage as your Eldritch Blast to all foes in range every few seconds.</Description>
             <Group>Blast Shape</Group>
          </Stance>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Enlightened Spirit: Aura of Courage</Name>
@@ -218,9 +216,6 @@ proficiency with all Martial weapons.</Description>
             <Item>Longbow</Item>
             <Item>Throwing Axe</Item>
          </Effect>
-         <Cooldown>2</Cooldown>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Enlightened Spirit: Celestial Spirit</Name>
@@ -280,7 +275,6 @@ When enabled, you Gain +3 bonus Imbue Dice.</Description>
                </Requirement>
             </Requirements>
          </Effect>
-         <Category>cc</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Enlightened Spirit: Ultimate Enlightenment</Name>
@@ -517,7 +511,6 @@ making enemies more likely to attack you.</Description>
                </Effect>
             </EnhancementSelection>
          </Selector>
-         <Category>debuff</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Enlightened Spirit: Rewards of Tribute</Name>
@@ -994,8 +987,6 @@ spells cast by all classes)</Description>
 1d6 Light damage that scales with Spell Power.</Description>
             <Group>Imbue</Group>
          </Stance>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Enlightened Spirit: Brilliance</Name>
@@ -1124,8 +1115,6 @@ Metamagic: Empower, Maximize, Quicken, Intensify. Spell Resistance: No.</Descrip
                <Value>12</Value>
             </Requirement>
          </Requirements>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Enlightened Spirit: Beacon</Name>

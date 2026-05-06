@@ -129,7 +129,6 @@ to sneak attack and 25% of their fortification for 25 seconds.</Description>
         <Tactical>Assassinate</Tactical>
         <Tactical2>Trap</Tactical2>
       </DC>
-         <Category>boost</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Dark Hunter: Underdark Armor</Name>
@@ -520,8 +519,6 @@ Against enemies under 25% HP, this damage is increased to 1d12 Bleeding damage.
 This damage scales with the higher of Melee or Ranged Power.</Description>
         <Group>Imbue</Group>
       </Stance>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Dark Hunter: Awareness</Name>
@@ -781,7 +778,6 @@ place by the trap's jaws for 12 seconds.</Description>
         <Tactical>Assassinate</Tactical>
         <Tactical2>Trap</Tactical2>
       </DC>
-         <Category>boost</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Dark Hunter: Sneak Attack Training III</Name>
@@ -1277,7 +1273,6 @@ toggle on to gain sight ability while within the Underdark.</Description>
         <Percent />
         <ApplyAsItemEffect />
       </Effect>
-         <Category>utility</Category>
     </EnhancementTreeItem>
   </EnhancementTree>
 </Enhancements>

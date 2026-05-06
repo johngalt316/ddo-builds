@@ -404,7 +404,6 @@ Terror:-1 Melee and Ranged Power, -3 Spell Power, -1 Armor Class. Stacks up to
 15 times.</Description>
         <Group>Mantle</Group>
       </Stance>
-         <Cooldown>0.1</Cooldown>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Legendary Dreadnought: Shrug Off Punishment</Name>

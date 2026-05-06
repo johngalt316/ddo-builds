@@ -55,8 +55,6 @@ attack evil creatures.</Description>
                </Requirement>
             </Requirements>
          </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Knight of the Chalice: Courage of Heaven</Name>
@@ -619,8 +617,6 @@ Cooldown: 20 seconds</Description>
                </Requirement>
             </Requirements>
          </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Knight of the Chalice: Critical Mastery</Name>
@@ -852,9 +848,6 @@ a mighty strike. Shares a cooldown with Shield Charge.
                <Value>3</Value>
             </Requirement>
          </Requirements>
-         <Cooldown>12</Cooldown>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Knight of the Chalice: Exalted Smite</Name>
@@ -904,8 +897,6 @@ Melee and Ranged Power by 5 for 10 seconds.</Description>
                <Clickie/>
             </EnhancementSelection>
          </Selector>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Knight of the Chalice: Ability I</Name>

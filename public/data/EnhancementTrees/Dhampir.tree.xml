@@ -541,8 +541,6 @@ This is a Major Form, and counts as a Shroud for the purpose of Pale Master.</De
           </Requirement>
         </Requirements>
       </Effect>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Dhampir: Rush of Bats</Name>
@@ -760,7 +758,6 @@ Cooldown: 18 seconds</Description>
         <AType>SpellInfo</AType>
         <Amount size="4">0 0 0 18</Amount>
       </Effect>
-         <Cooldown>18</Cooldown>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Dhampir: Biting Swarm</Name>
