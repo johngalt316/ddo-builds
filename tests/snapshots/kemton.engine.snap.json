@@ -7357,7 +7357,7 @@
       "castingClass": "Arcane Trickster",
       "category": "enhancement",
       "cost": 2,
-      "maxCasterLevel": 5,
+      "maxCasterLevel": 20,
       "cooldown": 4,
       "charges": 0,
       "source": "[E] Arcane Trickster: Arcane Trickster: Stolen Spell I → Stolen Spell - Magic Missile"

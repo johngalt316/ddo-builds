@@ -133,11 +133,15 @@ their spell points and the effectiveness of their spells.</Description>
       <Name>Mage Armor</Name>
       <Level>1</Level>
     </ClassSpell>
+    <!-- ddo-builds patch: raised MaxCasterLevel 9 → 20. Upstream caps
+         Magic Missile here at CL 9 (where missile count maxes at 5),
+         but per-missile damage and crit chance continue to scale; the
+         in-game spell uses CL 20 as the natural cap. -->
     <ClassSpell>
       <Name>Magic Missile</Name>
       <Cost>4</Cost>
       <Level>1</Level>
-      <MaxCasterLevel>9</MaxCasterLevel>
+      <MaxCasterLevel>20</MaxCasterLevel>
     </ClassSpell>
     <ClassSpell>
       <Name>Master's Touch</Name>

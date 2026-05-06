@@ -138,7 +138,7 @@ describe('static-data parsers', () => {
     expect(mm).toBeDefined();
     expect(mm!.level).toBe(1);
     expect(mm!.cost).toBe(4);
-    expect(mm!.maxCasterLevel).toBe(9);
+    expect(mm!.maxCasterLevel).toBe(20);   // ddo-builds patch: raised from upstream 9
     // Catalog has the spell so the join works
     const spells = parseSpellsXml(readData('Spells.xml'));
     expect(spells.find(s => s.name === 'Magic Missile')).toBeDefined();

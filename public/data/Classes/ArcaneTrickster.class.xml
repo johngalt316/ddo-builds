@@ -91,11 +91,14 @@ aid in battle, and disable traps from a distance! </Description>
       <Level>1</Level>
       <MaxCasterLevel>9</MaxCasterLevel>
     </ClassSpell>
+    <!-- ddo-builds patch: raised MaxCasterLevel 9 → 20. Same as the
+         Wizard.class.xml patch: per-missile damage + crit continue to
+         scale beyond CL 9, in-game cap is 20. -->
     <ClassSpell>
       <Name>Magic Missile</Name>
       <Cost>4</Cost>
       <Level>1</Level>
-      <MaxCasterLevel>9</MaxCasterLevel>
+      <MaxCasterLevel>20</MaxCasterLevel>
     </ClassSpell>
     <ClassSpell>
       <Name>Merfolk's Blessing</Name>
