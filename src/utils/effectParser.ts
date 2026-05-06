@@ -14,6 +14,7 @@ import type {
   EffectAmountType,
 } from '@/types/ddoData';
 import { KNOWN_EFFECT_TYPES } from '@/types/effectTypes';
+import { CUSTOM_EFFECT_TYPES } from '@/types/extendedEffectTypes';
 
 // ── DOM helpers (work for both DOM and Element parents) ──────────────────
 
@@ -178,7 +179,9 @@ export function findUnknownEffectTypes(effects: DDOEffect[]): Set<string> {
   const unknown = new Set<string>();
   for (const e of effects) {
     for (const t of e.types) {
-      if (!KNOWN_EFFECT_TYPES.has(t)) unknown.add(t);
+      if (KNOWN_EFFECT_TYPES.has(t)) continue;
+      if ((CUSTOM_EFFECT_TYPES as readonly string[]).includes(t)) continue;
+      unknown.add(t);
     }
   }
   return unknown;

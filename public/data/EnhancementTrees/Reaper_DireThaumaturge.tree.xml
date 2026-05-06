@@ -1087,6 +1087,12 @@ and reduce the Spell point cost of your spells by 15/30/45% for 30 seconds.</Des
                <Value>27</Value>
             </Requirement>
          </Requirements>
+         <Effect>
+            <Type>MaxReaperCharge</Type>
+            <Bonus>Stacking</Bonus>
+            <AType>Stacks</AType>
+            <Amount size="1">1</Amount>
+         </Effect>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Reaper's Ability V</Name>

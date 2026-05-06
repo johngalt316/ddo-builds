@@ -615,6 +615,22 @@ function parseEnhancementItem(el: Element, isCore: boolean): EnhancementItemData
   const stances = parseStancesIn(el);
   const requirements = parseRequirements(el.querySelector(':scope > Requirements'));
 
+  // Optional clickie metadata — when present, lets the DPS engine skip
+  // its description-text fallbacks (cooldown / category / charge flags).
+  // Encoded as plain child tags on the EnhancementTreeItem so XML edits
+  // stay readable.
+  const cooldownRaw = text(el, 'Cooldown');
+  let cooldownSeconds: number | undefined;
+  let cooldownSecondsByRank: number[] | undefined;
+  if (cooldownRaw) {
+    const parts = spaceSeparatedNumbers(cooldownRaw);
+    if (parts.length > 1) cooldownSecondsByRank = parts;
+    else if (parts.length === 1 && parts[0] !== undefined) cooldownSeconds = parts[0];
+  }
+  const categoryRaw = text(el, 'Category').toLowerCase();
+  const category = (['damage','heal','boost','cc','debuff','utility'] as const)
+    .find(c => c === categoryRaw);
+
   return {
     internalName: text(el, 'InternalName'),
     name: text(el, 'Name'),
@@ -631,6 +647,12 @@ function parseEnhancementItem(el: Element, isCore: boolean): EnhancementItemData
     stances,
     requirements,
     clickie:         hasFlag('Clickie'),
+    cooldownSeconds,
+    cooldownSecondsByRank,
+    category,
+    placeholderDamage:     hasFlag('PlaceholderDamage') || undefined,
+    usesActionBoostCharge: hasFlag('UsesActionBoostCharge') || undefined,
+    usesReaperCharge:      hasFlag('UsesReaperCharge')      || undefined,
     arrowUp:         hasFlag('ArrowUp'),
     arrowLeft:       hasFlag('ArrowLeft'),
     arrowRight:      hasFlag('ArrowRight'),

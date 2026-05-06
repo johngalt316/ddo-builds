@@ -473,9 +473,30 @@ export interface EnhancementItemData {
   /** Source XML carries `<Clickie/>` — the enhancement is an activatable
    *  ability (action boost, reaper boost, racial clicky, etc.). The DPS
    *  calculator surfaces these as utility SLAs so the user can drop them
-   *  into a rotation. Cooldown / cost get parsed from the description
-   *  text since the source data doesn't carry them as structured fields. */
+   *  into a rotation. */
   clickie: boolean;
+  /** Cooldown in seconds when the clickie is activated. When unset, the
+   *  DPS engine falls back to scraping the description text. Encode as
+   *  `<Cooldown>30</Cooldown>` in the XML (single value; per-rank
+   *  variants use `<Cooldown size="3">15 10 5</Cooldown>`). */
+  cooldownSeconds?: number;
+  cooldownSecondsByRank?: number[];
+  /** Manual UI bucket for the Manage / palette tabs — overrides the
+   *  description-text classifier when present. Encode as
+   *  `<Category>boost</Category>` (one of damage / heal / boost / cc /
+   *  debuff / utility). */
+  category?: 'damage' | 'heal' | 'boost' | 'cc' | 'debuff' | 'utility';
+  /** Set when the clickie deals damage in-game but our catalog doesn't
+   *  have rolls modeled yet — the UI shows a "no rolls" badge. Encode
+   *  as `<PlaceholderDamage/>` (empty flag). */
+  placeholderDamage?: boolean;
+  /** When true, this clickie consumes one charge from the shared
+   *  action-boost pool. Encode as `<UsesActionBoostCharge/>`. */
+  usesActionBoostCharge?: boolean;
+  /** When true, this clickie consumes one charge from the shared
+   *  reaper-charge pool. Encode as `<UsesReaperCharge/>` (typically
+   *  redundant with the item being in a reaper tree, but explicit). */
+  usesReaperCharge?: boolean;
   // Dependency arrows (stored on the source/prerequisite item)
   arrowUp: boolean;
   arrowLeft: boolean;

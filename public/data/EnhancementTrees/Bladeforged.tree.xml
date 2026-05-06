@@ -650,6 +650,9 @@ Cooldown: 30 seconds</Description>
          <Ranks>1</Ranks>
          <MinSpent>15</MinSpent>
          <Clickie/>
+         <Cooldown>30</Cooldown>
+         <Category>boost</Category>
+         <UsesActionBoostCharge/>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Bladeforged: Soulbound Plating</Name>

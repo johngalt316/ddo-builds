@@ -407,6 +407,16 @@ export function computeReaperCharges(
       if (!item) continue;
       if (item.clickie) {
         boostsTaken++;
+        continue;
+      }
+      // Prefer the structured `MaxReaperCharge` effect when the XML
+      // carries one (each rank's amount adds, normally 1). Falls back
+      // to a regex on the description for items not yet annotated.
+      const maxReaperCharge = item.effects
+        .filter(eff => eff.types.includes('MaxReaperCharge'))
+        .reduce((sum, eff) => sum + (eff.amount?.[Math.min(e.rank, eff.amount.length) - 1] ?? 0), 0);
+      if (maxReaperCharge > 0) {
+        chargeEnhancements += maxReaperCharge;
       } else if (/\+1 (?:to )?(?:maximum )?reaper charge/i.test(item.description)) {
         chargeEnhancements++;
       }
@@ -452,7 +462,15 @@ export function computeActionBoostCharges(
           const item = tree.items.find(i => i.internalName === e.enhancementId)
                     ?? tree.items.find(i => i.name === e.enhancementId);
           if (!item) continue;
-          extra += extractActionBoostExtras(item.description, e.rank);
+          // Prefer the structured `ExtraActionBoost` effect when the
+          // XML carries one (Half-Orc + most other Extra Action Boost
+          // enhancements already do — Battle Engineer / Frenzied
+          // Berserker variants don't yet, hence the regex fallback).
+          const fromEffect = item.effects
+            .filter(eff => eff.types.includes('ExtraActionBoost'))
+            .reduce((sum, eff) => sum + (eff.amount?.[Math.min(e.rank, eff.amount.length) - 1] ?? 0), 0);
+          if (fromEffect > 0) extra += fromEffect;
+          else                extra += extractActionBoostExtras(item.description, e.rank);
         }
       }
     }
@@ -548,32 +566,46 @@ function collectClickieAbilities(
       if (grantsSLA(item.effects)) continue;
       if (item.selector?.some(sel => grantsSLA(sel.effects))) continue;
 
-      // Description-driven categorization. `null` means "passive
-      // enhancement, no duration, no active effect" — those (e.g.
-      // Improved Power Attack, Bladeforged: Resolve as a HP regen
-      // passive) belong on the Enhancements / Stances pages, not in
-      // the active-spells palette.
-      const classified = classifyClickie(item.description);
-      if (!classified) continue;
+      // Category + placeholderDamage: prefer `<Category>` / `<PlaceholderDamage/>`
+      // tags on the XML when present; otherwise classify from the description.
+      // `null` from the classifier means "passive enhancement, no duration,
+      // no active effect" — those belong on the Enhancements / Stances
+      // pages, not the active-spells palette.
+      let category: AbilityCategory;
+      let placeholderDamage: boolean;
+      if (item.category) {
+        category = item.category;
+        placeholderDamage = item.placeholderDamage ?? false;
+      } else {
+        const classified = classifyClickie(item.description);
+        if (!classified) continue;
+        category          = classified.category;
+        placeholderDamage = classified.placeholderDamage;
+      }
 
       const id = `clickie::${tree.name}::${item.internalName || item.name}`;
       if (seen.has(id)) continue;
       seen.add(id);
 
-      // Reaper-tree clickies: 3 ranks scale a numeric bonus but only one
-      // ability button. Heroic/destiny clickies follow the same pattern.
-      // Cooldown comes from the description; fall back to 30s for action
-      // boosts and 60s for everything else (matches DDO defaults).
-      const cd = parseClickieCooldown(item.description);
-      const cooldown = cd ?? (scope === 'R' ? 60 : 30);
+      // Cooldown: prefer the XML's `<Cooldown>` (single value or
+      // per-rank `<Cooldown size="N">`). Falls back to a description
+      // regex, and finally to a 30s heroic / 60s reaper default so the
+      // timeline always has something to work with.
+      const xmlCooldown = item.cooldownSecondsByRank
+        ? item.cooldownSecondsByRank[Math.min(e.rank, item.cooldownSecondsByRank.length) - 1]
+        : item.cooldownSeconds;
+      const cooldown = xmlCooldown
+        ?? parseClickieCooldown(item.description)
+        ?? (scope === 'R' ? 60 : 30);
 
-      // Reaper-tree clickies all draw from the shared reaper charge
-      // pool. Action-boost clickies (anything whose name or description
-      // says "Action Boost") draw from the shared action-boost pool.
-      // Other clickies are unlimited (charges = 0).
-      const isReaperBoost = scope === 'R';
-      const isActionBoost = !isReaperBoost
-        && /\baction boost\b/i.test(item.name + ' ' + item.description);
+      // Charge-pool selection: prefer `<UsesReaperCharge/>` /
+      // `<UsesActionBoostCharge/>` flags on the XML; otherwise infer
+      // from the tree scope (reaper) or a name/description match
+      // ("action boost").
+      const isReaperBoost = item.usesReaperCharge ?? (scope === 'R');
+      const isActionBoost = item.usesActionBoostCharge
+        ?? (!isReaperBoost
+            && /\baction boost\b/i.test(item.name + ' ' + item.description));
       const charges = isReaperBoost
         ? reaperCharges
         : isActionBoost
@@ -596,8 +628,8 @@ function collectClickieAbilities(
         slaCategory:    'enhancement',
         slaSource:      `[${scope}] ${tree.name}: ${item.name}`,
         isUtility:      true,
-        category:          classified.category,
-        placeholderDamage: classified.placeholderDamage,
+        category,
+        placeholderDamage,
       });
     }
   }
