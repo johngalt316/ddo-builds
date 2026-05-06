@@ -39,11 +39,11 @@ export function ManageActiveDialog({ open, abilities, active, onClose, onApply }
   const [draft, setDraft] = useState<string[]>(active);
   const [filter, setFilter] = useState('');
   const [tab, setTab] = useState<AbilityCategory>('damage');
-  // When false, charge-based abilities (per-rest SLAs / clickies with
-  // limited charges) are hidden from the Available list. Many builds
-  // pick up dozens of charge clickies they don't actively rotate; the
-  // toggle keeps the list short by default.
-  const [includeCharged, setIncludeCharged] = useState(false);
+  // When true, charge-based abilities (per-rest SLAs / clickies with
+  // limited charges) are visible in the Available list. Default ON so
+  // action boosts and reaper boosts — which both share charge pools —
+  // show up in the Boosts tab. Toggle off to hide one-shot consumables.
+  const [includeCharged, setIncludeCharged] = useState(true);
   const dragFrom = useRef<number | null>(null);
   const [dragOver, setDragOver] = useState<number | null>(null);
 
@@ -52,7 +52,7 @@ export function ManageActiveDialog({ open, abilities, active, onClose, onApply }
       setDraft([...active]);
       setFilter('');
       setTab('damage');
-      setIncludeCharged(false);
+      setIncludeCharged(true);
     }
   }, [open, active]);
 
