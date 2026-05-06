@@ -461,8 +461,8 @@ function MagicRotationEditor({
         return a ? [a] : [];
       });
     }
-    // Default seed: top 10 damage abilities by standalone DPS, falling
-    // back to DPC, then catalog order. Boost / heal abilities aren't
+    // Default seed: top 10 damage abilities by standalone DPC, falling
+    // back to DPS, then catalog order. Boost / heal abilities aren't
     // included by default — the user adds those explicitly via Manage.
     const ranked = abilities
       .filter(a => a.category === 'damage')
@@ -472,7 +472,7 @@ function MagicRotationEditor({
         const dpc  = info?.damage.total  ?? 0;
         return { a, dps, dpc };
       })
-      .sort((x, y) => y.dps - x.dps || y.dpc - x.dpc || x.a.name.localeCompare(y.a.name))
+      .sort((x, y) => y.dpc - x.dpc || y.dps - x.dps || x.a.name.localeCompare(y.a.name))
       .slice(0, DEFAULT_ACTIVE_LIMIT)
       .map(({ a }) => a);
     return ranked;

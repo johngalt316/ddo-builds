@@ -366,6 +366,15 @@ function collectClickieAbilities(
       const item = tree.items.find(i => i.internalName === e.enhancementId)
                 ?? tree.items.find(i => i.name === e.enhancementId);
       if (!item || !item.clickie) continue;
+      // Stolen Spell / Epic Strike-style clickies grant the actual SLA
+      // through a `<SpellLikeAbility>` effect (on the item itself or on
+      // a chosen selection). Those entries already come through the
+      // standard SLA pipeline above as damaging SLAs — skip them here
+      // so we don't double-list the "[E] Stolen Spell I" wrapper.
+      const grantsSLA = (effs: { types: string[] }[]) =>
+        effs.some(ef => ef.types.includes('SpellLikeAbility'));
+      if (grantsSLA(item.effects)) continue;
+      if (item.selector?.some(sel => grantsSLA(sel.effects))) continue;
 
       const id = `clickie::${tree.name}::${item.internalName || item.name}`;
       if (seen.has(id)) continue;
