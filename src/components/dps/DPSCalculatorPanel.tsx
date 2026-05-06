@@ -344,6 +344,14 @@ function MagicRotationEditor({
     if (simTime >= rotationCycleSeconds - 1e-3) setSimTime(0);
     setSimRunning(true);
   }
+  function onRestartClick() {
+    if (rotationCycleSeconds <= 0) return;
+    setSimRunning(false);
+    setSimTime(0);
+    // Defer the restart to the next frame so the stop + reset settle
+    // before the new run begins.
+    requestAnimationFrame(() => setSimRunning(true));
+  }
 
   // Cumulative damage at the current sim time — drives the live stats.
   const cumulativeDamage = useMemo(() => {
@@ -496,6 +504,15 @@ function MagicRotationEditor({
           }
         >
           {simRunning ? '⏸ Pause' : '▶ Simulate'}
+        </button>
+        <button
+          type="button"
+          className={styles.simulateBtn}
+          onClick={onRestartClick}
+          disabled={rotationCycleSeconds <= 0}
+          title="Restart simulation from t=0"
+        >
+          ↻ Restart
         </button>
         <span className={styles.simulateClock}>
           t = {simTime.toFixed(2)}s

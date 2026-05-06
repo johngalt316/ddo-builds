@@ -112,7 +112,11 @@
   box-shadow: 0 0 6px rgba(201,162,39,0.6);
   pointer-events: none;
   z-index: 10;
-  transition: left 16ms linear;   /* matches a 60fps animation frame */
+  /* No CSS transition: every frame React updates `left` and the
+   * scroll container's scrollLeft together; a transition here would
+   * lag behind the (instant) scroll, producing visible jitter.
+   * Mirrors RotationChart's SVG playhead which also updates per-frame
+   * without a transition. */
 }
 
 /* ── Blocks layer ────────────────────────────────────────── */
