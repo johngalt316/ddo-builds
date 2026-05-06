@@ -93,6 +93,18 @@ export function RotationTimeline({
   const resolvedByKey = new Map(resolved.map(r => [r.step.key, r]));
   const skippedByKey  = new Map(skipped.map(s  => [s.step.key, s]));
 
+  // Per-ability casts/min in this rotation: occurrences in one cycle ×
+  // (60 / cycleSeconds). Mirrors `rotationDPS`'s castsPerMinute formula
+  // so the tooltip number matches what feeds the DPS engine.
+  const cyclesPerMinute = totalSeconds > 0 ? 60 / totalSeconds : 0;
+  const castsPerCycleByAbility = new Map<string, number>();
+  for (const r of resolved) {
+    castsPerCycleByAbility.set(
+      r.ability.id,
+      (castsPerCycleByAbility.get(r.ability.id) ?? 0) + 1,
+    );
+  }
+
   // Ruler ticks every 1s for short rotations, 2s up to 30s, 5s past that.
   const tickStep = totalSeconds <= 8 ? 1 : totalSeconds <= 30 ? 2 : 5;
   const tickCount = Math.max(1, Math.ceil(totalSeconds / tickStep));
@@ -236,6 +248,8 @@ export function RotationTimeline({
                     ].filter(Boolean).join(' ')}
                     style={{ width: `${width}px`, left: `${left}px` }}
                     title={(() => {
+                      const occurrences = castsPerCycleByAbility.get(r.ability.id) ?? 0;
+                      const cpm         = occurrences * cyclesPerMinute;
                       const lines: string[] = [
                         `#${i + 1} · ${r.ability.displayName}`,
                         `${r.ability.cost} SP · ${r.ability.castTime}s cast`,
@@ -243,6 +257,9 @@ export function RotationTimeline({
                           ? `Cooldown ${r.effectiveCooldown.toFixed(1)}s${r.effectiveCooldown !== r.ability.cooldown ? ` (base ${r.ability.cooldown}s)` : ''}`
                           : 'No cooldown',
                         `Cast at t=${r.startTime.toFixed(1)}s · ready again at t=${r.cdReadyAt.toFixed(1)}s`,
+                        cpm > 0
+                          ? `~${cpm.toFixed(1)} casts/min in this rotation${occurrences > 1 ? ` (${occurrences}× per ${totalSeconds.toFixed(1)}s cycle)` : ''}`
+                          : '',
                         r.ability.charges > 0
                           ? `${r.chargesRemaining} of ${r.ability.charges} charges left after this cast`
                           : '',
