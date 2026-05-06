@@ -411,11 +411,15 @@ export const SHIRADI_MANTLE_STAY: Proc = {
  * don't). Empower Healing applies only to healing-flavored procs which
  * the engine doesn't currently surface, so we leave it out of the
  * damage-side pool by default.
+ *
+ * Keys match the in-game stance names from Feats.xml / Epic.class.xml
+ * exactly so toggling a metamagic from the Stances panel writes the
+ * same string the table expects.
  */
 const METAMAGIC_SP_TABLE: Record<string, number> = {
-  'Empower':   75,
-  'Maximize':  150,
-  'Intensify': 75,
+  'Empower Spell':   75,
+  'Maximize Spell':  150,
+  'Intensify Spell': 75,
 };
 
 /**

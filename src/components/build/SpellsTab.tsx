@@ -13,18 +13,38 @@ function classNameToId(name: string): string {
   return name.toLowerCase().replace(/[\s']+/g, '_').replace(/-/g, '_');
 }
 
-const METAMAGICS: { name: string; flag: keyof DDOSpellData['metamagic'] }[] = [
-  { name: 'Empower',         flag: 'empower' },
-  { name: 'Empower Healing', flag: 'empowerHealing' },
-  { name: 'Maximize',        flag: 'maximize' },
-  { name: 'Quicken',         flag: 'quicken' },
-  { name: 'Heighten',        flag: 'heighten' },
-  { name: 'Intensify',       flag: 'intensify' },
-  { name: 'Embolden',        flag: 'embolden' },
-  { name: 'Enlarge',         flag: 'enlarge' },
-  { name: 'Extend',          flag: 'extend' },
-  { name: 'Accelerate',      flag: 'accelerate' },
+// Metamagic toggles that the engine + DPS calculator track. Names match
+// the in-game stance text exactly (so they line up with the per-feat
+// `<Stance><Name>` blocks in Feats.xml / Epic.class.xml). `flag` joins
+// to the boolean keys on `DDOSpellData['metamagic']` for the per-spell
+// "applicable metamagics" tooltip in the spell picker — Eschew Materials
+// has no per-spell flag (it's a global component-cost reduction) so its
+// `flag` is undefined.
+const METAMAGICS: { name: string; flag?: keyof DDOSpellData['metamagic'] }[] = [
+  { name: 'Empower Spell',         flag: 'empower' },
+  { name: 'Empower Healing Spell', flag: 'empowerHealing' },
+  { name: 'Maximize Spell',        flag: 'maximize' },
+  { name: 'Quicken Spell',         flag: 'quicken' },
+  { name: 'Heighten Spell',        flag: 'heighten' },
+  { name: 'Intensify Spell',       flag: 'intensify' },
+  { name: 'Embolden Spell',        flag: 'embolden' },
+  { name: 'Enlarge Spell',         flag: 'enlarge' },
+  { name: 'Extend Spell',          flag: 'extend' },
+  { name: 'Accelerate Spell',      flag: 'accelerate' },
+  { name: 'Eschew Materials' /* no per-spell flag */ },
 ];
+
+/** Set of metamagic stance names — used to (a) override the stance
+ *  group when the source XML doesn't tag it (e.g. Eschew Materials,
+ *  whose `<Stance>` block omits `<Group>`) and (b) detect when the
+ *  Stances panel should render with multi-select toggleMetamagic
+ *  semantics instead of mutual-exclusion stance toggling. */
+const METAMAGIC_NAMES: Set<string> = new Set(METAMAGICS.map(m => m.name));
+
+/** Display label used as the group header for the metamagic block in
+ *  the Stances panel. Matches `<Group>` values in the source XML so
+ *  metamagics with the explicit tag also land here. */
+const METAMAGIC_GROUP = 'Metamagics';
 
 export function SpellsTab() {
   const { build } = useBuild();
@@ -321,6 +341,7 @@ function SpellSlotTile({
   const applicableMetamagics: string[] = [];
   if (data) {
     for (const { name, flag } of METAMAGICS) {
+      if (!flag) continue;                                 // Eschew Materials etc. — not per-spell
       if (data.metamagic[flag] && activeMetamagics.includes(name)) {
         applicableMetamagics.push(name);
       }
@@ -356,58 +377,34 @@ function SpellSlotTile({
 }
 
 
-// ── Metamagics row ──────────────────────────────────────────────────
-//
-// Global toggles, not per-class. Lives at the top of the Stances &
-// Mantles sub-tab where other build-level runtime toggles already
-// gather. The engine treats these like stances: opt-in, affect damage
-// + SP costs while active.
+// ── Stances & Mantles panel ─────────────────────────────────────────
 
-function MetamagicsSection() {
+function StancesPanel() {
+  const r = useBreakdowns();
+  const active = useBuildStore(s => s.build.activeStances);
+  const setStances       = useBuildStore(s => s.setStances);
   // Use the stable EMPTY_METAMAGICS reference instead of an inline `?? []`
   // — a fresh `[]` each selector call would fail useSyncExternalStore's
   // Object.is equality check and force-rerender on every store snapshot,
   // looping forever.
   const activeMetamagics = useBuildStore(s => s.build.activeMetamagics ?? EMPTY_METAMAGICS);
   const toggleMetamagic  = useBuildStore(s => s.toggleMetamagic);
-  return (
-    <section className={styles.stanceGroup}>
-      <h4 className={styles.stanceGroupHeading}>Metamagics</h4>
-      <div className={styles.metamagicRow} role="group" aria-label="Active metamagics">
-        {METAMAGICS.map(m => {
-          const on = activeMetamagics.includes(m.name);
-          return (
-            <button
-              key={m.name}
-              type="button"
-              className={on ? styles.metamagicOn : styles.metamagicOff}
-              onClick={() => toggleMetamagic(m.name)}
-              title={`Toggle ${m.name}`}
-            >
-              {m.name}
-            </button>
-          );
-        })}
-      </div>
-    </section>
-  );
-}
-
-// ── Stances & Mantles panel ─────────────────────────────────────────
-
-function StancesPanel() {
-  const r = useBreakdowns();
-  const active = useBuildStore(s => s.build.activeStances);
-  const setStances = useBuildStore(s => s.setStances);
   // Use a stable empty array when the engine hasn't run yet — otherwise the
   // `?? []` fallback creates a new reference each render and the useMemos
   // below would re-run forever (per react-hooks/exhaustive-deps lint).
   const stances = useMemo(() => r?.availableStances ?? EMPTY_STANCES, [r]);
 
+  // Group stances by `<Group>` text from the XML, with one override:
+  // any stance whose name matches a known metamagic (from METAMAGICS)
+  // is forced into the "Metamagics" bucket — that catches Eschew
+  // Materials, whose source XML omits `<Group>` and would otherwise
+  // land under "Other".
   const grouped = useMemo(() => {
     const byGroup = new Map<string, AvailableStance[]>();
     for (const s of stances) {
-      const g = s.data.group || "Other";
+      const g = METAMAGIC_NAMES.has(s.data.name)
+        ? METAMAGIC_GROUP
+        : (s.data.group || 'Other');
       const list = byGroup.get(g) ?? [];
       list.push(s);
       byGroup.set(g, list);
@@ -450,57 +447,69 @@ function StancesPanel() {
 
   if (!r) return <div className={styles.empty}>Loading…</div>;
 
-  const activeSet = new Set(active);
+  const activeStanceSet      = new Set(active);
+  const activeMetamagicSet   = new Set(activeMetamagics);
   return (
     <div className={styles.stancesContainer}>
-      <MetamagicsSection />
       {stances.length === 0 ? (
         <div className={styles.empty}>
           No stances or mantles available. Take a stance feat (Mountain
           Stance, Power Attack, etc.) or an enhancement / destiny that
           grants one.
         </div>
-      ) : grouped.map(([group, list]) => (
-        <section key={group} className={styles.stanceGroup}>
-          <h4 className={styles.stanceGroupHeading}>{group}</h4>
-          <div className={styles.stanceCards}>
-            {list.map(s => {
-              const on = activeSet.has(s.data.name);
-              const summary = stanceSummary(s.data.description, s.rank);
-              const titleParts = [
-                s.rank > 1 ? `${s.data.name} ×${s.rank}` : s.data.name,
-              ];
-              if (s.data.description) titleParts.push('', s.data.description);
-              titleParts.push('', `Source: ${s.source}`);
-              if (s.data.incompatibleStances.length) {
-                titleParts.push(`Disables: ${s.data.incompatibleStances.join(', ')}`);
-              }
-              return (
-                <button
-                  key={s.data.name}
-                  type="button"
-                  className={on ? styles.stanceCardOn : styles.stanceCardOff}
-                  onClick={() => toggle(s.data.name)}
-                  title={titleParts.join('\n')}
-                >
-                  <StanceIcon icon={s.data.icon} />
-                  <div className={styles.stanceCardBody}>
-                    <span className={styles.stanceCardName}>
-                      {s.data.name}
-                      {s.rank > 1 && (
-                        <span className={styles.stanceRankBadge}>×{s.rank}</span>
+      ) : grouped.map(([group, list]) => {
+        // Metamagics are multi-select and drive `build.activeMetamagics`
+        // (the DPS calculator's input) instead of `activeStances`. The
+        // mutual-exclusion logic in `toggle()` doesn't apply here — the
+        // user can stack any combination of metamagics simultaneously.
+        const isMetamagicGroup = group === METAMAGIC_GROUP;
+        return (
+          <section key={group} className={styles.stanceGroup}>
+            <h4 className={styles.stanceGroupHeading}>{group}</h4>
+            <div className={styles.stanceCards}>
+              {list.map(s => {
+                const on = isMetamagicGroup
+                  ? activeMetamagicSet.has(s.data.name)
+                  : activeStanceSet.has(s.data.name);
+                const summary = stanceSummary(s.data.description, s.rank);
+                const titleParts = [
+                  s.rank > 1 ? `${s.data.name} ×${s.rank}` : s.data.name,
+                ];
+                if (s.data.description) titleParts.push('', s.data.description);
+                titleParts.push('', `Source: ${s.source}`);
+                if (s.data.incompatibleStances.length) {
+                  titleParts.push(`Disables: ${s.data.incompatibleStances.join(', ')}`);
+                }
+                return (
+                  <button
+                    key={s.data.name}
+                    type="button"
+                    className={on ? styles.stanceCardOn : styles.stanceCardOff}
+                    onClick={() => isMetamagicGroup
+                      ? toggleMetamagic(s.data.name)
+                      : toggle(s.data.name)
+                    }
+                    title={titleParts.join('\n')}
+                  >
+                    <StanceIcon icon={s.data.icon} />
+                    <div className={styles.stanceCardBody}>
+                      <span className={styles.stanceCardName}>
+                        {s.data.name}
+                        {s.rank > 1 && (
+                          <span className={styles.stanceRankBadge}>×{s.rank}</span>
+                        )}
+                      </span>
+                      {summary && (
+                        <span className={styles.stanceCardSummary}>{summary}</span>
                       )}
-                    </span>
-                    {summary && (
-                      <span className={styles.stanceCardSummary}>{summary}</span>
-                    )}
-                  </div>
-                </button>
-              );
-            })}
-          </div>
-        </section>
-      ))}
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          </section>
+        );
+      })}
     </div>
   );
 }

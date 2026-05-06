@@ -360,6 +360,41 @@ export function withActiveEnhancementSet(
 }
 
 /**
+ * Older builds — and any share URL minted before 2026-05 — stored
+ * metamagics by their short label ("Empower", "Maximize"). The Stances
+ * panel and DPS-calculator now address them by their in-game stance
+ * name ("Empower Spell", "Maximize Spell"). Rewrite any legacy short
+ * names so the existing toggles keep working after load.
+ *
+ * Idempotent — already-renamed names pass through unchanged.
+ */
+const METAMAGIC_NAME_LEGACY: Record<string, string> = {
+  'Empower':         'Empower Spell',
+  'Empower Healing': 'Empower Healing Spell',
+  'Maximize':        'Maximize Spell',
+  'Quicken':         'Quicken Spell',
+  'Heighten':        'Heighten Spell',
+  'Intensify':       'Intensify Spell',
+  'Embolden':        'Embolden Spell',
+  'Enlarge':         'Enlarge Spell',
+  'Extend':          'Extend Spell',
+  'Accelerate':      'Accelerate Spell',
+};
+
+export function migrateMetamagicNames(raw: Build): Build {
+  const cur = raw.activeMetamagics;
+  if (!cur || cur.length === 0) return raw;
+  let changed = false;
+  const next = cur.map(n => {
+    const mapped = METAMAGIC_NAME_LEGACY[n];
+    if (mapped) { changed = true; return mapped; }
+    return n;
+  });
+  if (!changed) return raw;
+  return { ...raw, activeMetamagics: next };
+}
+
+/**
  * Bring a possibly-legacy Build (flat enhancement fields, no
  * enhancementSets) into the new shape. Idempotent: no-op when the
  * build already has at least one set.
@@ -368,6 +403,10 @@ export function withActiveEnhancementSet(
  * have two sources of truth lying around.
  */
 export function migrateEnhancementSets(raw: Build): Build {
+  // Always run the metamagic-name rewrite — both the wrapped and
+  // already-migrated branches below benefit, and it's a no-op for new
+  // builds that never carried the legacy short names.
+  raw = migrateMetamagicNames(raw);
   if (raw.enhancementSets && raw.enhancementSets.length > 0) {
     // Strip deprecated flat fields if any straggler is set.
     const {
