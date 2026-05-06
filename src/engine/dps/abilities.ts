@@ -378,6 +378,124 @@ export function parseClickieCooldown(description: string): number | undefined {
 }
 
 /**
+ * Total reaper-charge pool: 1 baseline + 1 per reaper-tree clickie taken
+ * + 1 per "Reaper's Charge" enhancement (DireCharge / DAReapersCharge /
+ * GrimReapersCharge — all stack). Returns 0 when no reaper boost is
+ * trained, since the baseline only kicks in once the user is committed
+ * to a reaper boost.
+ *
+ * Kemton's reaper spends (9 boosts + 3 charge enhancements) → 13 charges.
+ */
+export function computeReaperCharges(
+  build: Build,
+  trees: EnhancementTreeData[],
+): number {
+  if (trees.length === 0) return 0;
+  const treeIdx = new Map<string, EnhancementTreeData>();
+  for (const t of trees) treeIdx.set(t.name.toLowerCase(), t);
+  const set = getActiveEnhancementSet(build);
+
+  let boostsTaken = 0;
+  let chargeEnhancements = 0;
+  for (const spend of set.reaperEnhancements) {
+    const tree = treeIdx.get(spend.treeId.toLowerCase());
+    if (!tree) continue;
+    for (const e of spend.enhancements) {
+      if (e.rank <= 0) continue;
+      const item = tree.items.find(i => i.internalName === e.enhancementId)
+                ?? tree.items.find(i => i.name === e.enhancementId);
+      if (!item) continue;
+      if (item.clickie) {
+        boostsTaken++;
+      } else if (/\+1 (?:to )?(?:maximum )?reaper charge/i.test(item.description)) {
+        chargeEnhancements++;
+      }
+    }
+  }
+  if (boostsTaken === 0) return 0;          // never used → 0
+  return 1 + boostsTaken + chargeEnhancements;
+}
+
+/**
+ * Total action-boost charge pool: 5 baseline + extras from gear /
+ * enhancement / destiny / racial. Sources are detected by description
+ * pattern since the upstream data doesn't model these mechanically:
+ *
+ *   • "+N Action Boost charges" / "+N to Action Boost charges"
+ *     (augments + item buffs descriptions)
+ *   • "use each of your action boosts N additional times per rest"
+ *     (Battle Engineer, Frenzied Berserker "Extra Action Boost", etc.)
+ *
+ * Returns the fully-expanded charge count for any single action-boost
+ * clickie (action boosts share one pool in-game, so this is what each
+ * boost can reach if all charges go to it).
+ */
+export function computeActionBoostCharges(
+  build: Build,
+  trees: EnhancementTreeData[],
+): number {
+  let extra = 0;
+  // Walk every taken enhancement (heroic + destiny + reaper) for description
+  // matches. The reaper trees don't grant action-boost charges, but the
+  // walk's symmetric and the regex won't false-match.
+  if (trees.length > 0) {
+    const treeIdx = new Map<string, EnhancementTreeData>();
+    for (const t of trees) treeIdx.set(t.name.toLowerCase(), t);
+    const set = getActiveEnhancementSet(build);
+    const spendLists = [set.enhancements, set.destinyEnhancements, set.reaperEnhancements];
+    for (const spendList of spendLists) {
+      for (const spend of spendList) {
+        const tree = treeIdx.get(spend.treeId.toLowerCase());
+        if (!tree) continue;
+        for (const e of spend.enhancements) {
+          if (e.rank <= 0) continue;
+          const item = tree.items.find(i => i.internalName === e.enhancementId)
+                    ?? tree.items.find(i => i.name === e.enhancementId);
+          if (!item) continue;
+          extra += extractActionBoostExtras(item.description, e.rank);
+        }
+      }
+    }
+  }
+  // Augment descriptions on equipped gear ("+N Enhancement bonus to
+  // Action Boost charges" — Vecna Unleashed's Legendary Moment to
+  // Legendary Moment etc.).
+  for (const gearSet of build.gearSets ?? []) {
+    if (gearSet.name !== build.activeGearSet) continue;
+    for (const item of gearSet.items) {
+      for (const aug of item.augmentSlots ?? []) {
+        if (!aug.selectedAugment) continue;
+        // We don't have augment descriptions in the GearItem; the
+        // augment catalog isn't passed in here. Fall back to a
+        // name-based heuristic for the few augments that grant charges.
+        const m = aug.selectedAugment.match(/\+(\d+).*action boost charges?/i);
+        if (m) extra += parseInt(m[1]!, 10);
+      }
+    }
+  }
+  return 5 + extra;
+}
+
+function extractActionBoostExtras(description: string, rank: number): number {
+  if (!description) return 0;
+  // "+N Enhancement bonus to Action Boost charges" — direct add.
+  const direct = description.match(/\+(\d+)\b[^.\n]*action boost charges?/i);
+  if (direct) return parseInt(direct[1]!, 10);
+  // "use each of your action boosts [1/2/3] additional times per rest"
+  // — value is per-rank from a [a/b/c] table; pick the user's rank.
+  const tabular = description.match(/\[([\d/]+)\][^.\n]*additional times per rest/i);
+  if (tabular) {
+    const tiers = tabular[1]!.split('/').map(s => parseInt(s, 10));
+    const idx = Math.min(rank, tiers.length) - 1;
+    return tiers[idx] ?? 0;
+  }
+  // "use each of your action boosts N additional times per rest" — fixed N.
+  const fixed = description.match(/(\d+)\s+additional times? per rest/i);
+  if (fixed) return parseInt(fixed[1]!, 10);
+  return 0;
+}
+
+/**
  * Walk the active enhancement set and return one MagicAbility per
  * `<Clickie/>`-tagged item the user has spent ranks in. Covers heroic,
  * destiny, and reaper trees uniformly — the parsed item shape is the
@@ -401,6 +519,14 @@ function collectClickieAbilities(
     ...set.destinyEnhancements.map(s => ({ spend: s, scope: 'D' as const })),
     ...set.reaperEnhancements.map(s => ({ spend: s, scope: 'R' as const })),
   ];
+
+  // Pre-compute the build's charge pools. Reaper boosts share one pool;
+  // action boosts share another. We stamp each clickie with the full
+  // pool size so the user sees how many uses they have available — the
+  // timeline can't yet model "shared pool depletes faster when multiple
+  // boosts are slotted", but the per-ability cap is at least honest.
+  const reaperCharges      = computeReaperCharges(build, trees);
+  const actionBoostCharges = computeActionBoostCharges(build, trees);
 
   const out: MagicAbility[] = [];
   const seen = new Set<string>();
@@ -441,6 +567,19 @@ function collectClickieAbilities(
       const cd = parseClickieCooldown(item.description);
       const cooldown = cd ?? (scope === 'R' ? 60 : 30);
 
+      // Reaper-tree clickies all draw from the shared reaper charge
+      // pool. Action-boost clickies (anything whose name or description
+      // says "Action Boost") draw from the shared action-boost pool.
+      // Other clickies are unlimited (charges = 0).
+      const isReaperBoost = scope === 'R';
+      const isActionBoost = !isReaperBoost
+        && /\baction boost\b/i.test(item.name + ' ' + item.description);
+      const charges = isReaperBoost
+        ? reaperCharges
+        : isActionBoost
+          ? actionBoostCharges
+          : 0;
+
       out.push({
         id,
         source:         'sla',
@@ -450,7 +589,7 @@ function collectClickieAbilities(
         school:         '',
         cost:           0,
         cooldown,
-        charges:        0,
+        charges,
         maxCasterLevel: 0,
         damages:        [],
         castTime:       0.5,
