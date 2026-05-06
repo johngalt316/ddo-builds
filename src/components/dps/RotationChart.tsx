@@ -47,13 +47,20 @@ export function RotationChart({
   pxPerSecond = DEFAULT_PX_PER_SEC,
 }: Props) {
   const scrollRef = useRef<HTMLDivElement | null>(null);
+  const prevCurrentTime = useRef<number>(-1);
   // Auto-scroll: as the playhead advances past 80% of the visible width,
   // shift the scroll right so the playhead stays at the 80% mark. Never
-  // scrolls left — when the playhead is in the natural left portion of
-  // the cycle we leave the user's manual scroll position alone.
+  // scrolls left during forward play — when the playhead is in the
+  // natural left portion of the cycle we leave the user's manual
+  // scroll position alone. When the playhead jumps backwards (sim
+  // restart) we reset scrollLeft to 0 so t=0 is visible again.
   useEffect(() => {
     const el = scrollRef.current;
     if (!el) return;
+    if (currentTime + 1e-3 < prevCurrentTime.current) {
+      el.scrollLeft = 0;
+    }
+    prevCurrentTime.current = currentTime;
     const playheadX = Math.min(currentTime, cycleSeconds) * pxPerSecond;
     const target   = playheadX - el.clientWidth * 0.8;
     if (target > el.scrollLeft) el.scrollLeft = target;

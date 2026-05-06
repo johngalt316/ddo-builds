@@ -298,12 +298,16 @@ function MagicRotationEditor({
   const [simRunning, setSimRunning] = useState(false);
   const simStartedAt = useRef(0);
 
-  // Auto-stop and reset to 0 when the rotation changes — the previous
-  // simulation no longer maps onto the new timeline.
+  // Auto-stop and reset to 0 when the rotation actually changes — the
+  // previous simulation no longer maps onto the new timeline. Keyed on
+  // `steps` (user reordered/added/removed) and `rotationCycleSeconds`
+  // (cycle length changed because of CDR / spell catalog). Avoids
+  // spurious resets when `breakdowns` re-references but the cycle is
+  // unchanged.
   useEffect(() => {
     setSimRunning(false);
     setSimTime(0);
-  }, [steps, breakdowns]);
+  }, [steps, rotationCycleSeconds]);
 
   useEffect(() => {
     if (!simRunning || rotationCycleSeconds <= 0) return;
@@ -453,6 +457,7 @@ function MagicRotationEditor({
         onClear={onClear}
         playheadTime={simRunning || simTime > 0 ? simTime : undefined}
         activeBuffs={rotationBreakdown?.activeBuffs}
+        damageByAbility={damageByAbility}
       />
       <RotationDPSSummary
         breakdown={rotationBreakdown}

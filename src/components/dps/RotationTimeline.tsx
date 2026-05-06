@@ -16,6 +16,7 @@ import type { MagicAbility } from '@/engine/dps/abilities';
 import type { RotationStep } from '@/engine/dps/rotation';
 import { resolveTimeline } from '@/engine/dps/timing';
 import type { ActiveBuff } from '@/engine/dps/buffs';
+import type { AbilityDamageInfo } from '@/engine/dps/calculator';
 import styles from './RotationTimeline.module.css';
 
 /** Pixel width per second of cast time. Larger → roomier blocks. */
@@ -39,15 +40,24 @@ interface Props {
   /** Transient buffs active during the rotation cycle. One band rendered
    *  per buff under the cast blocks, with windows clipped to [0, cycle). */
   activeBuffs?: ActiveBuff[];
+  /** Per-ability damage info — used to surface DPC + DPS + per-component
+   *  breakdown in each cast block's tooltip. */
+  damageByAbility?: Map<string, AbilityDamageInfo>;
 }
+
+const fmt = (n: number) =>
+  n >= 10
+    ? Math.round(n).toLocaleString()
+    : n.toFixed(1);
 
 export function RotationTimeline({
   steps, abilityById, cooldownReductionPct,
   auto, onAutoChange, onReorder, onRemove, onClear,
-  playheadTime, activeBuffs,
+  playheadTime, activeBuffs, damageByAbility,
 }: Props) {
   const dragFrom = useRef<number | null>(null);
   const scrollRef = useRef<HTMLDivElement | null>(null);
+  const prevPlayheadTime = useRef<number>(-1);
   const [dragOver, setDragOver] = useState<number | null>(null);
 
   const { steps: resolved, skipped, totalSeconds } = resolveTimeline(
@@ -57,10 +67,20 @@ export function RotationTimeline({
 
   // Auto-scroll: keep the playhead at the 80% mark of the visible
   // viewport as the simulation advances. Mirrors RotationChart's
-  // behavior so the two views scroll together.
+  // behavior so the two views scroll together. When the playhead
+  // jumps backwards (sim restart) we reset scrollLeft to 0 so the
+  // chart re-centers on t=0.
   useEffect(() => {
     const el = scrollRef.current;
-    if (!el || playheadTime === undefined || playheadTime < 0) return;
+    if (!el) return;
+    if (playheadTime === undefined || playheadTime < 0) {
+      prevPlayheadTime.current = -1;
+      return;
+    }
+    if (playheadTime + 1e-3 < prevPlayheadTime.current) {
+      el.scrollLeft = 0;
+    }
+    prevPlayheadTime.current = playheadTime;
     const playheadX = Math.min(playheadTime, totalSeconds) * PX_PER_SECOND;
     const target    = playheadX - el.clientWidth * 0.8;
     if (target > el.scrollLeft) el.scrollLeft = target;
@@ -215,19 +235,37 @@ export function RotationTimeline({
                       r.hasGap ? styles.blockAfterGap : '',
                     ].filter(Boolean).join(' ')}
                     style={{ width: `${width}px`, left: `${left}px` }}
-                    title={[
-                      `#${i + 1} · ${r.ability.displayName}`,
-                      `${r.ability.cost} SP · ${r.ability.castTime}s cast`,
-                      r.effectiveCooldown > 0
-                        ? `Cooldown ${r.effectiveCooldown.toFixed(1)}s${r.effectiveCooldown !== r.ability.cooldown ? ` (base ${r.ability.cooldown}s)` : ''}`
-                        : 'No cooldown',
-                      `Cast at t=${r.startTime.toFixed(1)}s · ready again at t=${r.cdReadyAt.toFixed(1)}s`,
-                      r.ability.charges > 0
-                        ? `${r.chargesRemaining} of ${r.ability.charges} charges left after this cast`
-                        : '',
-                      r.hasGap ? '⏳ Waiting on cooldown' : '',
-                      auto ? 'Auto: order locked by optimizer' : 'Drag to reorder · click × to remove',
-                    ].filter(Boolean).join('\n')}
+                    title={(() => {
+                      const lines: string[] = [
+                        `#${i + 1} · ${r.ability.displayName}`,
+                        `${r.ability.cost} SP · ${r.ability.castTime}s cast`,
+                        r.effectiveCooldown > 0
+                          ? `Cooldown ${r.effectiveCooldown.toFixed(1)}s${r.effectiveCooldown !== r.ability.cooldown ? ` (base ${r.ability.cooldown}s)` : ''}`
+                          : 'No cooldown',
+                        `Cast at t=${r.startTime.toFixed(1)}s · ready again at t=${r.cdReadyAt.toFixed(1)}s`,
+                        r.ability.charges > 0
+                          ? `${r.chargesRemaining} of ${r.ability.charges} charges left after this cast`
+                          : '',
+                        r.hasGap ? '⏳ Waiting on cooldown' : '',
+                      ];
+                      const info = damageByAbility?.get(r.ability.id);
+                      const dmg  = info?.damage;
+                      if (info && dmg && dmg.total > 0) {
+                        lines.push(
+                          '',
+                          `DPC (CL ${dmg.casterLevel}): ~${fmt(dmg.total)}`,
+                          `DPS (spammed alone, ${info.cycleTime.toFixed(1)}s cycle): ~${fmt(info.dps)}`,
+                        );
+                        for (const c of dmg.byComponent) {
+                          if (c.damagePerTrigger > 0) {
+                            const compDps = c.damagePerTrigger / info.cycleTime;
+                            lines.push(`  • ${c.component.label}: ${fmt(c.damagePerTrigger)} dpc · ${fmt(compDps)} dps`);
+                          }
+                        }
+                      }
+                      lines.push(auto ? 'Auto: order locked by optimizer' : 'Drag to reorder · click × to remove');
+                      return lines.filter(Boolean).join('\n');
+                    })()}
                   >
                     {r.ability.icon && (
                       <img
