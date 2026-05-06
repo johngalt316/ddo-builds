@@ -12,6 +12,7 @@
 //   - Stances (when build state tracks active stances)
 
 import type { Build, EnhancementSelection, FiligreeSlot, GearItem } from '@/types/build';
+import { getActiveEnhancementSet } from '@/types/build';
 import type {
   DDOClassData, DDOFeatData, DDORaceData, DDOEffect, DDOStanceData,
   EnhancementTreeData, EnhancementItemData, ItemBuffCatalog,
@@ -593,21 +594,22 @@ export function collectEffects(input: CollectInputs): {
     }
   }
 
+  const activeSet = getActiveEnhancementSet(build);
   // ── 3. Heroic enhancements ─────────────────────────────────────────
   out.push(...walkTreeSpend(
-    build.enhancements, treeIdx, '[E]',
+    activeSet.enhancements, treeIdx, '[E]',
     unmatchedTrees, unmatchedEnhancements,
   ));
 
   // ── 4. Epic destinies ──────────────────────────────────────────────
   out.push(...walkTreeSpend(
-    build.destinyEnhancements, treeIdx, '[D]',
+    activeSet.destinyEnhancements, treeIdx, '[D]',
     unmatchedTrees, unmatchedEnhancements,
   ));
 
   // ── 4b. Reaper enhancements ────────────────────────────────────────
   out.push(...walkTreeSpend(
-    build.reaperEnhancements ?? [], treeIdx, '[R]',
+    activeSet.reaperEnhancements, treeIdx, '[R]',
     unmatchedTrees, unmatchedEnhancements,
   ));
 
@@ -784,7 +786,8 @@ export function collectAvailableStances(input: {
     for (const st of data.stances) push(st, sourceLabel, sf.rank);
   }
   // 4. Heroic enhancements
-  for (const tspend of build.enhancements) {
+  const stanceActiveSet = getActiveEnhancementSet(build);
+  for (const tspend of stanceActiveSet.enhancements) {
     const tree = treeIdx.get(tspend.treeId.toLowerCase());
     if (!tree) continue;
     for (const enh of tspend.enhancements) {
@@ -802,7 +805,7 @@ export function collectAvailableStances(input: {
     }
   }
   // 5. Destiny enhancements (mantles live here)
-  for (const tspend of build.destinyEnhancements) {
+  for (const tspend of stanceActiveSet.destinyEnhancements) {
     const tree = treeIdx.get(tspend.treeId.toLowerCase());
     if (!tree) continue;
     for (const enh of tspend.enhancements) {
@@ -819,7 +822,7 @@ export function collectAvailableStances(input: {
     }
   }
   // 6. Reaper enhancements (rare for stances but possible)
-  for (const tspend of build.reaperEnhancements ?? []) {
+  for (const tspend of stanceActiveSet.reaperEnhancements) {
     const tree = treeIdx.get(tspend.treeId.toLowerCase());
     if (!tree) continue;
     for (const enh of tspend.enhancements) {
@@ -862,7 +865,7 @@ export function buildBuildContext(input: {
   }
 
   const apSpentInTree = new Map<string, number>();
-  for (const tree of build.enhancements) {
+  for (const tree of getActiveEnhancementSet(build).enhancements) {
     const ap = tree.enhancements.reduce((s, e) => s + e.rank, 0);
     apSpentInTree.set(tree.treeId.toLowerCase(), ap);
   }

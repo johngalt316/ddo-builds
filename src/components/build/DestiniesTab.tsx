@@ -3,11 +3,14 @@ import {
   useBuildStore, apSpent, MAX_DESTINY_TREES, MAX_DESTINY_AP,
 } from '@/store/buildStore';
 import { useGameDataStore } from '@/store/gameDataStore';
+import { getActiveEnhancementSet } from '@/types/build';
 import { EnhancementTreeGrid } from './EnhancementTreeGrid';
+import { EnhancementSetBar } from './EnhancementSetBar';
 import styles from './DestiniesTab.module.css';
 
 export function DestiniesTab() {
   const build           = useBuildStore(s => s.build);
+  const activeSet       = getActiveEnhancementSet(build);
   const toggleTree      = useBuildStore(s => s.toggleTree);
   const allTrees        = useGameDataStore(s => s.enhancementTrees);
   const status          = useGameDataStore(s => s.status);
@@ -22,16 +25,16 @@ export function DestiniesTab() {
   // Use the cost-aware AP calc so multi-AP-per-rank destiny enhancements
   // (e.g. some Tier-5 abilities cost 2 AP/rank) are reported correctly.
   const totalAP = useMemo(
-    () => apSpent(build.destinyEnhancements, allTrees),
-    [build.destinyEnhancements, allTrees],
+    () => apSpent(activeSet.destinyEnhancements, allTrees),
+    [activeSet.destinyEnhancements, allTrees],
   );
 
   // Selected destiny tree objects (from selectedEnhancementTrees that are destiny trees)
   const selectedDestinyTrees = useMemo(
-    () => build.selectedEnhancementTrees
+    () => activeSet.selectedEnhancementTrees
       .map(name => destinyTrees.find(t => t.name === name))
       .filter((t): t is NonNullable<typeof t> => t !== null && t !== undefined),
-    [build.selectedEnhancementTrees, destinyTrees],
+    [activeSet.selectedEnhancementTrees, destinyTrees],
   );
 
   if (status === 'loading') {
@@ -40,6 +43,7 @@ export function DestiniesTab() {
 
   return (
     <div className={styles.tab}>
+      <EnhancementSetBar />
       {/* AP bar */}
       <div className={styles.apBar}>
         <span className={styles.apLabel}>Fate Points</span>
@@ -69,8 +73,8 @@ export function DestiniesTab() {
               <span className={styles.pickerEmpty}>No destiny trees found.</span>
             )}
             {destinyTrees.map(t => {
-              const selected = build.selectedEnhancementTrees.includes(t.name);
-              const canAdd   = !selected && build.selectedEnhancementTrees.filter(
+              const selected = activeSet.selectedEnhancementTrees.includes(t.name);
+              const canAdd   = !selected && activeSet.selectedEnhancementTrees.filter(
                 n => destinyTrees.some(d => d.name === n),
               ).length >= MAX_DESTINY_TREES;
               return (

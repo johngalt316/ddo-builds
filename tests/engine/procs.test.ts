@@ -23,7 +23,14 @@ function build(opts: {
     classes:             opts.classes             ?? [],
     gearSets:            opts.gearSets            ?? [],
     activeGearSet:       opts.activeGearSet       ?? '',
-    destinyEnhancements: opts.destinyEnhancements ?? [],
+    enhancementSets:     [{
+      name: 'Default',
+      enhancements:             [],
+      destinyEnhancements:      opts.destinyEnhancements ?? [],
+      reaperEnhancements:       [],
+      selectedEnhancementTrees: [],
+    }],
+    activeEnhancementSet: 'Default',
   } as unknown as Build;
 }
 

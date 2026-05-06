@@ -73,11 +73,33 @@ function loadGameData() {
 
 const gameData = loadGameData();
 
-function syntheticBuild(overrides: Partial<Build> = {}): Build {
+interface BuildOverrides extends Partial<Build> {
+  // Flat shortcuts for tests authored before EnhancementSet existed —
+  // wrapped into the active set below so the engine sees them.
+  enhancements?: Build['enhancements'];
+  destinyEnhancements?: Build['destinyEnhancements'];
+  reaperEnhancements?: Build['reaperEnhancements'];
+  selectedEnhancementTrees?: Build['selectedEnhancementTrees'];
+}
+function syntheticBuild(overrides: BuildOverrides = {}): Build {
+  const {
+    enhancements, destinyEnhancements, reaperEnhancements, selectedEnhancementTrees,
+    enhancementSets, activeEnhancementSet,
+    ...rest
+  } = overrides;
+  const sets = enhancementSets ?? [{
+    name: 'Default',
+    enhancements:             enhancements ?? [],
+    destinyEnhancements:      destinyEnhancements ?? [],
+    reaperEnhancements:       reaperEnhancements ?? [],
+    selectedEnhancementTrees: selectedEnhancementTrees ?? [],
+  }];
   return {
     ...DEFAULT_BUILD,
     classes: [{ classId: 'fighter', levels: 20 }],
-    ...overrides,
+    ...rest,
+    enhancementSets: sets,
+    activeEnhancementSet: activeEnhancementSet ?? sets[0]!.name,
   };
 }
 

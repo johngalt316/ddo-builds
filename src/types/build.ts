@@ -33,6 +33,30 @@ export interface EnhancementSelection {
   enhancements: { enhancementId: string; selection?: string; tier: number; rank: number }[];
 }
 
+/**
+ * A named bundle of enhancement / destiny / reaper allocations. Mirrors
+ * GearSet — multiple sets per Build, one is active at a time, the engine
+ * runs against the active set's data. Lets a player save several "what
+ * if I respec into …" configurations side by side and compare DPS.
+ *
+ * Stances/metamagics/active party buffs deliberately stay outside the
+ * set — they're toggleable inputs, not allocations, and the user
+ * usually wants them constant across sets being compared.
+ */
+export interface EnhancementSet {
+  name: string;
+  enhancements: EnhancementSelection[];
+  destinyEnhancements: EnhancementSelection[];
+  /** Reaper tree spends. Same shape as enhancements; max MAX_REAPER_TREES (3) trees. */
+  reaperEnhancements: EnhancementSelection[];
+  /** Names of the up-to-6 heroic enhancement trees the player has selected. */
+  selectedEnhancementTrees: string[];
+  /** Tracks whether the user has explicitly overridden the auto-derived
+   *  tree selection. While false, EnhancementsTab keeps regenerating it
+   *  from race + top class. */
+  treesManuallyOverridden?: boolean;
+}
+
 // ── Gear ────────────────────────────────────────────────────────────
 
 export type GearSlot =
@@ -98,19 +122,24 @@ export interface Build {
   abilityScores: AbilityScores;
   skillRanks: SkillRanks;
   feats: SelectedFeat[];
-  enhancements: EnhancementSelection[];
-  destinyEnhancements: EnhancementSelection[];
-  /** Reaper tree spends. Same shape as enhancements; max MAX_REAPER_TREES (3) trees. */
-  reaperEnhancements: EnhancementSelection[];
-  /** Names of the up-to-6 heroic enhancement trees the player has selected */
-  selectedEnhancementTrees: string[];
-  /**
-   * True once the user has explicitly toggled a tree (via `toggleTree`) or
-   * imported a build with selected trees. While false, the EnhancementsTab
-   * auto-derives the selection from race + top class on every change.
-   * Once flipped to true, the selection is locked in and only changes via
-   * explicit user action.
-   */
+  /** Named bundles of enhancement / destiny / reaper allocations. The
+   *  active set is the source of truth for the engine; switching active
+   *  is how the player flips between configurations. There is always at
+   *  least one set ("Default") after migration. */
+  enhancementSets: EnhancementSet[];
+  /** Name of the currently active enhancement set. */
+  activeEnhancementSet: string;
+  /** @deprecated Replaced by `enhancementSets[active].enhancements`.
+   *  Kept on the type for migration: legacy builds carry the flat array,
+   *  `migrateEnhancementSets` wraps it into the Default set on load. */
+  enhancements?: EnhancementSelection[];
+  /** @deprecated See `enhancementSets`. */
+  destinyEnhancements?: EnhancementSelection[];
+  /** @deprecated See `enhancementSets`. */
+  reaperEnhancements?: EnhancementSelection[];
+  /** @deprecated See `enhancementSets`. */
+  selectedEnhancementTrees?: string[];
+  /** @deprecated See `enhancementSets`. */
   treesManuallyOverridden?: boolean;
   /** Equipped gear sets (typically named "Standard", "Leveling", etc.) */
   gearSets: GearSet[];
@@ -206,6 +235,18 @@ export const DEFAULT_ABILITY_SCORES: AbilityScores = {
   CHA: 8,
 };
 
+export const DEFAULT_ENHANCEMENT_SET_NAME = 'Default';
+
+export function emptyEnhancementSet(name = DEFAULT_ENHANCEMENT_SET_NAME): EnhancementSet {
+  return {
+    name,
+    enhancements: [],
+    destinyEnhancements: [],
+    reaperEnhancements: [],
+    selectedEnhancementTrees: [],
+  };
+}
+
 export const DEFAULT_BUILD: Build = {
   version: 1,
   name: 'New Build',
@@ -215,10 +256,8 @@ export const DEFAULT_BUILD: Build = {
   abilityScores: { ...DEFAULT_ABILITY_SCORES },
   skillRanks: {},
   feats: [],
-  enhancements: [],
-  destinyEnhancements: [],
-  reaperEnhancements: [],
-  selectedEnhancementTrees: [],
+  enhancementSets: [emptyEnhancementSet()],
+  activeEnhancementSet: DEFAULT_ENHANCEMENT_SET_NAME,
   gearSets: [],
   activeGearSet: '',
   activeStances: [],
@@ -228,3 +267,83 @@ export const DEFAULT_BUILD: Build = {
   levelUps: {},
   specialFeats: [],
 };
+
+/**
+ * Read the currently-active EnhancementSet from a Build. After
+ * migration there's always at least one set, so this never returns
+ * undefined for a well-formed Build. Falls back to the first set when
+ * `activeEnhancementSet` doesn't match a known name (defensive).
+ */
+export function getActiveEnhancementSet(build: Build): EnhancementSet {
+  const sets = build.enhancementSets;
+  if (sets && sets.length > 0) {
+    const found = sets.find(s => s.name === build.activeEnhancementSet);
+    return found ?? sets[0]!;
+  }
+  // Defensive: a malformed build with no sets — synthesize an empty one.
+  return emptyEnhancementSet();
+}
+
+/**
+ * Return a new Build with the active EnhancementSet replaced by
+ * `mutator(activeSet)`. Used by store actions that update enhancement /
+ * destiny / reaper / selectedEnhancementTrees on the active set without
+ * touching the other sets.
+ */
+export function withActiveEnhancementSet(
+  build: Build,
+  mutator: (set: EnhancementSet) => EnhancementSet,
+): Build {
+  const active = getActiveEnhancementSet(build);
+  const next   = mutator(active);
+  const sets   = build.enhancementSets ?? [];
+  return {
+    ...build,
+    enhancementSets: sets.length === 0
+      ? [next]
+      : sets.map(s => (s.name === active.name ? next : s)),
+    activeEnhancementSet: next.name === active.name
+      ? build.activeEnhancementSet
+      : next.name,
+  };
+}
+
+/**
+ * Bring a possibly-legacy Build (flat enhancement fields, no
+ * enhancementSets) into the new shape. Idempotent: no-op when the
+ * build already has at least one set.
+ *
+ * Strips the deprecated flat fields after wrapping them so we don't
+ * have two sources of truth lying around.
+ */
+export function migrateEnhancementSets(raw: Build): Build {
+  if (raw.enhancementSets && raw.enhancementSets.length > 0) {
+    // Strip deprecated flat fields if any straggler is set.
+    const {
+      enhancements: _e, destinyEnhancements: _d, reaperEnhancements: _r,
+      selectedEnhancementTrees: _s, treesManuallyOverridden: _t,
+      ...rest
+    } = raw;
+    void _e; void _d; void _r; void _s; void _t;
+    return rest as Build;
+  }
+  const set: EnhancementSet = {
+    name: DEFAULT_ENHANCEMENT_SET_NAME,
+    enhancements:             raw.enhancements             ?? [],
+    destinyEnhancements:      raw.destinyEnhancements      ?? [],
+    reaperEnhancements:       raw.reaperEnhancements       ?? [],
+    selectedEnhancementTrees: raw.selectedEnhancementTrees ?? [],
+    treesManuallyOverridden:  raw.treesManuallyOverridden,
+  };
+  const {
+    enhancements: _e, destinyEnhancements: _d, reaperEnhancements: _r,
+    selectedEnhancementTrees: _s, treesManuallyOverridden: _t,
+    ...rest
+  } = raw;
+  void _e; void _d; void _r; void _s; void _t;
+  return {
+    ...rest,
+    enhancementSets:      [set],
+    activeEnhancementSet: DEFAULT_ENHANCEMENT_SET_NAME,
+  };
+}

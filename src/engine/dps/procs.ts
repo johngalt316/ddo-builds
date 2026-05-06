@@ -19,6 +19,7 @@
 // `expandActiveProcs`.
 
 import type { Build, GearItem } from '@/types/build';
+import { getActiveEnhancementSet } from '@/types/build';
 import type { EngineResult } from '@/engine/runEngine';
 import type { DamageComponent, DamageScaleProfile } from './damage';
 import type { SpellDamageType } from '@/engine/breakdowns';
@@ -268,7 +269,7 @@ const STAY_TO_ELEMENT: Record<string, SpellDamageType> = {
 };
 
 function shiradiStaySelection(build: Build): { selection: string; element: SpellDamageType } | null {
-  const sc = build.destinyEnhancements.find(d => d.treeId === 'Shiradi Champion');
+  const sc = getActiveEnhancementSet(build).destinyEnhancements.find(d => d.treeId === 'Shiradi Champion');
   if (!sc) return null;
   const hasPrism = sc.enhancements.some(e => e.enhancementId === 'U51ShiradiChampionPrism' && e.rank >= 1);
   if (!hasPrism) return null;

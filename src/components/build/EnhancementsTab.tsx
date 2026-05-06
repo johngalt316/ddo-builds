@@ -6,6 +6,8 @@ import {
   MAX_RACIAL_AP_TOME, MAX_UNIVERSAL_AP_TOME,
 } from '@/store/buildStore';
 import { useGameDataStore } from '@/store/gameDataStore';
+import { getActiveEnhancementSet } from '@/types/build';
+import { EnhancementSetBar } from './EnhancementSetBar';
 import { nameToId } from '@/utils/classAdapter';
 import { computeDefaultEnhancementTrees } from '@/utils/defaultEnhancementTrees';
 import type { EnhancementTreeData } from '@/types/ddoData';
@@ -65,6 +67,7 @@ function isTreeAvailable(
 
 export function EnhancementsTab() {
   const build           = useBuildStore(s => s.build);
+  const activeSet       = getActiveEnhancementSet(build);
   const toggleTree      = useBuildStore(s => s.toggleTree);
   const setSelectedTrees = useBuildStore(s => s.setSelectedTrees);
   const trees           = useGameDataStore(s => s.enhancementTrees);
@@ -77,7 +80,7 @@ export function EnhancementsTab() {
   // sets `treesManuallyOverridden: true` and locks in their choice.
   useEffect(() => {
     if (status !== 'ready') return;
-    if (build.treesManuallyOverridden) return;
+    if (activeSet.treesManuallyOverridden) return;
     if (build.classes.length === 0 || trees.length === 0) return;
 
     const defaults = computeDefaultEnhancementTrees(build, classDataList, trees);
@@ -85,17 +88,18 @@ export function EnhancementsTab() {
 
     // Only push state if the new defaults actually differ from current —
     // avoids a render loop when the effect's deps tick but defaults are stable.
-    const cur = build.selectedEnhancementTrees;
+    const cur = activeSet.selectedEnhancementTrees;
     const same = cur.length === defaults.length && cur.every((t, i) => t === defaults[i]);
     if (!same) setSelectedTrees(defaults);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     status,
-    build.treesManuallyOverridden,
+    activeSet.treesManuallyOverridden,
     build.classes,
     build.raceId,
     classDataList,
     trees,
+    build.activeEnhancementSet,
   ]);
 
   // RAP / UAP bonuses come from trained special feats (racial past lives,
@@ -121,8 +125,8 @@ export function EnhancementsTab() {
   // overflow rule: racial / universal spend over their caps spills into
   // the standard pool (matching DDOBuilderV2's pool accounting).
   const rawSpent = useMemo(
-    () => apSpentByCategory(build.enhancements, trees),
-    [build.enhancements, trees],
+    () => apSpentByCategory(activeSet.enhancements, trees),
+    [activeSet.enhancements, trees],
   );
   const pools = useMemo(
     () => applyAPOverflow(rawSpent, racialCap, universalCap),
@@ -153,11 +157,11 @@ export function EnhancementsTab() {
   // share the same `selectedEnhancementTrees` list but render on their own
   // tabs and must not appear here).
   const selectedTrees = useMemo(
-    () => build.selectedEnhancementTrees
+    () => activeSet.selectedEnhancementTrees
       .map(name => trees.find(t => t.name === name))
       .filter((t): t is NonNullable<typeof t> =>
         t !== null && t !== undefined && !t.isDestinyTree && !t.isReaperTree),
-    [build.selectedEnhancementTrees, trees],
+    [activeSet.selectedEnhancementTrees, trees],
   );
 
   if (status === 'loading') {
@@ -170,6 +174,7 @@ export function EnhancementsTab() {
 
   return (
     <div className={styles.tab}>
+      <EnhancementSetBar />
       {/* AP pools. Standard absorbs overflow from racial/universal. */}
       <div className={styles.apPools}>
         {(['standard','racial','universal'] as const).map(kind => {
@@ -266,8 +271,8 @@ export function EnhancementsTab() {
               <span className={styles.pickerEmpty}>No matching trees found for current build.</span>
             )}
             {allEligible.map(t => {
-              const selected = build.selectedEnhancementTrees.includes(t.name);
-              const canAdd   = !selected && build.selectedEnhancementTrees.length >= 6;
+              const selected = activeSet.selectedEnhancementTrees.includes(t.name);
+              const canAdd   = !selected && activeSet.selectedEnhancementTrees.length >= 6;
               return (
                 <button
                   key={t.name}

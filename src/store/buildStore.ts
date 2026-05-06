@@ -1,6 +1,6 @@
 import { create } from 'zustand';
-import type { AbilityScores, Alignment, Build, ClassLevel, EnhancementSelection, GearItem, GearSet, GearSlot, SelectedFeat, Stat } from '@/types/build';
-import { DEFAULT_BUILD } from '@/types/build';
+import type { AbilityScores, Alignment, Build, ClassLevel, EnhancementSelection, EnhancementSet, GearItem, GearSet, GearSlot, SelectedFeat, Stat } from '@/types/build';
+import { DEFAULT_BUILD, DEFAULT_ENHANCEMENT_SET_NAME, emptyEnhancementSet, getActiveEnhancementSet, withActiveEnhancementSet } from '@/types/build';
 import { resolveLevelClasses, aggregateClasses } from '@/utils/levelClasses';
 
 const MAX_HEROIC_AP = 80;
@@ -34,6 +34,13 @@ interface BuildState {
   spendReaperEnhancement: (treeId: string, enhancementId: string, maxRanks: number, selection?: string) => void;
   revokeReaperEnhancement: (treeId: string, enhancementId: string) => void;
   resetReaperTree: (treeId: string) => void;
+  // Enhancement-set CRUD (multiple named bundles of enhancements / destiny /
+  // reaper allocations per build, mirrors gear-set actions).
+  setActiveEnhancementSet: (name: string) => void;
+  createEnhancementSet: (name: string) => void;
+  duplicateEnhancementSet: (srcName: string, newName: string) => void;
+  renameEnhancementSet: (oldName: string, newName: string) => void;
+  deleteEnhancementSet: (name: string) => void;
   // Stances
   toggleStance: (name: string) => void;
   setStances: (names: string[]) => void;
@@ -640,29 +647,35 @@ export const useBuildStore = create<BuildState>((set, get) => ({
     }),
 
   setSelectedTrees: (trees) =>
-    set(s => ({ build: { ...s.build, selectedEnhancementTrees: trees.slice(0, MAX_TREES) } })),
+    set(s => ({
+      build: withActiveEnhancementSet(s.build, set => ({
+        ...set,
+        selectedEnhancementTrees: trees.slice(0, MAX_TREES),
+      })),
+    })),
 
   toggleTree: (treeName) => {
     const { build } = get();
-    const current = build.selectedEnhancementTrees;
+    const active = getActiveEnhancementSet(build);
+    const current = active.selectedEnhancementTrees;
     // User explicitly modified the selection — lock in their choice so the
     // auto-defaults effect stops overwriting it.
     if (current.includes(treeName)) {
       set(s => ({
-        build: {
-          ...s.build,
-          selectedEnhancementTrees: current.filter(t => t !== treeName),
-          enhancements: s.build.enhancements.filter(e => e.treeId !== treeName),
+        build: withActiveEnhancementSet(s.build, set => ({
+          ...set,
+          selectedEnhancementTrees: set.selectedEnhancementTrees.filter(t => t !== treeName),
+          enhancements: set.enhancements.filter(e => e.treeId !== treeName),
           treesManuallyOverridden: true,
-        },
+        })),
       }));
     } else if (current.length < MAX_TREES) {
       set(s => ({
-        build: {
-          ...s.build,
-          selectedEnhancementTrees: [...current, treeName],
+        build: withActiveEnhancementSet(s.build, set => ({
+          ...set,
+          selectedEnhancementTrees: [...set.selectedEnhancementTrees, treeName],
           treesManuallyOverridden: true,
-        },
+        })),
       }));
     }
   },
@@ -672,149 +685,235 @@ export const useBuildStore = create<BuildState>((set, get) => ({
     // — the EnhancementTreeGrid won't fire onSpend when the tree's pool is
     // exhausted. The legacy single-pool MAX_HEROIC_AP gate was wrong once
     // we split into three pools, so it's intentionally absent here.
-    set(s => {
-      const trees = s.build.enhancements;
-      const treeIdx = trees.findIndex(t => t.treeId === treeId);
-      const existing = treeIdx >= 0 ? trees[treeIdx] : null;
-      const existingEnh = existing?.enhancements.find(e => e.enhancementId === enhancementId);
-
-      if (existingEnh && existingEnh.rank >= maxRanks) return s;
-
-      const newRank = (existingEnh?.rank ?? 0) + 1;
-      const newEnh = { enhancementId, selection, tier: 0, rank: newRank };
-
-      let newTrees: EnhancementSelection[];
-      if (!existing) {
-        newTrees = [...trees, { treeId, enhancements: [newEnh] }];
-      } else {
-        newTrees = trees.map(t =>
-          t.treeId !== treeId ? t : {
-            ...t,
-            enhancements: existingEnh
-              ? t.enhancements.map(e => e.enhancementId === enhancementId ? newEnh : e)
-              : [...t.enhancements, newEnh],
-          },
-        );
-      }
-      return { build: { ...s.build, enhancements: newTrees } };
-    });
+    set(s => ({
+      build: withActiveEnhancementSet(s.build, set => {
+        const trees = set.enhancements;
+        const treeIdx = trees.findIndex(t => t.treeId === treeId);
+        const existing = treeIdx >= 0 ? trees[treeIdx] : null;
+        const existingEnh = existing?.enhancements.find(e => e.enhancementId === enhancementId);
+        if (existingEnh && existingEnh.rank >= maxRanks) return set;
+        const newRank = (existingEnh?.rank ?? 0) + 1;
+        const newEnh = { enhancementId, selection, tier: 0, rank: newRank };
+        let newTrees: EnhancementSelection[];
+        if (!existing) {
+          newTrees = [...trees, { treeId, enhancements: [newEnh] }];
+        } else {
+          newTrees = trees.map(t =>
+            t.treeId !== treeId ? t : {
+              ...t,
+              enhancements: existingEnh
+                ? t.enhancements.map(e => e.enhancementId === enhancementId ? newEnh : e)
+                : [...t.enhancements, newEnh],
+            },
+          );
+        }
+        return { ...set, enhancements: newTrees };
+      }),
+    }));
   },
 
   revokeEnhancement: (treeId, enhancementId) => {
-    set(s => {
-      const newTrees = s.build.enhancements.map(t => {
-        if (t.treeId !== treeId) return t;
-        const newEnhs = t.enhancements
-          .map(e => e.enhancementId === enhancementId ? { ...e, rank: e.rank - 1 } : e)
-          .filter(e => e.rank > 0);
-        return { ...t, enhancements: newEnhs };
-      }).filter(t => t.enhancements.length > 0);
-      return { build: { ...s.build, enhancements: newTrees } };
-    });
+    set(s => ({
+      build: withActiveEnhancementSet(s.build, set => ({
+        ...set,
+        enhancements: set.enhancements.map(t => {
+          if (t.treeId !== treeId) return t;
+          const newEnhs = t.enhancements
+            .map(e => e.enhancementId === enhancementId ? { ...e, rank: e.rank - 1 } : e)
+            .filter(e => e.rank > 0);
+          return { ...t, enhancements: newEnhs };
+        }).filter(t => t.enhancements.length > 0),
+      })),
+    }));
   },
 
   resetTree: (treeId) => {
     set(s => ({
-      build: {
-        ...s.build,
-        enhancements: s.build.enhancements.filter(t => t.treeId !== treeId),
-      },
+      build: withActiveEnhancementSet(s.build, set => ({
+        ...set,
+        enhancements: set.enhancements.filter(t => t.treeId !== treeId),
+      })),
     }));
   },
 
   spendDestinyEnhancement: (treeId, enhancementId, maxRanks, selection) => {
-    set(s => {
-      const trees = s.build.destinyEnhancements;
-      const treeIdx = trees.findIndex(t => t.treeId === treeId);
-      const existing = treeIdx >= 0 ? trees[treeIdx] : null;
-      const existingEnh = existing?.enhancements.find(e => e.enhancementId === enhancementId);
-      if (existingEnh && existingEnh.rank >= maxRanks) return s;
-      const newRank = (existingEnh?.rank ?? 0) + 1;
-      const newEnh = { enhancementId, selection, tier: 0, rank: newRank };
-      let newTrees: EnhancementSelection[];
-      if (!existing) {
-        newTrees = [...trees, { treeId, enhancements: [newEnh] }];
-      } else {
-        newTrees = trees.map(t =>
-          t.treeId !== treeId ? t : {
-            ...t,
-            enhancements: existingEnh
-              ? t.enhancements.map(e => e.enhancementId === enhancementId ? newEnh : e)
-              : [...t.enhancements, newEnh],
-          },
-        );
-      }
-      return { build: { ...s.build, destinyEnhancements: newTrees } };
-    });
+    set(s => ({
+      build: withActiveEnhancementSet(s.build, set => {
+        const trees = set.destinyEnhancements;
+        const treeIdx = trees.findIndex(t => t.treeId === treeId);
+        const existing = treeIdx >= 0 ? trees[treeIdx] : null;
+        const existingEnh = existing?.enhancements.find(e => e.enhancementId === enhancementId);
+        if (existingEnh && existingEnh.rank >= maxRanks) return set;
+        const newRank = (existingEnh?.rank ?? 0) + 1;
+        const newEnh = { enhancementId, selection, tier: 0, rank: newRank };
+        let newTrees: EnhancementSelection[];
+        if (!existing) {
+          newTrees = [...trees, { treeId, enhancements: [newEnh] }];
+        } else {
+          newTrees = trees.map(t =>
+            t.treeId !== treeId ? t : {
+              ...t,
+              enhancements: existingEnh
+                ? t.enhancements.map(e => e.enhancementId === enhancementId ? newEnh : e)
+                : [...t.enhancements, newEnh],
+            },
+          );
+        }
+        return { ...set, destinyEnhancements: newTrees };
+      }),
+    }));
   },
 
   revokeDestinyEnhancement: (treeId, enhancementId) => {
-    set(s => {
-      const newTrees = s.build.destinyEnhancements.map(t => {
-        if (t.treeId !== treeId) return t;
-        const newEnhs = t.enhancements
-          .map(e => e.enhancementId === enhancementId ? { ...e, rank: e.rank - 1 } : e)
-          .filter(e => e.rank > 0);
-        return { ...t, enhancements: newEnhs };
-      }).filter(t => t.enhancements.length > 0);
-      return { build: { ...s.build, destinyEnhancements: newTrees } };
-    });
+    set(s => ({
+      build: withActiveEnhancementSet(s.build, set => ({
+        ...set,
+        destinyEnhancements: set.destinyEnhancements.map(t => {
+          if (t.treeId !== treeId) return t;
+          const newEnhs = t.enhancements
+            .map(e => e.enhancementId === enhancementId ? { ...e, rank: e.rank - 1 } : e)
+            .filter(e => e.rank > 0);
+          return { ...t, enhancements: newEnhs };
+        }).filter(t => t.enhancements.length > 0),
+      })),
+    }));
   },
 
   resetDestinyTree: (treeId) => {
     set(s => ({
-      build: {
-        ...s.build,
-        destinyEnhancements: s.build.destinyEnhancements.filter(t => t.treeId !== treeId),
-      },
+      build: withActiveEnhancementSet(s.build, set => ({
+        ...set,
+        destinyEnhancements: set.destinyEnhancements.filter(t => t.treeId !== treeId),
+      })),
     }));
   },
 
   spendReaperEnhancement: (treeId, enhancementId, maxRanks, selection) => {
-    set(s => {
-      const trees = s.build.reaperEnhancements;
-      const treeIdx = trees.findIndex(t => t.treeId === treeId);
-      const existing = treeIdx >= 0 ? trees[treeIdx] : null;
-      const existingEnh = existing?.enhancements.find(e => e.enhancementId === enhancementId);
-      if (existingEnh && existingEnh.rank >= maxRanks) return s;
-      const newRank = (existingEnh?.rank ?? 0) + 1;
-      const newEnh = { enhancementId, selection, tier: 0, rank: newRank };
-      let newTrees: EnhancementSelection[];
-      if (!existing) {
-        newTrees = [...trees, { treeId, enhancements: [newEnh] }];
-      } else {
-        newTrees = trees.map(t =>
-          t.treeId !== treeId ? t : {
-            ...t,
-            enhancements: existingEnh
-              ? t.enhancements.map(e => e.enhancementId === enhancementId ? newEnh : e)
-              : [...t.enhancements, newEnh],
-          },
-        );
-      }
-      return { build: { ...s.build, reaperEnhancements: newTrees } };
-    });
+    set(s => ({
+      build: withActiveEnhancementSet(s.build, set => {
+        const trees = set.reaperEnhancements;
+        const treeIdx = trees.findIndex(t => t.treeId === treeId);
+        const existing = treeIdx >= 0 ? trees[treeIdx] : null;
+        const existingEnh = existing?.enhancements.find(e => e.enhancementId === enhancementId);
+        if (existingEnh && existingEnh.rank >= maxRanks) return set;
+        const newRank = (existingEnh?.rank ?? 0) + 1;
+        const newEnh = { enhancementId, selection, tier: 0, rank: newRank };
+        let newTrees: EnhancementSelection[];
+        if (!existing) {
+          newTrees = [...trees, { treeId, enhancements: [newEnh] }];
+        } else {
+          newTrees = trees.map(t =>
+            t.treeId !== treeId ? t : {
+              ...t,
+              enhancements: existingEnh
+                ? t.enhancements.map(e => e.enhancementId === enhancementId ? newEnh : e)
+                : [...t.enhancements, newEnh],
+            },
+          );
+        }
+        return { ...set, reaperEnhancements: newTrees };
+      }),
+    }));
   },
 
   revokeReaperEnhancement: (treeId, enhancementId) => {
-    set(s => {
-      const newTrees = s.build.reaperEnhancements.map(t => {
-        if (t.treeId !== treeId) return t;
-        const newEnhs = t.enhancements
-          .map(e => e.enhancementId === enhancementId ? { ...e, rank: e.rank - 1 } : e)
-          .filter(e => e.rank > 0);
-        return { ...t, enhancements: newEnhs };
-      }).filter(t => t.enhancements.length > 0);
-      return { build: { ...s.build, reaperEnhancements: newTrees } };
-    });
+    set(s => ({
+      build: withActiveEnhancementSet(s.build, set => ({
+        ...set,
+        reaperEnhancements: set.reaperEnhancements.map(t => {
+          if (t.treeId !== treeId) return t;
+          const newEnhs = t.enhancements
+            .map(e => e.enhancementId === enhancementId ? { ...e, rank: e.rank - 1 } : e)
+            .filter(e => e.rank > 0);
+          return { ...t, enhancements: newEnhs };
+        }).filter(t => t.enhancements.length > 0),
+      })),
+    }));
   },
 
   resetReaperTree: (treeId) => {
     set(s => ({
-      build: {
-        ...s.build,
-        reaperEnhancements: s.build.reaperEnhancements.filter(t => t.treeId !== treeId),
-      },
+      build: withActiveEnhancementSet(s.build, set => ({
+        ...set,
+        reaperEnhancements: set.reaperEnhancements.filter(t => t.treeId !== treeId),
+      })),
     }));
+  },
+
+  // ── EnhancementSet CRUD ──────────────────────────────────────────
+  setActiveEnhancementSet: (name) =>
+    set(s => ({ build: { ...s.build, activeEnhancementSet: name } })),
+
+  createEnhancementSet: (name) => {
+    set(s => {
+      const sets = s.build.enhancementSets ?? [];
+      if (sets.some(set => set.name === name)) return s;
+      return {
+        build: {
+          ...s.build,
+          enhancementSets: [...sets, emptyEnhancementSet(name)],
+          activeEnhancementSet: name,
+        },
+      };
+    });
+  },
+
+  duplicateEnhancementSet: (srcName, newName) => {
+    set(s => {
+      const sets = s.build.enhancementSets ?? [];
+      const src = sets.find(set => set.name === srcName);
+      if (!src || sets.some(set => set.name === newName)) return s;
+      const clone: EnhancementSet = {
+        name: newName,
+        enhancements: src.enhancements.map(t => ({ ...t, enhancements: t.enhancements.map(e => ({ ...e })) })),
+        destinyEnhancements: src.destinyEnhancements.map(t => ({ ...t, enhancements: t.enhancements.map(e => ({ ...e })) })),
+        reaperEnhancements: src.reaperEnhancements.map(t => ({ ...t, enhancements: t.enhancements.map(e => ({ ...e })) })),
+        selectedEnhancementTrees: [...src.selectedEnhancementTrees],
+        treesManuallyOverridden: src.treesManuallyOverridden,
+      };
+      return {
+        build: {
+          ...s.build,
+          enhancementSets: [...sets, clone],
+          activeEnhancementSet: newName,
+        },
+      };
+    });
+  },
+
+  renameEnhancementSet: (oldName, newName) => {
+    set(s => {
+      const sets = s.build.enhancementSets ?? [];
+      if (sets.some(set => set.name === newName)) return s;
+      return {
+        build: {
+          ...s.build,
+          enhancementSets: sets.map(set =>
+            set.name === oldName ? { ...set, name: newName } : set,
+          ),
+          activeEnhancementSet: s.build.activeEnhancementSet === oldName
+            ? newName
+            : s.build.activeEnhancementSet,
+        },
+      };
+    });
+  },
+
+  deleteEnhancementSet: (name) => {
+    set(s => {
+      const sets = s.build.enhancementSets ?? [];
+      if (sets.length <= 1) return s;   // never leave the build with zero sets
+      const remaining = sets.filter(set => set.name !== name);
+      const nextActive = s.build.activeEnhancementSet === name
+        ? (remaining[0]?.name ?? DEFAULT_ENHANCEMENT_SET_NAME)
+        : s.build.activeEnhancementSet;
+      return {
+        build: {
+          ...s.build,
+          enhancementSets: remaining,
+          activeEnhancementSet: nextActive,
+        },
+      };
+    });
   },
 }));

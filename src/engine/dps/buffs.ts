@@ -18,6 +18,7 @@
 //     rotation = lower contribution.
 
 import type { Build } from '@/types/build';
+import { getActiveEnhancementSet } from '@/types/build';
 import type { EngineResult } from '@/engine/runEngine';
 import type { DamageComponent } from './damage';
 import type { MagicAbility } from './abilities';
@@ -188,7 +189,7 @@ export const DARK_IMBUEMENT: Buff = {
   icon: 'DarkImbuement',
   duration: 10,
   isAvailable: (build) =>
-    build.destinyEnhancements.some(d =>
+    getActiveEnhancementSet(build).destinyEnhancements.some(d =>
       d.enhancements.some(e => e.selection === 'Dark Imbuement'),
     ),
   appliedBy: (ability) =>

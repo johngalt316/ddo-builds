@@ -45,12 +45,21 @@ export function ImportBuildButton() {
       return;
     }
 
-    // Ensure selectedEnhancementTrees is populated from the import's tree data
+    // Ensure selectedEnhancementTrees on the active set is populated from
+    // the import's tree data (fallback to deriving from enhancements when
+    // the .DDOBuild file lacked an explicit list).
+    const sets = result.build.enhancementSets;
+    const activeName = result.build.activeEnhancementSet;
     const buildToSet = {
       ...result.build,
-      selectedEnhancementTrees: result.build.selectedEnhancementTrees.length > 0
-        ? result.build.selectedEnhancementTrees
-        : result.build.enhancements.map(e => e.treeId),
+      enhancementSets: sets.map(s => {
+        if (s.name !== activeName) return s;
+        if (s.selectedEnhancementTrees.length > 0) return s;
+        return {
+          ...s,
+          selectedEnhancementTrees: s.enhancements.map(e => e.treeId),
+        };
+      }),
     };
     setBuild(buildToSet);
     setStatus('success');

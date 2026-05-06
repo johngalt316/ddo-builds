@@ -123,1051 +123,1057 @@
         "featId": "Epic Spell Power: Acid"
       }
     ],
-    "enhancements": [
+    "enhancementSets": [
       {
-        "treeId": "Eladrin",
-        "enhancements": []
-      },
-      {
-        "treeId": "Bladeforged",
+        "name": "Default",
         "enhancements": [
           {
-            "enhancementId": "BladeforgedCore1",
-            "tier": 0,
-            "rank": 1
+            "treeId": "Eladrin",
+            "enhancements": []
           },
           {
-            "enhancementId": "BladeforgedCore2",
-            "tier": 0,
-            "rank": 1
+            "treeId": "Bladeforged",
+            "enhancements": [
+              {
+                "enhancementId": "BladeforgedCore1",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "BladeforgedCore2",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "BladeforgedCore3",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "BladeforgedCore4",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "BladeforgedCore5",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "BladeforgedRepairSystems",
+                "selection": "Mechanist",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "BladeforgedCommunionOfScribing",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "BladeforgedPowerOfTheForge",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "BladeforgedSoulboundPlating",
+                "tier": 0,
+                "rank": 1
+              }
+            ]
           },
           {
-            "enhancementId": "BladeforgedCore3",
-            "tier": 0,
-            "rank": 1
+            "treeId": "Arcane Trickster",
+            "enhancements": [
+              {
+                "enhancementId": "ArcaneTricksterCore1",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "ATEyePoke",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "ATMagicFingers",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "ATMageHandSlap",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "ATProtectiveGear",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "ATArmsOfTheTrickster",
+                "selection": "Trickster's Trick",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "ATCatcherGlove",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "ArcaneTricksterCore2",
+                "selection": "Stolen Spell - Magic Missile",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "ATAppliedForce",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "ATTricksOnTricks",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "ATMoreMagicMoreFun",
+                "selection": "Quick Silver",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "ATMeddleWithReality",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "ArcaneTricksterCore3",
+                "selection": "Stolen Spell - Sound Burst",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "ATHelpingHand",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "ATSlipperyMagic",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "ATPinPoint",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "ATSharpMagic",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "ArcaneTricksterCore4",
+                "selection": "Stolen Spell - Flash Freeze",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "ATPresto",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "ATExtraHand",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "ATTrickyBusiness",
+                "tier": 0,
+                "rank": 2
+              },
+              {
+                "enhancementId": "ATGoodWithMyHands",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "ATNotHalfBad",
+                "selection": "Not that Bad with a Blade",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "ArcaneTricksterCore5",
+                "selection": "Stolen Spell - Turn to Frog",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "ArcaneTricksterCore6",
+                "tier": 0,
+                "rank": 1
+              }
+            ]
           },
           {
-            "enhancementId": "BladeforgedCore4",
-            "tier": 0,
-            "rank": 1
+            "treeId": "Mechanic",
+            "enhancements": [
+              {
+                "enhancementId": "MechCore1",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "MechSharpshooterI",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "MechThunderstone",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "MechMechanics",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "MechAwareness",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "MechCore2",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "MechSharpshooterII",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "MechImprovedTraps",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "MechCore3",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "MechSharpshooterIII",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "MechOozeFlask",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "MechFletching",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "MechSharpshooterIV",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "MechLegShot",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "MechCore4",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "MechCore5",
+                "tier": 0,
+                "rank": 1
+              }
+            ]
           },
           {
-            "enhancementId": "BladeforgedCore5",
-            "tier": 0,
-            "rank": 1
+            "treeId": "Thief-Acrobat",
+            "enhancements": [
+              {
+                "enhancementId": "TACore1",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "TAFastMovement",
+                "tier": 0,
+                "rank": 1
+              }
+            ]
           },
           {
-            "enhancementId": "BladeforgedRepairSystems",
-            "selection": "Mechanist",
-            "tier": 0,
-            "rank": 3
-          },
-          {
-            "enhancementId": "BladeforgedCommunionOfScribing",
-            "tier": 0,
-            "rank": 3
-          },
-          {
-            "enhancementId": "BladeforgedPowerOfTheForge",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "BladeforgedSoulboundPlating",
-            "tier": 0,
-            "rank": 1
+            "treeId": "Falconry",
+            "enhancements": [
+              {
+                "enhancementId": "FalconCore1",
+                "selection": "Summon Grey Owl",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "FalconOutInNature",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "FalconRugged",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "FalconActionBoostSprint",
+                "tier": 0,
+                "rank": 2
+              }
+            ]
           }
-        ]
-      },
-      {
-        "treeId": "Arcane Trickster",
-        "enhancements": [
+        ],
+        "destinyEnhancements": [
           {
-            "enhancementId": "ArcaneTricksterCore1",
-            "tier": 0,
-            "rank": 1
+            "treeId": "Shiradi Champion",
+            "enhancements": [
+              {
+                "enhancementId": "U51ShiradiChampionCore1",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "U51ShiradiChampionPrism",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "U51ShiradiChampionGoodLuck",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "U51ShiradiChampionWildMagics",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "U51ShiradiChampionFeySight",
+                "tier": 0,
+                "rank": 2
+              },
+              {
+                "enhancementId": "U51ShiradiChampionFadeOrPresence",
+                "selection": "Fey Presence",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "U51ShiradiChampionStay",
+                "selection": "Stay Strong",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "U51ShiradiChampionFriendOrFoe",
+                "selection": "Fey Form",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "U51ShiradiChampionCore2",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "U51ShiradiChampionDoubleRainbow",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "U51ShiradiChampionPierceDeception",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "U51ShiradiChampionCore3",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "U51ShiradiChampionCore4",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "U51ShiradiChampionCrookedTouch",
+                "selection": "Flickering Fingers",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "U51ShiradiChampionQueensDiplomacy",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "U51ShiradiChampionTrack",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "U51ShiradiChampionCrueltyOfTheHunt",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "U51ShiradiChampionNerveVenom",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "U51ShiradiChampionFeywildAttunement",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "U51ShiradiChampionEpicMoment",
+                "selection": "Inexorable Advance",
+                "tier": 0,
+                "rank": 1
+              }
+            ]
           },
           {
-            "enhancementId": "ATEyePoke",
-            "tier": 0,
-            "rank": 1
+            "treeId": "Shadowdancer",
+            "enhancements": [
+              {
+                "enhancementId": "U51ShadowdancerCore1",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "U51ShadowdancerCoverOfDarkness",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "U51ShadowdancerWellOfDarkness",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "U51ShadowdancerTechnician",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "U51ShadowdancerCore2",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "U51ShadowdancerDanceInTheDark",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "U51ShadowdancerEpicStrike",
+                "selection": "Nightmare Lance",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "U51ShadowdancerEpicStrikeUpgrade",
+                "selection": "Dark Imbuement",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "U51ShadowdancerCore3",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "U51ShadowdancerShadowcaster",
+                "selection": "Shadowcaster",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "U51ShadowdancerCore4",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "U51ShadowdancerEpicStrikeUpgradeII",
+                "selection": "Improved Paranoia",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "U51ShadowdancerBringDarkness",
+                "tier": 0,
+                "rank": 1
+              }
+            ]
           },
           {
-            "enhancementId": "ATMagicFingers",
-            "tier": 0,
-            "rank": 3
-          },
-          {
-            "enhancementId": "ATMageHandSlap",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "ATProtectiveGear",
-            "tier": 0,
-            "rank": 3
-          },
-          {
-            "enhancementId": "ATArmsOfTheTrickster",
-            "selection": "Trickster's Trick",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "ATCatcherGlove",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "ArcaneTricksterCore2",
-            "selection": "Stolen Spell - Magic Missile",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "ATAppliedForce",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "ATTricksOnTricks",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "ATMoreMagicMoreFun",
-            "selection": "Quick Silver",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "ATMeddleWithReality",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "ArcaneTricksterCore3",
-            "selection": "Stolen Spell - Sound Burst",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "ATHelpingHand",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "ATSlipperyMagic",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "ATPinPoint",
-            "tier": 0,
-            "rank": 3
-          },
-          {
-            "enhancementId": "ATSharpMagic",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "ArcaneTricksterCore4",
-            "selection": "Stolen Spell - Flash Freeze",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "ATPresto",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "ATExtraHand",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "ATTrickyBusiness",
-            "tier": 0,
-            "rank": 2
-          },
-          {
-            "enhancementId": "ATGoodWithMyHands",
-            "tier": 0,
-            "rank": 3
-          },
-          {
-            "enhancementId": "ATNotHalfBad",
-            "selection": "Not that Bad with a Blade",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "ArcaneTricksterCore5",
-            "selection": "Stolen Spell - Turn to Frog",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "ArcaneTricksterCore6",
-            "tier": 0,
-            "rank": 1
+            "treeId": "Machrotechnic",
+            "enhancements": [
+              {
+                "enhancementId": "MachrotechnicCore1",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "MachroSprockets",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "MachroEpicStrike",
+                "selection": "Mending Burst",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "MachroBlastShields",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "MachrotechnicCore2",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "MachroRuneArmUse",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "MachroHammerTime",
+                "selection": "Tonquin's Thunder Hammer",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "MachroArcaneImbuement",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "MachrotechnicCore3",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "MachroTechniqueDrive",
+                "selection": "Efficiency Drive",
+                "tier": 0,
+                "rank": 2
+              },
+              {
+                "enhancementId": "MachroStormCore",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "MachroStrikeDrive",
+                "selection": "Ruin Drive",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "MachrotechnicCore4",
+                "tier": 0,
+                "rank": 1
+              }
+            ]
           }
-        ]
-      },
-      {
-        "treeId": "Mechanic",
-        "enhancements": [
+        ],
+        "reaperEnhancements": [
           {
-            "enhancementId": "MechCore1",
-            "tier": 0,
-            "rank": 1
+            "treeId": "Dire Thaumaturge",
+            "enhancements": [
+              {
+                "enhancementId": "DireCore1",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "DireArcanaI",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "DireAbilityI",
+                "selection": "+1 Intelligence",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "DireDeepMagicI",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "DireFocusI",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "DirePower",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "DireCore2",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "DireAbilityII",
+                "selection": "+1 Intelligence",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "DireDeepMagicII",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "DireFocusII",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "DireArcanaII",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "DireFocusIII",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "DireDeepMagicIII",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "DireAbilityIII",
+                "selection": "+1 Intelligence",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "DireCore3",
+                "selection": "+1 Intelligence",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "DireArcanaIII",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "DireArcanaIV",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "DirePotency",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "DireEfficiency",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "DireDeepMagicIV",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "DireCore4",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "DireDeepMagicV",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "DireAbilityV",
+                "selection": "+1 Intelligence",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "DireCore5",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "DireCharge",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "DireFocusV",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "DireArcanaV",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "DireCore6",
+                "tier": 0,
+                "rank": 1
+              }
+            ]
           },
           {
-            "enhancementId": "MechSharpshooterI",
-            "tier": 0,
-            "rank": 1
+            "treeId": "Dread Adversary",
+            "enhancements": [
+              {
+                "enhancementId": "DreadAdversaryCore1",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "DAReapersBladeI",
+                "tier": 0,
+                "rank": 2
+              },
+              {
+                "enhancementId": "DAReapersShotI",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "DAReapersAbilityI",
+                "selection": "+1 Dexterity",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "DAReapersStrike",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "DAReapersTacticsI",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "DAReapersShotII",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "DreadAdversaryCore2",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "DAReapersAbilityII",
+                "selection": "+1 Dexterity",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "DAReapersTacticsII",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "DAReapersBladeII",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "DAReapersAbilityIII",
+                "selection": "+1 Dexterity",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "DAReapersShotIII",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "DreadAdversaryCore3",
+                "selection": "+1 Dexterity",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "DAReapersTacticsIII",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "DAReapersBladeIII",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "DAReapersShotIV",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "DAReapersDeadlyStrikes",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "DAReapersImbuement",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "DreadAdversaryCore4",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "DAReapersBladeIV",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "DreadAdversaryCore5",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "DAReapersCharge",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "DAReapersAbilityIV",
+                "selection": "+1 Dexterity",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "DAReapersShotV",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "DAReapersTacticsIV",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "DAReapersBladeV",
+                "tier": 0,
+                "rank": 1
+              }
+            ]
           },
           {
-            "enhancementId": "MechThunderstone",
-            "tier": 0,
-            "rank": 3
-          },
-          {
-            "enhancementId": "MechMechanics",
-            "tier": 0,
-            "rank": 3
-          },
-          {
-            "enhancementId": "MechAwareness",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "MechCore2",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "MechSharpshooterII",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "MechImprovedTraps",
-            "tier": 0,
-            "rank": 3
-          },
-          {
-            "enhancementId": "MechCore3",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "MechSharpshooterIII",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "MechOozeFlask",
-            "tier": 0,
-            "rank": 3
-          },
-          {
-            "enhancementId": "MechFletching",
-            "tier": 0,
-            "rank": 3
-          },
-          {
-            "enhancementId": "MechSharpshooterIV",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "MechLegShot",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "MechCore4",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "MechCore5",
-            "tier": 0,
-            "rank": 1
+            "treeId": "Grim Barricade",
+            "enhancements": [
+              {
+                "enhancementId": "GrimCore1",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "GrimBulwarkShroudI",
+                "selection": "PRR",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "GrimReapersSaveI",
+                "selection": "Fortitude Save",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "GrimReapersLuck",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "GrimAbilityI",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "GrimReapersEvasionI",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "GrimCore2",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "GrimAbilityII",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "GrimReapersSaveII",
+                "selection": "Fortitude Save",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "GrimBulwarkShroudII",
+                "selection": "PRR",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "GrimReapersEvasionII",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "GrimAbilityIII",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "GrimReapersSaveIII",
+                "selection": "Fortitude Save",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "GrimBulwarkShroudIII",
+                "selection": "PRR",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "GrimReapersEvasionIII",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "GrimCore3",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "GrimBulwarkShroudIV",
+                "selection": "PRR",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "GrimReapersResistance",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "GrimReapersSteadfastness",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "GrimReapersHeightenedEvasionI",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "GrimCore4",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "GrimAbilityV",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "GrimReapersCharge",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "GrimReapersSaveV",
+                "selection": "Fortitude Save",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "GrimBulwarkShroudV",
+                "selection": "PRR",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "GrimReapersHeightenedEvasionII",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "GrimCore5",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "GrimCore6",
+                "tier": 0,
+                "rank": 1
+              }
+            ]
           }
-        ]
-      },
-      {
-        "treeId": "Thief-Acrobat",
-        "enhancements": [
-          {
-            "enhancementId": "TACore1",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "TAFastMovement",
-            "tier": 0,
-            "rank": 1
-          }
-        ]
-      },
-      {
-        "treeId": "Falconry",
-        "enhancements": [
-          {
-            "enhancementId": "FalconCore1",
-            "selection": "Summon Grey Owl",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "FalconOutInNature",
-            "tier": 0,
-            "rank": 3
-          },
-          {
-            "enhancementId": "FalconRugged",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "FalconActionBoostSprint",
-            "tier": 0,
-            "rank": 2
-          }
-        ]
+        ],
+        "selectedEnhancementTrees": [
+          "Bladeforged",
+          "Arcane Trickster",
+          "Mechanic",
+          "Thief-Acrobat",
+          "Falconry",
+          "Shiradi Champion",
+          "Shadowdancer",
+          "Machrotechnic",
+          "Dire Thaumaturge",
+          "Dread Adversary",
+          "Grim Barricade"
+        ],
+        "treesManuallyOverridden": true
       }
     ],
-    "destinyEnhancements": [
-      {
-        "treeId": "Shiradi Champion",
-        "enhancements": [
-          {
-            "enhancementId": "U51ShiradiChampionCore1",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "U51ShiradiChampionPrism",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "U51ShiradiChampionGoodLuck",
-            "tier": 0,
-            "rank": 3
-          },
-          {
-            "enhancementId": "U51ShiradiChampionWildMagics",
-            "tier": 0,
-            "rank": 3
-          },
-          {
-            "enhancementId": "U51ShiradiChampionFeySight",
-            "tier": 0,
-            "rank": 2
-          },
-          {
-            "enhancementId": "U51ShiradiChampionFadeOrPresence",
-            "selection": "Fey Presence",
-            "tier": 0,
-            "rank": 3
-          },
-          {
-            "enhancementId": "U51ShiradiChampionStay",
-            "selection": "Stay Strong",
-            "tier": 0,
-            "rank": 3
-          },
-          {
-            "enhancementId": "U51ShiradiChampionFriendOrFoe",
-            "selection": "Fey Form",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "U51ShiradiChampionCore2",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "U51ShiradiChampionDoubleRainbow",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "U51ShiradiChampionPierceDeception",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "U51ShiradiChampionCore3",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "U51ShiradiChampionCore4",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "U51ShiradiChampionCrookedTouch",
-            "selection": "Flickering Fingers",
-            "tier": 0,
-            "rank": 3
-          },
-          {
-            "enhancementId": "U51ShiradiChampionQueensDiplomacy",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "U51ShiradiChampionTrack",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "U51ShiradiChampionCrueltyOfTheHunt",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "U51ShiradiChampionNerveVenom",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "U51ShiradiChampionFeywildAttunement",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "U51ShiradiChampionEpicMoment",
-            "selection": "Inexorable Advance",
-            "tier": 0,
-            "rank": 1
-          }
-        ]
-      },
-      {
-        "treeId": "Shadowdancer",
-        "enhancements": [
-          {
-            "enhancementId": "U51ShadowdancerCore1",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "U51ShadowdancerCoverOfDarkness",
-            "tier": 0,
-            "rank": 3
-          },
-          {
-            "enhancementId": "U51ShadowdancerWellOfDarkness",
-            "tier": 0,
-            "rank": 3
-          },
-          {
-            "enhancementId": "U51ShadowdancerTechnician",
-            "tier": 0,
-            "rank": 3
-          },
-          {
-            "enhancementId": "U51ShadowdancerCore2",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "U51ShadowdancerDanceInTheDark",
-            "tier": 0,
-            "rank": 3
-          },
-          {
-            "enhancementId": "U51ShadowdancerEpicStrike",
-            "selection": "Nightmare Lance",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "U51ShadowdancerEpicStrikeUpgrade",
-            "selection": "Dark Imbuement",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "U51ShadowdancerCore3",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "U51ShadowdancerShadowcaster",
-            "selection": "Shadowcaster",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "U51ShadowdancerCore4",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "U51ShadowdancerEpicStrikeUpgradeII",
-            "selection": "Improved Paranoia",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "U51ShadowdancerBringDarkness",
-            "tier": 0,
-            "rank": 1
-          }
-        ]
-      },
-      {
-        "treeId": "Machrotechnic",
-        "enhancements": [
-          {
-            "enhancementId": "MachrotechnicCore1",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "MachroSprockets",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "MachroEpicStrike",
-            "selection": "Mending Burst",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "MachroBlastShields",
-            "tier": 0,
-            "rank": 3
-          },
-          {
-            "enhancementId": "MachrotechnicCore2",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "MachroRuneArmUse",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "MachroHammerTime",
-            "selection": "Tonquin's Thunder Hammer",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "MachroArcaneImbuement",
-            "tier": 0,
-            "rank": 3
-          },
-          {
-            "enhancementId": "MachrotechnicCore3",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "MachroTechniqueDrive",
-            "selection": "Efficiency Drive",
-            "tier": 0,
-            "rank": 2
-          },
-          {
-            "enhancementId": "MachroStormCore",
-            "tier": 0,
-            "rank": 3
-          },
-          {
-            "enhancementId": "MachroStrikeDrive",
-            "selection": "Ruin Drive",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "MachrotechnicCore4",
-            "tier": 0,
-            "rank": 1
-          }
-        ]
-      }
-    ],
-    "reaperEnhancements": [
-      {
-        "treeId": "Dire Thaumaturge",
-        "enhancements": [
-          {
-            "enhancementId": "DireCore1",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "DireArcanaI",
-            "tier": 0,
-            "rank": 3
-          },
-          {
-            "enhancementId": "DireAbilityI",
-            "selection": "+1 Intelligence",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "DireDeepMagicI",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "DireFocusI",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "DirePower",
-            "tier": 0,
-            "rank": 3
-          },
-          {
-            "enhancementId": "DireCore2",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "DireAbilityII",
-            "selection": "+1 Intelligence",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "DireDeepMagicII",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "DireFocusII",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "DireArcanaII",
-            "tier": 0,
-            "rank": 3
-          },
-          {
-            "enhancementId": "DireFocusIII",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "DireDeepMagicIII",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "DireAbilityIII",
-            "selection": "+1 Intelligence",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "DireCore3",
-            "selection": "+1 Intelligence",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "DireArcanaIII",
-            "tier": 0,
-            "rank": 3
-          },
-          {
-            "enhancementId": "DireArcanaIV",
-            "tier": 0,
-            "rank": 3
-          },
-          {
-            "enhancementId": "DirePotency",
-            "tier": 0,
-            "rank": 3
-          },
-          {
-            "enhancementId": "DireEfficiency",
-            "tier": 0,
-            "rank": 3
-          },
-          {
-            "enhancementId": "DireDeepMagicIV",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "DireCore4",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "DireDeepMagicV",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "DireAbilityV",
-            "selection": "+1 Intelligence",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "DireCore5",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "DireCharge",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "DireFocusV",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "DireArcanaV",
-            "tier": 0,
-            "rank": 3
-          },
-          {
-            "enhancementId": "DireCore6",
-            "tier": 0,
-            "rank": 1
-          }
-        ]
-      },
-      {
-        "treeId": "Dread Adversary",
-        "enhancements": [
-          {
-            "enhancementId": "DreadAdversaryCore1",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "DAReapersBladeI",
-            "tier": 0,
-            "rank": 2
-          },
-          {
-            "enhancementId": "DAReapersShotI",
-            "tier": 0,
-            "rank": 3
-          },
-          {
-            "enhancementId": "DAReapersAbilityI",
-            "selection": "+1 Dexterity",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "DAReapersStrike",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "DAReapersTacticsI",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "DAReapersShotII",
-            "tier": 0,
-            "rank": 3
-          },
-          {
-            "enhancementId": "DreadAdversaryCore2",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "DAReapersAbilityII",
-            "selection": "+1 Dexterity",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "DAReapersTacticsII",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "DAReapersBladeII",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "DAReapersAbilityIII",
-            "selection": "+1 Dexterity",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "DAReapersShotIII",
-            "tier": 0,
-            "rank": 3
-          },
-          {
-            "enhancementId": "DreadAdversaryCore3",
-            "selection": "+1 Dexterity",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "DAReapersTacticsIII",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "DAReapersBladeIII",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "DAReapersShotIV",
-            "tier": 0,
-            "rank": 3
-          },
-          {
-            "enhancementId": "DAReapersDeadlyStrikes",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "DAReapersImbuement",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "DreadAdversaryCore4",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "DAReapersBladeIV",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "DreadAdversaryCore5",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "DAReapersCharge",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "DAReapersAbilityIV",
-            "selection": "+1 Dexterity",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "DAReapersShotV",
-            "tier": 0,
-            "rank": 3
-          },
-          {
-            "enhancementId": "DAReapersTacticsIV",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "DAReapersBladeV",
-            "tier": 0,
-            "rank": 1
-          }
-        ]
-      },
-      {
-        "treeId": "Grim Barricade",
-        "enhancements": [
-          {
-            "enhancementId": "GrimCore1",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "GrimBulwarkShroudI",
-            "selection": "PRR",
-            "tier": 0,
-            "rank": 3
-          },
-          {
-            "enhancementId": "GrimReapersSaveI",
-            "selection": "Fortitude Save",
-            "tier": 0,
-            "rank": 3
-          },
-          {
-            "enhancementId": "GrimReapersLuck",
-            "tier": 0,
-            "rank": 3
-          },
-          {
-            "enhancementId": "GrimAbilityI",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "GrimReapersEvasionI",
-            "tier": 0,
-            "rank": 3
-          },
-          {
-            "enhancementId": "GrimCore2",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "GrimAbilityII",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "GrimReapersSaveII",
-            "selection": "Fortitude Save",
-            "tier": 0,
-            "rank": 3
-          },
-          {
-            "enhancementId": "GrimBulwarkShroudII",
-            "selection": "PRR",
-            "tier": 0,
-            "rank": 3
-          },
-          {
-            "enhancementId": "GrimReapersEvasionII",
-            "tier": 0,
-            "rank": 3
-          },
-          {
-            "enhancementId": "GrimAbilityIII",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "GrimReapersSaveIII",
-            "selection": "Fortitude Save",
-            "tier": 0,
-            "rank": 3
-          },
-          {
-            "enhancementId": "GrimBulwarkShroudIII",
-            "selection": "PRR",
-            "tier": 0,
-            "rank": 3
-          },
-          {
-            "enhancementId": "GrimReapersEvasionIII",
-            "tier": 0,
-            "rank": 3
-          },
-          {
-            "enhancementId": "GrimCore3",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "GrimBulwarkShroudIV",
-            "selection": "PRR",
-            "tier": 0,
-            "rank": 3
-          },
-          {
-            "enhancementId": "GrimReapersResistance",
-            "tier": 0,
-            "rank": 3
-          },
-          {
-            "enhancementId": "GrimReapersSteadfastness",
-            "tier": 0,
-            "rank": 3
-          },
-          {
-            "enhancementId": "GrimReapersHeightenedEvasionI",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "GrimCore4",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "GrimAbilityV",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "GrimReapersCharge",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "GrimReapersSaveV",
-            "selection": "Fortitude Save",
-            "tier": 0,
-            "rank": 3
-          },
-          {
-            "enhancementId": "GrimBulwarkShroudV",
-            "selection": "PRR",
-            "tier": 0,
-            "rank": 3
-          },
-          {
-            "enhancementId": "GrimReapersHeightenedEvasionII",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "GrimCore5",
-            "tier": 0,
-            "rank": 1
-          },
-          {
-            "enhancementId": "GrimCore6",
-            "tier": 0,
-            "rank": 1
-          }
-        ]
-      }
-    ],
-    "selectedEnhancementTrees": [
-      "Bladeforged",
-      "Arcane Trickster",
-      "Mechanic",
-      "Thief-Acrobat",
-      "Falconry",
-      "Shiradi Champion",
-      "Shadowdancer",
-      "Machrotechnic",
-      "Dire Thaumaturge",
-      "Dread Adversary",
-      "Grim Barricade"
-    ],
-    "treesManuallyOverridden": true,
+    "activeEnhancementSet": "Default",
     "gearSets": [
       {
         "name": "Standard",

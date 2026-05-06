@@ -1,7 +1,9 @@
 import { useMemo } from 'react';
 import { useBuildStore, apSpent, MAX_REAPER_AP } from '@/store/buildStore';
 import { useGameDataStore } from '@/store/gameDataStore';
+import { getActiveEnhancementSet } from '@/types/build';
 import { EnhancementTreeGrid } from './EnhancementTreeGrid';
+import { EnhancementSetBar } from './EnhancementSetBar';
 import { requiredReaperXp } from '@/engine/reaperXp';
 import styles from './DestiniesTab.module.css';
 
@@ -16,7 +18,7 @@ import styles from './DestiniesTab.module.css';
 const REAPER_TREE_ORDER = ['Dread Adversary', 'Dire Thaumaturge', 'Grim Barricade'];
 
 export function ReaperEnhancementsTab() {
-  const reaperEnhancements = useBuildStore(s => s.build.reaperEnhancements);
+  const reaperEnhancements = useBuildStore(s => getActiveEnhancementSet(s.build).reaperEnhancements);
   const allTrees = useGameDataStore(s => s.enhancementTrees);
   const status   = useGameDataStore(s => s.status);
 
@@ -34,7 +36,7 @@ export function ReaperEnhancementsTab() {
   }, [allTrees]);
 
   const totalAP = useMemo(
-    () => apSpent(reaperEnhancements ?? [], allTrees),
+    () => apSpent(reaperEnhancements, allTrees),
     [reaperEnhancements, allTrees],
   );
 
@@ -47,6 +49,7 @@ export function ReaperEnhancementsTab() {
 
   return (
     <div className={styles.tab}>
+      <EnhancementSetBar />
       <div className={styles.apBar}>
         <span className={styles.apLabel}>Reaper Points</span>
         <div className={styles.apTrack}>

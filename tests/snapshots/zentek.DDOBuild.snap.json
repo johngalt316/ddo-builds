@@ -137,19 +137,25 @@
         "featId": "Titan's Blood"
       }
     ],
-    "enhancements": [],
-    "destinyEnhancements": [],
-    "reaperEnhancements": [],
-    "selectedEnhancementTrees": [
-      "Eladrin",
-      "Angel of Vengeance",
-      "Beacon of Hope",
-      "War Soul",
-      "Arcanotechnician",
-      "Battle Engineer",
-      "Renegade Mastermaker"
+    "enhancementSets": [
+      {
+        "name": "Default",
+        "enhancements": [],
+        "destinyEnhancements": [],
+        "reaperEnhancements": [],
+        "selectedEnhancementTrees": [
+          "Eladrin",
+          "Angel of Vengeance",
+          "Beacon of Hope",
+          "War Soul",
+          "Arcanotechnician",
+          "Battle Engineer",
+          "Renegade Mastermaker"
+        ],
+        "treesManuallyOverridden": true
+      }
     ],
-    "treesManuallyOverridden": true,
+    "activeEnhancementSet": "Default",
     "gearSets": [
       {
         "name": "Standard",

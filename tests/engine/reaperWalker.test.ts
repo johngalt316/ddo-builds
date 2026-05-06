@@ -72,10 +72,17 @@ describe('reaper enhancement walker', () => {
     const build: Build = {
       ...DEFAULT_BUILD,
       classes: [{ classId: 'fighter', levels: 20 }],
-      reaperEnhancements: [{
-        treeId: reaperTree!.name,
-        enhancements: [{ enhancementId: itemWithEffect!.internalName, tier: 0, rank: 1 }],
+      enhancementSets: [{
+        name: 'Default',
+        enhancements:             [],
+        destinyEnhancements:      [],
+        reaperEnhancements:       [{
+          treeId: reaperTree!.name,
+          enhancements: [{ enhancementId: itemWithEffect!.internalName, tier: 0, rank: 1 }],
+        }],
+        selectedEnhancementTrees: [],
       }],
+      activeEnhancementSet: 'Default',
     };
 
     const r = collectEffects({ build, ...gameData });
@@ -98,14 +105,20 @@ describe('reaper enhancement walker', () => {
     const build: Build = {
       ...DEFAULT_BUILD,
       classes: [{ classId: 'fighter', levels: 20 }],
-      enhancements: [{
-        treeId: heroicTree!.name,
-        enhancements: [{ enhancementId: heroicItem.internalName, tier: 0, rank: 1 }],
+      enhancementSets: [{
+        name: 'Default',
+        enhancements: [{
+          treeId: heroicTree!.name,
+          enhancements: [{ enhancementId: heroicItem.internalName, tier: 0, rank: 1 }],
+        }],
+        destinyEnhancements: [],
+        reaperEnhancements: [{
+          treeId: reaperTree!.name,
+          enhancements: [{ enhancementId: reaperItem.internalName, tier: 0, rank: 1 }],
+        }],
+        selectedEnhancementTrees: [],
       }],
-      reaperEnhancements: [{
-        treeId: reaperTree!.name,
-        enhancements: [{ enhancementId: reaperItem.internalName, tier: 0, rank: 1 }],
-      }],
+      activeEnhancementSet: 'Default',
     };
 
     const r = collectEffects({ build, ...gameData });

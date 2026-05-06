@@ -11,6 +11,7 @@ import {
   MAX_REAPER_AP,
 } from '@/store/buildStore';
 import { useGameDataStore } from '@/store/gameDataStore';
+import { getActiveEnhancementSet } from '@/types/build';
 import { iconUrl } from '@/utils/ddoXmlParser';
 import { SelectionPickerDialog } from './SelectionPickerDialog';
 import styles from './EnhancementTreeGrid.module.css';
@@ -48,9 +49,10 @@ export function EnhancementTreeGrid({ tree, treeKind, destinyMode = false }: Pro
   const revoke  = kind === 'destiny' ? revokeDestiny  : kind === 'reaper' ? revokeReaper  : revokeHeroic;
   const resetFn = kind === 'destiny' ? resetDestiny   : kind === 'reaper' ? resetReaper   : resetHeroic;
 
-  const pool      = kind === 'destiny' ? build.destinyEnhancements
-                  : kind === 'reaper'  ? build.reaperEnhancements
-                  : build.enhancements;
+  const activeSet = getActiveEnhancementSet(build);
+  const pool      = kind === 'destiny' ? activeSet.destinyEnhancements
+                  : kind === 'reaper'  ? activeSet.reaperEnhancements
+                  : activeSet.enhancements;
   // For heroic trees, AP is split across three pools (Standard / Racial /
   // Universal) using each enhancement item's `costPerRank` table. Racial
   // and universal spend over their caps spills into the standard pool.

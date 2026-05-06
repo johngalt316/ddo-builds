@@ -1,0 +1,70 @@
+/* Enhancement-set tabs — mirrors GearSection's setBar look. */
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin: 0 0 0.6rem;
+  flex-wrap: wrap;
+}
+
+.tabs {
+  display: flex;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.tab, .tabActive {
+  padding: 0.3rem 0.75rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tab:hover { color: var(--color-text); }
+.tabActive {
+  background: rgba(201,162,39,0.15);
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+}
+
+.actions {
+  display: flex;
+  gap: 0.2rem;
+  align-items: center;
+}
+
+.btn, .btnDanger {
+  width: 26px;
+  height: 24px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 3px;
+  color: var(--color-text-muted);
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  transition: border-color 0.12s, color 0.12s;
+}
+.btn:hover:not(:disabled) {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+}
+.btnDanger:hover:not(:disabled) {
+  border-color: #c05050;
+  color: #c05050;
+}
+.btn:disabled, .btnDanger:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}

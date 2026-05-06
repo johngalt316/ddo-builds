@@ -516,13 +516,17 @@ export function parseDDOBuildFile(xmlText: string, options?: ParseOptions): DDOB
       abilityScores,
       skillRanks,
       feats,
-      enhancements,
-      destinyEnhancements,
-      reaperEnhancements,
-      selectedEnhancementTrees,
-      // If the import had trees specified, treat as manual; otherwise let
-      // the auto-defaults effect populate them based on race + top class.
-      treesManuallyOverridden: selectedEnhancementTrees.length > 0,
+      enhancementSets: [{
+        name: 'Default',
+        enhancements,
+        destinyEnhancements,
+        reaperEnhancements,
+        selectedEnhancementTrees,
+        // If the import had trees specified, treat as manual; otherwise let
+        // the auto-defaults effect populate them based on race + top class.
+        treesManuallyOverridden: selectedEnhancementTrees.length > 0,
+      }],
+      activeEnhancementSet: 'Default',
       gearSets,
       activeGearSet,
       activeStances,
