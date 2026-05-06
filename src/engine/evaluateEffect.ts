@@ -165,12 +165,23 @@ function valueFor(effect: DDOEffect, ctx: BuildContext, rankCount: number): numb
     case 'TotalLevel':
       return amount[Math.max(0, ctx.totalLevel - 1)];
     case 'BaseClassLevel': {
-      const lvl = ctx.baseClassLevels.get((effect.items[0] ?? '').toLowerCase()) ?? 0;
+      // Effects parameterise the class either via <Item> (legacy) or
+      // <StackSource> (newer enhancement-tree pattern, used when the
+      // class name doubles as the stack-source key — e.g. AT's Applied
+      // Force uses StackSource="Arcane Trickster" with no Item).
+      // StackSource stores the display name ("Arcane Trickster"); the
+      // map keys are lowercase classIds ("arcane_trickster"), so
+      // normalize spaces / hyphens / apostrophes to underscores.
+      const className = effect.items[0] ?? effect.stackSource ?? '';
+      const key       = className.toLowerCase().replace(/[\s']+/g, '_').replace(/-/g, '_');
+      const lvl = ctx.baseClassLevels.get(key) ?? 0;
       return amount[Math.max(0, lvl - 1)];
     }
     case 'ClassLevel':
     case 'ClassCasterLevel': {
-      const lvl = ctx.classLevels.get((effect.items[0] ?? '').toLowerCase()) ?? 0;
+      const className = effect.items[0] ?? effect.stackSource ?? '';
+      const key       = className.toLowerCase().replace(/[\s']+/g, '_').replace(/-/g, '_');
+      const lvl = ctx.classLevels.get(key) ?? 0;
       return amount[Math.max(0, lvl - 1)];
     }
     case 'AbilityValue':

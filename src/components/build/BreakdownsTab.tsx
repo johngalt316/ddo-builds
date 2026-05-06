@@ -191,7 +191,7 @@ export function BreakdownsTab() {
 
   const {
     abilityScores, hitPoints, spellPoints, saves,
-    meleePower, rangedPower, doublestrike, doubleshot, sneakAttackDice,
+    meleePower, rangedPower, doublestrike, doubleshot, sneakAttackDice, imbueDice,
     meleeSpeed, rangedSpeed,
     healingAmp, negativeHealingAmp, repairAmp,
     ac, dodge, prr, mrr, spellResistance,
@@ -249,6 +249,7 @@ export function BreakdownsTab() {
         <Row label="Melee Power"      result={meleePower} />
         <Row label="Doublestrike"     result={doublestrike} />
         <Row label="Sneak Attack Dice" result={sneakAttackDice} />
+        <Row label="Imbue Dice"       result={imbueDice} />
         <Row label="Melee Combat Speed" result={meleeSpeed} />
       </Section>
 
@@ -256,6 +257,7 @@ export function BreakdownsTab() {
         <Row label="Ranged Power"     result={rangedPower} />
         <Row label="Doubleshot"       result={doubleshot} />
         <Row label="Sneak Attack Dice" result={sneakAttackDice} />
+        <Row label="Imbue Dice"       result={imbueDice} />
         <Row label="Ranged Combat Speed" result={rangedSpeed} />
       </Section>
 
@@ -264,6 +266,7 @@ export function BreakdownsTab() {
         <Row label="Spell Penetration"   result={spellPenetration} />
         <Row label="Arcane Spell Failure" result={arcaneSpellFailure} />
         <Row label="Sneak Attack Dice"   result={sneakAttackDice} />
+        <Row label="Imbue Dice"          result={imbueDice} />
         {SPELL_SCHOOLS.map(school => (
           <Row key={school} label={`${school} DC`} result={spellDCs[school]} />
         ))}

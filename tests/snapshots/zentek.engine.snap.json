@@ -91,7 +91,7 @@
     }
   },
   "hitPoints": {
-    "total": 679,
+    "total": 749,
     "appliedCount": 11,
     "dominatedCount": 0,
     "sources": [
@@ -103,7 +103,7 @@
       {
         "source": "Stout of Heart: Stout of Heart: Favored Soul Levels",
         "bonusType": "Feat",
-        "value": 0
+        "value": 64
       },
       {
         "source": "Stout of Heart: Stout of Heart: Epic Levels",

@@ -2244,7 +2244,7 @@
     ]
   },
   "ac": {
-    "total": 120,
+    "total": 132,
     "appliedCount": 17,
     "dominatedCount": 0,
     "sources": [
@@ -2266,7 +2266,7 @@
       {
         "source": "Monk 1: AC Bonus (Monk)",
         "bonusType": "Feat",
-        "value": 0
+        "value": 12
       },
       {
         "source": "Attack: Base AC",
@@ -2336,7 +2336,7 @@
     ]
   },
   "dodge": {
-    "total": 44,
+    "total": 50,
     "appliedCount": 15,
     "dominatedCount": 0,
     "sources": [
@@ -2358,7 +2358,7 @@
       {
         "source": "Monk 1: Flurry of Blows",
         "bonusType": "Feat",
-        "value": 0
+        "value": 6
       },
       {
         "source": "Monk 1: Flurry of Blows",
@@ -2677,14 +2677,14 @@
     ]
   },
   "spellResistance": {
-    "total": 14,
+    "total": 43,
     "appliedCount": 6,
     "dominatedCount": 0,
     "sources": [
       {
         "source": "Monk 13: Diamond Soul",
         "bonusType": "Feat",
-        "value": 0
+        "value": 29
       },
       {
         "source": "[D] Grandmaster of Flowers: Grandmaster of Flowers: Inner Focus",

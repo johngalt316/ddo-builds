@@ -1694,14 +1694,14 @@
     ]
   },
   "imbueDice": {
-    "total": 8,
+    "total": 15,
     "appliedCount": 4,
     "dominatedCount": 0,
     "sources": [
       {
         "source": "[E] Arcane Trickster: Arcane Trickster: Applied Force",
         "bonusType": "Enhancement",
-        "value": 0
+        "value": 7
       },
       {
         "source": "[E] Arcane Trickster: Arcane Trickster: Master of Trickery",

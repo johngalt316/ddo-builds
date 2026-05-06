@@ -2107,14 +2107,14 @@
     ]
   },
   "ac": {
-    "total": 127,
+    "total": 139,
     "appliedCount": 15,
     "dominatedCount": 0,
     "sources": [
       {
         "source": "Monk 1: AC Bonus (Monk)",
         "bonusType": "Feat",
-        "value": 0
+        "value": 12
       },
       {
         "source": "Attack: Base AC",
@@ -2189,7 +2189,7 @@
     ]
   },
   "dodge": {
-    "total": 45,
+    "total": 51,
     "appliedCount": 15,
     "dominatedCount": 0,
     "sources": [
@@ -2206,7 +2206,7 @@
       {
         "source": "Monk 1: Flurry of Blows",
         "bonusType": "Feat",
-        "value": 0
+        "value": 6
       },
       {
         "source": "Monk 1: Flurry of Blows",
@@ -2480,14 +2480,14 @@
     ]
   },
   "spellResistance": {
-    "total": 0,
+    "total": 29,
     "appliedCount": 1,
     "dominatedCount": 0,
     "sources": [
       {
         "source": "Monk 13: Diamond Soul",
         "bonusType": "Feat",
-        "value": 0
+        "value": 29
       }
     ]
   },

@@ -93,6 +93,15 @@ export interface DDOEffect {
    * threshold skip the effect entirely. Undefined = always fires.
    */
   minRank?: number;
+  /**
+   * `<StackSource>X</StackSource>` — class name driving level-indexed
+   * scaling for ClassLevel / BaseClassLevel / ClassCasterLevel effects
+   * that don't carry an `<Item>` tag. Upstream uses this for effects
+   * like Arcane Trickster's "Applied Force" (+1 Imbue / 3 AT levels)
+   * where the source's class identity is the scaling key rather than
+   * an Item targeting subject.
+   */
+  stackSource?: string;
 }
 
 export interface DDOBuffBlock {
