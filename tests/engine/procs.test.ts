@@ -69,22 +69,24 @@ describe('MAGICAL_AMBUSH.toComponents', () => {
 
   it('emits one component per active spell, sized to projectileCount', () => {
     const comps = MAGICAL_AMBUSH.toComponents(at, ENGINE, ctx38, [
-      { name: 'Magic Missile',  casterLevel: 20 },
-      { name: 'Force Missiles', casterLevel: 12 },
-      { name: 'Scorching Ray',  casterLevel: 11 },
-      { name: 'Fireball',       casterLevel: 20 },
+      { name: 'Magic Missile',   casterLevel: 20 },
+      { name: 'Arcane Initiate', casterLevel: 20 },
+      { name: 'Force Missiles',  casterLevel: 12 },
+      { name: 'Scorching Ray',   casterLevel: 11 },
+      { name: 'Fireball',        casterLevel: 20 },
     ]);
     // qty matches projectileCount; avg = sneakDice × d6 = 38 × 3.5 = 133
-    expect(comps).toHaveLength(4);
+    expect(comps).toHaveLength(5);
     expect(comps[0]).toMatchObject({
       label: 'Magical Ambush (Magic Missile)',
       trigger: { kind: 'per-cast', spell: 'Magic Missile' },
       qtyPerTrigger: 5, avgDicePerHit: 133,
       damageType: 'Force', scaleProfile: 'sneak',
     });
-    expect(comps[1]).toMatchObject({ qtyPerTrigger: 4, avgDicePerHit: 133 });
-    expect(comps[2]).toMatchObject({ qtyPerTrigger: 3, avgDicePerHit: 133 });
-    expect(comps[3]).toMatchObject({ qtyPerTrigger: 1, avgDicePerHit: 133 });   // single-hit fallback
+    expect(comps[1]).toMatchObject({ qtyPerTrigger: 10, avgDicePerHit: 133 });   // PL Arcane Initiate caps at 10
+    expect(comps[2]).toMatchObject({ qtyPerTrigger: 4,  avgDicePerHit: 133 });
+    expect(comps[3]).toMatchObject({ qtyPerTrigger: 3,  avgDicePerHit: 133 });
+    expect(comps[4]).toMatchObject({ qtyPerTrigger: 1,  avgDicePerHit: 133 });   // single-hit fallback
   });
 
   it('avgDicePerHit scales linearly with sneak dice', () => {

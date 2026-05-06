@@ -7313,6 +7313,16 @@
   },
   "slas": [
     {
+      "name": "Arcane Initiate",
+      "castingClass": "Character",
+      "category": "feat",
+      "cost": 0,
+      "maxCasterLevel": 0,
+      "cooldown": 0,
+      "charges": 10,
+      "source": "Past Life: Arcane Initiate"
+    },
+    {
       "name": "Dimension Door",
       "castingClass": "Character",
       "category": "enhancement",
@@ -7351,16 +7361,6 @@
       "cooldown": 4,
       "charges": 0,
       "source": "[E] Arcane Trickster: Arcane Trickster: Stolen Spell I → Stolen Spell - Magic Missile"
-    },
-    {
-      "name": "Magic Missile",
-      "castingClass": "Character",
-      "category": "feat",
-      "cost": 0,
-      "maxCasterLevel": 0,
-      "cooldown": 0,
-      "charges": 10,
-      "source": "Past Life: Arcane Initiate"
     },
     {
       "name": "Mending Burst",

@@ -7637,6 +7637,39 @@ additional missile, up to a maximum of 5 missiles at 9th level and higher.</Desc
     </SpellDamage>
     <Cooldown>2</Cooldown>
   </Spell>
+  <!-- ddo-builds patch: Past Life: Arcane Initiate's Magic Missile SLA
+       caps at 10 missiles (vs the regular spell's 5). Distinct <Spell>
+       so the engine + spellRules can differentiate per-missile counts.
+       Per-missile dice match regular Magic Missile (1d2+3 base, +1 per
+       2 CL); only the projectile cap differs. -->
+  <Spell>
+    <Name>Arcane Initiate</Name>
+    <Description>Past Life: Arcane Initiate version of Magic Missile.
+A missile of magical energy darts forth and unerringly strikes its target inflicting
+1d2+3 force damage. For every 2 caster levels beyond first you gain an
+additional missile, up to a maximum of 10 missiles at 19th level and higher.</Description>
+    <Icon>MagicMissile</Icon>
+    <School>Evocation</School>
+    <Empower/>
+    <Enlarge/>
+    <Intensify/>
+    <Maximize/>
+    <Quicken/>
+    <MaxCasterLevel>20</MaxCasterLevel>
+    <SpellDamage>
+      <SpellDice>
+        <PerCasterLevels>2</PerCasterLevels>
+        <BonusDice>
+          <Number>1</Number>
+          <Sides>2</Sides>
+          <Bonus>3</Bonus>
+        </BonusDice>
+      </SpellDice>
+      <Damage>Force</Damage>
+      <SpellPower>Force</SpellPower>
+    </SpellDamage>
+    <Cooldown>2</Cooldown>
+  </Spell>
   <Spell>
     <Name>Shocking Grasp</Name>
     <Description>Delivers a jolt of 1d6+1 Electricity damage per caster level (Maximum damage 5d6+5.)
@@ -14644,7 +14677,7 @@ and other adverse conditions affecting you. Cost 30ki.      </Description>
     <Name>Inner Focus</Name>
     <Description>Activate to gain 20d10 Ki. Cooldown: [180/160/120] seconds</Description>
     <Icon>InnerFocus</Icon>
-  </Spell>
+  </Spell>
   <Spell>
     <Name>Cold Light of the Moon</Name>
     <Description>Creates a lingering Area of Effect of moonlight.

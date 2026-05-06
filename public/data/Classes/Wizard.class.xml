@@ -1201,11 +1201,14 @@ D&amp;D Dice: Deals 1d4+1 force damage per missile (max 10 missiles)</Descriptio
       <!-- ddo-builds patch: see docs/DATA_PATCHES.md "Past Life: Arcane
            Initiate". Upstream ships <Amount>0 0 0 0</Amount> which the
            engine reads as unlimited charges; the in-game tooltip says
-           "ten times per rest". Bumped Amount[0] from 0 → 10. -->
+           "ten times per rest". Bumped Amount[0] from 0 → 10.
+           Also grants the distinct spell "Arcane Initiate" rather than
+           "Magic Missile" so the engine can model its 10-missile cap
+           (vs the regular spell's 5). -->
       <Effect>
         <Type>SpellLikeAbility</Type>
         <Bonus>Feat</Bonus>
-        <Item>Magic Missile</Item>
+        <Item>Arcane Initiate</Item>
         <AType>SpellInfo</AType>
         <Amount size="4">10 0 0 0</Amount>
         <Item>Wizard</Item>

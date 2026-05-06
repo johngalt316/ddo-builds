@@ -1,5 +1,5 @@
 {
-  "count": 725,
+  "count": 726,
   "schools": [
     "",
     "Abjuration",
@@ -12,20 +12,20 @@
     "Necromancy",
     "Transmutation"
   ],
-  "withDamage": 283,
+  "withDamage": 284,
   "withDC": 245,
   "withEffects": 106,
   "metamagicCounts": {
-    "enlarge": 290,
-    "quicken": 589,
+    "enlarge": 291,
+    "quicken": 590,
     "extend": 154,
     "accelerate": 56,
-    "empower": 251,
+    "empower": 252,
     "empowerHealing": 32,
-    "maximize": 256,
+    "maximize": 257,
     "heighten": 239,
     "embolden": 167,
-    "intensify": 183
+    "intensify": 184
   },
   "sample": {
     "magicMissile": {

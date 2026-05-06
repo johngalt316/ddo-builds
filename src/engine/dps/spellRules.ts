@@ -87,6 +87,18 @@ const magicMissile: SpellRule = {
   },
 };
 
+/** Past Life: Arcane Initiate Magic Missile SLA — same per-missile dice
+ *  formula as the regular spell, but caps at 10 missiles instead of 5
+ *  (per the feat description "maximum 10 missiles" + the reference
+ *  spreadsheet's "Arcane Initiate" row showing 10 hits at CL 20). */
+const arcaneInitiate: SpellRule = {
+  projectileCount: cl => Math.min(1 + Math.floor((cl - 1) / 2), 10),
+  avgPerProjectile: cl => {
+    const bonus = cl <= 1 ? 3 : 3 + Math.floor(cl / 2);
+    return 1.5 + bonus;   // 1d2 avg = 1.5
+  },
+};
+
 /** Force Missiles: 1 missile + 1 per 4 CL up to 4 at CL 12.
  *  Per-missile damage = floor(CL/2) sets of 1d4+1 (capped at MCL). */
 const forceMissiles: SpellRule = {
@@ -105,9 +117,10 @@ const scorchingRay: SpellRule = {
 };
 
 const SPELL_RULES: Record<string, SpellRule> = {
-  'Magic Missile':  magicMissile,
-  'Force Missiles': forceMissiles,
-  'Scorching Ray':  scorchingRay,
+  'Magic Missile':   magicMissile,
+  'Arcane Initiate': arcaneInitiate,
+  'Force Missiles':  forceMissiles,
+  'Scorching Ray':   scorchingRay,
 };
 
 /** True if a spell has a registered multi-projectile / non-standard rule. */
