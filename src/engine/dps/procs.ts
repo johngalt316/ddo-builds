@@ -161,17 +161,17 @@ const STATIC_PROC_CATALOG: StaticProcEntry[] = [
   },
   {
     // Carried by alchemical Earth Attunement gear (e.g. Bound Elemental
-    // Ring of Acid, The Autumn Equinox, The Theurgy of Autumn).
-    // Reference spreadsheet "Acid Attunement" row: 50d10 Acid (avg 275),
-    // scales with full Acid Spell Power (profile 'spell', not 'proc').
-    // In-game description says "stacking acid damage over time"; the
-    // spreadsheet models the average instant per-cast contribution.
+    // Ring of Acid, The Autumn Equinox, The Theurgy of Autumn) and the
+    // Lamordia Legendary augments. In-game description: "Attacks and
+    // offensive spells deal stacking acid damage over time."
+    //
+    // It's an item proc, so scaleProfile defaults to 'proc' — the
+    // damage scales with metamagics only, not with Acid Spell Power.
     id: 'earth-attunement',
-    label: 'Acid Attunement',
+    label: 'Alchemical Earth Attunement',
     source: { kind: 'item-buff', name: 'AlchemicalEarthAttunement' },
     diceCount: 50, diceSides: 10,
     damageType: 'Acid',
-    scaleProfile: 'spell',
     useGenericVuln: true, useMRR: true,
   },
   {

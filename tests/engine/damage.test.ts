@@ -27,7 +27,7 @@ describe('scaleMult', () => {
     expect(round2(m)).toBe(13.12);
   });
 
-  it('reproduces Acid Attunement — Acid, 300 SP, 75% / 2.29×', () => {
+  it('reproduces Alchemical Earth Attunement — Acid, 300 SP, 75% / 2.29×', () => {
     const m = scaleMult({ spellPower: 300, critChance: 0.75, critMultBonus: 1.29 });
     expect(round2(m)).toBe(13.87);
   });
