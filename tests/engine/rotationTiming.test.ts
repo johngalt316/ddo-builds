@@ -270,6 +270,61 @@ describe('cooldownGroup — shared cooldown pool', () => {
   });
 });
 
+describe('findFirstAvailableSlot — charge accounting', () => {
+  it('finds the gap that opens up because charge-depleted steps are skipped', () => {
+    // PL: 1s cast, 2s CD, 2 charges. A rotation that packs 5 PLs in a
+    // row only fires the first two; the rest are charge-depleted skips
+    // that don't consume cursor time. Without the charge fix,
+    // findFirstAvailableSlot would walk the cursor through all 5 PLs
+    // (cursor ~ 11s at the end of them); with the fix, cursor stops
+    // at 4s and the wide gap before the trailing F is correctly
+    // detected.
+    const PL = ability('PL', { castTime: 1, cooldown: 2, charges: 2 });
+    const F  = ability('F',  { castTime: 1, cooldown: 10 });
+    const MM = ability('MM', { castTime: 1, cooldown: 0 });
+    const map = new Map([['PL', PL], ['F', F], ['MM', MM]]);
+
+    // Resolved timeline:
+    //   F@0 (CD 10), PL@1 (2→1), PL@3 (1→0, ends 4), PL skipped × 3,
+    //   F@10 (own CD 10s, fires at 10, gap from 4..10 = 6s).
+    // Insert a new MM somewhere before the trailing F. The first
+    // fillable position is BETWEEN the firing PLs (idx 2: cursor=2,
+    // PL@3 startTime=3, fits in 1s gap). What this test really checks
+    // is that the algorithm DOESN'T fall through to append past the
+    // depleted PLs and instead respects the real timeline shape.
+    const seq = rot('F', 'PL', 'PL', 'PL', 'PL', 'PL', 'F');
+    const idx = findFirstAvailableSlot(seq, MM, map, 0);
+    // Real fillable gaps (in array-index terms): idx 2 (between firing
+    // PLs) or idx 6 (before trailing F). The algorithm picks the
+    // earliest fitting one.
+    expect(idx).toBe(2);
+  });
+
+  it('fillToOneMinute keeps growing the rotation across charge-limited fillers', () => {
+    // Reproduces the user-reported flow:
+    //   1. Click NL  → rotation fills with 8 NLs (cycle ≈ 57s).
+    //   2. Click PL  → fills inter-NL gaps; only first 2 PLs fire,
+    //                  rest are charge-depleted no-ops.
+    //   3. Click MM  → must still find unfilled real-time gaps and
+    //                  bring cycle close to the 60s target.
+    const NL = ability('NL', { castTime: 1, cooldown: 8, cooldownGroup: 'epic-strike' });
+    const PL = ability('PL', { castTime: 1, cooldown: 2, charges: 2 });
+    const MM = ability('MM', { castTime: 1, cooldown: 0 });
+    const map = new Map([['NL', NL], ['PL', PL], ['MM', MM]]);
+
+    let r = fillToOneMinute([], NL, map, 0);
+    r = fillToOneMinute(r, PL, map, 0);
+    r = fillToOneMinute(r, MM, map, 0);
+
+    const t = resolveTimeline(r, map, 0);
+    // After all three fills the rotation should approach the 60s cap.
+    expect(t.totalSeconds).toBeGreaterThanOrEqual(55);
+    expect(t.totalSeconds).toBeLessThanOrEqual(60 + 1e-6);
+    // And contain at least one MM (i.e. step 3 actually inserted).
+    expect(r.some(s => s.abilityId === 'MM')).toBe(true);
+  });
+});
+
 describe('fillToOneMinute', () => {
   it('fills an empty rotation with N copies of a 1s-cast spell up to 60s', () => {
     const A = ability('A', { castTime: 1, cooldown: 0 });

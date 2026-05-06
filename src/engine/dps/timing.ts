@@ -91,8 +91,14 @@ export function findFirstAvailableSlot(
   const newCastTime = newAbility.castTime;
   const EPS = 1e-6;
 
-  const lastStart  = new Map<string, number>();
-  const groupReady = new Map<string, number>();
+  const lastStart   = new Map<string, number>();
+  const groupReady  = new Map<string, number>();
+  // Match resolveTimeline's charge accounting: a step whose ability has
+  // run out of per-rest charges doesn't fire and doesn't advance the
+  // cursor. Without this, walking past a charge-depleted SLA in the
+  // rotation makes our cursor drift far past the real timeline and we
+  // start "finding" gaps that don't actually exist.
+  const chargesLeft = new Map<string, number>();
   let cursor = 0;
 
   for (let i = 0; i < steps.length; i++) {
@@ -100,6 +106,16 @@ export function findFirstAvailableSlot(
     if (!step) continue;
     const ability = abilityById.get(step.abilityId);
     if (!ability) continue;
+
+    // Charge gate — does this step actually fire?
+    let chargeOk = true;
+    if (ability.charges > 0) {
+      const remaining = chargesLeft.has(ability.id)
+        ? chargesLeft.get(ability.id)!
+        : ability.charges;
+      if (remaining <= 0) chargeOk = false;
+      else chargesLeft.set(ability.id, remaining - 1);
+    }
 
     const eff   = ability.cooldown * cdMul;
     const own   = (lastStart.get(ability.id) ?? -Infinity) + eff;
@@ -121,11 +137,15 @@ export function findFirstAvailableSlot(
       return i;
     }
 
-    lastStart.set(ability.id, startTime);
-    if (ability.cooldownGroup) {
-      groupReady.set(ability.cooldownGroup, startTime + eff);
+    if (chargeOk) {
+      lastStart.set(ability.id, startTime);
+      if (ability.cooldownGroup) {
+        groupReady.set(ability.cooldownGroup, startTime + eff);
+      }
+      cursor = startTime + ability.castTime;
     }
-    cursor = startTime + ability.castTime;
+    // Charge-depleted steps don't fire — leave cursor / lastStart /
+    // groupReady untouched so the walk reflects the real timeline.
   }
 
   return steps.length;
@@ -154,13 +174,20 @@ export function fillToOneMinute(
   cooldownReductionPct: number,
 ): RotationStep[] {
   let next = [...steps];
+  // Charge-limited abilities can only fire `charges` times per rest;
+  // additional copies in the array are no-ops at runtime. Stop adding
+  // once we've reached the cap so the rotation stays compact.
+  const chargeCap = ability.charges > 0 ? ability.charges : Infinity;
+  let copiesPresent = next.filter(s => s.abilityId === ability.id).length;
   for (let i = 0; i < 200; i++) {
+    if (copiesPresent >= chargeCap) break;
     const idx       = findFirstAvailableSlot(next, ability, abilityById, cooldownReductionPct);
     const candidate = [...next];
     candidate.splice(idx, 0, newRotationStep(ability.id));
     const { totalSeconds } = resolveTimeline(candidate, abilityById, cooldownReductionPct);
     if (totalSeconds > FILL_TARGET_SECONDS + 1e-6) break;
     next = candidate;
+    copiesPresent++;
   }
   return next;
 }
