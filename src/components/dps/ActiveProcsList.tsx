@@ -217,12 +217,37 @@ interface ProcChipProps {
   summary: { effect: string; chip: string; tooltip: string; placeholder: boolean };
 }
 
+/**
+ * Hover-vs-touch detection. `(hover: hover) and (pointer: fine)` is
+ * truthy on devices with a real mouse / trackpad and falsy on
+ * touch-only surfaces. We respond to `change` so plug/unplug of a
+ * mouse on a hybrid device flips behavior live.
+ */
+function useHoverCapable(): boolean {
+  const [hover, setHover] = useState<boolean>(() => {
+    if (typeof window === 'undefined' || !window.matchMedia) return true;
+    return window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  });
+  useEffect(() => {
+    if (typeof window === 'undefined' || !window.matchMedia) return;
+    const mq = window.matchMedia('(hover: hover) and (pointer: fine)');
+    const onChange = (e: MediaQueryListEvent) => setHover(e.matches);
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
+  }, []);
+  return hover;
+}
+
 function ProcChip({ proc, summary }: ProcChipProps) {
   const [open, setOpen] = useState(false);
-  const wrapperRef = useRef<HTMLDivElement | null>(null);
+  const wrapperRef     = useRef<HTMLDivElement | null>(null);
+  const isHoverCapable = useHoverCapable();
 
+  // Tap-to-toggle on touch: dismiss on outside-tap + Escape. The
+  // listeners are only worth wiring when the popover was opened by a
+  // click (touch path); hover path closes itself via mouseleave.
   useEffect(() => {
-    if (!open) return;
+    if (!open || isHoverCapable) return;
     const onDown = (e: MouseEvent | TouchEvent) => {
       if (wrapperRef.current?.contains(e.target as Node)) return;
       setOpen(false);
@@ -230,7 +255,6 @@ function ProcChip({ proc, summary }: ProcChipProps) {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') setOpen(false);
     };
-    // mousedown so we close BEFORE another button's click handler runs.
     document.addEventListener('mousedown', onDown);
     document.addEventListener('touchstart', onDown);
     document.addEventListener('keydown', onKey);
@@ -239,19 +263,30 @@ function ProcChip({ proc, summary }: ProcChipProps) {
       document.removeEventListener('touchstart', onDown);
       document.removeEventListener('keydown', onKey);
     };
-  }, [open]);
+  }, [open, isHoverCapable]);
+
+  // Hover-capable devices: show on enter, hide on leave. Touch
+  // devices: ignore these (no synthetic mouse events fire reliably
+  // for taps anyway, but we guard explicitly to be safe).
+  const onEnter = () => { if (isHoverCapable) setOpen(true); };
+  const onLeave = () => { if (isHoverCapable) setOpen(false); };
+  const onClick = () => { if (!isHoverCapable) setOpen(o => !o); };
 
   return (
     <div
       ref={wrapperRef}
       className={styles.chipWrapper}
+      onMouseEnter={onEnter}
+      onMouseLeave={onLeave}
     >
       <button
         type="button"
         className={summary.placeholder ? styles.chipPlaceholder : styles.chip}
         aria-expanded={open}
         aria-haspopup="dialog"
-        onClick={() => setOpen(o => !o)}
+        onClick={onClick}
+        onFocus={onEnter}
+        onBlur={onLeave}
       >
         <span className={styles.chipLabel}>
           {proc.label}
