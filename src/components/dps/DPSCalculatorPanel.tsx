@@ -29,6 +29,7 @@ import { computeMetamagicSP } from '@/engine/dps/procs';
 import { aggregateSpellCostReductions, reaperEfficiencyEffect } from '@/engine/dps/spellCost';
 import {
   aggregateDebuffs,
+  liveDebuffsAt,
   initialDebuffState,
   type DebuffState,
 } from '@/engine/dps/debuffs';
@@ -39,7 +40,6 @@ import { ManageActiveDialog } from './ManageActiveDialog';
 import { DebuffsSummary, ManageDebuffsDialog } from './DebuffsPanel';
 import { ActiveProcsList } from './ActiveProcsList';
 import { BuffsList } from './BuffsList';
-import { RotationDPSSummary } from './RotationDPSSummary';
 import { RotationChart, type DamageEvent } from './RotationChart';
 import { DamageSourceSummary } from './DamageSourceSummary';
 import styles from './DPSCalculatorPanel.module.css';
@@ -69,9 +69,23 @@ const OBJECTIVE_LABELS: Record<OptimizerObjective, string> = {
   efficient: 'Resource Efficient',
 };
 
+/** Available enemy targets in the simulation (1–5). Single-target spells
+ *  always hit one; AOE spells hit min(spell.targetCap, targetCount).
+ *  Per-spell `targetCap` data isn't yet wired through the catalog —
+ *  until it lands all spells effectively act single-target regardless
+ *  of this dropdown. */
+const TARGET_LABELS: Record<number, string> = {
+  1: 'Single Target',
+  2: 'Group of 2',
+  3: 'Group of 3',
+  4: 'Group of 4',
+  5: 'Group of 5',
+};
+
 export function DPSCalculatorPanel() {
   const [rotationType, setRotationType] = useState<RotationType>('magic');
   const [difficulty, setDifficulty]     = useState<DifficultyIndex>(0);
+  const [targetCount, setTargetCount]   = useState<number>(1);
   const [objective, setObjective]       = useState<OptimizerObjective>('sustained');
   const [objectiveOpen, setObjectiveOpen] = useState(false);
 
@@ -108,7 +122,7 @@ export function DPSCalculatorPanel() {
       {/* Controls */}
       <div className={styles.controls}>
         <label className={styles.field}>
-          <span className={styles.fieldLabel}>Rotation</span>
+          <span className={styles.fieldLabel}>Attack Type</span>
           <select
             className={styles.select}
             value={rotationType}
@@ -124,16 +138,18 @@ export function DPSCalculatorPanel() {
           <button
             className={styles.optimizerBtn}
             onClick={handleGenerate}
-            title={`Generate optimal rotation (${OBJECTIVE_LABELS[objective]})`}
+            disabled
+            title="Optimizer not yet implemented (Phase 6.6)"
           >
-            Generate Rotation · {OBJECTIVE_LABELS[objective]}
+            TODO: Generate Rotation · {OBJECTIVE_LABELS[objective]}
           </button>
           <button
             className={styles.optimizerChevron}
             onClick={() => setObjectiveOpen(o => !o)}
+            disabled
             aria-haspopup="menu"
             aria-expanded={objectiveOpen}
-            title="Choose objective"
+            title="Optimizer objective (not yet implemented)"
           >▾</button>
           {objectiveOpen && (
             <div className={styles.optimizerMenu} role="menu">
@@ -184,6 +200,8 @@ export function DPSCalculatorPanel() {
           auto={auto}
           setAuto={setAuto}
           difficulty={difficulty}
+          targetCount={targetCount}
+          setTargetCount={setTargetCount}
         />
       ) : (
         <div className={styles.timelinePlaceholder}>
@@ -209,6 +227,11 @@ interface MagicRotationEditorProps {
   /** Reaper difficulty index (0 = Elite, 10 = R10). Used to scale all
    *  spell-typed damage by the wiki's per-difficulty multiplier. */
   difficulty: DifficultyIndex;
+  /** Available enemy targets in the simulation (1–5). AOE spells scale
+   *  damage by `min(spell.maxTargetCap, targetCount)`; single-target
+   *  spells stay single-target. */
+  targetCount: number;
+  setTargetCount: (next: number) => void;
 }
 
 function MagicRotationEditor({
@@ -217,6 +240,7 @@ function MagicRotationEditor({
   manageOpen, setManageOpen,
   auto, setAuto,
   difficulty,
+  targetCount, setTargetCount,
 }: MagicRotationEditorProps) {
   const build       = useBuildStore(s => s.build);
   const spells      = useGameDataStore(s => s.spells);
@@ -305,6 +329,7 @@ function MagicRotationEditor({
     const ctx = {
       sneakAttackDice: breakdowns.sneakAttackDice.total,
       metamagicSP:     computeMetamagicSP(build.activeMetamagics),
+      targetCount,
     };
     const cdMul = Math.max(0, 1 - cooldownReductionPct / 100);
     for (const a of abilities) {
@@ -318,19 +343,21 @@ function MagicRotationEditor({
       });
     }
     return m;
-  }, [abilities, build, breakdowns, debuffs, cooldownReductionPct]);
+  }, [abilities, build, breakdowns, debuffs, cooldownReductionPct, targetCount]);
 
   // Whole-rotation breakdown — total per-min damage + per-component
-  // contributions. Drives the RotationDPSSummary below the timeline.
-  // Recomputes whenever the rotation, build, debuffs, or CDR changes.
+  // contributions. Drives the live stats row + DamageSourceSummary
+  // below the timeline. Recomputes whenever the rotation, build,
+  // debuffs, or CDR changes.
   const rotationBreakdown = useMemo(() => {
     if (!breakdowns) return null;
     const ctx = {
       sneakAttackDice: breakdowns.sneakAttackDice.total,
       metamagicSP:     computeMetamagicSP(build.activeMetamagics),
+      targetCount,
     };
     return rotationDPS(steps, abilities, build, breakdowns, ctx, debuffs, cooldownReductionPct);
-  }, [steps, abilities, build, breakdowns, debuffs, cooldownReductionPct]);
+  }, [steps, abilities, build, breakdowns, debuffs, cooldownReductionPct, targetCount]);
 
   // Parallel rotation breakdown for the comparison set. Same rotation,
   // same gear, same debuffs — only `activeEnhancementSet` differs.
@@ -341,10 +368,11 @@ function MagicRotationEditor({
     const ctx = {
       sneakAttackDice: compareBreakdowns.sneakAttackDice.total,
       metamagicSP:     computeMetamagicSP(build.activeMetamagics),
+      targetCount,
     };
     const compareCdr = compareBreakdowns.spellCooldownReduction.total;
     return rotationDPS(steps, abilities, compareBuild, compareBreakdowns, ctx, debuffs, compareCdr);
-  }, [compareSetName, compareBuild, compareBreakdowns, steps, abilities, debuffs, build.activeEnhancementSet, build.activeMetamagics]);
+  }, [compareSetName, compareBuild, compareBreakdowns, steps, abilities, debuffs, build.activeEnhancementSet, build.activeMetamagics, targetCount]);
 
   // Cycle length + per-cast damage events drive the chart, simulation
   // playhead, and live stat readouts.
@@ -356,6 +384,7 @@ function MagicRotationEditor({
     const ctx = {
       sneakAttackDice: breakdowns.sneakAttackDice.total,
       metamagicSP:     computeMetamagicSP(build.activeMetamagics),
+      targetCount,
     };
     const events: DamageEvent[] = t.steps.map(r => {
       const perCast = damagePerCast(r.ability, build, breakdowns, ctx, debuffs);
@@ -375,7 +404,7 @@ function MagicRotationEditor({
       };
     });
     return { cycleSeconds: t.totalSeconds, damageEvents: events };
-  }, [steps, abilityById, cooldownReductionPct, build, breakdowns, debuffs]);
+  }, [steps, abilityById, cooldownReductionPct, build, breakdowns, debuffs, targetCount]);
 
   // ── Simulation animation ───────────────────────────────────────────
   // simTime walks 0 → cycleSeconds in real time. requestAnimationFrame
@@ -570,8 +599,24 @@ function MagicRotationEditor({
   // (matching what the palette currently shows).
   const dialogInitial = activeAbilityIds ?? activeAbilities.map(a => a.id);
 
+  // Live PRR / MRR at the simulation playhead so the enemy info pane
+  // can drift as ramping debuffs stack up. When the simulation isn't
+  // running and time is 0, ramping debuffs read at fraction 0 (full
+  // baseline). Re-derives whenever the user toggles a debuff or the
+  // playhead moves.
+  const liveDebuffs = useMemo(
+    () => liveDebuffsAt(debuffState, simTime, undefined, build),
+    [debuffState, simTime, build],
+  );
+
   return (
     <div className={styles.editor}>
+      <TargetRow
+        targetCount={targetCount}
+        setTargetCount={setTargetCount}
+        prr={liveDebuffs.effectivePRR ?? 0}
+        mrr={liveDebuffs.effectiveMRR}
+      />
       <BuffsList build={build} metamagics={metamagics} />
       <ActiveProcsList
         build={build}
@@ -608,11 +653,6 @@ function MagicRotationEditor({
         activeBuffs={rotationBreakdown?.activeBuffs}
         damageByAbility={damageByAbility}
       />
-      <RotationDPSSummary
-        breakdown={rotationBreakdown}
-        cycleSeconds={rotationCycleSeconds}
-      />
-
       {/* Live stats — DPS / DPM are static for the rotation; Damage
           accumulates with the simulation cursor. */}
       <div className={styles.stats}>
@@ -733,6 +773,60 @@ function Metric({ label, value, title }: { label: string; value: string; title?:
     <div className={styles.metric} title={title}>
       <span className={styles.metricLabel}>{label}</span>
       <span className={styles.metricValue}>{value}</span>
+    </div>
+  );
+}
+
+/** Target dropdown + live enemy resistance readout. PRR/MRR drift from
+ *  baseline as ramping debuffs stack during simulation playback. AC and
+ *  Fortification are placeholders for future modeling. */
+function TargetRow({
+  targetCount, setTargetCount, prr, mrr,
+}: {
+  targetCount: number;
+  setTargetCount: (next: number) => void;
+  prr: number;
+  mrr: number;
+}) {
+  const fmt = (n: number) => Math.round(n).toLocaleString();
+  return (
+    <div className={styles.targetRow}>
+      <label className={styles.targetField}>
+        <span className={styles.targetLabel}>Target</span>
+        <select
+          className={styles.targetSelect}
+          value={targetCount}
+          onChange={e => setTargetCount(Number(e.target.value))}
+          title="Number of available targets in the simulation. AOE spells hit up to their target cap; single-target spells still only hit one."
+        >
+          {[1, 2, 3, 4, 5].map(n => (
+            <option key={n} value={n}>{TARGET_LABELS[n]}</option>
+          ))}
+        </select>
+      </label>
+      <div className={styles.enemyInfo}>
+        <span className={styles.enemyLabel}>Enemy</span>
+        <Metric
+          label="PRR"
+          value={fmt(prr)}
+          title="Live physical resistance rating. Drifts negative as ramping PRR-shred debuffs stack during simulation playback. Baseline 0 — enemy-side PRR isn't yet modeled."
+        />
+        <Metric
+          label="MRR"
+          value={fmt(mrr)}
+          title="Live magical resistance rating. Drifts negative as ramping MRR-shred debuffs stack during simulation playback. Baseline 0 — enemy-side MRR isn't yet modeled."
+        />
+        <Metric
+          label="AC"
+          value="TODO"
+          title="Enemy AC isn't modeled yet — will land alongside melee/ranged rotations."
+        />
+        <Metric
+          label="Fort"
+          value="TODO"
+          title="Enemy fortification isn't modeled yet — will land alongside crit-handling for melee/ranged."
+        />
+      </div>
     </div>
   );
 }

@@ -378,6 +378,19 @@ export interface DDOSpellData {
   cost?: number;
   /** Default global cap on caster level; per-class override possible. */
   maxCasterLevel?: number;
+  /** Maximum number of distinct enemy targets a single cast can damage.
+   *  • 1     — single-target spells (Magic Missile, Niac's Cold Ray, …);
+   *            multi-missile spells like MM still cap at 1 target since
+   *            all missiles converge on it.
+   *  • 100   — uncapped AoE (Fireball, Wall of Fire, Cone of Cold, …);
+   *            sentinel for "hits everything in the area." The simulation
+   *            won't realistically have more than a handful of targets,
+   *            so 100 is plenty of headroom.
+   *  • N     — bounded multi-target / chain spells (Chain Missiles,
+   *            Chain Lightning) that hit a specific number of distinct
+   *            targets per cast.
+   *  Undefined = treat as 1 (single-target). */
+  maxTargetCap?: number;
   cooldown?: number;
   metamagic: DDOSpellMetamagic;
   damages: DDOSpellDamage[];

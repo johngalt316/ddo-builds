@@ -7,6 +7,7 @@
 Left click to choose a spell.</Description>
     <Icon>Unknown</Icon>
     <School>Unknown</School>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <!--Artificer level 1's-->
   <Spell>
@@ -19,6 +20,7 @@ it is discharged.</Description>
     <Enlarge/>
     <Quicken/>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Resist Energy</Name>
@@ -30,6 +32,7 @@ Energy types available are: Acid, Cold, Electricity, Fire, or Sonic.</Descriptio
     <Enlarge/>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>EnergyResistance</Type>
       <Bonus>Enhancement</Bonus>
@@ -52,6 +55,7 @@ Resistance bonus on saves (+2 at 6th level, +3 at 9th level).</Description>
     <Enlarge/>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>SaveBonus</Type>
       <Bonus>Resistance</Bonus>
@@ -72,6 +76,7 @@ caster levels.</Description>
     <Extend/>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>ACBonus</Type>
       <Bonus>Deflection</Bonus>
@@ -87,6 +92,7 @@ They are +1 at caster level 1 with +1 more each 4 caster levels.
 These bolts dissolve into nothingness after logout.</Description>
     <Icon>ConjureBolts</Icon>
     <School>Conjuration</School>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Curative Admixture: Cure Light Wounds</Name>
@@ -104,6 +110,7 @@ This infusion is affected by Artificer Knowledge: Potions.</Description>
     <Empower/>
     <Maximize/>
     <MaxCasterLevel>5</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -135,6 +142,7 @@ A successful Reflex save will reduce this damage by half.</Description>
     <Enlarge/>
     <Quicken/>
     <MaxCasterLevel>5</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <PerCasterLevels>2</PerCasterLevels>
@@ -161,6 +169,7 @@ their wielder proficiency if the items are simple or martial weapons, or shields
 and lasts until the target rests.</Description>
     <Icon>MastersTouch</Icon>
     <School>Divination</School>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>WeaponProficiencyClass</Type>
       <Bonus>Morale</Bonus>
@@ -189,6 +198,7 @@ a short period of time or until they take damage.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -219,6 +229,7 @@ An item can have only one temporary item enchantment at a time.</Description>
     <Icon>EnchantArmor</Icon>
     <School>Transmutation</School>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Enchant Weapons</Name>
@@ -227,6 +238,7 @@ An item can have only one temporary item enchantment at a time.</Description>
     <Icon>EnchantWeapons</Icon>
     <School>Transmutation</School>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>Weapon_Enchantment</Type>
       <Bonus>Enhancement</Bonus>
@@ -245,6 +257,7 @@ An item can have only one temporary item enchantment at a time.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>5</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -271,6 +284,7 @@ An item can have only one temporary item enchantment at a time.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>5</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -299,6 +313,7 @@ area, a fiery explosion does 1d6+4 Fire damage per caster level.
     <Heighten/>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -325,6 +340,7 @@ one temporary item enchantment at a time.</Description>
     <Icon>LuckyCape</Icon>
     <School>Abjuration</School>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>SaveBonus</Type>
       <Bonus>Luck</Bonus>
@@ -344,6 +360,7 @@ Energy types available are: Acid, Cold, Electricity, Fire, and Sonic.</Descripti
     <Enlarge/>
     <Quicken/>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -370,6 +387,7 @@ enemy undead. Special material component: Potion of Cure Moderate Wounds.</Descr
     <Empower/>
     <Maximize/>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -400,6 +418,7 @@ The item is temporarily bound to character while this effect is active.</Descrip
     <Icon>InsightfulStrikes</Icon>
     <School>Divination</School>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>WeaponAttackAbilityClass</Type>
       <Bonus>Enhancement</Bonus>
@@ -433,6 +452,7 @@ The item is temporarily bound to character while this effect is active.</Descrip
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <PerCasterLevels>2</PerCasterLevels>
@@ -481,6 +501,7 @@ An item can have only one temporary item enchantment at a time.</Description>
     <Icon>ElementalWeapons</Icon>
     <School>Evocation</School>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Flame Arrow</Name>
@@ -490,6 +511,7 @@ Ammo drops when you log out. </Description>
     <Icon>FlameArrow</Icon>
     <School>Evocation</School>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Lightning Sphere</Name>
@@ -506,6 +528,7 @@ the caster can arc the orb if no target is selected.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -532,6 +555,7 @@ the caster can arc the orb if no target is selected.</Description>
     <Enlarge/>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>AbilityBonus</Type>
       <Bonus>Enhancement</Bonus>
@@ -549,6 +573,7 @@ the caster can arc the orb if no target is selected.</Description>
     <Enlarge/>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>AbilityBonus</Type>
       <Bonus>Enhancement</Bonus>
@@ -565,6 +590,7 @@ An item can have only one temporary item enchantment at a time.</Description>
     <Icon>ByeshkWeapons</Icon>
     <School>Transmutation</School>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>DRBypass</Type>
       <Bonus>Enhancement</Bonus>
@@ -582,6 +608,7 @@ An item can have only one temporary item enchantment at a time.</Description>
     <Enlarge/>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>AbilityBonus</Type>
       <Bonus>Enhancement</Bonus>
@@ -599,6 +626,7 @@ An item can have only one temporary item enchantment at a time.</Description>
     <Enlarge/>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>AbilityBonus</Type>
       <Bonus>Enhancement</Bonus>
@@ -616,6 +644,7 @@ An item can have only one temporary item enchantment at a time.</Description>
     <Enlarge/>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>AbilityBonus</Type>
       <Bonus>Enhancement</Bonus>
@@ -635,6 +664,7 @@ An item can have only one temporary item enchantment at a time.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>15</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -655,6 +685,7 @@ An item can have only one temporary item enchantment at a time.</Description>
     <Enlarge/>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>AbilityBonus</Type>
       <Bonus>Enhancement</Bonus>
@@ -673,6 +704,7 @@ hit points plus 1 additional one per caster level up to caster level 10. </Descr
     <Extend/>
     <Quicken/>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Repair Moderate Damage</Name>
@@ -685,6 +717,7 @@ hit points plus 1 additional one per caster level up to caster level 10. </Descr
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -707,6 +740,7 @@ caster level 12.</Description>
     <Extend/>
     <Quicken/>
     <MaxCasterLevel>12</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -731,6 +765,7 @@ bonus is increased by 1 for every 6 caster levels.</Description>
     <Enlarge/>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <Effect>
       <Type>ACBonus</Type>
       <Bonus>Deflection</Bonus>
@@ -750,6 +785,7 @@ caster level it is discharged. Otherwise it lasts 1 minute per caster level.
     <Enlarge/>
     <Quicken/>
     <MaxCasterLevel>15</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -776,6 +812,7 @@ This infusion is affected by Artificer Knowledge: Potions.</Description>
     <Empower/>
     <Maximize/>
     <MaxCasterLevel>15</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -802,6 +839,7 @@ You can have only one summoned creature at a time.</Description>
     <Icon>FlameTurret</Icon>
     <School>Conjuration</School>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Insightful Damage</Name>
@@ -813,6 +851,7 @@ The item is temporarily bound to character while this effect is active.</Descrip
     <Icon>InsightfulDamage</Icon>
     <School>Divination</School>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>WeaponDamageAbilityClass</Type>
       <Bonus>Enhancement</Bonus>
@@ -847,6 +886,7 @@ targets in its path. A successful Reflex save reduces the damage by half.</Descr
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -879,6 +919,7 @@ save allowed to halve the damage from the second bolt.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -905,6 +946,7 @@ reduction. An item can have only one temporary item enchantment at a time.</Desc
     <Icon>AdamantineWeapons</Icon>
     <School>Transmutation</School>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>DRBypass</Type>
       <Bonus>Enhancement</Bonus>
@@ -924,6 +966,7 @@ additional 1d4 for every caster level up to caster level 25.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>25</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -953,6 +996,7 @@ additional 1d4 for every caster level up to caster level 25.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>15</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -979,6 +1023,7 @@ time this spell has been cast. The effect lasts for five minutes before expiring
     <School>Transmutation</School>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Repair Light Damage, Mass</Name>
@@ -991,6 +1036,7 @@ time this spell has been cast. The effect lasts for five minutes before expiring
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>25</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -1019,6 +1065,7 @@ time this spell has been cast. The effect lasts for five minutes before expiring
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>15</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -1045,6 +1092,7 @@ the globe, but any type of spell can be cast through or out of the magical globe
     <School>Abjuration</School>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Protection from Elements</Name>
@@ -1056,6 +1104,7 @@ energy type has been absorbed.</Description>
     <Enlarge/>
     <Quicken/>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <PerCasterLevels>1</PerCasterLevels>
@@ -1084,6 +1133,7 @@ taking 15% extra damage from any Electric-based attacks.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -1112,6 +1162,7 @@ An item can have only one temporary item enchantment at a time.</Description>
     <Icon>ThunderingArmor</Icon>
     <School>Evocation</School>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Half Damage</DCType>
       <DCVersus>Fortitude</DCVersus>
@@ -1128,6 +1179,7 @@ An item can have only one temporary item enchantment at a time.</Description>
     <School>Transmutation</School>
     <Quicken/>
     <MaxCasterLevel>1</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>Weapon_Alacrity</Type>
       <Bonus>Enhancement</Bonus>
@@ -1165,6 +1217,7 @@ reduction. An item can have only one temporary item enchantment at a time.</Desc
     <Icon>ColdIronWeapons</Icon>
     <School>Transmutation</School>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>DRBypass</Type>
       <Bonus>Enhancement</Bonus>
@@ -1183,6 +1236,7 @@ reduction. An item can have only one temporary item enchantment at a time.</Desc
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -1211,6 +1265,7 @@ constructs.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -1240,6 +1295,7 @@ constructs.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -1267,6 +1323,7 @@ constructs.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>30</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -1292,6 +1349,7 @@ take by 25% for a short period of time.</Description>
     <Icon>RadiantForcefield</Icon>
     <School>Abjuration</School>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Prismatic Strike</Name>
@@ -1305,6 +1363,7 @@ chosen randomly each time. The enemy is also subject to 2 of 3 CC effects
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -1346,6 +1405,7 @@ to each of them for 1 minute per caster level.</Description>
     <Enlarge/>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <Effect>
       <Type>AbilityBonus</Type>
       <Bonus>Enhancement</Bonus>
@@ -1364,6 +1424,7 @@ to each of them for 1 minute per caster level.</Description>
     <Enlarge/>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <Effect>
       <Type>AbilityBonus</Type>
       <Bonus>Enhancement</Bonus>
@@ -1382,6 +1443,7 @@ each of them for 1 minute per caster level.</Description>
     <Enlarge/>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <Effect>
       <Type>AbilityBonus</Type>
       <Bonus>Enhancement</Bonus>
@@ -1400,6 +1462,7 @@ to each of them for 1 minute per caster level.</Description>
     <Enlarge/>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <Effect>
       <Type>AbilityBonus</Type>
       <Bonus>Enhancement</Bonus>
@@ -1418,6 +1481,7 @@ to each of them for 1 minute per caster level.</Description>
     <Enlarge/>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <Effect>
       <Type>AbilityBonus</Type>
       <Bonus>Enhancement</Bonus>
@@ -1438,6 +1502,7 @@ to each of them for 1 minute per caster level.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>35</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -1465,6 +1530,7 @@ each of them for 1 minute per caster level.</Description>
     <Enlarge/>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <Effect>
       <Type>AbilityBonus</Type>
       <Bonus>Enhancement</Bonus>
@@ -1481,6 +1547,7 @@ damage reduction. An item can have only one temporary item enchantment at a time
     <Icon>AlignWeapons</Icon>
     <School>Transmutation</School>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>DRBypass</Type>
       <Bonus>Enhancement</Bonus>
@@ -1521,6 +1588,7 @@ damage reduction. An item can have only one temporary item enchantment at a time
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>35</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -1545,6 +1613,7 @@ An item can have only one temporary item enchantment at a time.</Description>
     <Icon>SilverWeapons</Icon>
     <School>Transmutation</School>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>DRBypass</Type>
       <Bonus>Enhancement</Bonus>
@@ -1567,6 +1636,7 @@ cooldown of your spells.</Description>
     <Extend/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <Effect>
       <Type>AbilityBonus</Type>
       <Bonus>Alchemical</Bonus>
@@ -1624,6 +1694,7 @@ or out of the magical globe.</Description>
     <School>Abjuration</School>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Protection from Elements, Mass</Name>
@@ -1635,6 +1706,7 @@ per caster level (Maximum caster level 10) for each energy type has been absorbe
     <Enlarge/>
     <Quicken/>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -1657,6 +1729,7 @@ save reduces this damage by half.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>15</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -1688,6 +1761,7 @@ and 1d6+3 force damage per caster level (no save) to targets in the area.</Descr
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -1728,6 +1802,7 @@ An item can have only one temporary artificer enchantment at a time.</Descriptio
     <Icon>DeadlyWeapons</Icon>
     <School>Transmutation</School>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>Weapon_BaseDamage</Type>
       <Bonus>Alchemical</Bonus>
@@ -1747,6 +1822,7 @@ A successful Will save halves this damage and prevents the debuff portion.</Desc
     <Enlarge/>
     <Quicken/>
     <MaxCasterLevel>15</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -1769,6 +1845,7 @@ A successful Will save halves this damage and prevents the debuff portion.</Desc
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>40</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -1796,6 +1873,7 @@ while simultaneously granting the Construct an increase in attack speed for a sh
     <Enlarge/>
     <Quicken/>
     <MaxCasterLevel>15</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -1818,6 +1896,7 @@ while simultaneously granting the Construct an increase in attack speed for a sh
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>40</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -1845,6 +1924,7 @@ This area of effects spell counters and dispels Cause Fear.</Description>
     <Enlarge/>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <Effect>
       <Type>SaveBonus</Type>
       <Bonus>Morale</Bonus>
@@ -1866,6 +1946,7 @@ A successful Will save takes half damage (undead only).</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>5</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -1897,6 +1978,7 @@ its home plane.</Description>
     <Icon>SummonMonsterI</Icon>
     <School>Conjuration</School>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Detect Secret Doors</Name>
@@ -1905,6 +1987,7 @@ its home plane.</Description>
     <School>Divination</School>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Find Secret Doors</DCType>
       <DCVersus>Door DC</DCVersus>
@@ -1922,6 +2005,7 @@ for warforged, and more creatures.</Description>
     <Enlarge/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Negate</DCType>
       <DCVersus>Will</DCVersus>
@@ -1935,6 +2019,7 @@ for warforged, and more creatures.</Description>
     <Icon>FocusingChant</Icon>
     <School>Enchantment</School>
     <Extend/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>Weapon_Attack</Type>
       <Type>SkillBonus</Type>
@@ -1955,6 +2040,7 @@ their save.</Description>
     <Enlarge/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Will</DCVersus>
@@ -1971,6 +2057,7 @@ Will save negates this effect.</Description>
     <Enlarge/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Will</DCVersus>
@@ -1987,6 +2074,7 @@ Constructs, or Oozes. A successful Will save negates this effect.</Description>
     <Enlarge/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Will</DCVersus>
@@ -2008,6 +2096,7 @@ be Dazed for a short period of time, or until they take damage.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>5</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -2037,6 +2126,7 @@ and dispels Remove Fear.</Description>
     <Enlarge/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Will</DCVersus>
@@ -2051,6 +2141,7 @@ and dispels Remove Fear.</Description>
     <School>Transmutation</School>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>MovementSpeed</Type>
       <Bonus>Enhancement</Bonus>
@@ -2067,6 +2158,7 @@ and dispels Remove Fear.</Description>
     <Enlarge/>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>Immunity</Type>
       <Bonus>Stacking</Bonus>
@@ -2082,6 +2174,7 @@ and dispels Remove Fear.</Description>
     <Enlarge/>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>SkillBonus</Type>
       <Bonus>Enhancement</Bonus>
@@ -2105,6 +2198,7 @@ or deals the same amount of damage to an undead creature.
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -2137,6 +2231,7 @@ members.) A successful Will save negates Blinded.</Description>
     <Enlarge/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Will</DCVersus>
@@ -2153,6 +2248,7 @@ previous one to its home plane.</Description>
     <Icon>SummonMonsterII</Icon>
     <School>Conjuration</School>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Daze Monster</Name>
@@ -2164,6 +2260,7 @@ Will save for a brief period of time even in a successful save.</Description>
     <Enlarge/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Will</DCVersus>
@@ -2180,6 +2277,7 @@ The target gains a +2 Morale bonus on attack rolls, saving throws, and skill che
     <Enlarge/>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>Weapon_Attack</Type>
       <Type>SaveBonus</Type>
@@ -2203,6 +2301,7 @@ if the opponent is helpless.</Description>
     <Enlarge/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Will</DCVersus>
@@ -2220,6 +2319,7 @@ The spell's duration is 60 + 6 seconds per caster level.</Description>
     <Enlarge/>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <Effect>
       <Type>AbilityBonus</Type>
       <Bonus>Morale</Bonus>
@@ -2252,6 +2352,7 @@ for 30+2 seconds per caster level. A successful Will save negates this effect.</
     <Enlarge/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Will</DCVersus>
@@ -2272,6 +2373,7 @@ save to avoid being stunned for 6 seconds. Max caster level 15</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>15</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <PerCasterLevels>1</PerCasterLevels>
@@ -2301,6 +2403,7 @@ against the ally.</Description>
     <Enlarge/>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>Displacement</Type>
       <Bonus>Enhancement</Bonus>
@@ -2321,6 +2424,7 @@ The spell's duration is 30 seconds.</Description>
     <Extend/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Will</DCVersus>
@@ -2337,6 +2441,7 @@ target, or using an object (door, lever, etc.) removes this condition.</Descript
     <Enlarge/>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Blindness</Name>
@@ -2346,6 +2451,7 @@ target, or using an object (door, lever, etc.) removes this condition.</Descript
     <Enlarge/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Fortitude</DCVersus>
@@ -2364,6 +2470,7 @@ A successful Will save causes the target to become Shaken instead.</Description>
     <Extend/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Will</DCVersus>
@@ -2384,6 +2491,7 @@ unpredictably, possibly turning on its summoner.</Description>
     <Enlarge/>
     <Quicken/>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Dispel</DCType>
       <DCVersus>Caster Level</DCVersus>
@@ -2398,6 +2506,7 @@ unpredictably, possibly turning on its summoner.</Description>
     <School>Abjuration</School>
     <Enlarge/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Cure Serious Wounds</Name>
@@ -2412,6 +2521,7 @@ level 15.) hit points, or deals the same amount of damage to an undead creature.
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>15</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -2443,6 +2553,7 @@ one to its home plane.</Description>
     <Icon>SummonMonsterIII</Icon>
     <School>Conjuration</School>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>See Invisibility</Name>
@@ -2451,6 +2562,7 @@ one to its home plane.</Description>
     <School>Divination</School>
     <Enlarge/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Charm Monster</Name>
@@ -2463,6 +2575,7 @@ negates this effect.</Description>
     <Enlarge/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Will</DCVersus>
@@ -2481,6 +2594,7 @@ for 15 seconds) whether they succeed or fail their saving throw.</Description>
     <Enlarge/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Will</DCVersus>
@@ -2501,6 +2615,7 @@ A successful Will save negates this effect.</Description>
     <Extend/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Will</DCVersus>
@@ -2518,6 +2633,7 @@ rolls.</Description>
     <Enlarge/>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <Effect>
       <Type>Weapon_AttackAndDamage</Type>
       <Type>SaveBonus</Type>
@@ -2537,6 +2653,7 @@ attacking.</Description>
     <Enlarge/>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>Displacement</Type>
       <Bonus>Enhancement</Bonus>
@@ -2554,6 +2671,7 @@ Creatures that fail their save are also slowed 35% by necrotic energy.</Descript
     <School>Necromancy</School>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Will</DCVersus>
@@ -2572,6 +2690,7 @@ to AC and Reflex saves.</Description>
     <Enlarge/>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>MovementSpeed</Type>
       <Bonus>Enhancement</Bonus>
@@ -2618,6 +2737,7 @@ Armor Class, and Reflex saves. A successful Will save negates this effect.</Desc
     <Extend/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Will</DCVersus>
@@ -2637,6 +2757,7 @@ remove an effect.</Description>
     <Enlarge/>
     <Quicken/>
     <MaxCasterLevel>15</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDC>
       <DCType>Break Enchantment</DCType>
       <DCVersus>Caster Level</DCVersus>
@@ -2654,6 +2775,7 @@ such as Entangled, Paralyzed, or Solid Fog.</Description>
     <Enlarge/>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>Immunity</Type>
       <Bonus>Stacking</Bonus>
@@ -2674,6 +2796,7 @@ such as Entangled, Paralyzed, or Solid Fog.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -2704,6 +2827,7 @@ The magical door disappears after a set period of time.</Description>
     <Icon>DimensionDoor</Icon>
     <School>Conjuration</School>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Neutralize Poison</Name>
@@ -2715,6 +2839,7 @@ exposed to during the duration of the spell.</Description>
     <Enlarge/>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Summon Monster IV</Name>
@@ -2725,6 +2850,7 @@ type will return the previous one to its home plane.</Description>
     <Icon>SummonMonsterIV</Icon>
     <School>Conjuration</School>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Dominate Person</Name>
@@ -2738,6 +2864,7 @@ creature will follow you throughout the dungeon.</Description>
     <Extend/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Will</DCVersus>
@@ -2757,6 +2884,7 @@ Will save every 3 seconds.</Description>
     <Extend/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Will</DCVersus>
@@ -2773,6 +2901,7 @@ save negates this effect.</Description>
     <Enlarge/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Will</DCVersus>
@@ -2792,6 +2921,7 @@ to all targets in its path. A successful Fortitude save halves the damage.</Desc
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>15</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -2826,6 +2956,7 @@ If cast on a spell ward trap, this spell will reduce the level of the trap by
     <Enlarge/>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Greater Dispel Magic</DCType>
       <DCVersus>Caster Level</DCVersus>
@@ -2847,6 +2978,7 @@ an undead creature. (A Will save reduces this damage by half.)</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>25</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -2878,6 +3010,7 @@ return the previous one to its home plane.</Description>
     <Icon>SummonMonsterV</Icon>
     <School>Conjuration</School>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Greater Heroism</Name>
@@ -2890,6 +3023,7 @@ immunity to fear.</Description>
     <Enlarge/>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>Weapon_Attack</Type>
       <Type>SkillBonus</Type>
@@ -2917,6 +3051,7 @@ per caster level. A successful Will save negates this effect.</Description>
     <Enlarge/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Will</DCVersus>
@@ -2935,6 +3070,7 @@ negates this effect.</Description>
     <Extend/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Will</DCVersus>
@@ -2954,6 +3090,7 @@ the Material Plane.</Description>
     <Extend/>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <!--Bard level 6's-->
   <Spell>
@@ -2971,6 +3108,7 @@ an undead creature.
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>30</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -3010,6 +3148,7 @@ per caster level.</Description>
     <Extend/>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Summon Monster VI</Name>
@@ -3020,6 +3159,7 @@ type will return the previous one to its home plane.</Description>
     <Icon>SummonMonsterVI</Icon>
     <School>Conjuration</School>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Charm Monster, Mass</Name>
@@ -3033,6 +3173,7 @@ save negates this effect.</Description>
     <Extend/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Will</DCVersus>
@@ -3048,6 +3189,7 @@ prance in place.</Description>
     <School>Enchantment</School>
     <Enlarge/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Will</DCVersus>
@@ -3068,6 +3210,7 @@ Fortitude save halves the damage and negates stun.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -3096,6 +3239,7 @@ protection from Magic Missiles for 1 minute per caster level.</Description>
     <School>Abjuration</School>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>Immunity</Type>
       <Bonus>Stacking</Bonus>
@@ -3130,6 +3274,7 @@ magical controls and compulsions.</Description>
     <Enlarge/>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>ACBonus</Type>
       <Bonus>Deflection</Bonus>
@@ -3152,6 +3297,7 @@ burned away with Fire spells that hit the area of the mist.</Description>
     <School>Conjuration</School>
     <Enlarge/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Bane</Name>
@@ -3163,6 +3309,7 @@ this effect. Bane counters and dispels Bless.</Description>
     <Enlarge/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Will</DCVersus>
@@ -3181,6 +3328,7 @@ max 5 at caster level 20. Bless counters and dispels Bane.</Description>
     <Extend/>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>Weapon_Attack</Type>
       <Bonus>Morale</Bonus>
@@ -3207,6 +3355,7 @@ A successful Will save negates.</Description>
     <Enlarge/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Will</DCVersus>
@@ -3224,6 +3373,7 @@ levels beyond level 3. (Maximum bonus +3 at caster level 9.)</Description>
     <Extend/>
     <Quicken/>
     <MaxCasterLevel>9</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>Weapon_AttackAndDamage</Type>
       <Bonus>Luck</Bonus>
@@ -3244,6 +3394,7 @@ damage per caster level, max caster level 15.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>15</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -3266,6 +3417,7 @@ rolls by -2. A successful Will save negates this effect. This is a fear effect.<
     <Enlarge/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Will</DCVersus>
@@ -3286,6 +3438,7 @@ A successful Will save reduces the damage by half.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>5</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -3318,6 +3471,7 @@ This spell has faster casting speed than normal and minimal cooldown.</Descripti
     <Heighten/>
     <Maximize/>
     <MaxCasterLevel>5</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -3356,6 +3510,7 @@ reduces this damage by half.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>5</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <PerCasterLevels>1</PerCasterLevels>
@@ -3384,6 +3539,7 @@ condition to Fatigued.</Description>
     <School>Conjuration</School>
     <Enlarge/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Remove Paralysis</Name>
@@ -3392,6 +3548,7 @@ condition to Fatigued.</Description>
     <School>Conjuration</School>
     <Enlarge/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Seek Eternal Rest</Name>
@@ -3400,6 +3557,7 @@ condition to Fatigued.</Description>
     <School>Conjuration</School>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>TurnLevelBonus</Type>
       <Bonus>Sacred</Bonus>
@@ -3416,6 +3574,7 @@ gains an insight bonus of caster level/2 to the Search Skill.</Description>
     <School>Divination</School>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>SkillBonus</Type>
       <Bonus>Insightful</Bonus>
@@ -3436,6 +3595,7 @@ and saves versus fear. Aid will not stack with Bless.</Description>
     <Extend/>
     <Quicken/>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Inflict Moderate Wounds</Name>
@@ -3450,6 +3610,7 @@ to heal Undead. A successful Will save reduces the damage by half.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -3477,6 +3638,7 @@ powerful Undead can circumvent this protection.</Description>
     <Enlarge/>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <!--Cleric and Favored Soul level 3's-->
   <Spell>
@@ -3492,6 +3654,7 @@ A successful Reflex save reduces the damage by half.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>5</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <PerCasterLevels>2</PerCasterLevels>
@@ -3523,6 +3686,7 @@ magical mental control and compulsions.</Description>
     <Enlarge/>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>ACBonus</Type>
       <Bonus>Deflection</Bonus>
@@ -3537,6 +3701,7 @@ magical mental control and compulsions.</Description>
     <School>Conjuration</School>
     <Enlarge/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Remove Disease</Name>
@@ -3546,6 +3711,7 @@ exposure to the disease for 6s per caster level.</Description>
     <School>Conjuration</School>
     <Enlarge/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Aid, Mass</Name>
@@ -3559,6 +3725,7 @@ saves versus fear. Aid, Mass will not stack with Bless.</Description>
     <Extend/>
     <Quicken/>
     <MaxCasterLevel>15</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Prayer</Name>
@@ -3571,6 +3738,7 @@ increase every 5 caster levels - max total of 5 at caster level 20.</Description
     <Enlarge/>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>Weapon_AttackAndDamage</Type>
       <Type>SaveBonus</Type>
@@ -3593,6 +3761,7 @@ Light damage per caster level. (Maximum damage 10d6+60)</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -3615,6 +3784,7 @@ A successful Will save negates this effect.</Description>
     <Enlarge/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Will</DCVersus>
@@ -3632,6 +3802,7 @@ consecutive Fortitude saves.</Description>
     <School>Necromancy</School>
     <Enlarge/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Fortitude</DCVersus>
@@ -3651,6 +3822,7 @@ to heal Undead. A successful Will save reduces the damage by half.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>15</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -3677,6 +3849,7 @@ to heal Undead. A successful Will save reduces the damage by half.</Description>
     <Enlarge/>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>Immunity</Type>
       <Bonus>Stacking</Bonus>
@@ -3695,6 +3868,7 @@ A successful Will save negates this effect.
     <Enlarge/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Will</DCVersus>
@@ -3718,6 +3892,7 @@ Undead who make a successful Will save reduce the damage by half.</Description>
     <Heighten/>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -3750,6 +3925,7 @@ level drained.</Description>
     <School>Conjuration</School>
     <Enlarge/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Recitation</Name>
@@ -3760,6 +3936,7 @@ granting a +2 Luck bonus to Attack rolls, Armor Class and saves.</Description>
     <Enlarge/>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <Effect>
       <Type>Weapon_Attack</Type>
       <Type>ACBonus</Type>
@@ -3787,6 +3964,7 @@ Lawful casters.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -3816,6 +3994,7 @@ the same level.</Description>
     <School>Evocation</School>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>AbilityBonus</Type>
       <Bonus>Enhancement</Bonus>
@@ -3846,6 +4025,7 @@ Evil caster.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -3883,6 +4063,7 @@ or Neutral casters, it has no effect when cast by a Chaotic caster.</Description
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -3917,6 +4098,7 @@ being triggered, or in 5 minutes otherwise.</Description>
     <Heighten/>
     <Maximize/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -3955,6 +4137,7 @@ effect when cast by a Good caster.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -3987,6 +4170,7 @@ to heal Undead. A successful Will save reduces the damage by half.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -4018,6 +4202,7 @@ negated by a Fortitude save.</Description>
     <Heighten/>
     <Maximize/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Fortitude</DCVersus>
@@ -4034,6 +4219,7 @@ and negative energy effects.</Description>
     <Enlarge/>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>Immunity</Type>
       <Bonus>Stacking</Bonus>
@@ -4056,6 +4242,7 @@ and negative energy effects.</Description>
     <Enlarge/>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>SpellResistance</Type>
       <Bonus>Enhancement</Bonus>
@@ -4072,6 +4259,7 @@ restores 10% of the target's Hit Points, and preserves current Spell Points.</De
     <School>Conjuration</School>
     <Enlarge/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>True Seeing</Name>
@@ -4084,6 +4272,7 @@ or objects normally.</Description>
     <Enlarge/>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>TrueSeeing</Type>
       <Bonus>Enhancement</Bonus>
@@ -4102,6 +4291,7 @@ to fall to the ground and lie Prone. A successful Will save negates.</Descriptio
     <Extend/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Will</DCVersus>
@@ -4121,6 +4311,7 @@ stack on the target up to 3 times, increasing the damage with each stack.</Descr
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -4153,6 +4344,7 @@ based attacks. A successful Reflex save reduces the damage by half.</Description
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>15</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -4179,6 +4371,7 @@ all for 1 minute, if the target of the spell falls below 50% Hit Points.</Descri
     <Icon>StalwartPact</Icon>
     <School>Evocation</School>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Inflict Light Wounds, Mass</Name>
@@ -4193,6 +4386,7 @@ A successful Will save reduces the damage by half.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>25</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -4221,6 +4415,7 @@ successful Fortitude save.</Description>
     <Heighten/>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -4254,6 +4449,7 @@ or in 5 minutes otherwise.</Description>
     <Extend/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Fortitude</DCVersus>
@@ -4272,6 +4468,7 @@ A successful Will save negates this effect.
     <Enlarge/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Will</DCVersus>
@@ -4292,6 +4489,7 @@ A successful Reflex save reduces the damage by half.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <PerCasterLevels>2</PerCasterLevels>
@@ -4329,6 +4527,7 @@ prone. Another successful Reflex save negates the knockdown portion.</Descriptio
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -4369,6 +4568,7 @@ successful Will save reduce the damage by half.</Description>
     <Heighten/>
     <Quicken/>
     <MaxCasterLevel>15</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -4394,6 +4594,7 @@ successful Will save reduce the damage by half.</Description>
     <Icon>WordOfRecall</Icon>
     <School>Conjuration</School>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Symbol of Persuasion</Name>
@@ -4408,6 +4609,7 @@ triggered, or in 5 minutes otherwise.</Description>
     <Extend/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Will</DCVersus>
@@ -4422,6 +4624,7 @@ you every 15 to 30 seconds.</Description>
     <Icon>CreateUndead</Icon>
     <School>Necromancy</School>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Harm</Name>
@@ -4435,6 +4638,7 @@ targets this spell heals like Heal.</Description>
     <Heighten/>
     <Quicken/>
     <MaxCasterLevel>15</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -4465,6 +4669,7 @@ Undead. A successful Will save reduces the damage by half.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>30</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -4493,6 +4698,7 @@ A successful Will save negates this effect.</Description>
     <Enlarge/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Will</DCVersus>
@@ -4510,6 +4716,7 @@ of 12 plus 1 per caster level.</Description>
     <Enlarge/>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <Effect>
       <Type>SpellResistance</Type>
       <Bonus>Enhancement</Bonus>
@@ -4532,6 +4739,7 @@ level 35.) hit points, or deals the same amount of damage to an undead creature.
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>35</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -4563,6 +4771,7 @@ suffered by the Ally.</Description>
     <School>Conjuration</School>
     <Enlarge/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Restoration, Mass</Name>
@@ -4573,6 +4782,7 @@ a creature who has had a level drained.</Description>
     <School>Conjuration</School>
     <Enlarge/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Resurrection</Name>
@@ -4582,6 +4792,7 @@ spell points.</Description>
     <School>Conjuration</School>
     <Enlarge/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Summon Monster VII</Name>
@@ -4592,6 +4803,7 @@ one to its home plane.</Description>
     <Icon>SummonMonsterVII</Icon>
     <School>Conjuration</School>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Symbol of Stunning</Name>
@@ -4604,6 +4816,7 @@ dissolves 20 seconds after being triggered, or in 5 minutes otherwise.</Descript
     <Enlarge/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Will</DCVersus>
@@ -4622,6 +4835,7 @@ Fortitude save. Max caster level 20.</Description>
     <Heighten/>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -4653,6 +4867,7 @@ A successful Will save reduces the damage by half.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>35</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -4682,6 +4897,7 @@ The symbol dissolves 20 seconds after being triggered, or in 5 minutes otherwise
     <Enlarge/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Fortitude</DCVersus>
@@ -4701,6 +4917,7 @@ save or be blinded.</Description>
     <Extend/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <Effect>
       <Type>ACBonus</Type>
       <Bonus>Sacred</Bonus>
@@ -4741,6 +4958,7 @@ an undead creature. (A Will save reduces this damage by half).</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>40</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -4772,6 +4990,7 @@ previous one to its home plane.</Description>
     <Icon>SummonMonsterVIII</Icon>
     <School>Conjuration</School>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Fire Storm</Name>
@@ -4787,6 +5006,7 @@ A successful Reflex save reduces the damage by half.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -4814,6 +5034,7 @@ is decreased by 2 and cannot be restored until you rest.</Description>
     <Icon>DeathPact</Icon>
     <School>Necromancy</School>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Inflict Critical Wounds, Mass</Name>
@@ -4828,6 +5049,7 @@ A successful Will save reduces the damage by half.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>40</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -4861,6 +5083,7 @@ dissipate 20 seconds after first being triggered.</Description>
     <Enlarge/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <!--Cleric and Favored Soul level 9's-->
   <Spell>
@@ -4878,6 +5101,7 @@ successful Will save reduce the damage by half.</Description>
     <Heighten/>
     <Quicken/>
     <MaxCasterLevel>25</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -4902,6 +5126,7 @@ successful Will save reduce the damage by half.</Description>
     <School>Conjuration</School>
     <Enlarge/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Summon Monster IX</Name>
@@ -4912,6 +5137,7 @@ the previous one to its home plane.</Description>
     <Icon>SummonMonsterIX</Icon>
     <School>Conjuration</School>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Implosion</Name>
@@ -4925,6 +5151,7 @@ while it is active.</Description>
     <School>Evocation</School>
     <Embolden/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Fortitude</DCVersus>
@@ -4942,6 +5169,7 @@ checks, and effective level. Negative levels stack.</Description>
     <Icon>EnergyDrain</Icon>
     <School>Necromancy</School>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <!--Druid level 1's-->
   <Spell>
@@ -4958,6 +5186,7 @@ spells are cast on the same target, then the duration is extended.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>6</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -4982,6 +5211,7 @@ creature of any type will return the previous one to its home plane.</Descriptio
     <Icon>SummonNaturesAllyI</Icon>
     <School>Conjuration</School>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Charm Animal</Name>
@@ -4994,6 +5224,7 @@ the duration is halved.</Description>
     <Enlarge/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Will</DCVersus>
@@ -5013,6 +5244,7 @@ penalty to hide. Sightless enemies are immune to the dazzle effect.</Description
     <Enlarge/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Reflex</DCVersus>
@@ -5031,6 +5263,7 @@ They deal 1d6+1 Fire damage per caster level, up to 15d6+15 at caster level 15.<
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>15</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -5059,6 +5292,7 @@ and other Fire creatures are immune because they burn through the plants.</Descr
     <Enlarge/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Reflex</DCVersus>
@@ -5077,6 +5311,7 @@ creatures will see no improvement after obtaining a Jump skill of 40.</Descripti
     <Extend/>
     <Quicken/>
     <MaxCasterLevel>9</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>SkillBonus</Type>
       <Bonus>Enhancement</Bonus>
@@ -5094,6 +5329,7 @@ cannot be cast on others. You ignore the effects of shallow water.</Description>
     <School>Transmutation</School>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>MovementSpeed</Type>
       <Bonus>Enhancement</Bonus>
@@ -5111,6 +5347,7 @@ Vermin, Magical Beasts, Dragons or Fey.</Description>
     <Icon>MagicFang</Icon>
     <School>Transmutation</School>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Pass Without Trace</Name>
@@ -5120,6 +5357,7 @@ on Move Silently checks, plus 1 per 2 caster levels to a maximum of 20.</Descrip
     <School>Transmutation</School>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>SkillBonus</Type>
       <Bonus>Enhancement</Bonus>
@@ -5136,6 +5374,7 @@ on Move Silently checks, plus 1 per 2 caster levels to a maximum of 20.</Descrip
     <School>Transmutation</School>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>AbilityBonus</Type>
       <Bonus>Size</Bonus>
@@ -5180,6 +5419,7 @@ A weapon can only have one item Enhancement at a time.</Description>
     <School>Transmutation</School>
     <Quicken/>
     <MaxCasterLevel>1</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <DisplayName>Shillelagh Main Hand</DisplayName>
       <Type>DRBypass</Type>
@@ -5434,6 +5674,7 @@ deals 1d4 slash damage every 2 seconds for 8 seconds. Striking the target
 successfully may also intimidate the target based on the player's intimidate
 skill.</Description>
     <Icon>Maul</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Takedown</Name>
@@ -5442,6 +5683,7 @@ prone. Some creatures may be immune to this effect. A successful Balance check
 negates this effect. (DC 11 + WIS mod. Any effects that improve the DC for the
 Trip feat also improve Takedown.)</Description>
     <Icon>Takedown</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <!--Druid level 2's-->
   <Spell>
@@ -5454,6 +5696,7 @@ Affects party members.</Description>
     <School>Conjuration</School>
     <Enlarge/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Splinterbolt</Name>
@@ -5467,6 +5710,7 @@ level, to a maximum of 12d6+48 at caster level 12.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>12</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -5487,6 +5731,7 @@ of any type will return the previous one to its home plane.</Description>
     <Icon>SummonNaturesAllyII</Icon>
     <School>Conjuration</School>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Animal Trance</Name>
@@ -5499,6 +5744,7 @@ Creatures targeted by this effect have their will save momentarily weakened
     <Enlarge/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Will</DCVersus>
@@ -5517,6 +5763,7 @@ negates. The Animal may attempt to make a new Will save every 3 seconds.</Descri
     <Extend/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Will</DCVersus>
@@ -5532,6 +5779,7 @@ your foes. You generate 50% more hate for the duration of the spell.</Descriptio
     <School>Enchantment</School>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>ThreatBonusMelee</Type>
       <Bonus>Enhancement</Bonus>
@@ -5566,6 +5814,7 @@ Third Phase: 3d4 damage +6 per 3 caster levels (max +36 at caster level 18).</De
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>18</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -5596,6 +5845,7 @@ because of this, it is snuffed out if unequipped.</Description>
     <Icon>FlameBlade</Icon>
     <School>Evocation</School>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Flaming Sphere</Name>
@@ -5604,6 +5854,7 @@ A successful Reflex save negates the damage.</Description>
     <Icon>FlamingSphere</Icon>
     <School>Evocation</School>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -5636,6 +5887,7 @@ and Wall of Fire.</Description>
     <Enlarge/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDC>
       <DCType>Knocked Prone</DCType>
       <DCVersus>Reflex</DCVersus>
@@ -5653,6 +5905,7 @@ at a time.</Description>
     <Icon>AlignFang</Icon>
     <School>Transmutation</School>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>DRBypass</Type>
       <Bonus>Enhancement</Bonus>
@@ -5692,6 +5945,7 @@ at a time.</Description>
     <Extend/>
     <Quicken/>
     <MaxCasterLevel>12</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>NaturalArmor</Type>
       <Bonus>Enhancement</Bonus>
@@ -5713,6 +5967,7 @@ check with a +20 Circumstance bonus to creatures around them.</Description>
     <School>Transmutation</School>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <!--Druid level 3's-->
   <Spell>
@@ -5724,6 +5979,7 @@ party members too.</Description>
     <School>Conjuration</School>
     <Enlarge/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDC>
       <DCType>Knocked Prone</DCType>
       <DCVersus>Reflex</DCVersus>
@@ -5738,6 +5994,7 @@ of any type will return the previous one to its home plane.</Description>
     <Icon>SummonNaturesAllyIII</Icon>
     <School>Conjuration</School>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Vigor</Name>
@@ -5755,6 +6012,7 @@ target, then the duration is extended.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>9</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -5782,6 +6040,7 @@ Mindless targets cannot save, but the duration is halved.</Description>
     <Enlarge/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Will</DCVersus>
@@ -5803,6 +6062,7 @@ for every caster level up to 15. A successful Reflex save reduces damage by half
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>15</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -5838,6 +6098,7 @@ Fortitude save negates the stun.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -5875,6 +6136,7 @@ Deals 2d4+25 Cold damage per 4 caster levels.</Description>
     <Heighten/>
     <Maximize/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDC>
       <DCType>Half Damage</DCType>
       <DCVersus>Fortitude</DCVersus>
@@ -5893,6 +6155,7 @@ creatures, and Oozes cannot be caught in the snare.</Description>
     <Extend/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Escape</DCType>
       <DCVersus>Strength Check</DCVersus>
@@ -5909,6 +6172,7 @@ an additional +1 for every six of your caster levels.</Description>
     <School>Transmutation</School>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>SaveBonus</Type>
       <Bonus>Enhancement</Bonus>
@@ -5944,6 +6208,7 @@ A successful Reflex save negates the slow effect.</Description>
     <Intensify/>
     <Maximize/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -5969,6 +6234,7 @@ check, which may leave your opponent open to sneak attacks and flanking, and
 temporarily reduces your threat generation by 25%.
 +1 Critical Threat range and Damage multiplier.</Description>
     <Icon>BaitingBite</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Shred</Name>
@@ -5979,6 +6245,7 @@ negates this effect. (DC 13 + Max(Str, Wis) mod + 1/2 Druid level).
 Any effects that improve the DC for the Sunder feat also improve Shred)
 Attack has +1 Critical threat range and multiplier.</Description>
     <Icon>Shred</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <!--Druid level 4's-->
   <Spell>
@@ -5995,6 +6262,7 @@ A successful Reflex Saving Throw halves the damage each tick.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -6028,6 +6296,7 @@ the duration is extended.</Description>
     <Icon>LesserVigorMass</Icon>
     <School>Conjuration</School>
     <MaxCasterLevel>24</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <Empower/>
     <EmpowerHealing/>
     <Enlarge/>
@@ -6058,6 +6327,7 @@ new creature of any type will return the previous one to its home plane.</Descri
     <Icon>SummonNaturesAllyIV</Icon>
     <School>Conjuration</School>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Ice Storm</Name>
@@ -6072,6 +6342,7 @@ level of 15) every 2 seconds to each creature inside the area.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>15</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -6103,6 +6374,7 @@ and granting them a knockdown effect when they roll a 20 on attack rolls.</Descr
     <School>Transmutation</School>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Longstrider, Mass</Name>
@@ -6113,6 +6385,7 @@ and granting them a knockdown effect when they roll a 20 on attack rolls.</Descr
     <Enlarge/>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <Effect>
       <Type>MovementSpeed</Type>
       <Bonus>Enhancement</Bonus>
@@ -6130,6 +6403,7 @@ Strength and Constitution. This stacks up to 5 times.</Description>
     <School>Transmutation</School>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <!--Druid level 5's-->
   <Spell>
@@ -6149,6 +6423,7 @@ target, then the duration is extended.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>12</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -6173,6 +6448,7 @@ creature of any type will return the previous one to its home plane.</Descriptio
     <Icon>SummonNaturesAllyV</Icon>
     <School>Conjuration</School>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Call Lightning Storm</Name>
@@ -6189,6 +6465,7 @@ save reduces the damage by half. </Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -6222,6 +6499,7 @@ regardless of caster level.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>15</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -6252,6 +6530,7 @@ Bonus to Constitution, and a -2 penalty to Dexterity.</Description>
     <School>Transmutation</School>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>AbilityBonus</Type>
       <Bonus>Size</Bonus>
@@ -6315,6 +6594,7 @@ Only one may be active at a time.</Description>
     <School>Transmutation</School>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Reincarnate</Name>
@@ -6326,6 +6606,7 @@ negatives.</Description>
     <School>Transmutation</School>
     <Enlarge/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Cold Breath</Name>
@@ -6343,6 +6624,7 @@ level 15). D&amp;D Dice: Deals 1d3+3 Cold damage per caster level (max 15d3+45).
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>15</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -6373,6 +6655,7 @@ ground to act as a trap, for reduced Spell Point cost.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>21</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -6399,6 +6682,7 @@ new creature of any type will return the previous one to its home plane.</Descri
     <Icon>SummonNaturesAllyVI</Icon>
     <School>Conjuration</School>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Vigor, Mass</Name>
@@ -6417,6 +6701,7 @@ the same target, then the duration is extended.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>33</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -6446,6 +6731,7 @@ will burn away any webs that attempt to entangle you.</Description>
     <Extend/>
     <Quicken/>
     <MaxCasterLevel>15</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <DisplayName>Fire Shield: Cold</DisplayName>
       <Type>EnergyAbsorbance</Type>
@@ -6489,6 +6775,7 @@ damage the caster takes from Fire by half.</Description>
     <Extend/>
     <Quicken/>
     <MaxCasterLevel>15</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <DisplayName>Fire Shield: Cold</DisplayName>
       <Type>EnergyAbsorbance</Type>
@@ -6523,6 +6810,7 @@ multiplier, 2d10 for a x3 critical multiplier and 3d10 for a x4 multiplier.</Des
     <Icon>Frostbite</Icon>
     <School>Evocation</School>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Greater Creeping Cold</Name>
@@ -6539,6 +6827,7 @@ Third Phase: 6d4 damage +8 per 2 caster levels (max +80 at caster level 20).</De
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -6568,6 +6857,7 @@ two seconds. (DC 17 + Max(Str, Wis) mod + Druid level).
     <School>Evocation</School>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Word of Balance</Name>
@@ -6586,6 +6876,7 @@ True Neutral targets are immune to the effects of this spell.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -6608,6 +6899,7 @@ bonus to fortification and +60 positive healing amplification (Enhancement bonus
     <School>Transmutation</School>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Tremor</Name>
@@ -6615,6 +6907,7 @@ bonus to fortification and +60 positive healing amplification (Enhancement bonus
 fall prone. Fortitude save negates.
 Save DC is 16 + half Druid level + max(Str, Wis) bonus. Melee attack +2[W]</Description>
     <Icon>Tremor</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <!--Druid level 7's-->
   <Spell>
@@ -6634,6 +6927,7 @@ for 16 seconds. A successful Reflex save halves the damage.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -6674,6 +6968,7 @@ Vigor spells are cast on the same target, then the duration is extended.</Descri
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>39</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -6706,6 +7001,7 @@ Regenerate spells are cast on the same target, then the duration is extended.</D
     <Enlarge/>
     <Quicken/>
     <MaxCasterLevel>17</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -6729,6 +7025,7 @@ new creature of any type will return the previous one to its home plane.</Descri
     <Icon>SummonNaturesAllyVII</Icon>
     <School>Conjuration</School>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Body of the Sun</Name>
@@ -6741,6 +7038,7 @@ Fortitude save halves.</Description>
     <Extend/>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -6768,6 +7066,7 @@ Costs 25 Spell Points.</Description>
     <School>Evocation</School>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>PRR</Type>
       <Bonus>Feat</Bonus>
@@ -6801,6 +7100,7 @@ cannot be reapplied for 30 seconds.</Description>
     <Extend/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Sunbeam</Name>
@@ -6819,6 +7119,7 @@ D&amp;D Dice: Deals 1d3+3 light damage per caster level.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>999</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -6846,6 +7147,7 @@ for 4 seconds. For up to 20 seconds afterwards, as long as the target stays
 down, every successful hit against the target has a 30% chance of knocking
 it down again.</Description>
     <Icon>RelentlessOnslaught</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <!--Druid level 8's-->
   <Spell>
@@ -6857,6 +7159,7 @@ plane.</Description>
     <Icon>SummonNaturesAllyVIII</Icon>
     <School>Conjuration</School>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Howl of Terror</Name>
@@ -6869,6 +7172,7 @@ Will save negates.</Description>
     <Enlarge/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Will</DCVersus>
@@ -6892,6 +7196,7 @@ Flying enemies are immune. D&amp;D Dice: Deals 2d8 level bludgeoning damage.</De
     <Intensify/>
     <Maximize/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -6918,6 +7223,7 @@ temporary item enchantment at a time.</Description>
     <Icon>FiresOfPurity</Icon>
     <School>Evocation</School>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Sunburst</Name>
@@ -6936,6 +7242,7 @@ by this spell if it fails its save.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>25</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -6966,6 +7273,7 @@ by this spell if it fails its save.</Description>
     <Heighten/>
     <Quicken/>
     <MaxCasterLevel>25</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -7000,6 +7308,7 @@ and 1d6+8 Cold damage per caster level, to a maximum of 15d6+120 Cold and
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>15</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -7039,6 +7348,7 @@ exhaustion and death effects, though any effects already active remain unchanged
 Lasts 15 seconds.</Description>
     <Icon>Unstoppable</Icon>
     <School>Transmutation</School>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <!--Druid level 9's-->
   <Spell>
@@ -7052,6 +7362,7 @@ Target also takes -8% Fortification.</Description>
     <School>Evocation</School>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Mantle of the Icy Soul</Name>
@@ -7065,6 +7376,7 @@ Movement Speed Slow, -4 to Fortitude and Reflex Saving Throws.</Description>
     <School>Evocation</School>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Snowslide</Name>
@@ -7080,6 +7392,7 @@ frozen are considered helpless, but they also gain DR/Adamantine 5.
     <School>Evocation</School>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Regenerate, Mass</Name>
@@ -7099,6 +7412,7 @@ same target, then the duration is extended.</Description>
     <Enlarge/>
     <Quicken/>
     <MaxCasterLevel>25</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -7130,6 +7444,7 @@ damage 1d6+6 per caster levels, with a maximum of 25. Duration is 30 seconds.</D
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>25</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -7168,6 +7483,7 @@ new creature of any type will return the previous one to its home plane.</Descri
     <Icon>SummonNaturesAllyIX</Icon>
     <School>Conjuration</School>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <!--Paladin level 1's-->
   <Spell>
@@ -7178,6 +7494,7 @@ caster level.</Description>
     <School>Abjuration</School>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Virtue</Name>
@@ -7189,6 +7506,7 @@ Points 20.) to an ally.</Description>
     <Extend/>
     <Quicken/>
     <MaxCasterLevel>5</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <!--Paladin level 2's-->
   <Spell>
@@ -7199,6 +7517,7 @@ Points 20.) to an ally.</Description>
     <Extend/>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>PRR</Type>
       <Type>MRR</Type>
@@ -7215,6 +7534,7 @@ Points 20.) to an ally.</Description>
     <School>Enchantment</School>
     <Quicken/>
     <MaxCasterLevel>15</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>MeleePower</Type>
       <Type>RangedPower</Type>
@@ -7234,6 +7554,7 @@ Damage Multiplier. This does not apply to shields, orbs or Rune Arms.</Descripti
     <Icon>HolySword</Icon>
     <School>Evocation</School>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>WeaponCriticalRangeClass</Type>
       <Type>WeaponCriticalMultiplierClass</Type>
@@ -7260,6 +7581,7 @@ Damage Multiplier. This does not apply to shields, orbs or Rune Arms.</Descripti
     <School>Transmutation</School>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>Doublestrike</Type>
       <Bonus>Sacred</Bonus>
@@ -7283,6 +7605,7 @@ Circumstance bonus to Hide.</Description>
     <Enlarge/>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>SkillBonus</Type>
       <Bonus>Circumstance</Bonus>
@@ -7299,6 +7622,7 @@ Circumstance bonus to Hide.</Description>
     <Enlarge/>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>SkillBonus</Type>
       <Bonus>Enhancement</Bonus>
@@ -7316,6 +7640,7 @@ Circumstance bonus to Hide.</Description>
     <Enlarge/>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <Effect>
       <Type>SkillBonus</Type>
       <Bonus>Circumstance</Bonus>
@@ -7333,6 +7658,7 @@ Circumstance bonus to Hide.</Description>
     <School>Divination</School>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>SkillBonus</Type>
       <Bonus>Insightful</Bonus>
@@ -7351,6 +7677,7 @@ caster level (up to a max of 30 to 80 at caster level 10).</Description>
     <Icon>ChaosBolt</Icon>
     <School>Evocation</School>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <Empower/>
     <Intensify/>
     <Maximize/>
@@ -7376,6 +7703,7 @@ minute per caster level.</Description>
     <School>Abjuration</School>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>ACBonus</Type>
       <Bonus>Shield</Bonus>
@@ -7405,6 +7733,7 @@ bonus to Armor Class for 5 minutes plus 1 minute per caster level.</Description>
     <School>Conjuration</School>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>ACBonus</Type>
       <Bonus>Armor</Bonus>
@@ -7425,6 +7754,7 @@ bonus to Armor Class for 5 minutes plus 1 minute per caster level.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>5</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -7458,6 +7788,7 @@ A successful Reflex save reduces the damage by half.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>5</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -7491,6 +7822,7 @@ A successful Reflex save reduces the damage by half.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>5</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -7522,6 +7854,7 @@ with Freezing Bolt, Shocking Bolt and Flaming Bolt.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -7547,6 +7880,7 @@ with Caustic Bolt, Shocking Bolt and Flaming Bolt.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -7572,6 +7906,7 @@ with Freezing Bolt, Shocking Bolt and Caustic Bolt.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -7597,6 +7932,7 @@ a cooldown with Freezing Bolt, Flaming Bolt and Caustic Bolt.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -7623,6 +7959,7 @@ additional missile, up to a maximum of 5 missiles at 9th level and higher.</Desc
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <PerCasterLevels>2</PerCasterLevels>
@@ -7656,6 +7993,7 @@ additional missile, up to a maximum of 10 missiles at 19th level and higher.</De
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <PerCasterLevels>2</PerCasterLevels>
@@ -7682,6 +8020,7 @@ to any enemy you touch.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>5</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -7711,6 +8050,7 @@ Undead who make a successful Will save negate this Panicked condition.</Descript
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>5</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -7742,6 +8082,7 @@ caster levels to an enemy undead. This spell has nearly unlimited range.</Descri
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>999</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -7775,6 +8116,7 @@ caster levels to an enemy undead. This spell has nearly unlimited range.</Descri
     <School>Necromancy</School>
     <Quicken/>
     <MaxCasterLevel>9</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <!--Sorcerer and Wizard level 2's-->
   <Spell>
@@ -7787,6 +8129,7 @@ caster levels to an enemy undead. This spell has nearly unlimited range.</Descri
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -7818,6 +8161,7 @@ The duration is a fixed 30 seconds.</Description>
     <Enlarge/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Reflex</DCVersus>
@@ -7838,6 +8182,7 @@ The duration is a fixed 30 seconds.</Description>
     <School>Enchantment</School>
     <Enlarge/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Electric Loop</Name>
@@ -7856,6 +8201,7 @@ Will save to avoid be Dazed for a short period of time or until takes damage.</D
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>5</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <PerCasterLevels>2</PerCasterLevels>
@@ -7896,6 +8242,7 @@ save reduces the damage by half.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>5</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <PerCasterLevels>2</PerCasterLevels>
@@ -7929,6 +8276,7 @@ Ray spells have double range.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <PerCasterLevels>2</PerCasterLevels>
@@ -7958,6 +8306,7 @@ the damage by half.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>5</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <PerCasterLevels>2</PerCasterLevels>
@@ -7992,6 +8341,7 @@ seconds.</Description>
     <Heighten/>
     <Quicken/>
     <MaxCasterLevel>1</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Will</DCVersus>
@@ -8008,6 +8358,7 @@ seconds.</Description>
     <Extend/>
     <Quicken/>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Ghoul Touch</Name>
@@ -8022,6 +8373,7 @@ and more.</Description>
     <Extend/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Fortitude</DCVersus>
@@ -8040,6 +8392,7 @@ remain within it. Undead are instead healed by the aura.</Description>
     <Extend/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -8060,6 +8413,7 @@ Sorcerers) was attempting to pick the lock.</Description>
     <Icon>Knock</Icon>
     <School>Transmutation</School>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Open Lock</DCType>
       <DCVersus>Lock DC</DCVersus>
@@ -8079,6 +8433,7 @@ Ooze can't split.</Description>
     <Enlarge/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Fortitude</DCVersus>
@@ -8101,6 +8456,7 @@ its path. A successful Reflex save reduces the damage by half.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -8135,6 +8491,7 @@ A successful Reflex save reduces the damage by half.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -8165,6 +8522,7 @@ A successful Fortitude save negates the condition Nauseated.</Description>
     <Extend/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDC>
       <DCType>Nauseated</DCType>
       <DCVersus>Fortitude</DCVersus>
@@ -8186,6 +8544,7 @@ D&amp;D Dice: Each missile deals 1d2+3 force damage.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>6</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <PerCasterLevels>2</PerCasterLevels>
@@ -8214,6 +8573,7 @@ damage, to targets around it. A successful Reflex save reduces the damage by hal
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -8250,6 +8610,7 @@ As a Ray this spell has double range.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <PerCasterLevels>2</PerCasterLevels>
@@ -8281,6 +8642,7 @@ a Will save.</Description>
     <Enlarge/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Will</DCVersus>
@@ -8298,6 +8660,7 @@ the creature is only fatigued.</Description>
     <Embolden/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Fatigue instead</DCType>
       <DCVersus>Fortitude</DCVersus>
@@ -8322,6 +8685,7 @@ any creatures remaining in the rain will take damage with no saving throw.</Desc
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>15</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -8349,6 +8713,7 @@ Damage rolls. Enemies in the cloud suffers a -5 penalty to their Reflex save.</D
     <School>Conjuration</School>
     <Enlarge/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Force Missiles</Name>
@@ -8370,6 +8735,7 @@ You gain one additional missile at levels 4, 8, and 12 for a maximum of 4 missil
          so this patch only affects per-missile dice growth, not
          projectile count. -->
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <PerCasterLevels>2</PerCasterLevels>
@@ -8410,6 +8776,7 @@ caster level. A Will save disbelieves the spell and negates ill effects.</Descri
       <CastingStatMod/>
     </SpellDC>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -8435,6 +8802,7 @@ every 2 seconds for 10 seconds.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <PerCasterLevels>2</PerCasterLevels>
@@ -8478,6 +8846,7 @@ Undead do not trigger spell resistance.</Description>
          ("max 2d4+10 at caster level 20"), and the Maximum caster
          level table also lists Death Aura at 20. -->
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -8508,6 +8877,7 @@ checks and a -1 to effective level. Negative levels stack.</Description>
     <Intensify/>
     <Maximize/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Negative Energy Burst</Name>
@@ -8524,6 +8894,7 @@ healed by the attack.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <PerCasterLevels>2</PerCasterLevels>
@@ -8562,6 +8933,7 @@ this spell.</Description>
     <Heighten/>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -8596,6 +8968,7 @@ this spell.</Description>
     <Icon>Teleport</Icon>
     <School>Conjuration</School>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Feeblemind</Name>
@@ -8607,6 +8980,7 @@ negates this effect.</Description>
     <Enlarge/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Will</DCVersus>
@@ -8629,6 +9003,7 @@ half.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>15</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -8662,6 +9037,7 @@ cone. It drains heat, dealing 1d6+5 points of Cold damage per caster level.
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>15</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -8698,6 +9074,7 @@ such as clouds and Wall of Fire of both friends and foes.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -8734,6 +9111,7 @@ spell can stack on the target up to 3 times, increasing the damage with each sta
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -8763,6 +9141,7 @@ can stack on the target up to 3 times, increasing the damage with each stack.</D
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -8792,6 +9171,7 @@ a 12.5% of inflicting a second different effect from that 7.</Description>
     <Intensify/>
     <Maximize/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Blue Ray - Turn to Stone</DCType>
       <DCVersus>Fortitude</DCVersus>
@@ -8818,6 +9198,7 @@ creatures take a -2 penalty to Strength and Dexterity.</Description>
     <Icon>WavesOfFatigue</Icon>
     <School>Necromancy</School>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <!--Sorcerer and Wizard level 6's-->
   <Spell>
@@ -8833,6 +9214,7 @@ also suffers a -4 penalty to their Armor Class.</Description>
     <Intensify/>
     <Maximize/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -8860,6 +9242,7 @@ lightning bolt. A successful Reflex save reduces the damage by half.</Descriptio
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>6</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -8895,6 +9278,7 @@ damage by half.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -8926,6 +9310,7 @@ is failed or suffer 1d4 negative levels if they succeed on the second saving thr
     <Enlarge/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDC>
       <DCType>Death</DCType>
       <DCVersus>Reflex</DCVersus>
@@ -8954,6 +9339,7 @@ level.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>25</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -8986,6 +9372,7 @@ being triggered, or in 5 minutes otherwise.</Description>
     <Enlarge/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Will</DCVersus>
@@ -9007,6 +9394,7 @@ A successful Fortitude save reduces this damage to 6d3+12.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -9039,6 +9427,7 @@ the target has a chance to remake its Fortitude save every 24 seconds.</Descript
     <Enlarge/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Turn to stone</DCType>
       <DCVersus>Fortitude</DCVersus>
@@ -9053,6 +9442,7 @@ normal state.</Description>
     <Icon>StoneToFlesh</Icon>
     <School>Transmutation</School>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <!--Sorcerer and Wizard level 7's-->
   <Spell>
@@ -9062,6 +9452,7 @@ to 1 of a variety of locations.</Description>
     <Icon>GreaterTeleport</Icon>
     <School>Conjuration</School>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Hold Person, Mass</Name>
@@ -9075,6 +9466,7 @@ against a held opponent follow the rules of helpless opponents.</Description>
     <Enlarge/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Will</DCVersus>
@@ -9092,6 +9484,7 @@ Power Word: Blind.</Description>
     <School>Enchantment</School>
     <Enlarge/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Delayed Blast Fireball</Name>
@@ -9108,6 +9501,7 @@ around it. A successful Reflex save reduces the damage by half.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -9143,6 +9537,7 @@ that 7.</Description>
     <Intensify/>
     <Maximize/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDC>
       <DCType>Half Damage</DCType>
       <DCVersus>Reflex</DCVersus>
@@ -9172,6 +9567,7 @@ lever, etc.) removes this condition.</Description>
     <Enlarge/>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Control Undead</Name>
@@ -9183,6 +9579,7 @@ this effect. Controlled undead gets an additional Will save every 2 minutes.</De
     <Enlarge/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Will</DCVersus>
@@ -9197,6 +9594,7 @@ creatures take a -6 penalty to Strength and Dexterity, and move at 50% speed.</D
     <Icon>WavesOfExhaustion</Icon>
     <School>Necromancy</School>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <!--Sorcerer and Wizard level 8's-->
   <Spell>
@@ -9211,6 +9609,7 @@ This spell has double range.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>25</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -9240,6 +9639,7 @@ the cloud.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -9271,6 +9671,7 @@ requires a Khyber Dragonshard as a special material component.</Description>
     <Enlarge/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Negates becoming a Gem</DCType>
       <DCVersus>Will</DCVersus>
@@ -9288,6 +9689,7 @@ for 8 seconds.</Description>
     <School>Enchantment</School>
     <Enlarge/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Polar Ray</Name>
@@ -9300,6 +9702,7 @@ for 8 seconds.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>25</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -9330,6 +9733,7 @@ Plants which instead take 1d4+4 points of damage per caster level.
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -9358,6 +9762,7 @@ half.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -9391,6 +9796,7 @@ the damage by half.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -9424,6 +9830,7 @@ Reflex save reduces the damage by half.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -9455,6 +9862,7 @@ magical properties on them are temporarily disabled. Very slow cast time.</Descr
     <Embolden/>
     <Enlarge/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Power Word: Kill</Name>
@@ -9464,6 +9872,7 @@ Cooldown timer of 210 seconds.</Description>
     <School>Conjuration</School>
     <Enlarge/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Dominate Monster</Name>
@@ -9478,6 +9887,7 @@ has less chance to break free and will follow you throughout the dungeon.</Descr
     <Extend/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Will</DCVersus>
@@ -9496,6 +9906,7 @@ The enemy may attempt to make a new Will save every 3 seconds.</Description>
     <Enlarge/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDC>
       <DCType>Hold</DCType>
       <DCVersus>Will</DCVersus>
@@ -9519,6 +9930,7 @@ damage per caster level (No save.) to targets in the area. (Max 20d3+20 Fire,
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -9560,6 +9972,7 @@ You are free to perform other actions while Wail of the Banshee is active.</Desc
     <Embolden/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDC>
       <DCType>Death</DCType>
       <DCVersus>Fortitude</DCVersus>
@@ -9582,6 +9995,7 @@ level up to 20. A successful Fortitude save reduces damage by half. D&amp;D Dice
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -9616,6 +10030,7 @@ or Raid Bosses.</Description>
     <Heighten/>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Will</DCVersus>
@@ -9633,6 +10048,7 @@ to normal form.</Description>
     <Icon>DarkDiscorporation</Icon>
     <School>Transmutation</School>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>Incorporeality</Type>
       <Bonus>Enhancement</Bonus>
@@ -9665,6 +10081,7 @@ the zone fades, though they will not deal damage.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -9698,6 +10115,7 @@ Saves and cannot tumble.</Description>
     <School>Evocation</School>
     <Enlarge/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Escape</DCType>
       <DCVersus>Strength Check</DCVersus>
@@ -9718,6 +10136,7 @@ triggered, or in 5 minutes otherwise.</Description>
     <School>Illusion</School>
     <Enlarge/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -9747,6 +10166,7 @@ seconds after being triggered, or in 5 minutes otherwise.</Description>
     <School>Illusion</School>
     <Enlarge/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Will</DCVersus>
@@ -9759,6 +10179,7 @@ seconds after being triggered, or in 5 minutes otherwise.</Description>
     <Description>Three times per rest create one random temporary item when cast on a destroyable object
 (vase, barrel, etc.) Item drops on leaving adventure. Cannot be sold or auctioned.</Description>
     <Icon>LocateObjects</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Treasure Finding</Name>
@@ -9769,6 +10190,7 @@ chest and twist fate for a chance at better rewards for the entire party.
 Chests can only be improved in this way one time, and there is a chance of
 failure based on your Charisma.</Description>
     <Icon>TreasureFinding</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Earth Grab</Name>
@@ -9776,12 +10198,14 @@ failure based on your Charisma.</Description>
 (10 + Character Level + Constitution modifier + Transmutation Bonuses Negates). 
 Note: Shares charges with Greater Dragonmark of Warding</Description>
     <Icon>EarthGrab</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Binding Shadows</Name>
     <Description>Dark shadows wrap around an enemy, slowing it and draining its life force, applying
 2d4 negative levels.</Description>
     <Icon>BindingShadows</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Power of the Storm</Name>
@@ -9791,6 +10215,7 @@ spell points any time you take Electrical damage from a spell. You also gain
 spells and -2 to your Fortitude Saves. This effect lasts for 2 seconds per point
 of Concentration skill you have. (Cooldown: 1 minute)</Description>
     <Icon>PowerOfTheStorm</Icon>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Healing Hands</Name>
@@ -9798,6 +10223,7 @@ of Concentration skill you have. (Cooldown: 1 minute)</Description>
 Can only be used while your Bond Feat is active.
 10 + Character Level (max 20) * WIS Mod = HP gained. </Description>
     <Icon>HealingHands</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Shadow Phase</Name>
@@ -9805,6 +10231,7 @@ Can only be used while your Bond Feat is active.
 for 20 seconds.</Description>
     <Icon>ShadowPhase</Icon>
     <MaxCasterLevel>30</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Lay on Hands</Name>
@@ -9814,6 +10241,7 @@ target. The amount healed does not suffer a penalty when used on Warforged.
 This ability does not require the paladin to be within melee (touch) range of
 the friend or foe being targeted, but line of sight is required.</Description>
     <Icon>LayOnHands</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Leap Of Faith</Name>
@@ -9822,6 +10250,7 @@ chasms that make normal adventurers balk. Using this ability costs 10 spell
 points. Uses of this ability recharge at a rate of one every 15 seconds.
 (5 uses, 3 second cooldown.)</Description>
     <Icon>LeapOfFaith</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Avenging Light</Name>
@@ -9832,6 +10261,7 @@ plus an additional 1 to 8 for every three caster levels past level 1.)
 D&amp;D Dice: Deals 1d8 damage plus 1d8 additional per three caster levels.</Description>
     <Icon>AvengingLight</Icon>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -9853,6 +10283,7 @@ D&amp;D Dice: Deals 1d8 damage plus 1d8 additional per three caster levels.</Des
     <Description>You are able to leap through the air to bring the fight to your enemies or traverse
 chasms that make normal adventurers balk.</Description>
     <Icon>AbundantStep</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Ruin</Name>
@@ -9863,6 +10294,7 @@ chasms that make normal adventurers balk.</Description>
     <Intensify/>
     <Maximize/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Cost>75</Cost>
     <SpellDamage>
       <SpellDice>
@@ -9882,6 +10314,7 @@ chasms that make normal adventurers balk.</Description>
     <Intensify/>
     <Maximize/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Cost>150</Cost>
     <SpellDamage>
       <SpellDice>
@@ -9905,6 +10338,7 @@ Cooldown: 3 Seconds</Description>
     <Intensify/>
     <Maximize/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -9923,6 +10357,7 @@ Cooldown: 3 Seconds</Description>
     <Icon>EpicMageArmor</Icon>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Hellball</Name>
@@ -9935,6 +10370,7 @@ Spell Point Cost: 50</Description>
     <Intensify/>
     <Maximize/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -9985,11 +10421,13 @@ blades does 2d20 Piercing and 1d20 Force damage.</Description>
     <Enlarge/>
     <Intensify/>
     <Maximize/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Call Wolf Companion</Name>
     <Description>Activate this ability to summon your Wolf Companion.</Description>
     <Icon>CallWolf</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Fascinate</Name>
@@ -9998,12 +10436,14 @@ your soothing notes. Requires 3 trained ranks (not total mod) of the Perform
 skill to use. Has a save DC of your perform skill plus the roll of a twenty-sided
 die.</Description>
     <Icon>Fascinate</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Inspire Competence</Name>
     <Description>Activate this bard ability to grant an ally a +2 competence bonus to their skill checks.
 Requires 6 trained ranks (not total mod) of the perform skill to use.</Description>
     <Icon>InspireCompetence</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>SkillBonus</Type>
       <Bonus>Competence</Bonus>
@@ -10020,6 +10460,7 @@ rolls before enhancements. At 8th level and every six bard levels thereafter,
 this bonus increases by 1. Requires 3 trained ranks (not total mod) of the
 Perform skill to use.</Description>
     <Icon>InspireCourage</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>Weapon_AttackAndDamage</Type>
       <Bonus>Morale</Bonus>
@@ -10035,12 +10476,14 @@ Perform skill to use.</Description>
 within 30 feet and able to see and hear the bard. The ally gets +2 attack bonus,
 +1 Fortitude save bonus and temporary hit points.</Description>
     <Icon>InspireCourage</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Inspire Heroics</Name>
     <Description>Activate this bard ability to grant an ally a +4 Morale bonus to their saves and a
 +4% dodge. Requires 18 trained ranks (not total mod) of the Perform skill to use.</Description>
     <Icon>InspireHeroics</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>Weapon_Attack</Type>
       <Bonus>Morale</Bonus>
@@ -10063,6 +10506,7 @@ combat chart) and can enter an evasive trance once per rest, granting the Evasio
 feat for a short period of time. (When you make a successful Reflex save to
 avoid damage, you suffer no damage instead of half damage.)</Description>
     <Icon>EvasiveTrance</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Healing Word</Name>
@@ -10074,6 +10518,7 @@ successful Will save reduce the damage by half. D&amp;D Dice: Deals 1d4 damage p
 1d4 additional damage per two caster levels.</Description>
     <Icon>HealingWord</Icon>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -10103,17 +10548,20 @@ skill, +1 to the Maximum Dexterity Bonus of armor and shields and can remember
 your martial prowess three times per rest, increasing your base attack bonus to
 your level and granting +4 to hit.</Description>
     <Icon>MartialProwess</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Song of Freedom</Name>
     <Description>Activate this bard ability to create an effect equivalent to the break enchantment
 spell on one of your allies. Requires 15 ranks of the Perform skill.</Description>
     <Icon>SongOfFreedom</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Unleash Iron Defender</Name>
     <Description>Activate this ability to summon your Iron Defender companion.</Description>
     <Icon>IronCompanion</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Hurl Through Hell</Name>
@@ -10121,6 +10569,7 @@ spell on one of your allies. Requires 15 ranks of the Perform skill.</Descriptio
 on a Will save vs DC(10 + Warlock level + Charisma Modifier) is instead paralyzed
 and helpless with fear for 6 seconds.</Description>
     <Icon>HurlThroughHell</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Remove from existence</DCType>
       <DCVersus>Will</DCVersus>
@@ -10134,6 +10583,7 @@ and helpless with fear for 6 seconds.</Description>
     <Description>You become invisible and charge forward. During your escape, you move through monsters
 as if you were ethereal. These effects last for six seconds</Description>
     <Icon>MistyEscape</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Ameliorate</Name>
@@ -10142,6 +10592,7 @@ succeed on a Will save vs DC(15 + Warlock level + Charisma Mod) or be destroyed.
 Undead who fail this save, or enemies who are not undead, instead are terrorized
 and have their Magical resistance Rating reduced by 10 for 15 seconds.</Description>
     <Icon>Ameliorate</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Elemental Damage</Name>
@@ -10150,6 +10601,7 @@ doing 1 to 12 damage of a random elemental type plus an additional 1 to 12 per
 three caster levels on impact. A successful Reflex save reduces the damage by half.
 D&amp;D Dice: Deals 1d12 damage plus 1d12 damage additional per three caster levels.</Description>
     <Icon>ElementalDamage</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Half Damage</DCType>
       <DCVersus>Reflex</DCVersus>
@@ -10164,12 +10616,14 @@ currently equipped weapons or shields by 1, or to increase the Enhancement Bonus
 of your target's currently equipped armor by 1. An item can have only one
 temporary item enchantment at a time.</Description>
     <Icon>EnchantWeapon</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Wild Empathy</Name>
     <Description>Activate this ability to lower an animal's or beast's aggression, effectively
 mesmerizing them.</Description>
     <Icon>WildEmpathy</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Fire Shield (Fire)</Name>
@@ -10183,6 +10637,7 @@ you.</Description>
     <Extend/>
     <Quicken/>
     <MaxCasterLevel>15</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -10220,6 +10675,7 @@ Blinded, and/or Silenced. The target must make a saving throw for each effect.</
     <Intensify/>
     <Maximize/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Greater Color Spray</Name>
@@ -10235,11 +10691,13 @@ Activation Cost: [10/5/2] Spell Points. Cooldown: 8 seconds</Description>
     <Intensify/>
     <Maximize/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Major Mnemonic Aid</Name>
     <Description>Major Mnemonic Aid: Restores 105-600 spell points. Charges: 3 (3/day)</Description>
     <Icon>MajorMnemonicAid</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Sun Bolt</Name>
@@ -10254,6 +10712,7 @@ from metamagic feats at no additional cost). Reflex save DC(10 + character level
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>15</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <PerCasterLevels>1</PerCasterLevels>
@@ -10279,6 +10738,7 @@ All threat generated by the archon is applied to you.
 Cost: 20 spell points. Cooldown: 6 second.</Description>
     <Icon>SummonArchon</Icon>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -10301,6 +10761,7 @@ Does 1d6+3 Sonic and Electric damage per caster level.
 Activation cost: [30/25/20] SP. Cooldown: [20/16/12] seconds.</Description>
     <Icon>HornOfThunder</Icon>
     <MaxCasterLevel>25</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <Empower/>
     <Intensify/>
     <Maximize/>
@@ -10336,6 +10797,7 @@ giving yourself or an ally temporary spell points, 10% incorporeality, and a
 [1/3/5] times per rest.
 (Activation Cost: 1 HP. Cooldown: 2 minutes) (24 Spell points +6 per level)</Description>
     <Icon>FeyEnergyTap</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>Incorporeality</Type>
       <Bonus>Enhancement</Bonus>
@@ -10351,6 +10813,7 @@ level, Reflex DC (10 + Half Character Level + Charisma Modifier) Half Damage.
 At levels 11 and 21 an additional bolt is fired. Effects that grant Action Boost
 uses give you additional uses per rest of this ability.</Description>
     <Icon>DrowDarkfire</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Bring Out the Leeches</Name>
@@ -10359,6 +10822,7 @@ Removes one negative level, one poison, and one disease from your living target 
 Duration is equal to your Heal skill.
 This ability shares a counter with Lesser Dragonmark of Healing.</Description>
     <Icon>BreakOutTheLeeches</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Reverberate</Name>
@@ -10368,6 +10832,7 @@ of 16 seconds. This spell can stack on the target up to three times, increasing
 the damage with each stack.</Description>
     <Icon>Reverberate</Icon>
     <MaxCasterLevel>18</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <Empower/>
     <Intensify/>
     <Maximize/>
@@ -10394,12 +10859,14 @@ death penalty effects, negative levels, and the conditions blinded, dazed,
 deafened, diseased, exhausted, fatigued, feebleminded, insanity, nauseated,
 poisoned, and stunned. (Cooldown: 5 minutes)</Description>
     <Icon>UnyieldingSovereignty</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Memory of Flight</Name>
     <Description>Memories of flight lie within you. You are able to leap through the air to bring the
 fight to your enemies or traverse chasms that make normal adventure balk.</Description>
     <Icon>DragonbornMemoryOfFlight</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Throat Dagger</Name>
@@ -10408,6 +10875,7 @@ Damaged non-boss enemies cannot cast spells for 6 seconds.
 Metamagic: Quicken, Enlarge (no extra cost). Spell resistance: No</Description>
     <Icon>ThroatDagger</Icon>
     <MaxCasterLevel>40</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -10426,6 +10894,7 @@ opponents for 6 seconds on a failed Reflex save and momentarily dazing opponents
 on a failed Fortitude save. Both saving throws have DC equal to
 (10/14/18 + Monk Level + Wisdom Modifier).</Description>
     <Icon>FlashBang</Icon>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Rejuvenation of Dawn</Name>
@@ -10437,6 +10906,7 @@ Tier 2: This ability can be used on yourself or an ally, and you get an
 additional use per rest.
 (Cooldown: 3 minutes)</Description>
     <Icon>RejuvinationOfDawn</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Blessing of Amaunator</Name>
@@ -10446,6 +10916,7 @@ Tier 1: Aid
 Tier 2: Aid and Spell Resistance
 Tier 3: Aid, Spell Resistance, and Death Ward</Description>
     <Icon>BlessingOfAmaunator</Icon>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>For Cormyr</Name>
@@ -10453,6 +10924,7 @@ Tier 3: Aid, Spell Resistance, and Death Ward</Description>
 If you are below 50% health when this ability is used, you and all nearby allies gain
 a Morale bonus to weapon damage equal to your Charisma modifier for two minutes.</Description>
     <Icon>ForCormyr</Icon>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Empathic Healing</Name>
@@ -10460,12 +10932,14 @@ a Morale bonus to weapon damage equal to your Charisma modifier for two minutes.
 Lesser Vigor effect.
 Metamagic: Empower, Empower Heal, Maximize, Quicken, Enlarge, Intensify.</Description>
     <Icon>EmpathicHealing</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Vault</Name>
     <Description>Use your quarterstaff to propel yourself forward at great speed.
 Requires you to have a quarterstaff equipped. (Cooldown: 15 seconds)</Description>
     <Icon>Vault</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Wind Dance</Name>
@@ -10473,6 +10947,7 @@ Requires you to have a quarterstaff equipped. (Cooldown: 15 seconds)</Descriptio
 at a rate of one every 15 seconds in private areas, and 3 seconds in town.
 (Activation Cost: 10 Spell Points. Cooldown: 3 seconds.)</Description>
     <Icon>WindDance</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Heat Death</Name>
@@ -10482,6 +10957,7 @@ or take 2,000 points of Fire damage as its blood (or other internal fluid) boils
 manner. Fire creatures are immune to this effect.
 (Activation Cost: 50 Spell Points. Cooldown: 1 minute.)</Description>
     <Icon>HeatDeath</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -10501,6 +10977,7 @@ Reflex save or be encased in ice. Ice creatures are immune to this effect, and t
 targets gets occasional saves to attempt to escape.
 (Activation Cost: 25 Spell Points. Cooldown: 1 minute.)</Description>
     <Icon>IcyPrison</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -10521,6 +10998,7 @@ Activation Cost: 60/50/40 Spell Points.
 Cooldown: 2 seconds.
 Metamagic: Extend, Quicken, Enlarge. Spell Resistance: No.</Description>
     <Icon>ResistEnergies</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Devour the Soul</Name>
@@ -10532,6 +11010,7 @@ it loses 20 PRR and MRR for 6 seconds.
 Cooldown: 15 seconds.</Description>
     <Icon>DevourTheSoul</Icon>
     <School>Necromancy</School>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Arcane Bolt</Name>
@@ -10547,6 +11026,7 @@ Cooldown: [15/10/5] seconds)
 Scale with 100% Spell Power.</Description>
     <Icon>ArcaneBolt</Icon>
     <MaxCasterLevel>100</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <Embolden/>
     <Empower/>
     <Heighten/>
@@ -10579,6 +11059,7 @@ Activation Cost: [12/8/6] Spell Points.
 Cooldown: [18/12/6] seconds.</Description>
     <Icon>ArcaneBlast</Icon>
     <MaxCasterLevel>100</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <Empower/>
     <Maximize/>
     <Quicken/>
@@ -10605,6 +11086,7 @@ Players are immune to this effect.
 Activation Cost: 2 Hit Points. Cooldown: 12/8/4 seconds.</Description>
     <Icon>NecroticTouch</Icon>
     <MaxCasterLevel>100</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <Embolden/>
     <Empower/>
     <Enlarge/>
@@ -10634,6 +11116,7 @@ the cooldown of this Spell-Like Ability.
 Activation Cost: 5 Hit Points. Cooldown: 15/10/5 seconds.</Description>
     <Icon>NecroticBolt</Icon>
     <MaxCasterLevel>100</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <Empower/>
     <Enlarge/>
     <Intensify/>
@@ -10662,6 +11145,7 @@ Players are immune to this effect.
 Activation Cost: 10 Hit Points. Cooldown: 18/12/6 seconds.</Description>
     <Icon>NecroticBlast</Icon>
     <MaxCasterLevel>100</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <Embolden/>
     <Empower/>
     <Enlarge/>
@@ -10689,6 +11173,7 @@ Confused monsters attack and are attacked by both monster characters and player 
 Spell-Like Ability: This ability benefits from your Metamagic Feats (such as Quicken Spell)
 without paying the normal additional spell point cost. This is an Enchantment SLA.</Description>
     <Icon>Confusion</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Mass Confusion</Name>
@@ -10697,6 +11182,7 @@ confused on a failed Will saving throw.
 Spell-Like Ability: This ability benefits from your Metamagic feats (such as Quicken Spell)
 without paying the normal additional spell point cost. Cooldown: 30 seconds</Description>
     <Icon>MassConfusion</Icon>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Divine Wrath</Name>
@@ -10713,6 +11199,7 @@ Cooldown: 20 seconds</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>25</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -10737,6 +11224,7 @@ Activation cost is [300/200/100] Spell points and has a cooldown of [3/2/1] minu
     <Icon>CelestialBombardment</Icon>
     <School>Evocation</School>
     <MaxCasterLevel>40</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <Embolden/>
     <Empower/>
     <Enlarge/>
@@ -10764,6 +11252,7 @@ during the attack. Each enemy is also knocked down (Reflex save DC 20 + 1/2
 character level + INT/CHA modifier for half damage; STR/DEX save DC 20 + 1/2
 character level + INT/CHA modifier negates knockdown). (Cooldown 1min)</Description>
     <Icon>FlybyAttack</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Soundburst SLA</Name>
@@ -10785,6 +11274,7 @@ negates stun.
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>15</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -10803,6 +11293,7 @@ negates stun.
 for 8 seconds. Unlisted Reflex save.(Cooldown 3mins, 30sp)</Description>
     <Icon>ArcaneTempest</Icon>
     <MaxCasterLevel>15</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <Empower/>
     <Intensify/>
     <Maximize/>
@@ -10826,6 +11317,7 @@ Heals 5d6 HP every 2 seconds while the shield persists.
 Costs 12sp to activate. 12 second cooldown.
 Affected by: Empower Heal, Quicken and Enlarge</Description>
     <Icon>RejuvenationCocoon</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -10848,6 +11340,7 @@ enemies when they die.
 Costs 30sp to activate. 12 second cooldown.
 Affected by: Empower, Maximize, Quicken and Enlarge</Description>
     <Icon>RejuvenationCocoon</Icon>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -10881,6 +11374,7 @@ Costs 50sp to activate. 7 second cooldown.
 Affected by: Empower, Maximize, Quicken, Heighten and Enlarge</Description>
     <Icon>Tsunami</Icon>
     <MaxCasterLevel>40</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <Embolden/>
     <Empower/>
     <Enlarge/>
@@ -10911,17 +11405,20 @@ effect; centered on the caster. You can apply metamagic feats to this SLA for
 free (extend, quicken). The effect does not stack with Resist Energy spell.</Description>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <Icon>DivineEnergyResistance</Icon>
   </Spell>
   <Spell>
     <Name>Remove Exhaustion</Name>
     <Description>Removes Exhaustion and Fatigue effects.</Description>
     <Icon>RemoveExhaustion</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Roc's Strength</Name>
     <Description>You temporarily gain strength and power, giving a +6 Enhancement bonus to Strength.</Description>
     <Icon>RocsStrength</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Improved Harm</Name>
@@ -10931,6 +11428,7 @@ A successful Will save reduces the damage by half.
 Against undead targets, this spell acts as Heal.</Description>
     <Icon>ImprovedHarm</Icon>
     <MaxCasterLevel>15</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -10949,6 +11447,7 @@ within its area of effect. You can use this ability 5 times per rest.
 (Text says 5 times, charge bar says 3 / 3 Charges) caster level: 30</Description>
     <Icon>AcidStormBlackDragonBreath</Icon>
     <MaxCasterLevel>40</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -10969,6 +11468,7 @@ within its area of effect. You can use this ability 5 times per rest.
 (Text says 5 times, charge bar says 3 / 3 Charges) caster level: 30</Description>
     <Icon>IceStormWhiteDragonBreath</Icon>
     <MaxCasterLevel>40</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -10989,6 +11489,7 @@ within its area of effect. You can use this ability 5 times per rest.
 (Text says 5 times, charge bar says 3 / 3 Charges) caster level: 30</Description>
     <Icon>FireStormRedDragonBreath</Icon>
     <MaxCasterLevel>40</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -11009,6 +11510,7 @@ within its area of effect. You can use this ability 5 times per rest.
 (Text says 5 times, charge bar says 3 / 3 Charges) caster level: 30</Description>
     <Icon>LightningStormBlueDragonBreath</Icon>
     <MaxCasterLevel>40</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -11026,6 +11528,7 @@ within its area of effect. You can use this ability 5 times per rest.
     <Description>For 6 seconds, your party takes -95% damage from all sources (except untyped damage).
 Only works inside dungeons.</Description>
     <Icon>RMMassUnbreakableForcefield</Icon>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Shielding Construct</Name>
@@ -11035,6 +11538,7 @@ minutes, granting a +4 Shield bonus to Armor Class and protection from Magic
 Missiles. The force shield created by this reduces grazing hits by 10%, as if it
 were a small shield. This effect is dispelled by death and antimagic.</Description>
     <Icon>RMShieldingConstruct</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Warding Construct</Name>
@@ -11043,6 +11547,7 @@ allies gain a +3 Alchemical bonus to Saving Throws vs. Magic and +3 Alchemical
 bonus to Saving Throws vs. Traps that lasts for 10 seconds. This effect is
 dispelled by death and antimagic.</Description>
     <Icon>RMWardingConstruct</Icon>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Curative Admixture: Cure Critical Wounds</Name>
@@ -11059,6 +11564,7 @@ Artificer Knowledge: Potions..</Description>
     <Intensify/>
     <Maximize/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -11081,6 +11587,7 @@ Artificer Knowledge: Potions..</Description>
     <Description>For 6 seconds, your target takes -95% damage from all sources (except Untyped damage).
 (This is a separate cooldown from the Mass version).</Description>
     <Icon>RMUnbreakableForcefield</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Regenerating Construct</Name>
@@ -11089,6 +11596,7 @@ your Artificer level) are Repaired for 1 hit point per 3 Artificer levels as
 long as they are near you. This lasts for 30 minutes, but is dispelled death
 and antimagic.</Description>
     <Icon>RMRegenerationConstruct</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Converter</Name>
@@ -11096,6 +11604,7 @@ and antimagic.</Description>
 next three minutes, or until the target dies. Has no effect on Constructs or NPC
 allies. This overrides their innate base healing from Repair spells for the duration.</Description>
     <Icon>RMConverter</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Great Maul</Name>
@@ -11106,6 +11615,7 @@ be stunned for 6 seconds, DC: 13 + Max(Str, Wis) mod + Tactical bonuses.
 SP Cost: 3
 Cooldown: 12 seconds.</Description>
     <Icon>NPBigClaws</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Palliative Admixture</Name>
@@ -11115,6 +11625,7 @@ Artificer level Temporary Hit Point and 10 +1 per two Artificer levels Temporary
 Spell Points. These last one minute, or until affected creatures rest.
 Cooldown: 30 seconds.</Description>
     <Icon>ATPalliativeAdmixture</Icon>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <!--Favored Soul Beacon of Hope SLAs-->
   <Spell>
@@ -11126,6 +11637,7 @@ This ability is considered a 1st Level Favored Soul spell of the Conjuration sch
 Spell Point Cost: 6 Spell points
 Cooldown: 6 seconds</Description>
     <Icon>BoHBeaconOfGrace</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Wall of Healing</Name>
@@ -11135,6 +11647,7 @@ Spell Point Cost: 30 Spell points
 Cooldown: 1 Minute cooldown.</Description>
     <Icon>BoHWallOfHealing</Icon>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -11158,11 +11671,13 @@ Cooldown: 1 Minute cooldown.</Description>
 commanded, controlled, or dominated enemy that is under your control to dispel
 the controlling effect.</Description>
     <Icon>DismissCharm</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Dismiss Rage</Name>
     <Description>Activate this Barbarian ability to prematurely end your rage.</Description>
     <Icon>DismissRage</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Mass Frog</Name>
@@ -11173,12 +11688,14 @@ a successful Fortitude saving throw vs. DC (20+ Wisdom modifier).</Description>
     <Enlarge/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Meld Into Darkness</Name>
     <Description>Activate to gain: +100% Enhancement bonus to dodge for [9/12/15] seconds.
 (Cooldown: 2 minutes)</Description>
     <Icon>MeldIntoDarkness</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Fiendish Arpeggio</Name>
@@ -11188,6 +11705,7 @@ caster levels (max 1d6+10), to a target. The damage repeats itself every 2 secon
 12 seconds. Cost: 6 spell points.</Description>
     <Icon>FiendishArpeggio</Icon>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -11226,6 +11744,7 @@ from outside. Further Enhancements can modify how Obscuring Darkness can
 affect both you and your enemies.</Description>
     <Icon>ObscuringDarkness</Icon>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Light the Dark</Name>
@@ -11234,6 +11753,7 @@ and deals that much damage to nearby undead enemies. This benefits from Positive
 Spell Power, 50% more than most spells.</Description>
     <Icon>LightTheDark</Icon>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <!---Alchemist Spells Level 1-->
   <Spell>
@@ -11256,6 +11776,7 @@ A successful Fortitude save reduces the damage by half.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Half Damage</DCType>
       <DCVersus>Fortitude</DCVersus>
@@ -11294,6 +11815,7 @@ A successful Reflex save reduces the damage by half.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Half Damage</DCType>
       <DCVersus>Reflex</DCVersus>
@@ -11332,6 +11854,7 @@ A successful Reflex save reduces the damage by half.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Half Damage</DCType>
       <DCVersus>Reflex</DCVersus>
@@ -11370,6 +11893,7 @@ A successful Reflex save reduces the damage by half.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Half Damage</DCType>
       <DCVersus>Reflex</DCVersus>
@@ -11408,6 +11932,7 @@ A successful Reflex save reduces the damage by half.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Half Damage</DCType>
       <DCVersus>Reflex</DCVersus>
@@ -11446,6 +11971,7 @@ A successful Reflex save reduces the damage by half.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Half Damage</DCType>
       <DCVersus>Reflex</DCVersus>
@@ -11478,6 +12004,7 @@ away with Fire spells that hit the area of the mist.</Description>
     <Primer>Gildleaf</Primer>
     <Accelerate/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Fine Dust</Name>
@@ -11491,6 +12018,7 @@ balance check to get up every 2 seconds, at the same DC as the initial save.</De
     <Embolden/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Trip</DCType>
       <DCVersus>Reflex</DCVersus>
@@ -11512,6 +12040,7 @@ not need to breathe or sleep.</Description>
     <Embolden/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Sleep</DCType>
       <DCVersus>Will</DCVersus>
@@ -11530,6 +12059,7 @@ for 1 minute per caster level.</Description>
     <Primer>Ceruleite</Primer>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>ACBonus</Type>
       <Bonus>Deflection</Bonus>
@@ -11550,6 +12080,7 @@ against Fire, Cold, Acid, and Electric damage, increasing to 10 at caster level
     <Primer>Ceruleite</Primer>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>EnergyResistance</Type>
       <Bonus>Alchemical</Bonus>
@@ -11575,6 +12106,7 @@ seconds +6 seconds per Caster Level</Description>
     <Primer>Ceruleite</Primer>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>SkillBonus</Type>
       <Bonus>Enhancement</Bonus>
@@ -11603,6 +12135,7 @@ seconds +6 seconds per Caster Level.</Description>
     <Primer>Ceruleite</Primer>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>SkillBonus</Type>
       <Bonus>Enhancement</Bonus>
@@ -11629,6 +12162,7 @@ scores, eliminates fatigue, and improves exhaustion to fatigue.</Description>
     <Primer>Ceruleite</Primer>
     <Accelerate/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Lesser Evolution</Name>
@@ -11640,6 +12174,7 @@ You may only have one Alchemical Mutation active at a time. Duration: 1 Minute</
     <Primer>Ceruleite</Primer>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>AbilityBonus</Type>
       <Bonus>Alchemical</Bonus>
@@ -11773,6 +12308,7 @@ living allies and enemy undead.</Description>
     <Intensify/>
     <Maximize/>
     <MaxCasterLevel>5</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDC>
       <DCType>Half Damage</DCType>
       <DCVersus>Will</DCVersus>
@@ -11806,6 +12342,7 @@ from nearby allies.</Description>
     <School>Conjuration</School>
     <Primer>Gildleaf</Primer>
     <Accelerate/>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Curative Admixture: Remove Poison</Name>
@@ -11817,6 +12354,7 @@ from nearby allies. (It does not confer immunity to poisons.)</Description>
     <School>Conjuration</School>
     <Primer>Gildleaf</Primer>
     <Accelerate/>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Vial Smash: Fire</Name>
@@ -11830,6 +12368,7 @@ Reflex saves reduces the damage by half.</Description>
     <School>Conjuration</School>
     <Primer>Crimsonite</Primer>
     <MaxCasterLevel>5</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <Embolden/>
     <Empower/>
     <Heighten/>
@@ -11868,6 +12407,7 @@ Reflex saves reduces the damage by half.</Description>
     <School>Conjuration</School>
     <Primer>Crimsonite</Primer>
     <MaxCasterLevel>5</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <Embolden/>
     <Empower/>
     <Heighten/>
@@ -11906,6 +12446,7 @@ Reflex saves reduces the damage by half.</Description>
     <School>Conjuration</School>
     <Primer>Crimsonite</Primer>
     <MaxCasterLevel>5</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <Embolden/>
     <Empower/>
     <Heighten/>
@@ -11944,6 +12485,7 @@ Reflex saves reduces the damage by half.</Description>
     <School>Conjuration</School>
     <Primer>Crimsonite</Primer>
     <MaxCasterLevel>5</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <Embolden/>
     <Empower/>
     <Heighten/>
@@ -11982,6 +12524,7 @@ Reflex saves reduces the damage by half.</Description>
     <School>Conjuration</School>
     <Primer>Crimsonite</Primer>
     <MaxCasterLevel>5</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <Embolden/>
     <Empower/>
     <Heighten/>
@@ -12019,6 +12562,7 @@ spells on a 30 second cooldown.</Description>
     <School>Transmutation</School>
     <Primer>Ceruleite</Primer>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Bottled Boost: Defense</Name>
@@ -12031,6 +12575,7 @@ all Action Boosts and Bottled Boost spells on a 30 second cooldown.</Description
     <School>Transmutation</School>
     <Primer>Ceruleite</Primer>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Flash Powder</Name>
@@ -12043,6 +12588,7 @@ An enemy at touch range must make a Fortitude save or be Stunned for 3 seconds.<
     <Embolden/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Stun</DCType>
       <DCVersus>Fortitude</DCVersus>
@@ -12062,6 +12608,7 @@ per Caster Level.</Description>
     <Primer>Ceruleite</Primer>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>SkillBonusAbility</Type>
       <Bonus>Insightful</Bonus>
@@ -12081,6 +12628,7 @@ bonus to Armor Class, and a +3 Deflection bonus to Physical Resistance rating fo
     <Primer>Ceruleite</Primer>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>ACBonus</Type>
       <Type>PRR</Type>
@@ -12101,6 +12649,7 @@ and Bottled Boost spells on a 30 second cooldown.</Description>
     <School>Transmutation</School>
     <Primer>Ceruleite</Primer>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Cold Spike</Name>
@@ -12116,6 +12665,7 @@ Reflex save reduces the damage by half.</Description>
     <School>Conjuration</School>
     <Primer>Gildleaf</Primer>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <Accelerate/>
     <Embolden/>
     <Empower/>
@@ -12157,6 +12707,7 @@ Reflex save reduces the damage by half.</Description>
     <School>Conjuration</School>
     <Primer>Gildleaf</Primer>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <Accelerate/>
     <Embolden/>
     <Empower/>
@@ -12195,6 +12746,7 @@ undead.</Description>
     <School>Conjuration</School>
     <Primer>Gildleaf</Primer>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <Accelerate/>
     <Embolden/>
     <Empower/>
@@ -12234,6 +12786,7 @@ in an arc. The potion explodes in a small AOE that removes curse from nearby all
     <School>Conjuration</School>
     <Primer>Gildleaf</Primer>
     <Accelerate/>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Curative Admixture: Remove Paralysis</Name>
@@ -12246,6 +12799,7 @@ everyone hit. This infusion is affected by Artificer and Alchemist Knowledge: Po
     <Primer>Gildleaf</Primer>
     <Accelerate/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Glue Bomb</Name>
@@ -12261,6 +12815,7 @@ Lasts for 15 seconds + 1 per level</Description>
     <Embolden/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Reflex</DCVersus>
@@ -12287,6 +12842,7 @@ A successful Fortitude save reduces the damage by half.</Description>
     <School>Conjuration</School>
     <Primer>Crimsonite</Primer>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <Accelerate/>
     <Embolden/>
     <Empower/>
@@ -12324,6 +12880,7 @@ An item can have only one temporary item Enhancement at a time.</Description>
     <Primer>Crimsonite</Primer>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Lesser Ice Chill Poison Imbue</Name>
@@ -12336,6 +12893,7 @@ An item can have only one temporary item Enhancement at a time.</Description>
     <Primer>Crimsonite</Primer>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Lesser Soulshatter Poison Imbue</Name>
@@ -12348,6 +12906,7 @@ An item can have only one temporary item Enhancement at a time.</Description>
     <Primer>Crimsonite</Primer>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Lesser Voidmind Poison Imbue</Name>
@@ -12360,6 +12919,7 @@ An item can have only one temporary item Enhancement at a time.</Description>
     <Primer>Crimsonite</Primer>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Liquid Courage</Name>
@@ -12372,6 +12932,7 @@ rolls, saving throws, and skill checks. This lasts for 1 minute per Caster Level
     <Primer>Ceruleite</Primer>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>Weapon_Attack</Type>
       <Type>SaveBonus</Type>
@@ -12396,6 +12957,7 @@ A successful Reflex save reduces the damage by half.</Description>
     <School>Conjuration</School>
     <Primer>Gildleaf</Primer>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <Accelerate/>
     <Embolden/>
     <Empower/>
@@ -12433,6 +12995,7 @@ negative level suffered from energy drain, and eliminates fatigue and exhaustion
     <Primer>Ceruleite</Primer>
     <Accelerate/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Salt Crystals</Name>
@@ -12446,6 +13009,7 @@ and any damage will remove the salt.</Description>
     <Embolden/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Fortitude</DCVersus>
@@ -12468,6 +13032,7 @@ A successful Fortitude save reduces the damage by half.</Description>
     <School>Conjuration</School>
     <Primer>Crimsonite</Primer>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <Accelerate/>
     <Embolden/>
     <Empower/>
@@ -12511,6 +13076,7 @@ A successful Reflex save reduces the damage by half.</Description>
     <School>Conjuration</School>
     <Primer>Gildleaf</Primer>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <Accelerate/>
     <Embolden/>
     <Empower/>
@@ -12552,6 +13118,7 @@ A successful Reflex save reduces the damage by half.</Description>
     <School>Conjuration</School>
     <Primer>Crimsonite</Primer>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <Accelerate/>
     <Embolden/>
     <Empower/>
@@ -12593,6 +13160,7 @@ A successful Fortitude save reduces the damage by half.</Description>
     <School>Conjuration</School>
     <Primer>Crimsonite</Primer>
     <MaxCasterLevel>15</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <Accelerate/>
     <Embolden/>
     <Empower/>
@@ -12630,6 +13198,7 @@ and Bottled Boost spells on a 30 second cooldown.</Description>
     <School>Transmutation</School>
     <Primer>Ceruleite</Primer>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Caustic Solvent</Name>
@@ -12645,6 +13214,7 @@ A successful Reflex save reduces damage by half.</Description>
     <School>Conjuration</School>
     <Primer>Crimsonite</Primer>
     <MaxCasterLevel>15</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <Accelerate/>
     <Embolden/>
     <Empower/>
@@ -12687,6 +13257,7 @@ are immune to this effect.</Description>
     <Intensify/>
     <Maximize/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Fortitude</DCVersus>
@@ -12705,6 +13276,7 @@ living allies and enemy undead.</Description>
     <School>Conjuration</School>
     <Primer>Gildleaf</Primer>
     <MaxCasterLevel>15</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <Accelerate/>
     <Embolden/>
     <Empower/>
@@ -12746,6 +13318,7 @@ per Caster Level.</Description>
     <Primer>Ceruleite</Primer>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>Displacement</Type>
       <Bonus>Enhancement</Bonus>
@@ -12766,6 +13339,7 @@ Caster Level.</Description>
     <Primer>Ceruleite</Primer>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>AbilityBonus</Type>
       <Bonus>Alchemical</Bonus>
@@ -12895,6 +13469,7 @@ A successful Reflex save reduces the damage by half.</Description>
     <School>Conjuration</School>
     <Primer>Crimsonite</Primer>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <Accelerate/>
     <Embolden/>
     <Empower/>
@@ -12936,6 +13511,7 @@ Enemies get a recurring save every 3 seconds.</Description>
     <Embolden/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Fortitude</DCVersus>
@@ -12957,6 +13533,7 @@ A successful Reflex save reduces the damage by half.</Description>
     <School>Conjuration</School>
     <Primer>Crimsonite</Primer>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <Accelerate/>
     <Embolden/>
     <Empower/>
@@ -12999,6 +13576,7 @@ This lasts for 7 minutes.</Description>
     <Primer>Ceruleite</Primer>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>Weapon_Attack</Type>
       <Type>SaveBonus</Type>
@@ -13021,6 +13599,7 @@ confusion and insanity effects on you.</Description>
     <Primer>Ceruleite</Primer>
     <Accelerate/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Heartstopper Poison</Name>
@@ -13041,6 +13620,7 @@ A successful Reflex save reduces the damage by half.</Description>
     <Intensify/>
     <Maximize/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDC>
       <DCType>Half Damage</DCType>
       <DCVersus>Reflex</DCVersus>
@@ -13071,6 +13651,7 @@ for 1 minute per Caster Level.</Description>
     <Primer>Ceruleite</Primer>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Iron Shavings</Name>
@@ -13087,6 +13668,7 @@ Corporeal for 6 seconds, plus 1 second per Caster Level</Description>
     <Intensify/>
     <Maximize/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Fortitude</DCVersus>
@@ -13105,6 +13687,7 @@ of equivalent effectiveness.</Description>
     <School>Transmutation</School>
     <Primer>Ceruleite</Primer>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Molotov Cocktail</Name>
@@ -13118,6 +13701,7 @@ DND Dice: Deals 1d6+3 Fire damage per caster level, max 15d6+45</Description>
     <School>Conjuration</School>
     <Primer>Crimsonite</Primer>
     <MaxCasterLevel>15</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <Accelerate/>
     <Embolden/>
     <Empower/>
@@ -13156,6 +13740,7 @@ rolls, a +1 bonus to Reflex Saving Throws, and a +1% Dodge.</Description>
     <Primer>Ceruleite</Primer>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Sparks Concentration</Name>
@@ -13171,6 +13756,7 @@ A successful Reflex save reduces the damage by half.</Description>
     <School>Conjuration</School>
     <Primer>Crimsonite</Primer>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <Accelerate/>
     <Embolden/>
     <Empower/>
@@ -13216,6 +13802,7 @@ damage by half.</Description>
     <School>Conjuration</School>
     <Primer>Crimsonite</Primer>
     <MaxCasterLevel>15</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <Accelerate/>
     <Embolden/>
     <Empower/>
@@ -13254,6 +13841,7 @@ and Bottled Boost spells on a 30 second cooldown.</Description>
     <School>Transmutation</School>
     <Primer>Ceruleite</Primer>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Bottled Boost: Sprint</Name>
@@ -13266,6 +13854,7 @@ and Bottled Boost spells on a 30 second cooldown.</Description>
     <School>Transmutation</School>
     <Primer>Ceruleite</Primer>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Caustic Overload</Name>
@@ -13280,6 +13869,7 @@ A successful Reflex save reduces the damage by half and negates the debuff</Desc
     <School>Conjuration</School>
     <Primer>Gildleaf</Primer>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <Accelerate/>
     <Embolden/>
     <Empower/>
@@ -13324,6 +13914,7 @@ A successful Reflex save reduces the damage by half and negates the blind</Descr
     <School>Conjuration</School>
     <Primer>Gildleaf</Primer>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <Accelerate/>
     <Embolden/>
     <Empower/>
@@ -13362,6 +13953,7 @@ A successful Reflex save reduces the damage by half</Description>
     <School>Conjuration</School>
     <Primer>Crimsonite</Primer>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <Accelerate/>
     <Embolden/>
     <Empower/>
@@ -13399,6 +13991,7 @@ living allies and enemy undead.</Description>
     <School>Conjuration</School>
     <Primer>Gildleaf</Primer>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <Accelerate/>
     <Embolden/>
     <Empower/>
@@ -13442,6 +14035,7 @@ but the target has a chance to remake its Fortitude save every 24 seconds.</Desc
     <Embolden/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Fortitude</DCVersus>
@@ -13461,6 +14055,7 @@ An item can have only one temporary item Enhancement at a time.</Description>
     <Primer>Crimsonite</Primer>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Hypnotic Combination</Name>
@@ -13476,6 +14071,7 @@ for 15 seconds +2 per Caster Level.</Description>
     <Embolden/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Will</DCVersus>
@@ -13495,6 +14091,7 @@ An item can have only one temporary item Enhancement at a time.</Description>
     <Primer>Crimsonite</Primer>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Sanctified Vial</Name>
@@ -13514,6 +14111,7 @@ Hit Dice of Level + your caster level).</Description>
     <Embolden/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Smoke Bomb</Name>
@@ -13525,6 +14123,7 @@ Invisible and Displaced for 12 seconds.</Description>
     <Primer>Gildleaf</Primer>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Soulshatter Poison Imbue</Name>
@@ -13538,6 +14137,7 @@ An item can have only one temporary item Enhancement at a time.</Description>
     <Primer>Crimsonite</Primer>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Stoneskin Potion</Name>
@@ -13549,6 +14149,7 @@ it is discharged</Description>
     <School>Transmutation</School>
     <Primer>Ceruleite</Primer>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Vein Freeze</Name>
@@ -13562,6 +14163,7 @@ A successful Reflex save reduces the damage by half and negates the debuff.</Des
     <School>Conjuration</School>
     <Primer>Gildleaf</Primer>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <Accelerate/>
     <Embolden/>
     <Empower/>
@@ -13606,6 +14208,7 @@ An item can have only one temporary item Enhancement at a time.</Description>
     <Primer>Crimsonite</Primer>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Voltaic Burst</Name>
@@ -13619,6 +14222,7 @@ A successful Reflex save reduces the damage by half and negates the debuff.</Des
     <School>Conjuration</School>
     <Primer>Gildleaf</Primer>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <Accelerate/>
     <Embolden/>
     <Empower/>
@@ -13663,6 +14267,7 @@ Boost spells on a 30 second cooldown.</Description>
     <School>Transmutation</School>
     <Primer>Ceruleite</Primer>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Flashbang</Name>
@@ -13676,6 +14281,7 @@ or be blinded. If they fail this save and are already blinded, they instead will
     <Embolden/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Fortitude</DCVersus>
@@ -13697,6 +14303,7 @@ per caster level, but the target has a chance to remake its Fortitude save every
     <Embolden/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Fortitude</DCVersus>
@@ -13713,6 +14320,7 @@ temporary item enchantment at a time.</Description>
     <School>Evocation</School>
     <Primer>Crimsonite</Primer>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>ImbueDice</Type>
       <Bonus>Alchemical</Bonus>
@@ -13731,6 +14339,7 @@ caster level.</Description>
     <Primer>Ceruleite</Primer>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>AbilityBonus</Type>
       <Bonus>Alchemical</Bonus>
@@ -13857,6 +14466,7 @@ damage per caster level, it is discharged</Description>
     <Primer>Ceruleite</Primer>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Multivial of Acid</Name>
@@ -13871,6 +14481,7 @@ other Multivial spells.</Description>
     <School>Conjuration</School>
     <Primer>Crimsonite</Primer>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <Accelerate/>
     <Embolden/>
     <Heighten/>
@@ -13909,6 +14520,7 @@ other Multivial spells.</Description>
     <School>Conjuration</School>
     <Primer>Crimsonite</Primer>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <Accelerate/>
     <Embolden/>
     <Heighten/>
@@ -13947,6 +14559,7 @@ other Multivial spells.</Description>
     <School>Conjuration</School>
     <Primer>Crimsonite</Primer>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <Accelerate/>
     <Embolden/>
     <Heighten/>
@@ -13985,6 +14598,7 @@ other Multivial spells.</Description>
     <School>Conjuration</School>
     <Primer>Crimsonite</Primer>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <Accelerate/>
     <Embolden/>
     <Heighten/>
@@ -14023,6 +14637,7 @@ other Multivial spells.</Description>
     <School>Conjuration</School>
     <Primer>Crimsonite</Primer>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <Accelerate/>
     <Embolden/>
     <Heighten/>
@@ -14060,6 +14675,7 @@ A successful Fortitude save reduces the damage by half.</Description>
     <School>Conjuration</School>
     <Primer>Crimsonite</Primer>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <Embolden/>
     <Empower/>
     <Heighten/>
@@ -14097,6 +14713,7 @@ turned into a frog.</Description>
     <Embolden/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Fortitude</DCVersus>
@@ -14126,6 +14743,7 @@ This spell receives reduced benefit from spell power.</Description>
     <Intensify/>
     <Maximize/>
     <MaxCasterLevel>15</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Half Damage</DCType>
       <DCVersus>Will</DCVersus>
@@ -14164,6 +14782,7 @@ This spell receives reduced benefit from spell power.</Description>
     <Intensify/>
     <Maximize/>
     <MaxCasterLevel>15</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Half Damage</DCType>
       <DCVersus>Will</DCVersus>
@@ -14195,6 +14814,7 @@ Caster Level, and enemies make a recurring save once every 24 seconds.</Descript
     <Extend/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Will</DCVersus>
@@ -14221,6 +14841,7 @@ A successful Reflex save reduces the damage by half.</Description>
     <Intensify/>
     <Maximize/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Half Damage</DCType>
       <DCVersus>Reflex</DCVersus>
@@ -14245,6 +14866,7 @@ A successful Fortitude save reduces the damage by half.</Description>
     <Intensify/>
     <Maximize/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDC>
       <DCType>Half Damage</DCType>
       <DCVersus>Fortitude</DCVersus>
@@ -14286,6 +14908,7 @@ damage per caster level, it is discharged</Description>
     <Primer>Ceruleite</Primer>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Greater Heartseeker Poison Imbue</Name>
@@ -14300,6 +14923,7 @@ An item can have only one temporary item Enhancement at a time.</Description>
     <Primer>Crimsonite</Primer>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Greater Ice Chill Poison Imbue</Name>
@@ -14314,6 +14938,7 @@ An item can have only one temporary item Enhancement at a time.</Description>
     <Primer>Crimsonite</Primer>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Greater Soulshatter Poison Imbue</Name>
@@ -14328,6 +14953,7 @@ An item can have only one temporary item Enhancement at a time.</Description>
     <Primer>Crimsonite</Primer>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Greater Voidmind Poison Imbue</Name>
@@ -14342,6 +14968,7 @@ An item can have only one temporary item Enhancement at a time.</Description>
     <Primer>Crimsonite</Primer>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <!---Alchemist SLAs-->
   <Spell>
@@ -14358,6 +14985,7 @@ to be Blinded, Dazed, Silenced, Tripped, Stunned, or Paralyzed.
     <Intensify/>
     <Maximize/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Wave of Poison</Name>
@@ -14374,6 +15002,7 @@ Poison-immune enemies to become vulnerable to Poison for 12 seconds.</Descriptio
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -14404,6 +15033,7 @@ Poison-immune enemies to become vulnerable to Poison for 12 seconds.</Descriptio
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -14436,6 +15066,7 @@ DND Dice: Deals 1d6+2 Poison damage per caster level, max 10d6+20</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -14460,6 +15091,7 @@ per Caster Level to all enemies nearby. (Max Caster Level 10)</Description>
     <Maximize/>
     <Heighten/>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -14484,6 +15116,7 @@ per Caster Level to all enemies nearby. (Max Caster Level 10)</Description>
     <Maximize/>
     <Heighten/>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -14508,6 +15141,7 @@ per Caster Level to all enemies nearby. (Max Caster Level 10)</Description>
     <Maximize/>
     <Heighten/>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -14532,6 +15166,7 @@ per Caster Level to all enemies nearby. (Max Caster Level 10)</Description>
     <Maximize/>
     <Heighten/>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -14556,6 +15191,7 @@ damage per Caster Level to all enemies nearby. (Max Caster Level 10)</Descriptio
     <Maximize/>
     <Heighten/>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -14580,6 +15216,7 @@ you gain Dancing Flame for 6 seconds.</Description>
     <Empower/>
     <Quicken/>
     <Maximize/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Shard Storm</Name>
@@ -14593,6 +15230,7 @@ seconds.</Description>
     <Empower/>
     <Quicken/>
     <Maximize/>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Thunder Snow</Name>
@@ -14608,12 +15246,14 @@ enemies caught within are slowed by 70%.</Description>
     <Empower/>
     <Quicken/>
     <Maximize/>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Misty Step</Name>
     <Description>You are able to leap through the air to bring the fight to your enemies or
 traverse chasms that make normal adventurers balk, but you disappear.</Description>
     <Icon>MistyEscape</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Weird</Name>
@@ -14625,6 +15265,7 @@ the death.</Description>
     <Enlarge/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDC>
       <DCType>Negate</DCType>
       <DCVersus>Will</DCVersus>
@@ -14646,6 +15287,7 @@ Cooldown 6 seconds, cost 5 Spell Points
 Every Epic Strike shares a cooldown with every other Epic Strike. Using this
 ability will put every Epic Strike onto this ability's cooldown.</Description>
     <Icon>HealingPillar</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Chain Cure</Name>
@@ -14656,6 +15298,7 @@ Allies and Undead Foes hitting each of them with a similar bolt of Positive ener
 Cooldown 9 seconds</Description>
     <Icon>ChainCure</Icon>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <Enlarge/>
     <Empower/>
     <EmpowerHealing/>
@@ -14672,6 +15315,7 @@ This counts as both a Fire and Light spell. (Max Caster Level: 20).
 Cooldown 9 seconds</Description>
     <Icon>HolyFireball</Icon>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <Enlarge/>
     <Empower/>
     <Quicken/>
@@ -14684,11 +15328,13 @@ Cooldown 9 seconds</Description>
     <Description>Casts a Heal spell on you, cures all ability damage, negative levels
 and other adverse conditions affecting you. Cost 30ki.      </Description>
     <Icon>WholenessOfSpirit</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Inner Focus</Name>
     <Description>Activate to gain 20d10 Ki. Cooldown: [180/160/120] seconds</Description>
     <Icon>InnerFocus</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Cold Light of the Moon</Name>
@@ -14696,6 +15342,7 @@ and other adverse conditions affecting you. Cost 30ki.      </Description>
 Deals 3d6 Cold Damage plus 2 per Caster Level to enemies inside the zone every
 2 seconds. The zone lasts for 10 seconds. 25 second cooldown.</Description>
     <Icon>ColdLightOfTheMoon</Icon>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Dark Light of the Moon</Name>
@@ -14703,6 +15350,7 @@ Deals 3d6 Cold Damage plus 2 per Caster Level to enemies inside the zone every
 Deals 3d6 Negative Damage plus 2 per Caster Level. to non-undead enemies inside
 the zone every 2 seconds The zone lasts for 10 seconds. 25 second cooldown.</Description>
     <Icon>DarkLightOfTheMoon</Icon>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Moon's Shadow</Name>
@@ -14711,6 +15359,7 @@ damage per caster level. A successful Reflex save reduces the damage by half.
 Cooldown 18 seconds, cost 40 Spell Points.</Description>
     <Icon>MoonsShadow</Icon>
     <School>Necromancy</School>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Zero Degree Comet</Name>
@@ -14719,6 +15368,7 @@ per caster level. A successful Reflex save reduces the damage by half.
 Cooldown 18 seconds, costs 40 Spell Points.</Description>
     <Icon>ZeroDegreeComet</Icon>
     <School>Evocation</School>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Renewal</Name>
@@ -14731,6 +15381,7 @@ Cooldown: 8 seconds.</Description>
     <EmpowerHealing/>
     <Enlarge/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Freedom of Movement, Mass</Name>
@@ -14742,6 +15393,7 @@ that normally impedes movement, such as Entangled, Paralyzed, or Solid Fog.</Des
     <Enlarge/>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <Effect>
       <Type>Immunity</Type>
       <Bonus>Stacking</Bonus>
@@ -14759,6 +15411,7 @@ and negative energy effects.</Description>
     <Enlarge/>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
     <Effect>
       <Type>Immunity</Type>
       <Bonus>Stacking</Bonus>
@@ -14781,6 +15434,7 @@ A successful Reflex saves reduces the damage by half.</Description>
     <School>Evocation</School>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -14810,6 +15464,7 @@ scaling with 100% of your Melee Power.</Description>
     <School>Evocation</School>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>ImbueDice</Type>
       <Bonus>Alchemical</Bonus>
@@ -14825,6 +15480,7 @@ and Force damage per caster level, scaling with 300% Melee power..</Description>
     <School>Evocation</School>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -14857,6 +15513,7 @@ Fire damage to attackers that strike you in melee.</Description>
     <Icon>IncineratingWave</Icon>
     <School>Evocation</School>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <!--U58 spells-->
   <Spell>
@@ -14872,6 +15529,7 @@ caster level (up to a maximum of 50 to 70 damage at caster level 10).</Descripti
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -14899,6 +15557,7 @@ this, it dissolves when unequipped.</Description>
     <Icon>ThornBlade</Icon>
     <School>Evocation</School>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Thorn Bloom</Name>
@@ -14914,6 +15573,7 @@ nearby foes. Reflex save for half.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -14946,6 +15606,7 @@ of 30 to 120 damage at caster level 15).</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -14974,6 +15635,7 @@ of you 6 to 11 points of Piercing damage per caster level (up to a maximum of
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -14994,6 +15656,7 @@ dice (Alchemical bonus). This spell can be used in any wolf form.</Description>
     <Icon>BlightedBite</Icon>
     <School>Evocation</School>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>ImbueDice</Type>
       <Bonus>Alchemical</Bonus>
@@ -15032,6 +15695,7 @@ because they burn through the plants.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -15056,6 +15720,7 @@ Death vs Fortitude DC: 10 + Druid Level + Highest of Wis/Dex/Str + Conjuration
 bonuses.</Description>
     <Icon>JawsOfDoom</Icon>
     <School>Conjuration</School>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Thorn Lance</Name>
@@ -15071,6 +15736,7 @@ The lance will damage all enemies in front or behind the target.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -15092,6 +15758,7 @@ only strikes once. Duration: 12 seconds.</Description>
     <Icon>Stormrage</Icon>
     <School>Transmutation</School>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Blighted Charge</Name>
@@ -15105,6 +15772,7 @@ For 10 seconds after the charge you gain +3 Imbue Dice.
 Stun vs Reflex DC: 10 + Druid Level + Highest if Wis/Dex/Str + Conjuration bonuses.</Description>
     <Icon>BlightedCharge</Icon>
     <School>Conjuration</School>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Plant Growth</Name>
@@ -15114,6 +15782,7 @@ a -2 penalty to Dexterity.</Description>
     <School>Transmutation</School>
     <Extend/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <Effect>
       <Type>AbilityBonus</Type>
       <Bonus>Size</Bonus>
@@ -15140,6 +15809,7 @@ to sneak attack and 25% of their fortification for 25 seconds.
 Cooldown: 12 seconds</Description>
     <Icon>SmokeTrap</Icon>
     <School>Conjuration</School>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Life Salve</Name>
@@ -15148,6 +15818,7 @@ next 3 minutes (or until target dies.) Has no effect on NPC allies or allies
 that already take 100% base Positive healing. This overrides their innate base
 healing from Positive spells for the duration.</Description>
     <Icon>LifeSalve</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Death Salve</Name>
@@ -15156,6 +15827,7 @@ next 3 minutes (or until target dies.) Has no effect on NPC allies or allies
 that already take 100% base Negative healing. This overrides their innate base
 healing from Positive spells for the duration.</Description>
     <Icon>LifeSalve</Icon>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <!--Wild Mage SLAs-->
   <Spell>
@@ -15168,6 +15840,7 @@ Will save reduces the damage by half.</Description>
     <Intensify/>
     <Maximize/>
     <Quicken/>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Spring Storm</Name>
@@ -15180,6 +15853,7 @@ or Wisdom.
 Can only be used if you have Spring Affinity Active.</Description>
     <Icon>SpringStorm</Icon>
     <School>Evocation</School>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Scorching Summer</Name>
@@ -15191,6 +15865,7 @@ highest of Intelligence, Charisma or Wisdom.
 Can only be used if you have Summer Affinity Active.</Description>
     <Icon>ScorchingSummer</Icon>
     <School>Evocation</School>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Autumn Decay</Name>
@@ -15202,6 +15877,7 @@ the highest of Intelligence, Charisma or Wisdom.
 Can only be used if you have Autumn Affinity Active.</Description>
     <Icon>AutumnDecay</Icon>
     <School>Evocation</School>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Winter Hail</Name>
@@ -15213,6 +15889,7 @@ Wisdom.
 Can only be used if you have Winter Affinity Active.</Description>
     <Icon>WinterHail</Icon>
     <School>Evocation</School>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Wildstrike</Name>
@@ -15229,6 +15906,7 @@ the damage by half and negates the additional effects.</Description>
     <Intensify/>
     <Maximize/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Snap Trap</Name>
@@ -15237,6 +15915,7 @@ the damage by half and negates the additional effects.</Description>
 place by the trap's jaws for 12 seconds.</Description>
     <Icon>SnapTrap</Icon>
     <School>Evocation</School>
+    <MaxTargetCap>1</MaxTargetCap>
   </Spell>
   <!--Draconic Disciple Spells-->
   <Spell>
@@ -15251,6 +15930,7 @@ reduces the damage by half.</Description>
     <School>Conjuration</School>
     <School>Breath Weapon</School>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Lesser Draconic Burst: Cold</Name>
@@ -15264,6 +15944,7 @@ reduces the damage by half.</Description>
     <School>Evocation</School>
     <School>Breath Weapon</School>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Lesser Draconic Burst: Electric</Name>
@@ -15277,6 +15958,7 @@ reduces the damage by half.</Description>
     <School>Evocation</School>
     <School>Breath Weapon</School>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Lesser Draconic Burst: Fire</Name>
@@ -15290,6 +15972,7 @@ reduces the damage by half.</Description>
     <School>Evocation</School>
     <School>Breath Weapon</School>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Lesser Draconic Burst: Poison</Name>
@@ -15303,6 +15986,7 @@ reduces the damage by half.</Description>
     <School>Transmutation</School>
     <School>Breath Weapon</School>
     <MaxCasterLevel>10</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Acolyte's Breath: Black</Name>
@@ -15316,6 +16000,7 @@ reduces the damage by half.</Description>
     <School>Conjuration</School>
     <School>Breath Weapon</School>
     <MaxCasterLevel>30</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Acolyte's Breath: Blue</Name>
@@ -15329,6 +16014,7 @@ reduces the damage by half.</Description>
     <School>Evocation</School>
     <School>Breath Weapon</School>
     <MaxCasterLevel>30</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Acolyte's Breath: Green</Name>
@@ -15342,6 +16028,7 @@ reduces the damage by half.</Description>
     <School>Transmutation</School>
     <School>Breath Weapon</School>
     <MaxCasterLevel>30</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Acolyte's Breath: Red</Name>
@@ -15355,6 +16042,7 @@ reduces the damage by half.</Description>
     <School>Evocation</School>
     <School>Breath Weapon</School>
     <MaxCasterLevel>30</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Acolyte's Breath: White</Name>
@@ -15368,6 +16056,7 @@ reduces the damage by half.</Description>
     <School>Evocation</School>
     <School>Breath Weapon</School>
     <MaxCasterLevel>30</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Draconic Burst: Acid</Name>
@@ -15381,6 +16070,7 @@ reduces the damage by half.</Description>
     <School>Conjuration</School>
     <School>Breath Weapon</School>
     <MaxCasterLevel>30</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Draconic Burst: Cold</Name>
@@ -15394,6 +16084,7 @@ reduces the damage by half.</Description>
     <School>Evocation</School>
     <School>Breath Weapon</School>
     <MaxCasterLevel>30</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Draconic Burst: Electric</Name>
@@ -15407,6 +16098,7 @@ reduces the damage by half.</Description>
     <School>Evocation</School>
     <School>Breath Weapon</School>
     <MaxCasterLevel>30</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Draconic Burst: Fire</Name>
@@ -15420,6 +16112,7 @@ reduces the damage by half.</Description>
     <School>Evocation</School>
     <School>Breath Weapon</School>
     <MaxCasterLevel>30</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Draconic Burst: Poison</Name>
@@ -15433,6 +16126,7 @@ reduces the damage by half.</Description>
     <School>Transmutation</School>
     <School>Breath Weapon</School>
     <MaxCasterLevel>30</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Draconic Devastation: Black</Name>
@@ -15446,6 +16140,7 @@ movement speed reduced by 90% for 6 seconds.</Description>
     <School>Conjuration</School>
     <School>Breath Weapon</School>
     <MaxCasterLevel>30</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Draconic Devastation: Blue</Name>
@@ -15459,6 +16154,7 @@ movement speed reduced by 90% for 6 seconds.</Description>
     <School>Evocation</School>
     <School>Breath Weapon</School>
     <MaxCasterLevel>30</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Draconic Devastation: Green</Name>
@@ -15472,6 +16168,7 @@ movement speed reduced by 90% for 6 seconds.</Description>
     <School>Transmutation</School>
     <School>Breath Weapon</School>
     <MaxCasterLevel>30</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Draconic Devastation: Red</Name>
@@ -15485,6 +16182,7 @@ movement speed reduced by 90% for 6 seconds.</Description>
     <School>Evocation</School>
     <School>Breath Weapon</School>
     <MaxCasterLevel>30</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Draconic Devastation: White</Name>
@@ -15498,6 +16196,7 @@ movement speed reduced by 90% for 6 seconds.</Description>
     <School>Evocation</School>
     <School>Breath Weapon</School>
     <MaxCasterLevel>30</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
   </Spell>
   <Spell>
     <Name>Greater Death Aura</Name>
@@ -15521,6 +16220,7 @@ the Dead epic feat, but is currently bugged and is not receiving a bonus.</Descr
          3d4+10 at caster level 20"). The description's "max 10" refers
          to the per-CL bonus damage cap, not the spell MCL itself. -->
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <Embolden/>
     <Extend/>
     <Heighten/>
@@ -15554,6 +16254,7 @@ Damage per caster level every 2 seconds.</Description>
     <Icon>DreadMist</Icon>
     <School>Conjuration</School>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <Empower/>
     <Maximize/>
     <Quicken/>
@@ -15586,6 +16287,7 @@ to 18 to 30. As a ray this spell has double normal range.</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -15617,6 +16319,7 @@ Cooldown: 18 seconds</Description>
     <Enlarge/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Will</DCVersus>
@@ -15639,6 +16342,7 @@ creature will follow you throughout the dungeon.</Description>
     <Extend/>
     <Heighten/>
     <Quicken/>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDC>
       <DCType>Negates</DCType>
       <DCVersus>Will</DCVersus>
@@ -15664,6 +16368,7 @@ Cooldown: 6 seconds</Description>
     <Maximize/>
     <Quicken/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <BonusDice>
@@ -15695,6 +16400,7 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
     <Intensify/>
     <Quicken/>
     <MaxCasterLevel>30</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <PerCasterLevels>1</PerCasterLevels>
@@ -15725,6 +16431,7 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
     <Quicken/>
     <Intensify/>
     <MaxCasterLevel>30</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <PerCasterLevels>1</PerCasterLevels>
@@ -15754,6 +16461,7 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
     <Quicken/>
     <Intensify/>
     <MaxCasterLevel>30</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <PerCasterLevels>1</PerCasterLevels>
@@ -15783,6 +16491,7 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
     <Quicken/>
     <Intensify/>
     <MaxCasterLevel>30</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <PerCasterLevels>1</PerCasterLevels>
@@ -15812,6 +16521,7 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
     <Quicken/>
     <Intensify/>
     <MaxCasterLevel>30</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <PerCasterLevels>1</PerCasterLevels>
@@ -15841,6 +16551,7 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
     <Quicken/>
     <Intensify/>
     <MaxCasterLevel>30</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <PerCasterLevels>1</PerCasterLevels>
@@ -15870,6 +16581,7 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
     <Quicken/>
     <Intensify/>
     <MaxCasterLevel>30</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <PerCasterLevels>1</PerCasterLevels>
@@ -15899,6 +16611,7 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
     <Quicken/>
     <Intensify/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <PerCasterLevels>1</PerCasterLevels>
@@ -15928,6 +16641,7 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
     <Quicken/>
     <Intensify/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <PerCasterLevels>1</PerCasterLevels>
@@ -15957,6 +16671,7 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
     <Quicken/>
     <Intensify/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <PerCasterLevels>1</PerCasterLevels>
@@ -15986,6 +16701,7 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
     <Quicken/>
     <Intensify/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <PerCasterLevels>1</PerCasterLevels>
@@ -16017,6 +16733,7 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
     <Embolden/>
     <Intensify/>
     <MaxCasterLevel>30</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <PerCasterLevels>1</PerCasterLevels>
@@ -16048,6 +16765,7 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
     <Embolden/>
     <Intensify/>
     <MaxCasterLevel>30</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <PerCasterLevels>1</PerCasterLevels>
@@ -16077,6 +16795,7 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
     <Quicken/>
     <Intensify/>
     <MaxCasterLevel>30</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <PerCasterLevels>1</PerCasterLevels>
@@ -16106,6 +16825,7 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
     <Quicken/>
     <Intensify/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <PerCasterLevels>2</PerCasterLevels>
@@ -16135,6 +16855,7 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
     <Quicken/>
     <Intensify/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <PerCasterLevels>1</PerCasterLevels>
@@ -16164,6 +16885,7 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
     <Quicken/>
     <Intensify/>
     <MaxCasterLevel>20</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <PerCasterLevels>1</PerCasterLevels>
@@ -16193,6 +16915,7 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
     <Quicken/>
     <Intensify/>
     <MaxCasterLevel>30</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <PerCasterLevels>1</PerCasterLevels>
@@ -16222,6 +16945,7 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
     <Quicken/>
     <Intensify/>
     <MaxCasterLevel>30</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <PerCasterLevels>1</PerCasterLevels>
@@ -16251,6 +16975,7 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
     <Quicken/>
     <Intensify/>
     <MaxCasterLevel>30</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <PerCasterLevels>1</PerCasterLevels>
@@ -16280,6 +17005,7 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
     <Quicken/>
     <Intensify/>
     <MaxCasterLevel>30</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <PerCasterLevels>1</PerCasterLevels>
@@ -16309,6 +17035,7 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
     <Quicken/>
     <Intensify/>
     <MaxCasterLevel>30</MaxCasterLevel>
+    <MaxTargetCap>100</MaxTargetCap>
     <SpellDamage>
       <SpellDice>
         <PerCasterLevels>1</PerCasterLevels>

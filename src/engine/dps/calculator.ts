@@ -118,10 +118,18 @@ export interface RotationEntry {
   casterLevel: number;
   /** How often the spell fires per minute. */
   castsPerMinute: number;
+  /** Spell-side cap on distinct enemy targets per cast. 1 = single-target,
+   *  100 = uncapped AoE, N = bounded multi-target (chain spells). */
+  maxTargetCap: number;
 }
 
 export interface Rotation {
   spells: RotationEntry[];
+  /** UI-controlled count of available enemy targets (1–5 in the dropdown).
+   *  Per-spell effective targets = `min(spell.maxTargetCap, targetCount)`.
+   *  Single-target spells stay single-target (their cap is 1); AoE spells
+   *  scale up to the user's chosen group size. Defaults to 1. */
+  targetCount?: number;
 }
 
 export interface Debuffs {
@@ -249,14 +257,39 @@ export function evaluateComponent(
   const damagePerTrigger  = componentDamagePerTrigger(c, scaleInputs);
   const triggersPerMinute = componentTriggersPerMinute(c, rotation);
   const debuffMultiplier  = componentDebuffMultiplier(c, debuffs);
+  const targetMultiplier  = componentTargetMultiplier(c, rotation);
   return {
     component:        c,
     scaleInputs,
     damagePerTrigger,
     triggersPerMinute,
     debuffMultiplier,
-    damagePerMinute:  damagePerTrigger * triggersPerMinute * debuffMultiplier,
+    damagePerMinute:  damagePerTrigger * triggersPerMinute * debuffMultiplier * targetMultiplier,
   };
+}
+
+/**
+ * AoE / multi-target multiplier for one component. Folds in the
+ * spell's `targetCap` (1 / N / 100) and the user-chosen `targetCount`
+ * (1–5 in the dropdown). Returns:
+ *   • `min(targetCap, targetCount)` for components that scale per
+ *     target — base damage and per-hit procs (Magical Ambush adds
+ *     sneak dice to each enemy hit).
+ *   • `1` for chance-based per-cast procs (Shiradi mantle), which
+ *     fire at most once per cast regardless of how many targets the
+ *     spell hits. Opt out via `component.capsAtOnePerCast`.
+ *   • `1` when the component lacks `targetCap` (defensive default —
+ *     treats unknown components as single-target).
+ */
+export function componentTargetMultiplier(
+  c: DamageComponent,
+  rotation: Rotation,
+): number {
+  if (c.capsAtOnePerCast) return 1;
+  if (c.trigger.kind === 'per-cast' && c.trigger.chance !== undefined) return 1;
+  const cap = c.targetCap ?? 1;
+  const tc  = rotation.targetCount ?? 1;
+  return Math.min(cap, tc);
 }
 
 // ── Whole-rotation roll-up ───────────────────────────────────────────────
@@ -326,17 +359,31 @@ export function damagePerCast(
 
   const base  = abilityToBaseComponents(ability, casterLevel);
   const procs = expandActiveProcs(build, engine, ctx, [
-    { name: ability.name, casterLevel },
+    { name: ability.name, casterLevel, maxTargetCap: ability.maxTargetCap },
   ]);
   // Buffs (assume up) — optimal-rotation upper bound.
   const buffs = BUFF_CATALOG
     .filter(b => b.isAvailable(build, engine))
     .flatMap(b => b.toComponents(build, engine, ctx));
 
+  // Synthetic single-spell rotation — gives `componentTargetMultiplier`
+  // and proc emitters a `Rotation`-shaped object to read targetCap /
+  // targetCount from for the per-cast view.
+  const perCastRotation: Rotation = {
+    spells: [{
+      name:           ability.name,
+      casterLevel,
+      castsPerMinute: 0,                   // not used in per-cast view
+      maxTargetCap:   ability.maxTargetCap,
+    }],
+    targetCount: ctx.targetCount,
+  };
+
   const byComponent: ComponentDamage[] = [...base, ...procs, ...buffs].map(c => {
     const scaleInputs      = resolveScaleInputs(c, engine, ctx);
     const damagePerTrigger = componentDamagePerTrigger(c, scaleInputs);
     const debuffMultiplier = componentDebuffMultiplier(c, debuffs);
+    const targetMultiplier = componentTargetMultiplier(c, perCastRotation);
     // Per-cast contribution multiplier:
     //   • per-hit  → fires once per missile (e.g. Magical Ambush adds
     //                its sneak dice to each of Magic Missile's 5
@@ -358,7 +405,7 @@ export function damagePerCast(
       damagePerTrigger,
       triggersPerMinute: 0,        // per-cast view is rotation-agnostic
       debuffMultiplier,
-      damagePerMinute:   damagePerTrigger * triggersPerCast * debuffMultiplier,
+      damagePerMinute:   damagePerTrigger * triggersPerCast * debuffMultiplier * targetMultiplier,
     };
   });
   const total = byComponent.reduce((s, b) => s + b.damagePerMinute, 0);
@@ -524,7 +571,11 @@ export function rotationDPS(
   // spells with non-damaging entries doesn't inflate proc triggers/min.
   const activeSpells: ActiveSpell[] = [...byName.values()]
     .filter(g => g.sample.damages.length > 0 && !g.sample.placeholderDamage)
-    .map(g => ({ name: g.name, casterLevel: g.casterLevel }));
+    .map(g => ({
+      name:         g.name,
+      casterLevel:  g.casterLevel,
+      maxTargetCap: g.sample.maxTargetCap,
+    }));
 
   // One base component set per unique spell name — collapses
   // class/SLA/clickie variants of the same spell into a single
@@ -539,7 +590,9 @@ export function rotationDPS(
       name:           g.name,
       casterLevel:    g.casterLevel,
       castsPerMinute: g.cpm,
+      maxTargetCap:   g.sample.maxTargetCap ?? 1,
     })),
+    targetCount: ctx.targetCount,
   };
 
   // ── Buff contributions ──────────────────────────────────────────────

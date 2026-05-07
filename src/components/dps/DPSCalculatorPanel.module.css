@@ -187,6 +187,66 @@
   margin-bottom: 0.85rem;
 }
 
+/* ── Target row (target dropdown + live enemy stats) ──────────────── */
+.targetRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.5rem 0.75rem;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+}
+
+.targetField {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 9rem;
+}
+
+.targetLabel {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+}
+
+.targetSelect {
+  padding: 0.3rem 0.45rem;
+  font: inherit;
+  font-size: 0.85rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  border-radius: 3px;
+}
+.targetSelect:hover { border-color: var(--color-gold); }
+.targetSelect:focus {
+  outline: none;
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 1px rgba(201, 162, 39, 0.4);
+}
+
+.enemyInfo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  margin-left: auto;
+}
+
+.enemyLabel {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+  margin-right: 0.2rem;
+}
+
 /* Stand-in shown while melee/ranged rotation editors are unimplemented. */
 .timelinePlaceholder {
   background: var(--color-bg);

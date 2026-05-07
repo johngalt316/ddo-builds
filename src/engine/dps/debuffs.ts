@@ -304,6 +304,68 @@ export function averageStackFraction(rampSeconds: number, fightSeconds: number):
   return Math.max(0, Math.min(1, 1 - rampSeconds / (2 * fightSeconds)));
 }
 
+/**
+ * INSTANTANEOUS stack fraction at simulation time `t` (vs.
+ * `averageStackFraction`'s integral over the fight). Linear ramp
+ * 0 → 1 over `rampSeconds`, then plateaus at 1. Used by the live
+ * enemy info pane that watches PRR / MRR drift as ramping debuffs
+ * stack during simulation playback.
+ */
+export function currentStackFraction(rampSeconds: number, t: number): number {
+  if (rampSeconds <= 0) return 1;
+  if (t <= 0) return 0;
+  if (t >= rampSeconds) return 1;
+  return t / rampSeconds;
+}
+
+/**
+ * Live (instantaneous) debuff totals at simulation time `t`. Mirrors
+ * `aggregateDebuffs` but uses `currentStackFraction` so values reflect
+ * the ramp progress at the playhead. Powers the enemy info pane that
+ * shows PRR / MRR drifting as the user watches the simulation play.
+ */
+export function liveDebuffsAt(
+  state: DebuffState,
+  t: number,
+  catalog: DebuffEntry[] = DEBUFF_CATALOG,
+  build?: Build,
+): Debuffs {
+  let genericVulnPct = 0;
+  let sonicVulnPct   = 0;
+  let mrrSubtract    = 0;
+  let prrSubtract    = 0;
+  const elementVulnPct: Partial<Record<SpellDamageType, number>> = {};
+  for (const entry of catalog) {
+    const userEnabled = !!state[entry.id]?.enabled;
+    const autoEnabled = build ? isDebuffAutoActive(entry, build) : false;
+    if (!userEnabled && !autoEnabled) continue;
+    const e = entry.effect;
+    const fraction = e.application === 'ramping' && e.rampSeconds
+      ? currentStackFraction(e.rampSeconds, t)
+      : 1;
+    if (e.genericVulnPct)  genericVulnPct += e.genericVulnPct * fraction;
+    if (e.mrrReduction)    mrrSubtract    += e.mrrReduction   * fraction;
+    if (e.prrReduction)    prrSubtract    += e.prrReduction   * fraction;
+    if (e.elementVulnPct) {
+      for (const [el, v] of Object.entries(e.elementVulnPct)) {
+        if (!v) continue;
+        const key = el as SpellDamageType;
+        const scaled = v * fraction;
+        elementVulnPct[key] = (elementVulnPct[key] ?? 0) + scaled;
+        if (key === 'Sonic') sonicVulnPct += scaled;
+      }
+    }
+  }
+  const hasElementVuln = Object.keys(elementVulnPct).length > 0;
+  return {
+    genericVulnPct,
+    sonicVulnPct,
+    effectiveMRR: mrrSubtract ? -mrrSubtract : 0,
+    effectivePRR: prrSubtract ? -prrSubtract : 0,
+    ...(hasElementVuln ? { elementVulnPct } : {}),
+  };
+}
+
 export function aggregateDebuffs(
   state: DebuffState,
   catalog: DebuffEntry[] = DEBUFF_CATALOG,

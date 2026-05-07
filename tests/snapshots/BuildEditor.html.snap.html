@@ -17,7 +17,7 @@
 </header>
 <div class="_controls_b61b79">
 <label class="_field_b61b79">
-<span class="_fieldLabel_b61b79">Rotation</span>
+<span class="_fieldLabel_b61b79">Attack Type</span>
 <select class="_select_b61b79">
 <option value="magic">Magic</option>
 <option value="melee">Melee (coming soon)</option>
@@ -25,8 +25,8 @@
 </select>
 </label>
 <div class="_optimizer_b61b79">
-<button class="_optimizerBtn_b61b79" title="Generate optimal rotation (Max Sustained DPS)">Generate Rotation · Max Sustained DPS</button>
-<button class="_optimizerChevron_b61b79" aria-haspopup="menu" aria-expanded="false" title="Choose objective">▾</button>
+<button class="_optimizerBtn_b61b79" disabled="" title="Optimizer not yet implemented (Phase 6.6)">TODO: Generate Rotation · Max Sustained DPS</button>
+<button class="_optimizerChevron_b61b79" disabled="" aria-haspopup="menu" aria-expanded="false" title="Optimizer objective (not yet implemented)">▾</button>
 </div>
 <label class="_field_b61b79">
 <span class="_fieldLabel_b61b79">Difficulty <span class="_fieldValue_b61b79">Elite</span>
@@ -40,11 +40,42 @@
 </label>
 </div>
 <div class="_editor_b61b79">
+<div class="_targetRow_b61b79">
+<label class="_targetField_b61b79">
+<span class="_targetLabel_b61b79">Target</span>
+<select class="_targetSelect_b61b79" title="Number of available targets in the simulation. AOE spells hit up to their target cap; single-target spells still only hit one.">
+<option value="1">Single Target</option>
+<option value="2">Group of 2</option>
+<option value="3">Group of 3</option>
+<option value="4">Group of 4</option>
+<option value="5">Group of 5</option>
+</select>
+</label>
+<div class="_enemyInfo_b61b79">
+<span class="_enemyLabel_b61b79">Enemy</span>
+<div class="_metric_b61b79" title="Live physical resistance rating. Drifts negative as ramping PRR-shred debuffs stack during simulation playback. Baseline 0 — enemy-side PRR isn't yet modeled.">
+<span class="_metricLabel_b61b79">PRR</span>
+<span class="_metricValue_b61b79">0</span>
+</div>
+<div class="_metric_b61b79" title="Live magical resistance rating. Drifts negative as ramping MRR-shred debuffs stack during simulation playback. Baseline 0 — enemy-side MRR isn't yet modeled.">
+<span class="_metricLabel_b61b79">MRR</span>
+<span class="_metricValue_b61b79">0</span>
+</div>
+<div class="_metric_b61b79" title="Enemy AC isn't modeled yet — will land alongside melee/ranged rotations.">
+<span class="_metricLabel_b61b79">AC</span>
+<span class="_metricValue_b61b79">TODO</span>
+</div>
+<div class="_metric_b61b79" title="Enemy fortification isn't modeled yet — will land alongside crit-handling for melee/ranged.">
+<span class="_metricLabel_b61b79">Fort</span>
+<span class="_metricValue_b61b79">TODO</span>
+</div>
+</div>
+</div>
 <section class="_summary_365780">
 <div class="_summaryHeader_365780">
 <span class="_summaryLabel_365780">Buffs · 0</span>
 </div>
-<div class="_summaryEmpty_365780">No active metamagics — toggle on the Spells tab to add them.</div>
+<div class="_summaryEmpty_365780">No active buffs — toggle them from the Spells tab.</div>
 </section>
 <section class="_summary_3e269b">
 <div class="_summaryHeader_3e269b">
@@ -61,10 +92,10 @@
 </section>
 <div class="_wrapper_45f8b7">
 <div class="_header_45f8b7">
-<span class="_label_45f8b7">Active · 0 spells</span>
-<button type="button" class="_manageBtn_45f8b7" title="Pick which trained spells are available in your rotation">+ Manage</button>
+<span class="_label_45f8b7">Spell &amp; Ability Pool · 0</span>
+<button type="button" class="_manageBtn_45f8b7" title="Pick which trained spells &amp; abilities are available in your rotation">+ Manage</button>
 </div>
-<div class="_empty_45f8b7">No damaging spells trained. Open the <strong>Spells</strong> tab to train spells with damage rolls.</div>
+<div class="_empty_45f8b7">No spells or abilities trained. Check your build.</div>
 </div>
 <div class="_wrapper_dcde76">
 <div class="_header_dcde76">
@@ -75,14 +106,8 @@
 </label>
 <button type="button" class="_clearBtn_dcde76" disabled="">Clear</button>
 </div>
-<div class="_empty_dcde76">Empty rotation. Click an ability from the palette above to add it here.</div>
+<div class="_empty_dcde76">Empty rotation. Click a spell or ability from the pool above to add it here.</div>
 </div>
-<section class="_summary_8a9454">
-<div class="_header_8a9454">
-<span class="_label_8a9454">Rotation DPS</span>
-<span class="_empty_8a9454">Add at least one spell to the rotation to see DPS.</span>
-</div>
-</section>
 <div class="_stats_b61b79">
 <div class="_metric_b61b79">
 <span class="_metricLabel_b61b79">DPS</span>

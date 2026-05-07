@@ -44,7 +44,7 @@ export function BuffsList({ build, metamagics }: Props) {
       </div>
       {active.length === 0 ? (
         <div className={styles.summaryEmpty}>
-          No active metamagics — toggle on the Spells tab to add them.
+          No active buffs — toggle them from the Spells tab.
         </div>
       ) : (
         <div className={styles.chips}>

@@ -99,6 +99,21 @@ export interface DamageComponent {
    *  badge so the user knows the source is recognized but the math
    *  isn't modeled. */
   placeholderDamage?: boolean;
+  /** Maximum number of distinct enemy targets this component damages
+   *  per fire. Inherited from the parent spell's `maxTargetCap`:
+   *    • 1   — single-target (default)
+   *    • 100 — uncapped AoE
+   *    • N   — bounded multi-target (chain spells)
+   *  The calculator multiplies by `min(targetCap, ctx.targetCount)`
+   *  for components that scale per target (base damage, per-hit procs).
+   *  Per-cast chance procs (Shiradi mantle) opt out — they fire at
+   *  most once per cast regardless of targets. */
+  targetCap?: number;
+  /** When true, this component fires at most once per cast regardless
+   *  of how many targets the parent spell hits. Set on per-cast chance
+   *  procs (Shiradi) so the target multiplier doesn't apply. Other
+   *  components default to scaling with target count. */
+  capsAtOnePerCast?: boolean;
 }
 
 /**
@@ -161,5 +176,6 @@ export function abilityToBaseComponents(
     scaleProfile: 'spell',
     useGenericVuln: true,
     useMRR: true,
+    targetCap: ability.maxTargetCap,
   }));
 }

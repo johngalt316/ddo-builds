@@ -67,16 +67,13 @@ export function RotationPalette({
     <div className={styles.wrapper}>
       <div className={styles.header}>
         <span className={styles.label}>
-          Active · {abilities.length} spell{abilities.length === 1 ? '' : 's'}
-          {abilities.length > 1 && (
-            <span className={styles.priorityHint}> · drag to reorder priority</span>
-          )}
+          Spell &amp; Ability Pool · {abilities.length}
         </span>
         <button
           type="button"
           className={styles.manageBtn}
           onClick={onManage}
-          title="Pick which trained spells are available in your rotation"
+          title="Pick which trained spells &amp; abilities are available in your rotation"
         >
           + Manage
         </button>
@@ -85,7 +82,7 @@ export function RotationPalette({
       {abilities.length === 0 ? (
         <div className={styles.empty}>
           {totalTrained === 0 ? (
-            <>No damaging spells trained. Open the <strong>Spells</strong> tab to train spells with damage rolls.</>
+            <>No spells or abilities trained. Check your build.</>
           ) : (
             <>You have <strong>{totalTrained}</strong> trained damaging spells. Click <strong>Manage</strong> to pick which ones are active in your rotation.</>
           )}

@@ -56,6 +56,13 @@ export interface MagicAbility {
   charges: number;
   /** Hard cap on the spell's caster level scaling. */
   maxCasterLevel: number;
+  /** Maximum number of distinct enemy targets one cast can damage.
+   *  1 = single-target (default), 100 = uncapped AoE, N = bounded
+   *  multi-target (e.g. chain spells). Sourced from
+   *  `DDOSpellData.maxTargetCap`. The simulator multiplies damage by
+   *  `min(maxTargetCap, ctx.targetCount)` so AoE spells scale up with
+   *  the user's chosen target group while single-target spells don't. */
+  maxTargetCap: number;
   /** Per-element damage rolls. Phase 6.3 turns these into numbers. */
   damages: DDOSpellDamage[];
   /** Cast time in seconds. Estimated until per-spell timing data lands —
@@ -257,6 +264,7 @@ export function getMagicAbilities(
         const cost     = classSpell?.cost           ?? data.cost           ?? 0;
         const cooldown = classSpell?.cooldown       ?? data.cooldown       ?? 0;
         const maxCL    = classSpell?.maxCasterLevel ?? data.maxCasterLevel ?? 0;
+        const maxTargetCap = data.maxTargetCap ?? 1;
         classSpells.push({
           id: `${className}::${name}`,
           source: 'spell',
@@ -270,6 +278,7 @@ export function getMagicAbilities(
           cooldown,
           charges: 0,                      // class spells are unlimited
           maxCasterLevel: maxCL,
+          maxTargetCap,
           damages: data.damages,
           castTime: spellLevel >= 5 ? 2.0 : 1.0,
           category: categorizeAbility(data.damages, false),
@@ -300,6 +309,7 @@ export function getMagicAbilities(
       cooldown:       sla.cooldown       || data.cooldown       || 0,
       charges:        sla.charges        || 0,
       maxCasterLevel: sla.maxCasterLevel || data.maxCasterLevel || 0,
+      maxTargetCap:   data.maxTargetCap ?? 1,
       damages: data.damages,
       // SLAs typically cast quickly; same heuristic as spells for now.
       castTime: 1.0,
@@ -336,6 +346,7 @@ export function getMagicAbilities(
       cooldown:       u.cooldown,
       charges:        0,
       maxCasterLevel: 0,
+      maxTargetCap:   1,
       damages:        [],
       castTime:       u.castTime,
       slaCategory:    'feat',
@@ -657,6 +668,7 @@ function collectClickieAbilities(
         cooldown,
         charges,
         maxCasterLevel: 0,
+        maxTargetCap:   1,
         damages:        [],
         castTime:       0.5,
         slaCategory:    'enhancement',

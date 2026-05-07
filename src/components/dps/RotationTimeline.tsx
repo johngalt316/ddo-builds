@@ -167,7 +167,7 @@ export function RotationTimeline({
 
       {steps.length === 0 ? (
         <div className={styles.empty}>
-          Empty rotation. Click an ability from the palette above to add it here.
+          Empty rotation. Click a spell or ability from the pool above to add it here.
         </div>
       ) : (
         <div className={styles.scroll} ref={scrollRef}>

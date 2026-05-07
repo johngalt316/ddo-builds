@@ -32,6 +32,11 @@ import { projectileCount } from './spellRules';
 export interface ProcContext {
   /** Total sneak-attack dice the build accumulates. Drives Magical Ambush. */
   sneakAttackDice: number;
+  /** Number of available targets in the simulation (1–5). Per-target
+   *  damage scales by `min(spell.maxTargetCap, targetCount)`. Default 1
+   *  when omitted. Procs read this through `ActiveSpell.maxTargetCap`
+   *  when emitting per-spell components. */
+  targetCount?: number;
 }
 
 /** A spell currently in the user's active rotation. */
@@ -40,6 +45,12 @@ export interface ActiveSpell {
   name: string;
   /** Effective caster level for this spell. */
   casterLevel: number;
+  /** Maximum number of distinct enemy targets per cast (1 / 100 / N).
+   *  Procs that fire per-target (Magical Ambush adding sneak dice to
+   *  each enemy hit) inherit this so the engine can multiply triggers
+   *  by `min(targetCap, ctx.targetCount)`. Optional — undefined =
+   *  treat as single-target. */
+  maxTargetCap?: number;
 }
 
 export interface Proc {
@@ -425,6 +436,9 @@ export const MAGICAL_AMBUSH: Proc = {
       scaleProfile: profile,
       useGenericVuln: true,
       useMRR: true,
+      // Inherit the parent spell's target cap so AoE casts (e.g.
+      // Fireball at 5 enemies) trigger Magical Ambush per target.
+      targetCap: s.maxTargetCap,
     }));
   },
 };

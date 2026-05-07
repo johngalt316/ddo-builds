@@ -55,6 +55,7 @@
       "dcs": [],
       "effects": [],
       "maxCasterLevel": 20,
+      "maxTargetCap": 1,
       "cooldown": 2
     },
     "sleep": {
@@ -78,7 +79,8 @@
           "castingStatMod": true
         }
       ],
-      "effects": []
+      "effects": [],
+      "maxTargetCap": 1
     },
     "sonicBlast": {
       "name": "Sonic Blast",
@@ -116,6 +118,7 @@
       ],
       "effects": [],
       "maxCasterLevel": 5,
+      "maxTargetCap": 100,
       "cooldown": 2
     }
   }

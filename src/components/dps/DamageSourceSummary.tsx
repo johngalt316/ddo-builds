@@ -3,8 +3,7 @@
 // Sits under the RotationChart and breaks down each component's
 // share of the total per-minute damage. Each row carries a tooltip
 // with the exact dmg/min and dmg/trigger numbers so the user can
-// cross-check against the reference spreadsheet without expanding
-// the full RotationDPSSummary table.
+// cross-check against the reference spreadsheet.
 
 import { useMemo } from 'react';
 import type { DamageBreakdown } from '@/engine/dps/calculator';
