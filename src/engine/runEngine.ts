@@ -19,6 +19,7 @@ import {
   breakdownAbilityScore, breakdownHitPoints, breakdownSave,
   breakdownDoublestrike, breakdownDoubleshot, breakdownSneakAttackDice,
   breakdownOffHandChance,
+  breakdownWeaponCritRange, breakdownWeaponCritMult, breakdownWeaponCritMult1920,
   breakdownSeeker,
   breakdownImbueDice,
   breakdownMeleePower, breakdownRangedPower,
@@ -121,6 +122,12 @@ export interface EngineResult {
   /** Off-hand attack chance bonus from enhancements / destinies (stacks on
    *  top of the TWF feat base: 0/40/60/80%). Cap is enforced in melee calc. */
   offHandChance: BreakdownResult;
+  /** Flat faces added to the weapon's crit threat range after IC doubling. */
+  weaponCritRange: BreakdownResult;
+  /** Flat bonus to crit multiplier on every crit. */
+  weaponCritMult: BreakdownResult;
+  /** Flat bonus to crit multiplier only on 19–20 rolls. */
+  weaponCritMult1920: BreakdownResult;
   /** Seeker total — flat damage bonus applied before crit multiplier on
    *  successful critical hits (melee and ranged). */
   seeker: BreakdownResult;
@@ -569,6 +576,9 @@ export function runEngine(input: RunEngineInput): EngineResult {
     doubleshot:        breakdownDoubleshot(allBonuses, rules),
     sneakAttackDice:   breakdownSneakAttackDice(allBonuses, rules),
     offHandChance:     breakdownOffHandChance(allBonuses, rules),
+    weaponCritRange:   breakdownWeaponCritRange(allBonuses, rules),
+    weaponCritMult:    breakdownWeaponCritMult(allBonuses, rules),
+    weaponCritMult1920: breakdownWeaponCritMult1920(allBonuses, rules),
     seeker:            breakdownSeeker(allBonuses, rules),
     imbueDice:         breakdownImbueDice(allBonuses, rules),
     meleeSpeed:        breakdownMeleeSpeed(allBonuses, rules),

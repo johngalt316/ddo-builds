@@ -136,6 +136,22 @@ export function breakdownOffHandChance(bonuses: Bonus[], rules: StackingRules): 
   return stackBonuses(ofType(bonuses, 'OffHandAttackBonus'), rules);
 }
 
+// ── Weapon critical stats ────────────────────────────────────────────
+// Flat bonus faces added to the weapon's crit threat range after IC.
+export function breakdownWeaponCritRange(bonuses: Bonus[], rules: StackingRules): BreakdownResult {
+  return stackBonuses(ofType(bonuses, 'Weapon_CriticalRange'), rules);
+}
+
+// Flat bonus added to the critical multiplier on every crit.
+export function breakdownWeaponCritMult(bonuses: Bonus[], rules: StackingRules): BreakdownResult {
+  return stackBonuses(ofType(bonuses, 'Weapon_CriticalMultiplier'), rules);
+}
+
+// Flat bonus added to the critical multiplier only on 19–20 rolls.
+export function breakdownWeaponCritMult1920(bonuses: Bonus[], rules: StackingRules): BreakdownResult {
+  return stackBonuses(ofType(bonuses, 'Weapon_CriticalMultiplier19To20'), rules);
+}
+
 export function breakdownSeeker(bonuses: Bonus[], rules: StackingRules): BreakdownResult {
   return stackBonuses(ofType(bonuses, 'Weapon_AttackAndDamageCritical'), rules);
 }

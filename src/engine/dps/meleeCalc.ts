@@ -5,10 +5,10 @@
 // Doublestrike and Seeker. Ki strikes, on-hit procs, and sneak attack
 // are deferred to Phase 2.
 
-import type { Build } from '@/types/build';
+import type { Build, GearItem } from '@/types/build';
 import type { EngineResult } from '@/engine/runEngine';
 import { abilityModifier } from '@/engine';
-import type { GearItem } from '@/types/build';
+import type { Stat } from '@/types/build';
 
 export type WeaponCategory = 'handwraps' | 'one-handed' | 'two-handed';
 export type TWFStyle = 'none' | 'twf' | 'itwf' | 'gtwf';
@@ -28,24 +28,39 @@ export interface MeleeWeaponInfo {
 
 export interface MeleeBuildStats {
   statMod: number;
+  damageStat: Stat;          // which ability contributes to melee damage
   meleePower: number;
-  doublestrike: number;    // %
-  meleeAlacrity: number;   // %, caller-clamped to [0, 15]
+  doublestrike: number;      // %
+  meleeAlacrity: number;     // %, caller-clamped to [0, 15]
   seeker: number;
   hasImprovedCritical: boolean;
+  /** Flat faces added to threat range after IC doubling. */
+  critRangeBonus: number;
+  /** Flat bonus to critical multiplier on every crit. */
+  critMultBonus: number;
+  /** Flat bonus to critical multiplier on 19–20 rolls only. */
+  critMult1920Bonus: number;
   twfStyle: TWFStyle;
-  offHandChance: number;   // % (all sources, capped at 100)
+  offHandChance: number;     // % (all sources, capped at 100)
   isHandwraps: boolean;
-  hasPerfectTWF: boolean;  // raises OH DS fraction from 50% → 65%
+  hasPerfectTWF: boolean;    // raises OH DS fraction from 50% → 65%
 }
 
 export interface MeleeDPSResult {
   avgBaseDamage: number;
   avgScaledDamage: number;
   avgPerHit: number;
+  /** Total threat faces (after IC + range bonuses). */
+  critThreatFaces: number;
+  /** Overall crit chance = critThreatFaces / 20. */
   critChance: number;
-  critMultiplier: number;
+  /** Crit mult on all crits (base + critMultBonus). */
+  critMultOnAll: number;
+  /** Crit mult on 19-20 rolls (critMultOnAll + critMult1920Bonus). */
+  critMultOn1920: number;
   seeker: number;
+  damageStat: Stat;
+  damageStatMod: number;
   mhAttacksPerMin: number;
   ohAttacksPerMin: number;
   effectiveMHPerMin: number;
@@ -55,11 +70,8 @@ export interface MeleeDPSResult {
   ohDPS: number;
   totalAutoDPS: number;
   meleePower: number;
-  /** Main-hand doublestrike % (full value). */
   doublestrike: number;
-  /** Off-hand effective doublestrike % after the OH fraction is applied. */
   doublestrikeOH: number;
-  /** Fraction applied to MH DS to get OH DS (0.50 / 0.65 / 1.00). */
   ohDSFraction: number;
   meleeAlacrity: number;
 }
@@ -141,39 +153,51 @@ export function meleeDPS(
   weapon: MeleeWeaponInfo,
   stats: MeleeBuildStats,
 ): MeleeDPSResult {
-  // Per-hit damage
+  // ── Per-hit damage ──────────────────────────────────────────────
   const avgDice = weapon.diceNum * (weapon.diceSides + 1) / 2;
   const avgBase = avgDice + weapon.diceBonus + stats.statMod + weapon.enchantBonus;
   const scaled  = avgBase * (1 + stats.meleePower / 100);
 
-  const effectiveThreat = stats.hasImprovedCritical
+  // ── Crit threat range ───────────────────────────────────────────
+  // IC doubles the base, then flat bonuses add on top.
+  const rangeAfterIC   = stats.hasImprovedCritical
     ? weapon.critThreatBase * 2
     : weapon.critThreatBase;
-  const critChance = effectiveThreat / 20;
+  const totalFaces     = rangeAfterIC + stats.critRangeBonus;
+  const critChance     = totalFaces / 20;
 
-  const avgOnNormal = scaled;
-  const avgOnCrit   = (scaled + stats.seeker) * weapon.critMultiplier;
-  const avgPerHit   = (1 - critChance) * avgOnNormal + critChance * avgOnCrit;
+  // ── Split crit multipliers ──────────────────────────────────────
+  // Bonuses from OC / Pulverizer / Blunt Trauma only apply on 19-20
+  // rolls, not on lower crit faces (e.g. 18 from crit range expansion).
+  const multOnAll   = weapon.critMultiplier + stats.critMultBonus;
+  const multOn1920  = multOnAll + stats.critMult1920Bonus;
 
-  // Attack rates
+  // Faces that roll 19-20 vs all other crit faces.
+  const faces1920   = Math.min(2, totalFaces);
+  const facesOther  = Math.max(0, totalFaces - 2);
+
+  // Weighted average per hit across all outcomes:
+  //   non-crit:  scaled damage only
+  //   crit ≤18:  (scaled + seeker) × multOnAll
+  //   crit 19-20: (scaled + seeker) × multOn1920
+  const avgPerHit = (1 - critChance) * scaled
+    + (facesOther / 20) * (scaled + stats.seeker) * multOnAll
+    + (faces1920  / 20) * (scaled + stats.seeker) * multOn1920;
+
+  // ── Attack rates ─────────────────────────────────────────────────
   const alacrity = Math.min(Math.max(0, stats.meleeAlacrity), 15);
   const mhAPM    = meleeAttacksPerMin(weapon.category, alacrity);
   const ohFrac   = Math.min(1.0, stats.offHandChance / 100);
   const ohAPM    = mhAPM * ohFrac;
 
-  // Doublestrike
-  // MH: full DS value.
-  // OH: scaled by a fraction of MH DS —
-  //   • handwraps/unarmed: 100% (no penalty, unique quirk)
-  //   • Perfect TWF:        65%
-  //   • standard TWF:       50%
-  const dsMH = stats.doublestrike / 100;
+  // ── Doublestrike ─────────────────────────────────────────────────
+  // Applies to all melee attacks (confirmed).
+  // OH DS fraction: 100% for handwraps, 65% for PTWF, 50% standard.
+  const dsMH       = stats.doublestrike / 100;
   const ohDSFraction = stats.isHandwraps
     ? 1.00
-    : stats.hasPerfectTWF
-      ? 0.65
-      : 0.50;
-  const dsOH = dsMH * ohDSFraction;
+    : stats.hasPerfectTWF ? 0.65 : 0.50;
+  const dsOH       = dsMH * ohDSFraction;
 
   const effectiveMH    = mhAPM * (1 + dsMH);
   const effectiveOH    = ohAPM * (1 + dsOH);
@@ -186,9 +210,13 @@ export function meleeDPS(
     avgBaseDamage:        avgBase,
     avgScaledDamage:      scaled,
     avgPerHit,
+    critThreatFaces:      totalFaces,
     critChance,
-    critMultiplier:       weapon.critMultiplier,
+    critMultOnAll:        multOnAll,
+    critMultOn1920:       multOn1920,
     seeker:               stats.seeker,
+    damageStat:           stats.damageStat,
+    damageStatMod:        stats.statMod,
     mhAttacksPerMin:      mhAPM,
     ohAttacksPerMin:      ohAPM,
     effectiveMHPerMin:    effectiveMH,
@@ -235,26 +263,42 @@ export function buildStatsFromEngine(
   weaponInfo: MeleeWeaponInfo,
   alacrityOverride?: number,
 ): MeleeBuildStats {
-  const statMod = weaponInfo.attackStat === 'Dexterity'
-    ? abilityModifier(engine.abilityScores.DEX.total)
-    : abilityModifier(engine.abilityScores.STR.total);
+  // ── Effective damage stat ─────────────────────────────────────────
+  // Weapon_DamageAbility bonuses replace the weapon's own damage stat.
+  // If multiple sources grant different replacements, use the one with
+  // the highest modifier (e.g. WIS +43 beats STR +5 for a monk build).
+  const STAT_MAP: Record<string, Stat> = {
+    strength: 'STR', dexterity: 'DEX', constitution: 'CON',
+    intelligence: 'INT', wisdom: 'WIS', charisma: 'CHA',
+  };
+  let damageStat: Stat = weaponInfo.attackStat === 'Dexterity' ? 'DEX' : 'STR';
+  let bestMod = abilityModifier(engine.abilityScores[damageStat].total);
+  for (const b of engine.allBonuses) {
+    if (b.effectType !== 'Weapon_DamageAbility') continue;
+    const tgt = (b.target ?? '').toLowerCase();
+    const candidate = STAT_MAP[tgt] as Stat | undefined;
+    if (!candidate) continue;
+    const mod = abilityModifier(engine.abilityScores[candidate].total);
+    if (mod > bestMod) { bestMod = mod; damageStat = candidate; }
+  }
+  const statMod = bestMod;
 
-  const twfStyle   = detectTWFStyle(build);
-  // TWF feats (OffHandAttackBonus type) and enhancement bonuses are all summed
-  // by the engine breakdown — including the inherent +20 base from "Attack:
-  // Standard off hand attack chance" that fires for every dual-wielder.
-  // Two-handed weapons can't produce off-hand attacks regardless.
-  const ohBonus    = weaponInfo.category === 'two-handed' ? 0 : engine.offHandChance.total;
-  const ohChance   = Math.min(100, ohBonus);
-  const alacrity   = alacrityOverride ?? engine.meleeSpeed.total;
+  const twfStyle = detectTWFStyle(build);
+  const ohBonus  = weaponInfo.category === 'two-handed' ? 0 : engine.offHandChance.total;
+  const ohChance = Math.min(100, ohBonus);
+  const alacrity = alacrityOverride ?? engine.meleeSpeed.total;
 
   return {
     statMod,
+    damageStat,
     meleePower:          engine.meleePower.total,
     doublestrike:        engine.doublestrike.total,
     meleeAlacrity:       alacrity,
     seeker:              engine.seeker.total,
     hasImprovedCritical: detectImprovedCritical(build),
+    critRangeBonus:      engine.weaponCritRange.total,
+    critMultBonus:       engine.weaponCritMult.total,
+    critMult1920Bonus:   engine.weaponCritMult1920.total,
     twfStyle,
     offHandChance:       ohChance,
     isHandwraps:         weaponInfo.category === 'handwraps',

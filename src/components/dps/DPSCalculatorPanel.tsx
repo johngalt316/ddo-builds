@@ -916,13 +916,15 @@ function MeleeEditor({
   const fmt = (n: number, d = 0) => n.toLocaleString('en-US', { maximumFractionDigits: d });
   const pct = (n: number)        => `${fmt(n, 1)}%`;
 
-  const effectiveThreat = buildStats?.hasImprovedCritical
-    ? (weaponInfo?.critThreatBase ?? 1) * 2
-    : (weaponInfo?.critThreatBase ?? 1);
+  // Use the computed result's crit faces when available (includes all bonuses).
+  const totalFaces     = result?.critThreatFaces ?? (() => {
+    const base = weaponInfo?.critThreatBase ?? 1;
+    return (buildStats?.hasImprovedCritical ? base * 2 : base) + (buildStats?.critRangeBonus ?? 0);
+  })();
   const critDisplay = weaponInfo
-    ? effectiveThreat <= 1
-      ? `20 / ×${weaponInfo.critMultiplier}`
-      : `${21 - effectiveThreat}–20 / ×${weaponInfo.critMultiplier}${buildStats?.hasImprovedCritical ? ' (IC)' : ''}`
+    ? totalFaces <= 1
+      ? `20 / ×${result?.critMultOnAll ?? weaponInfo.critMultiplier}`
+      : `${21 - totalFaces}–20 / ×${result?.critMultOnAll ?? weaponInfo.critMultiplier}${(result?.critMult1920Bonus ?? 0) > 0 ? ` (×${result?.critMultOn1920} on 19-20)` : ''}`
     : '';
 
   return (
@@ -1030,6 +1032,10 @@ function MeleeEditor({
         </div>
         {buildStats && result && (
           <div className={styles.meleeStatRow}>
+            <span className={styles.meleeStatChip}
+              title={`Damage scales from ${result.damageStat} (mod +${result.damageStatMod})`}>
+              {result.damageStat} +{result.damageStatMod}
+            </span>
             <span className={styles.meleeStatChip}>MP {fmt(buildStats.meleePower)}</span>
             <span className={styles.meleeStatChip} title="Main-hand doublestrike">
               DS MH {pct(buildStats.doublestrike)}
@@ -1037,14 +1043,17 @@ function MeleeEditor({
             <span
               className={styles.meleeStatChip}
               title={
-                buildStats.isHandwraps   ? 'Handwraps: OH DS = MH DS (no penalty)'
+                buildStats.isHandwraps     ? 'Handwraps: OH DS = MH DS (no penalty)'
                 : buildStats.hasPerfectTWF ? 'Perfect TWF: OH DS = 65% of MH DS'
                 : 'Standard TWF: OH DS = 50% of MH DS'
               }
             >
               DS OH {pct(result.doublestrikeOH)}
             </span>
-            {buildStats.hasImprovedCritical && <span className={styles.meleeStatChip}>IC</span>}
+            <span className={styles.meleeStatChip}
+              title={`Crit: ${21 - result.critThreatFaces}-20 = ${pct(result.critChance * 100)}, ×${result.critMultOnAll}${result.critMult1920Bonus > 0 ? ` / ×${result.critMultOn1920} on 19-20` : ''}`}>
+              Crit {pct(result.critChance * 100)}
+            </span>
             {buildStats.seeker > 0 && (
               <span className={styles.meleeStatChip}>Seeker +{buildStats.seeker}</span>
             )}
@@ -1063,7 +1072,7 @@ function MeleeEditor({
         <Metric label="DPS"         value={result ? fmt(Math.round(result.totalAutoDPS))        : '—'} />
         <Metric label="Hits / min"  value={result ? fmt(Math.round(result.totalEffectivePerMin)) : '—'} />
         <Metric label="Avg / Hit"   value={result ? fmt(result.avgPerHit, 1)                    : '—'} />
-        <Metric label="Crit Chance" value={result ? pct(result.critChance * 100)                : '—'} />
+        <Metric label="Crit Chance" value={result ? pct(result.critChance * 100) : '—'} />
       </div>
 
       {/* Enhancement-set comparison (mirrors magic compare row) */}
@@ -1137,8 +1146,10 @@ function MeleeEditor({
             <span className={styles.meleeBreakdownLabel}>Avg / Hit (crits)</span>
             <span className={styles.meleeBreakdownValue}>{fmt(result.avgPerHit, 1)}</span>
             <span className={styles.meleeBreakdownSub}>
-              {pct(result.critChance * 100)} crit → ×{result.critMultiplier}
-              {result.seeker > 0 ? ` + ${result.seeker} Seeker` : ''}
+              {pct(result.critChance * 100)} crit
+              {' → '}×{result.critMultOnAll}
+              {result.critMult1920Bonus > 0 ? ` / ×${result.critMultOn1920} on 19-20` : ''}
+              {result.seeker > 0 ? ` · Seeker +${result.seeker}` : ''}
             </span>
           </div>
         </div>
