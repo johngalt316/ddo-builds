@@ -114,23 +114,22 @@ export interface MagicAbility {
 }
 
 export type AbilityCategory = 'damage' | 'heal' | 'boost' | 'cc' | 'debuff' | 'utility';
-export type AttackMode     = 'magic' | 'melee' | 'ranged';
+export type AttackMode = 'magic' | 'melee' | 'ranged' | 'boost';
 
 /**
  * Infer the attack mode from a description string.
  *
- * Abilities whose descriptions start with (or contain) phrases like
- * "Ki Melee Attack:", "Centered Melee Attack:", "Epic Strike: Melee Attack:",
- * "Fire Ki Melee Attack:", etc. are physical weapon-based attacks → 'melee'.
- * Phrases like "AOE Ranged Attack:", "Epic Strike: AOE Ranged Attack:" → 'ranged'.
- * Everything else (spells, SLAs, buffs) stays 'magic'.
+ * DDO enhancement descriptions label their attack type with a phrase
+ * ending in a colon ("Ki Melee Attack:", "AOE Ranged Attack:", etc.).
+ * The colon is required so passive phrases like "each time you hit a
+ * creature with a melee attack." don't trigger a false positive.
+ *
+ * 'boost' is NOT inferred here — the caller sets it explicitly when the
+ * ability category is 'boost' (action boosts, reaper boosts, etc.).
  */
-export function inferAttackMode(description: string): AttackMode {
-  // Attack-type labels in DDO enhancement descriptions always end with a
-  // colon ("Ki Melee Attack:", "AOE Ranged Attack:", etc.).  Requiring the
-  // colon prevents false matches from passive text like "each time you hit
-  // a creature with a melee attack." appearing in unrelated descriptions.
+export function inferAttackMode(description: string): Exclude<AttackMode, 'boost'> {
   if (/\bmelee attack:/i.test(description))  return 'melee';
+  if (/\bcleave attack:/i.test(description)) return 'melee';  // Quick Cutter, whirlwind strikes
   if (/\branged attack:/i.test(description)) return 'ranged';
   return 'magic';
 }
@@ -307,7 +306,7 @@ export function getMagicAbilities(
           damages: data.damages,
           castTime: spellLevel >= 5 ? 2.0 : 1.0,
           category: categorizeAbility(data.damages, false),
-          attackMode: 'magic' as AttackMode,
+          attackMode: 'magic',
         });
       }
     }
@@ -319,11 +318,15 @@ export function getMagicAbilities(
   for (const sla of slas) {
     const data = spellByName.get(sla.name);
     if (!data) continue;
-    if (data.damages.length === 0) continue;
-    // SLA-side metadata wins when the granting effect specifies it; many
-    // sources (e.g. Past Life: Arcane Initiate's Magic Missile carries
-    // `<Amount>0 0 0 0</Amount>`) don't, so fall back to the underlying
-    // spell catalog for cost / cooldown / maxCL.
+    if (data.damages.length === 0 && !data.placeholderDamage) continue;
+    // Placeholder-damage spells have no damage rolls yet but deal real
+    // damage in-game. Treat them as 'damage' so the inferAttackMode call
+    // below correctly classifies melee/ranged strikes (not 'boost').
+    const slaCategory = data.placeholderDamage ? 'damage' : categorizeAbility(data.damages, false);
+    const slaAttackMode: AttackMode = slaCategory === 'boost'
+      ? 'boost'
+      : inferAttackMode(data.description);
+    const slaCastTime = slaAttackMode === 'melee' || slaAttackMode === 'boost' ? 0.5 : 1.0;
     slaAbilities.push({
       id: `sla::${sla.name}::${sla.source}`,
       source: 'sla',
@@ -337,19 +340,13 @@ export function getMagicAbilities(
       maxCasterLevel: sla.maxCasterLevel || data.maxCasterLevel || 0,
       maxTargetCap:   data.maxTargetCap ?? 1,
       damages: data.damages,
-      // SLAs typically cast quickly; same heuristic as spells for now.
-      castTime: 1.0,
+      castTime: slaCastTime,
       slaCategory: sla.category,
       slaSource: sla.source,
-      // Epic Strike SLAs share a cooldown across the whole group: firing
-      // any of them puts every other Epic Strike on cooldown until that
-      // one is ready again. Detected via the source label tail
-      // ("Epic Strike → Nightmare Lance" etc.) which the destiny trees
-      // use uniformly. Other shared-CD groups can be added by detecting
-      // their source pattern here.
       cooldownGroup: EPIC_STRIKE_SOURCE_RE.test(sla.source) ? 'epic-strike' : undefined,
-      category:    categorizeAbility(data.damages, false),
-      attackMode:  inferAttackMode(data.description),
+      category:   slaCategory,
+      attackMode: slaAttackMode,
+      ...(data.placeholderDamage && { placeholderDamage: true }),
     });
   }
 
@@ -380,7 +377,7 @@ export function getMagicAbilities(
       slaSource:      `${u.featId} (feat)`,
       isUtility:      true,
       category:       'boost',
-      attackMode:     'magic' as AttackMode,
+      attackMode:     'boost',
     });
   }
 
@@ -704,7 +701,7 @@ function collectClickieAbilities(
         isUtility:      true,
         category,
         placeholderDamage,
-        attackMode: inferAttackMode(item.description),
+        attackMode: category === 'boost' ? 'boost' : inferAttackMode(item.description),
       });
     }
   }

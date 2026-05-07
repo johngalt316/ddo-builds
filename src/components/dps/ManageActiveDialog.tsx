@@ -29,6 +29,8 @@ interface Props {
   onResetToTop?: () => string[];
   /** Which attack type to show by default when the dialog opens.
    *  Matches the active Attack Type dropdown in the panel. */
+  /** Which attack type to pre-select when the dialog opens. Boosts are
+   *  always shown alongside any mode (they don't interrupt auto attacks). */
   defaultAttackMode?: AttackMode;
 }
 
@@ -69,6 +71,14 @@ export function ManageActiveDialog({ open, abilities, active, onClose, onApply, 
 
   // Per-tab counts so the tab strip can show a quick "(N)" hint
   // for the inactive Available pool the user is browsing.
+  // Boosts are always visible alongside any attack mode — they don't
+  // interrupt auto attacks so they're relevant no matter what's active.
+  function matchesMode(mode: AttackMode, abilityMode: AttackMode): boolean {
+    if (abilityMode === 'boost') return true;          // boosts show in all modes
+    if (mode === 'boost') return abilityMode === 'boost';
+    return abilityMode === mode;
+  }
+
   const inactiveCountsByTab = useMemo(() => {
     const draftSet = new Set(draft);
     const counts: Record<AbilityCategory, number> = {
@@ -76,11 +86,12 @@ export function ManageActiveDialog({ open, abilities, active, onClose, onApply, 
     };
     for (const a of abilities) {
       if (draftSet.has(a.id)) continue;
-      if (a.attackMode !== attackMode) continue;
+      if (!matchesMode(attackMode, a.attackMode)) continue;
       if (!includeCharged && a.charges > 0) continue;
       counts[a.category]++;
     }
     return counts;
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [abilities, draft, includeCharged, attackMode]);
 
   const abilityById = useMemo(() => {
@@ -97,7 +108,7 @@ export function ManageActiveDialog({ open, abilities, active, onClose, onApply, 
     const lc = filter.trim().toLowerCase();
     const filtered = abilities.filter(a => {
       if (draftSet.has(a.id)) return false;
-      if (a.attackMode !== attackMode) return false;
+      if (!matchesMode(attackMode, a.attackMode)) return false;
       if (a.category !== tab) return false;
       if (!includeCharged && a.charges > 0) return false;
       if (!lc) return true;
@@ -133,7 +144,7 @@ export function ManageActiveDialog({ open, abilities, active, onClose, onApply, 
     return draft.flatMap(id => {
       const a = abilityById.get(id);
       if (!a) return [];
-      if (a.attackMode !== attackMode) return [];
+      if (!matchesMode(attackMode, a.attackMode)) return [];
       if (lc && !a.name.toLowerCase().includes(lc) && !a.school.toLowerCase().includes(lc)) {
         return [];
       }
@@ -224,6 +235,7 @@ export function ManageActiveDialog({ open, abilities, active, onClose, onApply, 
             <option value="magic">Magic</option>
             <option value="melee">Melee</option>
             <option value="ranged">Ranged</option>
+            <option value="boost">Boosts only</option>
           </select>
           <input
             type="search"

@@ -17050,4 +17050,25 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
     </SpellDamage>
     <Cooldown>15</Cooldown>
   </Spell>
+  <!-- ddo-builds patch: Epic Strike selector abilities not in DDOBuilderV2 spell catalog. -->
+  <Spell>
+    <Name>Quick Cutter</Name>
+    <Description>Epic Strike: Melee Attack: Cleave — Strike all enemies around you twice, dealing weapon damage +[10/20/30]%. Enemies hit gain Cutter: 1d6 Slash damage per Character Level every 2 seconds (scales 200% Melee Power, stacks 3×). You gain Quick: +[2/4/6]% Dodge for 9 seconds. Cooldown: 8 seconds. Shares cooldown with all Epic Strikes.</Description>
+    <Icon>QuickCutter</Icon>
+    <School>Conjuration</School>
+    <MaxCasterLevel>0</MaxCasterLevel>
+    <MaxTargetCap>5</MaxTargetCap>
+    <PlaceholderDamage/>
+    <Cooldown>8</Cooldown>
+  </Spell>
+  <Spell>
+    <Name>Adrenaline</Name>
+    <Description>Epic Strike: Melee Attack: Your next attack deals +[25/50/75]% damage and increases your threat by 16. Cooldown: 9 seconds. Shares cooldown with all Epic Strikes.</Description>
+    <Icon>Adrenaline</Icon>
+    <School>Conjuration</School>
+    <MaxCasterLevel>0</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
+    <PlaceholderDamage/>
+    <Cooldown>9</Cooldown>
+  </Spell>
 </Spells>

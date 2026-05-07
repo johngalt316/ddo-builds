@@ -586,10 +586,11 @@ export function parseSpellsXml(xml: string): DDOSpellData[] {
       dcs,
       effects,
     };
-    if (spell.querySelector(':scope > Cost'))            out.cost           = num(spell, 'Cost');
-    if (spell.querySelector(':scope > MaxCasterLevel'))  out.maxCasterLevel = num(spell, 'MaxCasterLevel');
-    if (spell.querySelector(':scope > MaxTargetCap'))    out.maxTargetCap   = num(spell, 'MaxTargetCap');
-    if (spell.querySelector(':scope > Cooldown'))        out.cooldown       = parseFloat(text(spell, 'Cooldown'));
+    if (spell.querySelector(':scope > Cost'))             out.cost             = num(spell, 'Cost');
+    if (spell.querySelector(':scope > MaxCasterLevel'))   out.maxCasterLevel   = num(spell, 'MaxCasterLevel');
+    if (spell.querySelector(':scope > MaxTargetCap'))     out.maxTargetCap     = num(spell, 'MaxTargetCap');
+    if (spell.querySelector(':scope > Cooldown'))         out.cooldown         = parseFloat(text(spell, 'Cooldown'));
+    if (spell.querySelector(':scope > PlaceholderDamage')) out.placeholderDamage = true;
     spells.push(out);
   }
   return spells;
