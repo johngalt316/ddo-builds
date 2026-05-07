@@ -8,13 +8,14 @@
 // Layout mirrors DebuffsSummary so they sit naturally next to each other
 // in the DPS panel.
 
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useMemo } from 'react';
 import { PROC_CATALOG, type Proc, computeMetamagicSP } from '@/engine/dps/procs';
 import type { Build } from '@/types/build';
 import type { EngineResult } from '@/engine/runEngine';
 import type { DamageComponent } from '@/engine/dps/damage';
 import { scaleMult } from '@/engine/dps/damage';
 import { resolveScaleInputs } from '@/engine/dps/calculator';
+import { useTooltip } from '@/hooks/useTooltip';
 import styles from './ActiveProcsList.module.css';
 
 interface Props {
@@ -217,76 +218,14 @@ interface ProcChipProps {
   summary: { effect: string; chip: string; tooltip: string; placeholder: boolean };
 }
 
-/**
- * Hover-vs-touch detection. `(hover: hover) and (pointer: fine)` is
- * truthy on devices with a real mouse / trackpad and falsy on
- * touch-only surfaces. We respond to `change` so plug/unplug of a
- * mouse on a hybrid device flips behavior live.
- */
-function useHoverCapable(): boolean {
-  const [hover, setHover] = useState<boolean>(() => {
-    if (typeof window === 'undefined' || !window.matchMedia) return true;
-    return window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-  });
-  useEffect(() => {
-    if (typeof window === 'undefined' || !window.matchMedia) return;
-    const mq = window.matchMedia('(hover: hover) and (pointer: fine)');
-    const onChange = (e: MediaQueryListEvent) => setHover(e.matches);
-    mq.addEventListener('change', onChange);
-    return () => mq.removeEventListener('change', onChange);
-  }, []);
-  return hover;
-}
-
 function ProcChip({ proc, summary }: ProcChipProps) {
-  const [open, setOpen] = useState(false);
-  const wrapperRef     = useRef<HTMLDivElement | null>(null);
-  const isHoverCapable = useHoverCapable();
-
-  // Tap-to-toggle on touch: dismiss on outside-tap + Escape. The
-  // listeners are only worth wiring when the popover was opened by a
-  // click (touch path); hover path closes itself via mouseleave.
-  useEffect(() => {
-    if (!open || isHoverCapable) return;
-    const onDown = (e: MouseEvent | TouchEvent) => {
-      if (wrapperRef.current?.contains(e.target as Node)) return;
-      setOpen(false);
-    };
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setOpen(false);
-    };
-    document.addEventListener('mousedown', onDown);
-    document.addEventListener('touchstart', onDown);
-    document.addEventListener('keydown', onKey);
-    return () => {
-      document.removeEventListener('mousedown', onDown);
-      document.removeEventListener('touchstart', onDown);
-      document.removeEventListener('keydown', onKey);
-    };
-  }, [open, isHoverCapable]);
-
-  // Hover-capable devices: show on enter, hide on leave. Touch
-  // devices: ignore these (no synthetic mouse events fire reliably
-  // for taps anyway, but we guard explicitly to be safe).
-  const onEnter = () => { if (isHoverCapable) setOpen(true); };
-  const onLeave = () => { if (isHoverCapable) setOpen(false); };
-  const onClick = () => { if (!isHoverCapable) setOpen(o => !o); };
-
+  const { open, wrapperProps, triggerProps } = useTooltip();
   return (
-    <div
-      ref={wrapperRef}
-      className={styles.chipWrapper}
-      onMouseEnter={onEnter}
-      onMouseLeave={onLeave}
-    >
+    <div className={styles.chipWrapper} {...wrapperProps}>
       <button
         type="button"
         className={summary.placeholder ? styles.chipPlaceholder : styles.chip}
-        aria-expanded={open}
-        aria-haspopup="dialog"
-        onClick={onClick}
-        onFocus={onEnter}
-        onBlur={onLeave}
+        {...triggerProps}
       >
         <span className={styles.chipLabel}>
           {proc.label}

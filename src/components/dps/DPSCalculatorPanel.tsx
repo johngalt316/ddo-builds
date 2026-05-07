@@ -572,7 +572,7 @@ function MagicRotationEditor({
 
   return (
     <div className={styles.editor}>
-      <BuffsList build={build} />
+      <BuffsList build={build} metamagics={metamagics} />
       <ActiveProcsList
         build={build}
         engine={breakdowns}

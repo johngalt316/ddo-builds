@@ -40,6 +40,12 @@
   border-radius: 3px;
 }
 
+/* Wrapper provides positioning context for the popover. */
+.chipWrapper {
+  position: relative;
+  display: inline-block;
+}
+
 .chip {
   display: inline-flex;
   align-items: center;
@@ -50,8 +56,15 @@
   border: 1px solid rgba(106, 159, 216, 0.45);
   color: var(--color-text);
   border-radius: 3px;
-  cursor: help;
+  cursor: pointer;
   font-variant-numeric: tabular-nums;
+  font: inherit;
+  font-size: 0.7rem;
+}
+.chip:hover { background: rgba(106, 159, 216, 0.18); }
+.chip[aria-expanded="true"] {
+  background: rgba(106, 159, 216, 0.22);
+  border-color: rgba(106, 159, 216, 0.7);
 }
 
 .chipLabel {
@@ -63,4 +76,51 @@
   color: var(--color-text-muted);
   padding-left: 0.3rem;
   border-left: 1px solid rgba(106, 159, 216, 0.35);
+}
+
+/* Popover — same shape as ActiveProcsList: anchored under the chip
+   on PC, full-width bottom sheet on small viewports. */
+.popover {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  z-index: 100;
+  min-width: 16rem;
+  max-width: min(28rem, 90vw);
+  padding: 0.55rem 0.75rem;
+  background: var(--color-surface, #1a1a1a);
+  border: 1px solid var(--color-gold, #c9a227);
+  border-radius: 4px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+  font-size: 0.72rem;
+  color: var(--color-text);
+  animation: bufflistPopoverFadeIn 0.12s ease-out;
+}
+
+@media (max-width: 600px) {
+  .popover {
+    position: fixed;
+    top: auto;
+    left: 0.5rem;
+    right: 0.5rem;
+    bottom: calc(env(safe-area-inset-bottom, 0px) + 0.5rem);
+    max-width: none;
+    max-height: 70vh;
+    overflow-y: auto;
+    box-shadow: 0 -8px 24px rgba(0,0,0,0.6);
+  }
+}
+
+.popoverContent {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.7rem;
+  line-height: 1.4;
+}
+
+@keyframes bufflistPopoverFadeIn {
+  from { opacity: 0; transform: translateY(-2px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
