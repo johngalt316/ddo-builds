@@ -26,7 +26,7 @@ import {
   type AbilityDamageInfo,
 } from '@/engine/dps/calculator';
 import { computeMetamagicSP } from '@/engine/dps/procs';
-import { aggregateSpellCostReductions, spellCost } from '@/engine/dps/spellCost';
+import { aggregateSpellCostReductions } from '@/engine/dps/spellCost';
 import {
   aggregateDebuffs,
   initialDebuffState,
@@ -243,9 +243,23 @@ function MagicRotationEditor({
   // toggled.
   const slas = useMemo(() => breakdowns?.slas ?? [], [breakdowns]);
 
+  // Per-build SP-cost reductions (MetamagicCost* + SpellPointCostPercent
+  // collected effects). Computed once per engine refresh and passed into
+  // `getMagicAbilities` so each MagicAbility carries a stamped
+  // `costBreakdown` showing the actual cost the user pays per cast.
+  const spCostReductions = useMemo(
+    () => breakdowns
+      ? aggregateSpellCostReductions(breakdowns, metamagics)
+      : { perMetamagic: {}, percentReduction: 0 },
+    [breakdowns, metamagics],
+  );
+
   const abilities = useMemo(
-    () => getMagicAbilities(build, spells, classes, slas, enhancementTrees, augments),
-    [build, spells, classes, slas, enhancementTrees, augments],
+    () => getMagicAbilities(
+      build, spells, classes, slas, enhancementTrees, augments,
+      breakdowns ?? undefined, metamagics, spCostReductions,
+    ),
+    [build, spells, classes, slas, enhancementTrees, augments, breakdowns, metamagics, spCostReductions],
   );
   const abilityById = useMemo(() => {
     const m = new Map<string, MagicAbility>();
@@ -434,18 +448,14 @@ function MagicRotationEditor({
     return s;
   }, [damageEvents, simTime]);
 
-  // SP-cost reductions from collected build effects, computed once per
-  // engine refresh and reused across every per-spell breakdown.
-  const spCostReductions = useMemo(
-    () => breakdowns ? aggregateSpellCostReductions(breakdowns, metamagics) : { perMetamagic: {}, percentReduction: 0 },
-    [breakdowns, metamagics],
-  );
-
-  // SP per minute = sum of (final cost × cpm) over abilities in the
-  // rotation, where final cost = base + active metamagic surcharges
-  // − per-metamagic reductions − percent reduction.
+  // SP per minute = sum of (final per-cast cost × cpm) over abilities
+  // in the rotation. Each ability's `costBreakdown.total` already has
+  // base + active metamagic surcharges − reductions − percent off
+  // baked in (stamped by getMagicAbilities). Falls back to bare
+  // `cost` for abilities without a breakdown (shouldn't happen once
+  // the engine has run, but guards tests + first-render).
   const spPerMinute = useMemo(() => {
-    if (rotationCycleSeconds <= 0 || !breakdowns) return 0;
+    if (rotationCycleSeconds <= 0) return 0;
     const counts = new Map<string, number>();
     for (const s of steps) counts.set(s.abilityId, (counts.get(s.abilityId) ?? 0) + 1);
     const cyclesPerMin = 60 / rotationCycleSeconds;
@@ -453,11 +463,11 @@ function MagicRotationEditor({
     for (const [id, count] of counts) {
       const a = abilityById.get(id);
       if (!a) continue;
-      const cost = spellCost(a, build, breakdowns, spells, classes, metamagics, spCostReductions);
+      const cost = a.costBreakdown?.total ?? a.cost;
       sp += cost * count * cyclesPerMin;
     }
     return sp;
-  }, [steps, abilityById, rotationCycleSeconds, build, breakdowns, spells, classes, metamagics, spCostReductions]);
+  }, [steps, abilityById, rotationCycleSeconds]);
 
   // First-time / unset Active = top-N highest-DPC damaging abilities,
   // SEEDED ONCE on build load and then persisted to `activeAbilityIds`.

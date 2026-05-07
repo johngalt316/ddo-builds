@@ -113,10 +113,16 @@ export function RotationPalette({
                     ? [`L${a.spellLevel}`, a.school].filter(Boolean).join(' ')
                     : [`SLA`, a.school].filter(Boolean).join(' · ')
                         + (a.slaSource ? `\n${a.slaSource}` : ''),
-                  [
-                    a.cost > 0    ? `${a.cost} SP`        : '',
-                    a.cooldown > 0 ? `${a.cooldown}s CD`   : '',
-                  ].filter(Boolean).join(' · ') || 'no resource cost',
+                  (() => {
+                    const cost = a.costBreakdown?.total ?? a.cost;
+                    const mods = a.costBreakdown?.modifiers ?? 0;
+                    const sp   = cost > 0
+                      ? mods !== 0
+                        ? `${cost} SP (${a.cost}${mods > 0 ? ' + ' : ' − '}${Math.abs(mods)} metamagic)`
+                        : `${cost} SP`
+                      : '';
+                    return [sp, a.cooldown > 0 ? `${a.cooldown}s CD` : ''].filter(Boolean).join(' · ') || 'no resource cost';
+                  })(),
                 ];
                 const info = damageByAbility?.get(a.id);
                 const dmg  = info?.damage;
@@ -156,7 +162,9 @@ export function RotationPalette({
                 {a.source === 'spell'
                   ? <span className={styles.tileLevel}>L{a.spellLevel}</span>
                   : <span className={styles.tileSla} title="Spell-like ability">SLA</span>}
-                {a.cost > 0 && <span className={styles.tileCost}>{a.cost} SP</span>}
+                {(a.costBreakdown?.total ?? a.cost) > 0 && (
+                  <span className={styles.tileCost}>{a.costBreakdown?.total ?? a.cost} SP</span>
+                )}
                 {a.cooldown > 0 && <span className={styles.tileCd}>{a.cooldown}s</span>}
                 {a.charges > 0 && (
                   <span className={styles.tileCharges} title={`${a.charges} charges per rest`}>

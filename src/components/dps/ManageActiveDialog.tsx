@@ -280,7 +280,9 @@ export function ManageActiveDialog({ open, abilities, active, onClose, onApply, 
                         ? <span>L{a.spellLevel}</span>
                         : <span>SLA</span>}
                       {a.school && (<><span>·</span><span>{a.school}</span></>)}
-                      {a.cost > 0 && (<><span>·</span><span>{a.cost} SP</span></>)}
+                      {(a.costBreakdown?.total ?? a.cost) > 0 && (
+                        <><span>·</span><span>{a.costBreakdown?.total ?? a.cost} SP</span></>
+                      )}
                       {a.cooldown > 0 && (<><span>·</span><span>{a.cooldown}s CD</span></>)}
                       {a.charges > 0 && (<><span>·</span><span>{a.charges}× /rest</span></>)}
                     </span>
@@ -407,7 +409,10 @@ function renderAddRow(a: MagicAbility, add: (id: string) => void) {
             segs.push(<span key="src" className={styles.slaSource} title={a.slaSource}>{a.slaSource}</span>);
           }
           if (a.school)        segs.push(<span key="sch">{a.school}</span>);
-          if (a.cost > 0)      segs.push(<span key="sp">{a.cost} SP</span>);
+          {
+            const cost = a.costBreakdown?.total ?? a.cost;
+            if (cost > 0) segs.push(<span key="sp">{cost} SP</span>);
+          }
           if (a.cooldown > 0)  segs.push(<span key="cd">{a.cooldown}s CD</span>);
           if (a.charges > 0)   segs.push(<span key="ch" title={`${a.charges} charges per rest`}>{a.charges}× /rest</span>);
           return segs.flatMap((s, i) =>

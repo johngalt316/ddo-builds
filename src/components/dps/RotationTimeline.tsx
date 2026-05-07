@@ -246,11 +246,17 @@ export function RotationTimeline({
                     title={(() => {
                       const occurrences = castsPerCycleByAbility.get(r.ability.id) ?? 0;
                       const cpm         = occurrences * cyclesPerMinute;
+                      const finalCost = r.ability.costBreakdown?.total ?? r.ability.cost;
+                      const baseCost  = r.ability.cost;
+                      const mods      = r.ability.costBreakdown?.modifiers ?? 0;
+                      const spLine    = finalCost > 0
+                        ? mods !== 0
+                          ? `${finalCost} SP (${baseCost}${mods > 0 ? ' + ' : ' − '}${Math.abs(mods)} metamagic) · ${r.ability.castTime}s cast`
+                          : `${finalCost} SP · ${r.ability.castTime}s cast`
+                        : `${r.ability.castTime}s cast`;
                       const lines: string[] = [
                         `#${i + 1} · ${r.ability.displayName}`,
-                        r.ability.cost > 0
-                          ? `${r.ability.cost} SP · ${r.ability.castTime}s cast`
-                          : `${r.ability.castTime}s cast`,
+                        spLine,
                         r.effectiveCooldown > 0
                           ? `Cooldown ${r.effectiveCooldown.toFixed(1)}s${r.effectiveCooldown !== r.ability.cooldown ? ` (base ${r.ability.cooldown}s)` : ''}`
                           : 'No cooldown',

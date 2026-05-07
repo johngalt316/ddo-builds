@@ -14,8 +14,12 @@
 
 import type { Build } from '@/types/build';
 import { getActiveEnhancementSet } from '@/types/build';
-import type { DDOSpellData, DDOSpellDamage, DDOClassData, EnhancementTreeData, DDOAugmentData } from '@/types/ddoData';
-import type { CollectedSLA, SLACategory } from '@/engine/runEngine';
+import type {
+  DDOSpellData, DDOSpellDamage, DDOClassData, EnhancementTreeData,
+  DDOAugmentData, DDOMetamagicData,
+} from '@/types/ddoData';
+import type { CollectedSLA, SLACategory, EngineResult } from '@/engine/runEngine';
+import { spellCostBreakdown, type SpellCostBreakdown, type SpellCostReductions } from './spellCost';
 
 export interface MagicAbility {
   /** Stable identifier — `${className}::${spellName}` for class spells,
@@ -31,8 +35,19 @@ export interface MagicAbility {
   displayName: string;
   icon: string;
   school: string;
-  /** SP cost per cast (after class / SLA override, if any). */
+  /** SP cost per cast (after class / SLA override, if any). This is
+   *  the BASE cost — i.e. metamagic surcharges + reductions are not
+   *  yet folded in. Use `costBreakdown.total` for the cost the user
+   *  actually pays under the build's current active metamagics. */
   cost: number;
+  /** Per-cast SP-cost breakdown under the build's current active
+   *  metamagics + collected reductions. `total` is what the rotation
+   *  pays per cast; `base` matches `cost`; `modifiers` is the net
+   *  delta (sum of surcharges minus per-metamagic reductions and the
+   *  flat percent off, rounded). Set on every ability when the engine
+   *  + metamagic catalog are available; falls back to `undefined` for
+   *  consumers that build the catalog without engine context. */
+  costBreakdown?: SpellCostBreakdown;
   /** Cooldown in seconds. 0 = no cooldown (limited only by cast time). */
   cooldown: number;
   /** Per-rest charges (only meaningful for SLAs). 0 = unlimited; >0 means
@@ -209,6 +224,13 @@ export function getMagicAbilities(
   slas: CollectedSLA[],
   enhancementTrees: EnhancementTreeData[] = [],
   augments: DDOAugmentData[] = [],
+  /** Engine + metamagic catalog drive the per-ability cost breakdown.
+   *  When omitted (e.g. tests / fixtures that don't run the engine),
+   *  abilities are emitted with `cost` set but `costBreakdown` left
+   *  undefined — consumers fall back to `cost`. */
+  engine?: EngineResult,
+  metamagics: DDOMetamagicData[] = [],
+  reductions?: SpellCostReductions,
 ): MagicAbility[] {
   const spellByName = new Map<string, DDOSpellData>();
   for (const s of spellCatalog) spellByName.set(s.name, s);
@@ -339,7 +361,23 @@ export function getMagicAbilities(
     return ca.localeCompare(cb) || a.name.localeCompare(b.name);
   });
 
-  return [...classSpells, ...slaAbilities];
+  const all = [...classSpells, ...slaAbilities];
+
+  // Stamp the per-ability SP-cost breakdown when engine context is
+  // available. The breakdown is what the rotation actually pays per
+  // cast (base + active metamagic surcharges − reductions − percent
+  // off); UI surfaces should prefer `costBreakdown.total` over the
+  // bare `cost` when present.
+  if (engine && metamagics.length > 0) {
+    const r = reductions ?? { perMetamagic: {}, percentReduction: 0 };
+    for (const a of all) {
+      a.costBreakdown = spellCostBreakdown(
+        a, build, engine, spellCatalog, classCatalog, metamagics, r,
+      );
+    }
+  }
+
+  return all;
 }
 
 /** Self-buff clickies that the engine doesn't surface through
