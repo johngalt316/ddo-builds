@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Metamagic catalog — base SP surcharge each metamagic adds to a cast,
+  the spell-eligibility flag on DDOSpellMetamagic that gates whether the
+  surcharge applies, and an optional CostFormula for non-flat metamagics
+  (currently only Heighten).
+
+  Flat metamagics: BaseSPCost is added to every cast that the spell is
+  eligible for (the matching flag on data.metamagic).
+
+  Per-level metamagics (Heighten): BaseSPCost is multiplied by
+  (highest_castable_spell_level - spell.level) at runtime.
+
+  Cost reductions live in EnhancementTrees / Feats / Epic.class.xml as
+  MetamagicCost{Name} effect blocks. The engine collects those bonuses
+  via the standard pipeline and subtracts them from the per-metamagic
+  surcharge.
+
+  Source for baseline values: https://ddowiki.com/page/Metamagic
+-->
+<Metamagics>
+  <Metamagic>
+    <Name>Empower Spell</Name>
+    <ShortName>Empower</ShortName>
+    <BaseSPCost>15</BaseSPCost>
+    <SpellEligibilityFlag>empower</SpellEligibilityFlag>
+    <CostReductionEffect>MetamagicCostEmpower</CostReductionEffect>
+  </Metamagic>
+  <Metamagic>
+    <Name>Empower Healing Spell</Name>
+    <ShortName>Empower Healing</ShortName>
+    <BaseSPCost>10</BaseSPCost>
+    <SpellEligibilityFlag>empowerHealing</SpellEligibilityFlag>
+    <CostReductionEffect>MetamagicCostEmpowerHealing</CostReductionEffect>
+  </Metamagic>
+  <Metamagic>
+    <Name>Maximize Spell</Name>
+    <ShortName>Maximize</ShortName>
+    <BaseSPCost>25</BaseSPCost>
+    <SpellEligibilityFlag>maximize</SpellEligibilityFlag>
+    <CostReductionEffect>MetamagicCostMaximize</CostReductionEffect>
+  </Metamagic>
+  <Metamagic>
+    <Name>Quicken Spell</Name>
+    <ShortName>Quicken</ShortName>
+    <BaseSPCost>10</BaseSPCost>
+    <SpellEligibilityFlag>quicken</SpellEligibilityFlag>
+    <CostReductionEffect>MetamagicCostQuicken</CostReductionEffect>
+  </Metamagic>
+  <Metamagic>
+    <Name>Intensify Spell</Name>
+    <ShortName>Intensify</ShortName>
+    <BaseSPCost>15</BaseSPCost>
+    <SpellEligibilityFlag>intensify</SpellEligibilityFlag>
+    <CostReductionEffect>MetamagicCostIntensify</CostReductionEffect>
+  </Metamagic>
+  <Metamagic>
+    <Name>Embolden Spell</Name>
+    <ShortName>Embolden</ShortName>
+    <BaseSPCost>10</BaseSPCost>
+    <SpellEligibilityFlag>embolden</SpellEligibilityFlag>
+    <CostReductionEffect>MetamagicCostEmbolden</CostReductionEffect>
+  </Metamagic>
+  <Metamagic>
+    <Name>Enlarge Spell</Name>
+    <ShortName>Enlarge</ShortName>
+    <BaseSPCost>8</BaseSPCost>
+    <SpellEligibilityFlag>enlarge</SpellEligibilityFlag>
+    <CostReductionEffect>MetamagicCostEnlarge</CostReductionEffect>
+  </Metamagic>
+  <Metamagic>
+    <Name>Extend Spell</Name>
+    <ShortName>Extend</ShortName>
+    <BaseSPCost>6</BaseSPCost>
+    <SpellEligibilityFlag>extend</SpellEligibilityFlag>
+    <CostReductionEffect>MetamagicCostExtend</CostReductionEffect>
+  </Metamagic>
+  <Metamagic>
+    <Name>Accelerate Spell</Name>
+    <ShortName>Accelerate</ShortName>
+    <BaseSPCost>10</BaseSPCost>
+    <SpellEligibilityFlag>accelerate</SpellEligibilityFlag>
+    <CostReductionEffect>MetamagicCostAccelerate</CostReductionEffect>
+  </Metamagic>
+  <Metamagic>
+    <!-- 1 SP per level the spell is heightened above its native level
+         (up to the caster's highest castable level). -->
+    <Name>Heighten Spell</Name>
+    <ShortName>Heighten</ShortName>
+    <BaseSPCost>1</BaseSPCost>
+    <CostFormula>per-level</CostFormula>
+    <SpellEligibilityFlag>heighten</SpellEligibilityFlag>
+    <CostReductionEffect>MetamagicCostHeighten</CostReductionEffect>
+  </Metamagic>
+  <Metamagic>
+    <!-- Eschew Materials applies whenever a spell has a material
+         component. Our DDOSpellData.metamagic doesn't carry that flag,
+         so HasMaterialComponent isn't a real value on a spell row —
+         the engine treats this as "always applicable to costed spells"
+         with the small flat surcharge. Cost rarely matters in practice
+         (2 SP). -->
+    <Name>Eschew Materials</Name>
+    <ShortName>Eschew Materials</ShortName>
+    <BaseSPCost>2</BaseSPCost>
+    <SpellEligibilityFlag>any</SpellEligibilityFlag>
+    <CostReductionEffect>MetamagicCostEschewMaterials</CostReductionEffect>
+  </Metamagic>
+</Metamagics>

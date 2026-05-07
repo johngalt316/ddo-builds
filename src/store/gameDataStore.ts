@@ -8,6 +8,7 @@ import type {
   DDOSpellData,
   DDOOptionalBuff,
   DDOGuildBuff,
+  DDOMetamagicData,
   ItemBuffCatalog,
 } from '@/types/ddoData';
 import {
@@ -25,6 +26,7 @@ import {
   parseSpellsXml,
   parseSelfPartyBuffsXml,
   parseGuildBuffsXml,
+  parseMetamagicsXml,
 } from '@/utils/ddoXmlParser';
 
 type LoadStatus = 'idle' | 'loading' | 'ready' | 'error';
@@ -56,6 +58,10 @@ interface GameDataState {
   selfPartyBuffs: DDOOptionalBuff[];
   /** Guild buffs from GuildBuffs.xml — auto-applied based on build.guildLevel. */
   guildBuffs: DDOGuildBuff[];
+  /** Metamagic catalog from Metamagics.xml — base SP cost + eligibility
+   *  flag + cost-reduction effect type per metamagic. Used by the DPS
+   *  engine to compute per-cast SP surcharge. */
+  metamagics: DDOMetamagicData[];
   /**
    * Item name → set name lookup, derived from public/data/items/index.json.
    * .DDOBuild files often omit `<SetBonus>` even for items that belong to a
@@ -109,6 +115,7 @@ export const useGameDataStore = create<GameDataState>((set, get) => ({
   spells: [],
   selfPartyBuffs: [],
   guildBuffs: [],
+  metamagics: [],
   featIcons: {},
 
   loadGameData: async () => {
@@ -122,6 +129,7 @@ export const useGameDataStore = create<GameDataState>((set, get) => ({
         itemBuffsJson, itemIndexJson, augmentManifest, filigreeManifest, spellsXml,
         selfPartyBuffsXml,
         guildBuffsXml,
+        metamagicsXml,
       ] = await Promise.all([
         fetchXml('/data/classes.json'),
         fetchXml('/data/races.json'),
@@ -138,6 +146,7 @@ export const useGameDataStore = create<GameDataState>((set, get) => ({
         fetchXml('/data/Spells.xml'),
         fetchXml('/data/SelfAndPartyBuffs.xml'),
         fetchXml('/data/GuildBuffs.xml'),
+        fetchXml('/data/Metamagics.xml'),
       ]);
 
       const classFiles: string[] = classManifest ? (JSON.parse(classManifest) as string[]) : [];
@@ -244,12 +253,14 @@ export const useGameDataStore = create<GameDataState>((set, get) => ({
       const selfPartyBuffs: DDOOptionalBuff[] = selfPartyBuffsXml
         ? parseSelfPartyBuffsXml(selfPartyBuffsXml) : [];
       const guildBuffs: DDOGuildBuff[] = guildBuffsXml ? parseGuildBuffsXml(guildBuffsXml) : [];
+      const metamagics: DDOMetamagicData[] = metamagicsXml ? parseMetamagicsXml(metamagicsXml) : [];
 
       set({
         status: 'ready',
         classes, races, feats, enhancementTrees, featIcons,
         bonusTypes, stances, weaponGroups, setBonuses, itemBuffs, itemSetIndex,
         augments, filigrees, filigreeSetBonuses, spells, selfPartyBuffs, guildBuffs,
+        metamagics,
       });
     } catch (e) {
       set({ status: 'error', error: String(e) });

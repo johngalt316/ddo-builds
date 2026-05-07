@@ -24,6 +24,7 @@ import type {
   DDOSpellMetamagic,
   DDOOptionalBuff,
   DDOGuildBuff,
+  DDOMetamagicData,
 } from '@/types/ddoData';
 import {
   parseEffectsIn,
@@ -341,6 +342,20 @@ export function parseBonusTypesXml(xml: string): DDOBonusType[] {
     name: text(b, 'Name'),
     stacking: text(b, 'Stacking') || 'Always',
   })).filter(b => b.name);
+}
+
+// ── Metamagics catalog ────────────────────────────────────────────────────
+
+export function parseMetamagicsXml(xml: string): DDOMetamagicData[] {
+  const doc = parseXml(xml);
+  return elements(doc, 'Metamagic').map(m => ({
+    name:                 text(m, 'Name'),
+    shortName:            text(m, 'ShortName') || text(m, 'Name'),
+    baseSPCost:           num(m, 'BaseSPCost'),
+    costFormula:          (text(m, 'CostFormula') || 'flat') as 'flat' | 'per-level',
+    spellEligibilityFlag: text(m, 'SpellEligibilityFlag'),
+    costReductionEffect:  text(m, 'CostReductionEffect'),
+  })).filter(m => m.name);
 }
 
 // ── Stances ────────────────────────────────────────────────────────────────────

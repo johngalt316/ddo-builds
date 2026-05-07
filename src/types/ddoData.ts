@@ -2,6 +2,32 @@
 
 export type SaveType = 'high' | 'low';
 
+// ── Metamagic catalog (project-extended; not in upstream DDOBuilderV2) ───
+// One entry per metamagic, sourced from public/data/Metamagics.xml. Used
+// by the DPS calculator to turn active-metamagic toggles + per-spell
+// eligibility flags into a per-cast SP surcharge.
+
+export interface DDOMetamagicData {
+  /** In-game stance name (matches `build.activeMetamagics`). */
+  name: string;
+  /** Short label for tooltip / breakdown rows. */
+  shortName: string;
+  /** Per-cast surcharge before reductions. For per-level metamagics
+   *  (Heighten) this is the cost per level raised. */
+  baseSPCost: number;
+  /** Cost shape. Defaults to 'flat' (BaseSPCost added once per cast).
+   *  'per-level' = BaseSPCost × (highest castable level − spell.level). */
+  costFormula: 'flat' | 'per-level';
+  /** Which boolean field on `DDOSpellMetamagic` gates eligibility for
+   *  this metamagic. The string `'any'` means "always applicable when
+   *  the metamagic is active" (Eschew Materials). */
+  spellEligibilityFlag: string;
+  /** EffectType name whose collected `Amount` is subtracted from this
+   *  metamagic's per-cast surcharge (per-stack reductions from feats,
+   *  enhancements, past lives — e.g. `MetamagicCostEmpower`). */
+  costReductionEffect: string;
+}
+
 // ── Universal Effect / Buff schema ────────────────────────────────────────
 // <Effect> blocks appear inside Feats, Items, SetBonuses, Stances, Spells,
 // Augments, Filigrees, etc. The schema is the same in all of them.

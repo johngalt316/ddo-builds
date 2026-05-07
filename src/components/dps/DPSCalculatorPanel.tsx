@@ -26,6 +26,7 @@ import {
   type AbilityDamageInfo,
 } from '@/engine/dps/calculator';
 import { computeMetamagicSP } from '@/engine/dps/procs';
+import { aggregateSpellCostReductions, spellCost } from '@/engine/dps/spellCost';
 import {
   aggregateDebuffs,
   initialDebuffState,
@@ -222,6 +223,7 @@ function MagicRotationEditor({
   const classes     = useGameDataStore(s => s.classes);
   const enhancementTrees = useGameDataStore(s => s.enhancementTrees);
   const augments         = useGameDataStore(s => s.augments);
+  const metamagics       = useGameDataStore(s => s.metamagics);
   const breakdowns  = useBreakdowns();
   // ── Side-by-side comparison ─────────────────────────────────────────
   // Pick another EnhancementSet to evaluate against the active one. The
@@ -432,9 +434,18 @@ function MagicRotationEditor({
     return s;
   }, [damageEvents, simTime]);
 
-  // SP per minute = sum of (cost × cpm) over abilities in the rotation.
+  // SP-cost reductions from collected build effects, computed once per
+  // engine refresh and reused across every per-spell breakdown.
+  const spCostReductions = useMemo(
+    () => breakdowns ? aggregateSpellCostReductions(breakdowns, metamagics) : { perMetamagic: {}, percentReduction: 0 },
+    [breakdowns, metamagics],
+  );
+
+  // SP per minute = sum of (final cost × cpm) over abilities in the
+  // rotation, where final cost = base + active metamagic surcharges
+  // − per-metamagic reductions − percent reduction.
   const spPerMinute = useMemo(() => {
-    if (rotationCycleSeconds <= 0) return 0;
+    if (rotationCycleSeconds <= 0 || !breakdowns) return 0;
     const counts = new Map<string, number>();
     for (const s of steps) counts.set(s.abilityId, (counts.get(s.abilityId) ?? 0) + 1);
     const cyclesPerMin = 60 / rotationCycleSeconds;
@@ -442,10 +453,11 @@ function MagicRotationEditor({
     for (const [id, count] of counts) {
       const a = abilityById.get(id);
       if (!a) continue;
-      sp += a.cost * count * cyclesPerMin;
+      const cost = spellCost(a, build, breakdowns, spells, classes, metamagics, spCostReductions);
+      sp += cost * count * cyclesPerMin;
     }
     return sp;
-  }, [steps, abilityById, rotationCycleSeconds]);
+  }, [steps, abilityById, rotationCycleSeconds, build, breakdowns, spells, classes, metamagics, spCostReductions]);
 
   // First-time / unset Active = top-N highest-DPC damaging abilities,
   // SEEDED ONCE on build load and then persisted to `activeAbilityIds`.

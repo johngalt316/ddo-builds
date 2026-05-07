@@ -145,6 +145,10 @@ export interface EngineResult {
   /** Toggleable stances + mantles available to the build. The UI uses this
    *  to render the Stances/Mantles tab. */
   availableStances: AvailableStance[];
+  /** Raw bonus pool collected during evaluation — used by consumers
+   *  that need a direct read on EffectType totals not bucketed into a
+   *  top-level breakdown (e.g. `MetamagicCostEmpower`, `SpellPointCostPercent`). */
+  allBonuses: Bonus[];
   diagnostics: {
     unmatchedFeats: string[];
     unmatchedTrees: string[];
@@ -589,6 +593,10 @@ export function runEngine(input: RunEngineInput): EngineResult {
     availableStances: collectAvailableStances({
       build, feats, classes, enhancementTrees,
     }),
+    // Raw bonus pool — exposed for domain-specific consumers (spell SP
+    // cost, fate-point bonus, etc.) that route effect types we don't
+    // bucket into a top-level breakdown.
+    allBonuses,
     diagnostics: {
       unmatchedFeats: [...new Set(unmatchedFeats)].sort(),
       unmatchedTrees: unmatchedTrees.sort(),
