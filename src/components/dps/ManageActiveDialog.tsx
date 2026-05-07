@@ -13,7 +13,7 @@
 //     fast browsing of the rest of the trained book.
 
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
-import type { AbilityCategory, MagicAbility } from '@/engine/dps/abilities';
+import type { AbilityCategory, AttackMode, MagicAbility } from '@/engine/dps/abilities';
 import styles from './ManageActiveDialog.module.css';
 
 interface Props {
@@ -27,6 +27,9 @@ interface Props {
    *  by the parent so the same auto-seed logic that runs on first build
    *  load is re-runnable on demand. Hidden when not provided. */
   onResetToTop?: () => string[];
+  /** Which attack type to show by default when the dialog opens.
+   *  Matches the active Attack Type dropdown in the panel. */
+  defaultAttackMode?: AttackMode;
 }
 
 const TABS: { id: AbilityCategory; label: string }[] = [
@@ -38,11 +41,12 @@ const TABS: { id: AbilityCategory; label: string }[] = [
   { id: 'utility', label: 'Utility' },
 ];
 
-export function ManageActiveDialog({ open, abilities, active, onClose, onApply, onResetToTop }: Props) {
+export function ManageActiveDialog({ open, abilities, active, onClose, onApply, onResetToTop, defaultAttackMode }: Props) {
   // Working copy so the user can review changes before committing.
   const [draft, setDraft] = useState<string[]>(active);
   const [filter, setFilter] = useState('');
   const [tab, setTab] = useState<AbilityCategory>('damage');
+  const [attackMode, setAttackMode] = useState<AttackMode>(defaultAttackMode ?? 'magic');
   // When true, charge-based abilities (per-rest SLAs / clickies with
   // limited charges) are visible in the Available list. Default ON so
   // action boosts and reaper boosts — which both share charge pools —
@@ -51,17 +55,14 @@ export function ManageActiveDialog({ open, abilities, active, onClose, onApply, 
   const dragFrom = useRef<number | null>(null);
   const [dragOver, setDragOver] = useState<number | null>(null);
 
-  // Re-init the working draft only on the open transition (false→true),
-  // not whenever the parent's `active` prop reference changes. The
-  // parent re-renders constantly while editing other panes; including
-  // `active` in deps was wiping the user's in-progress edits the moment
-  // anything else moved in the engine state.
+  // Re-init on open transition only — not on every parent re-render.
   useEffect(() => {
     if (open) {
       setDraft([...active]);
       setFilter('');
       setTab('damage');
       setIncludeCharged(true);
+      setAttackMode(defaultAttackMode ?? 'magic');
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open]);
@@ -75,11 +76,12 @@ export function ManageActiveDialog({ open, abilities, active, onClose, onApply, 
     };
     for (const a of abilities) {
       if (draftSet.has(a.id)) continue;
+      if (a.attackMode !== attackMode) continue;
       if (!includeCharged && a.charges > 0) continue;
       counts[a.category]++;
     }
     return counts;
-  }, [abilities, draft, includeCharged]);
+  }, [abilities, draft, includeCharged, attackMode]);
 
   const abilityById = useMemo(() => {
     const m = new Map<string, MagicAbility>();
@@ -95,6 +97,7 @@ export function ManageActiveDialog({ open, abilities, active, onClose, onApply, 
     const lc = filter.trim().toLowerCase();
     const filtered = abilities.filter(a => {
       if (draftSet.has(a.id)) return false;
+      if (a.attackMode !== attackMode) return false;
       if (a.category !== tab) return false;
       if (!includeCharged && a.charges > 0) return false;
       if (!lc) return true;
@@ -130,12 +133,13 @@ export function ManageActiveDialog({ open, abilities, active, onClose, onApply, 
     return draft.flatMap(id => {
       const a = abilityById.get(id);
       if (!a) return [];
+      if (a.attackMode !== attackMode) return [];
       if (lc && !a.name.toLowerCase().includes(lc) && !a.school.toLowerCase().includes(lc)) {
         return [];
       }
       return [a];
     });
-  }, [draft, abilityById, filter]);
+  }, [draft, abilityById, filter, attackMode]);
 
   if (!open) return null;
 
@@ -202,7 +206,7 @@ export function ManageActiveDialog({ open, abilities, active, onClose, onApply, 
         onClick={e => e.stopPropagation()}
       >
         <header className={styles.header}>
-          <h3 className={styles.title}>Manage Active Spells</h3>
+          <h3 className={styles.title}>Manage Rotation</h3>
           <span className={styles.count}>
             {draft.length} of {abilities.length} active
           </span>
@@ -210,6 +214,17 @@ export function ManageActiveDialog({ open, abilities, active, onClose, onApply, 
         </header>
 
         <div className={styles.toolbar}>
+          <select
+            className={styles.modeSelect}
+            value={attackMode}
+            onChange={e => setAttackMode(e.target.value as AttackMode)}
+            aria-label="Attack type filter"
+            title="Filter abilities by attack type"
+          >
+            <option value="magic">Magic</option>
+            <option value="melee">Melee</option>
+            <option value="ranged">Ranged</option>
+          </select>
           <input
             type="search"
             className={styles.search}

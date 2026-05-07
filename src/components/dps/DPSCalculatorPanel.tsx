@@ -787,6 +787,7 @@ function MagicRotationEditor({
         onClose={() => setManageOpen(false)}
         onApply={setActiveAbilityIds}
         onResetToTop={computeTopByDPC}
+        defaultAttackMode="magic"
       />
     </div>
   );
@@ -801,9 +802,8 @@ function MeleeEditor({
   debuffState, setDebuffState, onManageDebuffs,
   compareSetName, setCompareSetName, compareBuild, compareBreakdowns,
 }: MeleeEditorProps) {
-  const build      = useBuildStore(s => s.build);
-  const engine     = useBreakdowns();
-  const metamagics = useGameDataStore(s => s.metamagics);
+  const build   = useBuildStore(s => s.build);
+  const engine  = useBreakdowns();
 
   // Debuffs — state lives in parent; apply physical-damage multiplier here.
   const debuffs = useMemo(
@@ -833,6 +833,46 @@ function MeleeEditor({
     return 'none';
   }, [build.feats, build.specialFeats, engine]);
   const [twfOverride, setTwfOverride] = useState<TWFStyle | null>(null);
+
+  // ── Rotation palette (shared ability catalog, melee-filtered) ──────
+  const spells         = useGameDataStore(s => s.spells);
+  const classes        = useGameDataStore(s => s.classes);
+  const enhancementTrees = useGameDataStore(s => s.enhancementTrees);
+  const augments       = useGameDataStore(s => s.augments);
+  const metamagics     = useGameDataStore(s => s.metamagics);
+  const breakdowns     = engine;   // alias — engine is already the EngineResult
+  const slas = useMemo(() => breakdowns?.slas ?? [], [breakdowns]);
+  const spCostReductions = useMemo(
+    () => breakdowns
+      ? aggregateSpellCostReductions(breakdowns, metamagics)
+      : { perMetamagic: {}, percentReduction: 0 },
+    [breakdowns, metamagics],
+  );
+  const allAbilities = useMemo(
+    () => getMagicAbilities(
+      build, spells, classes, slas, enhancementTrees, augments,
+      breakdowns ?? undefined, metamagics, spCostReductions,
+    ),
+    [build, spells, classes, slas, enhancementTrees, augments, breakdowns, metamagics, spCostReductions],
+  );
+  // Palette only shows melee-mode abilities (empty until ki strikes land).
+  const meleeAbilities = useMemo(
+    () => allAbilities.filter(a => a.attackMode === 'melee'),
+    [allAbilities],
+  );
+
+  const [manageOpen, setManageOpen] = useState(false);
+  const activeAbilityIds = useBuildStore(s => s.build.dpsRotation)?.activeAbilityIds;
+  const setDpsRotation   = useBuildStore(s => s.setDpsRotation);
+  const setActiveAbilityIds = (next: string[]) => setDpsRotation({ activeAbilityIds: next });
+
+  const activeMeleeAbilities = useMemo(() => {
+    if (!activeAbilityIds) return [];
+    const byId = new Map(meleeAbilities.map(a => [a.id, a]));
+    return activeAbilityIds.flatMap(id => { const a = byId.get(id); return a ? [a] : []; });
+  }, [meleeAbilities, activeAbilityIds]);
+
+  const dialogInitial = activeAbilityIds ?? activeMeleeAbilities.map(a => a.id);
 
   // ── Weapon + DPS result ────────────────────────────────────────────
   const mainHandItem = useMemo(() => {
@@ -908,6 +948,24 @@ function MeleeEditor({
 
       {/* Debuffs */}
       <DebuffsSummary state={debuffState} build={build} onManage={onManageDebuffs} />
+
+      {/* Rotation palette — melee abilities (ki strikes, enhancements) */}
+      <RotationPalette
+        abilities={activeMeleeAbilities}
+        totalTrained={meleeAbilities.length}
+        onAdd={() => { /* melee rotation timeline not yet wired */ }}
+        onManage={() => setManageOpen(true)}
+        onReorder={() => { /* reorder not needed for melee palette */ }}
+        damageByAbility={new Map()}
+      />
+      <ManageActiveDialog
+        open={manageOpen}
+        abilities={allAbilities}
+        active={dialogInitial}
+        onClose={() => setManageOpen(false)}
+        onApply={setActiveAbilityIds}
+        defaultAttackMode="melee"
+      />
 
       {/* Weapon info block (mirrors RotationPalette role) */}
       {weaponInfo ? (

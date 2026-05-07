@@ -106,9 +106,15 @@ export interface MagicAbility {
    *  for now; the UI surfaces a placeholder indicator so the user
    *  knows the displayed damage isn't real. */
   placeholderDamage?: boolean;
+  /** Which rotation type this ability belongs to. Used by the palette
+   *  and ManageRotation dialog to filter the visible set by attack mode.
+   *  All current abilities are 'magic'; weapon-based ki strikes / ranged
+   *  shots will be stamped 'melee' / 'ranged' when added. */
+  attackMode: AttackMode;
 }
 
 export type AbilityCategory = 'damage' | 'heal' | 'boost' | 'cc' | 'debuff' | 'utility';
+export type AttackMode     = 'magic' | 'melee' | 'ranged';
 
 /** Damage types that count as healing (vs. offensive). Negative is
  *  ambiguous — it heals undead but damages everyone else. We treat it
@@ -282,6 +288,7 @@ export function getMagicAbilities(
           damages: data.damages,
           castTime: spellLevel >= 5 ? 2.0 : 1.0,
           category: categorizeAbility(data.damages, false),
+          attackMode: 'magic' as AttackMode,
         });
       }
     }
@@ -323,6 +330,7 @@ export function getMagicAbilities(
       // their source pattern here.
       cooldownGroup: EPIC_STRIKE_SOURCE_RE.test(sla.source) ? 'epic-strike' : undefined,
       category:    categorizeAbility(data.damages, false),
+      attackMode:  'magic' as AttackMode,
     });
   }
 
@@ -353,6 +361,7 @@ export function getMagicAbilities(
       slaSource:      `${u.featId} (feat)`,
       isUtility:      true,
       category:       'boost',
+      attackMode:     'magic' as AttackMode,
     });
   }
 
@@ -676,6 +685,7 @@ function collectClickieAbilities(
         isUtility:      true,
         category,
         placeholderDamage,
+        attackMode:     'magic' as AttackMode,
       });
     }
   }
