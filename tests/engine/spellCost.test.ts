@@ -1,7 +1,10 @@
 // SP cost — base + modifiers, with metamagic surcharges and reductions.
 
 import { describe, it, expect } from 'vitest';
-import { spellCostBreakdown, aggregateSpellCostReductions } from '@/engine/dps/spellCost';
+import {
+  spellCostBreakdown, aggregateSpellCostReductions, reaperEfficiencyEffect,
+} from '@/engine/dps/spellCost';
+import type { RotationStep } from '@/engine/dps/rotation';
 import type { MagicAbility } from '@/engine/dps/abilities';
 import type { Build } from '@/types/build';
 import { DEFAULT_BUILD } from '@/types/build';
@@ -202,5 +205,60 @@ describe('aggregateSpellCostReductions', () => {
     ]);
     const out = aggregateSpellCostReductions(engine, METAMAGICS);
     expect(out.percentReduction).toBe(1);
+  });
+});
+
+describe('reaperEfficiencyEffect', () => {
+  const REAPER_ID = 'clickie::Dire Thaumaturge::DireEfficiency';
+
+  function buildWithEfficiency(rank: number): Build {
+    return {
+      ...DEFAULT_BUILD,
+      enhancementSets: [{
+        name: 'Default', enhancements: [], destinyEnhancements: [],
+        selectedEnhancementTrees: [],
+        reaperEnhancements: [{
+          treeId: 'Dire Thaumaturge',
+          enhancements: [{ enhancementId: 'DireEfficiency', tier: 4, rank, selection: undefined }],
+        }],
+      }],
+      activeEnhancementSet: 'Default',
+    };
+  }
+
+  const stepWithEfficiency: RotationStep[] = [
+    { key: 'a', abilityId: 'arcane_trickster::Magic Missile' },
+    { key: 'b', abilityId: REAPER_ID },
+  ];
+
+  it('returns zeros when the clickie isnt in the rotation', () => {
+    const out = reaperEfficiencyEffect(buildWithEfficiency(3), [
+      { key: 'a', abilityId: 'arcane_trickster::Magic Missile' },
+    ], 30);
+    expect(out.effectiveReductionPct).toBe(0);
+  });
+
+  it('returns zeros when the user has no rank', () => {
+    const out = reaperEfficiencyEffect(buildWithEfficiency(0), stepWithEfficiency, 30);
+    expect(out.effectiveReductionPct).toBe(0);
+  });
+
+  it('30s rotation = full uptime, full per-rank percent', () => {
+    const out = reaperEfficiencyEffect(buildWithEfficiency(3), stepWithEfficiency, 30);
+    expect(out).toMatchObject({
+      rank: 3, basePercent: 45, uptimeFraction: 1, effectiveReductionPct: 45,
+    });
+  });
+
+  it('60s rotation = 50% uptime, half the per-rank percent', () => {
+    const out = reaperEfficiencyEffect(buildWithEfficiency(3), stepWithEfficiency, 60);
+    expect(out.uptimeFraction).toBeCloseTo(0.5, 5);
+    expect(out.effectiveReductionPct).toBeCloseTo(22.5, 5);
+  });
+
+  it('15-second rotation = capped at 100% uptime', () => {
+    const out = reaperEfficiencyEffect(buildWithEfficiency(2), stepWithEfficiency, 15);
+    expect(out.uptimeFraction).toBe(1);
+    expect(out.effectiveReductionPct).toBe(30);
   });
 });

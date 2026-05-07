@@ -26,7 +26,7 @@ import {
   type AbilityDamageInfo,
 } from '@/engine/dps/calculator';
 import { computeMetamagicSP } from '@/engine/dps/procs';
-import { aggregateSpellCostReductions } from '@/engine/dps/spellCost';
+import { aggregateSpellCostReductions, reaperEfficiencyEffect } from '@/engine/dps/spellCost';
 import {
   aggregateDebuffs,
   initialDebuffState,
@@ -448,12 +448,20 @@ function MagicRotationEditor({
     return s;
   }, [damageEvents, simTime]);
 
+  // Reaper's Efficiency uptime — active when the clickie is in the
+  // rotation. Folds in as a final percent off the SP/min total.
+  const reaperEfficiency = useMemo(
+    () => reaperEfficiencyEffect(build, steps, rotationCycleSeconds),
+    [build, steps, rotationCycleSeconds],
+  );
+
   // SP per minute = sum of (final per-cast cost × cpm) over abilities
   // in the rotation. Each ability's `costBreakdown.total` already has
   // base + active metamagic surcharges − reductions − percent off
-  // baked in (stamped by getMagicAbilities). Falls back to bare
-  // `cost` for abilities without a breakdown (shouldn't happen once
-  // the engine has run, but guards tests + first-render).
+  // baked in (stamped by getMagicAbilities). Reaper's Efficiency adds
+  // a rotation-aware percent off the rolled-up total — kept separate
+  // from per-ability costBreakdown since it depends on the cycle
+  // length + which step is the buff trigger.
   const spPerMinute = useMemo(() => {
     if (rotationCycleSeconds <= 0) return 0;
     const counts = new Map<string, number>();
@@ -466,8 +474,11 @@ function MagicRotationEditor({
       const cost = a.costBreakdown?.total ?? a.cost;
       sp += cost * count * cyclesPerMin;
     }
+    if (reaperEfficiency.effectiveReductionPct > 0) {
+      sp *= 1 - reaperEfficiency.effectiveReductionPct / 100;
+    }
     return sp;
-  }, [steps, abilityById, rotationCycleSeconds]);
+  }, [steps, abilityById, rotationCycleSeconds, reaperEfficiency]);
 
   // First-time / unset Active = top-N highest-DPC damaging abilities,
   // SEEDED ONCE on build load and then persisted to `activeAbilityIds`.
@@ -609,7 +620,10 @@ function MagicRotationEditor({
         <Metric label="DPM"
           value={rotationBreakdown ? Math.round(rotationBreakdown.totalPerMinute).toLocaleString() : '—'} />
         <Metric label="SPM"
-          value={spPerMinute > 0 ? Math.round(spPerMinute).toLocaleString() : '—'} />
+          value={spPerMinute > 0 ? Math.round(spPerMinute).toLocaleString() : '—'}
+          title={reaperEfficiency.effectiveReductionPct > 0
+            ? `Reaper's Efficiency rank ${reaperEfficiency.rank}: −${reaperEfficiency.basePercent}% for ${Math.round(reaperEfficiency.uptimeFraction * 100)}% uptime → −${reaperEfficiency.effectiveReductionPct.toFixed(1)}% on the rolled-up SP/min.`
+            : undefined} />
         <Metric label="Damage"
           value={damageEvents.length > 0 ? Math.round(cumulativeDamage).toLocaleString() : '—'} />
       </div>
@@ -713,9 +727,9 @@ function MagicRotationEditor({
   );
 }
 
-function Metric({ label, value }: { label: string; value: string }) {
+function Metric({ label, value, title }: { label: string; value: string; title?: string }) {
   return (
-    <div className={styles.metric}>
+    <div className={styles.metric} title={title}>
       <span className={styles.metricLabel}>{label}</span>
       <span className={styles.metricValue}>{value}</span>
     </div>

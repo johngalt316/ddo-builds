@@ -19,6 +19,7 @@
 // DDOSpellMetamagic; the catalog tells us which field to read.
 
 import type { Build } from '@/types/build';
+import { getActiveEnhancementSet } from '@/types/build';
 import type {
   DDOMetamagicData,
   DDOSpellData,
@@ -27,6 +28,7 @@ import type {
 } from '@/types/ddoData';
 import type { EngineResult } from '@/engine/runEngine';
 import type { MagicAbility } from './abilities';
+import type { RotationStep } from './rotation';
 
 /** Sums the build's collected `MetamagicCost*` and
  *  `SpellPointCostPercent` bonuses into a per-metamagic flat reduction
@@ -232,3 +234,70 @@ export const _internal = {
   appliesToSpell,
   metamagicSurcharge,
 };
+
+// ── Reaper's Efficiency ────────────────────────────────────────────────
+//
+// Dire Thaumaturge T4 clickie. Activate to expend one Reaper Charge and
+// reduce SP cost of all spells by 15/30/45% for 30 seconds. 60s native
+// cooldown. When the user has the clickie in their rotation, we model
+// the buff as an *average* percent reduction applied to the rotation's
+// SP/minute total — uptime-weighted so a 60s cycle gets 30/60 = 50% of
+// the full reduction, while a 30s cycle gets the full reduction (the
+// buff covers the whole window).
+//
+// We don't fold this into the per-spell costBreakdown because the
+// effect is rotation-aware (depends on which step is the activation
+// and how long the cycle is) — keeping it at the SPM rollup level is
+// simpler and still surfaces in the only place the user sees the
+// total cost.
+
+const REAPER_EFFICIENCY_ID = 'clickie::Dire Thaumaturge::DireEfficiency';
+const REAPER_EFFICIENCY_PCT_BY_RANK = [15, 30, 45];   // ranks 1..3
+const REAPER_EFFICIENCY_DURATION_SEC = 30;
+
+export interface ReaperEfficiencyEffect {
+  /** 0 when the user hasn't taken DireEfficiency. */
+  rank:                   number;
+  /** Per-rank base percent (15/30/45) before uptime weighting. */
+  basePercent:            number;
+  /** Fraction of the rotation cycle the buff is up (0..1). */
+  uptimeFraction:         number;
+  /** `basePercent × uptimeFraction` — the average percent off the
+   *  rotation's SP cost. */
+  effectiveReductionPct:  number;
+}
+
+/**
+ * Compute Reaper's Efficiency's average SP-cost reduction for a given
+ * rotation. Returns zeros if the buff isn't in the rotation, the user
+ * has no rank, or the cycle length is zero.
+ */
+export function reaperEfficiencyEffect(
+  build: Build,
+  magicSteps: RotationStep[],
+  rotationCycleSeconds: number,
+): ReaperEfficiencyEffect {
+  const empty: ReaperEfficiencyEffect = {
+    rank: 0, basePercent: 0, uptimeFraction: 0, effectiveReductionPct: 0,
+  };
+  if (rotationCycleSeconds <= 0) return empty;
+  if (!magicSteps.some(s => s.abilityId === REAPER_EFFICIENCY_ID)) return empty;
+
+  // User's rank in the DireEfficiency tree item.
+  const set = getActiveEnhancementSet(build);
+  let rank = 0;
+  for (const spend of set.reaperEnhancements) {
+    const e = spend.enhancements.find(x => x.enhancementId === 'DireEfficiency');
+    if (e && e.rank > rank) rank = e.rank;
+  }
+  if (rank <= 0) return empty;
+
+  const basePercent    = REAPER_EFFICIENCY_PCT_BY_RANK[Math.min(rank, REAPER_EFFICIENCY_PCT_BY_RANK.length) - 1] ?? 0;
+  const uptimeFraction = Math.min(1, REAPER_EFFICIENCY_DURATION_SEC / rotationCycleSeconds);
+  return {
+    rank,
+    basePercent,
+    uptimeFraction,
+    effectiveReductionPct: basePercent * uptimeFraction,
+  };
+}
