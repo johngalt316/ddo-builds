@@ -127,8 +127,11 @@ export function breakdownSneakAttackDice(bonuses: Bonus[], rules: StackingRules)
   return stackBonuses(ofType(bonuses, 'SneakAttackDice'), rules);
 }
 
+// Seeker item buffs are stored in itemBuffs.json with effect type
+// 'Weapon_AttackAndDamageCritical' (the DDO internal name for the stat).
+// Filter on that type to collect gear-sourced Seeker bonuses.
 export function breakdownSeeker(bonuses: Bonus[], rules: StackingRules): BreakdownResult {
-  return stackBonuses(ofType(bonuses, 'Seeker'), rules);
+  return stackBonuses(ofType(bonuses, 'Weapon_AttackAndDamageCritical'), rules);
 }
 
 // ── Imbue Dice ───────────────────────────────────────────────────────────
