@@ -38,13 +38,20 @@ export type DamageScaleProfile = 'spell' | 'sneak' | 'proc' | 'dark-imbuement' |
  *   • per-hit  — once per missile/ray of `spell` (e.g. Ambush rolls per
  *                missile of Magic Missile).
  *   • per-cast — once per cast of `spell`, or once per *any* cast if
- *                `spell` is omitted.
+ *                `spell` is omitted. When `chance` is set (0..1), the
+ *                trigger fires with that probability — Shiradi Mantle's
+ *                per-missile 7% roll capped at one fire per cast becomes
+ *                pFire = 1 - (1 - perMissileChance)^missiles applied to
+ *                the cast's cpm. Without `chance` (the default), every
+ *                cast triggers. The trigger's `damagePerTrigger` is the
+ *                on-fire damage (no chance applied) — chance only
+ *                affects the trigger COUNT.
  *   • icd      — proc with chance per cast and an internal cooldown
  *                between procs. (Modeled in 6.4.4.)
  */
 export type DamageTrigger =
   | { kind: 'per-hit';  spell: string }
-  | { kind: 'per-cast'; spell?: string }
+  | { kind: 'per-cast'; spell?: string; chance?: number }
   | { kind: 'icd';      cooldownSec: number; chance: number };
 
 export interface DamageComponent {

@@ -161,10 +161,13 @@ export function totalCastsPerMinute(rotation: Rotation): number {
 /**
  * How many times this component fires per minute under the given rotation.
  *
- *   • per-cast (no spell)  → total cpm (fires once per any cast)
- *   • per-cast (with spell)→ that spell's cpm
- *   • per-hit (with spell) → spell.cpm × projectileCount(spell, CL)
- *   • icd                  → 0 (math lands in 6.4.4)
+ *   • per-cast (no spell)         → total cpm (fires once per any cast)
+ *   • per-cast (with spell)       → that spell's cpm
+ *   • per-cast (with chance)      → cpm × chance (e.g. Shiradi Mantle's
+ *                                    pFire derived from per-missile 7%
+ *                                    capped at one fire per cast)
+ *   • per-hit (with spell)        → spell.cpm × projectileCount(spell, CL)
+ *   • icd                         → 0 (math lands in 6.4.4)
  */
 export function componentTriggersPerMinute(
   c: DamageComponent,
@@ -173,8 +176,10 @@ export function componentTriggersPerMinute(
   const t = c.trigger;
   if (t.kind === 'icd') return 0;
   if (t.kind === 'per-cast') {
-    if (!t.spell) return totalCastsPerMinute(rotation);
-    return rotation.spells.find(s => s.name === t.spell)?.castsPerMinute ?? 0;
+    const baseCpm = t.spell
+      ? rotation.spells.find(s => s.name === t.spell)?.castsPerMinute ?? 0
+      : totalCastsPerMinute(rotation);
+    return baseCpm * (t.chance ?? 1);
   }
   // per-hit: fires once per missile of the parent spell.
   const sp = rotation.spells.find(s => s.name === t.spell);
@@ -316,10 +321,8 @@ export function damagePerCast(
   debuffs: Debuffs = NO_DEBUFFS,
 ): PerCastDamage {
   const buildCL = engine.casterLevel.total;
-  const casterLevel =
-    ability.maxCasterLevel > 0
-      ? Math.min(buildCL, ability.maxCasterLevel)
-      : buildCL;
+  const effMCL  = effectiveMaxCasterLevel(ability, build, engine);
+  const casterLevel = effMCL > 0 ? Math.min(buildCL, effMCL) : buildCL;
 
   const base  = abilityToBaseComponents(ability, casterLevel);
   const procs = expandActiveProcs(build, engine, ctx, [
@@ -334,17 +337,83 @@ export function damagePerCast(
     const scaleInputs      = resolveScaleInputs(c, engine, ctx);
     const damagePerTrigger = componentDamagePerTrigger(c, scaleInputs);
     const debuffMultiplier = componentDebuffMultiplier(c, debuffs);
+    // Per-cast contribution multiplier:
+    //   • per-hit  → fires once per missile (e.g. Magical Ambush adds
+    //                its sneak dice to each of Magic Missile's 5
+    //                missiles). Multiply by projectile count.
+    //   • per-cast → 1 fire per cast, scaled by `chance` when set
+    //                (Shiradi mantle: cpm × pFire is the long-run
+    //                proc count, so a single cast contributes pFire ×
+    //                full-hit damage on average).
+    //   • icd      → long-run avg, not modeled in the per-cast view.
+    const triggersPerCast =
+      c.trigger.kind === 'per-hit'
+        ? projectileCount(c.trigger.spell, casterLevel)
+        : c.trigger.kind === 'icd'
+          ? 0
+          : c.trigger.chance ?? 1;
     return {
       component:        c,
       scaleInputs,
       damagePerTrigger,
       triggersPerMinute: 0,        // per-cast view is rotation-agnostic
       debuffMultiplier,
-      damagePerMinute:   damagePerTrigger * debuffMultiplier,
+      damagePerMinute:   damagePerTrigger * triggersPerCast * debuffMultiplier,
     };
   });
   const total = byComponent.reduce((s, b) => s + b.damagePerMinute, 0);
   return { total, casterLevel, byComponent };
+}
+
+/**
+ * Effective MaxCasterLevel for a spell — the catalog cap (e.g. Magic
+ * Missile's 20) plus any `MaxCasterLevel` bonuses targeting the spell's
+ * casting class. Epic Knowledge (granted at every other epic level) and
+ * Legendary Knowledge (every other legendary level) each emit +1 to
+ * `MaxCasterLevel` per acquisition for every casting class — so a
+ * fully-leveled pure caster at level 30 sees +10 to MCL, raising
+ * standard-cap spells from 20 → 30.
+ *
+ * For class-trained spells we use `ability.className` directly. For
+ * SLAs (no className), fall back to the build's primary caster class
+ * — its bonuses still apply since DDO treats those SLAs as cast by
+ * the granting class. Returns 0 for abilities without a catalog cap
+ * (which the caller treats as "use buildCL unclamped").
+ */
+function effectiveMaxCasterLevel(
+  ability: MagicAbility,
+  build: Build,
+  engine: EngineResult,
+): number {
+  if (ability.maxCasterLevel <= 0) return 0;
+  const className = ability.className ?? primaryCasterClassName(build);
+  if (!className) return ability.maxCasterLevel;
+  let bonus = 0;
+  for (const b of engine.allBonuses ?? []) {
+    if (b.effectType !== 'MaxCasterLevel') continue;
+    if (b.target !== className) continue;
+    bonus += b.value;
+  }
+  return ability.maxCasterLevel + bonus;
+}
+
+/** Pick the casting-context class for an SLA without an explicit
+ *  className. Returns the highest-level class in the build, since
+ *  most SLA-granting features key off the player's main caster class. */
+function primaryCasterClassName(build: Build): string | undefined {
+  if (!build.classes || build.classes.length === 0) return undefined;
+  let best = build.classes[0]!;
+  for (const c of build.classes) {
+    if (c.levels > best.levels) best = c;
+  }
+  // ClassLevel.classId is snake_case; the bonus targets are the
+  // human-readable class names. Map by replacing underscores with
+  // spaces and title-casing each token (matches our DDOClassData
+  // naming convention — "arcane_trickster" → "Arcane Trickster").
+  return best.classId
+    .split(/[_-]/)
+    .map(w => w.length === 0 ? '' : w[0]!.toUpperCase() + w.slice(1))
+    .join(' ');
 }
 
 // ── Whole-rotation breakdown ─────────────────────────────────────────────
@@ -392,28 +461,84 @@ export function rotationDPS(
   for (const r of timeline.steps) {
     const existing = used.get(r.ability.id);
     if (existing) { existing.count++; continue; }
-    const cl = r.ability.maxCasterLevel > 0
-      ? Math.min(buildCL, r.ability.maxCasterLevel)
-      : buildCL;
+    // Effective MCL incorporates Epic Knowledge / Legendary Knowledge
+    // (and any other MaxCasterLevel feat) bonuses targeting the spell's
+    // casting class — same path as damagePerCast. See `effectiveMaxCasterLevel`.
+    const effMCL = effectiveMaxCasterLevel(r.ability, build, engine);
+    const cl = effMCL > 0 ? Math.min(buildCL, effMCL) : buildCL;
     used.set(r.ability.id, { ability: r.ability, casterLevel: cl, count: 1 });
   }
 
-  const activeSpells: ActiveSpell[] = [...used.values()].map(u => ({
-    name: u.ability.name, casterLevel: u.casterLevel,
-  }));
+  // ── Dedupe by spell name for damage / trigger calculations ─────────
+  // Multiple distinct abilities can invoke the same underlying spell
+  // (e.g. class-trained `Magic Missile` + Arcane Trickster Stolen
+  // Spell SLA + a gear clickie all firing "Magic Missile"). The
+  // rotation timeline keeps them as separate steps for UI purposes
+  // (different display names, different cooldowns), but the damage /
+  // trigger math wants ONE entry per spell name with its total cpm —
+  // otherwise:
+  //   • baseComponents emit duplicate damage rolls for each ability,
+  //     and `componentTriggersPerMinute`'s `rotation.spells.find(...)`
+  //     returns the first match's cpm — so both copies look up the
+  //     SAME cpm and double-count damage.
+  //   • Per-spell procs (Magical Ambush, Shiradi mantles) emit
+  //     duplicate components per ability sharing the spell name,
+  //     each looking up the same first-match cpm, doubling triggers.
+  // Collapsing by name fixes both: triggers/min for "Magic Missile"
+  // = sum of cpm across every ability that invokes it, and there's
+  // exactly one base damage roll set per spell name.
+  interface NameGroup {
+    name:        string;
+    /** Representative ability — used for catalog data (damages,
+     *  spellLevel). All abilities sharing this name resolve through
+     *  the same Spells.xml entry, so any of them works. */
+    sample:      MagicAbility;
+    /** Highest CL across all sharing abilities. Multi-CL same-name
+     *  rotations (rare) get the strongest CL, matching how the engine
+     *  treats overlap. */
+    casterLevel: number;
+    /** Total casts/min across all abilities sharing this name. */
+    cpm:         number;
+  }
+  const byName = new Map<string, NameGroup>();
+  for (const u of used.values()) {
+    const cur = byName.get(u.ability.name);
+    const thisCpm = u.count * cyclesPerMinute;
+    if (cur) {
+      cur.cpm += thisCpm;
+      if (u.casterLevel > cur.casterLevel) cur.casterLevel = u.casterLevel;
+    } else {
+      byName.set(u.ability.name, {
+        name:        u.ability.name,
+        sample:      u.ability,
+        casterLevel: u.casterLevel,
+        cpm:         thisCpm,
+      });
+    }
+  }
 
-  // One base component per unique spell — the rotation's per-spell cpm
-  // handles the firing-rate multiplier for repeats.
-  const baseComponents: DamageComponent[] = [...used.values()].flatMap(u =>
-    abilityToBaseComponents(u.ability, u.casterLevel),
+  // Per-spell procs (Magical Ambush, Shiradi mantles, …) fire on
+  // *damaging* spells only — clickies, action boosts, buffs, and
+  // utility abilities don't trigger them in DDO. Filter to abilities
+  // with at least one real damage roll so a rotation mixing offensive
+  // spells with non-damaging entries doesn't inflate proc triggers/min.
+  const activeSpells: ActiveSpell[] = [...byName.values()]
+    .filter(g => g.sample.damages.length > 0 && !g.sample.placeholderDamage)
+    .map(g => ({ name: g.name, casterLevel: g.casterLevel }));
+
+  // One base component set per unique spell name — collapses
+  // class/SLA/clickie variants of the same spell into a single
+  // damage roll set, with cpm = total cast frequency.
+  const baseComponents: DamageComponent[] = [...byName.values()].flatMap(g =>
+    abilityToBaseComponents(g.sample, g.casterLevel),
   );
   const procComponents = expandActiveProcs(build, engine, ctx, activeSpells);
 
   const rotation: Rotation = {
-    spells: [...used.values()].map(u => ({
-      name:           u.ability.name,
-      casterLevel:    u.casterLevel,
-      castsPerMinute: u.count * cyclesPerMinute,
+    spells: [...byName.values()].map(g => ({
+      name:           g.name,
+      casterLevel:    g.casterLevel,
+      castsPerMinute: g.cpm,
     })),
   };
 

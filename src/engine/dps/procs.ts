@@ -406,11 +406,20 @@ export const MAGICAL_AMBUSH: Proc = {
     if (ctx.sneakAttackDice <= 0) return [];
     const avg = ctx.sneakAttackDice * 3.5;   // Nd6 average
     const profile = hasMasterOfTrickery(build) ? 'spell' : 'sneak';
+    // Magical Ambush fires PER MISSILE in DDO — a 5-missile Magic
+    // Missile cast triggers it 5 times, each adding the sneak-attack
+    // dice to that one missile. Modeled as `per-hit` with `qty=1`
+    // so the engine multiplies by `projectileCount(spell)` at trigger
+    // resolution (matches the in-game per-missile attribution and
+    // makes the displayed `triggers/min × dmg/trigger = total dmg`
+    // match the user's mental model). The previous `per-cast` model
+    // bundled all missiles into one trigger of N×damage — same total
+    // damage but harder to reconcile with the in-game tooltip.
     return activeSpells.map(s => ({
       label: `Magical Ambush (${s.name})`,
       groupLabel: 'Magical Ambush',
-      trigger: { kind: 'per-cast', spell: s.name },
-      qtyPerTrigger: projectileCount(s.name, s.casterLevel),
+      trigger: { kind: 'per-hit', spell: s.name },
+      qtyPerTrigger: 1,
       avgDicePerHit: avg,
       damageType: 'Force',
       scaleProfile: profile,
@@ -493,8 +502,19 @@ function stayXDiceCount(rank: number, imbueDice: number): number {
 
 /**
  * Per-spell components for one Shiradi-flavor proc. `avgFullHit` is
- * the dice-count × 39 (d77 average) for a successful proc; we apply
- * the 1 - (1 - p)^missiles per-cast probability to that.
+ * the dice-count × 39 (d77 average) for a successful proc.
+ *
+ * Mechanic: each missile rolls independently at SHIRADI_SPELL_CHANCE
+ * (7%); the proc fires at most once per cast → pFire = 1 - (1-p)^N.
+ * pFire lives on `trigger.chance` so:
+ *   • triggers/min reflects actual proc count (cpm × pFire), not just cpm
+ *   • damage/trigger is on-fire damage (full × scaleMult), not chance-
+ *     adjusted
+ *   • damagePerCast contributes pFire × full × scaleMult per cast
+ *     (chance scales the per-cast count via the per-cast view multiplier)
+ * Total damage per minute = cpm × pFire × full × scaleMult, identical
+ * to the old chance-baked-into-avg model — just attributed to a smaller
+ * number of full-strength fires.
  */
 function shiradiPerSpell(
   activeSpells: ActiveSpell[],
@@ -509,16 +529,16 @@ function shiradiPerSpell(
     return {
       label: `${labelPrefix} (${s.name})`,
       groupLabel: labelPrefix,
-      trigger: { kind: 'per-cast', spell: s.name },
+      trigger: { kind: 'per-cast', spell: s.name, chance: pFire },
       qtyPerTrigger: 1,
-      avgDicePerHit: avgFullHit * pFire,
+      avgDicePerHit: avgFullHit,
       damageType,
       scaleProfile,
       useGenericVuln: true,
       useMRR: true,
-      // Surface the underlying mechanic for tooltips: full hit damage
-      // before the per-cast pFire multiplier, plus the per-missile
-      // roll rate. Doesn't affect the calculator math.
+      // Surface the underlying mechanic for tooltips: full-hit damage
+      // and the per-missile roll rate. The per-cast pFire is now
+      // expressed via `trigger.chance` rather than via avgDicePerHit.
       fullHitAvg:        avgFullHit,
       perMissileChance:  SHIRADI_SPELL_CHANCE,
     };

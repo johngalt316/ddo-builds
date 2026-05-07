@@ -34,13 +34,6 @@ function build(opts: {
   } as unknown as Build;
 }
 
-function destinyTree(treeId: string, selection: string): EnhancementSelection {
-  return {
-    treeId,
-    enhancements: [{ enhancementId: 'sel', selection, tier: 4, rank: 1 }],
-  };
-}
-
 function gearItem(opts: { buffs?: GearBuff[]; augments?: ItemAugmentSlot[] } = {}): GearItem {
   return {
     slot: 'Helmet', name: '', icon: '',
@@ -82,18 +75,24 @@ describe('MAGICAL_AMBUSH.toComponents', () => {
       { name: 'Scorching Ray',   casterLevel: 11 },
       { name: 'Fireball',        casterLevel: 20 },
     ]);
-    // qty matches projectileCount; avg = sneakDice × d6 = 38 × 3.5 = 133
+    // Magical Ambush is per-MISSILE: each component carries qty=1 and
+    // trigger.kind='per-hit'. The engine multiplies cpm by the spell's
+    // projectileCount at trigger resolution, so a 5-missile MM cast
+    // yields 5 triggers/cast. avg = sneakDice × d6 = 38 × 3.5 = 133.
     expect(comps).toHaveLength(5);
     expect(comps[0]).toMatchObject({
       label: 'Magical Ambush (Magic Missile)',
-      trigger: { kind: 'per-cast', spell: 'Magic Missile' },
-      qtyPerTrigger: 5, avgDicePerHit: 133,
+      trigger: { kind: 'per-hit', spell: 'Magic Missile' },
+      qtyPerTrigger: 1, avgDicePerHit: 133,
       damageType: 'Force', scaleProfile: 'sneak',     // baseline: 50% Force SP
     });
-    expect(comps[1]).toMatchObject({ qtyPerTrigger: 10, avgDicePerHit: 133 });   // PL Arcane Initiate caps at 10
-    expect(comps[2]).toMatchObject({ qtyPerTrigger: 4,  avgDicePerHit: 133 });
-    expect(comps[3]).toMatchObject({ qtyPerTrigger: 3,  avgDicePerHit: 133 });
-    expect(comps[4]).toMatchObject({ qtyPerTrigger: 1,  avgDicePerHit: 133 });   // single-hit fallback
+    // All five spell instances emit qty=1 components (per-missile model);
+    // the projectile-count multiplier is applied via componentTriggersPerMinute
+    // — the per-spell missile counts (5/10/4/3/1) used to live here, but
+    // they're now expressed through that path instead of qtyPerTrigger.
+    for (const c of comps.slice(1)) {
+      expect(c).toMatchObject({ qtyPerTrigger: 1, avgDicePerHit: 133 });
+    }
   });
 
   it("Master of Trickery capstone bumps scale profile to 'spell' (full Force SP)", () => {
