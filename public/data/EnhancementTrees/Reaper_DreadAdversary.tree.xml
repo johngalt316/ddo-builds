@@ -868,8 +868,7 @@ seconds.</Description>
                <Value>21</Value>
             </Requirement>
          </Requirements>
-         <Category>damage</Category>
-         <PlaceholderDamage/>
+         <Category>boost</Category>
       </EnhancementTreeItem>
       <EnhancementTreeItem>
          <Name>Reaper's Shot IV</Name>

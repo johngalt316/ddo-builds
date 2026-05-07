@@ -370,7 +370,7 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
           </Effect>
         </EnhancementSelection>
       </Selector>
-         <Category>cc</Category>
+         <Category>damage</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Legendary Dreadnought: Dread Mantle</Name>
@@ -1141,7 +1141,7 @@ Cooldown: 5 minutes</Description>
         </Requirement>
       </Requirements>
          <Cooldown>300</Cooldown>
-         <Category>cc</Category>
+         <Category>boost</Category>
          <UsesActionBoostCharge/>
     </EnhancementTreeItem>
   </EnhancementTree>

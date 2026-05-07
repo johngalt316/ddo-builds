@@ -653,6 +653,24 @@ function collectClickieAbilities(
         placeholderDamage = classified.placeholderDamage;
       }
 
+      // For selector-based items (e.g. "Legendary Rally — pick Melee or Ranged"),
+      // the parent description can't determine attack mode.  Use the selected
+      // option's description instead so "Legendary Rally (Melee)" → 'melee',
+      // "Hand of Healing" → 'magic' (heal category), etc.
+      const selectedOption = item.selector && e.selection
+        ? item.selector.find(sel => sel.name === e.selection)
+        : undefined;
+      const effectiveDescription = selectedOption?.description ?? item.description;
+      // If the selection changes the category too (e.g. heal vs. melee strike),
+      // reclassify from the option's description when the XML category is generic.
+      if (selectedOption && !item.category) {
+        const reclass = classifyClickie(effectiveDescription);
+        if (reclass) {
+          category         = reclass.category;
+          placeholderDamage = reclass.placeholderDamage;
+        }
+      }
+
       const id = `clickie::${tree.name}::${item.internalName || item.name}`;
       if (seen.has(id)) continue;
       seen.add(id);
@@ -701,7 +719,7 @@ function collectClickieAbilities(
         isUtility:      true,
         category,
         placeholderDamage,
-        attackMode: category === 'boost' ? 'boost' : inferAttackMode(item.description),
+        attackMode: category === 'boost' ? 'boost' : inferAttackMode(effectiveDescription),
       });
     }
   }
