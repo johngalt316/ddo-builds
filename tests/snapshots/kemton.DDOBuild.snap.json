@@ -1774,7 +1774,16 @@
                 "slotType": "Deck Curse",
                 "selectedAugment": "Curse of the Unbreakable"
               }
-            ]
+            ],
+            "weapon": "Great Crossbow",
+            "baseDice": {
+              "number": 2,
+              "sides": 8,
+              "bonus": 3
+            },
+            "criticalMultiplier": 2,
+            "criticalThreatRange": 3,
+            "attackModifier": "Dexterity"
           },
           {
             "slot": "OffHand",
@@ -1833,7 +1842,8 @@
               {
                 "slotType": "Deck Curse"
               }
-            ]
+            ],
+            "weapon": "Rune Arm"
           },
           {
             "slot": "Quiver",

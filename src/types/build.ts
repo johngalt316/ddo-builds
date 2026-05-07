@@ -94,6 +94,13 @@ export interface GearItem {
   setBonus?: string;
   buffs: GearBuff[];
   augmentSlots?: ItemAugmentSlot[];
+  /** Weapon-only fields — populated when the item is a weapon. */
+  weapon?: string;
+  baseDice?: { number: number; sides: number; bonus?: number };
+  criticalMultiplier?: number;
+  criticalThreatRange?: number;
+  attackModifier?: string;
+  damageModifier?: string;
 }
 
 /** A single filigree slot. `name` is the filigree's name (empty/undefined =

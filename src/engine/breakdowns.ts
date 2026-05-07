@@ -127,6 +127,10 @@ export function breakdownSneakAttackDice(bonuses: Bonus[], rules: StackingRules)
   return stackBonuses(ofType(bonuses, 'SneakAttackDice'), rules);
 }
 
+export function breakdownSeeker(bonuses: Bonus[], rules: StackingRules): BreakdownResult {
+  return stackBonuses(ofType(bonuses, 'Seeker'), rules);
+}
+
 // ── Imbue Dice ───────────────────────────────────────────────────────────
 //
 // Number of imbue dice the build has from Arcane Trickster, Dark Hunter,

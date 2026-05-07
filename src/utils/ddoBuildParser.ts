@@ -416,6 +416,21 @@ export function parseDDOBuildFile(xmlText: string, options?: ParseOptions): DDOB
         selectedLevelIndex: lvl > 0 ? lvl : undefined,
       };
     }).filter(a => a.slotType);
+    // Weapon-specific fields — present only for weapon-slot items.
+    const weapon         = textOf(slotEl, 'Weapon') || undefined;
+    const attackModifier = textOf(slotEl, 'AttackModifier') || undefined;
+    const damageModifier = textOf(slotEl, 'DamageModifier') || undefined;
+    const critMult       = numOf(slotEl, 'CriticalMultiplier');
+    const critRange      = numOf(slotEl, 'CriticalThreatRange');
+    const diceEl         = slotEl.querySelector(':scope > BaseDice');
+    let baseDice: { number: number; sides: number; bonus?: number } | undefined;
+    if (diceEl) {
+      const n = parseInt(textOf(diceEl as Element, 'Number') || '0', 10);
+      const s = parseInt(textOf(diceEl as Element, 'Sides') || '0', 10);
+      const b = parseInt(textOf(diceEl as Element, 'Bonus') || '0', 10);
+      if (n > 0 && s > 0) baseDice = { number: n, sides: s, bonus: b || undefined };
+    }
+
     return {
       slot,
       name:         itemName,
@@ -427,6 +442,12 @@ export function parseDDOBuildFile(xmlText: string, options?: ParseOptions): DDOB
       setBonus:     textOf(slotEl, 'SetBonus') || undefined,
       buffs,
       augmentSlots: augmentSlots.length > 0 ? augmentSlots : undefined,
+      ...(weapon         ? { weapon }         : {}),
+      ...(baseDice       ? { baseDice }       : {}),
+      ...(critMult  > 0  ? { criticalMultiplier:  critMult  } : {}),
+      ...(critRange > 0  ? { criticalThreatRange: critRange } : {}),
+      ...(attackModifier ? { attackModifier } : {}),
+      ...(damageModifier ? { damageModifier } : {}),
     };
   }
 
