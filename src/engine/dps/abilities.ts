@@ -116,6 +116,25 @@ export interface MagicAbility {
 export type AbilityCategory = 'damage' | 'heal' | 'boost' | 'cc' | 'debuff' | 'utility';
 export type AttackMode     = 'magic' | 'melee' | 'ranged';
 
+/**
+ * Infer the attack mode from a description string.
+ *
+ * Abilities whose descriptions start with (or contain) phrases like
+ * "Ki Melee Attack:", "Centered Melee Attack:", "Epic Strike: Melee Attack:",
+ * "Fire Ki Melee Attack:", etc. are physical weapon-based attacks → 'melee'.
+ * Phrases like "AOE Ranged Attack:", "Epic Strike: AOE Ranged Attack:" → 'ranged'.
+ * Everything else (spells, SLAs, buffs) stays 'magic'.
+ */
+export function inferAttackMode(description: string): AttackMode {
+  // Attack-type labels in DDO enhancement descriptions always end with a
+  // colon ("Ki Melee Attack:", "AOE Ranged Attack:", etc.).  Requiring the
+  // colon prevents false matches from passive text like "each time you hit
+  // a creature with a melee attack." appearing in unrelated descriptions.
+  if (/\bmelee attack:/i.test(description))  return 'melee';
+  if (/\branged attack:/i.test(description)) return 'ranged';
+  return 'magic';
+}
+
 /** Damage types that count as healing (vs. offensive). Negative is
  *  ambiguous — it heals undead but damages everyone else. We treat it
  *  as a heal only when it's the *sole* damage type on the spell, since
@@ -330,7 +349,7 @@ export function getMagicAbilities(
       // their source pattern here.
       cooldownGroup: EPIC_STRIKE_SOURCE_RE.test(sla.source) ? 'epic-strike' : undefined,
       category:    categorizeAbility(data.damages, false),
-      attackMode:  'magic' as AttackMode,
+      attackMode:  inferAttackMode(data.description),
     });
   }
 
@@ -685,7 +704,7 @@ function collectClickieAbilities(
         isUtility:      true,
         category,
         placeholderDamage,
-        attackMode:     'magic' as AttackMode,
+        attackMode: inferAttackMode(item.description),
       });
     }
   }
