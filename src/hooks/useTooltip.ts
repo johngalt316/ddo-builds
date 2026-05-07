@@ -40,13 +40,14 @@ function useHoverCapable(): boolean {
   return hover;
 }
 
-export interface UseTooltipResult {
+export interface UseTooltipResult<T extends HTMLElement = HTMLDivElement> {
   open: boolean;
   /** Spread on the wrapper element that contains both trigger + popover.
    *  Provides the ref used for outside-click detection + the hover
-   *  enter/leave handlers on hover-capable devices. */
+   *  enter/leave handlers on hover-capable devices. Pass `<HTMLLIElement>`
+   *  etc. as a generic when the wrapper isn't a div. */
   wrapperProps: {
-    ref: React.RefObject<HTMLDivElement | null>;
+    ref: React.RefObject<T | null>;
     onMouseEnter: () => void;
     onMouseLeave: () => void;
   };
@@ -62,9 +63,9 @@ export interface UseTooltipResult {
   setOpen: (next: boolean) => void;
 }
 
-export function useTooltip(): UseTooltipResult {
+export function useTooltip<T extends HTMLElement = HTMLDivElement>(): UseTooltipResult<T> {
   const [open, setOpen] = useState(false);
-  const wrapperRef = useRef<HTMLDivElement | null>(null);
+  const wrapperRef = useRef<T | null>(null);
   const isHoverCapable = useHoverCapable();
 
   useEffect(() => {

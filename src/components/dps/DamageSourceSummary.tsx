@@ -10,6 +10,7 @@ import { useMemo } from 'react';
 import type { DamageBreakdown } from '@/engine/dps/calculator';
 import type { SpellDamageType } from '@/engine/breakdowns';
 import type { DamageEvent } from './RotationChart';
+import { useTooltip } from '@/hooks/useTooltip';
 import styles from './DamageSourceSummary.module.css';
 
 interface Props {
@@ -184,39 +185,63 @@ export function DamageSourceSummary({ breakdown, events, currentTime }: Props) {
       </div>
       <ul className={styles.rows}>
         {rows.map(r => (
-          <li
-            key={r.label}
-            className={styles.row}
-            title={[
-              r.label,
-              isLive
-                ? `${fmt0(r.perMinute)} dmg so far (${fmtPct(r.fraction)} of cumulative)`
-                : `${fmt0(r.perMinute)} dmg/min (${fmtPct(r.fraction)} of total)`,
-              `${fmt0(r.perTrigger)} per trigger${isLive ? '' : ` × ${fmt1(r.triggers)} triggers/min`}`,
-              r.debuffMult !== 1 ? `× ${r.debuffMult.toFixed(2)} debuff multiplier` : '',
-              `Element: ${r.damageType}`,
-              `Spell power: ${fmt0(r.spellPower)} · crit: ${(r.critChance * 100).toFixed(1)}%`,
-            ].filter(Boolean).join('\n')}
-          >
-            {DAMAGE_TYPE_ICON[r.damageType] && (
-              <img
-                src={`/assets/images/DamageTypeIcons/${DAMAGE_TYPE_ICON[r.damageType]}`}
-                alt={r.damageType}
-                className={styles.rowIcon}
-                onError={e => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
-              />
-            )}
-            <span className={styles.rowName}>{r.label}</span>
-            <span className={styles.rowBar} aria-hidden="true">
-              <span
-                className={styles.rowBarFill}
-                style={{ width: `${Math.min(100, r.fraction * 100)}%` }}
-              />
-            </span>
-            <span className={styles.rowPct}>{fmtPct(r.fraction)}</span>
-          </li>
+          <DamageSourceRow key={r.label} r={r} isLive={isLive} />
         ))}
       </ul>
     </section>
+  );
+}
+
+interface RowData {
+  label:       string;
+  damageType:  SpellDamageType;
+  perMinute:   number;
+  perTrigger:  number;
+  triggers:    number;
+  debuffMult:  number;
+  spellPower:  number;
+  critChance:  number;
+  fraction:    number;
+  isLive:      boolean;
+}
+
+function DamageSourceRow({ r, isLive }: { r: RowData; isLive: boolean }) {
+  const { open, wrapperProps, triggerProps } = useTooltip<HTMLLIElement>();
+  const tooltipLines = [
+    r.label,
+    isLive
+      ? `${fmt0(r.perMinute)} dmg so far (${fmtPct(r.fraction)} of cumulative)`
+      : `${fmt0(r.perMinute)} dmg/min (${fmtPct(r.fraction)} of total)`,
+    `${fmt0(r.perTrigger)} per trigger${isLive ? '' : ` × ${fmt1(r.triggers)} triggers/min`}`,
+    r.debuffMult !== 1 ? `× ${r.debuffMult.toFixed(2)} debuff multiplier` : '',
+    `Element: ${r.damageType}`,
+    `Spell power: ${fmt0(r.spellPower)} · crit: ${(r.critChance * 100).toFixed(1)}%`,
+  ].filter(Boolean);
+  return (
+    <li className={styles.rowWrapper} {...wrapperProps}>
+      <button type="button" className={styles.row} {...triggerProps}>
+        {DAMAGE_TYPE_ICON[r.damageType] && (
+          <img
+            src={`/assets/images/DamageTypeIcons/${DAMAGE_TYPE_ICON[r.damageType]}`}
+            alt={r.damageType}
+            className={styles.rowIcon}
+            onError={e => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
+          />
+        )}
+        <span className={styles.rowName}>{r.label}</span>
+        <span className={styles.rowBar} aria-hidden="true">
+          <span
+            className={styles.rowBarFill}
+            style={{ width: `${Math.min(100, r.fraction * 100)}%` }}
+          />
+        </span>
+        <span className={styles.rowPct}>{fmtPct(r.fraction)}</span>
+      </button>
+      {open && (
+        <div className={styles.popover} role="dialog" aria-label={`${r.label} details`}>
+          <pre className={styles.popoverContent}>{tooltipLines.join('\n')}</pre>
+        </div>
+      )}
+    </li>
   );
 }

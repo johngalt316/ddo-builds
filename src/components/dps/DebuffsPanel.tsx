@@ -23,6 +23,7 @@ import {
   type DebuffState,
 } from '@/engine/dps/debuffs';
 import type { Build } from '@/types/build';
+import { useTooltip } from '@/hooks/useTooltip';
 import styles from './DebuffsPanel.module.css';
 
 const SOURCE_LABEL: Record<DebuffSource, string> = {
@@ -87,28 +88,52 @@ export function DebuffsSummary({ state, build, onManage }: SummaryProps) {
         </div>
       ) : (
         <div className={styles.chips}>
-          {active.map(e => {
-            const isAuto = auto.has(e.id);
-            const titleParts = [
-              e.description,
-              formatEffect(e),
-              isAuto ? 'Auto-applied: triggered by your equipped gear.' : '',
-            ].filter(Boolean);
-            return (
-              <span key={e.id} className={styles.chip} title={titleParts.join('\n')}>
-                {e.label}
-                {isAuto && <span className={styles.chipAuto}>auto</span>}
-                {!isAuto && (
-                  <span className={styles.chipScope}>
-                    {state[e.id]?.scope === 'party' ? 'party' : 'self'}
-                  </span>
-                )}
-              </span>
-            );
-          })}
+          {active.map(e => (
+            <DebuffChip
+              key={e.id}
+              entry={e}
+              isAuto={auto.has(e.id)}
+              scope={state[e.id]?.scope ?? 'self'}
+            />
+          ))}
         </div>
       )}
     </section>
+  );
+}
+
+interface ChipProps {
+  entry: DebuffEntry;
+  isAuto: boolean;
+  scope: DebuffScope;
+}
+
+function DebuffChip({ entry, isAuto, scope }: ChipProps) {
+  const { open, wrapperProps, triggerProps } = useTooltip();
+  const tooltipLines = [
+    entry.label,
+    '',
+    entry.description,
+    formatEffect(entry),
+    isAuto ? 'Auto-applied: triggered by your equipped gear.' : '',
+  ].filter(Boolean);
+  return (
+    <span className={styles.chipWrapper} {...wrapperProps}>
+      <button type="button" className={styles.chip} {...triggerProps}>
+        {entry.label}
+        {isAuto && <span className={styles.chipAuto}>auto</span>}
+        {!isAuto && (
+          <span className={styles.chipScope}>
+            {scope === 'party' ? 'party' : 'self'}
+          </span>
+        )}
+      </button>
+      {open && (
+        <div className={styles.popover} role="dialog" aria-label={`${entry.label} details`}>
+          <pre className={styles.popoverContent}>{tooltipLines.join('\n')}</pre>
+        </div>
+      )}
+    </span>
   );
 }
 
