@@ -216,19 +216,12 @@ export function classifyClickie(description: string): { category: AbilityCategor
  */
 export function deriveSlaTag(source: string, category: SLACategory): string {
   if (source.startsWith('[PL] ') || category === 'feat') return 'PL';
-  // [E]/[D]/[R] <Tree Name>: …  → tree-name based tag.
-  const treeName = source.match(/^\[(?:E|D|R)\]\s+([^:]+):/)?.[1]?.trim();
-  if (treeName) {
-    const words = treeName.split(/\s+/);
-    if (words.length >= 2) {
-      return words.map(w => w[0]?.toUpperCase() ?? '').join('').slice(0, 4);
-    }
-    // split on a non-empty trimmed string yields at least one non-empty word.
-    const first = words[0]!;
-    return first.length <= 4
-      ? first
-      : first[0]!.toUpperCase() + first.slice(1, 4).toLowerCase();
-  }
+  // Enhancement / Destiny / Reaper scope — use the single scope letter.
+  // Tree-name abbreviations (FOTW, SC, AT…) were too cryptic for one-off
+  // SLA sources; the scope letter is consistent and self-explanatory.
+  if (source.startsWith('[E] ')) return 'E';
+  if (source.startsWith('[D] ')) return 'D';
+  if (source.startsWith('[R] ')) return 'R';
   if (category === 'gear') return 'Gear';
   return 'SLA';
 }

@@ -11,32 +11,23 @@ describe('deriveSlaTag', () => {
     expect(deriveSlaTag('Past Life: Arcane Initiate', 'feat')).toBe('PL');
   });
 
-  it('multi-word heroic enhancement trees use initials', () => {
-    expect(deriveSlaTag('[E] Arcane Trickster: Stolen Spell I', 'enhancement')).toBe('AT');
+  it('heroic enhancement trees use the scope letter E', () => {
+    expect(deriveSlaTag('[E] Arcane Trickster: Stolen Spell I', 'enhancement')).toBe('E');
+    expect(deriveSlaTag('[E] Mechanic: Tanglefoot', 'enhancement')).toBe('E');
+    expect(deriveSlaTag('[E] Shadowdancer: Foo', 'enhancement')).toBe('E');
   });
 
-  it('multi-word destinies use initials', () => {
-    expect(deriveSlaTag('[D] Shiradi Champion: Friend or Foe → Magic Missile', 'enhancement')).toBe('SC');
+  it('destiny trees use the scope letter D', () => {
+    expect(deriveSlaTag('[D] Shiradi Champion: Friend or Foe → Magic Missile', 'enhancement')).toBe('D');
+    expect(deriveSlaTag('[D] Fury of the Wild: Strength or Swiftness → Quick Cutter', 'enhancement')).toBe('D');
   });
 
-  it('multi-word reaper trees use initials', () => {
-    expect(deriveSlaTag('[R] Dire Thaumaturge: Foo', 'enhancement')).toBe('DT');
-  });
-
-  it('single-word short tree names are kept whole', () => {
-    expect(deriveSlaTag('[E] Mechanic: Tanglefoot', 'enhancement')).toBe('Mech');
-  });
-
-  it('single-word longer tree names truncate', () => {
-    expect(deriveSlaTag('[E] Shadowdancer: Foo', 'enhancement')).toBe('Shad');
+  it('reaper trees use the scope letter R', () => {
+    expect(deriveSlaTag('[R] Dire Thaumaturge: Foo', 'enhancement')).toBe('R');
   });
 
   it('gear-category SLAs tag as Gear', () => {
     expect(deriveSlaTag('[G] Trinket: Some Item', 'gear')).toBe('Gear');
     expect(deriveSlaTag('[A] Boots: Foo → Bar', 'gear')).toBe('Gear');
-  });
-
-  it('caps initials at 4 chars for very long names', () => {
-    expect(deriveSlaTag('[E] One Two Three Four Five: Foo', 'enhancement')).toBe('OTTF');
   });
 });
