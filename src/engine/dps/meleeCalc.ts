@@ -73,18 +73,18 @@ export function weaponCategoryFromName(weaponName: string): WeaponCategory {
   return 'one-handed';
 }
 
-// ── Attack rates (community-researched baseline) ─────────────────────
+// ── Attack rates ──────────────────────────────────────────────────────
 //
-// Empirically measured for a BAB 20+ character (Vanshilar's dataset).
-// Handwraps: +7.5% vs standard. Two-handed: −7.5% vs standard.
-// Alacrity cap = 15% per the panel slider (this is the user-visible cap
-// for the bonus the panel models; actual DDO cap may differ).
+// Baseline measured in-game for a BAB 20+ character.
+// Handwraps: slightly faster than standard one-handed.
+// Two-handed: slightly slower.
+// Alacrity cap = 15% (user-visible slider cap).
 
 export function meleeBaseAPM(category: WeaponCategory): number {
   switch (category) {
-    case 'handwraps':  return 215;
-    case 'two-handed': return 185;
-    default:           return 200;
+    case 'handwraps':  return 110;
+    case 'two-handed': return 90;
+    default:           return 100;
   }
 }
 

@@ -19,6 +19,7 @@ import {
   meleeDPS,
   type TWFStyle,
 } from '@/engine/dps/meleeCalc';
+import { MeleeTimeline } from './MeleeTimeline';
 import { useBuildStore } from '@/store/buildStore';
 import { useGameDataStore } from '@/store/gameDataStore';
 import { useBreakdowns, useBreakdownsForBuild } from '@/hooks/useBreakdowns';
@@ -942,6 +943,14 @@ function MeleeEditor({ targetCount, setTargetCount }: MeleeEditorProps) {
           </div>
         )}
       </div>
+
+      {/* Auto-attack timeline */}
+      {result && (
+        <MeleeTimeline
+          mhAPM={result.mhAttacksPerMin}
+          ohAPM={result.ohAttacksPerMin}
+        />
+      )}
 
       {/* Stats grid */}
       <div className={styles.stats}>
