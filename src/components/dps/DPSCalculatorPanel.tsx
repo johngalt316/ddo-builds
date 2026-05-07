@@ -577,6 +577,7 @@ function MagicRotationEditor({
         build={build}
         engine={breakdowns}
         sneakAttackDice={breakdowns?.sneakAttackDice.total ?? 0}
+        breakdown={rotationBreakdown}
       />
       <DebuffsSummary state={debuffState} build={build} onManage={() => setDebuffsOpen(true)} />
       <ManageDebuffsDialog

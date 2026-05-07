@@ -90,9 +90,20 @@ export function DamageSourceSummary({ breakdown, events, currentTime }: Props) {
       const key = c.component.groupLabel ?? c.component.label;
       const cur = aggMap.get(key);
       if (cur) {
-        cur.perMinute  += c.damagePerMinute;
-        cur.perTrigger += c.damagePerTrigger;
-        cur.triggers   += c.triggersPerMinute;
+        // perMinute and triggers stack additively across per-spell
+        // instances (e.g. Magical Ambush firing on 3 different spells
+        // contributes its triggers/min from each spell). damagePerTrigger
+        // is INTRINSIC to the proc — one trigger does the same damage
+        // regardless of which spell fired it — so we use a triggers-
+        // weighted average rather than summing. Without this, summed
+        // perTrigger × summed triggers ≠ summed perMinute (for N
+        // instances, perTrigger inflates by Nx).
+        const totalTriggers = cur.triggers + c.triggersPerMinute;
+        cur.perTrigger = totalTriggers > 0
+          ? (cur.perTrigger * cur.triggers + c.damagePerTrigger * c.triggersPerMinute) / totalTriggers
+          : c.damagePerTrigger;
+        cur.perMinute += c.damagePerMinute;
+        cur.triggers   = totalTriggers;
         // Element / SP / crit / debuff aren't necessarily uniform
         // across the per-spell instances (e.g. Magical Ambush is
         // always Force, but other procs could vary). Keep the first
