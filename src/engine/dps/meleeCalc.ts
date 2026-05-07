@@ -34,8 +34,9 @@ export interface MeleeBuildStats {
   seeker: number;
   hasImprovedCritical: boolean;
   twfStyle: TWFStyle;
-  offHandChance: number;   // % (GTWF base + enhancement adds)
-  isHandwraps: boolean;    // no DS cap on off-hand for handwraps
+  offHandChance: number;   // % (all sources, capped at 100)
+  isHandwraps: boolean;
+  hasPerfectTWF: boolean;  // raises OH DS fraction from 50% → 65%
 }
 
 export interface MeleeDPSResult {
@@ -54,7 +55,12 @@ export interface MeleeDPSResult {
   ohDPS: number;
   totalAutoDPS: number;
   meleePower: number;
+  /** Main-hand doublestrike % (full value). */
   doublestrike: number;
+  /** Off-hand effective doublestrike % after the OH fraction is applied. */
+  doublestrikeOH: number;
+  /** Fraction applied to MH DS to get OH DS (0.50 / 0.65 / 1.00). */
+  ohDSFraction: number;
   meleeAlacrity: number;
 }
 
@@ -125,6 +131,10 @@ export function detectImprovedCritical(build: Build): boolean {
   return build.feats.some(f => f.featId.startsWith('Improved Critical:'));
 }
 
+export function detectPerfectTWF(build: Build): boolean {
+  return build.feats.some(f => f.featId === 'Perfect Two Weapon Fighting');
+}
+
 // ── Core DPS formula ─────────────────────────────────────────────────
 
 export function meleeDPS(
@@ -151,9 +161,19 @@ export function meleeDPS(
   const ohFrac   = Math.min(1.0, stats.offHandChance / 100);
   const ohAPM    = mhAPM * ohFrac;
 
-  // Doublestrike — handwraps have no DS cap on off-hand
+  // Doublestrike
+  // MH: full DS value.
+  // OH: scaled by a fraction of MH DS —
+  //   • handwraps/unarmed: 100% (no penalty, unique quirk)
+  //   • Perfect TWF:        65%
+  //   • standard TWF:       50%
   const dsMH = stats.doublestrike / 100;
-  const dsOH = stats.isHandwraps ? dsMH : Math.min(dsMH, 0.50);
+  const ohDSFraction = stats.isHandwraps
+    ? 1.00
+    : stats.hasPerfectTWF
+      ? 0.65
+      : 0.50;
+  const dsOH = dsMH * ohDSFraction;
 
   const effectiveMH    = mhAPM * (1 + dsMH);
   const effectiveOH    = ohAPM * (1 + dsOH);
@@ -179,6 +199,8 @@ export function meleeDPS(
     totalAutoDPS:         mhDPS + ohDPS,
     meleePower:           stats.meleePower,
     doublestrike:         stats.doublestrike,
+    doublestrikeOH:       dsOH * 100,
+    ohDSFraction,
     meleeAlacrity:        alacrity,
   };
 }
@@ -236,5 +258,6 @@ export function buildStatsFromEngine(
     twfStyle,
     offHandChance:       ohChance,
     isHandwraps:         weaponInfo.category === 'handwraps',
+    hasPerfectTWF:       detectPerfectTWF(build),
   };
 }

@@ -930,10 +930,24 @@ function MeleeEditor({ targetCount, setTargetCount }: MeleeEditorProps) {
         </div>
 
         {/* Build stat chips */}
-        {buildStats && (
+        {buildStats && result && (
           <div className={styles.meleeStatRow}>
             <span className={styles.meleeStatChip}>MP {fmt(buildStats.meleePower)}</span>
-            <span className={styles.meleeStatChip}>DS {pct(buildStats.doublestrike)}</span>
+            <span className={styles.meleeStatChip} title="Main-hand doublestrike">
+              DS MH {pct(buildStats.doublestrike)}
+            </span>
+            <span
+              className={styles.meleeStatChip}
+              title={
+                buildStats.isHandwraps
+                  ? 'Handwraps/unarmed: OH DS = MH DS (no penalty)'
+                  : buildStats.hasPerfectTWF
+                    ? 'Perfect TWF: OH DS = 65% of MH DS'
+                    : 'Standard TWF: OH DS = 50% of MH DS'
+              }
+            >
+              DS OH {pct(result.doublestrikeOH)}
+            </span>
             {buildStats.hasImprovedCritical && (
               <span className={styles.meleeStatChip}>IC</span>
             )}
@@ -972,7 +986,13 @@ function MeleeEditor({ targetCount, setTargetCount }: MeleeEditorProps) {
             <div className={styles.meleeBreakdownCol}>
               <span className={styles.meleeBreakdownLabel}>Off Hand</span>
               <span className={styles.meleeBreakdownValue}>{fmt(Math.round(result.ohDPS))} DPS</span>
-              <span className={styles.meleeBreakdownSub}>{fmt(Math.round(result.effectiveOHPerMin))} eff. hits/min</span>
+              <span className={styles.meleeBreakdownSub}>
+                {fmt(Math.round(result.effectiveOHPerMin))} eff. hits/min
+                {' · '}DS {pct(result.doublestrikeOH)}
+                {' ('}
+                {result.ohDSFraction === 1.00 ? 'wraps' : result.ohDSFraction === 0.65 ? 'PTWF' : '50%'}
+                {')'}
+              </span>
             </div>
           )}
           <div className={styles.meleeBreakdownCol}>
