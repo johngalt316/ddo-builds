@@ -14,16 +14,20 @@ function gitOutput(args: string, fallback: string): string {
 }
 const pkg = JSON.parse(readFileSync(fileURLToPath(new URL('./package.json', import.meta.url)), 'utf8'));
 const [pkgMajor, pkgMinor] = (pkg.version as string).split('.');
-const commitCount  = gitOutput('rev-list --count HEAD', '0');
-const commitShaShort = gitOutput('rev-parse --short HEAD', 'unknown');
-const APP_VERSION  = `${pkgMajor}.${pkgMinor}.${commitCount}`;
-const APP_SHA      = commitShaShort;
+const commitCount      = gitOutput('rev-list --count HEAD', '0');
+const commitShaShort   = gitOutput('rev-parse --short HEAD', 'unknown');
+const commitDateRaw    = gitOutput('log -1 --format=%ci HEAD', '');
+// Format as "YYYY-MM-DD HH:MM" (drop seconds + tz offset for brevity).
+const APP_VERSION      = `${pkgMajor}.${pkgMinor}.${commitCount}`;
+const APP_SHA          = commitShaShort;
+const APP_COMMIT_DATE  = commitDateRaw.slice(0, 16);   // "2026-05-07 19:33"
 
 export default defineConfig({
   plugins: [react()],
   define: {
-    __APP_VERSION__: JSON.stringify(APP_VERSION),
-    __APP_SHA__:     JSON.stringify(APP_SHA),
+    __APP_VERSION__:     JSON.stringify(APP_VERSION),
+    __APP_SHA__:         JSON.stringify(APP_SHA),
+    __APP_COMMIT_DATE__: JSON.stringify(APP_COMMIT_DATE),
   },
   resolve: {
     alias: {

@@ -31,7 +31,14 @@ function buildAttacks(apm: number, windowSec: number): number[] {
 }
 
 export function MeleeTimeline({ mhAPM, ohAPM }: Props) {
-  if (mhAPM <= 0) return null;
+  if (mhAPM <= 0) return (
+    <div className={styles.wrapper}>
+      <div className={styles.header}>
+        <span className={styles.label}>Auto-attacks</span>
+        <span className={styles.rate} style={{ opacity: 0.4 }}>No weapon data</span>
+      </div>
+    </div>
+  );
 
   // Show enough time to display 10–12 main-hand attacks, capped at 15s.
   const mhInterval  = 60 / mhAPM;

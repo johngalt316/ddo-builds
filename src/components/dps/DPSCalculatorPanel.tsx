@@ -40,7 +40,7 @@ import {
   initialDebuffState,
   type DebuffState,
 } from '@/engine/dps/debuffs';
-import { spellDamageMultiplier } from '@/engine/dps/difficulty';
+import { spellDamageMultiplier, physicalDamageMultiplier } from '@/engine/dps/difficulty';
 import { RotationPalette } from './RotationPalette';
 import { RotationTimeline } from './RotationTimeline';
 import { ManageActiveDialog } from './ManageActiveDialog';
@@ -123,7 +123,7 @@ export function DPSCalculatorPanel() {
     <section className={styles.panel}>
       <header className={styles.header}>
         <h2 className={styles.title}>DPS Calculator</h2>
-        <span className={styles.tag}>Phase 6 — work in progress</span>
+        <span className={styles.tag}>Work in Progress</span>
       </header>
 
       {/* Controls */}
@@ -789,35 +789,50 @@ interface MeleeEditorProps {
   setTargetCount: (next: number) => void;
 }
 
-function MeleeEditor({ targetCount, setTargetCount }: MeleeEditorProps) {
-  const build  = useBuildStore(s => s.build);
-  const engine = useBreakdowns();
+function MeleeEditor({ difficulty, targetCount, setTargetCount }: MeleeEditorProps) {
+  const build      = useBuildStore(s => s.build);
+  const engine     = useBreakdowns();
+  const metamagics = useGameDataStore(s => s.metamagics);
 
-  // Alacrity slider: 0–15%. Default to build's actual alacrity but allow
-  // manual override so the user can test different speed scenarios.
-  const buildAlacrity  = engine?.meleeSpeed.total ?? 0;
+  // ── Debuffs (same as magic pane) ───────────────────────────────────
+  const [debuffState, setDebuffState] = useState<DebuffState>(() => initialDebuffState());
+  const [debuffsOpen, setDebuffsOpen] = useState(false);
+  const debuffs = useMemo(
+    () => ({
+      ...aggregateDebuffs(debuffState, undefined, build),
+      damageDealtMultiplier: physicalDamageMultiplier(difficulty),
+    }),
+    [debuffState, difficulty, build],
+  );
+
+  // ── Enhancement-set comparison (same as magic pane) ───────────────
+  const [compareSetName, setCompareSetName] = useState<string | null>(null);
+  const compareBuild = useMemo<typeof build>(() => {
+    if (!compareSetName || compareSetName === build.activeEnhancementSet) return build;
+    return { ...build, activeEnhancementSet: compareSetName };
+  }, [build, compareSetName]);
+  const compareBreakdowns = useBreakdownsForBuild(compareBuild);
+
+  // ── Attack-speed alacrity slider ───────────────────────────────────
+  const buildAlacrity = engine?.meleeSpeed.total ?? 0;
   const [alacrity, setAlacrity] = useState<number | null>(null);
-  // Sync to build alacrity when engine refreshes, unless user has overridden.
   const effectiveAlacrity = alacrity ?? Math.min(buildAlacrity, 15);
 
-  // TWF override — auto-detect from build by default.
-  const detectedTWF = useMemo(
-    () => {
-      if (!engine) return 'none' as TWFStyle;
-      const ids = new Set([
-        ...build.feats.map(f => f.featId),
-        ...(build.specialFeats ?? []).map(f => f.featId),
-      ]);
-      if (ids.has('Greater Two Weapon Fighting')) return 'gtwf' as TWFStyle;
-      if (ids.has('Improved Two Weapon Fighting')) return 'itwf' as TWFStyle;
-      if (ids.has('Two Weapon Fighting'))          return 'twf'  as TWFStyle;
-      return 'none' as TWFStyle;
-    },
-    [build.feats, build.specialFeats, engine],
-  );
+  // ── TWF style override ─────────────────────────────────────────────
+  const detectedTWF = useMemo((): TWFStyle => {
+    if (!engine) return 'none';
+    const ids = new Set([
+      ...build.feats.map(f => f.featId),
+      ...(build.specialFeats ?? []).map(f => f.featId),
+    ]);
+    if (ids.has('Greater Two Weapon Fighting'))   return 'gtwf';
+    if (ids.has('Improved Two Weapon Fighting'))  return 'itwf';
+    if (ids.has('Two Weapon Fighting'))           return 'twf';
+    return 'none';
+  }, [build.feats, build.specialFeats, engine]);
   const [twfOverride, setTwfOverride] = useState<TWFStyle | null>(null);
 
-  // Equipped main-hand weapon
+  // ── Weapon + DPS result ────────────────────────────────────────────
   const mainHandItem = useMemo(() => {
     const gs = build.gearSets.find(g => g.name === build.activeGearSet);
     return gs?.items.find(i => i.slot === 'MainHand') ?? null;
@@ -832,11 +847,11 @@ function MeleeEditor({ targetCount, setTargetCount }: MeleeEditorProps) {
     if (!engine || !weaponInfo) return null;
     const base = buildStatsFromEngine(build, engine, weaponInfo, effectiveAlacrity);
     if (twfOverride !== null) {
-      const ohChance = twfOverride === 'gtwf' ? 80
-                     : twfOverride === 'itwf' ? 60
-                     : twfOverride === 'twf'  ? 40
-                     : 0;
-      return { ...base, twfStyle: twfOverride, offHandChance: ohChance };
+      const ohBonus = twfOverride === 'gtwf' ? 80
+                    : twfOverride === 'itwf' ? 60
+                    : twfOverride === 'twf'  ? 40
+                    : 0;
+      return { ...base, twfStyle: twfOverride, offHandChance: Math.min(100, ohBonus) };
     }
     return base;
   }, [engine, build, weaponInfo, effectiveAlacrity, twfOverride]);
@@ -846,26 +861,60 @@ function MeleeEditor({ targetCount, setTargetCount }: MeleeEditorProps) {
     [weaponInfo, buildStats],
   );
 
+  // Compare result for the same weapon against a different enhancement set.
+  const compareResult = useMemo(() => {
+    if (!compareSetName || !compareBreakdowns || compareSetName === build.activeEnhancementSet) return null;
+    if (!weaponInfo) return null;
+    const cs = buildStatsFromEngine(compareBuild, compareBreakdowns, weaponInfo, effectiveAlacrity);
+    return meleeDPS(weaponInfo, cs);
+  }, [compareSetName, compareBreakdowns, compareBuild, weaponInfo, effectiveAlacrity, build.activeEnhancementSet]);
+
   if (!engine) return null;
 
-  const fmt  = (n: number, d = 0) => n.toLocaleString('en-US', { maximumFractionDigits: d });
-  const pct  = (n: number)        => `${fmt(n, 1)}%`;
+  const fmt = (n: number, d = 0) => n.toLocaleString('en-US', { maximumFractionDigits: d });
+  const pct = (n: number)        => `${fmt(n, 1)}%`;
 
   const effectiveThreat = buildStats?.hasImprovedCritical
     ? (weaponInfo?.critThreatBase ?? 1) * 2
     : (weaponInfo?.critThreatBase ?? 1);
-  const threatLow = 21 - effectiveThreat;
   const critDisplay = weaponInfo
     ? effectiveThreat <= 1
       ? `20 / ×${weaponInfo.critMultiplier}`
-      : `${threatLow}–20 / ×${weaponInfo.critMultiplier}${buildStats?.hasImprovedCritical ? ' (IC)' : ''}`
+      : `${21 - effectiveThreat}–20 / ×${weaponInfo.critMultiplier}${buildStats?.hasImprovedCritical ? ' (IC)' : ''}`
     : '';
 
   return (
-    <div className={styles.meleeEditor}>
-      <TargetRow targetCount={targetCount} setTargetCount={setTargetCount} prr={0} mrr={0} />
+    <div className={styles.editor}>
+      {/* Target + enemy info — identical to magic pane */}
+      <TargetRow
+        targetCount={targetCount}
+        setTargetCount={setTargetCount}
+        prr={0}
+        mrr={0}
+      />
 
-      {/* Weapon info block */}
+      {/* Party buffs */}
+      <BuffsList build={build} metamagics={metamagics} />
+
+      {/* Active procs (on-hit sources; empty until melee proc catalog lands) */}
+      <ActiveProcsList
+        build={build}
+        engine={engine}
+        sneakAttackDice={engine.sneakAttackDice.total}
+        breakdown={null}
+      />
+
+      {/* Debuffs */}
+      <DebuffsSummary state={debuffState} build={build} onManage={() => setDebuffsOpen(true)} />
+      <ManageDebuffsDialog
+        open={debuffsOpen}
+        state={debuffState}
+        build={build}
+        onChange={setDebuffState}
+        onClose={() => setDebuffsOpen(false)}
+      />
+
+      {/* Weapon info block (mirrors RotationPalette role) */}
       {weaponInfo ? (
         <div className={styles.weaponRow}>
           <div className={styles.weaponMeta}>
@@ -902,15 +951,13 @@ function MeleeEditor({ targetCount, setTargetCount }: MeleeEditorProps) {
               Alacrity <span className={styles.fieldValue}>{effectiveAlacrity}%</span>
             </span>
             <input
-              type="range"
-              className={styles.slider}
+              type="range" className={styles.slider}
               min={0} max={15} step={1}
               value={effectiveAlacrity}
               onChange={e => setAlacrity(Number(e.target.value))}
             />
             <span className={styles.sliderTicks}><span>0%</span><span>15%</span></span>
           </label>
-
           <label className={styles.field} style={{ minWidth: '7rem' }}>
             <span className={styles.fieldLabel}>TWF Style</span>
             <select
@@ -921,15 +968,13 @@ function MeleeEditor({ targetCount, setTargetCount }: MeleeEditorProps) {
                 setTwfOverride(v === detectedTWF ? null : v);
               }}
             >
-              <option value="none">None (0%)</option>
-              <option value="twf">TWF (40%)</option>
-              <option value="itwf">ITWF (60%)</option>
-              <option value="gtwf">GTWF (80%)</option>
+              <option value="none">None</option>
+              <option value="twf">TWF</option>
+              <option value="itwf">ITWF</option>
+              <option value="gtwf">GTWF</option>
             </select>
           </label>
         </div>
-
-        {/* Build stat chips */}
         {buildStats && result && (
           <div className={styles.meleeStatRow}>
             <span className={styles.meleeStatChip}>MP {fmt(buildStats.meleePower)}</span>
@@ -939,18 +984,14 @@ function MeleeEditor({ targetCount, setTargetCount }: MeleeEditorProps) {
             <span
               className={styles.meleeStatChip}
               title={
-                buildStats.isHandwraps
-                  ? 'Handwraps/unarmed: OH DS = MH DS (no penalty)'
-                  : buildStats.hasPerfectTWF
-                    ? 'Perfect TWF: OH DS = 65% of MH DS'
-                    : 'Standard TWF: OH DS = 50% of MH DS'
+                buildStats.isHandwraps   ? 'Handwraps: OH DS = MH DS (no penalty)'
+                : buildStats.hasPerfectTWF ? 'Perfect TWF: OH DS = 65% of MH DS'
+                : 'Standard TWF: OH DS = 50% of MH DS'
               }
             >
               DS OH {pct(result.doublestrikeOH)}
             </span>
-            {buildStats.hasImprovedCritical && (
-              <span className={styles.meleeStatChip}>IC</span>
-            )}
+            {buildStats.hasImprovedCritical && <span className={styles.meleeStatChip}>IC</span>}
             {buildStats.seeker > 0 && (
               <span className={styles.meleeStatChip}>Seeker +{buildStats.seeker}</span>
             )}
@@ -958,23 +999,62 @@ function MeleeEditor({ targetCount, setTargetCount }: MeleeEditorProps) {
         )}
       </div>
 
-      {/* Auto-attack timeline */}
-      {result && (
-        <MeleeTimeline
-          mhAPM={result.mhAttacksPerMin}
-          ohAPM={result.ohAttacksPerMin}
-        />
-      )}
+      {/* Auto-attack timeline (mirrors RotationTimeline) */}
+      <MeleeTimeline
+        mhAPM={result?.mhAttacksPerMin ?? 0}
+        ohAPM={result?.ohAttacksPerMin ?? 0}
+      />
 
       {/* Stats grid */}
       <div className={styles.stats}>
-        <Metric label="DPS"         value={result ? fmt(Math.round(result.totalAutoDPS)) : '—'} />
+        <Metric label="DPS"         value={result ? fmt(Math.round(result.totalAutoDPS))        : '—'} />
         <Metric label="Hits / min"  value={result ? fmt(Math.round(result.totalEffectivePerMin)) : '—'} />
-        <Metric label="Avg / Hit"   value={result ? fmt(result.avgPerHit, 1) : '—'} />
-        <Metric label="Crit Chance" value={result ? pct(result.critChance * 100) : '—'} />
+        <Metric label="Avg / Hit"   value={result ? fmt(result.avgPerHit, 1)                    : '—'} />
+        <Metric label="Crit Chance" value={result ? pct(result.critChance * 100)                : '—'} />
       </div>
 
-      {/* DPS breakdown */}
+      {/* Enhancement-set comparison (mirrors magic compare row) */}
+      {(build.enhancementSets?.length ?? 0) > 1 && (
+        <div className={styles.compareRow}>
+          <label className={styles.compareLabel}>
+            Compare vs.
+            <select
+              className={styles.compareSelect}
+              value={compareSetName ?? ''}
+              onChange={e => setCompareSetName(e.target.value || null)}
+            >
+              <option value="">(none)</option>
+              {(build.enhancementSets ?? [])
+                .filter(s => s.name !== build.activeEnhancementSet)
+                .map(s => <option key={s.name} value={s.name}>{s.name}</option>)}
+            </select>
+          </label>
+          {compareSetName && compareResult && result && (() => {
+            const activeDps  = result.totalAutoDPS;
+            const compareDps = compareResult.totalAutoDPS;
+            const delta      = activeDps > 0 ? (compareDps - activeDps) / activeDps * 100 : 0;
+            const sign       = delta >= 0 ? '+' : '';
+            const better     = delta > 0;
+            return (
+              <div className={styles.compareStats}>
+                <span className={styles.compareCol}>
+                  <span className={styles.compareColLabel}>{build.activeEnhancementSet}</span>
+                  <span className={styles.compareColValue}>{Math.round(activeDps).toLocaleString()} DPS</span>
+                </span>
+                <span className={styles.compareCol}>
+                  <span className={styles.compareColLabel}>{compareSetName}</span>
+                  <span className={styles.compareColValue}>{Math.round(compareDps).toLocaleString()} DPS</span>
+                </span>
+                <span className={better ? styles.compareDeltaUp : styles.compareDeltaDown}>
+                  {sign}{delta.toFixed(1)}%
+                </span>
+              </div>
+            );
+          })()}
+        </div>
+      )}
+
+      {/* DPS breakdown (mirrors DamageSourceSummary role) */}
       {result && (
         <div className={styles.meleeBreakdown}>
           <div className={styles.meleeBreakdownCol}>
@@ -1001,10 +1081,10 @@ function MeleeEditor({ targetCount, setTargetCount }: MeleeEditorProps) {
             <span className={styles.meleeBreakdownSub}>Base {fmt(result.avgBaseDamage, 1)}</span>
           </div>
           <div className={styles.meleeBreakdownCol}>
-            <span className={styles.meleeBreakdownLabel}>Avg / Hit (w/ crits)</span>
+            <span className={styles.meleeBreakdownLabel}>Avg / Hit (crits)</span>
             <span className={styles.meleeBreakdownValue}>{fmt(result.avgPerHit, 1)}</span>
             <span className={styles.meleeBreakdownSub}>
-              {fmt(result.critChance * 100, 1)}% crit → ×{result.critMultiplier}
+              {pct(result.critChance * 100)} crit → ×{result.critMultiplier}
               {result.seeker > 0 ? ` + ${result.seeker} Seeker` : ''}
             </span>
           </div>
