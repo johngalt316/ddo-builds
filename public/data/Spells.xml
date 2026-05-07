@@ -8361,7 +8361,15 @@ You gain one additional missile at levels 4, 8, and 12 for a maximum of 4 missil
     <Enlarge/>
     <Maximize/>
     <Quicken/>
-    <MaxCasterLevel>12</MaxCasterLevel>
+    <!-- ddo-builds patch (see docs/DATA_PATCHES.md): upstream catalog
+         had MCL 12, but pure caster classes have CL/MCL 20 baseline
+         in modern DDO; with Epic Knowledge (+5) and Legendary
+         Knowledge (+5) feats this lifts the per-missile dice scaling
+         to CL 30. Missile count is capped at 4 by the spell rule
+         (1 + floor(CL/4), clamped at 4 — already plateaus at CL 12),
+         so this patch only affects per-missile dice growth, not
+         projectile count. -->
+    <MaxCasterLevel>20</MaxCasterLevel>
     <SpellDamage>
       <SpellDice>
         <PerCasterLevels>2</PerCasterLevels>
@@ -8465,7 +8473,11 @@ Undead do not trigger spell resistance.</Description>
     <Extend/>
     <Heighten/>
     <Quicken/>
-    <MaxCasterLevel>1</MaxCasterLevel>
+    <!-- ddo-builds patch (see docs/DATA_PATCHES.md): upstream MCL=1
+         is a stub/typo; ddowiki.com/page/Death_Aura confirms MCL 20
+         ("max 2d4+10 at caster level 20"), and the Maximum caster
+         level table also lists Death Aura at 20. -->
+    <MaxCasterLevel>20</MaxCasterLevel>
     <SpellDamage>
       <SpellDice>
         <BaseDice>
@@ -15504,7 +15516,11 @@ This spell is supposed to receive +10 maximum caster level from the Master of
 the Dead epic feat, but is currently bugged and is not receiving a bonus.</Description>
     <Icon>GreaterDeathAura</Icon>
     <School>Necromancy</School>
-    <MaxCasterLevel>10</MaxCasterLevel>
+    <!-- ddo-builds patch (see docs/DATA_PATCHES.md): upstream MCL=10;
+         ddowiki.com/page/Greater_Death_Aura confirms MCL 20 ("max
+         3d4+10 at caster level 20"). The description's "max 10" refers
+         to the per-CL bonus damage cap, not the spell MCL itself. -->
+    <MaxCasterLevel>20</MaxCasterLevel>
     <Embolden/>
     <Extend/>
     <Heighten/>
