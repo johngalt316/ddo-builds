@@ -67,7 +67,18 @@ export interface DamageComponent {
   /** Y/N flags from the spreadsheet: which debuffs apply to this component. */
   useGenericVuln?: boolean;
   useSonicVuln?:   boolean;
+  /** Legacy flag — set on existing magical components to opt them into
+   *  the MRR multiplier. Components emitted by new code should set
+   *  `damageRating` directly instead; the engine treats `useMRR: true`
+   *  as equivalent to `damageRating: 'magical'`. */
   useMRR?:         boolean;
+  /** Which resistance rating applies to this component. Drives the
+   *  `100 / (100 + rating)` multiplier in `componentDebuffMultiplier`:
+   *  - 'magical'  → debuff's effectiveMRR
+   *  - 'physical' → debuff's effectivePRR
+   *  - 'none'     → no rating reduction (untyped / bypass procs)
+   *  When undefined, falls back to the legacy `useMRR` flag. */
+  damageRating?: 'physical' | 'magical' | 'none';
   /** UI-only hint: when `avgDicePerHit` has a chance baked in (e.g.
    *  Shiradi Mantle's 7d77 × pFire), `fullHitAvg` is the unmodified
    *  on-fire damage and `perMissileChance` the per-missile roll rate.

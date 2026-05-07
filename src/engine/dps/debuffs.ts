@@ -39,9 +39,22 @@ export interface DebuffEffect {
   /** Subtracted from the target's effective MRR for components flagged
    *  `useMRR`. Stacks across active debuffs. */
   mrrReduction?: number;
-  /** Subtracted from PRR; informational for now (no PRR-flagged DPS
-   *  components yet — surface when melee comes online). */
+  /** Subtracted from PRR; routed via `effectivePRR` for physical-rated
+   *  components in `componentDebuffMultiplier`. */
   prrReduction?: number;
+  /** How quickly the debuff reaches its modeled magnitude:
+   *    'instant'  — full benefit the moment it's active (caster spells,
+   *                 single-shot procs)
+   *    'ramping'  — builds up to full over `rampSeconds`. The aggregator
+   *                 scales every numeric magnitude by an average-stack
+   *                 fraction over the fight duration.
+   *  Defaults to 'instant' when omitted. */
+  application?: 'instant' | 'ramping';
+  /** For 'ramping' debuffs: seconds to reach full stacks from zero,
+   *  assuming continuous trigger conditions (e.g. swinging a weapon
+   *  every 2s × 20 stacks = 40s for Vulnerable). Ignored when
+   *  `application !== 'ramping'`. */
+  rampSeconds?: number;
 }
 
 export interface DebuffEntry {
@@ -164,7 +177,8 @@ export const DEBUFF_CATALOG: DebuffEntry[] = [
     label: 'Legendary Ash',
     description: 'Weapon proc: 3 stacks × −7 MRR (max −21 MRR). Also −20 USP/stack on the target.',
     source: 'item',
-    effect: { mrrReduction: 21 },
+    // 50% proc on hit at ~1 hit/sec → 3 stacks land in ~6s of combat.
+    effect: { mrrReduction: 21, application: 'ramping', rampSeconds: 6 },
     defaultScope: 'self',
     autoApplyWhen: {
       itemBuffs: ['Mind Tear'],
@@ -193,7 +207,8 @@ export const DEBUFF_CATALOG: DebuffEntry[] = [
     label: 'Legendary Dust',
     description: 'Weapon proc: 5 stacks × −7 PRR (max −35 PRR). Also reduces target healing.',
     source: 'item',
-    effect: { prrReduction: 35 },
+    // 50% proc on hit at ~1 hit/sec → 5 stacks land in ~10s.
+    effect: { prrReduction: 35, application: 'ramping', rampSeconds: 10 },
     defaultScope: 'self',
     autoApplyWhen: {
       itemBuffs: ['Soul Tear'],
@@ -209,7 +224,8 @@ export const DEBUFF_CATALOG: DebuffEntry[] = [
     label: 'Vulnerable (Mythic)',
     description: 'Weapon proc stacks: +1% damage taken / stack (max 20 stacks → +20%).',
     source: 'item',
-    effect: { genericVulnPct: 20 },
+    // 1 stack per swing, ICD 2s → 20 stacks land in ~40s.
+    effect: { genericVulnPct: 20, application: 'ramping', rampSeconds: 40 },
     defaultScope: 'self',
     autoApplyWhen: {
       itemBuffs: ['Flamebitten', 'Frostbite', 'Sparkhorn', 'Fetters of Unreality'],
@@ -223,7 +239,8 @@ export const DEBUFF_CATALOG: DebuffEntry[] = [
     label: 'Harmonic Resonance',
     description: 'Fatesinger T5: 3 stacks × +10% Sonic vulnerability (max +30%).',
     source: 'caster-spell',
-    effect: { elementVulnPct: { Sonic: 30 } },
+    // Stacks on Sonic-school casts; 3 casts to fully stack ≈ 6s.
+    effect: { elementVulnPct: { Sonic: 30 }, application: 'ramping', rampSeconds: 6 },
     defaultScope: 'self',
   },
   // Shadowdancer Tier 4. −3 SR/PRR/MRR per stack, max 3 → −9 of each
@@ -234,7 +251,8 @@ export const DEBUFF_CATALOG: DebuffEntry[] = [
     label: 'Darkness',
     description: 'Shadowdancer T4: 3 stacks × −3 PRR / MRR / SR (max −9 of each).',
     source: 'caster-spell',
-    effect: { mrrReduction: 9, prrReduction: 9 },
+    // Stacks on each spellcast; 3 casts ≈ 4s in a normal rotation.
+    effect: { mrrReduction: 9, prrReduction: 9, application: 'ramping', rampSeconds: 4 },
     defaultScope: 'self',
   },
   // Soul Eater Tier 2. −2 SR/PRR/MRR per stack, max 5 → −10 of each
@@ -244,7 +262,8 @@ export const DEBUFF_CATALOG: DebuffEntry[] = [
     label: 'Taint the Aura',
     description: 'Soul Eater T2: 5 stacks × −2 PRR / MRR / SR (max −10 of each).',
     source: 'caster-spell',
-    effect: { mrrReduction: 10, prrReduction: 10 },
+    // Procs on Consume casts only; ~5s per Consume → 5 stacks ≈ 25s.
+    effect: { mrrReduction: 10, prrReduction: 10, application: 'ramping', rampSeconds: 25 },
     defaultScope: 'self',
   },
 ];
@@ -267,30 +286,58 @@ export function initialDebuffState(catalog: DebuffEntry[] = DEBUFF_CATALOG): Deb
  * Sonic element vuln is currently routed (extend the calculator's
  * Debuffs shape if more elements need bespoke vuln slots).
  */
+/**
+ * Average-stack fraction for a ramping debuff over a fight of length
+ * `fightSeconds`, given linear ramp 0→full over `rampSeconds`. Returns
+ * 1.0 when ramp is zero, the fight is infinite, or the ramp is short
+ * relative to the fight; bounded to [0, 1].
+ */
+export function averageStackFraction(rampSeconds: number, fightSeconds: number): number {
+  if (rampSeconds <= 0) return 1;
+  if (!Number.isFinite(fightSeconds) || fightSeconds <= 0) return 1;
+  if (fightSeconds <= rampSeconds) {
+    // Ramping for the entire fight. Linear from 0 to fightSeconds/rampSeconds;
+    // average is half the end value.
+    return Math.min(1, fightSeconds / (2 * rampSeconds));
+  }
+  // Ramping in the first rampSeconds, fully stacked after.
+  return Math.max(0, Math.min(1, 1 - rampSeconds / (2 * fightSeconds)));
+}
+
 export function aggregateDebuffs(
   state: DebuffState,
   catalog: DebuffEntry[] = DEBUFF_CATALOG,
   build?: Build,
+  fightSeconds: number = Infinity,
 ): Debuffs {
   let genericVulnPct = 0;
   let sonicVulnPct   = 0;
   let mrrSubtract    = 0;
+  let prrSubtract    = 0;
   const elementVulnPct: Partial<Record<SpellDamageType, number>> = {};
   for (const entry of catalog) {
     const userEnabled = !!state[entry.id]?.enabled;
     const autoEnabled = build ? isDebuffAutoActive(entry, build) : false;
     if (!userEnabled && !autoEnabled) continue;
     const e = entry.effect;
-    if (e.genericVulnPct)            genericVulnPct += e.genericVulnPct;
-    if (e.mrrReduction)              mrrSubtract    += e.mrrReduction;
+    // Ramping debuffs scale every numeric magnitude by their average-
+    // stack fraction over the fight duration. Instant (default) keeps
+    // the full magnitude.
+    const fraction = e.application === 'ramping' && e.rampSeconds
+      ? averageStackFraction(e.rampSeconds, fightSeconds)
+      : 1;
+    if (e.genericVulnPct)  genericVulnPct += e.genericVulnPct * fraction;
+    if (e.mrrReduction)    mrrSubtract    += e.mrrReduction   * fraction;
+    if (e.prrReduction)    prrSubtract    += e.prrReduction   * fraction;
     if (e.elementVulnPct) {
       for (const [el, v] of Object.entries(e.elementVulnPct)) {
         if (!v) continue;
         const key = el as SpellDamageType;
-        elementVulnPct[key] = (elementVulnPct[key] ?? 0) + v;
+        const scaled = v * fraction;
+        elementVulnPct[key] = (elementVulnPct[key] ?? 0) + scaled;
         // Keep the legacy `sonicVulnPct` field populated so existing
         // tests + fixtures that read it continue to work.
-        if (key === 'Sonic') sonicVulnPct += v;
+        if (key === 'Sonic') sonicVulnPct += scaled;
       }
     }
   }
@@ -298,8 +345,9 @@ export function aggregateDebuffs(
   return {
     genericVulnPct,
     sonicVulnPct,
-    // Baseline MRR 0; debuffs make it negative. Avoid -0 when no debuff applies.
+    // Baseline 0; debuffs make these negative. Avoid -0 when nothing applies.
     effectiveMRR: mrrSubtract ? -mrrSubtract : 0,
+    effectivePRR: prrSubtract ? -prrSubtract : 0,
     ...(hasElementVuln ? { elementVulnPct } : {}),
   };
 }

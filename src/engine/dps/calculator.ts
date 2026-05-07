@@ -131,10 +131,13 @@ export interface Debuffs {
    *  Kept for backwards compatibility with existing tests / fixtures;
    *  new code should populate `elementVulnPct.Sonic` instead. */
   sonicVulnPct: number;
-  /** Target's effective MRR after any debuff (can be negative). MRR-flagged
+  /** Target's effective MRR after any debuff (can be negative). Magical
    *  components multiply by `100 / (effectiveMRR + 100)`. Set to 0 for
    *  the no-debuff baseline (multiplier = 1.0). */
   effectiveMRR: number;
+  /** Target's effective PRR. Same shape as MRR but applied to physical
+   *  components. 0 = no reduction. */
+  effectivePRR?: number;
   /** Per-element damage-vulnerability percentages applied to components
    *  whose `damageType` matches the element. The element key on the
    *  component is the implicit opt-in (no `useFireVuln`-style flag is
@@ -198,7 +201,17 @@ export function componentDebuffMultiplier(
     const ev = d.elementVulnPct[c.damageType];
     if (ev && ev > 0) m *= 1 + ev / 100;
   }
-  if (c.useMRR) m *= 100 / (d.effectiveMRR + 100);
+  // Resistance rating: explicit `damageRating` wins; otherwise fall
+  // back to the legacy `useMRR` flag for components that haven't been
+  // migrated yet. Same `100 / (100 + rating)` formula either way —
+  // PRR or MRR depending on the rating type. Negative ratings (target
+  // debuffed) yield a multiplier > 1 (damage amplified).
+  const rating = c.damageRating ?? (c.useMRR ? 'magical' : 'none');
+  if (rating === 'magical') {
+    m *= 100 / (d.effectiveMRR + 100);
+  } else if (rating === 'physical') {
+    m *= 100 / ((d.effectivePRR ?? 0) + 100);
+  }
   // Flat damage-dealt scaling (Reaper difficulty). Applied uniformly to
   // every component since all of them are spell-typed in our current
   // model, and spell-type damage takes the same reduction at every

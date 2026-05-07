@@ -45,6 +45,9 @@ function formatEffect(entry: DebuffEntry): string {
   }
   if (e.mrrReduction)     parts.push(`−${e.mrrReduction} MRR`);
   if (e.prrReduction)     parts.push(`−${e.prrReduction} PRR`);
+  if (e.application === 'ramping' && e.rampSeconds) {
+    parts.push(`ramps ~${e.rampSeconds}s`);
+  }
   return parts.join(' · ');
 }
 

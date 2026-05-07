@@ -5,6 +5,7 @@ import {
   DEBUFF_CATALOG,
   aggregateDebuffs,
   autoActiveDebuffIds,
+  averageStackFraction,
   initialDebuffState,
   type DebuffState,
 } from '@/engine/dps/debuffs';
@@ -35,6 +36,7 @@ describe('aggregateDebuffs — empty / disabled', () => {
       genericVulnPct: 0,
       sonicVulnPct:   0,
       effectiveMRR:   0,
+      effectivePRR:   0,
     });
   });
 });
@@ -87,6 +89,7 @@ describe('aggregateDebuffs — stacking', () => {
       genericVulnPct: 20,
       sonicVulnPct:   25,
       effectiveMRR:   -25,
+      effectivePRR:   -25,    // Improved Sunder also subtracts 25 PRR
       elementVulnPct: { Sonic: 25 },
     });
   });
@@ -158,5 +161,53 @@ describe('auto-apply detection', () => {
   it('build with no triggering gear yields no auto-apply', () => {
     const build: Build = { ...DEFAULT_BUILD, gearSets: [], activeGearSet: '' };
     expect(autoActiveDebuffIds(build).size).toBe(0);
+  });
+});
+
+describe('averageStackFraction', () => {
+  it('infinite fight = full stacks', () => {
+    expect(averageStackFraction(40, Infinity)).toBe(1);
+  });
+
+  it('fight equal to ramp = 0.5 average', () => {
+    // Linear ramp from 0 to full over [0, T]; average = T/(2T) = 0.5
+    expect(averageStackFraction(40, 40)).toBeCloseTo(0.5, 5);
+  });
+
+  it('fight much shorter than ramp = small fraction', () => {
+    // 5s of a 40s ramp → reaches 5/40 = 0.125 at end, average 0.0625
+    expect(averageStackFraction(40, 5)).toBeCloseTo(0.0625, 5);
+  });
+
+  it('fight much longer than ramp = near-1.0', () => {
+    // 60s fight, 40s ramp: 1 - 40/(2×60) = 0.667
+    expect(averageStackFraction(40, 60)).toBeCloseTo(0.6667, 3);
+    // 240s fight, 6s ramp: 1 - 6/480 = 0.9875
+    expect(averageStackFraction(6, 240)).toBeCloseTo(0.9875, 4);
+  });
+
+  it('zero ramp = full stacks even on short fights', () => {
+    expect(averageStackFraction(0, 5)).toBe(1);
+  });
+});
+
+describe('aggregateDebuffs — ramping debuffs', () => {
+  it('ramping debuff scales by averageStackFraction over fightSeconds', () => {
+    // Legendary Ash: ramp 6s, magnitude -21 MRR.
+    // Fight = 6s → average 0.5 → -10.5 MRR (rounded by addition).
+    const state = enable(initialDebuffState(), 'legendary-ash');
+    const out = aggregateDebuffs(state, undefined, undefined, 6);
+    expect(out.effectiveMRR).toBeCloseTo(-21 * 0.5, 4);
+  });
+
+  it('instant debuffs ignore fightSeconds', () => {
+    const state = enable(initialDebuffState(), 'curse-of-vulnerability');
+    const out = aggregateDebuffs(state, undefined, undefined, 1);
+    expect(out.genericVulnPct).toBe(20);
+  });
+
+  it('default (no fightSeconds) = steady-state full stacks', () => {
+    const state = enable(initialDebuffState(), 'legendary-ash');
+    expect(aggregateDebuffs(state).effectiveMRR).toBe(-21);
   });
 });
