@@ -957,8 +957,14 @@ It has pockets!</Description>
           <Item>ApothInsulatedBoots</Item>
         </Requirement>
       </Requirements>
+      <!-- ddo-builds patch (see docs/DATA_PATCHES.md): upstream uses
+           <Type>SpellCostReduction</Type>, but the rest of DDOBuilderV2's
+           data uses <Type>SpellPointCostPercent</Type> for percent SP-cost
+           reductions. Standardized so the engine picks it up. The 5%
+           description ("Spells you cast cost 5% less Spell Points")
+           confirms this is a percent reduction. -->
       <Effect>
-        <Type>SpellCostReduction</Type>
+        <Type>SpellPointCostPercent</Type>
         <Bonus>Enhancement</Bonus>
         <AType>Simple</AType>
         <Amount size="1">5</Amount>

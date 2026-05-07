@@ -805,14 +805,17 @@ Magical Resistance Rating, and -5 Spell Resistance.</Description>
                <Effect><Type>SpellLikeAbility</Type></Effect>, so the SLA
                never reaches the rotation palette. Added here so it flows
                through getMagicAbilities. Amount layout for SLAs:
-                 [0]=charges/rest  [1]=cost  [2]=maxCL  [3]=cooldown -->
+                 [0]=charges/rest  [1]=cost  [2]=maxCL  [3]=cooldown
+               Nightmare Lance is fixed 15 SP (no metamagic surcharge,
+               handled by spellCostBreakdown's SLA short-circuit), max
+               caster level 30, 8s cooldown. -->
           <Effect>
             <Type>SpellLikeAbility</Type>
             <Bonus>Enhancement</Bonus>
             <Item>Nightmare Lance</Item>
             <Item>None</Item>
             <AType>SpellInfo</AType>
-            <Amount size="4">0 0 0 8</Amount>
+            <Amount size="4">0 15 30 8</Amount>
           </Effect>
         </EnhancementSelection>
         <EnhancementSelection>

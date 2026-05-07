@@ -25,7 +25,7 @@ const METAMAGICS: DDOMetamagicData[] = [
     spellEligibilityFlag: 'empower',  costReductionEffect: 'MetamagicCostEmpower' },
   { name: 'Maximize Spell', shortName: 'Maximize', baseSPCost: 25, costFormula: 'flat',
     spellEligibilityFlag: 'maximize', costReductionEffect: 'MetamagicCostMaximize' },
-  { name: 'Heighten Spell', shortName: 'Heighten', baseSPCost: 1,  costFormula: 'per-level',
+  { name: 'Heighten Spell', shortName: 'Heighten', baseSPCost: 5,  costFormula: 'per-level',
     spellEligibilityFlag: 'heighten', costReductionEffect: 'MetamagicCostHeighten' },
 ];
 
@@ -162,16 +162,17 @@ describe('spellCostBreakdown', () => {
     expect(out.total).toBe(17);
   });
 
-  it('Heighten scales by max-castable - spell-level', () => {
+  it('Heighten scales by max-castable - spell-level (5 SP per level raised)', () => {
     // Wizard 20 → max spell level 9 (per the spellSlotsByLevel fixture).
-    // Magic Missile is L1 → Heighten raises by 8 levels → +8 SP.
+    // Magic Missile is L1 → Heighten raises by 8 levels → +40 SP
+    // (per ddowiki.com/page/Heighten_Spell, 5 SP × levels raised).
     const build = { ...wizardBuild, activeMetamagics: ['Heighten Spell'] };
     const out = spellCostBreakdown(
       mmAbility, build, makeEngine([]),
       SPELLS, CLASSES, METAMAGICS, { perMetamagic: {}, percentReduction: 0 },
     );
-    expect(out.modifiers).toBe(8);
-    expect(out.total).toBe(15);
+    expect(out.modifiers).toBe(40);
+    expect(out.total).toBe(47);
   });
 
   it('applies percent reduction last', () => {
@@ -184,19 +185,87 @@ describe('spellCostBreakdown', () => {
     expect(out.total).toBe(20);
     expect(out.modifiers).toBe(20 - 7);
   });
+
+  it('SLAs ignore metamagic surcharges even when metamagics are active and the spell entry is eligible', () => {
+    // Nightmare Lance shape: an SLA whose underlying spell entry has
+    // empower/maximize/heighten flags. In-game these flags don't apply
+    // to SLAs — the engine must short-circuit and return base cost.
+    const lance: MagicAbility = {
+      ...mmAbility,
+      id: 'sla::Shadowdancer::Nightmare Lance',
+      name: 'Nightmare Lance',
+      displayName: 'Nightmare Lance',
+      source: 'sla',
+      cost: 15,
+      className: undefined,
+    };
+    const lanceSpell: DDOSpellData = {
+      name: 'Nightmare Lance', description: '', icon: '', school: 'Illusion',
+      cost: 15, maxCasterLevel: 30, cooldown: 8, damages: [],
+      metamagic: { empower: true, maximize: true, heighten: true, quicken: true } as never,
+    } as DDOSpellData;
+    const build = { ...wizardBuild,
+      activeMetamagics: ['Empower Spell', 'Maximize Spell', 'Heighten Spell'] };
+    const out = spellCostBreakdown(
+      lance, build, makeEngine([]),
+      [...SPELLS, lanceSpell], CLASSES, METAMAGICS,
+      { perMetamagic: {}, percentReduction: 0 },
+    );
+    expect(out).toMatchObject({
+      base: 15, modifiers: 0, total: 15, perMetamagic: [],
+    });
+  });
+
+  it('SLAs still respect flat percent reductions (epic SP-cost feats)', () => {
+    const lance: MagicAbility = {
+      ...mmAbility,
+      id: 'sla::Shadowdancer::Nightmare Lance',
+      name: 'Nightmare Lance',
+      displayName: 'Nightmare Lance',
+      source: 'sla',
+      cost: 15,
+      className: undefined,
+    };
+    const out = spellCostBreakdown(
+      lance, wizardBuild, makeEngine([]),
+      SPELLS, CLASSES, METAMAGICS,
+      { perMetamagic: {}, percentReduction: 10 },
+    );
+    // 15 × 0.9 = 13.5 → round to 14.
+    expect(out.base).toBe(15);
+    expect(out.total).toBe(14);
+    expect(out.modifiers).toBe(-1);
+    expect(out.perMetamagic).toEqual([]);
+  });
 });
 
 describe('aggregateSpellCostReductions', () => {
-  it('sums MetamagicCost* effects per metamagic', () => {
+  it('treats negative MetamagicCost* deltas as cost reductions (DDOBuilderV2 sign convention)', () => {
+    // Tree enhancements like "Efficient Empower Spell" emit negative
+    // deltas (-2/-4/-6 across ranks). Our aggregator negates these
+    // into positive reductions. A rank-3 spend = -6 emit → 6 SP
+    // reduction off Empower's 15 SP surcharge.
     const engine = makeEngine([
-      { bonusType: 'Stacking', value: 3, source: 'Improved Empower I', effectType: 'MetamagicCostEmpower' },
-      { bonusType: 'Stacking', value: 3, source: 'Improved Empower II', effectType: 'MetamagicCostEmpower' },
-      { bonusType: 'Stacking', value: 5, source: 'Maximize Reduction',  effectType: 'MetamagicCostMaximize' },
+      { bonusType: 'Enhancement', value: -3, source: 'Improved Empower I', effectType: 'MetamagicCostEmpower' },
+      { bonusType: 'Enhancement', value: -3, source: 'Improved Empower II', effectType: 'MetamagicCostEmpower' },
+      { bonusType: 'Enhancement', value: -5, source: 'Maximize Reduction',  effectType: 'MetamagicCostMaximize' },
     ]);
     const out = aggregateSpellCostReductions(engine, METAMAGICS);
     expect(out.perMetamagic['Empower Spell']).toBe(6);
     expect(out.perMetamagic['Maximize Spell']).toBe(5);
     expect(out.percentReduction).toBe(0);
+  });
+
+  it("ignores the metamagic feat's own surcharge emission", () => {
+    // The Empower Spell feat itself emits +15 MetamagicCostEmpower —
+    // that's the surcharge baseline (already encoded in Metamagics.xml),
+    // NOT a reduction. The aggregator must skip it.
+    const engine = makeEngine([
+      { bonusType: 'Feat',        value: 15, source: 'Empower Spell',       effectType: 'MetamagicCostEmpower' },
+      { bonusType: 'Enhancement', value: -6, source: 'Improved Empower III', effectType: 'MetamagicCostEmpower' },
+    ]);
+    const out = aggregateSpellCostReductions(engine, METAMAGICS);
+    expect(out.perMetamagic['Empower Spell']).toBe(6);
   });
 
   it('routes SpellPointCostPercent to percentReduction', () => {

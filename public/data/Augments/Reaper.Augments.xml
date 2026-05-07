@@ -321,12 +321,15 @@
     <MinLevel>1</MinLevel>
     <Type>Reaper Ring</Type>
     <Icon>Reaper</Icon>
+    <!-- ddo-builds patch (see docs/DATA_PATCHES.md): standardized from
+         <Type>SpellCostReduction</Type><Percent/> to the canonical
+         <Type>SpellPointCostPercent</Type> used throughout the rest of
+         DDOBuilderV2's data. -->
     <Effect>
-      <Type>SpellCostReduction</Type>
+      <Type>SpellPointCostPercent</Type>
       <Bonus>Reaper</Bonus>
       <AType>Simple</AType>
       <Amount size="1">3</Amount>
-      <Percent/>
     </Effect>
     <Effect>
       <Type>MRR</Type>

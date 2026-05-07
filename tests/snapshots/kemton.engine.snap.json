@@ -7403,8 +7403,8 @@
       "name": "Nightmare Lance",
       "castingClass": "Character",
       "category": "enhancement",
-      "cost": 0,
-      "maxCasterLevel": 0,
+      "cost": 15,
+      "maxCasterLevel": 30,
       "cooldown": 8,
       "charges": 0,
       "source": "[D] Shadowdancer: Shadowdancer: Epic Strike → Nightmare Lance"

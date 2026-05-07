@@ -87,9 +87,13 @@ being removed every 5 seconds.</Description>
             <StackSource>Form of Pain</StackSource>
             <Amount size="1">2</Amount>
          </Effect>
+         <!-- ddo-builds patch (see docs/DATA_PATCHES.md): standardized
+              from <Type>SpellCostReduction</Type> to the canonical
+              <Type>SpellPointCostPercent</Type>. Form of Pain stacks
+              give -1% SP cost per stack — a percent reduction. -->
          <Effect>
             <DisplayName>Form of Pain: Spell Point cost</DisplayName>
-            <Type>SpellCostReduction</Type>
+            <Type>SpellPointCostPercent</Type>
             <Bonus>Feat</Bonus>
             <AType>SliderValue</AType>
             <StackSource>Form of Pain</StackSource>
@@ -326,9 +330,13 @@ being removed every 5 seconds.</Description>
             <StackSource>Form of Pain</StackSource>
             <Amount size="1">2</Amount>
          </Effect>
+         <!-- ddo-builds patch (see docs/DATA_PATCHES.md): standardized
+              from <Type>SpellCostReduction</Type> to the canonical
+              <Type>SpellPointCostPercent</Type>. Form of Pain stacks
+              give -1% SP cost per stack — a percent reduction. -->
          <Effect>
             <DisplayName>Form of Pain: Spell Point cost</DisplayName>
-            <Type>SpellCostReduction</Type>
+            <Type>SpellPointCostPercent</Type>
             <Bonus>Feat</Bonus>
             <AType>SliderValue</AType>
             <StackSource>Form of Pain</StackSource>

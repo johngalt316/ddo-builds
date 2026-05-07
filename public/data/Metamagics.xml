@@ -83,11 +83,13 @@
     <CostReductionEffect>MetamagicCostAccelerate</CostReductionEffect>
   </Metamagic>
   <Metamagic>
-    <!-- 1 SP per level the spell is heightened above its native level
-         (up to the caster's highest castable level). -->
+    <!-- Heighten raises an eligible spell to the caster's highest
+         castable level. Per ddowiki.com/page/Heighten_Spell the SP
+         cost increases by 5 × (target level - native level), e.g. a
+         L1 spell heightened to L9 pays +40 SP. -->
     <Name>Heighten Spell</Name>
     <ShortName>Heighten</ShortName>
-    <BaseSPCost>1</BaseSPCost>
+    <BaseSPCost>5</BaseSPCost>
     <CostFormula>per-level</CostFormula>
     <SpellEligibilityFlag>heighten</SpellEligibilityFlag>
     <CostReductionEffect>MetamagicCostHeighten</CostReductionEffect>

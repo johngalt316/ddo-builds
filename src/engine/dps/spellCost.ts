@@ -51,9 +51,24 @@ export function aggregateSpellCostReductions(
   // The engine exposes its raw Bonus pool via `allBonuses` so a few
   // domain-specific consumers (spell cost, fate-point bonus, …) can
   // route effect types we don't bucket into top-level breakdowns.
-  // SP cost reductions stack additively — no Highest-Only competition
-  // since the upstream sources are all per-stack feats / enhancements
-  // / past lives, not gear.
+  //
+  // ── Sign convention (DDOBuilderV2 data model) ────────────────────
+  // The metamagic feat itself emits a positive `MetamagicCost{Name}`
+  // bonus equal to its base SP surcharge (e.g. Empower Spell emits
+  // +15 MetamagicCostEmpower). That's not a reduction — it's the
+  // surcharge baseline, which we already encode in Metamagics.xml.
+  // Skip the feat's own emission to avoid double-counting it as a
+  // reduction.
+  //
+  // Cost-reduction sources (tree enhancements like "Efficient Empower
+  // Spell", past-life effects, gear) emit *negative* values — e.g.
+  // -2/-4/-6 for the three ranks of an enhancement. Negate to convert
+  // them into positive reductions in our model (where a reduction of
+  // R subtracts R from the BaseSPCost surcharge).
+  //
+  // Stacks additively across all reduction sources — no Highest-Only
+  // competition since the upstream sources are per-stack feats /
+  // enhancements / past lives, not typed gear bonuses.
   for (const b of engine.allBonuses ?? []) {
     const t = b.effectType;
     if (!t) continue;
@@ -62,10 +77,13 @@ export function aggregateSpellCostReductions(
       continue;
     }
     for (const mm of metamagics) {
-      if (t === mm.costReductionEffect) {
-        perMetamagic[mm.name] = (perMetamagic[mm.name] ?? 0) + b.value;
-        break;
-      }
+      if (t !== mm.costReductionEffect) continue;
+      // Skip the metamagic feat's own surcharge emission. The feat's
+      // source name matches the metamagic name (e.g. source="Empower
+      // Spell" for the Empower Spell feat).
+      if (b.source === mm.name) break;
+      perMetamagic[mm.name] = (perMetamagic[mm.name] ?? 0) - b.value;
+      break;
     }
   }
   return { perMetamagic, percentReduction };
@@ -169,6 +187,14 @@ function metamagicSurcharge(
  * Resolve the SP cost of a single ability under the build's current
  * active metamagics + collected reductions. Returns a 2-row breakdown
  * (base + modifiers) plus per-metamagic line items for tooltip use.
+ *
+ * Spell-like abilities (`source: 'sla'`) pay a fixed cost — metamagics
+ * don't add to or modify SLA costs in DDO, regardless of which toggles
+ * the user has active. This includes Epic Strike SLAs (Nightmare Lance,
+ * Boulder Smash, …), enhancement-tree SLAs (AT's Stolen Spell variants),
+ * past-life SLAs (PL: Arcane Initiate's Magic Missile), feat clickies
+ * (Wellspring of Power), and the action / reaper boost clickies. Only
+ * class-trained spells (`source: 'spell'`) take metamagic surcharges.
  */
 export function spellCostBreakdown(
   ability:        MagicAbility,
@@ -180,6 +206,25 @@ export function spellCostBreakdown(
   reductions:     SpellCostReductions,
 ): SpellCostBreakdown {
   const resolved      = resolveAbility(ability, spellCatalog, classCatalog);
+  const pctReduction  = Math.min(100, Math.max(0, reductions.percentReduction));
+
+  // SLAs / clickies / feat-granted abilities: fixed cost, no metamagic
+  // contribution. The percent-reduction (e.g. epic SP-cost feats) still
+  // applies — that's a flat property of the caster, not the spell.
+  if (ability.source === 'sla') {
+    const reduced = pctReduction > 0
+      ? resolved.baseCost * (1 - pctReduction / 100)
+      : resolved.baseCost;
+    const total = Math.max(0, Math.round(reduced));
+    return {
+      base:             resolved.baseCost,
+      modifiers:        total - resolved.baseCost,
+      total,
+      perMetamagic:     [],
+      percentReduction: pctReduction,
+    };
+  }
+
   const maxSpellLevel = maxCastableSpellLevel(build, classCatalog);
   const active        = new Set(build.activeMetamagics ?? []);
   const perMetamagic: SpellCostBreakdown['perMetamagic'] = [];
@@ -199,11 +244,10 @@ export function spellCostBreakdown(
     modifiersGross += net;
   }
 
-  const preTotal       = resolved.baseCost + modifiersGross;
-  const pctReduction   = Math.min(100, Math.max(0, reductions.percentReduction));
-  const afterPercent   = pctReduction > 0 ? preTotal * (1 - pctReduction / 100) : preTotal;
-  const total          = Math.max(0, Math.round(afterPercent));
-  const modifiers      = total - resolved.baseCost;
+  const preTotal     = resolved.baseCost + modifiersGross;
+  const afterPercent = pctReduction > 0 ? preTotal * (1 - pctReduction / 100) : preTotal;
+  const total        = Math.max(0, Math.round(afterPercent));
+  const modifiers    = total - resolved.baseCost;
 
   return {
     base:             resolved.baseCost,
