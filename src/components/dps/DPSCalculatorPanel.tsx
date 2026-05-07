@@ -1,16 +1,8 @@
-// Phase 6.1 + 6.2 — DPS Calculator panel.
+// DPS Calculator panel.
 //
-// 6.1 = controls + layout shell.
-// 6.2 = magic ability palette + draggable timeline (this file's
-//        `MagicRotationEditor`). Melee / ranged are gated until 6.7+.
-//
-// Subsequent phases fill in:
-//   6.3 damage math + difficulty model,
-//   6.4 simulation runner + stats,
-//   6.5 live chart,
-//   6.6 optimizer.
-//
-// Local state only — none of these controls drive the engine yet.
+// DPSCalculatorPanel owns the shared cross-editor state (debuffs, compare
+// set) and passes it down to whichever editor is active. Each editor owns
+// only the state unique to its rotation type.
 
 import { useEffect, useMemo, useRef, useState } from 'react';
 import {
@@ -96,27 +88,36 @@ export function DPSCalculatorPanel() {
   const [objective, setObjective]       = useState<OptimizerObjective>('sustained');
   const [objectiveOpen, setObjectiveOpen] = useState(false);
 
-  // ── Magic rotation state (6.2) ──────────────────────────────────────
-  // Persisted on the Build (`build.dpsRotation`) so the rotation
-  // round-trips through share-URL encoding. Local mutators delegate to
-  // `setDpsRotation` which merges into the saved blob.
+  // ── Magic rotation state ────────────────────────────────────────────
   const dpsRotation     = useBuildStore(s => s.build.dpsRotation);
   const setDpsRotation  = useBuildStore(s => s.setDpsRotation);
   const magicSteps        = dpsRotation?.magicSteps ?? EMPTY_STEPS;
-  const activeAbilityIds  = dpsRotation?.activeAbilityIds;        // undefined = first-time
-  // Auto = "auto-fill the timeline toward a 1-minute cycle on each
-  // palette click". Default-on so a single click materializes a usable
-  // rotation; flip it off to add one cast at a time, with cooldown
-  // spacing handled by `findFirstAvailableSlot`.
+  const activeAbilityIds  = dpsRotation?.activeAbilityIds;
   const auto              = dpsRotation?.auto ?? true;
-  const setMagicSteps        = (next: RotationStep[])      => setDpsRotation({ magicSteps: next });
-  const setActiveAbilityIds  = (next: string[])            => setDpsRotation({ activeAbilityIds: next });
-  const setAuto              = (next: boolean)             => setDpsRotation({ auto: next });
-
+  const setMagicSteps        = (next: RotationStep[])  => setDpsRotation({ magicSteps: next });
+  const setActiveAbilityIds  = (next: string[])        => setDpsRotation({ activeAbilityIds: next });
+  const setAuto              = (next: boolean)         => setDpsRotation({ auto: next });
   const [manageOpen, setManageOpen] = useState(false);
 
+  // ── Shared cross-editor state ───────────────────────────────────────
+  // Debuffs and compare-set selection are independent of rotation type —
+  // the same enemy debuffs and enhancement comparison apply whether the
+  // user is viewing magic or melee DPS.  Lifted here so switching tabs
+  // doesn't reset either value.
+
+  const [debuffState, setDebuffState] = useState<DebuffState>(() => initialDebuffState());
+  const [debuffsOpen, setDebuffsOpen] = useState(false);
+
+  const build = useBuildStore(s => s.build);
+  const [compareSetName, setCompareSetName] = useState<string | null>(null);
+  const compareBuild = useMemo<typeof build>(() => {
+    if (!compareSetName || compareSetName === build.activeEnhancementSet) return build;
+    return { ...build, activeEnhancementSet: compareSetName };
+  }, [build, compareSetName]);
+  const compareBreakdowns = useBreakdownsForBuild(compareBuild);
+
   function handleGenerate() {
-    // 6.6 will populate this.
+    // TODO: optimizer
   }
 
   return (
@@ -209,26 +210,69 @@ export function DPSCalculatorPanel() {
           difficulty={difficulty}
           targetCount={targetCount}
           setTargetCount={setTargetCount}
+          debuffState={debuffState}
+          setDebuffState={setDebuffState}
+          onManageDebuffs={() => setDebuffsOpen(true)}
+          compareSetName={compareSetName}
+          setCompareSetName={setCompareSetName}
+          compareBuild={compareBuild}
+          compareBreakdowns={compareBreakdowns}
         />
       ) : rotationType === 'melee' ? (
         <MeleeEditor
           difficulty={difficulty}
           targetCount={targetCount}
           setTargetCount={setTargetCount}
+          debuffState={debuffState}
+          setDebuffState={setDebuffState}
+          onManageDebuffs={() => setDebuffsOpen(true)}
+          compareSetName={compareSetName}
+          setCompareSetName={setCompareSetName}
+          compareBuild={compareBuild}
+          compareBreakdowns={compareBreakdowns}
         />
       ) : (
         <div className={styles.timelinePlaceholder}>
-          Ranged rotations land in a future phase — melee is live, magic is end-to-end.
+          Ranged rotations land in a future phase.
         </div>
       )}
+
+      {/* ManageDebuffsDialog lives here — shared across all editors */}
+      <ManageDebuffsDialog
+        open={debuffsOpen}
+        state={debuffState}
+        build={build}
+        onChange={setDebuffState}
+        onClose={() => setDebuffsOpen(false)}
+      />
 
     </section>
   );
 }
 
+// ── Shared editor props ──────────────────────────────────────────────
+// State that is independent of rotation type (debuffs, compare-set) lives
+// in DPSCalculatorPanel and is passed to whichever editor is active.
+
+import type { Build } from '@/types/build';
+import type { EngineResult } from '@/engine/runEngine';
+
+interface SharedEditorProps {
+  difficulty: DifficultyIndex;
+  targetCount: number;
+  setTargetCount: (next: number) => void;
+  debuffState: DebuffState;
+  setDebuffState: (next: DebuffState) => void;
+  onManageDebuffs: () => void;
+  compareSetName: string | null;
+  setCompareSetName: (name: string | null) => void;
+  compareBuild: Build;
+  compareBreakdowns: EngineResult | null;
+}
+
 // ── Magic rotation editor ────────────────────────────────────────────
 
-interface MagicRotationEditorProps {
+interface MagicRotationEditorProps extends SharedEditorProps {
   steps: RotationStep[];
   setSteps: (next: RotationStep[]) => void;
   activeAbilityIds: string[] | undefined;
@@ -237,14 +281,6 @@ interface MagicRotationEditorProps {
   setManageOpen: (next: boolean) => void;
   auto: boolean;
   setAuto: (next: boolean) => void;
-  /** Reaper difficulty index (0 = Elite, 10 = R10). Used to scale all
-   *  spell-typed damage by the wiki's per-difficulty multiplier. */
-  difficulty: DifficultyIndex;
-  /** Available enemy targets in the simulation (1–5). AOE spells scale
-   *  damage by `min(spell.maxTargetCap, targetCount)`; single-target
-   *  spells stay single-target. */
-  targetCount: number;
-  setTargetCount: (next: number) => void;
 }
 
 function MagicRotationEditor({
@@ -254,6 +290,8 @@ function MagicRotationEditor({
   auto, setAuto,
   difficulty,
   targetCount, setTargetCount,
+  debuffState, setDebuffState, onManageDebuffs,
+  compareSetName, setCompareSetName, compareBuild, compareBreakdowns,
 }: MagicRotationEditorProps) {
   const build       = useBuildStore(s => s.build);
   const spells      = useGameDataStore(s => s.spells);
@@ -262,17 +300,6 @@ function MagicRotationEditor({
   const augments         = useGameDataStore(s => s.augments);
   const metamagics       = useGameDataStore(s => s.metamagics);
   const breakdowns  = useBreakdowns();
-  // ── Side-by-side comparison ─────────────────────────────────────────
-  // Pick another EnhancementSet to evaluate against the active one. The
-  // engine + rotation are re-run with `activeEnhancementSet` swapped to
-  // the chosen set's name; nothing in the store mutates.
-  const [compareSetName, setCompareSetName] = useState<string | null>(null);
-  const compareBuild = useMemo<typeof build>(() => {
-    if (!compareSetName) return build;
-    if (compareSetName === build.activeEnhancementSet) return build;
-    return { ...build, activeEnhancementSet: compareSetName };
-  }, [build, compareSetName]);
-  const compareBreakdowns = useBreakdownsForBuild(compareBuild);
   // Build's spell cooldown reduction (sum of all sources, percent).
   const cooldownReductionPct = breakdowns?.spellCooldownReduction.total ?? 0;
   // SLAs come and go with build state — feed them into the catalog so
@@ -304,16 +331,7 @@ function MagicRotationEditor({
     return m;
   }, [abilities]);
 
-  // Active debuffs the user has toggled on. Lives in panel-local state
-  // for now; promote to persisted build state if it ever needs to survive
-  // reloads. The user picks Self / Party scope per debuff (informational
-  // only — math is identical regardless of scope).
-  const [debuffState, setDebuffState] = useState<DebuffState>(() => initialDebuffState());
-  const [debuffsOpen, setDebuffsOpen] = useState(false);
-  // Aggregate user-toggled debuffs, then layer the Reaper damage-dealt
-  // multiplier on top. All damage in the magic rotation is spell-typed,
-  // so we use `spellDamageMultiplier` (which differs from physical only
-  // at R7+).
+  // Debuffs — state lives in parent; compute the spell-typed multiplier here.
   const debuffs = useMemo(
     () => ({
       ...aggregateDebuffs(debuffState, undefined, build),
@@ -637,14 +655,7 @@ function MagicRotationEditor({
         sneakAttackDice={breakdowns?.sneakAttackDice.total ?? 0}
         breakdown={rotationBreakdown}
       />
-      <DebuffsSummary state={debuffState} build={build} onManage={() => setDebuffsOpen(true)} />
-      <ManageDebuffsDialog
-        open={debuffsOpen}
-        state={debuffState}
-        build={build}
-        onChange={setDebuffState}
-        onClose={() => setDebuffsOpen(false)}
-      />
+      <DebuffsSummary state={debuffState} build={build} onManage={onManageDebuffs} />
       <RotationPalette
         abilities={activeAbilities}
         totalTrained={abilities.length}
@@ -783,20 +794,18 @@ function MagicRotationEditor({
 
 // ── Melee rotation editor ────────────────────────────────────────────
 
-interface MeleeEditorProps {
-  difficulty: DifficultyIndex;
-  targetCount: number;
-  setTargetCount: (next: number) => void;
-}
+interface MeleeEditorProps extends SharedEditorProps {}
 
-function MeleeEditor({ difficulty, targetCount, setTargetCount }: MeleeEditorProps) {
+function MeleeEditor({
+  difficulty, targetCount, setTargetCount,
+  debuffState, setDebuffState, onManageDebuffs,
+  compareSetName, setCompareSetName, compareBuild, compareBreakdowns,
+}: MeleeEditorProps) {
   const build      = useBuildStore(s => s.build);
   const engine     = useBreakdowns();
   const metamagics = useGameDataStore(s => s.metamagics);
 
-  // ── Debuffs (same as magic pane) ───────────────────────────────────
-  const [debuffState, setDebuffState] = useState<DebuffState>(() => initialDebuffState());
-  const [debuffsOpen, setDebuffsOpen] = useState(false);
+  // Debuffs — state lives in parent; apply physical-damage multiplier here.
   const debuffs = useMemo(
     () => ({
       ...aggregateDebuffs(debuffState, undefined, build),
@@ -804,14 +813,7 @@ function MeleeEditor({ difficulty, targetCount, setTargetCount }: MeleeEditorPro
     }),
     [debuffState, difficulty, build],
   );
-
-  // ── Enhancement-set comparison (same as magic pane) ───────────────
-  const [compareSetName, setCompareSetName] = useState<string | null>(null);
-  const compareBuild = useMemo<typeof build>(() => {
-    if (!compareSetName || compareSetName === build.activeEnhancementSet) return build;
-    return { ...build, activeEnhancementSet: compareSetName };
-  }, [build, compareSetName]);
-  const compareBreakdowns = useBreakdownsForBuild(compareBuild);
+  void debuffs; // used by future on-hit proc evaluation
 
   // ── Attack-speed alacrity slider ───────────────────────────────────
   const buildAlacrity = engine?.meleeSpeed.total ?? 0;
@@ -905,14 +907,7 @@ function MeleeEditor({ difficulty, targetCount, setTargetCount }: MeleeEditorPro
       />
 
       {/* Debuffs */}
-      <DebuffsSummary state={debuffState} build={build} onManage={() => setDebuffsOpen(true)} />
-      <ManageDebuffsDialog
-        open={debuffsOpen}
-        state={debuffState}
-        build={build}
-        onChange={setDebuffState}
-        onClose={() => setDebuffsOpen(false)}
-      />
+      <DebuffsSummary state={debuffState} build={build} onManage={onManageDebuffs} />
 
       {/* Weapon info block (mirrors RotationPalette role) */}
       {weaponInfo ? (
