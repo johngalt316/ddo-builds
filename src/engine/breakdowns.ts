@@ -130,6 +130,12 @@ export function breakdownSneakAttackDice(bonuses: Bonus[], rules: StackingRules)
 // Seeker item buffs are stored in itemBuffs.json with effect type
 // 'Weapon_AttackAndDamageCritical' (the DDO internal name for the stat).
 // Filter on that type to collect gear-sourced Seeker bonuses.
+// Off-hand attack chance bonus from enhancement / destiny sources
+// (stacks on top of the TWF feat base of 40/60/80%).
+export function breakdownOffHandChance(bonuses: Bonus[], rules: StackingRules): BreakdownResult {
+  return stackBonuses(ofType(bonuses, 'OffHandAttackBonus'), rules);
+}
+
 export function breakdownSeeker(bonuses: Bonus[], rules: StackingRules): BreakdownResult {
   return stackBonuses(ofType(bonuses, 'Weapon_AttackAndDamageCritical'), rules);
 }

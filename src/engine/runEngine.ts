@@ -18,6 +18,7 @@ import { buildStackingRules, type Bonus, type BreakdownResult } from './bonusSta
 import {
   breakdownAbilityScore, breakdownHitPoints, breakdownSave,
   breakdownDoublestrike, breakdownDoubleshot, breakdownSneakAttackDice,
+  breakdownOffHandChance,
   breakdownSeeker,
   breakdownImbueDice,
   breakdownMeleePower, breakdownRangedPower,
@@ -117,6 +118,9 @@ export interface EngineResult {
   /** Total sneak-attack dice. Same value drives melee + ranged sneak
    *  attacks AND spell procs that read sneak dice (Magical Ambush). */
   sneakAttackDice: BreakdownResult;
+  /** Off-hand attack chance bonus from enhancements / destinies (stacks on
+   *  top of the TWF feat base: 0/40/60/80%). Cap is enforced in melee calc. */
+  offHandChance: BreakdownResult;
   /** Seeker total — flat damage bonus applied before crit multiplier on
    *  successful critical hits (melee and ranged). */
   seeker: BreakdownResult;
@@ -564,6 +568,7 @@ export function runEngine(input: RunEngineInput): EngineResult {
     doublestrike:      breakdownDoublestrike(allBonuses, rules),
     doubleshot:        breakdownDoubleshot(allBonuses, rules),
     sneakAttackDice:   breakdownSneakAttackDice(allBonuses, rules),
+    offHandChance:     breakdownOffHandChance(allBonuses, rules),
     seeker:            breakdownSeeker(allBonuses, rules),
     imbueDice:         breakdownImbueDice(allBonuses, rules),
     meleeSpeed:        breakdownMeleeSpeed(allBonuses, rules),

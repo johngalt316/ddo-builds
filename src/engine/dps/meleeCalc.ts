@@ -103,6 +103,13 @@ export function twfOffHandChancePct(style: TWFStyle): number {
   }
 }
 
+/** Base off-hand chance before any feat / enhancement bonuses.
+ *  Two-handed weapons cannot produce off-hand attacks at all.
+ *  One-handed weapons and handwraps have a 20% inherent base. */
+export function baseOffHandChancePct(category: WeaponCategory): number {
+  return category === 'two-handed' ? 0 : 20;
+}
+
 export function detectTWFStyle(build: Build): TWFStyle {
   const ids = new Set([
     ...build.feats.map(f => f.featId),
@@ -211,7 +218,12 @@ export function buildStatsFromEngine(
     : abilityModifier(engine.abilityScores.STR.total);
 
   const twfStyle   = detectTWFStyle(build);
-  const ohChance   = twfOffHandChancePct(twfStyle);
+  // TWF feats (OffHandAttackBonus type) and enhancement bonuses are all summed
+  // by the engine breakdown — including the inherent +20 base from "Attack:
+  // Standard off hand attack chance" that fires for every dual-wielder.
+  // Two-handed weapons can't produce off-hand attacks regardless.
+  const ohBonus    = weaponInfo.category === 'two-handed' ? 0 : engine.offHandChance.total;
+  const ohChance   = Math.min(100, ohBonus);
   const alacrity   = alacrityOverride ?? engine.meleeSpeed.total;
 
   return {
