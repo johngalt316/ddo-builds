@@ -10,6 +10,11 @@ import {
   buildStatsFromEngine,
   meleeDPS,
   meleeAbilityDamagePerActivation,
+  critRangeBonusForWeapon,
+  isShieldType,
+  shieldBashDPS,
+  type MeleeWeaponInfo,
+  type ShieldBashResult,
   type TWFStyle,
 } from '@/engine/dps/meleeCalc';
 import { MeleeTimeline } from './MeleeTimeline';
@@ -816,6 +821,41 @@ function MeleeEditor({
   );
   void debuffs; // used by future on-hit proc evaluation
 
+  // ── Simulation ─────────────────────────────────────────────────────
+  // Fixed 60-second window, same rAF pattern as MagicRotationEditor.
+  const MELEE_SIM_SECONDS = 60;
+  const [simTime, setSimTime]       = useState(0);
+  const [simRunning, setSimRunning] = useState(false);
+  const simStartedAt = useRef(0);
+
+  useEffect(() => {
+    if (!simRunning) return;
+    let cancelled = false;
+    simStartedAt.current = performance.now() - simTime * 1000;
+    let raf = 0;
+    const tick = (now: number) => {
+      if (cancelled) return;
+      const elapsed = (now - simStartedAt.current) / 1000;
+      if (elapsed >= MELEE_SIM_SECONDS) { setSimTime(MELEE_SIM_SECONDS); setSimRunning(false); return; }
+      setSimTime(elapsed);
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => { cancelled = true; cancelAnimationFrame(raf); };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [simRunning]);
+
+  function onSimulateClick() {
+    if (simRunning) { setSimRunning(false); return; }
+    if (simTime >= MELEE_SIM_SECONDS - 1e-3) setSimTime(0);
+    setSimRunning(true);
+  }
+  function onRestartClick() {
+    setSimRunning(false);
+    setSimTime(0);
+    requestAnimationFrame(() => setSimRunning(true));
+  }
+
   // ── Attack-speed alacrity slider ───────────────────────────────────
   const buildAlacrity = engine?.meleeSpeed.total ?? 0;
   const [alacrity, setAlacrity] = useState<number | null>(null);
@@ -881,10 +921,24 @@ function MeleeEditor({
     return gs?.items.find(i => i.slot === 'MainHand') ?? null;
   }, [build.gearSets, build.activeGearSet]);
 
+  const offHandItem = useMemo(() => {
+    const gs = build.gearSets.find(g => g.name === build.activeGearSet);
+    return gs?.items.find(i => i.slot === 'OffHand') ?? null;
+  }, [build.gearSets, build.activeGearSet]);
+
   const weaponInfo = useMemo(
     () => mainHandItem ? weaponInfoFromGearItem(mainHandItem) : null,
     [mainHandItem],
   );
+
+  // For handwraps the off-hand uses the same weapon; for TWF with separate
+  // weapons the off-hand item is distinct.  Non-weapon OH items (shields,
+  // rune arms, orbs) won't parse to a MeleeWeaponInfo (no baseDice).
+  const ohWeaponInfo = useMemo((): MeleeWeaponInfo | null => {
+    if (!offHandItem) return null;                       // no OH item
+    const parsed = weaponInfoFromGearItem(offHandItem);
+    return parsed;                                       // null if not a weapon
+  }, [offHandItem]);
 
   const buildStats = useMemo(() => {
     if (!engine || !weaponInfo) return null;
@@ -903,6 +957,18 @@ function MeleeEditor({
     () => weaponInfo && buildStats ? meleeDPS(weaponInfo, buildStats) : null,
     [weaponInfo, buildStats],
   );
+
+  // Shield bash contribution (only when OffHand is a shield type).
+  const shieldBash = useMemo((): ShieldBashResult | null => {
+    if (!ohWeaponInfo || !buildStats || !result || !engine) return null;
+    if (!isShieldType(ohWeaponInfo.weaponType)) return null;
+    const bashPct      = engine.shieldBashRate.total;
+    // Crit range bonuses targeting 'All' apply to shields.
+    const allCritBonus = engine.allBonuses
+      .filter(b => b.effectType === 'Weapon_CriticalRange' && b.target === 'All')
+      .reduce((s, b) => s + b.value, 0);
+    return shieldBashDPS(ohWeaponInfo, bashPct, buildStats, result, allCritBonus);
+  }, [ohWeaponInfo, buildStats, result, engine]);
 
   // Per-ability damage info for the palette tooltip. Only weapon-attack
   // abilities have real numbers; others still show placeholder.
@@ -936,19 +1002,125 @@ function MeleeEditor({
   const fmt = (n: number, d = 0) => n.toLocaleString('en-US', { maximumFractionDigits: d });
   const pct = (n: number)        => `${fmt(n, 1)}%`;
 
-  // Use the computed result's crit faces when available (includes all bonuses).
-  const totalFaces     = result?.critThreatFaces ?? (() => {
-    const base = weaponInfo?.critThreatBase ?? 1;
-    return (buildStats?.hasImprovedCritical ? base * 2 : base) + (buildStats?.critRangeBonus ?? 0);
-  })();
-  const critDisplay = weaponInfo
-    ? totalFaces <= 1
-      ? `20 / ×${result?.critMultOnAll ?? weaponInfo.critMultiplier}`
-      : `${21 - totalFaces}–20 / ×${result?.critMultOnAll ?? weaponInfo.critMultiplier}${(result?.critMult1920Bonus ?? 0) > 0 ? ` (×${result?.critMultOn1920} on 19-20)` : ''}`
-    : '';
-
   return (
     <div className={styles.editor}>
+      {/* Weapon stat panels — raw damage without MP/DS scaling */}
+      {result && weaponInfo && buildStats && engine && (() => {
+        // Determine which weapon info to show per hand.
+        // Handwraps have no separate OH item — both hands use the same weapon.
+        // TWF with separate weapons: OH item is distinct; falls back to MH
+        // if the OH isn't a melee weapon (shield, rune arm, orb, etc.).
+        const ohInfo: MeleeWeaponInfo | null = ohWeaponInfo ?? weaponInfo;
+        const ohIsSameAsMH = !ohWeaponInfo || ohWeaponInfo.weaponType === weaponInfo.weaponType;
+        const ohItem = ohWeaponInfo ? offHandItem : mainHandItem;
+
+        const renderPanel = (
+          label: string,
+          wi: MeleeWeaponInfo,
+          item: typeof mainHandItem,
+          sameAsMH: boolean,
+          bash?: ShieldBashResult,
+        ) => {
+          const isShield = isShieldType(wi.weaponType);
+
+          // Recompute crit stats for this specific weapon type.
+          // Shields use their own intrinsic crit range (no TWF-style crit bonuses).
+          const critRangeBonus = isShield
+            ? 0   // shield-specific bonuses TBD; only use shield's own range
+            : critRangeBonusForWeapon(engine, wi.weaponType);
+          const hasIC          = buildStats.hasImprovedCritical;
+          const rangeAfterIC   = hasIC ? wi.critThreatBase * 2 : wi.critThreatBase;
+          const totalFaces     = isShield
+            ? bash?.shieldCritFaces ?? rangeAfterIC   // already includes 'All' bonuses
+            : rangeAfterIC + critRangeBonus;
+          const multOnAll      = wi.critMultiplier + buildStats.critMultBonus;
+          const multOn1920     = multOnAll + buildStats.critMult1920Bonus;
+          const loBound        = 21 - totalFaces;
+          const facesOther     = Math.max(0, totalFaces - 2);
+          const critStr        = buildStats.critMult1920Bonus > 0
+            ? facesOther > 0
+              ? `(${loBound}–18)×${multOnAll}  (19–20)×${multOn1920}`
+              : `(19–20)×${multOn1920}`
+            : `(${loBound}–20)×${multOnAll}`;
+
+          const enchantBuff = item?.buffs.find(b => b.type === 'WeaponEnchantment');
+          const enchant     = enchantBuff?.value1 ?? 0;
+          const flatBonus   = wi.diceBonus + result.damageStatMod + enchant + result.flatDmgBonus;
+          const baseStr     = `${fmt(wi.wScalar, 2)}W`
+            + `(${wi.diceNum}d${wi.diceSides}${wi.diceBonus ? `+${wi.diceBonus}` : ''})`
+            + ` + ${flatBonus}`;
+
+          return (
+            <div className={styles.weaponStatPanel}>
+              <span className={styles.weaponStatPanelHeader}>
+                <img
+                  src={`/assets/images/ItemImages/${item?.icon}.png`}
+                  alt=""
+                  style={{ width: 16, height: 16, objectFit: 'contain', marginRight: 4, verticalAlign: 'middle', flexShrink: 0 }}
+                  onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                />
+                {label}
+              </span>
+              <span className={styles.weaponStatPanelName}>
+                {item?.name ?? '—'}
+                {sameAsMH && !isShield && (
+                  <span className={styles.weaponStatRowMuted}> (same as MH)</span>
+                )}
+              </span>
+
+              <div className={styles.weaponStatRow}>
+                <span className={styles.weaponStatRowLabel}>Base</span>
+                <span className={styles.weaponStatRowValue}>{baseStr}</span>
+                <span className={styles.weaponStatRowMuted}>
+                  {`${result.damageStat}(+${result.damageStatMod}) +${enchant} enchant +${result.flatDmgBonus} flat`}
+                </span>
+              </div>
+
+              <div className={styles.weaponStatRow}>
+                <span className={styles.weaponStatRowLabel}>Crit Range</span>
+                <span className={styles.weaponStatRowValue}>{critStr}</span>
+                {result.seeker > 0 && (
+                  <span className={styles.weaponStatRowMuted}>Seeker +{result.seeker}</span>
+                )}
+              </div>
+
+              {isShield && bash ? (
+                <div className={styles.weaponStatRow}>
+                  <span className={styles.weaponStatRowLabel}>Bash Rate</span>
+                  <span className={styles.weaponStatRowValue}>
+                    {fmt(bash.bashesPerMin, 1)}/min
+                    {bash.rawBashesPerMin > 60 && (
+                      <span className={styles.weaponStatRowMuted}> (capped from {fmt(bash.rawBashesPerMin, 0)})</span>
+                    )}
+                  </span>
+                  <span className={styles.weaponStatRowMuted}>
+                    {fmt(engine.shieldBashRate.total)}% bash chance · {fmt(Math.round(bash.bashDPS))} DPS
+                  </span>
+                </div>
+              ) : (
+                <div className={styles.weaponStatRow}>
+                  <span className={styles.weaponStatRowLabel}>To-Hit</span>
+                  <span className={styles.weaponStatRowMuted}>TODO</span>
+                </div>
+              )}
+            </div>
+          );
+        };
+
+        const isHandwraps = weaponInfo.category === 'handwraps';
+        const showOH = isHandwraps || ohWeaponInfo !== null;
+
+        return (
+          <div
+            className={styles.weaponStatPanels}
+            style={showOH ? undefined : { gridTemplateColumns: '1fr' }}
+          >
+            {renderPanel('Main Hand', weaponInfo, mainHandItem, false)}
+            {showOH && renderPanel('Off Hand', ohInfo, ohItem, ohIsSameAsMH, shieldBash ?? undefined)}
+          </div>
+        );
+      })()}
+
       {/* Target + enemy info — identical to magic pane */}
       <TargetRow
         targetCount={targetCount}
@@ -989,35 +1161,6 @@ function MeleeEditor({
         defaultAttackMode="melee"
       />
 
-      {/* Weapon info block (mirrors RotationPalette role) */}
-      {weaponInfo ? (
-        <div className={styles.weaponRow}>
-          <div className={styles.weaponMeta}>
-            <span className={styles.weaponName}>{mainHandItem!.name}</span>
-            <span className={styles.weaponTag}>{weaponInfo.category}</span>
-          </div>
-          <div className={styles.weaponStats}>
-            <span className={styles.weaponStat}>
-              {weaponInfo.diceNum}d{weaponInfo.diceSides}
-              {weaponInfo.diceBonus ? `+${weaponInfo.diceBonus}` : ''}
-            </span>
-            {weaponInfo.enchantBonus > 0 && (
-              <span className={styles.weaponStat}>+{weaponInfo.enchantBonus} enchant</span>
-            )}
-            <span className={styles.weaponStat}>{critDisplay}</span>
-            {(buildStats?.seeker ?? 0) > 0 && (
-              <span className={styles.weaponStat}>Seeker +{buildStats!.seeker}</span>
-            )}
-          </div>
-        </div>
-      ) : (
-        <div className={styles.weaponMissing}>
-          {mainHandItem
-            ? 'Weapon data unavailable — item catalog not yet loaded.'
-            : 'No weapon equipped in Main Hand.'}
-        </div>
-      )}
-
       {/* Controls */}
       <div className={styles.meleeControls}>
         <div className={styles.controls} style={{ marginBottom: 0 }}>
@@ -1034,7 +1177,7 @@ function MeleeEditor({
             <span className={styles.sliderTicks}><span>0%</span><span>15%</span></span>
           </label>
           <label className={styles.field} style={{ minWidth: '7rem' }}>
-            <span className={styles.fieldLabel}>TWF Style</span>
+            <span className={styles.fieldLabel}>Weapon Style</span>
             <select
               className={styles.select}
               value={twfOverride ?? detectedTWF}
@@ -1081,18 +1224,36 @@ function MeleeEditor({
         )}
       </div>
 
-      {/* Auto-attack timeline (mirrors RotationTimeline) */}
+      {/* Auto-attack timeline with simulation playhead */}
       <MeleeTimeline
         mhAPM={result?.mhAttacksPerMin ?? 0}
         ohAPM={result?.ohAttacksPerMin ?? 0}
+        playheadTime={simRunning || simTime > 0 ? simTime : undefined}
       />
 
-      {/* Stats grid */}
-      <div className={styles.stats}>
-        <Metric label="DPS"         value={result ? fmt(Math.round(result.totalAutoDPS))        : '—'} />
-        <Metric label="Hits / min"  value={result ? fmt(Math.round(result.totalEffectivePerMin)) : '—'} />
-        <Metric label="Avg / Hit"   value={result ? fmt(result.avgPerHit, 1)                    : '—'} />
-        <Metric label="Crit Chance" value={result ? pct(result.critChance * 100) : '—'} />
+      {/* Simulate / Restart buttons — same pattern as magic editor */}
+      <div className={styles.simulateRow}>
+        <button
+          type="button"
+          className={styles.simulateBtn}
+          onClick={onSimulateClick}
+          disabled={!result}
+          title={result ? (simRunning ? 'Pause simulation' : 'Run 60s simulation') : 'No weapon equipped'}
+        >
+          {simRunning ? '⏸ Pause' : '▶ Simulate'}
+        </button>
+        <button
+          type="button"
+          className={styles.simulateBtn}
+          onClick={onRestartClick}
+          disabled={!result}
+          title="Restart simulation from t=0"
+        >
+          ↻ Restart
+        </button>
+        <span className={styles.simulateClock}>
+          t = {simTime.toFixed(2)}s / {MELEE_SIM_SECONDS}s
+        </span>
       </div>
 
       {/* Enhancement-set comparison (mirrors magic compare row) */}
@@ -1136,61 +1297,6 @@ function MeleeEditor({
         </div>
       )}
 
-      {/* Weapon stat panels — raw damage without MP/DS scaling */}
-      {result && weaponInfo && buildStats && (
-        <div className={styles.weaponStatPanels}>
-          {(['mh', 'oh'] as const).map(hand => {
-            const isOH = hand === 'oh';
-            const critFaces = result.critThreatFaces;
-            const loBound   = 21 - critFaces;
-            const facesOther = Math.max(0, critFaces - 2);
-            // Crit range string: show split if 19-20 has a higher multiplier
-            const critStr = result.critMult1920Bonus > 0
-              ? facesOther > 0
-                ? `(${loBound}–18)×${result.critMultOnAll}  (19–20)×${result.critMultOn1920}`
-                : `(19–20)×${result.critMultOn1920}`
-              : `(${loBound}–20)×${result.critMultOnAll}`;
-
-            const flatBonus = weaponInfo.diceBonus
-              + result.damageStatMod
-              + weaponInfo.enchantBonus
-              + result.flatDmgBonus;
-            const baseStr = `${fmt(result.totalW, 2)}W`
-              + `(${weaponInfo.diceNum}d${weaponInfo.diceSides}`
-              + `${weaponInfo.diceBonus ? `+${weaponInfo.diceBonus}` : ''})`
-              + ` + ${flatBonus}`;
-
-            return (
-              <div key={hand} className={styles.weaponStatPanel}>
-                <span className={styles.weaponStatPanelHeader}>{isOH ? 'Off Hand' : 'Main Hand'}</span>
-                <span className={styles.weaponStatPanelName}>{mainHandItem!.name}</span>
-
-                <div className={styles.weaponStatRow}>
-                  <span className={styles.weaponStatRowLabel}>Base</span>
-                  <span className={styles.weaponStatRowValue}>{baseStr}</span>
-                  <span className={styles.weaponStatRowMuted}>
-                    {`${result.damageStat}(+${result.damageStatMod}) +${weaponInfo.enchantBonus} enchant +${result.flatDmgBonus} flat`}
-                  </span>
-                </div>
-
-                <div className={styles.weaponStatRow}>
-                  <span className={styles.weaponStatRowLabel}>Crit Range</span>
-                  <span className={styles.weaponStatRowValue}>{critStr}</span>
-                  {result.seeker > 0 && (
-                    <span className={styles.weaponStatRowMuted}>Seeker +{result.seeker}</span>
-                  )}
-                </div>
-
-                <div className={styles.weaponStatRow}>
-                  <span className={styles.weaponStatRowLabel}>To-Hit</span>
-                  <span className={styles.weaponStatRowMuted}>TODO</span>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      )}
-
       {/* DPS breakdown (mirrors DamageSourceSummary role) */}
       {result && (
         <div className={styles.meleeBreakdown}>
@@ -1212,6 +1318,16 @@ function MeleeEditor({
               </span>
             </div>
           )}
+          {shieldBash && (
+            <div className={styles.meleeBreakdownCol}>
+              <span className={styles.meleeBreakdownLabel}>Shield Bash</span>
+              <span className={styles.meleeBreakdownValue}>{fmt(Math.round(shieldBash.bashDPS))} DPS</span>
+              <span className={styles.meleeBreakdownSub}>
+                {fmt(shieldBash.bashesPerMin, 1)}/min · {fmt(shieldBash.avgDmgPerBash, 0)} avg/bash
+                {shieldBash.rawBashesPerMin > 60 && ' (capped)'}
+              </span>
+            </div>
+          )}
           <div className={styles.meleeBreakdownCol}>
             <span className={styles.meleeBreakdownLabel}>Scaled / Hit</span>
             <span className={styles.meleeBreakdownValue}>{fmt(result.avgScaledDamage, 1)}</span>
@@ -1229,6 +1345,48 @@ function MeleeEditor({
           </div>
         </div>
       )}
+
+      {/* Damage source breakdown */}
+      {result && (() => {
+        const totalDPS = result.totalAutoDPS + (shieldBash?.bashDPS ?? 0)
+          + [...damageByAbility.values()].reduce((s, v) => s + v.dps, 0);
+        const sources: { label: string; dps: number; color: string }[] = [
+          { label: 'MH Auto', dps: result.mhDPS, color: '#c9a227' },
+          { label: 'OH Auto', dps: result.ohDPS, color: '#a07820' },
+          ...(shieldBash ? [{ label: 'Shield Bash', dps: shieldBash.bashDPS, color: '#6a9fd8' }] : []),
+          ...activeMeleeAbilities
+            .map(a => ({ label: a.name, dps: damageByAbility.get(a.id)?.dps ?? 0, color: '#7ab87a' }))
+            .filter(s => s.dps > 0),
+        ].filter(s => s.dps > 0);
+
+        if (totalDPS <= 0) return null;
+        return (
+          <div className={styles.meleeDamageSource}>
+            <div className={styles.meleeDamageSourceBar}>
+              {sources.map(s => (
+                <div key={s.label} title={`${s.label}: ${fmt(Math.round(s.dps))} DPS`}
+                  style={{ flex: s.dps / totalDPS, background: s.color, minWidth: 2 }} />
+              ))}
+            </div>
+            <div className={styles.meleeDamageSourceList}>
+              {sources.map(s => (
+                <div key={s.label} className={styles.meleeDamageSourceRow}>
+                  <span className={styles.meleeDamageSourceDot} style={{ background: s.color }} />
+                  <span className={styles.meleeDamageSourceLabel}>{s.label}</span>
+                  <span className={styles.meleeDamageSourceDPS}>{fmt(Math.round(s.dps))}</span>
+                  <span className={styles.meleeDamageSourcePct}>{(s.dps / totalDPS * 100).toFixed(1)}%</span>
+                </div>
+              ))}
+              <div className={styles.meleeDamageSourceRow + ' ' + styles.meleeDamageSourceTotal}>
+                <span />
+                <span className={styles.meleeDamageSourceLabel}>Total</span>
+                <span className={styles.meleeDamageSourceDPS}>{fmt(Math.round(totalDPS))}</span>
+                <span className={styles.meleeDamageSourcePct}>DPS</span>
+              </div>
+            </div>
+          </div>
+        );
+      })()}
     </div>
   );
 }

@@ -178,3 +178,13 @@
   opacity: 0.5;
   z-index: 1;
 }
+.playhead {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(201, 162, 39, 0.85);
+  pointer-events: none;
+  z-index: 10;
+  box-shadow: 0 0 4px rgba(201, 162, 39, 0.5);
+}

@@ -591,3 +591,75 @@
   .simulateRow { flex-wrap: wrap; }
   .simulateBtn { flex: 1; }
 }
+
+/* ── Melee damage source breakdown ──────────────────────────── */
+
+.meleeDamageSource {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin: 0.25rem 0;
+}
+
+.meleeDamageSourceBar {
+  display: flex;
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+  gap: 1px;
+  background: var(--color-border);
+}
+
+.meleeDamageSourceList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  padding: 0.35rem 0.5rem;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+}
+
+.meleeDamageSourceRow {
+  display: grid;
+  grid-template-columns: 10px 1fr auto auto;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  padding: 0.1rem 0;
+}
+
+.meleeDamageSourceDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.meleeDamageSourceLabel {
+  color: var(--color-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.meleeDamageSourceDPS {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  color: var(--color-text);
+  text-align: right;
+}
+
+.meleeDamageSourcePct {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  text-align: right;
+  min-width: 3.5rem;
+}
+
+.meleeDamageSourceTotal {
+  border-top: 1px solid var(--color-border);
+  margin-top: 0.15rem;
+  padding-top: 0.25rem;
+  font-weight: 700;
+}

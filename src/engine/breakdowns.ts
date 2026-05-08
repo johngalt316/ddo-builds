@@ -173,6 +173,13 @@ export function breakdownWeaponFlatDamage(bonuses: Bonus[], rules: StackingRules
   return stackBonuses(ofType(bonuses, 'Weapon_Damage').filter(b => !b.isPercent), rules);
 }
 
+// Shield bash rate: SecondaryShieldBash effects from feats (Improved Shield
+// Bash) and enhancements (Vanguard, DivineCrusader, etc.).  Each point is
+// a +1% chance per MH attack to trigger a shield bash.
+export function breakdownShieldBashRate(bonuses: Bonus[], rules: StackingRules): BreakdownResult {
+  return stackBonuses(ofType(bonuses, 'SecondaryShieldBash'), rules);
+}
+
 // Percentage damage bonus per hit (e.g. Primal Force "+2% Epic Damage bonus
 // to all physical attacks").  Applied as a separate multiplicative layer on
 // top of Melee Power: finalDamage = scaledByMP × (1 + pct/100).

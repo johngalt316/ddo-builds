@@ -22,6 +22,7 @@ import {
   breakdownWeaponCritRange, breakdownWeaponCritMult, breakdownWeaponCritMult1920,
   breakdownSeeker,
   breakdownWeaponBaseDamage, breakdownWeaponFlatDamage, breakdownWeaponDamagePct,
+  breakdownShieldBashRate,
   breakdownImbueDice,
   breakdownMeleePower, breakdownRangedPower,
   breakdownHealingAmp, breakdownNegativeHealingAmp, breakdownRepairAmp,
@@ -132,6 +133,9 @@ export interface EngineResult {
   /** Percentage physical damage bonus (e.g. "+2% Epic Damage" from Primal Force).
    *  Applied as a separate ×(1 + pct/100) multiplier on top of Melee Power. */
   weaponDamagePct: BreakdownResult;
+  /** Secondary shield bash rate (% chance per MH attack to trigger a bash).
+   *  Sources: Improved Shield Bash (+20), Vanguard enhancements (+10 each), etc. */
+  shieldBashRate: BreakdownResult;
   /** Flat bonus to crit multiplier on every crit. */
   weaponCritMult: BreakdownResult;
   /** Flat bonus to crit multiplier only on 19–20 rolls. */
@@ -629,6 +633,7 @@ export function runEngine(input: RunEngineInput): EngineResult {
     weaponBaseDamage:  breakdownWeaponBaseDamage(allBonuses, rules),
     weaponFlatDamage:  breakdownWeaponFlatDamage(allBonuses, rules),
     weaponDamagePct:   breakdownWeaponDamagePct(allBonuses, rules),
+    shieldBashRate:    breakdownShieldBashRate(allBonuses, rules),
     weaponCritRange:   breakdownWeaponCritRange(allBonuses, rules),
     weaponCritMult:    breakdownWeaponCritMult(allBonuses, rules),
     weaponCritMult1920: breakdownWeaponCritMult1920(allBonuses, rules),

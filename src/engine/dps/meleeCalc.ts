@@ -276,19 +276,37 @@ export function meleeDPS(
 
 // ── Build-data extractors ────────────────────────────────────────────
 
+/** Default base dice for shield types (no baseDice in item catalog).
+ *  Matches DDO wiki values: buckler 1d4, small/large shield 1d6, tower 1d8. */
+const SHIELD_BASE_DICE: Record<string, { number: number; sides: number }> = {
+  'Buckler':      { number: 1, sides: 4 },
+  'Small Shield': { number: 1, sides: 6 },
+  'Large Shield': { number: 1, sides: 6 },
+  'Tower Shield': { number: 1, sides: 8 },
+};
+
+/** Returns true for weapon types that use shield-bash attack rates
+ *  rather than TWF off-hand rates. */
+export function isShieldType(weaponType: string): boolean {
+  return weaponType in SHIELD_BASE_DICE;
+}
+
 /** Build a MeleeWeaponInfo from a GearItem. Returns null when the item
- *  has no weapon fields (non-weapon item or no baseDice parsed). */
+ *  has no weapon fields. Shields fall back to type-based default dice
+ *  (their baseDice is absent from the item catalog). */
 export function weaponInfoFromGearItem(item: GearItem): MeleeWeaponInfo | null {
-  if (!item.weapon || !item.baseDice) return null;
+  if (!item.weapon) return null;
+  const dice = item.baseDice ?? SHIELD_BASE_DICE[item.weapon];
+  if (!dice) return null;
   const enchantBuff = item.buffs.find(b => b.type === 'WeaponEnchantment');
   return {
     name:           item.name,
     weaponType:     item.weapon ?? '',
     category:       weaponCategoryFromName(item.weapon),
     wScalar:        item.weaponDamage ?? 1,
-    diceNum:        item.baseDice.number,
-    diceSides:      item.baseDice.sides,
-    diceBonus:      item.baseDice.bonus ?? 0,
+    diceNum:        dice.number,
+    diceSides:      dice.sides,
+    diceBonus:      item.baseDice?.bonus ?? 0,
     enchantBonus:   enchantBuff?.value1 ?? 0,
     critThreatBase: item.criticalThreatRange ?? 1,
     critMultiplier: item.criticalMultiplier  ?? 2,
@@ -310,7 +328,7 @@ export function weaponInfoFromGearItem(item: GearItem): MeleeWeaponInfo | null {
  * untargeted), then re-stacks with the full rules so Highest-Only types
  * (e.g. Competence from Shintao Mastery) are still deduplicated.
  */
-function critRangeBonusForWeapon(engine: EngineResult, weaponType: string): number {
+export function critRangeBonusForWeapon(engine: EngineResult, weaponType: string): number {
   const wt = weaponType.toLowerCase();
   const relevant = engine.allBonuses.filter(b =>
     b.effectType === 'Weapon_CriticalRange' &&
@@ -461,4 +479,78 @@ export function meleeAbilityDamagePerActivation(
   }
 
   return hitDamage + buffDamage;
+}
+
+// ── Shield bash ──────────────────────────────────────────────────────────────
+
+export interface ShieldBashResult {
+  /** Raw bash attempts per minute before the 60/min cap. */
+  rawBashesPerMin: number;
+  /** Effective bashes per minute after the 1/s cap. */
+  bashesPerMin: number;
+  /** Average damage per bash (scaled by MP and physDamagePct, with crits). */
+  avgDmgPerBash: number;
+  /** Shield DPS contribution. */
+  bashDPS: number;
+  /** Crit threat faces for the shield. */
+  shieldCritFaces: number;
+  /** Crit chance for the shield. */
+  shieldCritChance: number;
+  /** Crit multiplier used on all shield crits. */
+  shieldCritMult: number;
+}
+
+/**
+ * Shield bash DPS contribution.
+ *
+ * Each MH attack has `secondaryBashPct`% chance to trigger a shield bash
+ * (capped at 60 per minute = 1/s). The bash deals the shield's weapon
+ * damage scaled by Melee Power and physDamagePct; Doublestrike applies
+ * identically to regular MH attacks.
+ *
+ * Crit range bonus sources that target 'All' (e.g. Shintao Mastery) apply
+ * to shields too; the caller should pass the filtered bonus separately, or
+ * pass 0 to use only the shield's intrinsic crit range.
+ */
+export function shieldBashDPS(
+  shield: MeleeWeaponInfo,
+  secondaryBashPct: number,
+  stats: MeleeBuildStats,
+  meleeResult: MeleeDPSResult,
+  extraCritFaces = 0,
+): ShieldBashResult {
+  // ── Bash rate ──────────────────────────────────────────────────────
+  const rawBashesPerMin = meleeResult.mhAttacksPerMin * secondaryBashPct / 100;
+  const bashesPerMin    = Math.min(60, rawBashesPerMin);
+
+  // ── Shield per-hit damage ─────────────────────────────────────────
+  const avgDice    = shield.diceNum * shield.wScalar * (shield.diceSides + 1) / 2;
+  const avgBase    = avgDice + shield.diceBonus + stats.statMod + shield.enchantBonus + stats.flatDmgBonus;
+  const scaled     = avgBase * (1 + stats.meleePower / 100) * (1 + stats.physDamagePct / 100);
+
+  // ── Shield crit profile ───────────────────────────────────────────
+  const rangeAfterIC   = stats.hasImprovedCritical ? shield.critThreatBase * 2 : shield.critThreatBase;
+  const cappedFaces    = Math.min(20, rangeAfterIC + extraCritFaces);
+  const critChance     = cappedFaces / 20;
+  const faces1920      = Math.min(2, cappedFaces);
+  const facesOther     = Math.max(0, cappedFaces - 2);
+  const multOnAll      = shield.critMultiplier + stats.critMultBonus;
+  const multOn1920     = multOnAll + stats.critMult1920Bonus;
+
+  const avgPerBash = (1 - critChance) * scaled
+    + (facesOther / 20) * (scaled + stats.seeker) * multOnAll
+    + (faces1920  / 20) * (scaled + stats.seeker) * multOn1920;
+
+  // ── Doublestrike on bashes ────────────────────────────────────────
+  const effectiveBashesPerMin = bashesPerMin * (1 + stats.doublestrike / 100);
+
+  return {
+    rawBashesPerMin,
+    bashesPerMin,
+    avgDmgPerBash:    avgPerBash,
+    bashDPS:          effectiveBashesPerMin * avgPerBash / 60,
+    shieldCritFaces:  cappedFaces,
+    shieldCritChance: critChance,
+    shieldCritMult:   multOnAll,
+  };
 }

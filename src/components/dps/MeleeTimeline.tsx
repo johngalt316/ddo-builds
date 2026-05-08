@@ -6,6 +6,7 @@
 // bar.  The window is long enough to show ~8–12 attacks at the current
 // speed so the cadence is easy to read.
 
+import { useRef, useEffect } from 'react';
 import styles from './MeleeTimeline.module.css';
 
 /** Pixels per second — matches RotationTimeline's scale. */
@@ -19,6 +20,9 @@ interface Props {
   mhAPM: number;
   /** Off-hand attacks per minute.  0 = no TWF. */
   ohAPM: number;
+  /** Simulation playhead in seconds. When set the timeline scrolls to keep
+   *  the playhead visible and draws a vertical position indicator. */
+  playheadTime?: number;
 }
 
 /** Build the list of attack timestamps (seconds) within [0, windowSec). */
@@ -30,7 +34,17 @@ function buildAttacks(apm: number, windowSec: number): number[] {
   return out;
 }
 
-export function MeleeTimeline({ mhAPM, ohAPM }: Props) {
+export function MeleeTimeline({ mhAPM, ohAPM, playheadTime }: Props) {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  // Auto-scroll to keep the playhead in view.
+  useEffect(() => {
+    if (playheadTime === undefined || !scrollRef.current) return;
+    const x = playheadTime * PX_PER_SECOND;
+    const el = scrollRef.current;
+    const half = el.clientWidth / 2;
+    el.scrollLeft = Math.max(0, x - half);
+  }, [playheadTime]);
   if (mhAPM <= 0) return (
     <div className={styles.wrapper}>
       <div className={styles.header}>
@@ -64,8 +78,17 @@ export function MeleeTimeline({ mhAPM, ohAPM }: Props) {
         )}
       </div>
 
-      <div className={styles.scroll}>
+      <div className={styles.scroll} ref={scrollRef}>
         <div className={styles.track} style={{ width: `${trackPx}px` }}>
+
+          {/* Simulation playhead */}
+          {playheadTime !== undefined && (
+            <div
+              className={styles.playhead}
+              style={{ left: `${playheadTime * PX_PER_SECOND}px` }}
+              aria-hidden="true"
+            />
+          )}
 
           {/* Time ruler */}
           <div className={styles.ruler} aria-hidden="true">
