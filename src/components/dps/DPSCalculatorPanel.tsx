@@ -1136,6 +1136,61 @@ function MeleeEditor({
         </div>
       )}
 
+      {/* Weapon stat panels — raw damage without MP/DS scaling */}
+      {result && weaponInfo && buildStats && (
+        <div className={styles.weaponStatPanels}>
+          {(['mh', 'oh'] as const).map(hand => {
+            const isOH = hand === 'oh';
+            const critFaces = result.critThreatFaces;
+            const loBound   = 21 - critFaces;
+            const facesOther = Math.max(0, critFaces - 2);
+            // Crit range string: show split if 19-20 has a higher multiplier
+            const critStr = result.critMult1920Bonus > 0
+              ? facesOther > 0
+                ? `(${loBound}–18)×${result.critMultOnAll}  (19–20)×${result.critMultOn1920}`
+                : `(19–20)×${result.critMultOn1920}`
+              : `(${loBound}–20)×${result.critMultOnAll}`;
+
+            const flatBonus = weaponInfo.diceBonus
+              + result.damageStatMod
+              + weaponInfo.enchantBonus
+              + result.flatDmgBonus;
+            const baseStr = `${fmt(result.totalW, 2)}W`
+              + `(${weaponInfo.diceNum}d${weaponInfo.diceSides}`
+              + `${weaponInfo.diceBonus ? `+${weaponInfo.diceBonus}` : ''})`
+              + ` + ${flatBonus}`;
+
+            return (
+              <div key={hand} className={styles.weaponStatPanel}>
+                <span className={styles.weaponStatPanelHeader}>{isOH ? 'Off Hand' : 'Main Hand'}</span>
+                <span className={styles.weaponStatPanelName}>{mainHandItem!.name}</span>
+
+                <div className={styles.weaponStatRow}>
+                  <span className={styles.weaponStatRowLabel}>Base</span>
+                  <span className={styles.weaponStatRowValue}>{baseStr}</span>
+                  <span className={styles.weaponStatRowMuted}>
+                    {`${result.damageStat}(+${result.damageStatMod}) +${weaponInfo.enchantBonus} enchant +${result.flatDmgBonus} flat`}
+                  </span>
+                </div>
+
+                <div className={styles.weaponStatRow}>
+                  <span className={styles.weaponStatRowLabel}>Crit Range</span>
+                  <span className={styles.weaponStatRowValue}>{critStr}</span>
+                  {result.seeker > 0 && (
+                    <span className={styles.weaponStatRowMuted}>Seeker +{result.seeker}</span>
+                  )}
+                </div>
+
+                <div className={styles.weaponStatRow}>
+                  <span className={styles.weaponStatRowLabel}>To-Hit</span>
+                  <span className={styles.weaponStatRowMuted}>TODO</span>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      )}
+
       {/* DPS breakdown (mirrors DamageSourceSummary role) */}
       {result && (
         <div className={styles.meleeBreakdown}>
