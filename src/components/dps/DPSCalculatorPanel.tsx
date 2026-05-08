@@ -17,7 +17,7 @@ import {
   type ShieldBashResult,
   type TWFStyle,
 } from '@/engine/dps/meleeCalc';
-import { MeleeTimeline } from './MeleeTimeline';
+import { MeleeCombinedTimeline } from './MeleeCombinedTimeline';
 import { useBuildStore } from '@/store/buildStore';
 import { useGameDataStore } from '@/store/gameDataStore';
 import { useBreakdowns, useBreakdownsForBuild } from '@/hooks/useBreakdowns';
@@ -1182,21 +1182,7 @@ function MeleeEditor({
         }}
         damageByAbility={damageByAbility}
       />
-      <RotationTimeline
-        steps={meleeSteps}
-        abilityById={new Map(allAbilities.map(a => [a.id, a]))}
-        cooldownReductionPct={0}
-        auto={meleeAuto}
-        onAutoChange={setMeleeAuto}
-        onReorder={(from, to) => {
-          const next = [...meleeSteps];
-          const [moved] = next.splice(from, 1);
-          if (moved !== undefined) { next.splice(to, 0, moved); setMeleeSteps(next); }
-        }}
-        onRemove={(key) => setMeleeSteps(meleeSteps.filter(s => s.key !== key))}
-        onClear={() => setMeleeSteps([])}
-        damageByAbility={damageByAbility}
-      />
+      {/* Combined timeline rendered below — no separate RotationTimeline needed */}
       <ManageActiveDialog
         open={manageOpen}
         abilities={allAbilities}
@@ -1269,11 +1255,23 @@ function MeleeEditor({
         )}
       </div>
 
-      {/* Auto-attack timeline with simulation playhead */}
-      <MeleeTimeline
+      {/* Unified auto-attack + ability activation timeline */}
+      <MeleeCombinedTimeline
         mhAPM={result?.mhAttacksPerMin ?? 0}
         ohAPM={result?.ohAttacksPerMin ?? 0}
         playheadTime={simRunning || simTime > 0 ? simTime : undefined}
+        steps={meleeSteps}
+        abilityById={new Map(allAbilities.map(a => [a.id, a]))}
+        auto={meleeAuto}
+        onAutoChange={setMeleeAuto}
+        onReorderStep={(from, to) => {
+          const next = [...meleeSteps];
+          const [moved] = next.splice(from, 1);
+          if (moved !== undefined) { next.splice(to, 0, moved); setMeleeSteps(next); }
+        }}
+        onRemoveStep={(key) => setMeleeSteps(meleeSteps.filter(s => s.key !== key))}
+        onClearSteps={() => setMeleeSteps([])}
+        damageByAbility={damageByAbility}
       />
 
       {/* Simulate / Restart buttons — same pattern as magic editor */}
