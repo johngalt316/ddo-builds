@@ -258,6 +258,8 @@ export interface DpsRotationStep {
 export interface DpsRotationState {
   /** Magic-rotation steps in order (drag-to-reorder list). */
   magicSteps?: DpsRotationStep[];
+  /** Melee-rotation steps in order (activated abilities). */
+  meleeSteps?: DpsRotationStep[];
   /** Ordered subset of trained damaging spells the user marked active.
    *  `undefined` means "first-time use, default to catalog order". */
   activeAbilityIds?: string[];

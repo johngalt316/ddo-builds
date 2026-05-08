@@ -903,9 +903,12 @@ function MeleeEditor({
   );
 
   const [manageOpen, setManageOpen] = useState(false);
-  const activeAbilityIds = useBuildStore(s => s.build.dpsRotation)?.activeAbilityIds;
+  const dpsRotation      = useBuildStore(s => s.build.dpsRotation);
+  const activeAbilityIds = dpsRotation?.activeAbilityIds;
   const setDpsRotation   = useBuildStore(s => s.setDpsRotation);
   const setActiveAbilityIds = (next: string[]) => setDpsRotation({ activeAbilityIds: next });
+  const meleeSteps    = (dpsRotation?.meleeSteps ?? EMPTY_STEPS) as RotationStep[];
+  const setMeleeSteps = (next: RotationStep[]) => setDpsRotation({ meleeSteps: next });
 
   const activeMeleeAbilities = useMemo(() => {
     if (!activeAbilityIds) return [];
@@ -1147,9 +1150,34 @@ function MeleeEditor({
       <RotationPalette
         abilities={activeMeleeAbilities}
         totalTrained={meleeAbilities.length}
-        onAdd={() => { /* melee rotation timeline not yet wired */ }}
+        onAdd={(a) => {
+          const byId = new Map(activeMeleeAbilities.map(ab => [ab.id, ab]));
+          const slot = findFirstAvailableSlot(meleeSteps, a, byId, 0);
+          const next = [...meleeSteps];
+          next.splice(slot, 0, newRotationStep(a.id));
+          setMeleeSteps(next);
+        }}
         onManage={() => setManageOpen(true)}
-        onReorder={() => { /* reorder not needed for melee palette */ }}
+        onReorder={(from, to) => {
+          const next = [...meleeSteps];
+          const [moved] = next.splice(from, 1);
+          if (moved !== undefined) { next.splice(to, 0, moved); setMeleeSteps(next); }
+        }}
+        damageByAbility={damageByAbility}
+      />
+      <RotationTimeline
+        steps={meleeSteps}
+        abilityById={new Map(allAbilities.map(a => [a.id, a]))}
+        cooldownReductionPct={0}
+        auto={false}
+        onAutoChange={() => {}}
+        onReorder={(from, to) => {
+          const next = [...meleeSteps];
+          const [moved] = next.splice(from, 1);
+          if (moved !== undefined) { next.splice(to, 0, moved); setMeleeSteps(next); }
+        }}
+        onRemove={(key) => setMeleeSteps(meleeSteps.filter(s => s.key !== key))}
+        onClear={() => setMeleeSteps([])}
         damageByAbility={damageByAbility}
       />
       <ManageActiveDialog
