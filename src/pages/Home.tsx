@@ -22,7 +22,7 @@ export function Home() {
       </div>
 
       <section className={styles.hero}>
-        <h1 className={styles.title}>DDO Build DPS Calculator</h1>
+        <h1 className={styles.title}>DDO DPS Calculator</h1>
         <p className={styles.subtitle}>
           Plan your Dungeons and Dragons Online character build — ability scores,
           class splits, feats, and enhancements — then share it with a link or

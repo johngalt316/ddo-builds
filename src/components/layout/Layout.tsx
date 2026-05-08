@@ -7,7 +7,7 @@ export function Layout() {
       <header className={styles.header}>
         <div className={styles.brand}>
           <span className={styles.brandIcon}>⚔️</span>
-          <span className={styles.brandName}>DDO Builds</span>
+          <span className={styles.brandName}>DDO DPS Calculator</span>
         </div>
         <nav className={styles.nav}>
           <NavLink to="/" end className={({ isActive }) => isActive ? styles.navLinkActive : styles.navLink}>
@@ -22,7 +22,7 @@ export function Layout() {
         <Outlet />
       </main>
       <footer className={styles.footer}>
-        <p>DDO Builds — a fan-made hobby project. Not affiliated with Standing Stone Games.</p>
+        <p>DDO DPS Calculator — a fan-made hobby project. Not affiliated with Standing Stone Games.</p>
         <p className={styles.version} title="Auto-bumped on every push">
           v{__APP_VERSION__} · <code>{__APP_SHA__}</code> · {__APP_COMMIT_DATE__}
         </p>
