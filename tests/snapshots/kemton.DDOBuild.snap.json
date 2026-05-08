@@ -1776,6 +1776,7 @@
               }
             ],
             "weapon": "Great Crossbow",
+            "weaponDamage": 5.2,
             "baseDice": {
               "number": 2,
               "sides": 8,

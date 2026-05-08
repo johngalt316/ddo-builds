@@ -17058,7 +17058,12 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
     <School>Conjuration</School>
     <MaxCasterLevel>0</MaxCasterLevel>
     <MaxTargetCap>5</MaxTargetCap>
-    <PlaceholderDamage/>
+    <!-- 2 MH cleave hits at +30% weapon damage, +3 crit range (rank 3). Cutter DoT deferred. -->
+    <WeaponAttack>
+      <Hits>2</Hits>
+      <Scalar>1.3</Scalar>
+      <CritRangeBonus>3</CritRangeBonus>
+    </WeaponAttack>
     <Cooldown>8</Cooldown>
   </Spell>
   <Spell>

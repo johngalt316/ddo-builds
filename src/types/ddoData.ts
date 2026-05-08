@@ -397,6 +397,27 @@ export interface DDOSpellData {
   dcs: DDOSpellDC[];
   /** Effects on cast (buffs/auras). Reuses the universal DDOEffect schema. */
   effects: DDOEffect[];
+  /** True when this spell deals real in-game damage but lacks modeled
+   *  dice rolls in our catalog (e.g. melee SLA strikes from Fury of the
+   *  Wild that are entered as `<PlaceholderDamage/>` in Spells.xml). */
+  placeholderDamage?: boolean;
+  /**
+   * Melee weapon-attack abilities: the activation delivers `mhHits`
+   * main-hand weapon hits, each scaled by `scalar` (e.g. Quick Cutter:
+   * 2 hits at ×1.30 for rank-3 "+30% weapon damage"). Damage is computed
+   * from the live melee calc (avgPerHit × scalar × effectiveHits including
+   * off-hand and doublestrike), NOT from the spell-dice pipeline.
+   */
+  weaponAttack?: {
+    mhHits: number;
+    scalar: number;
+    critRangeBonus?: number;
+    critMultBonus?: number;
+    /** Temporary Doublestrike bonus granted on activation (e.g. Quick Strike +25%). */
+    dsBuffPct?: number;
+    /** Duration of the DS buff in seconds. */
+    dsBuffDuration?: number;
+  };
 }
 
 export interface DDOClassSpell {
@@ -489,6 +510,18 @@ export interface EnhancementSelectionData {
   /** Per-rank AP cost when this selection is the chosen option. Undefined
    *  → fall back to the parent enhancement's costPerRank table. */
   costPerRank?: number[];
+  /** Weapon-attack data for this selector option when it is a melee/ranged
+   *  strike (e.g. Legendary Rally Melee, Hand of Harm). */
+  weaponAttack?: {
+    mhHits: number;
+    scalar: number;
+    critRangeBonus?: number;
+    critMultBonus?: number;
+    /** Temporary Doublestrike bonus granted on activation (e.g. Quick Strike +25%). */
+    dsBuffPct?: number;
+    /** Duration of the DS buff in seconds. */
+    dsBuffDuration?: number;
+  };
 }
 
 export interface EnhancementItemData {
@@ -536,6 +569,18 @@ export interface EnhancementItemData {
    *  reaper-charge pool. Encode as `<UsesReaperCharge/>` (typically
    *  redundant with the item being in a reaper tree, but explicit). */
   usesReaperCharge?: boolean;
+  /** Weapon-attack data for this clickie when it is a melee/ranged strike.
+   *  For selector-based items the data lives on the selection, not here. */
+  weaponAttack?: {
+    mhHits: number;
+    scalar: number;
+    critRangeBonus?: number;
+    critMultBonus?: number;
+    /** Temporary Doublestrike bonus granted on activation (e.g. Quick Strike +25%). */
+    dsBuffPct?: number;
+    /** Duration of the DS buff in seconds. */
+    dsBuffDuration?: number;
+  };
   // Dependency arrows (stored on the source/prerequisite item)
   arrowUp: boolean;
   arrowLeft: boolean;

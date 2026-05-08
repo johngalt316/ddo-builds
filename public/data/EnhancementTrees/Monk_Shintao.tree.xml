@@ -846,8 +846,10 @@ Centered Melee Attack: You gain a [5/15/25]% Morale bonus to Doublestrike for
         <Amount size="3">5 15 25</Amount>
         <ApplyAsItemEffect />
       </Effect>
+         <Cooldown size="3">18 15 12</Cooldown>
          <Category>damage</Category>
-         <PlaceholderDamage/>
+         <!-- +[10/20/30]% damage rank 1/2/3; grants +[5/15/25]% Morale DS for 10s (rank 3 values used) -->
+         <WeaponAttack><Hits>1</Hits><Scalar>1.3</Scalar><DSBuffPct>25</DSBuffPct><DSBuffDuration>10</DSBuffDuration></WeaponAttack>
     </EnhancementTreeItem>
     <!--Tier 3-->
     <EnhancementTreeItem>
@@ -946,7 +948,8 @@ fortification by 25%. A successful Will save negates this effect.</Description>
         <Tactical>Stun</Tactical>
       </DC>
          <Category>damage</Category>
-         <PlaceholderDamage/>
+         <!-- 1 MH hit, no damage scalar beyond base weapon -->
+         <WeaponAttack><Hits>1</Hits><Scalar>1.0</Scalar></WeaponAttack>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Shintao: Hands of Mercy</Name>
@@ -980,6 +983,8 @@ to negate.</Description>
           <Icon>HandOfHarm</Icon>
           <CostPerRank size="1">2</CostPerRank>
           <Clickie />
+          <!-- +20 crit range = guaranteed crit on all hits -->
+          <WeaponAttack><Hits>1</Hits><Scalar>1.0</Scalar><CritRangeBonus>20</CritRangeBonus></WeaponAttack>
           <Requirements>
              <RequiresOneOf>
                <Requirement>
@@ -1018,7 +1023,6 @@ Cooldown: 9 seconds.</Description>
       </Selector>
          <Cooldown>9</Cooldown>
          <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Shintao: Fists of Light</Name>

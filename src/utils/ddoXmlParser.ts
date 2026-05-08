@@ -591,6 +591,22 @@ export function parseSpellsXml(xml: string): DDOSpellData[] {
     if (spell.querySelector(':scope > MaxTargetCap'))     out.maxTargetCap     = num(spell, 'MaxTargetCap');
     if (spell.querySelector(':scope > Cooldown'))         out.cooldown         = parseFloat(text(spell, 'Cooldown'));
     if (spell.querySelector(':scope > PlaceholderDamage')) out.placeholderDamage = true;
+    const waEl = spell.querySelector(':scope > WeaponAttack');
+    if (waEl) {
+      const mhHits = parseInt(text(waEl as Element, 'Hits') || '1', 10);
+      const scalar = parseFloat(text(waEl as Element, 'Scalar') || '1');
+      const crRaw  = text(waEl as Element, 'CritRangeBonus');
+      const cmRaw  = text(waEl as Element, 'CritMultBonus');
+      const dsRaw  = text(waEl as Element, 'DSBuffPct');
+      const ddRaw  = text(waEl as Element, 'DSBuffDuration');
+      if (mhHits > 0 && scalar > 0) out.weaponAttack = {
+        mhHits, scalar,
+        ...(crRaw ? { critRangeBonus: parseInt(crRaw, 10) } : {}),
+        ...(cmRaw ? { critMultBonus:  parseInt(cmRaw, 10) } : {}),
+        ...(dsRaw ? { dsBuffPct:      parseInt(dsRaw, 10) } : {}),
+        ...(ddRaw ? { dsBuffDuration: parseInt(ddRaw, 10) } : {}),
+      };
+    }
     spells.push(out);
   }
   return spells;
@@ -601,6 +617,27 @@ export type { DDOEffect };
 export { parseEffectsIn, parseBuffsIn };
 
 // ── Enhancement tree parser ────────────────────────────────────────────────────
+
+/** Parse a `<WeaponAttack>` block from an enhancement item or selection element. */
+function parseWeaponAttack(el: Element): EnhancementItemData['weaponAttack'] {
+  const wa = el.querySelector(':scope > WeaponAttack');
+  if (!wa) return undefined;
+  const mhHits = parseInt(text(wa as Element, 'Hits') || '1', 10);
+  const scalar = parseFloat(text(wa as Element, 'Scalar') || '1');
+  if (mhHits <= 0 || scalar <= 0) return undefined;
+  const crRaw  = text(wa as Element, 'CritRangeBonus');
+  const cmRaw  = text(wa as Element, 'CritMultBonus');
+  const dsRaw  = text(wa as Element, 'DSBuffPct');
+  const ddRaw  = text(wa as Element, 'DSBuffDuration');
+  return {
+    mhHits,
+    scalar,
+    ...(crRaw ? { critRangeBonus:  parseInt(crRaw, 10)  } : {}),
+    ...(cmRaw ? { critMultBonus:   parseInt(cmRaw, 10)  } : {}),
+    ...(dsRaw ? { dsBuffPct:       parseInt(dsRaw, 10)  } : {}),
+    ...(ddRaw ? { dsBuffDuration:  parseInt(ddRaw, 10)  } : {}),
+  };
+}
 
 function parseEnhancementItem(el: Element, isCore: boolean): EnhancementItemData {
   const costRaw = text(el, 'CostPerRank');
@@ -620,6 +657,8 @@ function parseEnhancementItem(el: Element, isCore: boolean): EnhancementItemData
       // Lance sets <CostPerRank>2</CostPerRank> on the selection itself).
       const selCost = text(s, 'CostPerRank');
       if (selCost) out.costPerRank = spaceSeparatedNumbers(selCost);
+      const wa = parseWeaponAttack(s);
+      if (wa) out.weaponAttack = wa;
       return out;
     });
   })();
@@ -668,6 +707,7 @@ function parseEnhancementItem(el: Element, isCore: boolean): EnhancementItemData
     cooldownSecondsByRank,
     category,
     placeholderDamage:     hasFlag('PlaceholderDamage') || undefined,
+    weaponAttack:          parseWeaponAttack(el)        || undefined,
     usesActionBoostCharge: hasFlag('UsesActionBoostCharge') || undefined,
     usesReaperCharge:      hasFlag('UsesReaperCharge')      || undefined,
     arrowUp:         hasFlag('ArrowUp'),

@@ -14,13 +14,14 @@ import { applyRacialBonuses, applyAbilityTomes, applyLevelUps, calculateBAB, cla
 import { ddoClassDataToEngineClass, ddoRaceDataToRace } from '@/utils/classAdapter';
 import { collectEffects, buildBuildContext, collectAvailableStances, type AvailableStance } from './collectEffects';
 import { evaluateEffect } from './evaluateEffect';
-import { buildStackingRules, type Bonus, type BreakdownResult } from './bonusStacking';
+import { buildStackingRules, type Bonus, type BreakdownResult, type StackingRules } from './bonusStacking';
 import {
   breakdownAbilityScore, breakdownHitPoints, breakdownSave,
   breakdownDoublestrike, breakdownDoubleshot, breakdownSneakAttackDice,
   breakdownOffHandChance,
   breakdownWeaponCritRange, breakdownWeaponCritMult, breakdownWeaponCritMult1920,
   breakdownSeeker,
+  breakdownWeaponBaseDamage, breakdownWeaponFlatDamage, breakdownWeaponDamagePct,
   breakdownImbueDice,
   breakdownMeleePower, breakdownRangedPower,
   breakdownHealingAmp, breakdownNegativeHealingAmp, breakdownRepairAmp,
@@ -124,6 +125,13 @@ export interface EngineResult {
   offHandChance: BreakdownResult;
   /** Flat faces added to the weapon's crit threat range after IC doubling. */
   weaponCritRange: BreakdownResult;
+  /** Additional [W] dice per hit from enhancements / destinies. */
+  weaponBaseDamage: BreakdownResult;
+  /** Flat per-hit damage bonus from Deadly / Insightful Deadly / Quality Deadly etc. */
+  weaponFlatDamage: BreakdownResult;
+  /** Percentage physical damage bonus (e.g. "+2% Epic Damage" from Primal Force).
+   *  Applied as a separate ×(1 + pct/100) multiplier on top of Melee Power. */
+  weaponDamagePct: BreakdownResult;
   /** Flat bonus to crit multiplier on every crit. */
   weaponCritMult: BreakdownResult;
   /** Flat bonus to crit multiplier only on 19–20 rolls. */
@@ -164,6 +172,10 @@ export interface EngineResult {
    *  that need a direct read on EffectType totals not bucketed into a
    *  top-level breakdown (e.g. `MetamagicCostEmpower`, `SpellPointCostPercent`). */
   allBonuses: Bonus[];
+  /** Stacking rules parsed from BonusTypes.xml. Exposed so consumers that
+   *  re-stack filtered subsets of `allBonuses` (e.g. weapon-type-filtered
+   *  crit range) can apply the same rules without re-parsing the catalog. */
+  stackingRules: StackingRules;
   diagnostics: {
     unmatchedFeats: string[];
     unmatchedTrees: string[];
@@ -267,6 +279,15 @@ export function runEngine(input: RunEngineInput): EngineResult {
   /** SLA accumulator — one entry per granting source (no name-deduping). */
   const slas: CollectedSLA[] = [];
 
+  // Effects whose value depends on the final (post-enhancement) ability score
+  // are deferred to a second pass after ability breakdowns are computed.
+  // Pattern: AType is AbilityMod / HalfAbilityMod / ThirdAbilityMod AND
+  // StackSource contains "Snapshot<Ability>" (e.g. "SnapshotWisdom").
+  // Example: Clear Your Mind battle trance — WIS mod / 2 flat damage bonus.
+  type DeferredEffect = { effect: (typeof sourced)[0]['effect']; source: string; rankCount: number };
+  const abilitySnapshotDeferred: DeferredEffect[] = [];
+  const ABILITY_SNAP_ATYPES = new Set(['AbilityMod', 'HalfAbilityMod', 'ThirdAbilityMod', 'AbilityValue', 'AbilityTotal']);
+
   for (const { effect, source, rankCount } of sourced) {
     const isSLA = effect.types.includes('SpellLikeAbility');
     if (isSLA) {
@@ -301,6 +322,15 @@ export function runEngine(input: RunEngineInput): EngineResult {
       // unmodeled-amount-type diagnostic with non-issues.
       continue;
     }
+
+    // Defer ability-snapshot effects — their value depends on the final
+    // ability score (after all enhancement/item bonuses), not the seed.
+    const at = effect.amountType ?? 'Simple';
+    if (ABILITY_SNAP_ATYPES.has(at) && effect.stackSource?.startsWith('Snapshot')) {
+      abilitySnapshotDeferred.push({ effect, source, rankCount });
+      continue;
+    }
+
     const result = evaluateEffect(effect, ctx, source, rankCount);
     if (result.skipped === 'unmodeled-amount-type' && result.unmodeledAmountType) {
       unmodeled[result.unmodeledAmountType] = (unmodeled[result.unmodeledAmountType] ?? 0) + 1;
@@ -318,6 +348,26 @@ export function runEngine(input: RunEngineInput): EngineResult {
   const abilityScores = Object.fromEntries(
     STATS.map(s => [s, breakdownAbilityScore(s, effectiveScores[s], allBonuses, rules)] as const),
   ) as Record<Stat, BreakdownResult>;
+
+  // ── Second pass: ability-snapshot effects ───────────────────────────
+  // Now that final ability scores are known, evaluate deferred effects with
+  // the post-enhancement scores so e.g. Clear Your Mind correctly uses the
+  // full WIS mod rather than the pre-effect seed.
+  if (abilitySnapshotDeferred.length > 0) {
+    const finalAbilityScores: Record<string, number> = Object.fromEntries(
+      STATS.map(s => [s, abilityScores[s].total]),
+    );
+    const ctx2 = { ...ctx, abilityScores: finalAbilityScores };
+    for (const { effect, source, rankCount } of abilitySnapshotDeferred) {
+      const result = evaluateEffect(effect, ctx2, source, rankCount);
+      if (result.skipped === 'unmodeled-amount-type' && result.unmodeledAmountType) {
+        unmodeled[result.unmodeledAmountType] = (unmodeled[result.unmodeledAmountType] ?? 0) + 1;
+      } else if (result.skipped === 'requirements-failed') {
+        reqFailed++;
+      }
+      allBonuses.push(...result.bonuses);
+    }
+  }
 
   // Synthetic HP bonus from CON-mod × total level. Mirrors DDOBuilderV2's
   // BreakdownItemHitpoints which reads the final CON breakdown total. This
@@ -576,6 +626,9 @@ export function runEngine(input: RunEngineInput): EngineResult {
     doubleshot:        breakdownDoubleshot(allBonuses, rules),
     sneakAttackDice:   breakdownSneakAttackDice(allBonuses, rules),
     offHandChance:     breakdownOffHandChance(allBonuses, rules),
+    weaponBaseDamage:  breakdownWeaponBaseDamage(allBonuses, rules),
+    weaponFlatDamage:  breakdownWeaponFlatDamage(allBonuses, rules),
+    weaponDamagePct:   breakdownWeaponDamagePct(allBonuses, rules),
     weaponCritRange:   breakdownWeaponCritRange(allBonuses, rules),
     weaponCritMult:    breakdownWeaponCritMult(allBonuses, rules),
     weaponCritMult1920: breakdownWeaponCritMult1920(allBonuses, rules),
@@ -617,6 +670,7 @@ export function runEngine(input: RunEngineInput): EngineResult {
     // cost, fate-point bonus, etc.) that route effect types we don't
     // bucket into a top-level breakdown.
     allBonuses,
+    stackingRules: rules,
     diagnostics: {
       unmatchedFeats: [...new Set(unmatchedFeats)].sort(),
       unmatchedTrees: unmatchedTrees.sort(),

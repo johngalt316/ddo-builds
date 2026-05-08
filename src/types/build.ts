@@ -96,6 +96,9 @@ export interface GearItem {
   augmentSlots?: ItemAugmentSlot[];
   /** Weapon-only fields — populated when the item is a weapon. */
   weapon?: string;
+  /** W multiplier from `<WeaponDamage>` in the item XML. E.g. 5.6 for
+   *  high-level handwraps that deal 5.6[W] per hit. Defaults to 1 when absent. */
+  weaponDamage?: number;
   baseDice?: { number: number; sides: number; bonus?: number };
   criticalMultiplier?: number;
   criticalThreatRange?: number;

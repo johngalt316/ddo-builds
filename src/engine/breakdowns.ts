@@ -156,6 +156,36 @@ export function breakdownSeeker(bonuses: Bonus[], rules: StackingRules): Breakdo
   return stackBonuses(ofType(bonuses, 'Weapon_AttackAndDamageCritical'), rules);
 }
 
+// ── Weapon per-hit damage ─────────────────────────────────────────────
+// Additional [W] dice granted by enhancements and destinies (Legendary
+// Dreadnought Dread Mantle +1[W], HenshinMystic Ki Focus +W, etc.).
+// Each point adds one full weapon die roll to every hit.
+export function breakdownWeaponBaseDamage(bonuses: Bonus[], rules: StackingRules): BreakdownResult {
+  return stackBonuses(ofType(bonuses, 'Weapon_BaseDamage'), rules);
+}
+
+// Flat damage bonus per hit (Deadly, Insightful Deadly, Quality Deadly,
+// etc. from item buffs, augments, and some enhancements).  These stack
+// by bonus type (Enhancement + Insight + Quality all apply; same type
+// takes highest from item sources).  Percent bonuses are excluded here —
+// they are a multiplicative modifier on total damage, not a flat addition.
+export function breakdownWeaponFlatDamage(bonuses: Bonus[], rules: StackingRules): BreakdownResult {
+  return stackBonuses(ofType(bonuses, 'Weapon_Damage').filter(b => !b.isPercent), rules);
+}
+
+// Percentage damage bonus per hit (e.g. Primal Force "+2% Epic Damage bonus
+// to all physical attacks").  Applied as a separate multiplicative layer on
+// top of Melee Power: finalDamage = scaledByMP × (1 + pct/100).
+//
+// Strip isPercent before stacking so stackBonuses treats the raw percentage
+// values as flat numbers (2 for "+2%") and sums / deduplicates them normally.
+export function breakdownWeaponDamagePct(bonuses: Bonus[], rules: StackingRules): BreakdownResult {
+  const pctBonuses = ofType(bonuses, 'Weapon_Damage')
+    .filter(b => !!b.isPercent)
+    .map(b => ({ ...b, isPercent: undefined }));
+  return stackBonuses(pctBonuses, rules);
+}
+
 // ── Imbue Dice ───────────────────────────────────────────────────────────
 //
 // Number of imbue dice the build has from Arcane Trickster, Dark Hunter,

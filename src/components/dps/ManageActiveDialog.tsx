@@ -74,8 +74,8 @@ export function ManageActiveDialog({ open, abilities, active, onClose, onApply, 
   // Boosts are always visible alongside any attack mode — they don't
   // interrupt auto attacks so they're relevant no matter what's active.
   function matchesMode(mode: AttackMode, abilityMode: AttackMode): boolean {
-    if (abilityMode === 'boost') return true;          // boosts show in all modes
-    if (mode === 'boost') return abilityMode === 'boost';
+    if (abilityMode === 'boost') return true;   // boosts show in all modes
+    if (mode === 'boost') return false;         // abilityMode is not 'boost' here
     return abilityMode === mode;
   }
 

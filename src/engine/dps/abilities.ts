@@ -106,6 +106,16 @@ export interface MagicAbility {
    *  for now; the UI surfaces a placeholder indicator so the user
    *  knows the displayed damage isn't real. */
   placeholderDamage?: boolean;
+  /** For melee weapon-attack SLAs: number of MH hits, per-hit scalar, and
+   *  optional crit range bonus specific to this ability's hits. */
+  weaponAttack?: {
+    mhHits: number;
+    scalar: number;
+    critRangeBonus?: number;
+    critMultBonus?: number;
+    dsBuffPct?: number;
+    dsBuffDuration?: number;
+  };
   /** Which rotation type this ability belongs to. Used by the palette
    *  and ManageRotation dialog to filter the visible set by attack mode.
    *  All current abilities are 'magic'; weapon-based ki strikes / ranged
@@ -311,11 +321,12 @@ export function getMagicAbilities(
   for (const sla of slas) {
     const data = spellByName.get(sla.name);
     if (!data) continue;
-    if (data.damages.length === 0 && !data.placeholderDamage) continue;
-    // Placeholder-damage spells have no damage rolls yet but deal real
-    // damage in-game. Treat them as 'damage' so the inferAttackMode call
-    // below correctly classifies melee/ranged strikes (not 'boost').
-    const slaCategory = data.placeholderDamage ? 'damage' : categorizeAbility(data.damages, false);
+    if (data.damages.length === 0 && !data.placeholderDamage && !data.weaponAttack) continue;
+    // Weapon-attack and placeholder-damage spells have no dice rolls but
+    // deal real damage. Treat as 'damage' so attackMode inference works.
+    const slaCategory = (data.placeholderDamage || data.weaponAttack)
+      ? 'damage'
+      : categorizeAbility(data.damages, false);
     const slaAttackMode: AttackMode = slaCategory === 'boost'
       ? 'boost'
       : inferAttackMode(data.description);
@@ -340,6 +351,7 @@ export function getMagicAbilities(
       category:   slaCategory,
       attackMode: slaAttackMode,
       ...(data.placeholderDamage && { placeholderDamage: true }),
+      ...(data.weaponAttack      && { weaponAttack: data.weaponAttack }),
     });
   }
 
@@ -713,6 +725,10 @@ function collectClickieAbilities(
         category,
         placeholderDamage,
         attackMode: category === 'boost' ? 'boost' : inferAttackMode(effectiveDescription),
+        // Weapon-attack data: prefer the selected option's, fall back to item's.
+        ...(( selectedOption?.weaponAttack ?? item.weaponAttack) && {
+          weaponAttack: selectedOption?.weaponAttack ?? item.weaponAttack,
+        }),
       });
     }
   }

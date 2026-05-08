@@ -8,6 +8,7 @@
 import type { Build, GearItem } from '@/types/build';
 import type { EngineResult } from '@/engine/runEngine';
 import { abilityModifier } from '@/engine';
+import { stackBonuses } from '@/engine/bonusStacking';
 import type { Stat } from '@/types/build';
 
 export type WeaponCategory = 'handwraps' | 'one-handed' | 'two-handed';
@@ -15,7 +16,15 @@ export type TWFStyle = 'none' | 'twf' | 'itwf' | 'gtwf';
 
 export interface MeleeWeaponInfo {
   name: string;
+  /** Raw DDO weapon type from the item catalog (e.g. "Handwraps",
+   *  "Quarterstaff", "Longsword"). Used to filter weapon-type-gated
+   *  effects like Swords to Plowshares crit range bonuses, which
+   *  emit separate entries for each eligible weapon type. */
+  weaponType: string;
   category: WeaponCategory;
+  /** Weapon W multiplier from `<WeaponDamage>` in the item data (e.g. 5.6
+   *  for high-level handwraps). Scales the base dice: avgDice × wScalar. */
+  wScalar: number;
   diceNum: number;
   diceSides: number;
   diceBonus: number;
@@ -40,6 +49,14 @@ export interface MeleeBuildStats {
   critMultBonus: number;
   /** Flat bonus to critical multiplier on 19–20 rolls only. */
   critMult1920Bonus: number;
+  /** Additional [W] dice per hit from enhancements / destinies
+   *  (e.g. Legendary Dreadnought Dread Mantle +1[W]). */
+  wBonus: number;
+  /** Flat per-hit damage bonus from Deadly / Insightful Deadly / etc. */
+  flatDmgBonus: number;
+  /** Percentage physical damage bonus (e.g. Primal Force +2% Epic Damage).
+   *  Applied as a separate multiplier on top of Melee Power: ×(1 + pct/100). */
+  physDamagePct: number;
   twfStyle: TWFStyle;
   offHandChance: number;     // % (all sources, capped at 100)
   isHandwraps: boolean;
@@ -58,6 +75,19 @@ export interface MeleeDPSResult {
   critMultOnAll: number;
   /** Crit mult on 19-20 rolls (critMultOnAll + critMult1920Bonus). */
   critMultOn1920: number;
+  /** The 19-20-only crit mult bonus (from Overwhelming Critical etc.).
+   *  Non-zero means 19-20 crits deal more than lower crit faces. */
+  critMult1920Bonus: number;
+  /** Weapon W multiplier (from item data). */
+  wScalar: number;
+  /** Additional [W] bonus from enhancements / destinies. */
+  wBonus: number;
+  /** Total W = wScalar + wBonus. */
+  totalW: number;
+  /** Flat per-hit damage bonus (Deadly etc.) before Melee Power scaling. */
+  flatDmgBonus: number;
+  /** Percentage physical damage bonus (e.g. +2% Epic from Primal Force). */
+  physDamagePct: number;
   seeker: number;
   damageStat: Stat;
   damageStatMod: number;
@@ -154,9 +184,14 @@ export function meleeDPS(
   stats: MeleeBuildStats,
 ): MeleeDPSResult {
   // ── Per-hit damage ──────────────────────────────────────────────
-  const avgDice = weapon.diceNum * (weapon.diceSides + 1) / 2;
-  const avgBase = avgDice + weapon.diceBonus + stats.statMod + weapon.enchantBonus;
-  const scaled  = avgBase * (1 + stats.meleePower / 100);
+  // W multiplier: item wScalar (e.g. 5.6) + enhancement bonus W.
+  // Only the dice portion scales by W; the flat diceBonus does not.
+  const totalW   = weapon.wScalar + stats.wBonus;
+  const avgDice  = weapon.diceNum * totalW * (weapon.diceSides + 1) / 2;
+  // Flat per-hit bonus: diceBonus (from dice notation), stat mod, enchant,
+  // and Deadly-style flat damage.  All added before Melee Power scaling.
+  const avgBase  = avgDice + weapon.diceBonus + stats.statMod + weapon.enchantBonus + stats.flatDmgBonus;
+  const scaled   = avgBase * (1 + stats.meleePower / 100) * (1 + stats.physDamagePct / 100);
 
   // ── Crit threat range ───────────────────────────────────────────
   // IC doubles the base, then flat bonuses add on top.
@@ -214,6 +249,12 @@ export function meleeDPS(
     critChance,
     critMultOnAll:        multOnAll,
     critMultOn1920:       multOn1920,
+    critMult1920Bonus:    stats.critMult1920Bonus,
+    wScalar:              weapon.wScalar,
+    wBonus:               stats.wBonus,
+    totalW,
+    flatDmgBonus:         stats.flatDmgBonus,
+    physDamagePct:        stats.physDamagePct,
     seeker:               stats.seeker,
     damageStat:           stats.damageStat,
     damageStatMod:        stats.statMod,
@@ -242,7 +283,9 @@ export function weaponInfoFromGearItem(item: GearItem): MeleeWeaponInfo | null {
   const enchantBuff = item.buffs.find(b => b.type === 'WeaponEnchantment');
   return {
     name:           item.name,
+    weaponType:     item.weapon ?? '',
     category:       weaponCategoryFromName(item.weapon),
+    wScalar:        item.weaponDamage ?? 1,
     diceNum:        item.baseDice.number,
     diceSides:      item.baseDice.sides,
     diceBonus:      item.baseDice.bonus ?? 0,
@@ -253,6 +296,27 @@ export function weaponInfoFromGearItem(item: GearItem): MeleeWeaponInfo | null {
                       ? 'Dexterity'
                       : 'Strength',
   };
+}
+
+/**
+ * Compute the Weapon_CriticalRange bonus for a specific weapon type.
+ *
+ * Effects like Swords to Plowshares emit one bonus entry per eligible
+ * weapon type (Handwraps +1, Kama +1, Sickle +1, Quarterstaff +2) so
+ * the caller can target any of them. The standard `weaponCritRange`
+ * breakdown sums all entries, overcounting when the build has multiple
+ * weapon-type entries for the same feat. This helper filters to only
+ * bonuses whose `target` matches the equipped weapon type (or 'All' /
+ * untargeted), then re-stacks with the full rules so Highest-Only types
+ * (e.g. Competence from Shintao Mastery) are still deduplicated.
+ */
+function critRangeBonusForWeapon(engine: EngineResult, weaponType: string): number {
+  const wt = weaponType.toLowerCase();
+  const relevant = engine.allBonuses.filter(b =>
+    b.effectType === 'Weapon_CriticalRange' &&
+    (!b.target || b.target === 'All' || b.target.toLowerCase() === wt),
+  );
+  return stackBonuses(relevant, engine.stackingRules).total;
 }
 
 /** Derive MeleeBuildStats from the engine result + build. Pass an
@@ -296,12 +360,105 @@ export function buildStatsFromEngine(
     meleeAlacrity:       alacrity,
     seeker:              engine.seeker.total,
     hasImprovedCritical: detectImprovedCritical(build),
-    critRangeBonus:      engine.weaponCritRange.total,
+    critRangeBonus:      critRangeBonusForWeapon(engine, weaponInfo.weaponType),
     critMultBonus:       engine.weaponCritMult.total,
     critMult1920Bonus:   engine.weaponCritMult1920.total,
+    wBonus:              engine.weaponBaseDamage.total,
+    flatDmgBonus:        engine.weaponFlatDamage.total,
+    physDamagePct:       engine.weaponDamagePct.total,
     twfStyle,
     offHandChance:       ohChance,
     isHandwraps:         weaponInfo.category === 'handwraps',
     hasPerfectTWF:       detectPerfectTWF(build),
   };
+}
+
+/**
+ * Effective weapon-hit multiplier for one activation of a melee ability.
+ *
+ * All activated melee abilities trigger an off-hand swing in addition to
+ * their MH hit(s). Doublestrike applies to every hit.
+ *
+ *   effectiveHits = mhHits × (1 + DS_MH) + 1 × (1 + DS_OH)
+ *
+ * Use this to scale placeholder-damage melee SLA damage once the dice
+ * rolls are filled in.
+ *
+ * @param mhHits  Number of main-hand weapon hits the ability delivers
+ *                (e.g. 2 for Quick Cutter's "Cleave Attack: 2 weapon damage").
+ * @param stats   Build stats from `buildStatsFromEngine`.
+ */
+export function meleeAbilityEffectiveHits(mhHits: number, stats: MeleeBuildStats): number {
+  const dsMH = stats.doublestrike / 100;
+  const ohDSFraction = stats.isHandwraps ? 1.00 : stats.hasPerfectTWF ? 0.65 : 0.50;
+  const dsOH = dsMH * ohDSFraction;
+  const ohFrac = Math.min(1.0, stats.offHandChance / 100);
+  // OH hit count matches MH hit count — a 2-hit attack gets 2 OH swings too.
+  return mhHits * ((1 + dsMH) + ohFrac * (1 + dsOH));
+}
+
+/**
+ * Average per-hit damage for a melee ability that modifies the weapon's crit
+ * threat range. Recomputes the crit-weighted average using the weapon's base
+ * scaled damage and the extended crit profile, then applies `scalar`.
+ *
+ * The scalar multiplies the full per-hit result (including crit weighting),
+ * matching how "+N% weapon damage" works in DDO.
+ */
+function meleeAbilityAvgPerHit(
+  result: MeleeDPSResult,
+  scalar: number,
+  extraCritFaces: number,
+  extraCritMult: number,
+): number {
+  // Cap at 20 so +100 crit range (Legendary Rally) maps to 100% crit, not
+  // 520%. Of the 20 d20 faces, 2 are always 19-20 (higher-mult tier).
+  const cappedFaces = Math.min(20, result.critThreatFaces + extraCritFaces);
+  const critChance  = cappedFaces / 20;
+  const faces1920   = Math.min(2, cappedFaces);
+  const facesOther  = Math.max(0, cappedFaces - 2);
+  const s = result.avgScaledDamage;
+  const multAll  = result.critMultOnAll  + extraCritMult;
+  const mult1920 = result.critMultOn1920 + extraCritMult;
+  const avgPerHit = (1 - critChance) * s
+    + (facesOther / 20) * (s + result.seeker) * multAll
+    + (faces1920  / 20) * (s + result.seeker) * mult1920;
+  return avgPerHit * scalar;
+}
+
+/**
+ * Damage per activation for a melee weapon-attack ability.
+ *
+ * Accounts for the ability's own crit range bonus (e.g. Quick Cutter +3
+ * at rank 3) so its hits use the extended crit profile, not the auto-attack
+ * profile. The scalar then multiplies the full crit-weighted per-hit.
+ *
+ * Each activation delivers `mhHits` MH strikes + one OH swing, both with
+ * doublestrike applied.
+ */
+export function meleeAbilityDamagePerActivation(
+  mhHits: number,
+  scalar: number,
+  meleeResult: MeleeDPSResult,
+  stats: MeleeBuildStats,
+  extraCritFaces = 0,
+  extraCritMult  = 0,
+  dsBuffPct      = 0,
+  dsBuffDuration = 0,
+): number {
+  const perHit = (extraCritFaces === 0 && extraCritMult === 0)
+    ? meleeResult.avgPerHit * scalar
+    : meleeAbilityAvgPerHit(meleeResult, scalar, extraCritFaces, extraCritMult);
+  const hitDamage = meleeAbilityEffectiveHits(mhHits, stats) * perHit;
+
+  // DS buff contribution: extra auto-attack effective hits during buff uptime.
+  // Each base MH/OH attack gets dsBuffPct% extra chance to double-strike.
+  let buffDamage = 0;
+  if (dsBuffPct > 0 && dsBuffDuration > 0) {
+    const extraEffAPM = (dsBuffPct / 100)
+      * (meleeResult.mhAttacksPerMin + meleeResult.ohAttacksPerMin);
+    buffDamage = (extraEffAPM / 60) * meleeResult.avgPerHit * dsBuffDuration;
+  }
+
+  return hitDamage + buffDamage;
 }

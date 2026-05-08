@@ -9,6 +9,7 @@ import {
   weaponInfoFromGearItem,
   buildStatsFromEngine,
   meleeDPS,
+  meleeAbilityDamagePerActivation,
   type TWFStyle,
 } from '@/engine/dps/meleeCalc';
 import { MeleeTimeline } from './MeleeTimeline';
@@ -290,7 +291,7 @@ function MagicRotationEditor({
   auto, setAuto,
   difficulty,
   targetCount, setTargetCount,
-  debuffState, setDebuffState, onManageDebuffs,
+  debuffState, setDebuffState: _setDebuffState, onManageDebuffs,
   compareSetName, setCompareSetName, compareBuild, compareBreakdowns,
 }: MagicRotationEditorProps) {
   const build       = useBuildStore(s => s.build);
@@ -799,7 +800,7 @@ interface MeleeEditorProps extends SharedEditorProps {}
 
 function MeleeEditor({
   difficulty, targetCount, setTargetCount,
-  debuffState, setDebuffState, onManageDebuffs,
+  debuffState, setDebuffState: _setDebuffState, onManageDebuffs,
   compareSetName, setCompareSetName, compareBuild, compareBreakdowns,
 }: MeleeEditorProps) {
   const build   = useBuildStore(s => s.build);
@@ -903,6 +904,25 @@ function MeleeEditor({
     [weaponInfo, buildStats],
   );
 
+  // Per-ability damage info for the palette tooltip. Only weapon-attack
+  // abilities have real numbers; others still show placeholder.
+  const damageByAbility = useMemo((): Map<string, AbilityDamageInfo> => {
+    const m = new Map<string, AbilityDamageInfo>();
+    if (!result || !buildStats) return m;
+    for (const a of meleeAbilities) {
+      if (!a.weaponAttack) continue;
+      const { mhHits, scalar, critRangeBonus = 0, critMultBonus = 0, dsBuffPct = 0, dsBuffDuration = 0 } = a.weaponAttack;
+      const dmg = meleeAbilityDamagePerActivation(mhHits, scalar, result, buildStats, critRangeBonus, critMultBonus, dsBuffPct, dsBuffDuration);
+      const cycleTime = Math.max(a.cooldown, a.castTime, 1e-3);
+      m.set(a.id, {
+        damage: { total: dmg, casterLevel: 0, byComponent: [] },
+        cycleTime,
+        dps: dmg / cycleTime,
+      });
+    }
+    return m;
+  }, [meleeAbilities, result, buildStats]);
+
   // Compare result for the same weapon against a different enhancement set.
   const compareResult = useMemo(() => {
     if (!compareSetName || !compareBreakdowns || compareSetName === build.activeEnhancementSet) return null;
@@ -937,8 +957,8 @@ function MeleeEditor({
         mrr={0}
       />
 
-      {/* Party buffs */}
-      <BuffsList build={build} metamagics={metamagics} />
+      {/* Active buffs: metamagics + combat stances with DPS contributions */}
+      <BuffsList build={build} metamagics={metamagics} engine={engine} attackMode="melee" />
 
       {/* Active procs (on-hit sources; empty until melee proc catalog lands) */}
       <ActiveProcsList
@@ -958,7 +978,7 @@ function MeleeEditor({
         onAdd={() => { /* melee rotation timeline not yet wired */ }}
         onManage={() => setManageOpen(true)}
         onReorder={() => { /* reorder not needed for melee palette */ }}
-        damageByAbility={new Map()}
+        damageByAbility={damageByAbility}
       />
       <ManageActiveDialog
         open={manageOpen}

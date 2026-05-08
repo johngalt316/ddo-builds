@@ -76,6 +76,10 @@ function numOf(el: Element, tag: string): number {
   return parseInt(textOf(el, tag), 10) || 0;
 }
 
+function floatOf(el: Element, tag: string): number {
+  return parseFloat(textOf(el, tag)) || 0;
+}
+
 function toId(name: string): string {
   return name.toLowerCase().replace(/[\s']+/g, '_').replace(/-/g, '_');
 }
@@ -418,6 +422,7 @@ export function parseDDOBuildFile(xmlText: string, options?: ParseOptions): DDOB
     }).filter(a => a.slotType);
     // Weapon-specific fields — present only for weapon-slot items.
     const weapon         = textOf(slotEl, 'Weapon') || undefined;
+    const weaponDamage   = floatOf(slotEl, 'WeaponDamage') || undefined;
     const attackModifier = textOf(slotEl, 'AttackModifier') || undefined;
     const damageModifier = textOf(slotEl, 'DamageModifier') || undefined;
     const critMult       = numOf(slotEl, 'CriticalMultiplier');
@@ -443,6 +448,7 @@ export function parseDDOBuildFile(xmlText: string, options?: ParseOptions): DDOB
       buffs,
       augmentSlots: augmentSlots.length > 0 ? augmentSlots : undefined,
       ...(weapon         ? { weapon }         : {}),
+      ...(weaponDamage   ? { weaponDamage }   : {}),
       ...(baseDice       ? { baseDice }       : {}),
       ...(critMult  > 0  ? { criticalMultiplier:  critMult  } : {}),
       ...(critRange > 0  ? { criticalThreatRange: critRange } : {}),

@@ -68,6 +68,25 @@ function abilityByName(name: string, scores: Record<string, number>): number | u
   return code ? scores[code] : undefined;
 }
 
+/**
+ * Resolve which ability drives an AbilityMod / HalfAbilityMod effect.
+ *
+ * Normally the ability name is in `items[0]` (e.g. "Wisdom"). But some
+ * enhancement effects use `items` for weapon targeting ("All") and encode
+ * the scaling ability in `<StackSource>SnapshotWisdom</StackSource>`.
+ * Strip the "Snapshot" prefix to recover the ability name.
+ */
+function resolveAbilityName(itemName: string, stackSource?: string): string {
+  if (abilityByName(itemName, { Strength: 10, Dexterity: 10, Constitution: 10, Intelligence: 10, Wisdom: 10, Charisma: 10 }) !== undefined) {
+    return itemName;
+  }
+  if (stackSource) {
+    const m = stackSource.match(/^Snapshot(\w+)/);
+    if (m) return m[1]!;
+  }
+  return itemName;
+}
+
 /** Test a single Requirement against the build context. Unknown types pass (don't gate). */
 function passesRequirement(req: { type: string; item?: string; value?: number }, ctx: BuildContext): boolean {
   const item = req.item ?? '';
@@ -188,15 +207,15 @@ function valueFor(effect: DDOEffect, ctx: BuildContext, rankCount: number): numb
     case 'AbilityTotal':
       return abilityByName(effect.items[0] ?? '', ctx.abilityScores);
     case 'AbilityMod': {
-      const v = abilityByName(effect.items[0] ?? '', ctx.abilityScores);
+      const v = abilityByName(resolveAbilityName(effect.items[0] ?? '', effect.stackSource), ctx.abilityScores);
       return v === undefined ? undefined : abilityModifier(v);
     }
     case 'HalfAbilityMod': {
-      const v = abilityByName(effect.items[0] ?? '', ctx.abilityScores);
+      const v = abilityByName(resolveAbilityName(effect.items[0] ?? '', effect.stackSource), ctx.abilityScores);
       return v === undefined ? undefined : Math.floor(abilityModifier(v) / 2);
     }
     case 'ThirdAbilityMod': {
-      const v = abilityByName(effect.items[0] ?? '', ctx.abilityScores);
+      const v = abilityByName(resolveAbilityName(effect.items[0] ?? '', effect.stackSource), ctx.abilityScores);
       return v === undefined ? undefined : Math.floor(abilityModifier(v) / 3);
     }
     case 'FeatCount':

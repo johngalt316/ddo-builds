@@ -511,7 +511,8 @@ Words, which share a single cooldown.</Description>
       </Requirements>
          <Cooldown>6</Cooldown>
          <Category>damage</Category>
-         <PlaceholderDamage/>
+         <!-- +10% damage, 1 MH hit, no crit bonus -->
+         <WeaponAttack><Hits>1</Hits><Scalar>1.1</Scalar></WeaponAttack>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Henshin Mystic: Henshin Training I</Name>

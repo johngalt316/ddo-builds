@@ -1044,6 +1044,8 @@ Cooldown: 30 seconds.</Description>
           <Icon>LegendaryRally</Icon>
           <CostPerRank size="1">1</CostPerRank>
           <Clickie/>
+          <!-- +100 crit range = guaranteed crit; +2 crit mult; +50% damage; 1 MH cleave hit -->
+          <WeaponAttack><Hits>1</Hits><Scalar>1.5</Scalar><CritRangeBonus>100</CritRangeBonus><CritMultBonus>2</CritMultBonus></WeaponAttack>
         </EnhancementSelection>
         <EnhancementSelection>
           <Name>Legendary Rally (Ranged)</Name>
@@ -1063,7 +1065,6 @@ Cooldown: 30 seconds</Description>
       </Selector>
          <Cooldown>30</Cooldown>
          <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Legendary Dreadnought: Sundering Swings</Name>
