@@ -1275,32 +1275,7 @@ function MeleeEditor({
       />
 
       {/* Simulate / Restart buttons — same pattern as magic editor */}
-      <div className={styles.simulateRow}>
-        <button
-          type="button"
-          className={styles.simulateBtn}
-          onClick={onSimulateClick}
-          disabled={!result}
-          title={result ? (simRunning ? 'Pause simulation' : `Run ${simDuration}s simulation`) : 'No weapon equipped'}
-        >
-          {simRunning ? '⏸ Pause' : '▶ Simulate'}
-        </button>
-        <button
-          type="button"
-          className={styles.simulateBtn}
-          onClick={onRestartClick}
-          disabled={!result}
-          title="Restart simulation from t=0"
-        >
-          ↻ Restart
-        </button>
-        <SimDurationPicker value={simDuration} onChange={setSimDuration} />
-        <span className={styles.simulateClock}>
-          t = {simTime.toFixed(2)}s / {simDuration}s
-        </span>
-      </div>
-
-      {/* Enhancement-set comparison (mirrors magic compare row) */}
+      {/* Enhancement-set comparison */}
       {(build.enhancementSets?.length ?? 0) > 1 && (
         <div className={styles.compareRow}>
           <label className={styles.compareLabel}>
@@ -1341,62 +1316,14 @@ function MeleeEditor({
         </div>
       )}
 
-      {/* DPS breakdown (mirrors DamageSourceSummary role) */}
-      {result && (
-        <div className={styles.meleeBreakdown}>
-          <div className={styles.meleeBreakdownCol}>
-            <span className={styles.meleeBreakdownLabel}>Main Hand</span>
-            <span className={styles.meleeBreakdownValue}>{fmt(Math.round(result.mhDPS))} DPS</span>
-            <span className={styles.meleeBreakdownSub}>{fmt(Math.round(result.effectiveMHPerMin))} eff. hits/min</span>
-          </div>
-          {result.ohAttacksPerMin > 0 && (
-            <div className={styles.meleeBreakdownCol}>
-              <span className={styles.meleeBreakdownLabel}>Off Hand</span>
-              <span className={styles.meleeBreakdownValue}>{fmt(Math.round(result.ohDPS))} DPS</span>
-              <span className={styles.meleeBreakdownSub}>
-                {fmt(Math.round(result.effectiveOHPerMin))} eff. hits/min
-                {' · '}DS {pct(result.doublestrikeOH)}
-                {' ('}
-                {result.ohDSFraction === 1.00 ? 'wraps' : result.ohDSFraction === 0.65 ? 'PTWF' : '50%'}
-                {')'}
-              </span>
-            </div>
-          )}
-          {shieldBash && (
-            <div className={styles.meleeBreakdownCol}>
-              <span className={styles.meleeBreakdownLabel}>Shield Bash</span>
-              <span className={styles.meleeBreakdownValue}>{fmt(Math.round(shieldBash.bashDPS))} DPS</span>
-              <span className={styles.meleeBreakdownSub}>
-                {fmt(shieldBash.bashesPerMin, 1)}/min · {fmt(shieldBash.avgDmgPerBash, 0)} avg/bash
-                {shieldBash.rawBashesPerMin > 60 && ' (capped)'}
-              </span>
-            </div>
-          )}
-          <div className={styles.meleeBreakdownCol}>
-            <span className={styles.meleeBreakdownLabel}>Scaled / Hit</span>
-            <span className={styles.meleeBreakdownValue}>{fmt(result.avgScaledDamage, 1)}</span>
-            <span className={styles.meleeBreakdownSub}>Base {fmt(result.avgBaseDamage, 1)}</span>
-          </div>
-          <div className={styles.meleeBreakdownCol}>
-            <span className={styles.meleeBreakdownLabel}>Avg / Hit (crits)</span>
-            <span className={styles.meleeBreakdownValue}>{fmt(result.avgPerHit, 1)}</span>
-            <span className={styles.meleeBreakdownSub}>
-              {pct(result.critChance * 100)} crit
-              {' → '}×{result.critMultOnAll}
-              {result.critMult1920Bonus > 0 ? ` / ×${result.critMultOn1920} on 19-20` : ''}
-              {result.seeker > 0 ? ` · Seeker +${result.seeker}` : ''}
-            </span>
-          </div>
-        </div>
-      )}
-
-      {/* Damage source breakdown */}
+      {/* Damage source breakdown — live during simulation */}
       {result && (() => {
+        const liveMode = simRunning || simTime > 0;
         const totalDPS = result.totalAutoDPS + (shieldBash?.bashDPS ?? 0)
           + [...damageByAbility.values()].reduce((s, v) => s + v.dps, 0);
         const sources: { label: string; dps: number; color: string }[] = [
-          { label: 'MH Auto', dps: result.mhDPS, color: '#c9a227' },
-          { label: 'OH Auto', dps: result.ohDPS, color: '#a07820' },
+          { label: 'MH Auto',    dps: result.mhDPS,            color: '#c9a227' },
+          { label: 'OH Auto',    dps: result.ohDPS,            color: '#a07820' },
           ...(shieldBash ? [{ label: 'Shield Bash', dps: shieldBash.bashDPS, color: '#6a9fd8' }] : []),
           ...activeMeleeAbilities
             .map(a => ({ label: a.name, dps: damageByAbility.get(a.id)?.dps ?? 0, color: '#7ab87a' }))
@@ -1404,33 +1331,75 @@ function MeleeEditor({
         ].filter(s => s.dps > 0);
 
         if (totalDPS <= 0) return null;
+
+        // In live mode, show cumulative damage accrued up to simTime.
+        const getValue = (dps: number) =>
+          liveMode ? fmt(Math.round(dps * simTime)) : fmt(Math.round(dps));
+        const getTotal = () =>
+          liveMode ? fmt(Math.round(totalDPS * simTime)) : fmt(Math.round(totalDPS));
+        const colHeader = liveMode ? 'Damage' : 'DPS';
+        const totalSuffix = liveMode ? `dmg at ${simTime.toFixed(1)}s` : 'DPS';
+
         return (
           <div className={styles.meleeDamageSource}>
             <div className={styles.meleeDamageSourceBar}>
               {sources.map(s => (
-                <div key={s.label} title={`${s.label}: ${fmt(Math.round(s.dps))} DPS`}
+                <div key={s.label}
+                  title={`${s.label}: ${fmt(Math.round(s.dps))} DPS`}
                   style={{ flex: s.dps / totalDPS, background: s.color, minWidth: 2 }} />
               ))}
             </div>
             <div className={styles.meleeDamageSourceList}>
+              <div className={styles.meleeDamageSourceRow + ' ' + styles.meleeDamageSourceHeader}>
+                <span />
+                <span className={styles.meleeDamageSourceLabel} />
+                <span className={styles.meleeDamageSourceDPS}>{colHeader}</span>
+                <span className={styles.meleeDamageSourcePct}>%</span>
+              </div>
               {sources.map(s => (
                 <div key={s.label} className={styles.meleeDamageSourceRow}>
                   <span className={styles.meleeDamageSourceDot} style={{ background: s.color }} />
                   <span className={styles.meleeDamageSourceLabel}>{s.label}</span>
-                  <span className={styles.meleeDamageSourceDPS}>{fmt(Math.round(s.dps))}</span>
+                  <span className={styles.meleeDamageSourceDPS}>{getValue(s.dps)}</span>
                   <span className={styles.meleeDamageSourcePct}>{(s.dps / totalDPS * 100).toFixed(1)}%</span>
                 </div>
               ))}
               <div className={styles.meleeDamageSourceRow + ' ' + styles.meleeDamageSourceTotal}>
                 <span />
                 <span className={styles.meleeDamageSourceLabel}>Total</span>
-                <span className={styles.meleeDamageSourceDPS}>{fmt(Math.round(totalDPS))}</span>
-                <span className={styles.meleeDamageSourcePct}>DPS</span>
+                <span className={styles.meleeDamageSourceDPS}>{getTotal()}</span>
+                <span className={styles.meleeDamageSourcePct}>{totalSuffix}</span>
               </div>
             </div>
           </div>
         );
       })()}
+
+      {/* Simulate / Restart buttons — at the bottom */}
+      <div className={styles.simulateRow}>
+        <button
+          type="button"
+          className={styles.simulateBtn}
+          onClick={onSimulateClick}
+          disabled={!result}
+          title={result ? (simRunning ? 'Pause simulation' : `Run ${simDuration}s simulation`) : 'No weapon equipped'}
+        >
+          {simRunning ? '⏸ Pause' : '▶ Simulate'}
+        </button>
+        <button
+          type="button"
+          className={styles.simulateBtn}
+          onClick={onRestartClick}
+          disabled={!result}
+          title="Restart simulation from t=0"
+        >
+          ↻ Restart
+        </button>
+        <SimDurationPicker value={simDuration} onChange={setSimDuration} />
+        <span className={styles.simulateClock}>
+          t = {simTime.toFixed(2)}s / {simDuration}s
+        </span>
+      </div>
     </div>
   );
 }
