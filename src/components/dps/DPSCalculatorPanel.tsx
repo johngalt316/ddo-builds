@@ -89,16 +89,21 @@ const TARGET_LABELS: Record<number, string> = {
 
 // ── Rotation-type auto-detection ────────────────────────────────────────────
 //
-// Picks 'magic' or 'melee' from the build's dominant class (most levels).
+// Picks 'magic', 'melee', or 'ranged' from the build's dominant class.
 // Rules:
 //   • Arcane Trickster (class or tree) → magic  (spellcasting rogue)
-//   • Wizard, Sorcerer, Warlock, Favored Soul, Alchemist → magic
-//   • Everything else (Fighter, Monk, Paladin, Barbarian, Ranger, Bard,
-//     Cleric, Druid, Rogue, Artificer, …) → melee
+//   • Wizard, Sorcerer, Warlock, Favored Soul, Alchemist, Cleric, Druid → magic
+//   • Ranger, Artificer → ranged
+//   • Everything else (Fighter, Monk, Paladin, Barbarian, Bard, Rogue, …) → melee
 
 const MAGIC_CLASS_IDS = new Set([
   'wizard', 'sorcerer', 'warlock', 'favored_soul', 'alchemist',
+  'cleric', 'druid',
   'arcane_trickster',   // prestige class
+]);
+
+const RANGED_CLASS_IDS = new Set([
+  'ranger', 'artificer',
 ]);
 
 const ARCANE_TRICKSTER_TREE = 'arcane trickster';
@@ -115,7 +120,10 @@ function detectRotationType(build: Build): RotationType {
   // Arcane Trickster as primary class.
   if (MAGIC_CLASS_IDS.has(classId)) return 'magic';
 
-  // Rogue or any class with significant Arcane Trickster tree spend → magic.
+  // Ranged-primary classes.
+  if (RANGED_CLASS_IDS.has(classId)) return 'ranged';
+
+  // Rogue with Arcane Trickster tree → magic.
   if (classId === 'rogue' || classId.includes('rogue')) {
     const set = getActiveEnhancementSet(build);
     const hasATTree = set.enhancements.some(
