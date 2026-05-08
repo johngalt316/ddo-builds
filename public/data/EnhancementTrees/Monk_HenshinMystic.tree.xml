@@ -947,6 +947,7 @@ This effect can stack up to 15 times.)</Description>
           <Icon>HMEagleClawAttack</Icon>
           <CostPerRank size="1">2</CostPerRank>
           <Clickie />
+          <WeaponAttack><Hits>1</Hits><Scalar>1.2</Scalar></WeaponAttack>
         </EnhancementSelection>
         <EnhancementSelection>
           <Name>Fists of Iron</Name>
@@ -959,6 +960,7 @@ Earth Ki Melee Attack: You have imbued your attacks with extra force.</Descripti
           <Icon>HMFIstsOfIron</Icon>
           <CostPerRank size="1">2</CostPerRank>
           <Clickie />
+          <WeaponAttack><Hits>1</Hits><Scalar>1.3</Scalar><CritRangeBonus>1</CritRangeBonus><CritMultBonus>1</CritMultBonus></WeaponAttack>
         </EnhancementSelection>
         <EnhancementSelection>
           <Name>Knock on the Sky</Name>
@@ -971,6 +973,7 @@ to 5 times. </Description>
           <Icon>HMKnockOnTheSky</Icon>
           <CostPerRank size="1">2</CostPerRank>
           <Clickie />
+          <WeaponAttack><Hits>1</Hits><Scalar>1.1</Scalar></WeaponAttack>
         </EnhancementSelection>
         <EnhancementSelection>
           <Name>Unbalancing Strike</Name>
@@ -986,6 +989,7 @@ The target receives periodic saves to attempt to break free of this effect.</Des
           <Icon>HMUnbalancingStrike</Icon>
           <CostPerRank size="1">2</CostPerRank>
           <Clickie />
+          <WeaponAttack><Hits>1</Hits><Scalar>1.3</Scalar></WeaponAttack>
           <DC>
             <Name>Henshin Mystic: Unbalancing Strike</Name>
             <Description>Deals +30% Damage
@@ -1008,7 +1012,6 @@ The target receives periodic saves to attempt to break free of this effect.</Des
       </Selector>
          <Cooldown>3</Cooldown>
          <Category>damage</Category>
-         <PlaceholderDamage/>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Henshin Mystic: Embrace the Void</Name>

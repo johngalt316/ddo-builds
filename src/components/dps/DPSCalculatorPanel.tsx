@@ -87,12 +87,60 @@ const TARGET_LABELS: Record<number, string> = {
   5: 'Group of 5',
 };
 
+// ── Rotation-type auto-detection ────────────────────────────────────────────
+//
+// Picks 'magic' or 'melee' from the build's dominant class (most levels).
+// Rules:
+//   • Arcane Trickster (class or tree) → magic  (spellcasting rogue)
+//   • Wizard, Sorcerer, Warlock, Favored Soul, Alchemist → magic
+//   • Everything else (Fighter, Monk, Paladin, Barbarian, Ranger, Bard,
+//     Cleric, Druid, Rogue, Artificer, …) → melee
+
+const MAGIC_CLASS_IDS = new Set([
+  'wizard', 'sorcerer', 'warlock', 'favored_soul', 'alchemist',
+  'arcane_trickster',   // prestige class
+]);
+
+const ARCANE_TRICKSTER_TREE = 'arcane trickster';
+
+import { getActiveEnhancementSet } from '@/types/build';
+
+function detectRotationType(build: Build): RotationType {
+  if (!build.classes.length) return 'melee';
+
+  // Dominant class by level count.
+  const dominant = [...build.classes].sort((a, b) => b.levels - a.levels)[0]!;
+  const classId  = dominant.classId.toLowerCase();
+
+  // Arcane Trickster as primary class.
+  if (MAGIC_CLASS_IDS.has(classId)) return 'magic';
+
+  // Rogue or any class with significant Arcane Trickster tree spend → magic.
+  if (classId === 'rogue' || classId.includes('rogue')) {
+    const set = getActiveEnhancementSet(build);
+    const hasATTree = set.enhancements.some(
+      s => s.treeId.toLowerCase() === ARCANE_TRICKSTER_TREE,
+    );
+    if (hasATTree) return 'magic';
+  }
+
+  return 'melee';
+}
+
 export function DPSCalculatorPanel() {
   const [rotationType, setRotationType] = useState<RotationType>('magic');
   const [difficulty, setDifficulty]     = useState<DifficultyIndex>(0);
   const [targetCount, setTargetCount]   = useState<number>(1);
   const [objective, setObjective]       = useState<OptimizerObjective>('sustained');
   const [objectiveOpen, setObjectiveOpen] = useState(false);
+
+  // Re-detect rotation type when a new build is loaded (class structure changes).
+  const build = useBuildStore(s => s.build);
+  const classFingerprint = build.classes.map(c => `${c.classId}:${c.levels}`).join(',');
+  useEffect(() => {
+    setRotationType(detectRotationType(build));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [classFingerprint, build.activeEnhancementSet]);
 
   // ── Magic rotation state ────────────────────────────────────────────
   const dpsRotation     = useBuildStore(s => s.build.dpsRotation);
@@ -115,7 +163,6 @@ export function DPSCalculatorPanel() {
   const [debuffsOpen, setDebuffsOpen] = useState(false);
   const [simDuration, setSimDuration] = useState(60);
 
-  const build = useBuildStore(s => s.build);
   const [compareSetName, setCompareSetName] = useState<string | null>(null);
   const compareBuild = useMemo<typeof build>(() => {
     if (!compareSetName || compareSetName === build.activeEnhancementSet) return build;
@@ -909,7 +956,6 @@ function MeleeEditor({
     ),
     [build, spells, classes, slas, enhancementTrees, augments, breakdowns, metamagics, spCostReductions],
   );
-  // Palette only shows melee-mode abilities (empty until ki strikes land).
   const meleeAbilities = useMemo(
     () => allAbilities.filter(a => a.attackMode === 'melee'),
     [allAbilities],
@@ -986,12 +1032,12 @@ function MeleeEditor({
     return shieldBashDPS(ohWeaponInfo, bashPct, buildStats, result, allCritBonus);
   }, [ohWeaponInfo, buildStats, result, engine]);
 
-  // Per-ability damage info for the palette tooltip. Only weapon-attack
-  // abilities have real numbers; others still show placeholder.
+  // Per-ability damage info — computed from ALL melee abilities (not the
+  // sorted subset) to avoid a circular dependency with the sort below.
   const damageByAbility = useMemo((): Map<string, AbilityDamageInfo> => {
     const m = new Map<string, AbilityDamageInfo>();
     if (!result || !buildStats) return m;
-    for (const a of meleeAbilities) {
+    for (const a of allAbilities.filter(x => x.attackMode === 'melee')) {
       if (!a.weaponAttack) continue;
       const { mhHits, scalar, critRangeBonus = 0, critMultBonus = 0, dsBuffPct = 0, dsBuffDuration = 0 } = a.weaponAttack;
       const dmg = meleeAbilityDamagePerActivation(mhHits, scalar, result, buildStats, critRangeBonus, critMultBonus, dsBuffPct, dsBuffDuration);
@@ -1003,9 +1049,17 @@ function MeleeEditor({
       });
     }
     return m;
-  }, [meleeAbilities, result, buildStats]);
+  }, [allAbilities, result, buildStats]);
 
   // Compare result for the same weapon against a different enhancement set.
+  // Sort active abilities by DPC descending for the palette display.
+  const sortedActiveMeleeAbilities = useMemo(
+    () => [...activeMeleeAbilities].sort((a, b) =>
+      (damageByAbility.get(b.id)?.damage.total ?? 0) -
+      (damageByAbility.get(a.id)?.damage.total ?? 0)),
+    [activeMeleeAbilities, damageByAbility],
+  );
+
   const compareResult = useMemo(() => {
     if (!compareSetName || !compareBreakdowns || compareSetName === build.activeEnhancementSet) return null;
     if (!weaponInfo) return null;
@@ -1161,7 +1215,7 @@ function MeleeEditor({
 
       {/* Rotation palette — melee abilities (ki strikes, enhancements) */}
       <RotationPalette
-        abilities={activeMeleeAbilities}
+        abilities={sortedActiveMeleeAbilities}
         totalTrained={meleeAbilities.length}
         onAdd={(a) => {
           const byId = new Map(activeMeleeAbilities.map(ab => [ab.id, ab]));
@@ -1325,7 +1379,7 @@ function MeleeEditor({
           { label: 'MH Auto',    dps: result.mhDPS,            color: '#c9a227' },
           { label: 'OH Auto',    dps: result.ohDPS,            color: '#a07820' },
           ...(shieldBash ? [{ label: 'Shield Bash', dps: shieldBash.bashDPS, color: '#6a9fd8' }] : []),
-          ...activeMeleeAbilities
+          ...sortedActiveMeleeAbilities
             .map(a => ({ label: a.name, dps: damageByAbility.get(a.id)?.dps ?? 0, color: '#7ab87a' }))
             .filter(s => s.dps > 0),
         ].filter(s => s.dps > 0);
