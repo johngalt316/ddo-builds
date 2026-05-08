@@ -199,7 +199,7 @@ export function DPSCalculatorPanel() {
             onChange={e => setRotationType(e.target.value as RotationType)}
           >
             <option value="magic">Magic</option>
-            <option value="melee">Melee (coming soon)</option>
+            <option value="melee">Melee</option>
             <option value="ranged">Ranged (coming soon)</option>
           </select>
         </label>
@@ -561,12 +561,8 @@ function MagicRotationEditor({
     setSimRunning(true);
   }
   function onRestartClick() {
-    if (rotationCycleSeconds <= 0) return;
     setSimRunning(false);
     setSimTime(0);
-    // Defer the restart to the next frame so the stop + reset settle
-    // before the new run begins.
-    requestAnimationFrame(() => setSimRunning(true));
   }
 
   // Cumulative damage at the current sim time — drives the live stats.
@@ -921,7 +917,6 @@ function MeleeEditor({
   function onRestartClick() {
     setSimRunning(false);
     setSimTime(0);
-    requestAnimationFrame(() => setSimRunning(true));
   }
 
   // ── Attack-speed alacrity slider ───────────────────────────────────
@@ -965,7 +960,7 @@ function MeleeEditor({
     [build, spells, classes, slas, enhancementTrees, augments, breakdowns, metamagics, spCostReductions],
   );
   const meleeAbilities = useMemo(
-    () => allAbilities.filter(a => a.attackMode === 'melee'),
+    () => allAbilities.filter(a => a.attackMode === 'melee' || a.attackMode === 'boost'),
     [allAbilities],
   );
 
@@ -1010,9 +1005,34 @@ function MeleeEditor({
     return parsed;                                       // null if not a weapon
   }, [offHandItem]);
 
+  // Time-averaged Action Boost alacrity from active rotation boosts
+  // (e.g. Haste Boost rank 3: +30% for 20s on 30s CD → uptime 0.667 → +20% avg).
+  // Unique abilities actually placed in the rotation (meleeSteps), ordered by
+  // first appearance. Drives the breakdown chart and boost-alacrity calculation
+  // so both react to what's in the timeline, not just the palette active list.
+  const rotationAbilities = useMemo(() => {
+    const seen = new Set<string>();
+    return meleeSteps
+      .filter(s => { if (seen.has(s.abilityId)) return false; seen.add(s.abilityId); return true; })
+      .map(s => allAbilities.find(a => a.id === s.abilityId))
+      .filter((a): a is MagicAbility => a !== undefined);
+  }, [meleeSteps, allAbilities]);
+
+  // Time-averaged Action Boost alacrity — only from abilities PLACED IN THE
+  // ROTATION (meleeSteps), not the palette. Palette-only boosts must not
+  // inflate APM when they haven't been scheduled.
+  const avgBoostAlacrity = useMemo(() =>
+    rotationAbilities.reduce((sum, a) => {
+      if (!a.alacrityBuff) return sum;
+      const uptime = Math.min(1, a.alacrityBuff.duration / Math.max(a.cooldown, a.castTime, 1));
+      return sum + a.alacrityBuff.pct * uptime;
+    }, 0),
+    [rotationAbilities],
+  );
+
   const buildStats = useMemo(() => {
     if (!engine || !weaponInfo) return null;
-    const base = buildStatsFromEngine(build, engine, weaponInfo, effectiveAlacrity);
+    const base = buildStatsFromEngine(build, engine, weaponInfo, effectiveAlacrity, avgBoostAlacrity);
     if (twfOverride !== null) {
       const ohBonus = twfOverride === 'gtwf' ? 80
                     : twfOverride === 'itwf' ? 60
@@ -1021,7 +1041,7 @@ function MeleeEditor({
       return { ...base, twfStyle: twfOverride, offHandChance: Math.min(100, ohBonus) };
     }
     return base;
-  }, [engine, build, weaponInfo, effectiveAlacrity, twfOverride]);
+  }, [engine, build, weaponInfo, effectiveAlacrity, twfOverride, avgBoostAlacrity]);
 
   const result = useMemo(
     () => weaponInfo && buildStats ? meleeDPS(weaponInfo, buildStats) : null,
@@ -1321,7 +1341,10 @@ function MeleeEditor({
       <MeleeCombinedTimeline
         mhAPM={result?.mhAttacksPerMin ?? 0}
         ohAPM={result?.ohAttacksPerMin ?? 0}
+        mhBaseAPM={result?.mhBaseAPM}
+        ohBaseAPM={result?.ohBaseAPM}
         playheadTime={simRunning || simTime > 0 ? simTime : undefined}
+        windowSeconds={simDuration}
         steps={meleeSteps}
         abilityById={new Map(allAbilities.map(a => [a.id, a]))}
         auto={meleeAuto}
@@ -1378,36 +1401,35 @@ function MeleeEditor({
         </div>
       )}
 
-      {/* Damage source breakdown — live during simulation */}
+      {/* Damage source breakdown — always shows DPS; tooltip shows cumulative damage when sim is running */}
       {result && (() => {
-        const liveMode = simRunning || simTime > 0;
-        const totalDPS = result.totalAutoDPS + (shieldBash?.bashDPS ?? 0)
-          + [...damageByAbility.values()].reduce((s, v) => s + v.dps, 0);
+        const abilityDPS = rotationAbilities.reduce(
+          (s, a) => s + (damageByAbility.get(a.id)?.dps ?? 0), 0,
+        );
+        const totalDPS = result.totalAutoDPS + (shieldBash?.bashDPS ?? 0) + abilityDPS;
         const sources: { label: string; dps: number; color: string }[] = [
-          { label: 'MH Auto',    dps: result.mhDPS,            color: '#c9a227' },
-          { label: 'OH Auto',    dps: result.ohDPS,            color: '#a07820' },
+          { label: 'MH Auto',    dps: result.mhDPS,         color: '#c9a227' },
+          { label: 'OH Auto',    dps: result.ohDPS,         color: '#a07820' },
           ...(shieldBash ? [{ label: 'Shield Bash', dps: shieldBash.bashDPS, color: '#6a9fd8' }] : []),
-          ...sortedActiveMeleeAbilities
+          ...rotationAbilities
             .map(a => ({ label: a.name, dps: damageByAbility.get(a.id)?.dps ?? 0, color: '#7ab87a' }))
             .filter(s => s.dps > 0),
         ].filter(s => s.dps > 0);
 
         if (totalDPS <= 0) return null;
 
-        // In live mode, show cumulative damage accrued up to simTime.
-        const getValue = (dps: number) =>
-          liveMode ? fmt(Math.round(dps * simTime)) : fmt(Math.round(dps));
-        const getTotal = () =>
-          liveMode ? fmt(Math.round(totalDPS * simTime)) : fmt(Math.round(totalDPS));
-        const colHeader = liveMode ? 'Damage' : 'DPS';
-        const totalSuffix = liveMode ? `dmg at ${simTime.toFixed(1)}s` : 'DPS';
+        // Tooltip for a row: cumulative damage accrued at simTime when sim has run,
+        // or the raw DPS value otherwise.
+        const rowTooltip = (label: string, dps: number) => simTime > 0
+          ? `${label}: ${fmt(Math.round(dps))} DPS · ${fmt(Math.round(dps * simTime))} dmg at ${simTime.toFixed(1)}s`
+          : `${label}: ${fmt(Math.round(dps))} DPS`;
 
         return (
           <div className={styles.meleeDamageSource}>
             <div className={styles.meleeDamageSourceBar}>
               {sources.map(s => (
                 <div key={s.label}
-                  title={`${s.label}: ${fmt(Math.round(s.dps))} DPS`}
+                  title={rowTooltip(s.label, s.dps)}
                   style={{ flex: s.dps / totalDPS, background: s.color, minWidth: 2 }} />
               ))}
             </div>
@@ -1415,22 +1437,24 @@ function MeleeEditor({
               <div className={styles.meleeDamageSourceRow + ' ' + styles.meleeDamageSourceHeader}>
                 <span />
                 <span className={styles.meleeDamageSourceLabel} />
-                <span className={styles.meleeDamageSourceDPS}>{colHeader}</span>
+                <span className={styles.meleeDamageSourceDPS}>DPS</span>
                 <span className={styles.meleeDamageSourcePct}>%</span>
               </div>
               {sources.map(s => (
-                <div key={s.label} className={styles.meleeDamageSourceRow}>
+                <div key={s.label} className={styles.meleeDamageSourceRow}
+                  title={rowTooltip(s.label, s.dps)}>
                   <span className={styles.meleeDamageSourceDot} style={{ background: s.color }} />
                   <span className={styles.meleeDamageSourceLabel}>{s.label}</span>
-                  <span className={styles.meleeDamageSourceDPS}>{getValue(s.dps)}</span>
+                  <span className={styles.meleeDamageSourceDPS}>{fmt(Math.round(s.dps))}</span>
                   <span className={styles.meleeDamageSourcePct}>{(s.dps / totalDPS * 100).toFixed(1)}%</span>
                 </div>
               ))}
-              <div className={styles.meleeDamageSourceRow + ' ' + styles.meleeDamageSourceTotal}>
+              <div className={styles.meleeDamageSourceRow + ' ' + styles.meleeDamageSourceTotal}
+                title={simTime > 0 ? `Total: ${fmt(Math.round(totalDPS))} DPS · ${fmt(Math.round(totalDPS * simTime))} dmg at ${simTime.toFixed(1)}s` : undefined}>
                 <span />
                 <span className={styles.meleeDamageSourceLabel}>Total</span>
-                <span className={styles.meleeDamageSourceDPS}>{getTotal()}</span>
-                <span className={styles.meleeDamageSourcePct}>{totalSuffix}</span>
+                <span className={styles.meleeDamageSourceDPS}>{fmt(Math.round(totalDPS))}</span>
+                <span className={styles.meleeDamageSourcePct}>DPS</span>
               </div>
             </div>
           </div>

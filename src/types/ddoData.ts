@@ -522,6 +522,10 @@ export interface EnhancementSelectionData {
     /** Duration of the DS buff in seconds. */
     dsBuffDuration?: number;
   };
+  /** Temporary alacrity bonus from an activated ability's FollowOn block
+   *  (e.g. Haste Boost: +[10/20/30]% for 20s). Per-rank arrays parallel to
+   *  the size="N" lists in the XML. */
+  alacrityBuff?: { pctByRank: number[]; durationByRank: number[] };
 }
 
 export interface EnhancementItemData {
@@ -581,6 +585,9 @@ export interface EnhancementItemData {
     /** Duration of the DS buff in seconds. */
     dsBuffDuration?: number;
   };
+  /** Temporary alacrity bonus from an activated ability's FollowOn block.
+   *  For selector-based items the data lives on the selection, not here. */
+  alacrityBuff?: { pctByRank: number[]; durationByRank: number[] };
   // Dependency arrows (stored on the source/prerequisite item)
   arrowUp: boolean;
   arrowLeft: boolean;

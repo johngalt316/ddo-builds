@@ -22,10 +22,19 @@ import styles from './MeleeCombinedTimeline.module.css';
 const PX_PER_SECOND = 70;
 const ATTACK_ICON   = 'https://images.ddowiki.com/Icon_Feat_Attack.png';
 
+interface BoostWindow { start: number; end: number; factor: number; }
+
 interface Props {
+  /** Average APM (passive + time-weighted boost) — shown in the header. */
   mhAPM: number;
   ohAPM: number;
+  /** Passive-only APM (no action-boost contribution) — used for attack
+   *  generation so boost windows show denser bars. Falls back to mhAPM. */
+  mhBaseAPM?: number;
+  ohBaseAPM?: number;
   playheadTime?: number;
+  /** Minimum window to show in seconds (defaults to 60). */
+  windowSeconds?: number;
 
   steps?: RotationStep[];
   abilityById?: Map<string, MagicAbility>;
@@ -37,18 +46,26 @@ interface Props {
   damageByAbility?: Map<string, AbilityDamageInfo>;
 }
 
-function buildAttacks(apm: number, windowSec: number): number[] {
-  if (apm <= 0) return [];
-  const interval = 60 / apm;
+/** Generate attack times stepping at the rate active at each moment.
+ *  During a boost window attacks arrive faster; outside them they slow back down. */
+function buildAttacks(baseAPM: number, windowSec: number, boostWindows: BoostWindow[]): number[] {
+  if (baseAPM <= 0) return [];
   const out: number[] = [];
-  for (let t = 0; t < windowSec - 1e-6; t += interval) out.push(t);
+  let t = 0;
+  while (t < windowSec - 1e-6) {
+    out.push(t);
+    const factor = boostWindows.reduce(
+      (max, w) => (t >= w.start && t < w.end ? Math.max(max, w.factor) : max), 1,
+    );
+    t += 60 / (baseAPM * factor);
+  }
   return out;
 }
 
 const fmt = (n: number) => n >= 10 ? Math.round(n).toLocaleString() : n.toFixed(1);
 
 export function MeleeCombinedTimeline({
-  mhAPM, ohAPM, playheadTime,
+  mhAPM, ohAPM, mhBaseAPM, ohBaseAPM, playheadTime, windowSeconds = 60,
   steps = [], abilityById = new Map(),
   auto = false, onAutoChange, onRemoveStep, onReorderStep, onClearSteps,
   damageByAbility,
@@ -62,11 +79,9 @@ export function MeleeCombinedTimeline({
   const { steps: resolved, totalSeconds: cycleSeconds } =
     resolveTimeline(steps, abilityById, 0);
 
-  // Window size: enough to show ~10 MH attacks AND at least 1 full ability
-  // cycle + a 2s buffer.
-  const mhInterval  = mhAPM > 0 ? 60 / mhAPM : 6;
-  const aaWindow    = Math.min(15, Math.ceil(10 * mhInterval * 10) / 10);
-  const windowSec   = Math.max(aaWindow, cycleSeconds > 0 ? cycleSeconds + 2 : 0);
+  // Window size: at least `windowSeconds` (matches the sim duration), and
+  // large enough to show the full ability cycle if it extends beyond that.
+  const windowSec = Math.max(windowSeconds, cycleSeconds > 0 ? cycleSeconds + 2 : 0);
   const trackPx     = windowSec * PX_PER_SECOND;
 
   // Auto-scroll playhead into view.
@@ -80,18 +95,36 @@ export function MeleeCombinedTimeline({
     if (target > el.scrollLeft) el.scrollLeft = target;
   }, [playheadTime]);
 
-  const mhAttacks = buildAttacks(mhAPM, windowSec);
-  const ohAttacks = buildAttacks(ohAPM, windowSec);
+  // How many times the cycle fits in the window (ghost copies + boost window tiling).
+  const repetitions = cycleSeconds > 0
+    ? Math.max(1, Math.ceil(windowSec / cycleSeconds))
+    : 1;
+
+  // Boost windows: time ranges where an alacrity boost is active, derived
+  // from resolved rotation steps that carry alacrityBuff.
+  const boostWindows: BoostWindow[] = [];
+  for (let rep = 0; rep < repetitions; rep++) {
+    for (const r of resolved) {
+      if (!r.ability.alacrityBuff) continue;
+      const start = rep * cycleSeconds + r.startTime;
+      if (start >= windowSec) break;
+      boostWindows.push({
+        start,
+        end: Math.min(start + r.ability.alacrityBuff.duration, windowSec),
+        factor: 1 + r.ability.alacrityBuff.pct / 100,
+      });
+    }
+  }
+
+  const genMhAPM = mhBaseAPM ?? mhAPM;
+  const genOhAPM = ohBaseAPM ?? ohAPM;
+  const mhAttacks = buildAttacks(genMhAPM, windowSec, boostWindows);
+  const ohAttacks = buildAttacks(genOhAPM, windowSec, boostWindows);
 
   // Ruler ticks.
   const tickStep = windowSec <= 8 ? 1 : windowSec <= 30 ? 2 : 5;
   const ticks: number[] = [];
   for (let s = 0; s <= windowSec + 1e-6; s += tickStep) ticks.push(Math.round(s * 10) / 10);
-
-  // How many times the cycle fits in the window (for tiling ghost copies).
-  const repetitions = cycleSeconds > 0
-    ? Math.max(1, Math.ceil(windowSec / cycleSeconds))
-    : 1;
 
   // Drag handlers (operate on original steps[] indices).
   function handleDragStart(e: React.DragEvent, idx: number) {

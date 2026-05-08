@@ -639,6 +639,22 @@ function parseWeaponAttack(el: Element): EnhancementItemData['weaponAttack'] {
   };
 }
 
+/** Parse `<Attack><FollowOn><BonusAlacrity size="N">…</BonusAlacrity><Duration…></FollowOn></Attack>`
+ *  from an enhancement item or selection element. Returns undefined when absent. */
+function parseAlacrityBuff(el: Element): EnhancementItemData['alacrityBuff'] {
+  const attack   = el.querySelector(':scope > Attack');
+  if (!attack) return undefined;
+  const followOn = attack.querySelector(':scope > FollowOn');
+  if (!followOn) return undefined;
+  const pctRaw  = text(followOn as Element, 'BonusAlacrity');
+  const durRaw  = text(followOn as Element, 'Duration');
+  if (!pctRaw) return undefined;
+  const pctByRank      = spaceSeparatedNumbers(pctRaw);
+  const durationByRank = durRaw ? spaceSeparatedNumbers(durRaw) : [20];
+  if (pctByRank.length === 0) return undefined;
+  return { pctByRank, durationByRank };
+}
+
 function parseEnhancementItem(el: Element, isCore: boolean): EnhancementItemData {
   const costRaw = text(el, 'CostPerRank');
   const selector: EnhancementSelectionData[] | null = (() => {
@@ -659,6 +675,8 @@ function parseEnhancementItem(el: Element, isCore: boolean): EnhancementItemData
       if (selCost) out.costPerRank = spaceSeparatedNumbers(selCost);
       const wa = parseWeaponAttack(s);
       if (wa) out.weaponAttack = wa;
+      const ab = parseAlacrityBuff(s);
+      if (ab) out.alacrityBuff = ab;
       return out;
     });
   })();
@@ -708,6 +726,7 @@ function parseEnhancementItem(el: Element, isCore: boolean): EnhancementItemData
     category,
     placeholderDamage:     hasFlag('PlaceholderDamage') || undefined,
     weaponAttack:          parseWeaponAttack(el)        || undefined,
+    alacrityBuff:          parseAlacrityBuff(el)        || undefined,
     usesActionBoostCharge: hasFlag('UsesActionBoostCharge') || undefined,
     usesReaperCharge:      hasFlag('UsesReaperCharge')      || undefined,
     arrowUp:         hasFlag('ArrowUp'),

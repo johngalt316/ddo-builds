@@ -106,6 +106,10 @@ export interface MagicAbility {
    *  for now; the UI surfaces a placeholder indicator so the user
    *  knows the displayed damage isn't real. */
   placeholderDamage?: boolean;
+  /** Temporary attack-speed bonus when this activated ability is used
+   *  (e.g. Haste Boost +30% for 20s). Action Boost category — stacks
+   *  multiplicatively with passive alacrity, not subject to the 15% cap. */
+  alacrityBuff?: { pct: number; duration: number };
   /** For melee weapon-attack SLAs: number of MH hits, per-hit scalar, and
    *  optional crit range bonus specific to this ability's hits. */
   weaponAttack?: {
@@ -330,7 +334,7 @@ export function getMagicAbilities(
     const slaAttackMode: AttackMode = slaCategory === 'boost'
       ? 'boost'
       : inferAttackMode(data.description);
-    const slaCastTime = slaAttackMode === 'melee' || slaAttackMode === 'boost' ? 0.5 : 1.0;
+    const slaCastTime = slaAttackMode === 'boost' ? 0.5 : 1.0;
     slaAbilities.push({
       id: `sla::${sla.name}::${sla.source}`,
       source: 'sla',
@@ -641,6 +645,17 @@ function collectClickieAbilities(
       if (grantsSLA(item.effects)) continue;
       if (item.selector?.some(sel => grantsSLA(sel.effects))) continue;
 
+      // Resolve the selector option first — it may change name, icon, category.
+      const selectedOption = item.selector && e.selection
+        ? item.selector.find(sel => sel.name === e.selection)
+        : undefined;
+      const effectiveDescription = selectedOption?.description ?? item.description;
+      // When a user picks a specific option, show the option's name and icon
+      // rather than the parent item's selector text (e.g. "Haste Boost" not
+      // "Action Boost Selection", "Hand of Harm" not "Hands of Mercy").
+      const abilityName = selectedOption?.name ?? item.name;
+      const abilityIcon = selectedOption?.icon ?? item.icon;
+
       // Category + placeholderDamage: prefer `<Category>` / `<PlaceholderDamage/>`
       // tags on the XML when present; otherwise classify from the description.
       // `null` from the classifier means "passive enhancement, no duration,
@@ -658,22 +673,17 @@ function collectClickieAbilities(
         placeholderDamage = classified.placeholderDamage;
       }
 
-      // For selector-based items (e.g. "Legendary Rally — pick Melee or Ranged"),
-      // the parent description can't determine attack mode.  Use the selected
-      // option's description instead so "Legendary Rally (Melee)" → 'melee',
-      // "Hand of Healing" → 'magic' (heal category), etc.
-      const selectedOption = item.selector && e.selection
-        ? item.selector.find(sel => sel.name === e.selection)
-        : undefined;
-      const effectiveDescription = selectedOption?.description ?? item.description;
-      // If the selection changes the category too (e.g. heal vs. melee strike),
-      // reclassify from the option's description when the XML category is generic.
-      if (selectedOption && !item.category) {
+      // If a selector option is active, reclassify from the option's description
+      // so the ability type reflects what was actually chosen (e.g. Hand of Harm
+      // = melee/damage, Hand of Healing = heal — both under the same parent item).
+      if (selectedOption) {
         const reclass = classifyClickie(effectiveDescription);
         if (reclass) {
-          category         = reclass.category;
+          category          = reclass.category;
           placeholderDamage = reclass.placeholderDamage;
         }
+        // WeaponAttack means real data is available — no placeholder needed.
+        if (selectedOption.weaponAttack) placeholderDamage = false;
       }
 
       const id = `clickie::${tree.name}::${item.internalName || item.name}`;
@@ -708,9 +718,9 @@ function collectClickieAbilities(
       out.push({
         id,
         source:         'sla',
-        name:           item.name,
-        displayName:    `[${scope}] ${item.name}`,
-        icon:           item.icon || 'ActionBoost',
+        name:           abilityName,
+        displayName:    `[${scope}] ${abilityName}`,
+        icon:           abilityIcon || 'ActionBoost',
         school:         '',
         cost:           0,
         cooldown,
@@ -718,7 +728,7 @@ function collectClickieAbilities(
         maxCasterLevel: 0,
         maxTargetCap:   1,
         damages:        [],
-        castTime:       0.5,
+        castTime:       category === 'boost' ? 0.5 : 1.0,
         slaCategory:    'enhancement',
         slaSource:      `[${scope}] ${tree.name}: ${item.name}`,
         isUtility:      true,
@@ -729,6 +739,15 @@ function collectClickieAbilities(
         ...(( selectedOption?.weaponAttack ?? item.weaponAttack) && {
           weaponAttack: selectedOption?.weaponAttack ?? item.weaponAttack,
         }),
+        // Alacrity buff: resolve per-rank arrays to the actual rank value.
+        ...(() => {
+          const raw = selectedOption?.alacrityBuff ?? item.alacrityBuff;
+          if (!raw) return {};
+          const idx = Math.min(e.rank, raw.pctByRank.length) - 1;
+          const pct = raw.pctByRank[idx] ?? raw.pctByRank[raw.pctByRank.length - 1] ?? 0;
+          const dur = raw.durationByRank[idx] ?? raw.durationByRank[raw.durationByRank.length - 1] ?? 20;
+          return pct > 0 ? { alacrityBuff: { pct, duration: dur } } : {};
+        })(),
       });
     }
   }

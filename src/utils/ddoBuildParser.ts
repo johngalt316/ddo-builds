@@ -368,16 +368,36 @@ export function parseDDOBuildFile(xmlText: string, options?: ParseOptions): DDOB
   // Capture the narrowed build element so TypeScript sees it as Element
   // (not Element | undefined) inside the nested function.
   const buildEl = build;
+  // Migrations for enhancement InternalNames that were renamed in our XML.
+  // Build files store the old names; map them forward so the engine finds the
+  // correct tree items without requiring a fixture re-export.
+  const ENHANCEMENT_SELECTOR_MIGRATIONS: Record<string, Record<string, string>> = {
+    ShintaoHandsOfMercy: {
+      'Hand of Harm':    'ShintaoHandOfHarm',
+      'Hand of Healing': 'ShintaoHandOfHealing',
+    },
+  };
+  function migrateEnhancement(
+    enhancementId: string,
+    selection: string | undefined,
+  ): { enhancementId: string; selection: string | undefined } {
+    const selMap = ENHANCEMENT_SELECTOR_MIGRATIONS[enhancementId];
+    if (selMap && selection && selMap[selection]) {
+      return { enhancementId: selMap[selection], selection: undefined };
+    }
+    return { enhancementId, selection };
+  }
+
   function parseSpendInTree(tag: string): EnhancementSelection[] {
     return elemChildren(buildEl, tag)
       .map(treeEl => ({
         treeId: textOf(treeEl, 'TreeName'),
-        enhancements: elemChildren(treeEl, 'TrainedEnhancement').map(enh => ({
-          enhancementId: textOf(enh, 'EnhancementName'),
-          selection:     textOf(enh, 'Selection') || undefined,
-          tier:          0,
-          rank:          numOf(enh, 'Ranks'),
-        })),
+        enhancements: elemChildren(treeEl, 'TrainedEnhancement').map(enh => {
+          const rawId  = textOf(enh, 'EnhancementName');
+          const rawSel = textOf(enh, 'Selection') || undefined;
+          const { enhancementId, selection } = migrateEnhancement(rawId, rawSel);
+          return { enhancementId, selection, tier: 0, rank: numOf(enh, 'Ranks') };
+        }),
       }))
       .filter(t => t.treeId && t.treeId !== 'No selection');
   }

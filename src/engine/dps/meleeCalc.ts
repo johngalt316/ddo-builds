@@ -40,7 +40,11 @@ export interface MeleeBuildStats {
   damageStat: Stat;          // which ability contributes to melee damage
   meleePower: number;
   doublestrike: number;      // %
-  meleeAlacrity: number;     // %, caller-clamped to [0, 15]
+  meleeAlacrity: number;       // %, passive (capped at 15 in meleeDPS)
+  /** Time-averaged Action Boost alacrity from activated abilities in the
+   *  rotation (e.g. Haste Boost uptime × 30%).  Multiplies with passive
+   *  alacrity — not subject to the 15% passive cap. */
+  actionBoostAlacrity: number; // %, no cap (multiplicative)
   seeker: number;
   hasImprovedCritical: boolean;
   /** Flat faces added to threat range after IC doubling. */
@@ -104,6 +108,11 @@ export interface MeleeDPSResult {
   doublestrikeOH: number;
   ohDSFraction: number;
   meleeAlacrity: number;
+  actionBoostAlacrity: number;
+  /** APM at passive alacrity only, no action-boost contribution.
+   *  Used by the timeline to generate burst attack patterns. */
+  mhBaseAPM: number;
+  ohBaseAPM: number;
 }
 
 // ── Weapon category ──────────────────────────────────────────────────
@@ -220,10 +229,16 @@ export function meleeDPS(
     + (faces1920  / 20) * (scaled + stats.seeker) * multOn1920;
 
   // ── Attack rates ─────────────────────────────────────────────────
-  const alacrity = Math.min(Math.max(0, stats.meleeAlacrity), 15);
-  const mhAPM    = meleeAttacksPerMin(weapon.category, alacrity);
-  const ohFrac   = Math.min(1.0, stats.offHandChance / 100);
-  const ohAPM    = mhAPM * ohFrac;
+  // Passive alacrity (Haste bonus type) caps at 15%.
+  // Action Boost alacrity multiplies on top — no shared cap.
+  const alacrity      = Math.min(Math.max(0, stats.meleeAlacrity), 15);
+  const boostAlacrity = Math.max(0, stats.actionBoostAlacrity ?? 0);
+  const baseAPM       = meleeBaseAPM(weapon.category);
+  // mhNoBoostAPM: the passive-only rate used by the timeline for burst visualization.
+  const mhNoBoostAPM  = baseAPM * (1 + alacrity / 100);
+  const mhAPM         = mhNoBoostAPM * (1 + boostAlacrity / 100);
+  const ohFrac    = Math.min(1.0, stats.offHandChance / 100);
+  const ohAPM     = mhAPM * ohFrac;
 
   // ── Doublestrike ─────────────────────────────────────────────────
   // Applies to all melee attacks (confirmed).
@@ -271,6 +286,9 @@ export function meleeDPS(
     doublestrikeOH:       dsOH * 100,
     ohDSFraction,
     meleeAlacrity:        alacrity,
+    actionBoostAlacrity:  boostAlacrity,
+    mhBaseAPM:            mhNoBoostAPM,
+    ohBaseAPM:            mhNoBoostAPM * ohFrac,
   };
 }
 
@@ -338,12 +356,14 @@ export function critRangeBonusForWeapon(engine: EngineResult, weaponType: string
 }
 
 /** Derive MeleeBuildStats from the engine result + build. Pass an
- *  optional `alacrityOverride` (0-15) from the panel slider. */
+ *  optional `alacrityOverride` (0-15) from the panel slider and an
+ *  optional `actionBoostAlacrity` from active rotation boosts. */
 export function buildStatsFromEngine(
   build: Build,
   engine: EngineResult,
   weaponInfo: MeleeWeaponInfo,
   alacrityOverride?: number,
+  actionBoostAlacrity = 0,
 ): MeleeBuildStats {
   // ── Effective damage stat ─────────────────────────────────────────
   // Weapon_DamageAbility bonuses replace the weapon's own damage stat.
@@ -388,6 +408,7 @@ export function buildStatsFromEngine(
     offHandChance:       ohChance,
     isHandwraps:         weaponInfo.category === 'handwraps',
     hasPerfectTWF:       detectPerfectTWF(build),
+    actionBoostAlacrity: Math.max(0, actionBoostAlacrity),
   };
 }
 

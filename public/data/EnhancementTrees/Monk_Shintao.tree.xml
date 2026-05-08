@@ -952,9 +952,51 @@ fortification by 25%. A successful Will save negates this effect.</Description>
          <WeaponAttack><Hits>1</Hits><Scalar>1.0</Scalar></WeaponAttack>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
-      <Name>Shintao: Hands of Mercy</Name>
-      <InternalName>ShintaoHandsOfMercy</InternalName>
-      <Description>Select an option.</Description>
+      <Name>Shintao: Hand of Harm</Name>
+      <InternalName>ShintaoHandOfHarm</InternalName>
+      <Description>+20 Critical Threat Range
+Cooldown: 9 seconds
+Melee Attack: You strike your opponent down with a terrible curse, halving all
+positive energy healing done to the target, reducing its fortification by 25%.
+This attack automatically counts as a Critical Hit.
+Periodic Fortitude saves (14 + [Str/Dex/Wis] Modifier + Monk Level + Stun bonuses)
+to negate.</Description>
+      <Icon>HandOfHarm</Icon>
+      <XPosition>2</XPosition>
+      <YPosition>3</YPosition>
+      <CostPerRank size="1">2</CostPerRank>
+      <Ranks>1</Ranks>
+      <MinSpent>10</MinSpent>
+      <Clickie />
+      <ArrowUp />
+      <Requirements>
+        <Requirement>
+          <Type>BaseClassMinLevel</Type>
+          <Item>Monk</Item>
+          <Value>3</Value>
+        </Requirement>
+        <RequiresOneOf>
+          <Requirement>
+            <Type>Feat</Type>
+            <Item>Path of Inevitable Dominion: Fists of Darkness</Item>
+          </Requirement>
+          <Requirement>
+            <Type>Enhancement</Type>
+            <Item>U51GrandmasterOfFlowersCore4</Item>
+            <Item>Disciple of Philosophy: Dark</Item>
+          </Requirement>
+        </RequiresOneOf>
+      </Requirements>
+      <Cooldown>9</Cooldown>
+      <Category>damage</Category>
+      <!-- +20 crit range = guaranteed crit on all hits -->
+      <WeaponAttack><Hits>1</Hits><Scalar>1.0</Scalar><CritRangeBonus>20</CritRangeBonus></WeaponAttack>
+    </EnhancementTreeItem>
+    <EnhancementTreeItem>
+      <Name>Shintao: Hand of Healing</Name>
+      <InternalName>ShintaoHandOfHealing</InternalName>
+      <Description>You heal all nearby allies for 1d4 plus 1d4 per Monk level.
+Cooldown: 9 seconds.</Description>
       <Icon>ShintaoHandsOfMercy</Icon>
       <XPosition>2</XPosition>
       <YPosition>3</YPosition>
@@ -969,60 +1011,20 @@ fortification by 25%. A successful Will save negates this effect.</Description>
           <Item>Monk</Item>
           <Value>3</Value>
         </Requirement>
+        <RequiresOneOf>
+          <Requirement>
+            <Type>Feat</Type>
+            <Item>Path of Harmonious Balance: Fists of Light</Item>
+          </Requirement>
+          <Requirement>
+            <Type>Enhancement</Type>
+            <Item>U51GrandmasterOfFlowersCore4</Item>
+            <Item>Disciple of Philosophy: Light</Item>
+          </Requirement>
+        </RequiresOneOf>
       </Requirements>
-      <Selector>
-        <EnhancementSelection>
-          <Name>Hand of Harm</Name>
-          <Description>+20 Critical Threat Range
-Cooldown: 9 seconds
-Melee Attack: You strike your opponent down with a terrible curse, halving all
-positive energy healing done to the target, reducing its fortification by 25%.
-This attack automatically counts as a Critical Hit.
-Periodic Fortitude saves (14 + [Str/Dex/Wis] Modifier + Monk Level + Stun bonuses)
-to negate.</Description>
-          <Icon>HandOfHarm</Icon>
-          <CostPerRank size="1">2</CostPerRank>
-          <Clickie />
-          <!-- +20 crit range = guaranteed crit on all hits -->
-          <WeaponAttack><Hits>1</Hits><Scalar>1.0</Scalar><CritRangeBonus>20</CritRangeBonus></WeaponAttack>
-          <Requirements>
-             <RequiresOneOf>
-               <Requirement>
-                  <Type>Feat</Type>
-                  <Item>Path of Inevitable Dominion: Fists of Darkness</Item>
-               </Requirement>
-               <Requirement>
-                  <Type>Enhancement</Type>
-                  <Item>U51GrandmasterOfFlowersCore4</Item>
-                  <Item>Disciple of Philosophy: Dark</Item>
-               </Requirement>
-             </RequiresOneOf>
-          </Requirements>
-        </EnhancementSelection>
-        <EnhancementSelection>
-          <Name>Hand of Healing</Name>
-          <Description>You heal all nearby allies for 1d4 plus 1d4 per Monk level.
-Cooldown: 9 seconds.</Description>
-          <Icon>ShintaoHandsOfMercy</Icon>
-          <CostPerRank size="1">2</CostPerRank>
-          <Clickie />
-          <Requirements>
-             <RequiresOneOf>
-               <Requirement>
-                  <Type>Feat</Type>
-                  <Item>Path of Harmonious Balance: Fists of Light</Item>
-               </Requirement>
-               <Requirement>
-                  <Type>Enhancement</Type>
-                  <Item>U51GrandmasterOfFlowersCore4</Item>
-                  <Item>Disciple of Philosophy: Light</Item>
-               </Requirement>
-             </RequiresOneOf>
-          </Requirements>
-        </EnhancementSelection>
-      </Selector>
-         <Cooldown>9</Cooldown>
-         <Category>damage</Category>
+      <Cooldown>9</Cooldown>
+      <Category>utility</Category>
     </EnhancementTreeItem>
     <EnhancementTreeItem>
       <Name>Shintao: Fists of Light</Name>
@@ -1273,10 +1275,16 @@ Will saves to avoid this fate.</Description>
           <Item>Monk</Item>
           <Value>4</Value>
         </Requirement>
-        <Requirement>
-          <Type>Enhancement</Type>
-          <Item>ShintaoHandsOfMercy</Item>
-        </Requirement>
+        <RequiresOneOf>
+          <Requirement>
+            <Type>Enhancement</Type>
+            <Item>ShintaoHandOfHarm</Item>
+          </Requirement>
+          <Requirement>
+            <Type>Enhancement</Type>
+            <Item>ShintaoHandOfHealing</Item>
+          </Requirement>
+        </RequiresOneOf>
       </Requirements>
       <Selector>
         <EnhancementSelection>
@@ -1287,8 +1295,7 @@ Will saves to avoid this fate.</Description>
           <Requirements>
             <Requirement>
                <Type>Enhancement</Type>
-               <Item>ShintaoHandsOfMercy</Item>
-               <Item>Hand of Harm</Item>
+               <Item>ShintaoHandOfHarm</Item>
             </Requirement>
           </Requirements>
         </EnhancementSelection>
@@ -1301,8 +1308,7 @@ Curses, and Diseases.</Description>
           <Requirements>
             <Requirement>
                <Type>Enhancement</Type>
-               <Item>ShintaoHandsOfMercy</Item>
-               <Item>Hand of Healing</Item>
+               <Item>ShintaoHandOfHealing</Item>
             </Requirement>
           </Requirements>
         </EnhancementSelection>
