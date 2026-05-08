@@ -488,9 +488,10 @@
   font-size: 0.8rem;
   font-weight: 600;
   color: var(--color-text);
-  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  /* Allow wrap on narrow viewports; ellipsis handles single-line overflow on desktop */
+  white-space: nowrap;
 }
 
 .weaponStatRow {
@@ -512,6 +513,8 @@
   color: var(--color-text);
   font-variant-numeric: tabular-nums;
   line-height: 1.3;
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 
 .weaponStatRowMuted {
@@ -590,6 +593,19 @@
 
   .simulateRow { flex-wrap: wrap; }
   .simulateBtn { flex: 1; }
+
+  /* Weapon stat panels: stack to single column on narrow viewports */
+  .weaponStatPanels { grid-template-columns: 1fr; }
+  .weaponStatPanel { padding: 0.45rem 0.55rem; }
+  .weaponStatPanelName { white-space: normal; }
+  .weaponStatRowValue { font-size: 0.75rem; }
+  .weaponStatRowMuted { font-size: 0.68rem; }
+
+  /* Target row: stack target dropdown above enemy chips */
+  .targetRow { flex-wrap: wrap; gap: 0.5rem; }
+  .targetField { width: 100%; min-width: 0; }
+  .targetSelect { width: 100%; }
+  .enemyInfo { margin-left: 0; flex-wrap: wrap; gap: 0.5rem; width: 100%; }
 }
 
 /* ── Melee damage source breakdown ──────────────────────────── */
