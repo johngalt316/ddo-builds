@@ -113,6 +113,7 @@ export function DPSCalculatorPanel() {
 
   const [debuffState, setDebuffState] = useState<DebuffState>(() => initialDebuffState());
   const [debuffsOpen, setDebuffsOpen] = useState(false);
+  const [simDuration, setSimDuration] = useState(60);
 
   const build = useBuildStore(s => s.build);
   const [compareSetName, setCompareSetName] = useState<string | null>(null);
@@ -223,6 +224,8 @@ export function DPSCalculatorPanel() {
           setCompareSetName={setCompareSetName}
           compareBuild={compareBuild}
           compareBreakdowns={compareBreakdowns}
+          simDuration={simDuration}
+          setSimDuration={setSimDuration}
         />
       ) : rotationType === 'melee' ? (
         <MeleeEditor
@@ -236,6 +239,8 @@ export function DPSCalculatorPanel() {
           setCompareSetName={setCompareSetName}
           compareBuild={compareBuild}
           compareBreakdowns={compareBreakdowns}
+          simDuration={simDuration}
+          setSimDuration={setSimDuration}
         />
       ) : (
         <div className={styles.timelinePlaceholder}>
@@ -274,6 +279,9 @@ interface SharedEditorProps {
   setCompareSetName: (name: string | null) => void;
   compareBuild: Build;
   compareBreakdowns: EngineResult | null;
+  /** Simulation window length in seconds (configurable 5s–600s). */
+  simDuration: number;
+  setSimDuration: (next: number) => void;
 }
 
 // ── Magic rotation editor ────────────────────────────────────────────
@@ -298,6 +306,7 @@ function MagicRotationEditor({
   targetCount, setTargetCount,
   debuffState, setDebuffState: _setDebuffState, onManageDebuffs,
   compareSetName, setCompareSetName, compareBuild, compareBreakdowns,
+  simDuration, setSimDuration,
 }: MagicRotationEditorProps) {
   const build       = useBuildStore(s => s.build);
   const spells      = useGameDataStore(s => s.spells);
@@ -590,7 +599,7 @@ function MagicRotationEditor({
       // by repeatedly slotting the ability into cooldown gaps, falling
       // back to append, until one more cast would push the cycle past
       // a minute.
-      setSteps(fillToOneMinute(steps, ability, abilityById, cooldownReductionPct));
+      setSteps(fillToOneMinute(steps, ability, abilityById, cooldownReductionPct, simDuration));
       return;
     }
     // Manual: insert one cast at the earliest position that respects
@@ -780,6 +789,7 @@ function MagicRotationEditor({
         >
           ↻ Restart
         </button>
+        <SimDurationPicker value={simDuration} onChange={setSimDuration} />
         <span className={styles.simulateClock}>
           t = {simTime.toFixed(2)}s
           {rotationCycleSeconds > 0 && ` / ${rotationCycleSeconds.toFixed(2)}s`}
@@ -807,6 +817,7 @@ function MeleeEditor({
   difficulty, targetCount, setTargetCount,
   debuffState, setDebuffState: _setDebuffState, onManageDebuffs,
   compareSetName, setCompareSetName, compareBuild, compareBreakdowns,
+  simDuration, setSimDuration,
 }: MeleeEditorProps) {
   const build   = useBuildStore(s => s.build);
   const engine  = useBreakdowns();
@@ -821,9 +832,11 @@ function MeleeEditor({
   );
   void debuffs; // used by future on-hit proc evaluation
 
+  // ── Auto-fill toggle for melee rotation ──────────────────────────
+  const [meleeAuto, setMeleeAuto] = useState(true);
+
   // ── Simulation ─────────────────────────────────────────────────────
-  // Fixed 60-second window, same rAF pattern as MagicRotationEditor.
-  const MELEE_SIM_SECONDS = 60;
+  // Duration comes from shared simDuration prop (configurable 5–600s).
   const [simTime, setSimTime]       = useState(0);
   const [simRunning, setSimRunning] = useState(false);
   const simStartedAt = useRef(0);
@@ -836,7 +849,7 @@ function MeleeEditor({
     const tick = (now: number) => {
       if (cancelled) return;
       const elapsed = (now - simStartedAt.current) / 1000;
-      if (elapsed >= MELEE_SIM_SECONDS) { setSimTime(MELEE_SIM_SECONDS); setSimRunning(false); return; }
+      if (elapsed >= simDuration) { setSimTime(simDuration); setSimRunning(false); return; }
       setSimTime(elapsed);
       raf = requestAnimationFrame(tick);
     };
@@ -847,7 +860,7 @@ function MeleeEditor({
 
   function onSimulateClick() {
     if (simRunning) { setSimRunning(false); return; }
-    if (simTime >= MELEE_SIM_SECONDS - 1e-3) setSimTime(0);
+    if (simTime >= simDuration - 1e-3) setSimTime(0);
     setSimRunning(true);
   }
   function onRestartClick() {
@@ -1152,10 +1165,14 @@ function MeleeEditor({
         totalTrained={meleeAbilities.length}
         onAdd={(a) => {
           const byId = new Map(activeMeleeAbilities.map(ab => [ab.id, ab]));
-          const slot = findFirstAvailableSlot(meleeSteps, a, byId, 0);
-          const next = [...meleeSteps];
-          next.splice(slot, 0, newRotationStep(a.id));
-          setMeleeSteps(next);
+          if (meleeAuto) {
+            setMeleeSteps(fillToOneMinute(meleeSteps, a, byId, 0, simDuration));
+          } else {
+            const slot = findFirstAvailableSlot(meleeSteps, a, byId, 0);
+            const next = [...meleeSteps];
+            next.splice(slot, 0, newRotationStep(a.id));
+            setMeleeSteps(next);
+          }
         }}
         onManage={() => setManageOpen(true)}
         onReorder={(from, to) => {
@@ -1169,8 +1186,8 @@ function MeleeEditor({
         steps={meleeSteps}
         abilityById={new Map(allAbilities.map(a => [a.id, a]))}
         cooldownReductionPct={0}
-        auto={false}
-        onAutoChange={() => {}}
+        auto={meleeAuto}
+        onAutoChange={setMeleeAuto}
         onReorder={(from, to) => {
           const next = [...meleeSteps];
           const [moved] = next.splice(from, 1);
@@ -1266,7 +1283,7 @@ function MeleeEditor({
           className={styles.simulateBtn}
           onClick={onSimulateClick}
           disabled={!result}
-          title={result ? (simRunning ? 'Pause simulation' : 'Run 60s simulation') : 'No weapon equipped'}
+          title={result ? (simRunning ? 'Pause simulation' : `Run ${simDuration}s simulation`) : 'No weapon equipped'}
         >
           {simRunning ? '⏸ Pause' : '▶ Simulate'}
         </button>
@@ -1279,8 +1296,9 @@ function MeleeEditor({
         >
           ↻ Restart
         </button>
+        <SimDurationPicker value={simDuration} onChange={setSimDuration} />
         <span className={styles.simulateClock}>
-          t = {simTime.toFixed(2)}s / {MELEE_SIM_SECONDS}s
+          t = {simTime.toFixed(2)}s / {simDuration}s
         </span>
       </div>
 
@@ -1416,6 +1434,33 @@ function MeleeEditor({
         );
       })()}
     </div>
+  );
+}
+
+const SIM_DURATION_OPTIONS: { label: string; value: number }[] = [
+  { label: '5s',    value: 5   },
+  { label: '10s',   value: 10  },
+  { label: '15s',   value: 15  },
+  { label: '30s',   value: 30  },
+  { label: '1 min', value: 60  },
+  { label: '2 min', value: 120 },
+  { label: '5 min', value: 300 },
+  { label: '10 min',value: 600 },
+];
+
+function SimDurationPicker({ value, onChange }: { value: number; onChange: (v: number) => void }) {
+  return (
+    <select
+      className={styles.select}
+      value={value}
+      onChange={e => onChange(Number(e.target.value))}
+      title="Simulation window length — auto-fill targets this duration"
+      style={{ fontSize: '0.78rem', padding: '0.2rem 0.4rem' }}
+    >
+      {SIM_DURATION_OPTIONS.map(o => (
+        <option key={o.value} value={o.value}>{o.label}</option>
+      ))}
+    </select>
   );
 }
 

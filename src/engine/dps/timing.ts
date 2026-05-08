@@ -172,6 +172,7 @@ export function fillToOneMinute(
   ability: MagicAbility,
   abilityById: Map<string, MagicAbility>,
   cooldownReductionPct: number,
+  targetSeconds = FILL_TARGET_SECONDS,
 ): RotationStep[] {
   let next = [...steps];
   // Charge-limited abilities can only fire `charges` times per rest;
@@ -185,7 +186,7 @@ export function fillToOneMinute(
     const candidate = [...next];
     candidate.splice(idx, 0, newRotationStep(ability.id));
     const { totalSeconds } = resolveTimeline(candidate, abilityById, cooldownReductionPct);
-    if (totalSeconds > FILL_TARGET_SECONDS + 1e-6) break;
+    if (totalSeconds > targetSeconds + 1e-6) break;
     next = candidate;
     copiesPresent++;
   }
