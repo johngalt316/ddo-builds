@@ -12,7 +12,8 @@
 // that fit the window are rendered at reduced opacity for visual context
 // only (no interactions).
 
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState } from 'react';
+import { usePlayheadScroll } from '@/hooks/usePlayheadScroll';
 import type { MagicAbility }      from '@/engine/dps/abilities';
 import type { RotationStep }      from '@/engine/dps/rotation';
 import { resolveTimeline }        from '@/engine/dps/timing';
@@ -62,7 +63,7 @@ function buildAttacks(baseAPM: number, windowSec: number, boostWindows: BoostWin
   return out;
 }
 
-const fmt = (n: number) => n >= 10 ? Math.round(n).toLocaleString() : n.toFixed(1);
+import { fmtAdaptive as fmt } from '@/utils/formatNumbers';
 
 export function MeleeCombinedTimeline({
   mhAPM, ohAPM, mhBaseAPM, ohBaseAPM, playheadTime, windowSeconds = 60,
@@ -70,9 +71,8 @@ export function MeleeCombinedTimeline({
   auto = false, onAutoChange, onRemoveStep, onReorderStep, onClearSteps,
   damageByAbility,
 }: Props) {
-  const scrollRef  = useRef<HTMLDivElement>(null);
-  const dragFrom   = useRef<number | null>(null);
-  const prevPH     = useRef(-1);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const dragFrom  = useRef<number | null>(null);
   const [dragOver, setDragOver] = useState<number | null>(null);
 
   // Resolve the ability rotation (1 cycle).
@@ -82,18 +82,9 @@ export function MeleeCombinedTimeline({
   // Window size: at least `windowSeconds` (matches the sim duration), and
   // large enough to show the full ability cycle if it extends beyond that.
   const windowSec = Math.max(windowSeconds, cycleSeconds > 0 ? cycleSeconds + 2 : 0);
-  const trackPx     = windowSec * PX_PER_SECOND;
+  const trackPx   = windowSec * PX_PER_SECOND;
 
-  // Auto-scroll playhead into view.
-  useEffect(() => {
-    const el = scrollRef.current;
-    if (!el || playheadTime === undefined) return;
-    if (playheadTime + 1e-3 < prevPH.current) { el.scrollLeft = 0; }
-    prevPH.current = playheadTime;
-    const x      = playheadTime * PX_PER_SECOND;
-    const target = x - el.clientWidth * 0.8;
-    if (target > el.scrollLeft) el.scrollLeft = target;
-  }, [playheadTime]);
+  usePlayheadScroll(scrollRef, playheadTime, PX_PER_SECOND, windowSec);
 
   // How many times the cycle fits in the window (ghost copies + boost window tiling).
   const repetitions = cycleSeconds > 0

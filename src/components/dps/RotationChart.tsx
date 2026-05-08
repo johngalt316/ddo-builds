@@ -10,7 +10,9 @@
 // advances past the 80% mark of the visible scroll area we shift the
 // viewport right to keep it on screen.
 
-import { useEffect, useMemo, useRef } from 'react';
+import { useMemo, useRef } from 'react';
+import { fmt } from '@/utils/formatNumbers';
+import { usePlayheadScroll } from '@/hooks/usePlayheadScroll';
 import styles from './RotationChart.module.css';
 
 /** A single cast event — when it fires + how much it deals. */
@@ -44,7 +46,6 @@ const HEIGHT_PX          = 100;
 const PADDING_TOP        = 8;
 const PADDING_BOTTOM     = 18;   // leaves room for the time labels under the chart
 
-const fmt = (n: number) => Math.round(n).toLocaleString();
 
 export function RotationChart({
   events,
@@ -53,24 +54,7 @@ export function RotationChart({
   pxPerSecond = DEFAULT_PX_PER_SEC,
 }: Props) {
   const scrollRef = useRef<HTMLDivElement | null>(null);
-  const prevCurrentTime = useRef<number>(-1);
-  // Auto-scroll: as the playhead advances past 80% of the visible width,
-  // shift the scroll right so the playhead stays at the 80% mark. Never
-  // scrolls left during forward play — when the playhead is in the
-  // natural left portion of the cycle we leave the user's manual
-  // scroll position alone. When the playhead jumps backwards (sim
-  // restart) we reset scrollLeft to 0 so t=0 is visible again.
-  useEffect(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-    if (currentTime + 1e-3 < prevCurrentTime.current) {
-      el.scrollLeft = 0;
-    }
-    prevCurrentTime.current = currentTime;
-    const playheadX = Math.min(currentTime, cycleSeconds) * pxPerSecond;
-    const target   = playheadX - el.clientWidth * 0.8;
-    if (target > el.scrollLeft) el.scrollLeft = target;
-  }, [currentTime, cycleSeconds, pxPerSecond]);
+  usePlayheadScroll(scrollRef, currentTime, pxPerSecond, cycleSeconds);
 
   const totalDamage = useMemo(
     () => events.reduce((s, e) => s + e.damage, 0),

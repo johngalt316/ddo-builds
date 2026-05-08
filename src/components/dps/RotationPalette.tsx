@@ -29,10 +29,7 @@ interface Props {
   damageByAbility?: Map<string, AbilityDamageInfo>;
 }
 
-const fmt = (n: number) =>
-  n >= 10
-    ? Math.round(n).toLocaleString()
-    : n.toFixed(1);
+import { fmtAdaptive as fmt } from '@/utils/formatNumbers';
 
 export function RotationPalette({
   abilities, totalTrained, onAdd, onManage, onReorder, damageByAbility,

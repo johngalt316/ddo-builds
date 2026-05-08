@@ -91,7 +91,6 @@ export function ManageActiveDialog({ open, abilities, active, onClose, onApply, 
       counts[a.category]++;
     }
     return counts;
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [abilities, draft, includeCharged, attackMode]);
 
   const abilityById = useMemo(() => {
@@ -136,7 +135,7 @@ export function ManageActiveDialog({ open, abilities, active, onClose, onApply, 
       levels: [...byLevel.entries()].sort(([a], [b]) => a - b),
       slas: slaList,
     };
-  }, [abilities, draftSet, filter, tab, includeCharged]);
+  }, [abilities, draftSet, filter, tab, includeCharged, attackMode]);
 
   // Resolved active list — drops ids whose ability is no longer trained.
   const activeResolved = useMemo(() => {

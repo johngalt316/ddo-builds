@@ -11,12 +11,13 @@
 // removes. "Auto" checkbox locks reordering — used when the optimizer
 // (6.6) is the authority on rotation order.
 
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import type { MagicAbility } from '@/engine/dps/abilities';
 import type { RotationStep } from '@/engine/dps/rotation';
 import { resolveTimeline } from '@/engine/dps/timing';
 import type { ActiveBuff } from '@/engine/dps/buffs';
 import type { AbilityDamageInfo } from '@/engine/dps/calculator';
+import { usePlayheadScroll } from '@/hooks/usePlayheadScroll';
 import styles from './RotationTimeline.module.css';
 
 /** Pixel width per second of cast time. Larger → roomier blocks. */
@@ -45,19 +46,15 @@ interface Props {
   damageByAbility?: Map<string, AbilityDamageInfo>;
 }
 
-const fmt = (n: number) =>
-  n >= 10
-    ? Math.round(n).toLocaleString()
-    : n.toFixed(1);
+import { fmtAdaptive as fmt } from '@/utils/formatNumbers';
 
 export function RotationTimeline({
   steps, abilityById, cooldownReductionPct,
   auto, onAutoChange, onReorder, onRemove, onClear,
   playheadTime, activeBuffs, damageByAbility,
 }: Props) {
-  const dragFrom = useRef<number | null>(null);
+  const dragFrom  = useRef<number | null>(null);
   const scrollRef = useRef<HTMLDivElement | null>(null);
-  const prevPlayheadTime = useRef<number>(-1);
   const [dragOver, setDragOver] = useState<number | null>(null);
 
   const { steps: resolved, skipped, totalSeconds } = resolveTimeline(
@@ -65,26 +62,7 @@ export function RotationTimeline({
   );
   const totalPx = totalSeconds * PX_PER_SECOND;
 
-  // Auto-scroll: keep the playhead at the 80% mark of the visible
-  // viewport as the simulation advances. Mirrors RotationChart's
-  // behavior so the two views scroll together. When the playhead
-  // jumps backwards (sim restart) we reset scrollLeft to 0 so the
-  // chart re-centers on t=0.
-  useEffect(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-    if (playheadTime === undefined || playheadTime < 0) {
-      prevPlayheadTime.current = -1;
-      return;
-    }
-    if (playheadTime + 1e-3 < prevPlayheadTime.current) {
-      el.scrollLeft = 0;
-    }
-    prevPlayheadTime.current = playheadTime;
-    const playheadX = Math.min(playheadTime, totalSeconds) * PX_PER_SECOND;
-    const target    = playheadX - el.clientWidth * 0.8;
-    if (target > el.scrollLeft) el.scrollLeft = target;
-  }, [playheadTime, totalSeconds]);
+  usePlayheadScroll(scrollRef, playheadTime, PX_PER_SECOND, totalSeconds);
 
   // Map every input step to either a resolved entry or a placeholder for
   // unknown abilities (dropped from the timing walk so they don't affect

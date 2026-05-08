@@ -10,6 +10,7 @@ import type { DamageBreakdown } from '@/engine/dps/calculator';
 import type { SpellDamageType } from '@/engine/breakdowns';
 import type { DamageEvent } from './RotationChart';
 import { useTooltip } from '@/hooks/useTooltip';
+import { fmt, fmtPct } from '@/utils/formatNumbers';
 import styles from './DamageSourceSummary.module.css';
 
 interface Props {
@@ -43,10 +44,8 @@ const DAMAGE_TYPE_ICON: Record<SpellDamageType, string> = {
   'Sonic':           'Sonic_damage.jpg',
 };
 
-const fmt0 = (n: number) => Math.round(n).toLocaleString();
-const fmt1 = (n: number) => (Math.round(n * 10) / 10).toLocaleString();
-const fmtPct = (frac: number) =>
-  frac >= 0.001 ? `${(frac * 100).toFixed(1)}%` : '<0.1%';
+const fmt0 = (n: number) => fmt(n, 0);
+const fmt1 = (n: number) => fmt(n, 1);
 
 export function DamageSourceSummary({ breakdown, events, currentTime }: Props) {
   // Live mode: aggregate cumulative damage per component for every

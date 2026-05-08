@@ -13,6 +13,7 @@ import { PROC_CATALOG, type Proc, computeMetamagicSP } from '@/engine/dps/procs'
 import type { Build } from '@/types/build';
 import type { EngineResult } from '@/engine/runEngine';
 import type { DamageComponent } from '@/engine/dps/damage';
+import { fmt } from '@/utils/formatNumbers';
 import { scaleMult } from '@/engine/dps/damage';
 import { resolveScaleInputs, type DamageBreakdown } from '@/engine/dps/calculator';
 import { useTooltip } from '@/hooks/useTooltip';
@@ -57,9 +58,9 @@ function rotationAvgPerTrigger(
   return totalTriggers > 0 ? weightedDmg / totalTriggers : null;
 }
 
-const fmt0 = (n: number) => Math.round(n).toLocaleString();
-const fmt1 = (n: number) => (Math.round(n * 10) / 10).toLocaleString();
-const fmt2 = (n: number) => (Math.round(n * 100) / 100).toLocaleString();
+const fmt0 = (n: number) => fmt(n, 0);
+const fmt1 = (n: number) => fmt(n, 1);
+const fmt2 = (n: number) => fmt(n, 2);
 
 /**
  * Build a multi-line tooltip for one proc that shows:
