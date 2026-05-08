@@ -605,7 +605,23 @@
   .targetRow { flex-wrap: wrap; gap: 0.5rem; }
   .targetField { width: 100%; min-width: 0; }
   .targetSelect { width: 100%; }
-  .enemyInfo { margin-left: 0; flex-wrap: wrap; gap: 0.5rem; width: 100%; }
+  /* Enemy row: flush left, all 4 chips on one line */
+  .enemyInfo { margin-left: 0; flex-wrap: nowrap; gap: 0.35rem; width: 100%; overflow-x: auto; }
+  /* Compact the Metric cards inside enemyInfo to inline label:value chips */
+  .enemyInfo .metric {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.25rem 0.45rem;
+    flex-shrink: 0;
+  }
+  .enemyInfo .metricLabel {
+    font-size: 0.6rem;
+    letter-spacing: 0;
+  }
+  .enemyInfo .metricValue {
+    font-size: 0.85rem;
+  }
 }
 
 /* ── Melee damage source breakdown ──────────────────────────── */
