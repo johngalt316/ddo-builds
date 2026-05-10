@@ -52,6 +52,10 @@ export interface BuildContext {
   apSpentInTree: Map<string, number>;
   /** Active stances. Stance-gated effects fire only if their stance is in this set. */
   activeStances: ReadonlySet<string>;
+  /** Trained ranks per skill, keyed by lowercase snake_case skill id
+   *  (e.g. `perform`, `use_magic_device`). Used to gate enhancements
+   *  with `<Type>Skill</Type>` requirements. */
+  skillRanks: ReadonlyMap<string, number>;
 }
 
 function abilityModifier(score: number): number {
@@ -125,6 +129,12 @@ function passesRequirement(req: { type: string; item?: string; value?: number },
     case 'Ability':
       // Ability X >= value
       return (abilityByName(item, ctx.abilityScores) ?? 0) >= value;
+    case 'Skill': {
+      // Skill X >= value (trained ranks). Item is the display name; normalize
+      // to lowercase snake_case to match the skillId convention.
+      const skillId = item.toLowerCase().replace(/\s+/g, '_');
+      return (ctx.skillRanks.get(skillId) ?? 0) >= value;
+    }
     default:
       // Unknown requirement type — don't block; engine logs as not-modeled
       // upstream. Returning true here means we err on the side of including

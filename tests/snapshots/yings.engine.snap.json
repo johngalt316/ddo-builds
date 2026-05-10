@@ -14,7 +14,7 @@
     },
     "requirementsFailedCount": 107,
     "totalSourcedEffects": 1110,
-    "totalAppliedBonuses": 1346
+    "totalAppliedBonuses": 1322
   },
   "abilityScores": {
     "STR": {
@@ -1989,16 +1989,42 @@
     ]
   },
   "meleeSpeed": {
-    "total": 0,
-    "appliedCount": 0,
-    "dominatedCount": 0,
-    "sources": []
+    "total": 35,
+    "appliedCount": 2,
+    "dominatedCount": 8,
+    "sources": [
+      {
+        "source": "[E] Henshin Mystic: Henshin Mystic: Exemplar",
+        "bonusType": "Enchantment",
+        "value": 5,
+        "target": "Quarterstaff"
+      },
+      {
+        "source": "[A] Bracers: Bracers of the Battlerager → Topaz of Swiftness",
+        "bonusType": "Enhancement",
+        "value": 30,
+        "target": "All"
+      }
+    ]
   },
   "rangedSpeed": {
-    "total": 0,
-    "appliedCount": 0,
-    "dominatedCount": 0,
-    "sources": []
+    "total": 35,
+    "appliedCount": 2,
+    "dominatedCount": 8,
+    "sources": [
+      {
+        "source": "[E] Henshin Mystic: Henshin Mystic: Exemplar",
+        "bonusType": "Enchantment",
+        "value": 5,
+        "target": "Quarterstaff"
+      },
+      {
+        "source": "[A] Bracers: Bracers of the Battlerager → Topaz of Swiftness",
+        "bonusType": "Enhancement",
+        "value": 30,
+        "target": "All"
+      }
+    ]
   },
   "healingAmp": {
     "total": 200,

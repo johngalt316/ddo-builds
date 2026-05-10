@@ -9,6 +9,7 @@ import type { Build, GearItem } from '@/types/build';
 import type { EngineResult } from '@/engine/runEngine';
 import { abilityModifier } from '@/engine';
 import { stackBonuses } from '@/engine/bonusStacking';
+import { weaponInGroup } from '@/engine/weaponGroups';
 import type { Stat } from '@/types/build';
 
 export type WeaponCategory = 'handwraps' | 'one-handed' | 'two-handed';
@@ -355,6 +356,53 @@ export function critRangeBonusForWeapon(engine: EngineResult, weaponType: string
   return stackBonuses(relevant, engine.stackingRules).total;
 }
 
+/**
+ * Resolve `Weapon*Class` bonuses (class-restricted weapon bonuses that
+ * fire only when wielding a weapon in a specific group) into per-stat
+ * augmentations for the equipped weapon. Group membership combines the
+ * static weapon-type registry (`engine/weaponGroups.ts`) with dynamic
+ * groups built from `AddGroupWeapon` effects.
+ *
+ * Returns a struct of augmentations to ADD on top of the standard
+ * (non-class-restricted) breakdowns. The to-hit family
+ * (`WeaponAttackBonusClass`, `WeaponAttackBonusCriticalClass`) is
+ * intentionally omitted — the DPS engine doesn't model AC.
+ */
+export function weaponClassBonusesForWeapon(
+  engine: EngineResult,
+  weaponType: string,
+): {
+  flatDamage: number;
+  critRange: number;
+  critMult: number;
+  critDamageRider: number;
+  enchantment: number;
+} {
+  const dyn = engine.dynamicWeaponGroups;
+  const matches = (b: { target?: string }) =>
+    !!b.target && weaponInGroup(weaponType, b.target, dyn);
+
+  const stackByType = (type: string, predicate = matches): number =>
+    stackBonuses(
+      engine.allBonuses.filter(b => b.effectType === type && predicate(b)),
+      engine.stackingRules,
+    ).total;
+
+  return {
+    // Flat per-hit damage from class-restricted enhancements (Ravager
+    // Power Rush "+1/2/3 damage with Two-Handed weapons", etc.).
+    flatDamage:      stackByType('WeaponDamageBonusClass'),
+    // Extra crit-range faces when the wielded weapon matches.
+    critRange:       stackByType('WeaponCriticalRangeClass'),
+    // Crit-mult bonus on every crit when the wielded weapon matches.
+    critMult:        stackByType('WeaponCriticalMultiplierClass'),
+    // Bonus damage on crit only (treat as Seeker-style add).
+    critDamageRider: stackByType('WeaponDamageBonusCriticalClass'),
+    // Effect-driven enchantment bonus (e.g. Kensei Strike with Conviction).
+    enchantment:     stackByType('Weapon_EnchantmentClass'),
+  };
+}
+
 /** Derive MeleeBuildStats from the engine result + build. Pass an
  *  optional `alacrityOverride` (0-15) from the panel slider and an
  *  optional `actionBoostAlacrity` from active rotation boosts. */
@@ -390,19 +438,26 @@ export function buildStatsFromEngine(
   const ohChance = Math.min(100, ohBonus);
   const alacrity = alacrityOverride ?? engine.meleeSpeed.total;
 
+  // Class-restricted weapon bonuses (`Weapon*Class` family). Only fire
+  // when the equipped weapon is in the named group — see
+  // engine/weaponGroups.ts.
+  const klass = weaponClassBonusesForWeapon(engine, weaponInfo.weaponType);
+
   return {
     statMod,
     damageStat,
     meleePower:          engine.meleePower.total,
     doublestrike:        engine.doublestrike.total,
     meleeAlacrity:       alacrity,
-    seeker:              engine.seeker.total,
+    seeker:              engine.seeker.total + klass.critDamageRider,
     hasImprovedCritical: detectImprovedCritical(build),
-    critRangeBonus:      critRangeBonusForWeapon(engine, weaponInfo.weaponType),
-    critMultBonus:       engine.weaponCritMult.total,
+    critRangeBonus:      critRangeBonusForWeapon(engine, weaponInfo.weaponType) + klass.critRange,
+    critMultBonus:       engine.weaponCritMult.total + klass.critMult,
     critMult1920Bonus:   engine.weaponCritMult1920.total,
     wBonus:              engine.weaponBaseDamage.total,
-    flatDmgBonus:        engine.weaponFlatDamage.total,
+    // Class-restricted enchantment is a flat per-hit damage rider
+    // (matches DDO's treatment — enchantment +N adds N flat damage).
+    flatDmgBonus:        engine.weaponFlatDamage.total + klass.flatDamage + klass.enchantment,
     physDamagePct:       engine.weaponDamagePct.total,
     twfStyle,
     offHandChance:       ohChance,

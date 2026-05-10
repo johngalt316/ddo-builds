@@ -180,6 +180,12 @@ export interface EngineResult {
    *  re-stack filtered subsets of `allBonuses` (e.g. weapon-type-filtered
    *  crit range) can apply the same rules without re-parsing the catalog. */
   stackingRules: StackingRules;
+  /** Dynamic weapon-group memberships built up from `AddGroupWeapon`
+   *  effects across the build's active enhancements / feats / class
+   *  abilities. Map: groupName → Set<weaponType>. Used by
+   *  `weaponInGroup` (engine/weaponGroups.ts) to decide which
+   *  Weapon*Class effects fire for the equipped weapon. */
+  dynamicWeaponGroups: Map<string, Set<string>>;
   diagnostics: {
     unmatchedFeats: string[];
     unmatchedTrees: string[];
@@ -282,6 +288,10 @@ export function runEngine(input: RunEngineInput): EngineResult {
   let reqFailed = 0;
   /** SLA accumulator — one entry per granting source (no name-deduping). */
   const slas: CollectedSLA[] = [];
+  /** Dynamic weapon-group memberships, fed by AddGroupWeapon effects.
+   *  groupName → set of weapon types added to that group. See
+   *  `engine/weaponGroups.ts` for usage. */
+  const dynamicWeaponGroups = new Map<string, Set<string>>();
 
   // Effects whose value depends on the final (post-enhancement) ability score
   // are deferred to a second pass after ability breakdowns are computed.
@@ -293,6 +303,25 @@ export function runEngine(input: RunEngineInput): EngineResult {
   const ABILITY_SNAP_ATYPES = new Set(['AbilityMod', 'HalfAbilityMod', 'ThirdAbilityMod', 'AbilityValue', 'AbilityTotal']);
 
   for (const { effect, source, rankCount } of sourced) {
+    // AddGroupWeapon effects build up dynamic weapon-group memberships.
+    // Schema: <Item> entries — first is the group name, rest are weapon
+    // types added to that group. AType is typically NotNeeded.
+    // Examples: Kensei "Focus Weapon" + chosen weapons; Bard
+    // "Swashbuckling" + light blades; racial "Proficiency" + Dwarven Axe.
+    if (effect.types.includes('AddGroupWeapon')) {
+      const items = effect.items ?? [];
+      const groupName = items[0];
+      if (groupName) {
+        const set = dynamicWeaponGroups.get(groupName) ?? new Set<string>();
+        for (let i = 1; i < items.length; i++) {
+          const w = items[i];
+          if (w) set.add(w);
+        }
+        dynamicWeaponGroups.set(groupName, set);
+      }
+      continue;
+    }
+
     const isSLA = effect.types.includes('SpellLikeAbility');
     if (isSLA) {
       // Item[0] = spell name; Item[1] = casting class. Amount layout:
@@ -676,6 +705,7 @@ export function runEngine(input: RunEngineInput): EngineResult {
     // bucket into a top-level breakdown.
     allBonuses,
     stackingRules: rules,
+    dynamicWeaponGroups,
     diagnostics: {
       unmatchedFeats: [...new Set(unmatchedFeats)].sort(),
       unmatchedTrees: unmatchedTrees.sort(),

@@ -13,9 +13,9 @@
     "unmodeledAmountTypes": {
       "Slider": 1
     },
-    "requirementsFailedCount": 170,
+    "requirementsFailedCount": 172,
     "totalSourcedEffects": 1157,
-    "totalAppliedBonuses": 1317
+    "totalAppliedBonuses": 1295
   },
   "abilityScores": {
     "STR": {
@@ -2076,16 +2076,42 @@
     ]
   },
   "meleeSpeed": {
-    "total": 0,
-    "appliedCount": 0,
-    "dominatedCount": 0,
-    "sources": []
+    "total": 20,
+    "appliedCount": 2,
+    "dominatedCount": 8,
+    "sources": [
+      {
+        "source": "[E] Henshin Mystic: Henshin Mystic: Exemplar",
+        "bonusType": "Enchantment",
+        "value": 5,
+        "target": "Quarterstaff"
+      },
+      {
+        "source": "[FS] Celerity (3-piece tier ≥ 3)",
+        "bonusType": "Enhancement",
+        "value": 15,
+        "target": "All"
+      }
+    ]
   },
   "rangedSpeed": {
-    "total": 0,
-    "appliedCount": 0,
-    "dominatedCount": 0,
-    "sources": []
+    "total": 20,
+    "appliedCount": 2,
+    "dominatedCount": 8,
+    "sources": [
+      {
+        "source": "[E] Henshin Mystic: Henshin Mystic: Exemplar",
+        "bonusType": "Enchantment",
+        "value": 5,
+        "target": "Quarterstaff"
+      },
+      {
+        "source": "[FS] Celerity (3-piece tier ≥ 3)",
+        "bonusType": "Enhancement",
+        "value": 15,
+        "target": "All"
+      }
+    ]
   },
   "healingAmp": {
     "total": 391,

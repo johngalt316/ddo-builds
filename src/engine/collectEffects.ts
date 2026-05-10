@@ -870,6 +870,11 @@ export function buildBuildContext(input: {
     apSpentInTree.set(tree.treeId.toLowerCase(), ap);
   }
 
+  const skillRanks = new Map<string, number>();
+  for (const [skillId, ranks] of Object.entries(build.skillRanks ?? {})) {
+    if (ranks > 0) skillRanks.set(skillId, ranks);
+  }
+
   return {
     totalLevel,
     classLevels,
@@ -881,5 +886,6 @@ export function buildBuildContext(input: {
     bab,
     apSpentInTree,
     activeStances: new Set(build.activeStances ?? []),
+    skillRanks,
   };
 }

@@ -24,6 +24,14 @@ function ofType(bonuses: Bonus[], type: string): Bonus[] {
   return bonuses.filter(b => b.effectType === type);
 }
 
+/** Filter bonuses by any of several EffectTypes — used when a stat has
+ *  multiple XML aliases (e.g. attack speed shows up as either
+ *  `MeleeAlacrity` from gear or `Weapon_Alacrity` from enhancements). */
+function ofTypes(bonuses: Bonus[], types: readonly string[]): Bonus[] {
+  const set = new Set(types);
+  return bonuses.filter(b => b.effectType !== undefined && set.has(b.effectType));
+}
+
 /** Add a synthetic seed Bonus to a list. Used to fold pure-engine output into the stack. */
 function withSeed(bonuses: Bonus[], seed: number, seedSource: string): Bonus[] {
   if (seed === 0) return bonuses;
@@ -169,8 +177,16 @@ export function breakdownWeaponBaseDamage(bonuses: Bonus[], rules: StackingRules
 // by bonus type (Enhancement + Insight + Quality all apply; same type
 // takes highest from item sources).  Percent bonuses are excluded here —
 // they are a multiplicative modifier on total damage, not a flat addition.
+//
+// Sources:
+//   • `Weapon_Damage` — flat +N damage (e.g. Deadly, augments, item buffs).
+//   • `Weapon_AttackAndDamage` — combined +N attack and damage, common on
+//     feats / enhancements like Greater Weapon Focus, Kensei specialization
+//     nodes. The attack half doesn't matter yet (no AC modeling), but the
+//     damage half should land here.
+const WEAPON_FLAT_DAMAGE_TYPES = ['Weapon_Damage', 'Weapon_AttackAndDamage'] as const;
 export function breakdownWeaponFlatDamage(bonuses: Bonus[], rules: StackingRules): BreakdownResult {
-  return stackBonuses(ofType(bonuses, 'Weapon_Damage').filter(b => !b.isPercent), rules);
+  return stackBonuses(ofTypes(bonuses, WEAPON_FLAT_DAMAGE_TYPES).filter(b => !b.isPercent), rules);
 }
 
 // Shield bash rate: SecondaryShieldBash effects from feats (Improved Shield
@@ -259,12 +275,22 @@ export function breakdownSpellResistance(bonuses: Bonus[], rules: StackingRules)
 
 // ── Combat speeds ─────────────────────────────────────────────────────────
 
+// Attack-speed sources split across two XML aliases:
+//   • `MeleeAlacrity` / `RangedAlacrity` — used by ItemBuffs.xml and the
+//     items/by-slot/*.json gear catalog.
+//   • `Weapon_Alacrity` — used by enhancement trees (Henshin Mystic Porous
+//     Soul, Kensei One Cut, Tempest Improved Reaction, etc.), class XMLs,
+//     and a few augments. Treated as weapon-attack-speed regardless of
+//     melee vs ranged context, so it feeds BOTH breakdowns.
+const MELEE_SPEED_TYPES  = ['MeleeAlacrity',  'Weapon_Alacrity'] as const;
+const RANGED_SPEED_TYPES = ['RangedAlacrity', 'Weapon_Alacrity'] as const;
+
 export function breakdownMeleeSpeed(bonuses: Bonus[], rules: StackingRules): BreakdownResult {
-  return stackBonuses(ofType(bonuses, 'MeleeAlacrity'), rules);
+  return stackBonuses(ofTypes(bonuses, MELEE_SPEED_TYPES), rules);
 }
 
 export function breakdownRangedSpeed(bonuses: Bonus[], rules: StackingRules): BreakdownResult {
-  return stackBonuses(ofType(bonuses, 'RangedAlacrity'), rules);
+  return stackBonuses(ofTypes(bonuses, RANGED_SPEED_TYPES), rules);
 }
 
 // ── Arcane Spell Failure ──────────────────────────────────────────────────

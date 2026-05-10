@@ -12,9 +12,9 @@
       "SliderValue": 6,
       "Slider": 3
     },
-    "requirementsFailedCount": 95,
+    "requirementsFailedCount": 97,
     "totalSourcedEffects": 1083,
-    "totalAppliedBonuses": 1417
+    "totalAppliedBonuses": 1379
   },
   "abilityScores": {
     "STR": {
@@ -1721,16 +1721,30 @@
     ]
   },
   "meleeSpeed": {
-    "total": 0,
-    "appliedCount": 0,
-    "dominatedCount": 0,
-    "sources": []
+    "total": 30,
+    "appliedCount": 1,
+    "dominatedCount": 8,
+    "sources": [
+      {
+        "source": "[G] Boots: Legendary Windriders (Speed)",
+        "bonusType": "Enhancement",
+        "value": 30,
+        "target": "All"
+      }
+    ]
   },
   "rangedSpeed": {
-    "total": 0,
-    "appliedCount": 0,
-    "dominatedCount": 0,
-    "sources": []
+    "total": 30,
+    "appliedCount": 1,
+    "dominatedCount": 8,
+    "sources": [
+      {
+        "source": "[G] Boots: Legendary Windriders (Speed)",
+        "bonusType": "Enhancement",
+        "value": 30,
+        "target": "All"
+      }
+    ]
   },
   "healingAmp": {
     "total": 172,

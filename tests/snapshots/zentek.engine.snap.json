@@ -12,9 +12,9 @@
       "Slider": 1,
       "SliderValue": 1
     },
-    "requirementsFailedCount": 28,
+    "requirementsFailedCount": 30,
     "totalSourcedEffects": 333,
-    "totalAppliedBonuses": 519
+    "totalAppliedBonuses": 443
   },
   "abilityScores": {
     "STR": {
@@ -523,16 +523,42 @@
     ]
   },
   "meleeSpeed": {
-    "total": 0,
-    "appliedCount": 0,
+    "total": -20,
+    "appliedCount": 2,
     "dominatedCount": 0,
-    "sources": []
+    "sources": [
+      {
+        "source": "Patience",
+        "bonusType": "Feat",
+        "value": -10,
+        "target": "All"
+      },
+      {
+        "source": "Patience",
+        "bonusType": "Feat",
+        "value": -10,
+        "target": "All"
+      }
+    ]
   },
   "rangedSpeed": {
-    "total": 0,
-    "appliedCount": 0,
+    "total": -20,
+    "appliedCount": 2,
     "dominatedCount": 0,
-    "sources": []
+    "sources": [
+      {
+        "source": "Patience",
+        "bonusType": "Feat",
+        "value": -10,
+        "target": "All"
+      },
+      {
+        "source": "Patience",
+        "bonusType": "Feat",
+        "value": -10,
+        "target": "All"
+      }
+    ]
   },
   "healingAmp": {
     "total": 0,
