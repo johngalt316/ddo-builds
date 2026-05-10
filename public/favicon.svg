@@ -1,4 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Dark rounded background, matches site surface -->
   <rect width="32" height="32" rx="6" fill="#1a1a24"/>
-  <text x="16" y="23" text-anchor="middle" font-size="18">⚔️</text>
+
+  <!-- Gold d20 silhouette: filled hexagon for body, brighter outline,
+       three inner spokes meeting at center to suggest the visible top
+       faces of an icosahedron viewed from above. -->
+  <polygon
+    points="16,4 27,10 27,22 16,28 5,22 5,10"
+    fill="#c9a227" fill-opacity="0.18"
+    stroke="#e0b83a" stroke-width="1.4" stroke-linejoin="round"/>
+  <g stroke="#e0b83a" stroke-width="1.2" fill="none" stroke-linecap="round">
+    <line x1="16" y1="4"  x2="16" y2="16"/>
+    <line x1="27" y1="10" x2="16" y2="16"/>
+    <line x1="5"  y1="10" x2="16" y2="16"/>
+  </g>
+
+  <!-- Green stock-chart-style arrow trending up to the upper-right.
+       Three peaks-and-valleys followed by an L-shaped arrowhead in the
+       corner. -->
+  <g stroke="#3ddc84" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="4,24 10,19 15,22 21,13 28,7"/>
+    <polyline points="23,7 28,7 28,12"/>
+  </g>
 </svg>

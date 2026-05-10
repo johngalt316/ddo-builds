@@ -7,9 +7,9 @@ export function Home() {
       <div className={styles.alphaBanner} role="alert">
         <span className={styles.alphaTag}>Alpha</span>
         <span>
-          This site is under active development and <strong>has known bugs</strong>.
-          Numbers may be wrong, layouts may shift, and saved builds may need re-importing
-          as the data model evolves. File issues at{' '}
+          Active development. Numbers may be wrong, layouts may shift, and saved
+          builds may need re-importing as the data model evolves. Report issues
+          at{' '}
           <a
             href="https://github.com/johngalt316/ddo-builds/issues"
             target="_blank"
@@ -24,57 +24,93 @@ export function Home() {
       <section className={styles.hero}>
         <h1 className={styles.title}>DDO DPS Calculator</h1>
         <p className={styles.subtitle}>
-          Plan your Dungeons and Dragons Online character build — ability scores,
-          class splits, feats, and enhancements — then share it with a link or
-          import an existing build from DDO Builder.
+          A build planner with a real DPS engine for{' '}
+          <em>Dungeons &amp; Dragons Online</em>. Plan a character, lay out a
+          rotation, and see — second by second — where every point of damage
+          comes from.
         </p>
         <Link to="/builder" className={styles.cta}>
-          Start Building →
+          Open the builder <span className={styles.ctaArrow} aria-hidden="true">→</span>
         </Link>
       </section>
 
       <section className={styles.features}>
-        <div className={styles.featureCard}>
-          <div className={styles.featureIcon}>⚔️</div>
-          <h2>Multiclass Support</h2>
-          <p>Model DDO's unique 3-class multiclass system with accurate BAB, saves, and hit points for every combination.</p>
-        </div>
-        <div className={styles.featureCard}>
-          <div className={styles.featureIcon}>🎲</div>
-          <h2>Point-Buy Calculator</h2>
-          <p>Allocate your 32 ability score points with real-time cost feedback and racial bonus preview.</p>
-        </div>
-        <div className={styles.featureCard}>
-          <div className={styles.featureIcon}>🔗</div>
-          <h2>Shareable Builds</h2>
-          <p>Your entire build is encoded in the URL. Copy and share it — no account required, no server needed.</p>
-        </div>
+        <article className={styles.feature}>
+          <header className={styles.featureHeader}>
+            <h2>DPS Calculator</h2>
+            <span className={styles.featureStatus}>Magic ✓ · Melee ✓ · Ranged ✗</span>
+          </header>
+          <p>
+            Per-spell damage-per-cast, full rotation cycle simulation, on-hit
+            procs, buff and debuff stacking, damage broken out by source, and
+            difficulty scaling from Elite through R10. Compare two enhancement
+            sets side-by-side at the same rotation and weapon.
+          </p>
+        </article>
+
+        <article className={styles.feature}>
+          <header className={styles.featureHeader}>
+            <h2>Build Planner</h2>
+            <span className={styles.featureStatus}>Heroic · Epic · Legendary</span>
+          </header>
+          <p>
+            Three-class multiclass with accurate BAB, saves, hit dice, and spell
+            slots. 32-point buy with live cost feedback. Feats, skills,
+            enhancement trees, epic destinies, reaper trees, and gear. Multiple
+            enhancement sets and gear sets per build for{' '}
+            <em>&ldquo;what if I respec&rdquo;</em> comparisons.
+          </p>
+        </article>
+
+        <article className={styles.feature}>
+          <header className={styles.featureHeader}>
+            <h2>Import &amp; Share</h2>
+            <span className={styles.featureStatus}>No accounts · No telemetry</span>
+          </header>
+          <p>
+            Import existing builds from Maetrim&apos;s DDOBuilderV2{' '}
+            <code>.DDOBuild</code> XML, or build from scratch. The entire build
+            is encoded in the URL — copy the link to share a complete character
+            with party members or the forums. No server, no database, no cookies.
+          </p>
+        </article>
+      </section>
+
+      {/* Pending — short, factual list of what's not yet built. */}
+      <section className={styles.pending}>
+        <h2 className={styles.pendingTitle}>Not yet built</h2>
+        <ul className={styles.pendingList}>
+          <li>Ranged rotations</li>
+          <li>Rotation optimizer (auto-fill is on you for now)</li>
+          <li>Enemy AC and Fortification modeling</li>
+          <li>Some on-hit melee procs (Magical Ambush analogs)</li>
+        </ul>
       </section>
 
       <footer className={styles.attribution}>
         <p>
-          Open source —{' '}
+          Open source under the{' '}
           <a
             href="https://github.com/johngalt316/ddo-builds"
             target="_blank"
             rel="noopener noreferrer"
           >
-            github.com/johngalt316/ddo-builds
-          </a>{' '}
-          (MIT license).
-        </p>
-        <p>
-          Game data and images sourced from{' '}
+            MIT license
+          </a>
+          . Game data and item images sourced from{' '}
           <a
             href="https://github.com/Maetrim/DDOBuilderV2"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Maetrim's DDOBuilderV2
+            Maetrim&apos;s DDOBuilderV2
           </a>
-          . Dungeons &amp; Dragons Online is © Standing Stone Games. This site is a
-          fan-made tool, not affiliated with or endorsed by Standing Stone Games or
-          Daybreak Game Company.
+          .
+        </p>
+        <p className={styles.attributionDim}>
+          Dungeons &amp; Dragons Online is © Standing Stone Games. This site is a
+          fan-made tool, not affiliated with or endorsed by Standing Stone Games
+          or Daybreak Game Company.
         </p>
       </footer>
     </div>

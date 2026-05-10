@@ -8,6 +8,13 @@
   --color-text-muted:   #8888aa;
   --color-gold:         #c9a227;
   --color-gold-light:   #e0b83a;
+  --color-oxblood:      #6e1414;
+  --color-oxblood-mid:  #8b1f1f;
+  --color-vellum:       #d4c8a8;
+  --color-ink:          #050507;
+
+  --font-display:       'Cinzel', 'Trajan Pro', 'Times New Roman', serif;
+  --font-mono:          'JetBrains Mono', 'Consolas', monospace;
 
   font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
   font-size: 16px;
