@@ -135,6 +135,12 @@ function passesRequirement(req: { type: string; item?: string; value?: number },
       const skillId = item.toLowerCase().replace(/\s+/g, '_');
       return (ctx.skillRanks.get(skillId) ?? 0) >= value;
     }
+    case 'BAB':
+      // BAB >= value. The seed BAB (class-progression-derived) lives on
+      // ctx; effect-driven BAB additions land in allBonuses and aren't
+      // factored in here. Most BAB-gated requirements are at heroic-class
+      // breakpoints (BAB 4 / 8 / 12) where the seed alone is decisive.
+      return ctx.bab >= value;
     default:
       // Unknown requirement type — don't block; engine logs as not-modeled
       // upstream. Returning true here means we err on the side of including

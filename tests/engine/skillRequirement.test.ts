@@ -1,15 +1,16 @@
-// Verifies that <Type>Skill</Type> requirements gate effects on the
-// build's trained skill ranks. Bard Warchanter has the only enhancement-tree
-// usages today (Perform 4 / Perform 8), but the gate should work for any skill.
-//
-// Audit reference: docs/audits/slice-01-core-stats.md, Issue 1.
+// Verifies the requirement-gating cases in `passesRequirement`:
+//   - <Type>Skill</Type>  — Slice 1, Issue 1
+//   - <Type>BAB</Type>    — Slice 5
+// These were both silently passing because the switch had no cases for
+// them, and the default branch returns true. Each gate now correctly
+// blocks effects when the build doesn't qualify.
 
 import { describe, it, expect } from 'vitest';
 import { passesRequirements } from '@/engine/evaluateEffect';
 import type { BuildContext } from '@/engine/evaluateEffect';
 import type { DDORequirements } from '@/types/ddoData';
 
-function ctxWithSkills(skillRanks: Record<string, number> = {}): BuildContext {
+function ctxWith(overrides: Partial<BuildContext> = {}): BuildContext {
   return {
     totalLevel: 20,
     classLevels: new Map(),
@@ -21,8 +22,13 @@ function ctxWithSkills(skillRanks: Record<string, number> = {}): BuildContext {
     bab: 15,
     apSpentInTree: new Map(),
     activeStances: new Set(),
-    skillRanks: new Map(Object.entries(skillRanks)),
+    skillRanks: new Map(),
+    ...overrides,
   };
+}
+
+function ctxWithSkills(skillRanks: Record<string, number> = {}): BuildContext {
+  return ctxWith({ skillRanks: new Map(Object.entries(skillRanks)) });
 }
 
 function reqs(type: string, item: string, value: number): DDORequirements {
@@ -57,5 +63,23 @@ describe('passesRequirements — <Type>Skill</Type>', () => {
     const ctx = ctxWithSkills({ use_magic_device: 5, disable_device: 3 });
     expect(passesRequirements(reqs('Skill', 'Use Magic Device', 5), ctx)).toBe(true);
     expect(passesRequirements(reqs('Skill', 'Disable Device', 4), ctx)).toBe(false);
+  });
+});
+
+describe('passesRequirements — <Type>BAB</Type>', () => {
+  it('passes when the build BAB meets the threshold', () => {
+    const ctx = ctxWith({ bab: 12 });
+    expect(passesRequirements(reqs('BAB', '', 8),  ctx)).toBe(true);
+    expect(passesRequirements(reqs('BAB', '', 12), ctx)).toBe(true);
+  });
+
+  it('fails when BAB falls short', () => {
+    const ctx = ctxWith({ bab: 6 });
+    expect(passesRequirements(reqs('BAB', '', 8), ctx)).toBe(false);
+  });
+
+  it('passes when value is 0 (no real threshold)', () => {
+    const ctx = ctxWith({ bab: 0 });
+    expect(passesRequirements(reqs('BAB', '', 0), ctx)).toBe(true);
   });
 });

@@ -248,13 +248,17 @@ export function breakdownRepairAmp(bonuses: Bonus[], rules: StackingRules): Brea
 
 // ── Defenses: AC / Dodge / PRR / MRR / Spell Resistance ───────────────────
 
+// AC stacking sources:
+//   • `ACBonus` — generic AC bonus
+//   • `ACBonusShield` — shield-specific (stacks with armor AC)
+//   • `ACBonusTowerShield` — tower shield variant
+//   • `ArmorACBonus` — armor-conditional bonus from class enhancements
+//     (e.g. Stalwart heavy-armor specialization). The bonus's own
+//     <Requirements> already gate it on the equipped armor type, so
+//     including it here is safe.
+const AC_TYPES = ['ACBonus', 'ACBonusShield', 'ACBonusTowerShield', 'ArmorACBonus'] as const;
 export function breakdownAC(bonuses: Bonus[], rules: StackingRules): BreakdownResult {
-  // ACBonus + ACBonusShield (shield AC stacks with armor) + ACBonusTowerShield.
-  const relevant = bonuses.filter(b =>
-    b.effectType === 'ACBonus' ||
-    b.effectType === 'ACBonusShield' ||
-    b.effectType === 'ACBonusTowerShield');
-  return stackBonuses(relevant, rules);
+  return stackBonuses(ofTypes(bonuses, AC_TYPES), rules);
 }
 
 export function breakdownDodge(bonuses: Bonus[], rules: StackingRules): BreakdownResult {
