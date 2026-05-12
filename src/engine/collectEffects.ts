@@ -93,6 +93,20 @@ function mergeAARequirements(
   };
 }
 
+/** AND-merge two requirement blocks. Used to inherit a GrantFeat effect's own
+ *  gates onto the granted feat's effects, so race/class/level gating on the
+ *  grant flows through to the inherited bonuses. */
+function mergeRequirements(
+  a: DDORequirements,
+  b: DDORequirements,
+): DDORequirements {
+  return {
+    allOf:  [...a.allOf,  ...b.allOf],
+    oneOf:  [...a.oneOf,  ...b.oneOf],
+    noneOf: [...a.noneOf, ...b.noneOf],
+  };
+}
+
 export interface SourcedEffect {
   effect: DDOEffect;
   /** Human-readable origin: "Toughness feat", "Fighter level 1 grants Cleave", etc. */
@@ -424,6 +438,10 @@ function walkTreeSpend(
 /** Phase-2-MVP collector. Returns the effects + a parallel "unmodeled" tally. */
 export function collectEffects(input: CollectInputs): {
   effects: SourcedEffect[];
+  /** Feat names granted via <Type>GrantFeat</Type> from enhancements / classes
+   *  / races. Caller (runEngine) merges these into ctx.feats so downstream
+   *  <Type>Feat</Type> requirements on the granted feats pass. */
+  grantedFeats: string[];
   /** Selected feats whose name didn't match anything in Feats.xml — silent gaps. */
   unmatchedFeats: string[];
   /** Tree names from the build that we couldn't find in the loaded enhancement-tree data. */
@@ -699,8 +717,45 @@ export function collectEffects(input: CollectInputs): {
     }
   }
 
+  // ── 9. Expand GrantFeat references ─────────────────────────────────
+  // ~170 enhancement/race/class effects use <Type>GrantFeat</Type> to grant
+  // a feat (e.g. Magical Training, Diehard, Favored Enemy: X). The granting
+  // effect itself emits no Bonus — its purpose is to add the named feat to
+  // the build's repertoire. We expand the grant by appending the granted
+  // feat's effects with the grant's own <Requirements> AND-merged onto each
+  // inherited effect, so race/class/level gating on the grant flows through.
+  //
+  // Granted feat names are also returned to the caller so they can land in
+  // ctx.feats — making any downstream <Type>Feat</Type> requirement that
+  // checks for the granted feat pass. Iterates a snapshot of `out` so we
+  // don't re-process the appended granted effects (no chained GrantFeat
+  // expansion — none observed in current data).
+  const grantedFeatNames = new Set<string>();
+  const grantedEffects: SourcedEffect[] = [];
+  const snapshot = out.slice();
+  for (const se of snapshot) {
+    if (!se.effect.types.includes('GrantFeat')) continue;
+    const featName = se.effect.items?.[0];
+    if (!featName) continue;
+    const data = featIdx.get(featName.toLowerCase());
+    if (!data) {
+      unmatched.push(featName);
+      continue;
+    }
+    grantedFeatNames.add(data.name);
+    for (const eff of data.effects) {
+      grantedEffects.push({
+        effect: { ...eff, requirements: mergeRequirements(eff.requirements, se.effect.requirements) },
+        source: `${se.source} → ${data.name}`,
+        rankCount: 1,
+      });
+    }
+  }
+  out.push(...grantedEffects);
+
   return {
     effects: out,
+    grantedFeats: [...grantedFeatNames],
     unmatchedFeats: unmatched,
     unmatchedTrees: [...unmatchedTrees],
     unmatchedEnhancements: [...unmatchedEnhancements],
@@ -844,8 +899,12 @@ export function buildBuildContext(input: {
   classes: DDOClassData[];
   effectiveScores: Record<string, number>;
   bab: number;
+  /** Feats granted by enhancements / classes / races via <Type>GrantFeat</Type>.
+   *  Unioned into ctx.feats alongside the player-selected feats so requirements
+   *  that gate on a granted feat name pass. */
+  grantedFeats?: ReadonlyArray<string>;
 }): import('./evaluateEffect').BuildContext {
-  const { build, classes, effectiveScores, bab } = input;
+  const { build, classes, effectiveScores, bab, grantedFeats } = input;
   const classIdx = indexClasses(classes);
 
   const totalLevel = build.classes.reduce((s, c) => s + c.levels, 0)
@@ -875,13 +934,16 @@ export function buildBuildContext(input: {
     if (ranks > 0) skillRanks.set(skillId, ranks);
   }
 
+  const allFeats = new Set<string>(build.feats.map(f => f.featId));
+  for (const g of grantedFeats ?? []) allFeats.add(g);
+
   return {
     totalLevel,
     classLevels,
     baseClassLevels,
     raceId: build.raceId,
     raceName: build.raceId.replace(/_/g, ' '),
-    feats: new Set(build.feats.map(f => f.featId)),
+    feats: allFeats,
     abilityScores: effectiveScores,
     bab,
     apSpentInTree,

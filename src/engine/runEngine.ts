@@ -262,13 +262,12 @@ export function runEngine(input: RunEngineInput): EngineResult {
   );
 
   // ── Effect collection + evaluation ─────────────────────────────────
-  const ctx = buildBuildContext({
-    build, classes,
-    effectiveScores: effectiveScores as unknown as Record<string, number>,
-    bab: seedBab,
-  });
+  // Collect first so we know which feats are granted by enhancements/classes/
+  // races; merge those into ctx.feats so <Type>Feat</Type> requirements that
+  // gate on granted feat names pass.
   const {
     effects: sourced,
+    grantedFeats,
     unmatchedFeats,
     unmatchedTrees,
     unmatchedEnhancements,
@@ -281,6 +280,12 @@ export function runEngine(input: RunEngineInput): EngineResult {
     build, feats, classes, races, enhancementTrees,
     itemBuffs, setBonuses, itemSetIndex, augments,
     filigrees, filigreeSetBonuses, selfPartyBuffs, guildBuffs,
+  });
+  const ctx = buildBuildContext({
+    build, classes,
+    effectiveScores: effectiveScores as unknown as Record<string, number>,
+    bab: seedBab,
+    grantedFeats,
   });
 
   const allBonuses: Bonus[] = [];

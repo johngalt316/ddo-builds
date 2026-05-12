@@ -14,8 +14,8 @@
       "Slider": 1
     },
     "requirementsFailedCount": 172,
-    "totalSourcedEffects": 1157,
-    "totalAppliedBonuses": 1295
+    "totalSourcedEffects": 1163,
+    "totalAppliedBonuses": 1301
   },
   "abilityScores": {
     "STR": {
@@ -3095,12 +3095,17 @@
     ]
   },
   "universalSpellCriticalChance": {
-    "total": 5,
-    "appliedCount": 1,
+    "total": 10,
+    "appliedCount": 2,
     "dominatedCount": 0,
     "sources": [
       {
         "source": "Monk 1: Magical Training",
+        "bonusType": "Feat",
+        "value": 5
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Shadow Training → Magical Training",
         "bonusType": "Feat",
         "value": 5
       }
@@ -3483,170 +3488,170 @@
   },
   "spellCriticalChance": {
     "Acid": {
-      "total": 5,
+      "total": 10,
       "appliedCount": 1,
       "dominatedCount": 0,
       "sources": [
         {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 5,
+          "value": 10,
           "target": "Acid"
         }
       ]
     },
     "Chaos": {
-      "total": 5,
+      "total": 10,
       "appliedCount": 1,
       "dominatedCount": 0,
       "sources": [
         {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 5,
+          "value": 10,
           "target": "Chaos"
         }
       ]
     },
     "Cold": {
-      "total": 5,
+      "total": 10,
       "appliedCount": 1,
       "dominatedCount": 0,
       "sources": [
         {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 5,
+          "value": 10,
           "target": "Cold"
         }
       ]
     },
     "Electric": {
-      "total": 5,
+      "total": 10,
       "appliedCount": 1,
       "dominatedCount": 0,
       "sources": [
         {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 5,
+          "value": 10,
           "target": "Electric"
         }
       ]
     },
     "Evil": {
-      "total": 5,
+      "total": 10,
       "appliedCount": 1,
       "dominatedCount": 0,
       "sources": [
         {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 5,
+          "value": 10,
           "target": "Evil"
         }
       ]
     },
     "Fire": {
-      "total": 5,
+      "total": 10,
       "appliedCount": 1,
       "dominatedCount": 0,
       "sources": [
         {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 5,
+          "value": 10,
           "target": "Fire"
         }
       ]
     },
     "Force": {
-      "total": 5,
+      "total": 10,
       "appliedCount": 1,
       "dominatedCount": 0,
       "sources": [
         {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 5,
+          "value": 10,
           "target": "Force"
         }
       ]
     },
     "Light/Alignment": {
-      "total": 5,
+      "total": 10,
       "appliedCount": 1,
       "dominatedCount": 0,
       "sources": [
         {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 5,
+          "value": 10,
           "target": "Light/Alignment"
         }
       ]
     },
     "Negative": {
-      "total": 5,
+      "total": 10,
       "appliedCount": 1,
       "dominatedCount": 0,
       "sources": [
         {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 5,
+          "value": 10,
           "target": "Negative"
         }
       ]
     },
     "Poison": {
-      "total": 5,
+      "total": 10,
       "appliedCount": 1,
       "dominatedCount": 0,
       "sources": [
         {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 5,
+          "value": 10,
           "target": "Poison"
         }
       ]
     },
     "Positive": {
-      "total": 5,
+      "total": 10,
       "appliedCount": 1,
       "dominatedCount": 0,
       "sources": [
         {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 5,
+          "value": 10,
           "target": "Positive"
         }
       ]
     },
     "Repair": {
-      "total": 5,
+      "total": 10,
       "appliedCount": 1,
       "dominatedCount": 0,
       "sources": [
         {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 5,
+          "value": 10,
           "target": "Repair"
         }
       ]
     },
     "Sonic": {
-      "total": 5,
+      "total": 10,
       "appliedCount": 1,
       "dominatedCount": 0,
       "sources": [
         {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 5,
+          "value": 10,
           "target": "Sonic"
         }
       ]

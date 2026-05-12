@@ -12,9 +12,9 @@
       "SliderValue": 6,
       "Slider": 3
     },
-    "requirementsFailedCount": 97,
-    "totalSourcedEffects": 1083,
-    "totalAppliedBonuses": 1379
+    "requirementsFailedCount": 98,
+    "totalSourcedEffects": 1092,
+    "totalAppliedBonuses": 1387
   },
   "abilityScores": {
     "STR": {
@@ -3051,8 +3051,8 @@
     ]
   },
   "universalSpellCriticalChance": {
-    "total": 27,
-    "appliedCount": 10,
+    "total": 42,
+    "appliedCount": 13,
     "dominatedCount": 0,
     "sources": [
       {
@@ -3067,6 +3067,21 @@
       },
       {
         "source": "Arcane Trickster 3: Magical Training",
+        "bonusType": "Feat",
+        "value": 5
+      },
+      {
+        "source": "[D] Shiradi Champion: Shiradi Champion: Fey Favor → Magical Training",
+        "bonusType": "Feat",
+        "value": 5
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Shadow Training → Magical Training",
+        "bonusType": "Feat",
+        "value": 5
+      },
+      {
+        "source": "[D] Machrotechnic: Machrotechnic: Maker's Touch → Magical Training",
         "bonusType": "Feat",
         "value": 5
       },
@@ -4121,7 +4136,7 @@
   },
   "spellCriticalChance": {
     "Acid": {
-      "total": 60,
+      "total": 75,
       "appliedCount": 5,
       "dominatedCount": 0,
       "sources": [
@@ -4152,13 +4167,13 @@
         {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 27,
+          "value": 42,
           "target": "Acid"
         }
       ]
     },
     "Chaos": {
-      "total": 51,
+      "total": 66,
       "appliedCount": 4,
       "dominatedCount": 0,
       "sources": [
@@ -4183,13 +4198,13 @@
         {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 27,
+          "value": 42,
           "target": "Chaos"
         }
       ]
     },
     "Cold": {
-      "total": 60,
+      "total": 75,
       "appliedCount": 5,
       "dominatedCount": 0,
       "sources": [
@@ -4220,13 +4235,13 @@
         {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 27,
+          "value": 42,
           "target": "Cold"
         }
       ]
     },
     "Electric": {
-      "total": 60,
+      "total": 75,
       "appliedCount": 5,
       "dominatedCount": 0,
       "sources": [
@@ -4257,13 +4272,13 @@
         {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 27,
+          "value": 42,
           "target": "Electric"
         }
       ]
     },
     "Evil": {
-      "total": 51,
+      "total": 66,
       "appliedCount": 4,
       "dominatedCount": 0,
       "sources": [
@@ -4288,13 +4303,13 @@
         {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 27,
+          "value": 42,
           "target": "Evil"
         }
       ]
     },
     "Fire": {
-      "total": 69,
+      "total": 84,
       "appliedCount": 5,
       "dominatedCount": 1,
       "sources": [
@@ -4325,13 +4340,13 @@
         {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 27,
+          "value": 42,
           "target": "Fire"
         }
       ]
     },
     "Force": {
-      "total": 62,
+      "total": 77,
       "appliedCount": 4,
       "dominatedCount": 1,
       "sources": [
@@ -4356,13 +4371,13 @@
         {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 27,
+          "value": 42,
           "target": "Force"
         }
       ]
     },
     "Light/Alignment": {
-      "total": 51,
+      "total": 66,
       "appliedCount": 4,
       "dominatedCount": 0,
       "sources": [
@@ -4387,13 +4402,13 @@
         {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 27,
+          "value": 42,
           "target": "Light/Alignment"
         }
       ]
     },
     "Negative": {
-      "total": 51,
+      "total": 66,
       "appliedCount": 4,
       "dominatedCount": 0,
       "sources": [
@@ -4418,13 +4433,13 @@
         {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 27,
+          "value": 42,
           "target": "Negative"
         }
       ]
     },
     "Poison": {
-      "total": 51,
+      "total": 66,
       "appliedCount": 4,
       "dominatedCount": 0,
       "sources": [
@@ -4449,13 +4464,13 @@
         {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 27,
+          "value": 42,
           "target": "Poison"
         }
       ]
     },
     "Positive": {
-      "total": 51,
+      "total": 66,
       "appliedCount": 4,
       "dominatedCount": 0,
       "sources": [
@@ -4480,13 +4495,13 @@
         {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 27,
+          "value": 42,
           "target": "Positive"
         }
       ]
     },
     "Repair": {
-      "total": 51,
+      "total": 66,
       "appliedCount": 4,
       "dominatedCount": 0,
       "sources": [
@@ -4511,13 +4526,13 @@
         {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 27,
+          "value": 42,
           "target": "Repair"
         }
       ]
     },
     "Sonic": {
-      "total": 60,
+      "total": 75,
       "appliedCount": 5,
       "dominatedCount": 0,
       "sources": [
@@ -4548,7 +4563,7 @@
         {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 27,
+          "value": 42,
           "target": "Sonic"
         }
       ]
