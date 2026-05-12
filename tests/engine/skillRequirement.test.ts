@@ -23,6 +23,9 @@ function ctxWith(overrides: Partial<BuildContext> = {}): BuildContext {
     apSpentInTree: new Map(),
     activeStances: new Set(),
     skillRanks: new Map(),
+    mainHandWeapon: '',
+    offHandWeapon: '',
+    dynamicWeaponGroups: new Map(),
     ...overrides,
   };
 }
@@ -81,5 +84,77 @@ describe('passesRequirements — <Type>BAB</Type>', () => {
   it('passes when value is 0 (no real threshold)', () => {
     const ctx = ctxWith({ bab: 0 });
     expect(passesRequirements(reqs('BAB', '', 0), ctx)).toBe(true);
+  });
+});
+
+describe('passesRequirements — <Type>GroupMember</Type>', () => {
+  it('passes when the mainhand weapon\'s static group includes the item', () => {
+    // Handwraps → [Unarmed, Light, Melee, Simple]
+    const ctx = ctxWith({ mainHandWeapon: 'Handwraps' });
+    expect(passesRequirements(reqs('GroupMember', 'Unarmed', 0), ctx)).toBe(true);
+    expect(passesRequirements(reqs('GroupMember', 'Melee',   0), ctx)).toBe(true);
+  });
+
+  it('fails when the mainhand weapon does not belong to the group', () => {
+    // Handwraps are not Slashing in our static registry.
+    const ctx = ctxWith({ mainHandWeapon: 'Handwraps' });
+    expect(passesRequirements(reqs('GroupMember', 'Slashing', 0), ctx)).toBe(false);
+    expect(passesRequirements(reqs('GroupMember', 'Bow',      0), ctx)).toBe(false);
+  });
+
+  it('passes when the group is a dynamic group that includes the weapon', () => {
+    // Simulate Kensei's AddGroupWeapon: Focus Weapon = { Falchion }
+    const dyn = new Map<string, Set<string>>([['Focus Weapon', new Set(['Falchion'])]]);
+    const ctx = ctxWith({
+      mainHandWeapon: 'Falchion',
+      dynamicWeaponGroups: dyn,
+    });
+    expect(passesRequirements(reqs('GroupMember', 'Focus Weapon', 0), ctx)).toBe(true);
+  });
+
+  it('fails when the dynamic group does not include the wielded weapon', () => {
+    const dyn = new Map<string, Set<string>>([['Focus Weapon', new Set(['Falchion'])]]);
+    const ctx = ctxWith({
+      mainHandWeapon: 'Khopesh',
+      dynamicWeaponGroups: dyn,
+    });
+    expect(passesRequirements(reqs('GroupMember', 'Focus Weapon', 0), ctx)).toBe(false);
+  });
+
+  it('passes via the dynamic "All" wildcard regardless of weapon', () => {
+    // Favored Weapon enhancements with universal grants use the All sentinel.
+    const dyn = new Map<string, Set<string>>([['Favored Weapon', new Set(['All'])]]);
+    const ctx = ctxWith({
+      mainHandWeapon: 'Falchion',
+      dynamicWeaponGroups: dyn,
+    });
+    expect(passesRequirements(reqs('GroupMember', 'Favored Weapon', 0), ctx)).toBe(true);
+  });
+
+  it('fails for any group when nothing is equipped', () => {
+    // Empty mainhand can't satisfy any group — neither static nor dynamic.
+    const ctx = ctxWith({ mainHandWeapon: '' });
+    expect(passesRequirements(reqs('GroupMember', 'Melee', 0), ctx)).toBe(false);
+  });
+});
+
+describe('passesRequirements — <Type>GroupMember2</Type>', () => {
+  it('checks the offhand weapon, not mainhand', () => {
+    // Mainhand handwraps would satisfy "Unarmed", but the OFFhand is empty.
+    const ctx = ctxWith({
+      mainHandWeapon: 'Handwraps',
+      offHandWeapon:  '',
+    });
+    expect(passesRequirements(reqs('GroupMember2', 'Unarmed', 0), ctx)).toBe(false);
+  });
+
+  it('passes when the offhand weapon is in the named group', () => {
+    // Dual short swords: offhand is a Short Sword.
+    const ctx = ctxWith({
+      mainHandWeapon: 'Shortsword',
+      offHandWeapon:  'Shortsword',
+    });
+    // Shortsword → ['One Handed', 'Piercing', 'Martial', 'Melee', 'Sword', ...]
+    expect(passesRequirements(reqs('GroupMember2', 'One Handed', 0), ctx)).toBe(true);
   });
 });

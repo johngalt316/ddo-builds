@@ -903,6 +903,14 @@ export function buildBuildContext(input: {
    *  Unioned into ctx.feats alongside the player-selected feats so requirements
    *  that gate on a granted feat name pass. */
   grantedFeats?: ReadonlyArray<string>;
+  /** Wielded weapon type in main hand from the active gear set. Defaults to
+   *  '' if omitted — GroupMember gates against it will always fail. */
+  mainHandWeapon?: string;
+  /** Wielded weapon type in off hand. Defaults to ''. */
+  offHandWeapon?: string;
+  /** Dynamic weapon groups from AddGroupWeapon effects (Kensei Focus Weapon
+   *  etc.). Defaults to empty map. */
+  dynamicWeaponGroups?: ReadonlyMap<string, ReadonlySet<string>>;
 }): import('./evaluateEffect').BuildContext {
   const { build, classes, effectiveScores, bab, grantedFeats } = input;
   const classIdx = indexClasses(classes);
@@ -949,5 +957,8 @@ export function buildBuildContext(input: {
     apSpentInTree,
     activeStances: new Set(build.activeStances ?? []),
     skillRanks,
+    mainHandWeapon: input.mainHandWeapon ?? '',
+    offHandWeapon:  input.offHandWeapon  ?? '',
+    dynamicWeaponGroups: input.dynamicWeaponGroups ?? new Map(),
   };
 }

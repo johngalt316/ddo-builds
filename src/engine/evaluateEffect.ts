@@ -19,6 +19,7 @@
 
 import type { DDOEffect, DDORequirements } from '@/types/ddoData';
 import type { Bonus } from './bonusStacking';
+import { weaponInGroup } from './weaponGroups';
 
 // AmountType strings we can evaluate now. Anything outside this set is
 // flagged as not-modeled and the effect is skipped.
@@ -56,6 +57,18 @@ export interface BuildContext {
    *  (e.g. `perform`, `use_magic_device`). Used to gate enhancements
    *  with `<Type>Skill</Type>` requirements. */
   skillRanks: ReadonlyMap<string, number>;
+  /** Wielded weapon type in the main hand from the active gear set
+   *  (e.g. `'Handwraps'`, `'Great Sword'`). Empty when no weapon slotted.
+   *  Used by `<Type>GroupMember</Type>` gates. */
+  mainHandWeapon: string;
+  /** Wielded weapon type in the off hand. Empty when no weapon slotted.
+   *  Used by `<Type>GroupMember2</Type>` gates. */
+  offHandWeapon: string;
+  /** Dynamic weapon-group memberships from `AddGroupWeapon` effects, built
+   *  in a pre-pass before the main effects loop. Available during
+   *  requirement evaluation so GroupMember can resolve build-configured
+   *  groups (Focus Weapon, etc.) added by enhancement-tree effects. */
+  dynamicWeaponGroups: ReadonlyMap<string, ReadonlySet<string>>;
 }
 
 function abilityModifier(score: number): number {
@@ -141,6 +154,18 @@ function passesRequirement(req: { type: string; item?: string; value?: number },
       // factored in here. Most BAB-gated requirements are at heroic-class
       // breakpoints (BAB 4 / 8 / 12) where the seed alone is decisive.
       return ctx.bab >= value;
+    case 'GroupMember':
+    case 'GroupMember2': {
+      // "The weapon in main hand / off hand belongs to group X." Resolves
+      // via the static weapon-type registry combined with dynamic groups
+      // built from AddGroupWeapon effects (e.g. Kensei "Focus Weapon").
+      // Empty weapon string (nothing equipped) cannot satisfy any group;
+      // for Focus/Favored-style groups that need a wielded weapon, an
+      // unequipped build correctly fails the gate.
+      const weapon = req.type === 'GroupMember' ? ctx.mainHandWeapon : ctx.offHandWeapon;
+      if (!weapon) return false;
+      return weaponInGroup(weapon, item, ctx.dynamicWeaponGroups);
+    }
     default:
       // Unknown requirement type — don't block; engine logs as not-modeled
       // upstream. Returning true here means we err on the side of including

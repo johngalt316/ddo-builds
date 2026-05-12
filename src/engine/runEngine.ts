@@ -281,11 +281,43 @@ export function runEngine(input: RunEngineInput): EngineResult {
     itemBuffs, setBonuses, itemSetIndex, augments,
     filigrees, filigreeSetBonuses, selfPartyBuffs, guildBuffs,
   });
+
+  // Pre-pass: build dynamic weapon-group memberships from AddGroupWeapon
+  // effects BEFORE main evaluation. Needed because GroupMember/GroupMember2
+  // requirement gates (Slice 7) consult these dynamic groups, and a gate that
+  // fires earlier in the main loop must see groups added by later sources.
+  // The same effects are still skipped in the main loop (see early-return
+  // below) to avoid double-processing.
+  /** Dynamic weapon-group memberships, fed by AddGroupWeapon effects.
+   *  groupName → set of weapon types added to that group. See
+   *  `engine/weaponGroups.ts` for usage. */
+  const dynamicWeaponGroups = new Map<string, Set<string>>();
+  for (const { effect } of sourced) {
+    if (!effect.types.includes('AddGroupWeapon')) continue;
+    const items = effect.items ?? [];
+    const groupName = items[0];
+    if (!groupName) continue;
+    const set = dynamicWeaponGroups.get(groupName) ?? new Set<string>();
+    for (let i = 1; i < items.length; i++) {
+      const w = items[i];
+      if (w) set.add(w);
+    }
+    dynamicWeaponGroups.set(groupName, set);
+  }
+
+  const activeGearSet = build.gearSets.find(g => g.name === build.activeGearSet)
+                     ?? build.gearSets[0];
+  const mainHandWeapon = activeGearSet?.items.find(i => i.slot === 'MainHand')?.weapon ?? '';
+  const offHandWeapon  = activeGearSet?.items.find(i => i.slot === 'OffHand')?.weapon  ?? '';
+
   const ctx = buildBuildContext({
     build, classes,
     effectiveScores: effectiveScores as unknown as Record<string, number>,
     bab: seedBab,
     grantedFeats,
+    mainHandWeapon,
+    offHandWeapon,
+    dynamicWeaponGroups,
   });
 
   const allBonuses: Bonus[] = [];
@@ -293,10 +325,6 @@ export function runEngine(input: RunEngineInput): EngineResult {
   let reqFailed = 0;
   /** SLA accumulator — one entry per granting source (no name-deduping). */
   const slas: CollectedSLA[] = [];
-  /** Dynamic weapon-group memberships, fed by AddGroupWeapon effects.
-   *  groupName → set of weapon types added to that group. See
-   *  `engine/weaponGroups.ts` for usage. */
-  const dynamicWeaponGroups = new Map<string, Set<string>>();
 
   // Effects whose value depends on the final (post-enhancement) ability score
   // are deferred to a second pass after ability breakdowns are computed.
@@ -308,24 +336,10 @@ export function runEngine(input: RunEngineInput): EngineResult {
   const ABILITY_SNAP_ATYPES = new Set(['AbilityMod', 'HalfAbilityMod', 'ThirdAbilityMod', 'AbilityValue', 'AbilityTotal']);
 
   for (const { effect, source, rankCount } of sourced) {
-    // AddGroupWeapon effects build up dynamic weapon-group memberships.
-    // Schema: <Item> entries — first is the group name, rest are weapon
-    // types added to that group. AType is typically NotNeeded.
-    // Examples: Kensei "Focus Weapon" + chosen weapons; Bard
-    // "Swashbuckling" + light blades; racial "Proficiency" + Dwarven Axe.
-    if (effect.types.includes('AddGroupWeapon')) {
-      const items = effect.items ?? [];
-      const groupName = items[0];
-      if (groupName) {
-        const set = dynamicWeaponGroups.get(groupName) ?? new Set<string>();
-        for (let i = 1; i < items.length; i++) {
-          const w = items[i];
-          if (w) set.add(w);
-        }
-        dynamicWeaponGroups.set(groupName, set);
-      }
-      continue;
-    }
+    // AddGroupWeapon effects are processed in the pre-pass above (which
+    // populates `dynamicWeaponGroups` before ctx is built so GroupMember
+    // gates can see them). Skip them here to avoid double-processing.
+    if (effect.types.includes('AddGroupWeapon')) continue;
 
     const isSLA = effect.types.includes('SpellLikeAbility');
     if (isSLA) {
