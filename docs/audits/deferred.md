@@ -58,6 +58,13 @@ Add `EngineResult` fields + breakdowns when the build-planner Breakdowns UI want
 |---|---|---|
 | `<Type>GrantSpell</Type>` (78 instances) | Slice 6 | Adds a spell to the build's spellbook. Currently falls through to evaluator as `SpellInfo` → unmodeled-amount-type diagnostic. Future: `engine.grantedSpells[]` mirroring `slas[]`, surface in spellbook UI. |
 
+## Spell catalog consumers (parsed but unused)
+
+| Item | Source | Notes |
+|---|---|---|
+| **Per-spell `dcs[]` field unused** (245 spells carry SpellDC) | Slice 8 | Engine uses school-level DCs only. Per-spell DC overrides (multi-school spells, ModAbility swaps for heightened arcane, NoSave flagging) are lost. Two-stage fix: (1) surface in SpellsTab tooltip; (2) route through DPS once save-vs-DC math lands. |
+| **Self-cast buff spell effects unused** (72 spells in Spells.xml only, not in SelfAndPartyBuffs.xml) | Slice 8 | Examples: Bull's Strength, Cat's Grace, Bear's Endurance, Adamantine Weapons, Armor of Speed. Spells.xml has `effects[]` but no `build.activeSpellBuffs` field. Future: unify under one buff list; let source XML choose activation UX, engine plumbing stays the same. |
+
 ## Niche / catalog gaps
 
 | Item | Source | Notes |
