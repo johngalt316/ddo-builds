@@ -181,6 +181,7 @@ export function useBuild() {
     race,
     effectiveScores,
     charLevel,
+    totalCharLevel,
     bab,
     hitPoints,
     saves,

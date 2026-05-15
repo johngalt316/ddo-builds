@@ -47,6 +47,11 @@ interface BuildState {
   // Per-level class editing
   setLevelClass: (level: number, classId: string) => void;
   setTotalLevels: (totalLevel: number) => void;
+  /** Set the count of Epic + Legendary pseudo-class levels on top of the
+   *  heroic class build. Clamped to [0, 20]: DDO's design ceiling is 20
+   *  heroic + 10 epic + 10 legendary = 40, with the current live cap
+   *  sitting at 34 (heroic 20 + 14 post-heroic). */
+  setEpicLevels: (value: number) => void;
   // Tomes + level-ups
   setAbilityTome: (stat: Stat, value: number) => void;
   setSkillTome: (skillId: string, value: number) => void;
@@ -643,18 +648,35 @@ export const useBuildStore = create<BuildState>((set, get) => ({
   setTotalLevels: (totalLevel) =>
     set(s => {
       const clamped = Math.max(1, Math.min(40, totalLevel));
+      // Split total into heroic (≤ 20) and epic/legendary (the remainder).
+      // Heroic class list is extended/trimmed; the post-heroic portion lives
+      // on `build.epicLevels` as a single count (the engine splits it into
+      // Epic 1-10 and Legendary 11-20 internally).
+      const heroicTarget = Math.min(20, clamped);
+      const epicTarget = Math.max(0, clamped - 20);
       const cur = resolveLevelClasses(s.build);
       let next = [...cur];
-      if (clamped < cur.length) {
-        next = next.slice(0, clamped);
-      } else if (clamped > cur.length) {
-        // Extend by repeating the last assigned class (or first defined class as fallback).
+      if (heroicTarget < cur.length) {
+        next = next.slice(0, heroicTarget);
+      } else if (heroicTarget > cur.length) {
         const fill = cur[cur.length - 1] ?? s.build.classes[0]?.classId ?? 'fighter';
-        while (next.length < clamped) next.push(fill);
+        while (next.length < heroicTarget) next.push(fill);
       }
       const nextClasses = aggregateClasses(next);
-      return { build: { ...s.build, levelClasses: next, classes: nextClasses } };
+      return {
+        build: {
+          ...s.build,
+          levelClasses: next,
+          classes: nextClasses,
+          epicLevels: epicTarget,
+        },
+      };
     }),
+
+  setEpicLevels: (value) =>
+    set(s => ({
+      build: { ...s.build, epicLevels: Math.max(0, Math.min(20, Math.floor(value))) },
+    })),
 
   setSelectedTrees: (trees) =>
     set(s => ({

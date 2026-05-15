@@ -122,3 +122,29 @@
   color: var(--color-text);
   border-color: var(--color-gold);
 }
+
+/* Epic / Legendary level counter — pseudo-class levels (21+). Sits below
+ * the heroic class list to make the heroic vs post-heroic split visually
+ * obvious. */
+.epicRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--color-border);
+  font-size: 0.85rem;
+}
+
+.epicLabel {
+  flex: 0 0 auto;
+  color: var(--color-text);
+  font-weight: 500;
+  margin-right: auto;
+}
+
+.epicHint {
+  flex: 0 0 auto;
+  color: var(--color-text-muted);
+  font-size: 0.7rem;
+}

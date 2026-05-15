@@ -87,12 +87,45 @@ describe('setTotalLevels', () => {
     expect(b.classes).toEqual([{ classId: 'fighter', levels: 2 }]);
   });
 
-  it('clamps to [1, 40]', () => {
+  it('clamps to [1, 40] and splits at 20 between heroic and epic', () => {
     useBuildStore.getState().setTotalLevels(0);
     expect(useBuildStore.getState().build.levelClasses).toHaveLength(1);
 
+    // Total level 99 → clamped to 40 → 20 heroic classes + 20 epicLevels.
+    // Previously this assigned all 40 to levelClasses (treating epic as a
+    // 40th fighter level, which DDO doesn't allow); the split matches the
+    // actual game where heroic classes cap at 20 and the rest are pseudo
+    // class levels stored on `build.epicLevels`.
     useBuildStore.getState().setTotalLevels(99);
-    expect(useBuildStore.getState().build.levelClasses).toHaveLength(40);
+    const b1 = useBuildStore.getState().build;
+    expect(b1.levelClasses).toHaveLength(20);
+    expect(b1.epicLevels).toBe(20);
+
+    // Total level 34 (current live cap) → 20 heroic + 14 epic.
+    useBuildStore.getState().setTotalLevels(34);
+    const b2 = useBuildStore.getState().build;
+    expect(b2.levelClasses).toHaveLength(20);
+    expect(b2.epicLevels).toBe(14);
+
+    // Total level 18 (heroic-only) → 18 heroic, 0 epic.
+    useBuildStore.getState().setTotalLevels(18);
+    const b3 = useBuildStore.getState().build;
+    expect(b3.levelClasses).toHaveLength(18);
+    expect(b3.epicLevels).toBe(0);
+  });
+});
+
+describe('setEpicLevels', () => {
+  it('clamps to [0, 20]', () => {
+    useBuildStore.setState({ build: structuredClone(DEFAULT_BUILD) });
+    useBuildStore.getState().setEpicLevels(14);
+    expect(useBuildStore.getState().build.epicLevels).toBe(14);
+
+    useBuildStore.getState().setEpicLevels(-1);
+    expect(useBuildStore.getState().build.epicLevels).toBe(0);
+
+    useBuildStore.getState().setEpicLevels(99);
+    expect(useBuildStore.getState().build.epicLevels).toBe(20);
   });
 });
 

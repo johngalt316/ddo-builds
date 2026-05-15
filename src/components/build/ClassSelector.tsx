@@ -1,4 +1,5 @@
 import { useBuild } from '@/hooks/useBuild';
+import { useBuildStore } from '@/store/buildStore';
 import { useGameDataStore } from '@/store/gameDataStore';
 import { ddoClassDataToEngineClass, nameToId } from '@/utils/classAdapter';
 import { classIconUrl } from '@/utils/ddoXmlParser';
@@ -10,9 +11,16 @@ import styles from './ClassSelector.module.css';
 const STUB_CLASSES = classesJson as unknown as DDOClass[];
 const MAX_CLASSES = 3;
 const MAX_LEVEL = 20;
+/** Live game cap on epic + legendary pseudo-class levels (U72 = 14). Future
+ *  cap bumps will only require updating this number; the engine + store
+ *  clamp at 20 (full design ceiling) so we can also model planned content. */
+const MAX_EPIC_LEVELS = 14;
 
 export function ClassSelector() {
   const { build, charLevel, updateClasses } = useBuild();
+  const setEpicLevels = useBuildStore(s => s.setEpicLevels);
+  const epicLevels = build.epicLevels ?? 0;
+  const totalCharLevel = charLevel + epicLevels;
   const gameData = useGameDataStore();
 
   const allClasses: DDOClass[] = gameData.status === 'ready' && gameData.classes.length > 0
@@ -62,7 +70,10 @@ export function ClassSelector() {
       <div className={styles.header}>
         <h2 className={styles.heading}>Classes</h2>
         <span className={remaining < 0 ? styles.levelOver : styles.levelInfo}>
-          Level {charLevel} / {MAX_LEVEL}
+          Heroic {charLevel} / {MAX_LEVEL}
+          {epicLevels > 0 && (
+            <> · Epic {epicLevels} · Total {totalCharLevel}</>
+          )}
         </span>
       </div>
 
@@ -133,6 +144,31 @@ export function ClassSelector() {
           + Add Splash
         </button>
       )}
+
+      {/* Epic / Legendary levels — pseudo-class levels stacked on top of
+       *  heroic 1-20. Engine splits the first 10 into "Epic" and the rest
+       *  into "Legendary"; the user just sees a single counter. */}
+      <div className={styles.epicRow}>
+        <span className={styles.epicLabel}>Epic / Legendary</span>
+        <div className={styles.levelControls}>
+          <button
+            className={styles.btn}
+            onClick={() => setEpicLevels(epicLevels - 1)}
+            disabled={epicLevels <= 0}
+            aria-label="Decrease epic levels"
+          >−</button>
+          <span className={styles.levelBadge}>{epicLevels}</span>
+          <button
+            className={styles.btn}
+            onClick={() => setEpicLevels(epicLevels + 1)}
+            disabled={epicLevels >= MAX_EPIC_LEVELS}
+            aria-label="Increase epic levels"
+          >+</button>
+        </div>
+        <span className={styles.epicHint}>
+          adds onto heroic 1-{MAX_LEVEL}; live cap is {MAX_LEVEL + MAX_EPIC_LEVELS}
+        </span>
+      </div>
     </section>
   );
 }

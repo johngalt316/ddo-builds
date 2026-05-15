@@ -17,18 +17,19 @@ const EPIC_TIERS = [24, 28, 32, 36, 40];
  * picker (every 4 levels). Both flow into `effectiveScores` via `useBuild`.
  */
 export function TomesAndLevelUpsPanel() {
-  const { build, charLevel } = useBuild();
+  const { build, totalCharLevel } = useBuild();
   const setAbilityTome = useBuildStore(s => s.setAbilityTome);
   const setLevelUp = useBuildStore(s => s.setLevelUp);
 
   const tomes = build.abilityTomes ?? {};
   const levelUps = build.levelUps ?? {};
 
-  // Show only tier rows whose level is achievable. Heroic tiers are always
-  // visible; epic tiers appear when char level reaches them.
+  // Show only tier rows whose level is achievable. `totalCharLevel`
+  // includes heroic + epic + legendary; using heroic-only `charLevel`
+  // would hide tier 24+ even on level-30+ builds.
   const visibleTiers = [
     ...HEROIC_TIERS,
-    ...EPIC_TIERS.filter(t => charLevel >= t),
+    ...EPIC_TIERS.filter(t => totalCharLevel >= t),
   ];
 
   return (
@@ -73,7 +74,7 @@ export function TomesAndLevelUpsPanel() {
             <tbody>
               {visibleTiers.map(level => {
                 const sel = levelUps[level] ?? '';
-                const reached = charLevel >= level;
+                const reached = totalCharLevel >= level;
                 return (
                   <tr key={level} className={reached ? '' : styles.dimRow}>
                     <td className={styles.levelLabel}>Level {level}</td>

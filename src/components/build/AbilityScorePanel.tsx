@@ -22,7 +22,7 @@ const MAX_ABILITY_TOME = 8;
 const ALL_LEVEL_TIERS = [4, 8, 12, 16, 20, 24, 28, 32, 36, 40];
 
 export function AbilityScorePanel() {
-  const { build, race, charLevel, pointBuySpent, pointBuyBudget, updateAbilityScore } = useBuild();
+  const { build, race, totalCharLevel, pointBuySpent, pointBuyBudget, updateAbilityScore } = useBuild();
   const setAbilityTome = useBuildStore(s => s.setAbilityTome);
   const setLevelUp = useBuildStore(s => s.setLevelUp);
   const remaining = pointBuyBudget - pointBuySpent;
@@ -47,11 +47,12 @@ export function AbilityScorePanel() {
   }
 
   // Count how many times each stat has been picked at level-up tiers (only
-  // counting tiers actually reached by character level, so the +N badge in
-  // the table reflects the *current* effective bonus).
+  // counting tiers actually reached by total character level — heroic +
+  // epic + legendary — so the +N badge reflects the *current* effective
+  // bonus on builds with epic levels).
   const levelUpCount: Partial<Record<Stat, number>> = {};
   for (const tier of ALL_LEVEL_TIERS) {
-    if (charLevel < tier) continue;
+    if (totalCharLevel < tier) continue;
     const stat = levelUps[tier];
     if (!stat) continue;
     levelUpCount[stat] = (levelUpCount[stat] ?? 0) + 1;
@@ -60,7 +61,7 @@ export function AbilityScorePanel() {
   // Fill every reached tier with the same stat (or clear all when '').
   function fillAllLevelUps(stat: Stat | '') {
     for (const tier of ALL_LEVEL_TIERS) {
-      if (charLevel < tier) continue;
+      if (totalCharLevel < tier) continue;
       setLevelUp(tier, stat || null);
     }
   }
@@ -168,12 +169,12 @@ export function AbilityScorePanel() {
       </div>
       <p className={styles.subHint}>
         Pick a stat at every 4 levels. Each grants +1 to that ability. Tiers above the build's
-        level (charLevel {charLevel}) are dimmed but editable for planning.
+        level (level {totalCharLevel}) are dimmed but editable for planning.
       </p>
       <div className={styles.levelUpGrid}>
         {ALL_LEVEL_TIERS.map(level => {
           const sel = levelUps[level] ?? '';
-          const reached = charLevel >= level;
+          const reached = totalCharLevel >= level;
           return (
             <label
               key={level}
