@@ -704,3 +704,25 @@
   padding-top: 0.25rem;
   font-weight: 700;
 }
+
+/* Empty-state panel — shown when an editor cannot compute because a
+ * required input is missing (e.g. melee panel with no equipped weapon). */
+.emptyState {
+  padding: 1.5rem;
+  background: var(--color-surface);
+  border: 1px dashed var(--color-border);
+  border-radius: 4px;
+  color: var(--color-text-secondary, var(--color-text));
+}
+
+.emptyState strong {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--color-text);
+}
+
+.emptyState p {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}

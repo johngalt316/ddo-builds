@@ -265,6 +265,26 @@ export function MeleeEditor({
 
   if (!engine) return null;
 
+  // Empty-state when no main-hand melee weapon is equipped. Without an item
+  // that resolves to MeleeWeaponInfo (item.weapon + baseDice), the rest of
+  // the panel has nothing to compute — emit a hint instead of silent blank.
+  // Triggers in two cases: (1) no MH item at all (e.g. fresh build), and
+  // (2) MH slot has a non-weapon item like a shield-as-mainhand or an item
+  // the parser couldn't classify.
+  if (!weaponInfo) {
+    const hint = mainHandItem
+      ? `Main hand item "${mainHandItem.name}" couldn't be resolved as a melee weapon. Check the Gear tab — the item may be missing its weapon type or base damage dice.`
+      : 'No main-hand weapon equipped. Add one in the Gear tab to see melee DPS.';
+    return (
+      <div className={styles.editor}>
+        <div className={styles.emptyState}>
+          <strong>Melee DPS unavailable</strong>
+          <p>{hint}</p>
+        </div>
+      </div>
+    );
+  }
+
   const pct = (n: number) => `${fmt(n, 1)}%`;
 
   return (

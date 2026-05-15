@@ -128,5 +128,70 @@
     "spellcaster": true,
     "spellcastingAbility": "CHA",
     "availableAlignments": ["LG","LN","LE","NG","TN","NE","CG","CN","CE"]
+  },
+  {
+    "id": "artificer",
+    "name": "Artificer",
+    "description": "Hybrid INT-based arcane caster who excels with crossbows and rune arms. Jack-of-all-trades with strong support, trap-handling, and construct allies.",
+    "hitDie": 8,
+    "babProgression": "three_quarter",
+    "saveProgressions": { "fortitude": "low", "reflex": "low", "will": "high" },
+    "skillPointsPerLevel": 4,
+    "classSkills": ["concentration", "disable_device", "haggle", "open_lock", "repair", "search", "spellcraft", "spot", "use_magic_device"],
+    "spellcaster": true,
+    "spellcastingAbility": "INT",
+    "availableAlignments": ["LG","LN","LE","NG","TN","NE","CG","CN","CE"]
+  },
+  {
+    "id": "favored_soul",
+    "name": "Favored Soul",
+    "description": "Divine spellcaster chosen by a deity. Offensive-focused alternative to the Cleric — gains all good saves and CHA-driven spellcasting.",
+    "hitDie": 8,
+    "babProgression": "three_quarter",
+    "saveProgressions": { "fortitude": "high", "reflex": "high", "will": "high" },
+    "skillPointsPerLevel": 2,
+    "classSkills": ["concentration", "diplomacy", "heal", "jump", "spellcraft"],
+    "spellcaster": true,
+    "spellcastingAbility": "CHA",
+    "availableAlignments": ["LG","LN","LE","NG","TN","NE","CG","CN","CE"]
+  },
+  {
+    "id": "warlock",
+    "name": "Warlock",
+    "description": "Pact-bound arcane caster who fuels eldritch blasts from an otherworldly patron. CHA-driven with at-will damage and unique aura buffs.",
+    "hitDie": 6,
+    "babProgression": "three_quarter",
+    "saveProgressions": { "fortitude": "low", "reflex": "low", "will": "high" },
+    "skillPointsPerLevel": 2,
+    "classSkills": ["bluff", "concentration", "intimidate", "jump", "spellcraft", "use_magic_device"],
+    "spellcaster": true,
+    "spellcastingAbility": "CHA",
+    "availableAlignments": ["LG","LN","LE","NG","TN","NE","CG","CN","CE"]
+  },
+  {
+    "id": "druid",
+    "name": "Druid",
+    "description": "Nature-bound divine caster with strong crowd control, animal companions, and wild-shape forms. WIS-driven; must be neutral on at least one axis.",
+    "hitDie": 8,
+    "babProgression": "three_quarter",
+    "saveProgressions": { "fortitude": "high", "reflex": "low", "will": "high" },
+    "skillPointsPerLevel": 4,
+    "classSkills": ["concentration", "diplomacy", "heal", "intimidate", "listen", "spellcraft", "spot", "swim"],
+    "spellcaster": true,
+    "spellcastingAbility": "WIS",
+    "availableAlignments": ["LN","NG","TN","NE","CN"]
+  },
+  {
+    "id": "alchemist",
+    "name": "Alchemist",
+    "description": "INT-based caster who brews offensive and supportive admixtures. Pioneered in Eberron; covers ranged splash damage, party buffs, and self-healing.",
+    "hitDie": 6,
+    "babProgression": "three_quarter",
+    "saveProgressions": { "fortitude": "high", "reflex": "high", "will": "low" },
+    "skillPointsPerLevel": 4,
+    "classSkills": ["balance", "bluff", "concentration", "diplomacy", "haggle", "heal", "search", "spellcraft", "spot", "use_magic_device"],
+    "spellcaster": true,
+    "spellcastingAbility": "INT",
+    "availableAlignments": ["LG","LN","LE","NG","TN","NE","CG","CN","CE"]
   }
 ]

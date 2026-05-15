@@ -18,12 +18,12 @@
     "WIS": -1,
     "CHA": 4
   },
-  "bab": 0,
-  "hitPoints": 276,
+  "bab": 14,
+  "hitPoints": 436,
   "saves": {
-    "fortitude": 4,
-    "reflex": -1,
-    "will": -1
+    "fortitude": 15,
+    "reflex": 10,
+    "will": 12
   },
   "skillBonuses": {
     "balance": {
@@ -44,36 +44,36 @@
       "total": 4,
       "ranks": 0,
       "abilityMod": 4,
-      "isClassSkill": false,
-      "maxRanks": 11
+      "isClassSkill": true,
+      "maxRanks": 23
     },
     "diplomacy": {
       "total": 4,
       "ranks": 0,
       "abilityMod": 4,
-      "isClassSkill": false,
-      "maxRanks": 11
+      "isClassSkill": true,
+      "maxRanks": 23
     },
     "disable_device": {
       "total": 1,
       "ranks": 0,
       "abilityMod": 1,
-      "isClassSkill": false,
-      "maxRanks": 11
+      "isClassSkill": true,
+      "maxRanks": 23
     },
     "haggle": {
       "total": 4,
       "ranks": 0,
       "abilityMod": 4,
-      "isClassSkill": false,
-      "maxRanks": 11
+      "isClassSkill": true,
+      "maxRanks": 23
     },
     "heal": {
       "total": -1,
       "ranks": 0,
       "abilityMod": -1,
-      "isClassSkill": false,
-      "maxRanks": 11
+      "isClassSkill": true,
+      "maxRanks": 23
     },
     "hide": {
       "total": -1,
@@ -93,8 +93,8 @@
       "total": -1,
       "ranks": 0,
       "abilityMod": -1,
-      "isClassSkill": false,
-      "maxRanks": 11
+      "isClassSkill": true,
+      "maxRanks": 23
     },
     "listen": {
       "total": -1,
@@ -114,8 +114,8 @@
       "total": -1,
       "ranks": 0,
       "abilityMod": -1,
-      "isClassSkill": false,
-      "maxRanks": 11
+      "isClassSkill": true,
+      "maxRanks": 23
     },
     "perform": {
       "total": 4,
@@ -128,29 +128,29 @@
       "total": 1,
       "ranks": 0,
       "abilityMod": 1,
-      "isClassSkill": false,
-      "maxRanks": 11
+      "isClassSkill": true,
+      "maxRanks": 23
     },
     "search": {
       "total": 1,
       "ranks": 0,
       "abilityMod": 1,
-      "isClassSkill": false,
-      "maxRanks": 11
+      "isClassSkill": true,
+      "maxRanks": 23
     },
     "spellcraft": {
       "total": 1,
       "ranks": 0,
       "abilityMod": 1,
-      "isClassSkill": false,
-      "maxRanks": 11
+      "isClassSkill": true,
+      "maxRanks": 23
     },
     "spot": {
       "total": -1,
       "ranks": 0,
       "abilityMod": -1,
-      "isClassSkill": false,
-      "maxRanks": 11
+      "isClassSkill": true,
+      "maxRanks": 23
     },
     "swim": {
       "total": -1,
@@ -170,8 +170,8 @@
       "total": 4,
       "ranks": 0,
       "abilityMod": 4,
-      "isClassSkill": false,
-      "maxRanks": 11
+      "isClassSkill": true,
+      "maxRanks": 23
     }
   }
 }
