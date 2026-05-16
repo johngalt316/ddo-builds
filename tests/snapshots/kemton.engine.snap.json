@@ -14,7 +14,7 @@
     },
     "requirementsFailedCount": 99,
     "totalSourcedEffects": 1092,
-    "totalAppliedBonuses": 1386
+    "totalAppliedBonuses": 1288
   },
   "abilityScores": {
     "STR": {
@@ -1379,11 +1379,6 @@
         "value": 2
       },
       {
-        "source": "[D] Shiradi Champion: Shiradi Champion: Pierce Deception: Shiradi Champion: Pierce Deception + Watchful Eye",
-        "bonusType": "Destiny",
-        "value": 0
-      },
-      {
         "source": "[G] Ring1: The Autumn Equinox (Doubleshot)",
         "bonusType": "Insightful",
         "value": 5
@@ -1392,103 +1387,78 @@
         "source": "[Guild] Archery Range",
         "bonusType": "Guild",
         "value": 2
+      },
+      {
+        "source": "[D] Shiradi Champion: Shiradi Champion: Pierce Deception",
+        "bonusType": "Destiny",
+        "value": 0
       }
     ]
   },
   "sneakAttackDice": {
-    "total": 48,
-    "appliedCount": 56,
+    "total": 56,
+    "appliedCount": 40,
     "dominatedCount": 0,
     "sources": [
       {
-        "source": "Maximize Spell: Arcane Trickster: Sharp Magic",
-        "bonusType": "Enhancement",
-        "value": 0
+        "source": "Improved Sneak Attack",
+        "bonusType": "Feat",
+        "value": 3
       },
       {
-        "source": "Maximize Spell: Arcane Trickster: Sharp Magic",
-        "bonusType": "Enhancement",
-        "value": 0
+        "source": "Scion of the Ethereal Plane",
+        "bonusType": "Feat",
+        "value": 6
       },
       {
-        "source": "Empower Spell: Arcane Trickster: Sharp Magic",
-        "bonusType": "Enhancement",
-        "value": 0
+        "source": "Arcane Trickster 1: Sneak Attack",
+        "bonusType": "Feat",
+        "value": 1
       },
       {
-        "source": "Empower Spell: Arcane Trickster: Sharp Magic",
-        "bonusType": "Enhancement",
-        "value": 0
+        "source": "Arcane Trickster 3: Sneak Attack",
+        "bonusType": "Feat",
+        "value": 1
       },
       {
-        "source": "Quicken Spell: Arcane Trickster: Sharp Magic",
-        "bonusType": "Enhancement",
-        "value": 0
+        "source": "Arcane Trickster 5: Sneak Attack",
+        "bonusType": "Feat",
+        "value": 1
       },
       {
-        "source": "Quicken Spell: Arcane Trickster: Sharp Magic",
-        "bonusType": "Enhancement",
-        "value": 0
+        "source": "Arcane Trickster 7: Sneak Attack",
+        "bonusType": "Feat",
+        "value": 1
       },
       {
-        "source": "Enlarge Spell: Arcane Trickster: Sharp Magic",
-        "bonusType": "Enhancement",
-        "value": 0
+        "source": "Arcane Trickster 9: Sneak Attack",
+        "bonusType": "Feat",
+        "value": 1
       },
       {
-        "source": "Enlarge Spell: Arcane Trickster: Sharp Magic",
-        "bonusType": "Enhancement",
-        "value": 0
+        "source": "Arcane Trickster 11: Sneak Attack",
+        "bonusType": "Feat",
+        "value": 1
       },
       {
-        "source": "Extend Spell: Arcane Trickster: Sharp Magic",
-        "bonusType": "Enhancement",
-        "value": 0
+        "source": "Arcane Trickster 13: Sneak Attack",
+        "bonusType": "Feat",
+        "value": 1
       },
       {
-        "source": "Extend Spell: Arcane Trickster: Sharp Magic",
-        "bonusType": "Enhancement",
-        "value": 0
+        "source": "Arcane Trickster 15: Sneak Attack",
+        "bonusType": "Feat",
+        "value": 1
       },
       {
-        "source": "Heighten Spell: Arcane Trickster: Sharp Magic",
-        "bonusType": "Enhancement",
-        "value": 0
+        "source": "Arcane Trickster 17: Sneak Attack",
+        "bonusType": "Feat",
+        "value": 1
       },
       {
-        "source": "Heighten Spell: Arcane Trickster: Sharp Magic",
-        "bonusType": "Enhancement",
-        "value": 0
-      },
-      {
-        "source": "Eschew Materials: Arcane Trickster: Sharp Magic",
-        "bonusType": "Enhancement",
-        "value": 0
-      },
-      {
-        "source": "Eschew Materials: Arcane Trickster: Sharp Magic",
-        "bonusType": "Enhancement",
-        "value": 0
-      },
-      {
-        "source": "Intensify Spell: Arcane Trickster: Sharp Magic",
-        "bonusType": "Enhancement",
-        "value": 0
-      },
-      {
-        "source": "Intensify Spell: Arcane Trickster: Sharp Magic",
-        "bonusType": "Enhancement",
-        "value": 0
-      },
-      {
-        "source": "Embolden Spell: Arcane Trickster: Sharp Magic",
-        "bonusType": "Enhancement",
-        "value": 0
-      },
-      {
-        "source": "Embolden Spell: Arcane Trickster: Sharp Magic",
-        "bonusType": "Enhancement",
-        "value": 0
+        "source": "Arcane Trickster 19: Sneak Attack",
+        "bonusType": "Feat",
+        "value": 1
       },
       {
         "source": "[E] Arcane Trickster: Arcane Trickster: Sharp Magic: Arcane Trickster: Sharp Magic (Empower Spell)",
@@ -1587,9 +1557,14 @@
         "value": 3
       },
       {
-        "source": "Nimble Fingers: Shadowdancer: Technician with Nimble Fingers",
-        "bonusType": "Destiny",
-        "value": 0
+        "source": "Arcane Trickster: Sharp Magic (9× sources)",
+        "bonusType": "Enhancement",
+        "value": 4
+      },
+      {
+        "source": "Arcane Trickster: Sharp Magic (9× sources)",
+        "bonusType": "Enhancement",
+        "value": 4
       },
       {
         "source": "[D] Shadowdancer: Shadowdancer: Shadow Training",
@@ -1627,64 +1602,9 @@
         "value": 1
       },
       {
-        "source": "Improved Sneak Attack",
-        "bonusType": "Feat",
-        "value": 3
-      },
-      {
-        "source": "Scion of the Ethereal Plane",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Arcane Trickster 1: Sneak Attack",
-        "bonusType": "Feat",
-        "value": 1
-      },
-      {
-        "source": "Arcane Trickster 3: Sneak Attack",
-        "bonusType": "Feat",
-        "value": 1
-      },
-      {
-        "source": "Arcane Trickster 5: Sneak Attack",
-        "bonusType": "Feat",
-        "value": 1
-      },
-      {
-        "source": "Arcane Trickster 7: Sneak Attack",
-        "bonusType": "Feat",
-        "value": 1
-      },
-      {
-        "source": "Arcane Trickster 9: Sneak Attack",
-        "bonusType": "Feat",
-        "value": 1
-      },
-      {
-        "source": "Arcane Trickster 11: Sneak Attack",
-        "bonusType": "Feat",
-        "value": 1
-      },
-      {
-        "source": "Arcane Trickster 13: Sneak Attack",
-        "bonusType": "Feat",
-        "value": 1
-      },
-      {
-        "source": "Arcane Trickster 15: Sneak Attack",
-        "bonusType": "Feat",
-        "value": 1
-      },
-      {
-        "source": "Arcane Trickster 17: Sneak Attack",
-        "bonusType": "Feat",
-        "value": 1
-      },
-      {
-        "source": "Arcane Trickster 19: Sneak Attack",
-        "bonusType": "Feat",
-        "value": 1
+        "source": "Nimble Fingers",
+        "bonusType": "Destiny",
+        "value": 0
       },
       {
         "source": "[A] Goggles: Legendary Scientist's Sights → Solar Gem of Sneak Attack Dice (Legendary)",
@@ -1967,9 +1887,9 @@
     ]
   },
   "prr": {
-    "total": 151,
-    "appliedCount": 17,
-    "dominatedCount": 1,
+    "total": 187,
+    "appliedCount": 18,
+    "dominatedCount": 0,
     "sources": [
       {
         "source": "[E] Falconry: Falconry: Rugged",
@@ -1977,14 +1897,14 @@
         "value": 2
       },
       {
+        "source": "[A] Helmet: Legendary Helm of Workplace Safety → Sapphire of Defense",
+        "bonusType": "Enhancement",
+        "value": 36
+      },
+      {
         "source": "[G] Helmet: Legendary Helm of Workplace Safety (PhysicalSheltering)",
         "bonusType": "Enhancement",
         "value": 37
-      },
-      {
-        "source": "[D] Machrotechnic: Machrotechnic: Sprockets: Machrotechnic: Sprockets + Construct Exemplar",
-        "bonusType": "Destiny",
-        "value": 0
       },
       {
         "source": "[R] Grim Barricade: Reaper's Defense V",
@@ -2056,104 +1976,19 @@
         "source": "[PL] Inherent Physical Resistance ×2",
         "bonusType": "Inherent",
         "value": 2
+      },
+      {
+        "source": "[D] Machrotechnic: Machrotechnic: Sprockets",
+        "bonusType": "Destiny",
+        "value": 0
       }
     ]
   },
   "mrr": {
-    "total": 70,
-    "appliedCount": 28,
+    "total": 94,
+    "appliedCount": 12,
     "dominatedCount": 0,
     "sources": [
-      {
-        "source": "Maximize Spell: Magus of the Eclipse: Lunar Studies",
-        "bonusType": "Destiny",
-        "value": 0
-      },
-      {
-        "source": "Maximize Spell: Magus of the Eclipse: Lunar Studies",
-        "bonusType": "Destiny",
-        "value": 0
-      },
-      {
-        "source": "Empower Spell: Magus of the Eclipse: Lunar Studies",
-        "bonusType": "Destiny",
-        "value": 0
-      },
-      {
-        "source": "Empower Spell: Magus of the Eclipse: Lunar Studies",
-        "bonusType": "Destiny",
-        "value": 0
-      },
-      {
-        "source": "Quicken Spell: Magus of the Eclipse: Lunar Studies",
-        "bonusType": "Destiny",
-        "value": 0
-      },
-      {
-        "source": "Quicken Spell: Magus of the Eclipse: Lunar Studies",
-        "bonusType": "Destiny",
-        "value": 0
-      },
-      {
-        "source": "Enlarge Spell: Magus of the Eclipse: Lunar Studies",
-        "bonusType": "Destiny",
-        "value": 0
-      },
-      {
-        "source": "Enlarge Spell: Magus of the Eclipse: Lunar Studies",
-        "bonusType": "Destiny",
-        "value": 0
-      },
-      {
-        "source": "Extend Spell: Magus of the Eclipse: Lunar Studies",
-        "bonusType": "Destiny",
-        "value": 0
-      },
-      {
-        "source": "Extend Spell: Magus of the Eclipse: Lunar Studies",
-        "bonusType": "Destiny",
-        "value": 0
-      },
-      {
-        "source": "Heighten Spell: Magus of the Eclipse: Lunar Studies",
-        "bonusType": "Destiny",
-        "value": 0
-      },
-      {
-        "source": "Heighten Spell: Magus of the Eclipse: Lunar Studies",
-        "bonusType": "Destiny",
-        "value": 0
-      },
-      {
-        "source": "Eschew Materials: Magus of the Eclipse: Lunar Studies",
-        "bonusType": "Destiny",
-        "value": 0
-      },
-      {
-        "source": "Eschew Materials: Magus of the Eclipse: Lunar Studies",
-        "bonusType": "Destiny",
-        "value": 0
-      },
-      {
-        "source": "Intensify Spell: Magus of the Eclipse: Lunar Studies",
-        "bonusType": "Destiny",
-        "value": 0
-      },
-      {
-        "source": "Intensify Spell: Magus of the Eclipse: Lunar Studies",
-        "bonusType": "Destiny",
-        "value": 0
-      },
-      {
-        "source": "Embolden Spell: Magus of the Eclipse: Lunar Studies",
-        "bonusType": "Destiny",
-        "value": 0
-      },
-      {
-        "source": "Embolden Spell: Magus of the Eclipse: Lunar Studies",
-        "bonusType": "Destiny",
-        "value": 0
-      },
       {
         "source": "[E] Arcane Trickster: Arcane Trickster: Protective Gear",
         "bonusType": "Enhancement",
@@ -2203,103 +2038,33 @@
         "source": "[PL] Inherent Magical Resistance ×2",
         "bonusType": "Inherent",
         "value": 2
+      },
+      {
+        "source": "Magus of the Eclipse: Lunar Studies (9× sources)",
+        "bonusType": "Destiny",
+        "value": 12
+      },
+      {
+        "source": "Magus of the Eclipse: Lunar Studies (9× sources)",
+        "bonusType": "Destiny",
+        "value": 12
       }
     ]
   },
   "spellResistance": {
-    "total": 0,
-    "appliedCount": 18,
+    "total": 24,
+    "appliedCount": 2,
     "dominatedCount": 0,
     "sources": [
       {
-        "source": "Maximize Spell: Magus of the Eclipse: Lunar Studies",
+        "source": "Magus of the Eclipse: Lunar Studies (9× sources)",
         "bonusType": "Destiny",
-        "value": 0
+        "value": 12
       },
       {
-        "source": "Maximize Spell: Magus of the Eclipse: Lunar Studies",
+        "source": "Magus of the Eclipse: Lunar Studies (9× sources)",
         "bonusType": "Destiny",
-        "value": 0
-      },
-      {
-        "source": "Empower Spell: Magus of the Eclipse: Lunar Studies",
-        "bonusType": "Destiny",
-        "value": 0
-      },
-      {
-        "source": "Empower Spell: Magus of the Eclipse: Lunar Studies",
-        "bonusType": "Destiny",
-        "value": 0
-      },
-      {
-        "source": "Quicken Spell: Magus of the Eclipse: Lunar Studies",
-        "bonusType": "Destiny",
-        "value": 0
-      },
-      {
-        "source": "Quicken Spell: Magus of the Eclipse: Lunar Studies",
-        "bonusType": "Destiny",
-        "value": 0
-      },
-      {
-        "source": "Enlarge Spell: Magus of the Eclipse: Lunar Studies",
-        "bonusType": "Destiny",
-        "value": 0
-      },
-      {
-        "source": "Enlarge Spell: Magus of the Eclipse: Lunar Studies",
-        "bonusType": "Destiny",
-        "value": 0
-      },
-      {
-        "source": "Extend Spell: Magus of the Eclipse: Lunar Studies",
-        "bonusType": "Destiny",
-        "value": 0
-      },
-      {
-        "source": "Extend Spell: Magus of the Eclipse: Lunar Studies",
-        "bonusType": "Destiny",
-        "value": 0
-      },
-      {
-        "source": "Heighten Spell: Magus of the Eclipse: Lunar Studies",
-        "bonusType": "Destiny",
-        "value": 0
-      },
-      {
-        "source": "Heighten Spell: Magus of the Eclipse: Lunar Studies",
-        "bonusType": "Destiny",
-        "value": 0
-      },
-      {
-        "source": "Eschew Materials: Magus of the Eclipse: Lunar Studies",
-        "bonusType": "Destiny",
-        "value": 0
-      },
-      {
-        "source": "Eschew Materials: Magus of the Eclipse: Lunar Studies",
-        "bonusType": "Destiny",
-        "value": 0
-      },
-      {
-        "source": "Intensify Spell: Magus of the Eclipse: Lunar Studies",
-        "bonusType": "Destiny",
-        "value": 0
-      },
-      {
-        "source": "Intensify Spell: Magus of the Eclipse: Lunar Studies",
-        "bonusType": "Destiny",
-        "value": 0
-      },
-      {
-        "source": "Embolden Spell: Magus of the Eclipse: Lunar Studies",
-        "bonusType": "Destiny",
-        "value": 0
-      },
-      {
-        "source": "Embolden Spell: Magus of the Eclipse: Lunar Studies",
-        "bonusType": "Destiny",
-        "value": 0
+        "value": 12
       }
     ]
   },
@@ -2739,8 +2504,8 @@
     }
   },
   "universalSpellPower": {
-    "total": 397,
-    "appliedCount": 61,
+    "total": 447,
+    "appliedCount": 63,
     "dominatedCount": 0,
     "sources": [
       {
@@ -2954,6 +2719,11 @@
         "value": 3
       },
       {
+        "source": "[A] Cloak: The Deathly Shroud → Solar Gem of Spellpower (Legendary)",
+        "bonusType": "Artifact",
+        "value": 25
+      },
+      {
         "source": "[S] Eminence of Autumn (3-piece tier ≥ 2)",
         "bonusType": "Artifact",
         "value": 25
@@ -2967,6 +2737,11 @@
         "source": "[A] Trinket: Legendary Heartshard → Mythic Power Boost",
         "bonusType": "Mythic",
         "value": 1
+      },
+      {
+        "source": "[A] Gloves: Legendary Darstil's Gloves → Lunar Gem of Spellpower (Legendary)",
+        "bonusType": "Profane",
+        "value": 25
       },
       {
         "source": "[PL] Past Life: Eladrin Chaosmancer ×3",
@@ -3051,8 +2826,8 @@
     ]
   },
   "universalSpellCriticalChance": {
-    "total": 42,
-    "appliedCount": 13,
+    "total": 53,
+    "appliedCount": 15,
     "dominatedCount": 0,
     "sources": [
       {
@@ -3096,9 +2871,19 @@
         "value": 5
       },
       {
+        "source": "[A] Trinket: Legendary Heartshard → Solar Gem of Spell Critical Chance (Legendary)",
+        "bonusType": "Artifact",
+        "value": 6
+      },
+      {
         "source": "[S] Eminence of Autumn (3-piece tier ≥ 3)",
         "bonusType": "Artifact",
         "value": 6
+      },
+      {
+        "source": "[A] Ring2: Clouded Dreams → Essence of Pomura's Memento",
+        "bonusType": "Insightful",
+        "value": 5
       },
       {
         "source": "[FS] Elemental Avatar (5-piece tier ≥ 2)",
@@ -3123,8 +2908,8 @@
     ]
   },
   "universalSpellCriticalDamage": {
-    "total": 56,
-    "appliedCount": 11,
+    "total": 58,
+    "appliedCount": 12,
     "dominatedCount": 0,
     "sources": [
       {
@@ -3163,6 +2948,11 @@
         "value": 15
       },
       {
+        "source": "[A] Gloves: Legendary Darstil's Gloves → Curse of Uncontrollable Energy",
+        "bonusType": "Fortune",
+        "value": 2
+      },
+      {
         "source": "[F] Coalesced Magic: +1% Universal Spell Critical Damage",
         "bonusType": "Stacking",
         "value": 1
@@ -3192,7 +2982,7 @@
   "spellPowers": {
     "Acid": {
       "total": 686,
-      "appliedCount": 11,
+      "appliedCount": 9,
       "dominatedCount": 1,
       "sources": [
         {
@@ -3211,18 +3001,6 @@
           "source": "[G] Ring2: Clouded Dreams (UniversalSpellPower)",
           "bonusType": "Exceptional",
           "value": 15,
-          "target": "All"
-        },
-        {
-          "source": "[A] Cloak: The Deathly Shroud → Solar Gem of Spellpower (Legendary)",
-          "bonusType": "Artifact",
-          "value": 25,
-          "target": "All"
-        },
-        {
-          "source": "[A] Gloves: Legendary Darstil's Gloves → Lunar Gem of Spellpower (Legendary)",
-          "bonusType": "Profane",
-          "value": 25,
           "target": "All"
         },
         {
@@ -3258,14 +3036,14 @@
         {
           "source": "Universal Spell Power",
           "bonusType": "(untyped)",
-          "value": 397,
+          "value": 447,
           "target": "Acid"
         }
       ]
     },
     "Chaos": {
       "total": 662,
-      "appliedCount": 13,
+      "appliedCount": 11,
       "dominatedCount": 1,
       "sources": [
         {
@@ -3323,18 +3101,6 @@
           "target": "All"
         },
         {
-          "source": "[A] Cloak: The Deathly Shroud → Solar Gem of Spellpower (Legendary)",
-          "bonusType": "Artifact",
-          "value": 25,
-          "target": "All"
-        },
-        {
-          "source": "[A] Gloves: Legendary Darstil's Gloves → Lunar Gem of Spellpower (Legendary)",
-          "bonusType": "Profane",
-          "value": 25,
-          "target": "All"
-        },
-        {
           "source": "[Skill] Spellcraft (total 133)",
           "bonusType": "(untyped)",
           "value": 133,
@@ -3343,14 +3109,14 @@
         {
           "source": "Universal Spell Power",
           "bonusType": "(untyped)",
-          "value": 397,
+          "value": 447,
           "target": "Chaos"
         }
       ]
     },
     "Cold": {
       "total": 655,
-      "appliedCount": 9,
+      "appliedCount": 7,
       "dominatedCount": 1,
       "sources": [
         {
@@ -3363,18 +3129,6 @@
           "source": "[G] Ring2: Clouded Dreams (UniversalSpellPower)",
           "bonusType": "Exceptional",
           "value": 15,
-          "target": "All"
-        },
-        {
-          "source": "[A] Cloak: The Deathly Shroud → Solar Gem of Spellpower (Legendary)",
-          "bonusType": "Artifact",
-          "value": 25,
-          "target": "All"
-        },
-        {
-          "source": "[A] Gloves: Legendary Darstil's Gloves → Lunar Gem of Spellpower (Legendary)",
-          "bonusType": "Profane",
-          "value": 25,
           "target": "All"
         },
         {
@@ -3404,14 +3158,14 @@
         {
           "source": "Universal Spell Power",
           "bonusType": "(untyped)",
-          "value": 397,
+          "value": 447,
           "target": "Cold"
         }
       ]
     },
     "Electric": {
       "total": 667,
-      "appliedCount": 13,
+      "appliedCount": 11,
       "dominatedCount": 1,
       "sources": [
         {
@@ -3457,18 +3211,6 @@
           "target": "All"
         },
         {
-          "source": "[A] Cloak: The Deathly Shroud → Solar Gem of Spellpower (Legendary)",
-          "bonusType": "Artifact",
-          "value": 25,
-          "target": "All"
-        },
-        {
-          "source": "[A] Gloves: Legendary Darstil's Gloves → Lunar Gem of Spellpower (Legendary)",
-          "bonusType": "Profane",
-          "value": 25,
-          "target": "All"
-        },
-        {
           "source": "[Guild] Stormreaver Memorial I",
           "bonusType": "Guild",
           "value": 15,
@@ -3489,14 +3231,14 @@
         {
           "source": "Universal Spell Power",
           "bonusType": "(untyped)",
-          "value": 397,
+          "value": 447,
           "target": "Electric"
         }
       ]
     },
     "Evil": {
       "total": 622,
-      "appliedCount": 6,
+      "appliedCount": 4,
       "dominatedCount": 1,
       "sources": [
         {
@@ -3512,18 +3254,6 @@
           "target": "All"
         },
         {
-          "source": "[A] Cloak: The Deathly Shroud → Solar Gem of Spellpower (Legendary)",
-          "bonusType": "Artifact",
-          "value": 25,
-          "target": "All"
-        },
-        {
-          "source": "[A] Gloves: Legendary Darstil's Gloves → Lunar Gem of Spellpower (Legendary)",
-          "bonusType": "Profane",
-          "value": 25,
-          "target": "All"
-        },
-        {
           "source": "[Skill] Spellcraft (total 133)",
           "bonusType": "(untyped)",
           "value": 133,
@@ -3532,14 +3262,14 @@
         {
           "source": "Universal Spell Power",
           "bonusType": "(untyped)",
-          "value": 397,
+          "value": 447,
           "target": "Evil"
         }
       ]
     },
     "Fire": {
       "total": 826,
-      "appliedCount": 11,
+      "appliedCount": 9,
       "dominatedCount": 1,
       "sources": [
         {
@@ -3564,18 +3294,6 @@
           "source": "[G] Ring2: Clouded Dreams (UniversalSpellPower)",
           "bonusType": "Exceptional",
           "value": 15,
-          "target": "All"
-        },
-        {
-          "source": "[A] Cloak: The Deathly Shroud → Solar Gem of Spellpower (Legendary)",
-          "bonusType": "Artifact",
-          "value": 25,
-          "target": "All"
-        },
-        {
-          "source": "[A] Gloves: Legendary Darstil's Gloves → Lunar Gem of Spellpower (Legendary)",
-          "bonusType": "Profane",
-          "value": 25,
           "target": "All"
         },
         {
@@ -3605,14 +3323,14 @@
         {
           "source": "Universal Spell Power",
           "bonusType": "(untyped)",
-          "value": 397,
+          "value": 447,
           "target": "Fire"
         }
       ]
     },
     "Force": {
       "total": 963,
-      "appliedCount": 23,
+      "appliedCount": 21,
       "dominatedCount": 2,
       "sources": [
         {
@@ -3724,18 +3442,6 @@
           "target": "All"
         },
         {
-          "source": "[A] Cloak: The Deathly Shroud → Solar Gem of Spellpower (Legendary)",
-          "bonusType": "Artifact",
-          "value": 25,
-          "target": "All"
-        },
-        {
-          "source": "[A] Gloves: Legendary Darstil's Gloves → Lunar Gem of Spellpower (Legendary)",
-          "bonusType": "Profane",
-          "value": 25,
-          "target": "All"
-        },
-        {
           "source": "[PL] Past Life: Rogue - Arcane Trickster ×2",
           "bonusType": "Stacking",
           "value": 6,
@@ -3750,14 +3456,14 @@
         {
           "source": "Universal Spell Power",
           "bonusType": "(untyped)",
-          "value": 397,
+          "value": 447,
           "target": "Force"
         }
       ]
     },
     "Light/Alignment": {
       "total": 637,
-      "appliedCount": 7,
+      "appliedCount": 5,
       "dominatedCount": 1,
       "sources": [
         {
@@ -3770,18 +3476,6 @@
           "source": "[G] Ring2: Clouded Dreams (UniversalSpellPower)",
           "bonusType": "Exceptional",
           "value": 15,
-          "target": "All"
-        },
-        {
-          "source": "[A] Cloak: The Deathly Shroud → Solar Gem of Spellpower (Legendary)",
-          "bonusType": "Artifact",
-          "value": 25,
-          "target": "All"
-        },
-        {
-          "source": "[A] Gloves: Legendary Darstil's Gloves → Lunar Gem of Spellpower (Legendary)",
-          "bonusType": "Profane",
-          "value": 25,
           "target": "All"
         },
         {
@@ -3799,14 +3493,14 @@
         {
           "source": "Universal Spell Power",
           "bonusType": "(untyped)",
-          "value": 397,
+          "value": 447,
           "target": "Light/Alignment"
         }
       ]
     },
     "Negative": {
       "total": 581,
-      "appliedCount": 7,
+      "appliedCount": 5,
       "dominatedCount": 1,
       "sources": [
         {
@@ -3819,18 +3513,6 @@
           "source": "[G] Ring2: Clouded Dreams (UniversalSpellPower)",
           "bonusType": "Exceptional",
           "value": 15,
-          "target": "All"
-        },
-        {
-          "source": "[A] Cloak: The Deathly Shroud → Solar Gem of Spellpower (Legendary)",
-          "bonusType": "Artifact",
-          "value": 25,
-          "target": "All"
-        },
-        {
-          "source": "[A] Gloves: Legendary Darstil's Gloves → Lunar Gem of Spellpower (Legendary)",
-          "bonusType": "Profane",
-          "value": 25,
           "target": "All"
         },
         {
@@ -3848,14 +3530,14 @@
         {
           "source": "Universal Spell Power",
           "bonusType": "(untyped)",
-          "value": 397,
+          "value": 447,
           "target": "Negative"
         }
       ]
     },
     "Poison": {
       "total": 627,
-      "appliedCount": 7,
+      "appliedCount": 5,
       "dominatedCount": 1,
       "sources": [
         {
@@ -3868,18 +3550,6 @@
           "source": "[G] Ring2: Clouded Dreams (UniversalSpellPower)",
           "bonusType": "Exceptional",
           "value": 15,
-          "target": "All"
-        },
-        {
-          "source": "[A] Cloak: The Deathly Shroud → Solar Gem of Spellpower (Legendary)",
-          "bonusType": "Artifact",
-          "value": 25,
-          "target": "All"
-        },
-        {
-          "source": "[A] Gloves: Legendary Darstil's Gloves → Lunar Gem of Spellpower (Legendary)",
-          "bonusType": "Profane",
-          "value": 25,
           "target": "All"
         },
         {
@@ -3897,14 +3567,14 @@
         {
           "source": "Universal Spell Power",
           "bonusType": "(untyped)",
-          "value": 397,
+          "value": 447,
           "target": "Poison"
         }
       ]
     },
     "Positive": {
       "total": 605,
-      "appliedCount": 9,
+      "appliedCount": 7,
       "dominatedCount": 1,
       "sources": [
         {
@@ -3917,18 +3587,6 @@
           "source": "[G] Ring2: Clouded Dreams (UniversalSpellPower)",
           "bonusType": "Exceptional",
           "value": 15,
-          "target": "All"
-        },
-        {
-          "source": "[A] Cloak: The Deathly Shroud → Solar Gem of Spellpower (Legendary)",
-          "bonusType": "Artifact",
-          "value": 25,
-          "target": "All"
-        },
-        {
-          "source": "[A] Gloves: Legendary Darstil's Gloves → Lunar Gem of Spellpower (Legendary)",
-          "bonusType": "Profane",
-          "value": 25,
           "target": "All"
         },
         {
@@ -3958,14 +3616,14 @@
         {
           "source": "Universal Spell Power",
           "bonusType": "(untyped)",
-          "value": 397,
+          "value": 447,
           "target": "Positive"
         }
       ]
     },
     "Repair": {
       "total": 681,
-      "appliedCount": 13,
+      "appliedCount": 11,
       "dominatedCount": 1,
       "sources": [
         {
@@ -4017,18 +3675,6 @@
           "target": "All"
         },
         {
-          "source": "[A] Cloak: The Deathly Shroud → Solar Gem of Spellpower (Legendary)",
-          "bonusType": "Artifact",
-          "value": 25,
-          "target": "All"
-        },
-        {
-          "source": "[A] Gloves: Legendary Darstil's Gloves → Lunar Gem of Spellpower (Legendary)",
-          "bonusType": "Profane",
-          "value": 25,
-          "target": "All"
-        },
-        {
           "source": "[PL] Past Life: Bladeforged ×3",
           "bonusType": "Stacking",
           "value": 30,
@@ -4043,14 +3689,14 @@
         {
           "source": "Universal Spell Power",
           "bonusType": "(untyped)",
-          "value": 397,
+          "value": 447,
           "target": "Repair"
         }
       ]
     },
     "Sonic": {
       "total": 554,
-      "appliedCount": 13,
+      "appliedCount": 11,
       "dominatedCount": 1,
       "sources": [
         {
@@ -4102,18 +3748,6 @@
           "target": "All"
         },
         {
-          "source": "[A] Cloak: The Deathly Shroud → Solar Gem of Spellpower (Legendary)",
-          "bonusType": "Artifact",
-          "value": 25,
-          "target": "All"
-        },
-        {
-          "source": "[A] Gloves: Legendary Darstil's Gloves → Lunar Gem of Spellpower (Legendary)",
-          "bonusType": "Profane",
-          "value": 25,
-          "target": "All"
-        },
-        {
           "source": "[Guild] Stormreaver Memorial I",
           "bonusType": "Guild",
           "value": 15,
@@ -4128,7 +3762,7 @@
         {
           "source": "Universal Spell Power",
           "bonusType": "(untyped)",
-          "value": 397,
+          "value": 447,
           "target": "Sonic"
         }
       ]
@@ -4137,25 +3771,13 @@
   "spellCriticalChance": {
     "Acid": {
       "total": 75,
-      "appliedCount": 5,
+      "appliedCount": 3,
       "dominatedCount": 0,
       "sources": [
         {
           "source": "[G] Gloves: Legendary Darstil's Gloves (SpellLore)",
           "bonusType": "Equipment",
           "value": 13,
-          "target": "All"
-        },
-        {
-          "source": "[A] Trinket: Legendary Heartshard → Solar Gem of Spell Critical Chance (Legendary)",
-          "bonusType": "Artifact",
-          "value": 6,
-          "target": "All"
-        },
-        {
-          "source": "[A] Ring2: Clouded Dreams → Essence of Pomura's Memento",
-          "bonusType": "Insightful",
-          "value": 5,
           "target": "All"
         },
         {
@@ -4167,14 +3789,14 @@
         {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 42,
+          "value": 53,
           "target": "Acid"
         }
       ]
     },
     "Chaos": {
       "total": 66,
-      "appliedCount": 4,
+      "appliedCount": 2,
       "dominatedCount": 0,
       "sources": [
         {
@@ -4184,46 +3806,22 @@
           "target": "All"
         },
         {
-          "source": "[A] Trinket: Legendary Heartshard → Solar Gem of Spell Critical Chance (Legendary)",
-          "bonusType": "Artifact",
-          "value": 6,
-          "target": "All"
-        },
-        {
-          "source": "[A] Ring2: Clouded Dreams → Essence of Pomura's Memento",
-          "bonusType": "Insightful",
-          "value": 5,
-          "target": "All"
-        },
-        {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 42,
+          "value": 53,
           "target": "Chaos"
         }
       ]
     },
     "Cold": {
       "total": 75,
-      "appliedCount": 5,
+      "appliedCount": 3,
       "dominatedCount": 0,
       "sources": [
         {
           "source": "[G] Gloves: Legendary Darstil's Gloves (SpellLore)",
           "bonusType": "Equipment",
           "value": 13,
-          "target": "All"
-        },
-        {
-          "source": "[A] Trinket: Legendary Heartshard → Solar Gem of Spell Critical Chance (Legendary)",
-          "bonusType": "Artifact",
-          "value": 6,
-          "target": "All"
-        },
-        {
-          "source": "[A] Ring2: Clouded Dreams → Essence of Pomura's Memento",
-          "bonusType": "Insightful",
-          "value": 5,
           "target": "All"
         },
         {
@@ -4235,32 +3833,20 @@
         {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 42,
+          "value": 53,
           "target": "Cold"
         }
       ]
     },
     "Electric": {
       "total": 75,
-      "appliedCount": 5,
+      "appliedCount": 3,
       "dominatedCount": 0,
       "sources": [
         {
           "source": "[G] Gloves: Legendary Darstil's Gloves (SpellLore)",
           "bonusType": "Equipment",
           "value": 13,
-          "target": "All"
-        },
-        {
-          "source": "[A] Trinket: Legendary Heartshard → Solar Gem of Spell Critical Chance (Legendary)",
-          "bonusType": "Artifact",
-          "value": 6,
-          "target": "All"
-        },
-        {
-          "source": "[A] Ring2: Clouded Dreams → Essence of Pomura's Memento",
-          "bonusType": "Insightful",
-          "value": 5,
           "target": "All"
         },
         {
@@ -4272,14 +3858,14 @@
         {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 42,
+          "value": 53,
           "target": "Electric"
         }
       ]
     },
     "Evil": {
       "total": 66,
-      "appliedCount": 4,
+      "appliedCount": 2,
       "dominatedCount": 0,
       "sources": [
         {
@@ -4289,28 +3875,16 @@
           "target": "All"
         },
         {
-          "source": "[A] Trinket: Legendary Heartshard → Solar Gem of Spell Critical Chance (Legendary)",
-          "bonusType": "Artifact",
-          "value": 6,
-          "target": "All"
-        },
-        {
-          "source": "[A] Ring2: Clouded Dreams → Essence of Pomura's Memento",
-          "bonusType": "Insightful",
-          "value": 5,
-          "target": "All"
-        },
-        {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 42,
+          "value": 53,
           "target": "Evil"
         }
       ]
     },
     "Fire": {
       "total": 84,
-      "appliedCount": 5,
+      "appliedCount": 3,
       "dominatedCount": 1,
       "sources": [
         {
@@ -4320,18 +3894,6 @@
           "target": "Fire"
         },
         {
-          "source": "[A] Trinket: Legendary Heartshard → Solar Gem of Spell Critical Chance (Legendary)",
-          "bonusType": "Artifact",
-          "value": 6,
-          "target": "All"
-        },
-        {
-          "source": "[A] Ring2: Clouded Dreams → Essence of Pomura's Memento",
-          "bonusType": "Insightful",
-          "value": 5,
-          "target": "All"
-        },
-        {
           "source": "[PL] Past Life: Arcane Sphere: Energy Criticals ×3",
           "bonusType": "Stacking",
           "value": 9,
@@ -4340,14 +3902,14 @@
         {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 42,
+          "value": 53,
           "target": "Fire"
         }
       ]
     },
     "Force": {
       "total": 77,
-      "appliedCount": 4,
+      "appliedCount": 2,
       "dominatedCount": 1,
       "sources": [
         {
@@ -4357,28 +3919,16 @@
           "target": "Force"
         },
         {
-          "source": "[A] Trinket: Legendary Heartshard → Solar Gem of Spell Critical Chance (Legendary)",
-          "bonusType": "Artifact",
-          "value": 6,
-          "target": "All"
-        },
-        {
-          "source": "[A] Ring2: Clouded Dreams → Essence of Pomura's Memento",
-          "bonusType": "Insightful",
-          "value": 5,
-          "target": "All"
-        },
-        {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 42,
+          "value": 53,
           "target": "Force"
         }
       ]
     },
     "Light/Alignment": {
       "total": 66,
-      "appliedCount": 4,
+      "appliedCount": 2,
       "dominatedCount": 0,
       "sources": [
         {
@@ -4388,28 +3938,16 @@
           "target": "All"
         },
         {
-          "source": "[A] Trinket: Legendary Heartshard → Solar Gem of Spell Critical Chance (Legendary)",
-          "bonusType": "Artifact",
-          "value": 6,
-          "target": "All"
-        },
-        {
-          "source": "[A] Ring2: Clouded Dreams → Essence of Pomura's Memento",
-          "bonusType": "Insightful",
-          "value": 5,
-          "target": "All"
-        },
-        {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 42,
+          "value": 53,
           "target": "Light/Alignment"
         }
       ]
     },
     "Negative": {
       "total": 66,
-      "appliedCount": 4,
+      "appliedCount": 2,
       "dominatedCount": 0,
       "sources": [
         {
@@ -4419,28 +3957,16 @@
           "target": "All"
         },
         {
-          "source": "[A] Trinket: Legendary Heartshard → Solar Gem of Spell Critical Chance (Legendary)",
-          "bonusType": "Artifact",
-          "value": 6,
-          "target": "All"
-        },
-        {
-          "source": "[A] Ring2: Clouded Dreams → Essence of Pomura's Memento",
-          "bonusType": "Insightful",
-          "value": 5,
-          "target": "All"
-        },
-        {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 42,
+          "value": 53,
           "target": "Negative"
         }
       ]
     },
     "Poison": {
       "total": 66,
-      "appliedCount": 4,
+      "appliedCount": 2,
       "dominatedCount": 0,
       "sources": [
         {
@@ -4450,28 +3976,16 @@
           "target": "All"
         },
         {
-          "source": "[A] Trinket: Legendary Heartshard → Solar Gem of Spell Critical Chance (Legendary)",
-          "bonusType": "Artifact",
-          "value": 6,
-          "target": "All"
-        },
-        {
-          "source": "[A] Ring2: Clouded Dreams → Essence of Pomura's Memento",
-          "bonusType": "Insightful",
-          "value": 5,
-          "target": "All"
-        },
-        {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 42,
+          "value": 53,
           "target": "Poison"
         }
       ]
     },
     "Positive": {
       "total": 66,
-      "appliedCount": 4,
+      "appliedCount": 2,
       "dominatedCount": 0,
       "sources": [
         {
@@ -4481,28 +3995,16 @@
           "target": "All"
         },
         {
-          "source": "[A] Trinket: Legendary Heartshard → Solar Gem of Spell Critical Chance (Legendary)",
-          "bonusType": "Artifact",
-          "value": 6,
-          "target": "All"
-        },
-        {
-          "source": "[A] Ring2: Clouded Dreams → Essence of Pomura's Memento",
-          "bonusType": "Insightful",
-          "value": 5,
-          "target": "All"
-        },
-        {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 42,
+          "value": 53,
           "target": "Positive"
         }
       ]
     },
     "Repair": {
       "total": 66,
-      "appliedCount": 4,
+      "appliedCount": 2,
       "dominatedCount": 0,
       "sources": [
         {
@@ -4512,46 +4014,22 @@
           "target": "All"
         },
         {
-          "source": "[A] Trinket: Legendary Heartshard → Solar Gem of Spell Critical Chance (Legendary)",
-          "bonusType": "Artifact",
-          "value": 6,
-          "target": "All"
-        },
-        {
-          "source": "[A] Ring2: Clouded Dreams → Essence of Pomura's Memento",
-          "bonusType": "Insightful",
-          "value": 5,
-          "target": "All"
-        },
-        {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 42,
+          "value": 53,
           "target": "Repair"
         }
       ]
     },
     "Sonic": {
       "total": 75,
-      "appliedCount": 5,
+      "appliedCount": 3,
       "dominatedCount": 0,
       "sources": [
         {
           "source": "[G] Gloves: Legendary Darstil's Gloves (SpellLore)",
           "bonusType": "Equipment",
           "value": 13,
-          "target": "All"
-        },
-        {
-          "source": "[A] Trinket: Legendary Heartshard → Solar Gem of Spell Critical Chance (Legendary)",
-          "bonusType": "Artifact",
-          "value": 6,
-          "target": "All"
-        },
-        {
-          "source": "[A] Ring2: Clouded Dreams → Essence of Pomura's Memento",
-          "bonusType": "Insightful",
-          "value": 5,
           "target": "All"
         },
         {
@@ -4563,7 +4041,7 @@
         {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 42,
+          "value": 53,
           "target": "Sonic"
         }
       ]
@@ -4572,7 +4050,7 @@
   "spellCriticalDamage": {
     "Acid": {
       "total": 68,
-      "appliedCount": 3,
+      "appliedCount": 2,
       "dominatedCount": 0,
       "sources": [
         {
@@ -4582,98 +4060,68 @@
           "target": "Acid"
         },
         {
-          "source": "[A] Gloves: Legendary Darstil's Gloves → Curse of Uncontrollable Energy",
-          "bonusType": "Fortune",
-          "value": 2,
-          "target": "All"
-        },
-        {
           "source": "Universal Spell Critical Damage",
           "bonusType": "(untyped)",
-          "value": 56,
+          "value": 58,
           "target": "Acid"
         }
       ]
     },
     "Chaos": {
       "total": 58,
-      "appliedCount": 2,
+      "appliedCount": 1,
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "[A] Gloves: Legendary Darstil's Gloves → Curse of Uncontrollable Energy",
-          "bonusType": "Fortune",
-          "value": 2,
-          "target": "All"
-        },
-        {
           "source": "Universal Spell Critical Damage",
           "bonusType": "(untyped)",
-          "value": 56,
+          "value": 58,
           "target": "Chaos"
         }
       ]
     },
     "Cold": {
       "total": 58,
-      "appliedCount": 2,
+      "appliedCount": 1,
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "[A] Gloves: Legendary Darstil's Gloves → Curse of Uncontrollable Energy",
-          "bonusType": "Fortune",
-          "value": 2,
-          "target": "All"
-        },
-        {
           "source": "Universal Spell Critical Damage",
           "bonusType": "(untyped)",
-          "value": 56,
+          "value": 58,
           "target": "Cold"
         }
       ]
     },
     "Electric": {
       "total": 58,
-      "appliedCount": 2,
+      "appliedCount": 1,
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "[A] Gloves: Legendary Darstil's Gloves → Curse of Uncontrollable Energy",
-          "bonusType": "Fortune",
-          "value": 2,
-          "target": "All"
-        },
-        {
           "source": "Universal Spell Critical Damage",
           "bonusType": "(untyped)",
-          "value": 56,
+          "value": 58,
           "target": "Electric"
         }
       ]
     },
     "Evil": {
       "total": 58,
-      "appliedCount": 2,
+      "appliedCount": 1,
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "[A] Gloves: Legendary Darstil's Gloves → Curse of Uncontrollable Energy",
-          "bonusType": "Fortune",
-          "value": 2,
-          "target": "All"
-        },
-        {
           "source": "Universal Spell Critical Damage",
           "bonusType": "(untyped)",
-          "value": 56,
+          "value": 58,
           "target": "Evil"
         }
       ]
     },
     "Fire": {
       "total": 68,
-      "appliedCount": 3,
+      "appliedCount": 2,
       "dominatedCount": 0,
       "sources": [
         {
@@ -4683,22 +4131,16 @@
           "target": "Fire"
         },
         {
-          "source": "[A] Gloves: Legendary Darstil's Gloves → Curse of Uncontrollable Energy",
-          "bonusType": "Fortune",
-          "value": 2,
-          "target": "All"
-        },
-        {
           "source": "Universal Spell Critical Damage",
           "bonusType": "(untyped)",
-          "value": 56,
+          "value": 58,
           "target": "Fire"
         }
       ]
     },
     "Force": {
       "total": 113,
-      "appliedCount": 6,
+      "appliedCount": 5,
       "dominatedCount": 0,
       "sources": [
         {
@@ -4726,98 +4168,68 @@
           "target": "Force"
         },
         {
-          "source": "[A] Gloves: Legendary Darstil's Gloves → Curse of Uncontrollable Energy",
-          "bonusType": "Fortune",
-          "value": 2,
-          "target": "All"
-        },
-        {
           "source": "Universal Spell Critical Damage",
           "bonusType": "(untyped)",
-          "value": 56,
+          "value": 58,
           "target": "Force"
         }
       ]
     },
     "Light/Alignment": {
       "total": 58,
-      "appliedCount": 2,
+      "appliedCount": 1,
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "[A] Gloves: Legendary Darstil's Gloves → Curse of Uncontrollable Energy",
-          "bonusType": "Fortune",
-          "value": 2,
-          "target": "All"
-        },
-        {
           "source": "Universal Spell Critical Damage",
           "bonusType": "(untyped)",
-          "value": 56,
+          "value": 58,
           "target": "Light/Alignment"
         }
       ]
     },
     "Negative": {
       "total": 58,
-      "appliedCount": 2,
+      "appliedCount": 1,
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "[A] Gloves: Legendary Darstil's Gloves → Curse of Uncontrollable Energy",
-          "bonusType": "Fortune",
-          "value": 2,
-          "target": "All"
-        },
-        {
           "source": "Universal Spell Critical Damage",
           "bonusType": "(untyped)",
-          "value": 56,
+          "value": 58,
           "target": "Negative"
         }
       ]
     },
     "Poison": {
       "total": 58,
-      "appliedCount": 2,
+      "appliedCount": 1,
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "[A] Gloves: Legendary Darstil's Gloves → Curse of Uncontrollable Energy",
-          "bonusType": "Fortune",
-          "value": 2,
-          "target": "All"
-        },
-        {
           "source": "Universal Spell Critical Damage",
           "bonusType": "(untyped)",
-          "value": 56,
+          "value": 58,
           "target": "Poison"
         }
       ]
     },
     "Positive": {
       "total": 58,
-      "appliedCount": 2,
+      "appliedCount": 1,
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "[A] Gloves: Legendary Darstil's Gloves → Curse of Uncontrollable Energy",
-          "bonusType": "Fortune",
-          "value": 2,
-          "target": "All"
-        },
-        {
           "source": "Universal Spell Critical Damage",
           "bonusType": "(untyped)",
-          "value": 56,
+          "value": 58,
           "target": "Positive"
         }
       ]
     },
     "Repair": {
       "total": 68,
-      "appliedCount": 3,
+      "appliedCount": 2,
       "dominatedCount": 0,
       "sources": [
         {
@@ -4827,22 +4239,16 @@
           "target": "Repair"
         },
         {
-          "source": "[A] Gloves: Legendary Darstil's Gloves → Curse of Uncontrollable Energy",
-          "bonusType": "Fortune",
-          "value": 2,
-          "target": "All"
-        },
-        {
           "source": "Universal Spell Critical Damage",
           "bonusType": "(untyped)",
-          "value": 56,
+          "value": 58,
           "target": "Repair"
         }
       ]
     },
     "Sonic": {
       "total": 68,
-      "appliedCount": 3,
+      "appliedCount": 2,
       "dominatedCount": 0,
       "sources": [
         {
@@ -4852,15 +4258,9 @@
           "target": "Sonic"
         },
         {
-          "source": "[A] Gloves: Legendary Darstil's Gloves → Curse of Uncontrollable Energy",
-          "bonusType": "Fortune",
-          "value": 2,
-          "target": "All"
-        },
-        {
           "source": "Universal Spell Critical Damage",
           "bonusType": "(untyped)",
-          "value": 56,
+          "value": 58,
           "target": "Sonic"
         }
       ]

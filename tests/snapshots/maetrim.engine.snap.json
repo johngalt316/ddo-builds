@@ -15,12 +15,12 @@
     },
     "requirementsFailedCount": 172,
     "totalSourcedEffects": 1170,
-    "totalAppliedBonuses": 1310
+    "totalAppliedBonuses": 1256
   },
   "abilityScores": {
     "STR": {
-      "total": 50,
-      "appliedCount": 19,
+      "total": 56,
+      "appliedCount": 16,
       "dominatedCount": 0,
       "sources": [
         {
@@ -35,30 +35,6 @@
           "target": "Strength"
         },
         {
-          "source": "Monk 1: Ocean Stance: Ocean Stance: Strength Penalty",
-          "bonusType": "Feat",
-          "value": -2,
-          "target": "Strength"
-        },
-        {
-          "source": "Monk 6: Adept of Forms: Ocean Stance: Strength Penalty",
-          "bonusType": "Feat",
-          "value": -2,
-          "target": "Strength"
-        },
-        {
-          "source": "Monk 12: Master of Forms: Ocean Stance: Strength Penalty",
-          "bonusType": "Feat",
-          "value": -2,
-          "target": "Strength"
-        },
-        {
-          "source": "Monk 18: Grandmaster of Forms: Ocean Stance: Strength Penalty",
-          "bonusType": "Feat",
-          "value": -2,
-          "target": "Strength"
-        },
-        {
           "source": "Completionist",
           "bonusType": "Feat",
           "value": 2,
@@ -69,6 +45,12 @@
           "bonusType": "Feat",
           "value": 2,
           "target": "All"
+        },
+        {
+          "source": "Ocean Stance: Strength Penalty (4× sources)",
+          "bonusType": "Feat",
+          "value": -2,
+          "target": "Strength"
         },
         {
           "source": "[G] Belt: Legendary Waistwrap of Wild Wisdom (Profane Well Rounded)",
@@ -439,38 +421,14 @@
       ]
     },
     "WIS": {
-      "total": 102,
-      "appliedCount": 27,
-      "dominatedCount": 2,
+      "total": 100,
+      "appliedCount": 26,
+      "dominatedCount": 0,
       "sources": [
         {
           "source": "base + racial",
           "bonusType": "(untyped)",
           "value": 35
-        },
-        {
-          "source": "Monk 1: Ocean Stance: Ocean Stance: Wisdom",
-          "bonusType": "Feat",
-          "value": 2,
-          "target": "Wisdom"
-        },
-        {
-          "source": "Monk 6: Adept of Forms: Ocean Stance: Wisdom",
-          "bonusType": "Feat",
-          "value": 2,
-          "target": "Wisdom"
-        },
-        {
-          "source": "Monk 12: Master of Forms: Ocean Stance: Wisdom",
-          "bonusType": "Feat",
-          "value": 2,
-          "target": "Wisdom"
-        },
-        {
-          "source": "Monk 18: Grandmaster of Forms: Ocean Stance: Wisdom",
-          "bonusType": "Feat",
-          "value": 2,
-          "target": "Wisdom"
         },
         {
           "source": "Completionist",
@@ -483,6 +441,12 @@
           "bonusType": "Feat",
           "value": 2,
           "target": "All"
+        },
+        {
+          "source": "Ocean Stance: Wisdom (4× sources)",
+          "bonusType": "Feat",
+          "value": 4,
+          "target": "Wisdom"
         },
         {
           "source": "[E] Aasimar: Aasimar: Ability I → +1 Wisdom",
@@ -560,6 +524,18 @@
           "source": "[A] Belt: Legendary Waistwrap of Wild Wisdom → Curse of Major Wisdom",
           "bonusType": "Fortune",
           "value": 2,
+          "target": "Wisdom"
+        },
+        {
+          "source": "[A] Gloves: Legendary Blood-Stained Doctor's Gloves → Curse of Minor Wisdom",
+          "bonusType": "Fortune",
+          "value": 1,
+          "target": "Wisdom"
+        },
+        {
+          "source": "[A] Bracers: The Wicked Spines → Curse of Minor Wisdom",
+          "bonusType": "Fortune",
+          "value": 1,
           "target": "Wisdom"
         },
         {
@@ -890,8 +866,8 @@
   "saves": {
     "Fortitude": {
       "total": 91,
-      "appliedCount": 27,
-      "dominatedCount": 2,
+      "appliedCount": 25,
+      "dominatedCount": 1,
       "sources": [
         {
           "source": "class save progression + ability mod",
@@ -909,30 +885,6 @@
           "bonusType": "Feat",
           "value": 2,
           "target": "Fortitude"
-        },
-        {
-          "source": "Monk 1: Ocean Stance: Ocean Stance: Saves",
-          "bonusType": "Feat",
-          "value": 2,
-          "target": "All"
-        },
-        {
-          "source": "Monk 6: Adept of Forms: Ocean Stance: Saves",
-          "bonusType": "Feat",
-          "value": 2,
-          "target": "All"
-        },
-        {
-          "source": "Monk 12: Master of Forms: Ocean Stance: Saves",
-          "bonusType": "Feat",
-          "value": 2,
-          "target": "All"
-        },
-        {
-          "source": "Monk 18: Grandmaster of Forms: Ocean Stance: Saves",
-          "bonusType": "Feat",
-          "value": 2,
-          "target": "All"
         },
         {
           "source": "Epic 2: Epic Saves",
@@ -965,6 +917,12 @@
           "target": "All"
         },
         {
+          "source": "Ocean Stance: Saves (4× sources)",
+          "bonusType": "Feat",
+          "value": 5,
+          "target": "All"
+        },
+        {
           "source": "[E] Shintao: Shintao: Protection from Tainted Creatures",
           "bonusType": "Enhancement",
           "value": 1,
@@ -989,7 +947,7 @@
           "target": "All"
         },
         {
-          "source": "[D] Grandmaster of Flowers: Grandmaster of Flowers: Flow of Water: The Flow of Water + Ocean Stance",
+          "source": "[D] Grandmaster of Flowers: Grandmaster of Flowers: Flow of Water",
           "bonusType": "Destiny",
           "value": 3,
           "target": "All"
@@ -998,6 +956,12 @@
           "source": "[A] Cloak: Dinosaur Bone Cloak → Horn: +12 Resistance",
           "bonusType": "Resistance",
           "value": 11,
+          "target": "All"
+        },
+        {
+          "source": "[D] Shadowdancer: Shadowdancer: Cover of Darkness",
+          "bonusType": "Resistance",
+          "value": 3,
           "target": "All"
         },
         {
@@ -1058,8 +1022,8 @@
     },
     "Reflex": {
       "total": 96,
-      "appliedCount": 29,
-      "dominatedCount": 2,
+      "appliedCount": 27,
+      "dominatedCount": 1,
       "sources": [
         {
           "source": "class save progression + ability mod",
@@ -1083,30 +1047,6 @@
           "bonusType": "Feat",
           "value": 4,
           "target": "Reflex"
-        },
-        {
-          "source": "Monk 1: Ocean Stance: Ocean Stance: Saves",
-          "bonusType": "Feat",
-          "value": 2,
-          "target": "All"
-        },
-        {
-          "source": "Monk 6: Adept of Forms: Ocean Stance: Saves",
-          "bonusType": "Feat",
-          "value": 2,
-          "target": "All"
-        },
-        {
-          "source": "Monk 12: Master of Forms: Ocean Stance: Saves",
-          "bonusType": "Feat",
-          "value": 2,
-          "target": "All"
-        },
-        {
-          "source": "Monk 18: Grandmaster of Forms: Ocean Stance: Saves",
-          "bonusType": "Feat",
-          "value": 2,
-          "target": "All"
         },
         {
           "source": "Epic 2: Epic Saves",
@@ -1136,6 +1076,12 @@
           "source": "Epic 10: Epic Saves",
           "bonusType": "Feat",
           "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Ocean Stance: Saves (4× sources)",
+          "bonusType": "Feat",
+          "value": 5,
           "target": "All"
         },
         {
@@ -1169,21 +1115,27 @@
           "target": "All"
         },
         {
-          "source": "[D] Grandmaster of Flowers: Grandmaster of Flowers: Flow of Water: The Flow of Water + Ocean Stance",
-          "bonusType": "Destiny",
-          "value": 3,
-          "target": "All"
-        },
-        {
           "source": "[D] Shadowdancer: Shadowdancer: Stealthy",
           "bonusType": "Destiny",
           "value": 3,
           "target": "Reflex"
         },
         {
+          "source": "[D] Grandmaster of Flowers: Grandmaster of Flowers: Flow of Water",
+          "bonusType": "Destiny",
+          "value": 3,
+          "target": "All"
+        },
+        {
           "source": "[A] Cloak: Dinosaur Bone Cloak → Horn: +12 Resistance",
           "bonusType": "Resistance",
           "value": 11,
+          "target": "All"
+        },
+        {
+          "source": "[D] Shadowdancer: Shadowdancer: Cover of Darkness",
+          "bonusType": "Resistance",
+          "value": 3,
           "target": "All"
         },
         {
@@ -1238,8 +1190,8 @@
     },
     "Will": {
       "total": 95,
-      "appliedCount": 26,
-      "dominatedCount": 2,
+      "appliedCount": 24,
+      "dominatedCount": 1,
       "sources": [
         {
           "source": "class save progression + ability mod",
@@ -1250,30 +1202,6 @@
           "source": "Echoing Soul",
           "bonusType": "Feat",
           "value": 12,
-          "target": "All"
-        },
-        {
-          "source": "Monk 1: Ocean Stance: Ocean Stance: Saves",
-          "bonusType": "Feat",
-          "value": 2,
-          "target": "All"
-        },
-        {
-          "source": "Monk 6: Adept of Forms: Ocean Stance: Saves",
-          "bonusType": "Feat",
-          "value": 2,
-          "target": "All"
-        },
-        {
-          "source": "Monk 12: Master of Forms: Ocean Stance: Saves",
-          "bonusType": "Feat",
-          "value": 2,
-          "target": "All"
-        },
-        {
-          "source": "Monk 18: Grandmaster of Forms: Ocean Stance: Saves",
-          "bonusType": "Feat",
-          "value": 2,
           "target": "All"
         },
         {
@@ -1307,6 +1235,12 @@
           "target": "All"
         },
         {
+          "source": "Ocean Stance: Saves (4× sources)",
+          "bonusType": "Feat",
+          "value": 5,
+          "target": "All"
+        },
+        {
           "source": "[E] Shintao: Shintao: Protection from Tainted Creatures",
           "bonusType": "Enhancement",
           "value": 1,
@@ -1331,7 +1265,7 @@
           "target": "All"
         },
         {
-          "source": "[D] Grandmaster of Flowers: Grandmaster of Flowers: Flow of Water: The Flow of Water + Ocean Stance",
+          "source": "[D] Grandmaster of Flowers: Grandmaster of Flowers: Flow of Water",
           "bonusType": "Destiny",
           "value": 3,
           "target": "All"
@@ -1340,6 +1274,12 @@
           "source": "[A] Cloak: Dinosaur Bone Cloak → Horn: +12 Resistance",
           "bonusType": "Resistance",
           "value": 11,
+          "target": "All"
+        },
+        {
+          "source": "[D] Shadowdancer: Shadowdancer: Cover of Darkness",
+          "bonusType": "Resistance",
+          "value": 3,
           "target": "All"
         },
         {
@@ -2306,21 +2246,6 @@
     "dominatedCount": 0,
     "sources": [
       {
-        "source": "Fount of Life: Exalted Angel: Blessed Water",
-        "bonusType": "Destiny",
-        "value": 0
-      },
-      {
-        "source": "Fount of Life: Exalted Angel: Blessed Water",
-        "bonusType": "Destiny",
-        "value": 0
-      },
-      {
-        "source": "Fount of Life: Exalted Angel: Blessed Water",
-        "bonusType": "Destiny",
-        "value": 0
-      },
-      {
         "source": "Monk 1: AC Bonus (Monk)",
         "bonusType": "Feat",
         "value": 12
@@ -2386,6 +2311,21 @@
         "value": 15
       },
       {
+        "source": "Fount of Life",
+        "bonusType": "Destiny",
+        "value": 0
+      },
+      {
+        "source": "Fount of Life",
+        "bonusType": "Destiny",
+        "value": 0
+      },
+      {
+        "source": "Fount of Life",
+        "bonusType": "Destiny",
+        "value": 0
+      },
+      {
         "source": "[A] Armor: Dinosaur Bone Outfit → +5% Reaper Bonus to AC and +3 PRR",
         "bonusType": "Reaper",
         "value": 5
@@ -2394,7 +2334,7 @@
   },
   "dodge": {
     "total": 50,
-    "appliedCount": 15,
+    "appliedCount": 12,
     "dominatedCount": 0,
     "sources": [
       {
@@ -2423,24 +2363,9 @@
         "value": 0
       },
       {
-        "source": "Monk 1: Ocean Stance: Ocean Stance: Dodge",
+        "source": "Ocean Stance: Dodge (4× sources)",
         "bonusType": "Feat",
-        "value": 3
-      },
-      {
-        "source": "Monk 6: Adept of Forms: Ocean Stance: Dodge",
-        "bonusType": "Feat",
-        "value": 3
-      },
-      {
-        "source": "Monk 12: Master of Forms: Ocean Stance: Dodge",
-        "bonusType": "Feat",
-        "value": 3
-      },
-      {
-        "source": "Monk 18: Grandmaster of Forms: Ocean Stance: Dodge",
-        "bonusType": "Feat",
-        "value": 3
+        "value": 12
       },
       {
         "source": "[D] Grandmaster of Flowers: Grandmaster of Flowers: Catch the Wind",
@@ -2475,45 +2400,10 @@
     ]
   },
   "prr": {
-    "total": 238,
-    "appliedCount": 33,
+    "total": 243,
+    "appliedCount": 32,
     "dominatedCount": 0,
     "sources": [
-      {
-        "source": "Fount of Life: Exalted Angel: Blessed Water",
-        "bonusType": "Destiny",
-        "value": 0
-      },
-      {
-        "source": "Fount of Life: Exalted Angel: Blessed Water",
-        "bonusType": "Destiny",
-        "value": 0
-      },
-      {
-        "source": "Fount of Life: Exalted Angel: Blessed Water",
-        "bonusType": "Destiny",
-        "value": 0
-      },
-      {
-        "source": "[D] Grandmaster of Flowers: Grandmaster of Flowers: Disciple of Material: Grandmaster of Flowers: Disciple of Material",
-        "bonusType": "Destiny",
-        "value": 0
-      },
-      {
-        "source": "[D] Grandmaster of Flowers: Grandmaster of Flowers: Disciple of Material: Grandmaster of Flowers: Disciple of Material",
-        "bonusType": "Destiny",
-        "value": 0
-      },
-      {
-        "source": "[D] Grandmaster of Flowers: Grandmaster of Flowers: Strength of Stone",
-        "bonusType": "Destiny",
-        "value": 6
-      },
-      {
-        "source": "[D] Legendary Dreadnought: Legendary Dreadnought: Thick Skinned",
-        "bonusType": "Destiny",
-        "value": 15
-      },
       {
         "source": "Embodiment of Law",
         "bonusType": "Feat",
@@ -2553,6 +2443,36 @@
         "source": "[A] Trinket: Legendary Heartshard → Miserable Physical Resistance Rating (Legendary)",
         "bonusType": "Enhancement",
         "value": 38
+      },
+      {
+        "source": "[D] Grandmaster of Flowers: Grandmaster of Flowers: Strength of Stone",
+        "bonusType": "Destiny",
+        "value": 6
+      },
+      {
+        "source": "[D] Legendary Dreadnought: Legendary Dreadnought: Thick Skinned",
+        "bonusType": "Destiny",
+        "value": 15
+      },
+      {
+        "source": "Fount of Life",
+        "bonusType": "Destiny",
+        "value": 0
+      },
+      {
+        "source": "Fount of Life",
+        "bonusType": "Destiny",
+        "value": 0
+      },
+      {
+        "source": "Fount of Life",
+        "bonusType": "Destiny",
+        "value": 0
+      },
+      {
+        "source": "Grandmaster of Flowers: Disciple of Material (2× sources)",
+        "bonusType": "Destiny",
+        "value": 5
       },
       {
         "source": "[R] Grim Barricade: Reaper's Defense V",
@@ -2647,8 +2567,8 @@
     ]
   },
   "mrr": {
-    "total": 117,
-    "appliedCount": 17,
+    "total": 122,
+    "appliedCount": 16,
     "dominatedCount": 0,
     "sources": [
       {
@@ -2665,16 +2585,6 @@
         "source": "[A] Cloak: Dinosaur Bone Cloak → Claw: +35 Magical Resistance Rating",
         "bonusType": "Enhancement",
         "value": 35
-      },
-      {
-        "source": "[D] Grandmaster of Flowers: Grandmaster of Flowers: Disciple of Morality: Grandmaster of Flowers: Disciple of Morality",
-        "bonusType": "Destiny",
-        "value": 0
-      },
-      {
-        "source": "[D] Grandmaster of Flowers: Grandmaster of Flowers: Disciple of Morality: Grandmaster of Flowers: Disciple of Morality",
-        "bonusType": "Destiny",
-        "value": 0
       },
       {
         "source": "[R] Grim Barricade: Reaper's Defense V",
@@ -2735,6 +2645,11 @@
         "source": "[PL] Inherent Magical Resistance ×4",
         "bonusType": "Inherent",
         "value": 4
+      },
+      {
+        "source": "Grandmaster of Flowers: Disciple of Morality (2× sources)",
+        "bonusType": "Destiny",
+        "value": 5
       }
     ]
   },
@@ -3343,7 +3258,7 @@
       ]
     },
     "Negative": {
-      "total": 260,
+      "total": 259,
       "appliedCount": 4,
       "dominatedCount": 0,
       "sources": [
@@ -3360,9 +3275,9 @@
           "target": "Negative"
         },
         {
-          "source": "[Skill] Heal (total 100)",
+          "source": "[Skill] Heal (total 99)",
           "bonusType": "(untyped)",
-          "value": 100,
+          "value": 99,
           "target": "Negative"
         },
         {
@@ -3393,7 +3308,7 @@
       ]
     },
     "Positive": {
-      "total": 349,
+      "total": 348,
       "appliedCount": 12,
       "dominatedCount": 0,
       "sources": [
@@ -3458,9 +3373,9 @@
           "target": "Positive"
         },
         {
-          "source": "[Skill] Heal (total 100)",
+          "source": "[Skill] Heal (total 99)",
           "bonusType": "(untyped)",
-          "value": 100,
+          "value": 99,
           "target": "Positive"
         },
         {
@@ -4440,14 +4355,14 @@
       ]
     },
     "heal": {
-      "total": 100,
+      "total": 99,
       "appliedCount": 22,
       "dominatedCount": 0,
       "sources": [
         {
           "source": "Wisdom modifier",
           "bonusType": "(untyped)",
-          "value": 46
+          "value": 45
         },
         {
           "source": "Skill tome",
@@ -4885,14 +4800,14 @@
       ]
     },
     "jump": {
-      "total": 69,
+      "total": 72,
       "appliedCount": 19,
       "dominatedCount": 0,
       "sources": [
         {
           "source": "Strength modifier",
           "bonusType": "(untyped)",
-          "value": 20
+          "value": 23
         },
         {
           "source": "Skill tome",
@@ -5004,14 +4919,14 @@
       ]
     },
     "listen": {
-      "total": 101,
+      "total": 100,
       "appliedCount": 22,
       "dominatedCount": 0,
       "sources": [
         {
           "source": "Wisdom modifier",
           "bonusType": "(untyped)",
-          "value": 46
+          "value": 45
         },
         {
           "source": "Skill tome",
@@ -5704,7 +5619,7 @@
       ]
     },
     "spot": {
-      "total": 125,
+      "total": 124,
       "appliedCount": 24,
       "dominatedCount": 0,
       "sources": [
@@ -5716,7 +5631,7 @@
         {
           "source": "Wisdom modifier",
           "bonusType": "(untyped)",
-          "value": 46
+          "value": 45
         },
         {
           "source": "Skill tome",
@@ -5852,7 +5767,7 @@
       ]
     },
     "swim": {
-      "total": 93,
+      "total": 96,
       "appliedCount": 21,
       "dominatedCount": 0,
       "sources": [
@@ -5864,7 +5779,7 @@
         {
           "source": "Strength modifier",
           "bonusType": "(untyped)",
-          "value": 20
+          "value": 23
         },
         {
           "source": "Skill tome",

@@ -13,7 +13,7 @@ import type {
 import { applyRacialBonuses, applyAbilityTomes, applyLevelUps, calculateBAB, classHitPoints, calculateSaves } from '@/engine';
 import { ddoClassDataToEngineClass, ddoRaceDataToRace } from '@/utils/classAdapter';
 import { collectEffects, buildBuildContext, collectAvailableStances, type AvailableStance } from './collectEffects';
-import { evaluateEffect } from './evaluateEffect';
+import { evaluateEffect, passesRequirements } from './evaluateEffect';
 import { buildStackingRules, type Bonus, type BreakdownResult, type StackingRules } from './bonusStacking';
 import {
   breakdownAbilityScore, breakdownHitPoints, breakdownSave,
@@ -335,6 +335,29 @@ export function runEngine(input: RunEngineInput): EngineResult {
   const abilitySnapshotDeferred: DeferredEffect[] = [];
   const ABILITY_SNAP_ATYPES = new Set(['AbilityMod', 'HalfAbilityMod', 'ThirdAbilityMod', 'AbilityValue', 'AbilityTotal']);
 
+  // Stack-source consolidation: effects with `<AType>Stacks</AType>` AND a
+  // `<DisplayName>` belong to a stacking group. DDOBuilderV2's convention is
+  // that all effects sharing a DisplayName combine into a single source,
+  // indexed by the count of contributing effects (1 source → amount[0],
+  // 2 sources → amount[1], …). Classic example: Shiradi Champion's "Pierce
+  // Deception + Watchful Eye" — Amount=[0, 5], so the feat alone or the
+  // enhancement alone gives 0% Doubleshot, but together they give 5%.
+  // Without this consolidation we emit each contributor as a separate
+  // value=0 bonus, both showing as "Pierce Deception + Watchful Eye" in
+  // breakdowns.
+  interface StackGroup {
+    displayName: string;
+    types: string[];
+    bonus: string;
+    items: string[];
+    amount: number[];
+    isPercent: boolean;
+    isItemEffect: boolean;
+    count: number;
+    sources: string[];
+  }
+  const stackGroups = new Map<string, StackGroup>();
+
   for (const { effect, source, rankCount } of sourced) {
     // AddGroupWeapon effects are processed in the pre-pass above (which
     // populates `dynamicWeaponGroups` before ctx is built so GroupMember
@@ -383,6 +406,46 @@ export function runEngine(input: RunEngineInput): EngineResult {
       continue;
     }
 
+    // Stack-source consolidation — see comment near `stackGroups` above.
+    if (at === 'Stacks' && effect.displayName && effect.types.length > 0) {
+      if (!passesRequirements(effect.requirements, ctx)) {
+        reqFailed++;
+        continue;
+      }
+      const items = effect.items?.length ? effect.items : [''];
+      const key = JSON.stringify([
+        effect.displayName,
+        [...effect.types].sort(),
+        effect.bonus ?? '',
+        [...items].sort(),
+        !!effect.isPercent,
+        !!effect.isApplyAsItemEffect,
+      ]);
+      let g = stackGroups.get(key);
+      if (!g) {
+        g = {
+          displayName: effect.displayName,
+          types: effect.types,
+          bonus: effect.bonus ?? '',
+          items,
+          amount: effect.amount ?? [],
+          isPercent: !!effect.isPercent,
+          isItemEffect: !!effect.isApplyAsItemEffect,
+          count: 0,
+          sources: [],
+        };
+        stackGroups.set(key, g);
+      }
+      // Each emission contributes `rankCount` stacks. Multi-rank past-life
+      // feats and enhancements with `<Ranks>N</Ranks>` work the same way
+      // as N separate single-rank sources — DDOBuilderV2's Amount table is
+      // sized for max-stacks-across-all-sources (e.g. EPL FatePoint at 54
+      // = 18 distinct EPLs × 3 ranks each).
+      g.count += rankCount;
+      g.sources.push(source);
+      continue;
+    }
+
     const result = evaluateEffect(effect, ctx, source, rankCount);
     if (result.skipped === 'unmodeled-amount-type' && result.unmodeledAmountType) {
       unmodeled[result.unmodeledAmountType] = (unmodeled[result.unmodeledAmountType] ?? 0) + 1;
@@ -391,6 +454,33 @@ export function runEngine(input: RunEngineInput): EngineResult {
     }
     allBonuses.push(...result.bonuses);
   }
+
+  // Emit one bonus per stack group. Value = Amount[count - 1], clamped to
+  // the last table entry when more contributors than the table covers.
+  // Zero-valued groups still emit so the breakdown reflects partial setups
+  // (1 of 2 sources contributing → 0% value, useful for "almost there"
+  // diagnostics). Groups with target items fan out (one bonus per item).
+  for (const g of stackGroups.values()) {
+    const idx = Math.min(Math.max(0, g.count - 1), Math.max(0, g.amount.length - 1));
+    const value = g.amount[idx] ?? 0;
+    const label = g.sources.length === 1
+      ? g.sources[0]!
+      : `${g.displayName} (${g.count}× sources)`;
+    for (const t of g.types) {
+      for (const item of g.items) {
+        allBonuses.push({
+          bonusType: g.bonus,
+          value,
+          source: label,
+          ...(item && { target: item }),
+          effectType: t || undefined,
+          ...(g.isPercent && { isPercent: true }),
+          ...(g.isItemEffect && { isItemEffect: true }),
+        });
+      }
+    }
+  }
+
   slas.sort((a, b) =>
     a.name.localeCompare(b.name) || a.source.localeCompare(b.source));
 

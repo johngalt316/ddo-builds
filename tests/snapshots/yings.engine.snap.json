@@ -14,12 +14,12 @@
     },
     "requirementsFailedCount": 108,
     "totalSourcedEffects": 1119,
-    "totalAppliedBonuses": 1332
+    "totalAppliedBonuses": 1280
   },
   "abilityScores": {
     "STR": {
-      "total": 20,
-      "appliedCount": 12,
+      "total": 26,
+      "appliedCount": 9,
       "dominatedCount": 4,
       "sources": [
         {
@@ -34,34 +34,16 @@
           "target": "Strength"
         },
         {
-          "source": "Monk 1: Ocean Stance: Ocean Stance: Strength Penalty",
-          "bonusType": "Feat",
-          "value": -2,
-          "target": "Strength"
-        },
-        {
-          "source": "Monk 6: Adept of Forms: Ocean Stance: Strength Penalty",
-          "bonusType": "Feat",
-          "value": -2,
-          "target": "Strength"
-        },
-        {
-          "source": "Monk 12: Master of Forms: Ocean Stance: Strength Penalty",
-          "bonusType": "Feat",
-          "value": -2,
-          "target": "Strength"
-        },
-        {
-          "source": "Monk 18: Grandmaster of Forms: Ocean Stance: Strength Penalty",
-          "bonusType": "Feat",
-          "value": -2,
-          "target": "Strength"
-        },
-        {
           "source": "Completionist",
           "bonusType": "Feat",
           "value": 2,
           "target": "All"
+        },
+        {
+          "source": "Ocean Stance: Strength Penalty (4× sources)",
+          "bonusType": "Feat",
+          "value": -2,
+          "target": "Strength"
         },
         {
           "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Globe of True Imperial Blood",
@@ -110,12 +92,6 @@
           "bonusType": "Feat",
           "value": 2,
           "target": "All"
-        },
-        {
-          "source": "[D] Fury of the Wild: Fury of the Wild: Fury Selector → Spirit of the Beast: Animal Growth + Spirit of the Beast",
-          "bonusType": "Penalty",
-          "value": 0,
-          "target": "Dexterity"
         },
         {
           "source": "[R] Dread Adversary: Reaper's Strength or Dexterity I → +1 Dexterity",
@@ -199,6 +175,12 @@
           "source": "[PL] Past Life: Eladrin ×3",
           "bonusType": "Stacking",
           "value": 1,
+          "target": "Dexterity"
+        },
+        {
+          "source": "[D] Fury of the Wild: Fury of the Wild: Fury Selector → Spirit of the Beast",
+          "bonusType": "Penalty",
+          "value": 0,
           "target": "Dexterity"
         }
       ]
@@ -336,8 +318,8 @@
       ]
     },
     "WIS": {
-      "total": 100,
-      "appliedCount": 28,
+      "total": 96,
+      "appliedCount": 25,
       "dominatedCount": 0,
       "sources": [
         {
@@ -346,34 +328,16 @@
           "value": 36
         },
         {
-          "source": "Monk 1: Ocean Stance: Ocean Stance: Wisdom",
-          "bonusType": "Feat",
-          "value": 2,
-          "target": "Wisdom"
-        },
-        {
-          "source": "Monk 6: Adept of Forms: Ocean Stance: Wisdom",
-          "bonusType": "Feat",
-          "value": 2,
-          "target": "Wisdom"
-        },
-        {
-          "source": "Monk 12: Master of Forms: Ocean Stance: Wisdom",
-          "bonusType": "Feat",
-          "value": 2,
-          "target": "Wisdom"
-        },
-        {
-          "source": "Monk 18: Grandmaster of Forms: Ocean Stance: Wisdom",
-          "bonusType": "Feat",
-          "value": 2,
-          "target": "Wisdom"
-        },
-        {
           "source": "Completionist",
           "bonusType": "Feat",
           "value": 2,
           "target": "All"
+        },
+        {
+          "source": "Ocean Stance: Wisdom (4× sources)",
+          "bonusType": "Feat",
+          "value": 4,
+          "target": "Wisdom"
         },
         {
           "source": "[E] Aasimar: Aasimar: Ability I → +1 Wisdom",
@@ -758,8 +722,8 @@
   "saves": {
     "Fortitude": {
       "total": 69,
-      "appliedCount": 22,
-      "dominatedCount": 2,
+      "appliedCount": 20,
+      "dominatedCount": 1,
       "sources": [
         {
           "source": "class save progression + ability mod",
@@ -771,30 +735,6 @@
           "bonusType": "Feat",
           "value": 4,
           "target": "Fortitude"
-        },
-        {
-          "source": "Monk 1: Ocean Stance: Ocean Stance: Saves",
-          "bonusType": "Feat",
-          "value": 2,
-          "target": "All"
-        },
-        {
-          "source": "Monk 6: Adept of Forms: Ocean Stance: Saves",
-          "bonusType": "Feat",
-          "value": 2,
-          "target": "All"
-        },
-        {
-          "source": "Monk 12: Master of Forms: Ocean Stance: Saves",
-          "bonusType": "Feat",
-          "value": 2,
-          "target": "All"
-        },
-        {
-          "source": "Monk 18: Grandmaster of Forms: Ocean Stance: Saves",
-          "bonusType": "Feat",
-          "value": 2,
-          "target": "All"
         },
         {
           "source": "Epic 2: Epic Saves",
@@ -827,6 +767,12 @@
           "target": "All"
         },
         {
+          "source": "Ocean Stance: Saves (4× sources)",
+          "bonusType": "Feat",
+          "value": 5,
+          "target": "All"
+        },
+        {
           "source": "[E] Henshin Mystic: Henshin Mystic: Conditioning",
           "bonusType": "Enhancement",
           "value": 1,
@@ -854,6 +800,12 @@
           "source": "[A] Belt: Ophael's Cincture → Sapphire of Resistance",
           "bonusType": "Resistance",
           "value": 11,
+          "target": "All"
+        },
+        {
+          "source": "[D] Shadowdancer: Shadowdancer: Cover of Darkness",
+          "bonusType": "Resistance",
+          "value": 3,
           "target": "All"
         },
         {
@@ -896,8 +848,8 @@
     },
     "Reflex": {
       "total": 80,
-      "appliedCount": 28,
-      "dominatedCount": 2,
+      "appliedCount": 26,
+      "dominatedCount": 1,
       "sources": [
         {
           "source": "class save progression + ability mod",
@@ -909,30 +861,6 @@
           "bonusType": "Feat",
           "value": 1,
           "target": "Reflex"
-        },
-        {
-          "source": "Monk 1: Ocean Stance: Ocean Stance: Saves",
-          "bonusType": "Feat",
-          "value": 2,
-          "target": "All"
-        },
-        {
-          "source": "Monk 6: Adept of Forms: Ocean Stance: Saves",
-          "bonusType": "Feat",
-          "value": 2,
-          "target": "All"
-        },
-        {
-          "source": "Monk 12: Master of Forms: Ocean Stance: Saves",
-          "bonusType": "Feat",
-          "value": 2,
-          "target": "All"
-        },
-        {
-          "source": "Monk 18: Grandmaster of Forms: Ocean Stance: Saves",
-          "bonusType": "Feat",
-          "value": 2,
-          "target": "All"
         },
         {
           "source": "Epic 2: Epic Saves",
@@ -962,6 +890,12 @@
           "source": "Epic 10: Epic Saves",
           "bonusType": "Feat",
           "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "Ocean Stance: Saves (4× sources)",
+          "bonusType": "Feat",
+          "value": 5,
           "target": "All"
         },
         {
@@ -1004,6 +938,12 @@
           "source": "[A] Belt: Ophael's Cincture → Sapphire of Resistance",
           "bonusType": "Resistance",
           "value": 11,
+          "target": "All"
+        },
+        {
+          "source": "[D] Shadowdancer: Shadowdancer: Cover of Darkness",
+          "bonusType": "Resistance",
+          "value": 3,
           "target": "All"
         },
         {
@@ -1070,37 +1010,13 @@
     },
     "Will": {
       "total": 69,
-      "appliedCount": 20,
-      "dominatedCount": 2,
+      "appliedCount": 18,
+      "dominatedCount": 1,
       "sources": [
         {
           "source": "class save progression + ability mod",
           "bonusType": "(untyped)",
           "value": 25
-        },
-        {
-          "source": "Monk 1: Ocean Stance: Ocean Stance: Saves",
-          "bonusType": "Feat",
-          "value": 2,
-          "target": "All"
-        },
-        {
-          "source": "Monk 6: Adept of Forms: Ocean Stance: Saves",
-          "bonusType": "Feat",
-          "value": 2,
-          "target": "All"
-        },
-        {
-          "source": "Monk 12: Master of Forms: Ocean Stance: Saves",
-          "bonusType": "Feat",
-          "value": 2,
-          "target": "All"
-        },
-        {
-          "source": "Monk 18: Grandmaster of Forms: Ocean Stance: Saves",
-          "bonusType": "Feat",
-          "value": 2,
-          "target": "All"
         },
         {
           "source": "Epic 2: Epic Saves",
@@ -1133,6 +1049,12 @@
           "target": "All"
         },
         {
+          "source": "Ocean Stance: Saves (4× sources)",
+          "bonusType": "Feat",
+          "value": 5,
+          "target": "All"
+        },
+        {
           "source": "[E] Shintao: Shintao: Protection from Tainted Creatures",
           "bonusType": "Enhancement",
           "value": 1,
@@ -1154,6 +1076,12 @@
           "source": "[A] Belt: Ophael's Cincture → Sapphire of Resistance",
           "bonusType": "Resistance",
           "value": 11,
+          "target": "All"
+        },
+        {
+          "source": "[D] Shadowdancer: Shadowdancer: Cover of Darkness",
+          "bonusType": "Resistance",
+          "value": 3,
           "target": "All"
         },
         {
@@ -2252,7 +2180,7 @@
   },
   "dodge": {
     "total": 51,
-    "appliedCount": 15,
+    "appliedCount": 12,
     "dominatedCount": 0,
     "sources": [
       {
@@ -2276,24 +2204,9 @@
         "value": 0
       },
       {
-        "source": "Monk 1: Ocean Stance: Ocean Stance: Dodge",
+        "source": "Ocean Stance: Dodge (4× sources)",
         "bonusType": "Feat",
-        "value": 3
-      },
-      {
-        "source": "Monk 6: Adept of Forms: Ocean Stance: Dodge",
-        "bonusType": "Feat",
-        "value": 3
-      },
-      {
-        "source": "Monk 12: Master of Forms: Ocean Stance: Dodge",
-        "bonusType": "Feat",
-        "value": 3
-      },
-      {
-        "source": "Monk 18: Grandmaster of Forms: Ocean Stance: Dodge",
-        "bonusType": "Feat",
-        "value": 3
+        "value": 12
       },
       {
         "source": "[E] Ninja Spy: Ninja Spy: Acrobatic",
@@ -3463,7 +3376,7 @@
       ]
     },
     "Negative": {
-      "total": 289,
+      "total": 287,
       "appliedCount": 5,
       "dominatedCount": 0,
       "sources": [
@@ -3486,9 +3399,9 @@
           "target": "Negative"
         },
         {
-          "source": "[Skill] Heal (total 66)",
+          "source": "[Skill] Heal (total 64)",
           "bonusType": "(untyped)",
-          "value": 66,
+          "value": 64,
           "target": "Negative"
         },
         {
@@ -3525,7 +3438,7 @@
       ]
     },
     "Positive": {
-      "total": 358,
+      "total": 356,
       "appliedCount": 12,
       "dominatedCount": 0,
       "sources": [
@@ -3590,9 +3503,9 @@
           "target": "Positive"
         },
         {
-          "source": "[Skill] Heal (total 66)",
+          "source": "[Skill] Heal (total 64)",
           "bonusType": "(untyped)",
-          "value": 66,
+          "value": 64,
           "target": "Positive"
         },
         {
@@ -4427,14 +4340,14 @@
       ]
     },
     "heal": {
-      "total": 66,
+      "total": 64,
       "appliedCount": 16,
       "dominatedCount": 0,
       "sources": [
         {
           "source": "Wisdom modifier",
           "bonusType": "(untyped)",
-          "value": 45
+          "value": 43
         },
         {
           "source": "Epic 1: Epic Skills",
@@ -4733,14 +4646,14 @@
       ]
     },
     "jump": {
-      "total": 25,
+      "total": 28,
       "appliedCount": 15,
       "dominatedCount": 0,
       "sources": [
         {
           "source": "Strength modifier",
           "bonusType": "(untyped)",
-          "value": 5
+          "value": 8
         },
         {
           "source": "Epic 1: Epic Skills",
@@ -4829,14 +4742,14 @@
       ]
     },
     "listen": {
-      "total": 65,
+      "total": 63,
       "appliedCount": 16,
       "dominatedCount": 0,
       "sources": [
         {
           "source": "Wisdom modifier",
           "bonusType": "(untyped)",
-          "value": 45
+          "value": 43
         },
         {
           "source": "Epic 1: Epic Skills",
@@ -5284,14 +5197,14 @@
       ]
     },
     "spot": {
-      "total": 66,
+      "total": 64,
       "appliedCount": 16,
       "dominatedCount": 0,
       "sources": [
         {
           "source": "Wisdom modifier",
           "bonusType": "(untyped)",
-          "value": 45
+          "value": 43
         },
         {
           "source": "Epic 1: Epic Skills",
@@ -5386,14 +5299,14 @@
       ]
     },
     "swim": {
-      "total": 24,
+      "total": 27,
       "appliedCount": 14,
       "dominatedCount": 0,
       "sources": [
         {
           "source": "Strength modifier",
           "bonusType": "(untyped)",
-          "value": 5
+          "value": 8
         },
         {
           "source": "Epic 1: Epic Skills",

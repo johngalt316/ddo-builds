@@ -9,90 +9,414 @@
     "unmatchedFiligrees": [],
     "unmatchedFiligreeSets": [],
     "unmodeledAmountTypes": {
-      "Slider": 1,
-      "SliderValue": 1
+      "Slider": 2,
+      "SliderValue": 3
     },
-    "requirementsFailedCount": 30,
-    "totalSourcedEffects": 333,
-    "totalAppliedBonuses": 443
+    "requirementsFailedCount": 58,
+    "totalSourcedEffects": 817,
+    "totalAppliedBonuses": 1061
   },
   "abilityScores": {
     "STR": {
-      "total": 24,
-      "appliedCount": 1,
-      "dominatedCount": 0,
-      "sources": [
-        {
-          "source": "base + racial",
-          "bonusType": "(untyped)",
-          "value": 24
-        }
-      ]
-    },
-    "DEX": {
-      "total": 18,
-      "appliedCount": 1,
-      "dominatedCount": 0,
-      "sources": [
-        {
-          "source": "base + racial",
-          "bonusType": "(untyped)",
-          "value": 18
-        }
-      ]
-    },
-    "CON": {
-      "total": 26,
-      "appliedCount": 1,
-      "dominatedCount": 0,
-      "sources": [
-        {
-          "source": "base + racial",
-          "bonusType": "(untyped)",
-          "value": 26
-        }
-      ]
-    },
-    "INT": {
-      "total": 20,
-      "appliedCount": 1,
-      "dominatedCount": 0,
-      "sources": [
-        {
-          "source": "base + racial",
-          "bonusType": "(untyped)",
-          "value": 20
-        }
-      ]
-    },
-    "WIS": {
-      "total": 16,
-      "appliedCount": 1,
+      "total": 28,
+      "appliedCount": 7,
       "dominatedCount": 0,
       "sources": [
         {
           "source": "base + racial",
           "bonusType": "(untyped)",
           "value": 16
+        },
+        {
+          "source": "[E] Inquisitive: Inquisitive: Master Inquisitive",
+          "bonusType": "Enhancement",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[D] Fatesinger: Fatesinger: Glitter of Fame",
+          "bonusType": "Destiny",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[G] Belt: Legendary Waistwrap of Wild Wisdom (Profane Well Rounded)",
+          "bonusType": "Profane",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[S] Legendary Devil's Infernal Dance (3-piece tier ≥ 3)",
+          "bonusType": "Artifact",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[A] Armor: Legendary University Spellshield's Reinforced Shirt → Globe of True Imperial Blood",
+          "bonusType": "Exceptional",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Floating Rock Garden",
+          "bonusType": "Guild",
+          "value": 2,
+          "target": "Strength"
         }
       ]
     },
-    "CHA": {
-      "total": 26,
-      "appliedCount": 1,
+    "DEX": {
+      "total": 33,
+      "appliedCount": 8,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "base + racial",
+          "bonusType": "(untyped)",
+          "value": 18
+        },
+        {
+          "source": "[E] Inquisitive: Inquisitive: Master Inquisitive",
+          "bonusType": "Enhancement",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[D] Fatesinger: Fatesinger: Glitter of Fame",
+          "bonusType": "Destiny",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[G] Belt: Legendary Waistwrap of Wild Wisdom (Profane Well Rounded)",
+          "bonusType": "Profane",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[G] Ring2: Legendary Ring of Unnatural Accuracy (AbilityBonus: Dexterity)",
+          "bonusType": "Quality",
+          "value": 3,
+          "target": "Dexterity"
+        },
+        {
+          "source": "[S] Legendary Devil's Infernal Dance (3-piece tier ≥ 3)",
+          "bonusType": "Artifact",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[A] Armor: Legendary University Spellshield's Reinforced Shirt → Globe of True Imperial Blood",
+          "bonusType": "Exceptional",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Paradoxical Puzzle Box",
+          "bonusType": "Guild",
+          "value": 2,
+          "target": "Dexterity"
+        }
+      ]
+    },
+    "CON": {
+      "total": 75,
+      "appliedCount": 14,
       "dominatedCount": 0,
       "sources": [
         {
           "source": "base + racial",
           "bonusType": "(untyped)",
           "value": 26
+        },
+        {
+          "source": "[E] Inquisitive: Inquisitive: Master Inquisitive",
+          "bonusType": "Enhancement",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[A] Goggles: Legendary Goggles of the Archer → Diamond of Constitution",
+          "bonusType": "Enhancement",
+          "value": 14,
+          "target": "Constitution"
+        },
+        {
+          "source": "[D] Fatesinger: Fatesinger: Glitter of Fame",
+          "bonusType": "Destiny",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[R] Grim Barricade: Reaper's Defense III",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "Constitution"
+        },
+        {
+          "source": "[G] Belt: Legendary Waistwrap of Wild Wisdom (Profane Well Rounded)",
+          "bonusType": "Profane",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[A] Helmet: Legendary University Champion's Helm → Diamond of Insightful Constitution",
+          "bonusType": "Insightful",
+          "value": 5,
+          "target": "Constitution"
+        },
+        {
+          "source": "[A] Bracers: Rocard, Champion's Cuffs → Insightful Constitution +7",
+          "bonusType": "Insightful",
+          "value": 7,
+          "target": "Constitution"
+        },
+        {
+          "source": "[G] Gloves: Legendary Gloves of the Resilient (AbilityBonus: Constitution)",
+          "bonusType": "Insightful",
+          "value": 6,
+          "target": "Constitution"
+        },
+        {
+          "source": "[S] Legendary Devil's Infernal Dance (3-piece tier ≥ 3)",
+          "bonusType": "Artifact",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[A] Goggles: Legendary Goggles of the Archer → +2 Festive Constitution",
+          "bonusType": "Festive",
+          "value": 2,
+          "target": "Constitution"
+        },
+        {
+          "source": "[A] Goggles: Legendary Goggles of the Archer → Curse of Major Constitution",
+          "bonusType": "Fortune",
+          "value": 2,
+          "target": "Constitution"
+        },
+        {
+          "source": "[A] Armor: Legendary University Spellshield's Reinforced Shirt → Globe of True Imperial Blood",
+          "bonusType": "Exceptional",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Old Sully's Grog Cellar",
+          "bonusType": "Guild",
+          "value": 2,
+          "target": "Constitution"
+        }
+      ]
+    },
+    "INT": {
+      "total": 32,
+      "appliedCount": 7,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "base + racial",
+          "bonusType": "(untyped)",
+          "value": 20
+        },
+        {
+          "source": "[E] Inquisitive: Inquisitive: Master Inquisitive",
+          "bonusType": "Enhancement",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[D] Fatesinger: Fatesinger: Glitter of Fame",
+          "bonusType": "Destiny",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[G] Belt: Legendary Waistwrap of Wild Wisdom (Profane Well Rounded)",
+          "bonusType": "Profane",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[S] Legendary Devil's Infernal Dance (3-piece tier ≥ 3)",
+          "bonusType": "Artifact",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[A] Armor: Legendary University Spellshield's Reinforced Shirt → Globe of True Imperial Blood",
+          "bonusType": "Exceptional",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Paradoxical Puzzle Box",
+          "bonusType": "Guild",
+          "value": 2,
+          "target": "Intelligence"
+        }
+      ]
+    },
+    "WIS": {
+      "total": 34,
+      "appliedCount": 8,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "base + racial",
+          "bonusType": "(untyped)",
+          "value": 16
+        },
+        {
+          "source": "[E] Inquisitive: Inquisitive: Master Inquisitive",
+          "bonusType": "Enhancement",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[D] Fatesinger: Fatesinger: Glitter of Fame",
+          "bonusType": "Destiny",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[G] Belt: Legendary Waistwrap of Wild Wisdom (AbilityBonus: Wisdom)",
+          "bonusType": "Insightful",
+          "value": 6,
+          "target": "Wisdom"
+        },
+        {
+          "source": "[G] Belt: Legendary Waistwrap of Wild Wisdom (Profane Well Rounded)",
+          "bonusType": "Profane",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[S] Legendary Devil's Infernal Dance (3-piece tier ≥ 3)",
+          "bonusType": "Artifact",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[A] Armor: Legendary University Spellshield's Reinforced Shirt → Globe of True Imperial Blood",
+          "bonusType": "Exceptional",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Floating Rock Garden",
+          "bonusType": "Guild",
+          "value": 2,
+          "target": "Wisdom"
+        }
+      ]
+    },
+    "CHA": {
+      "total": 79,
+      "appliedCount": 16,
+      "dominatedCount": 0,
+      "sources": [
+        {
+          "source": "base + racial",
+          "bonusType": "(untyped)",
+          "value": 34
+        },
+        {
+          "source": "[E] Eladrin: Eladrin: Ability I → +1 Charisma",
+          "bonusType": "Enhancement",
+          "value": 1,
+          "target": "Charisma"
+        },
+        {
+          "source": "[E] Eladrin: Eladrin: Ability II → +1 Charisma",
+          "bonusType": "Enhancement",
+          "value": 1,
+          "target": "Charisma"
+        },
+        {
+          "source": "[E] Inquisitive: Inquisitive: Ability Score I → Charisma",
+          "bonusType": "Enhancement",
+          "value": 1,
+          "target": "Charisma"
+        },
+        {
+          "source": "[E] Inquisitive: Inquisitive: Ability Score II → Charisma",
+          "bonusType": "Enhancement",
+          "value": 1,
+          "target": "Charisma"
+        },
+        {
+          "source": "[E] Inquisitive: Inquisitive: Master Inquisitive",
+          "bonusType": "Enhancement",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[G] Trinket: Legendary Periapt of Charisma (AbilityBonus: Charisma)",
+          "bonusType": "Enhancement",
+          "value": 15,
+          "target": "Charisma"
+        },
+        {
+          "source": "[D] Fatesinger: Fatesinger: Glitter of Fame",
+          "bonusType": "Destiny",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[G] Belt: Legendary Waistwrap of Wild Wisdom (Profane Well Rounded)",
+          "bonusType": "Profane",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[G] Ring1: Legendary Ring of Mystic Charisma (AbilityBonus: Charisma)",
+          "bonusType": "Quality",
+          "value": 3,
+          "target": "Charisma"
+        },
+        {
+          "source": "[S] Legendary Devil's Infernal Dance (3-piece tier ≥ 3)",
+          "bonusType": "Artifact",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[A] Necklace: Dracolich's Eye → Insightful Charisma +7",
+          "bonusType": "Insightful",
+          "value": 7,
+          "target": "Charisma"
+        },
+        {
+          "source": "[A] Trinket: Legendary Periapt of Charisma → +2 Festive Charisma",
+          "bonusType": "Festive",
+          "value": 2,
+          "target": "Charisma"
+        },
+        {
+          "source": "[A] Armor: Legendary University Spellshield's Reinforced Shirt → Globe of True Imperial Blood",
+          "bonusType": "Exceptional",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[A] MainHand: Light Crossbow of the Undying Age → Curse of Major Charisma",
+          "bonusType": "Fortune",
+          "value": 2,
+          "target": "Charisma"
+        },
+        {
+          "source": "[Guild] Old Sully's Grog Cellar",
+          "bonusType": "Guild",
+          "value": 2,
+          "target": "Charisma"
         }
       ]
     }
   },
   "hitPoints": {
-    "total": 749,
-    "appliedCount": 11,
+    "total": 2234,
+    "appliedCount": 29,
     "dominatedCount": 0,
     "sources": [
       {
@@ -136,14 +460,104 @@
         "value": 30
       },
       {
-        "source": "Harbinger of Chaos: Harbinger of Chaos / Scarred by Chaos",
+        "source": "[D] Shiradi Champion: Shiradi Champion: Fey Favor",
+        "bonusType": "Destiny",
+        "value": 15
+      },
+      {
+        "source": "[D] Shiradi Champion: Shiradi Champion: Vision",
+        "bonusType": "Destiny",
+        "value": 15
+      },
+      {
+        "source": "[D] Shiradi Champion: Shiradi Champion: Audience with the Queen",
+        "bonusType": "Destiny",
+        "value": 15
+      },
+      {
+        "source": "[D] Shiradi Champion: Shiradi Champion: Fey Countenance",
+        "bonusType": "Destiny",
+        "value": 15
+      },
+      {
+        "source": "[D] Fatesinger: Fatesinger: Fate Singer's Repertoire",
+        "bonusType": "Destiny",
+        "value": 15
+      },
+      {
+        "source": "[D] Fatesinger: Fatesinger: Intoxicating Presence",
+        "bonusType": "Destiny",
+        "value": 15
+      },
+      {
+        "source": "[D] Fatesinger: Fatesinger: Glitter of Fame",
+        "bonusType": "Destiny",
+        "value": 15
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Shadow Training",
+        "bonusType": "Destiny",
+        "value": 15
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Step Through Shadows",
+        "bonusType": "Destiny",
+        "value": 15
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: The Darkest Luck",
+        "bonusType": "Destiny",
+        "value": 15
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Cut to the Soul",
+        "bonusType": "Destiny",
+        "value": 15
+      },
+      {
+        "source": "Harbinger of Chaos",
         "bonusType": "Destiny",
         "value": 0
       },
       {
-        "source": "Constitution mod (+8) × 34 levels",
+        "source": "[R] Grim Barricade: Reaper's Defense II",
+        "bonusType": "Reaper",
+        "value": 20
+      },
+      {
+        "source": "[R] Grim Barricade: Reaper's Defense IV",
+        "bonusType": "Reaper",
+        "value": 100
+      },
+      {
+        "source": "[A] Necklace: Dracolich's Eye → Sapphire of False Life",
+        "bonusType": "Enhancement",
+        "value": 48
+      },
+      {
+        "source": "[A] Necklace: Dracolich's Eye → Ravil's Book of Legendary Recipes",
+        "bonusType": "Vitality",
+        "value": 48
+      },
+      {
+        "source": "[Guild] Hag Apothecary",
+        "bonusType": "Guild",
+        "value": 20
+      },
+      {
+        "source": "[PL] Past Life: Primal Sphere: Doubleshot ×3",
+        "bonusType": "Unique",
+        "value": 45
+      },
+      {
+        "source": "Constitution mod (+32) × 34 levels",
         "bonusType": "Stacking",
-        "value": 272
+        "value": 1088
+      },
+      {
+        "source": "Fate Points (×2 HP each, 44 fate points)",
+        "bonusType": "Stacking",
+        "value": 88
       },
       {
         "source": "Titan's Blood",
@@ -154,9 +568,9 @@
   },
   "saves": {
     "Fortitude": {
-      "total": 24,
-      "appliedCount": 6,
-      "dominatedCount": 0,
+      "total": 42,
+      "appliedCount": 14,
+      "dominatedCount": 1,
       "sources": [
         {
           "source": "class save progression + ability mod",
@@ -192,13 +606,61 @@
           "bonusType": "Feat",
           "value": 1,
           "target": "All"
+        },
+        {
+          "source": "[E] Inquisitive: Inquisitive: Undaunted",
+          "bonusType": "Enhancement",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[D] Fatesinger: Fatesinger: Glitter of Fame",
+          "bonusType": "Destiny",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[D] Shadowdancer: Shadowdancer: Cover of Darkness",
+          "bonusType": "Resistance",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[R] Grim Barricade: Reaper's Defense II",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[R] Grim Barricade: Reaper's Defense IV",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[G] Gloves: Legendary Gloves of the Resilient (FortitudeSave)",
+          "bonusType": "Quality",
+          "value": 3,
+          "target": "Fortitude"
+        },
+        {
+          "source": "[Guild] Game Hunter",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Fortitude"
         }
       ]
     },
     "Reflex": {
-      "total": 20,
-      "appliedCount": 6,
-      "dominatedCount": 0,
+      "total": 44,
+      "appliedCount": 16,
+      "dominatedCount": 1,
       "sources": [
         {
           "source": "class save progression + ability mod",
@@ -234,13 +696,73 @@
           "bonusType": "Feat",
           "value": 1,
           "target": "All"
+        },
+        {
+          "source": "[E] Inquisitive: Inquisitive: Undaunted",
+          "bonusType": "Enhancement",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[E] Vistani Knife Fighter: Vistani: Acrobatic",
+          "bonusType": "Enhancement",
+          "value": 1,
+          "target": "Reflex"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[D] Fatesinger: Fatesinger: Glitter of Fame",
+          "bonusType": "Destiny",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[D] Shadowdancer: Shadowdancer: Cover of Darkness",
+          "bonusType": "Resistance",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[R] Grim Barricade: Reaper's Defense II",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[R] Grim Barricade: Reaper's Defense IV",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[G] Armor: Legendary University Spellshield's Reinforced Shirt (ReflexSave)",
+          "bonusType": "Insightful",
+          "value": 6,
+          "target": "Reflex"
+        },
+        {
+          "source": "[F] Crackshot Negotiator: +2 Reflex Saves",
+          "bonusType": "Stacking",
+          "value": 2,
+          "target": "Reflex"
+        },
+        {
+          "source": "[Guild] Chronoscope",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Reflex"
         }
       ]
     },
     "Will": {
-      "total": 21,
-      "appliedCount": 6,
-      "dominatedCount": 0,
+      "total": 54,
+      "appliedCount": 17,
+      "dominatedCount": 2,
       "sources": [
         {
           "source": "class save progression + ability mod",
@@ -276,13 +798,79 @@
           "bonusType": "Feat",
           "value": 1,
           "target": "All"
+        },
+        {
+          "source": "[E] Inquisitive: Inquisitive: Mind Like Iron",
+          "bonusType": "Enhancement",
+          "value": 3,
+          "target": "Will"
+        },
+        {
+          "source": "[E] Inquisitive: Inquisitive: Undaunted",
+          "bonusType": "Enhancement",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[E] Vistani Knife Fighter: Vistani: Mist Stalker II",
+          "bonusType": "Enhancement",
+          "value": 2,
+          "target": "Will"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[D] Fatesinger: Fatesinger: Glitter of Fame",
+          "bonusType": "Destiny",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[G] Trinket: Legendary Periapt of Charisma (WillSave)",
+          "bonusType": "Resistance",
+          "value": 13,
+          "target": "Will"
+        },
+        {
+          "source": "[R] Grim Barricade: Reaper's Defense II",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[R] Grim Barricade: Reaper's Defense IV",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[G] Belt: Legendary Waistwrap of Wild Wisdom (WillSave)",
+          "bonusType": "Quality",
+          "value": 3,
+          "target": "Will"
+        },
+        {
+          "source": "[A] Cloak: Legendary University Archer's Cloak → Curse of Minor Will",
+          "bonusType": "Fortune",
+          "value": 1,
+          "target": "Will"
+        },
+        {
+          "source": "[Guild] Grandmaster's Dojo",
+          "bonusType": "Guild",
+          "value": 2,
+          "target": "Will"
         }
       ]
     }
   },
   "meleePower": {
-    "total": 89,
-    "appliedCount": 15,
+    "total": 146,
+    "appliedCount": 25,
     "dominatedCount": 0,
     "sources": [
       {
@@ -359,12 +947,62 @@
         "source": "Legendary 4: Legendary Power",
         "bonusType": "Feat",
         "value": 6
+      },
+      {
+        "source": "[D] Fatesinger: Fatesinger: Fate Singer's Repertoire",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Fatesinger: Fatesinger: Intoxicating Presence",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Fatesinger: Fatesinger: Glitter of Fame",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Shadow Training",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Step Through Shadows",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: The Darkest Luck",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Cut to the Soul",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[S] Legendary Devil's Infernal Dance (3-piece tier ≥ 3)",
+        "bonusType": "Artifact",
+        "value": 15
+      },
+      {
+        "source": "[A] Boots: Legendary Greaves of Seasons' Warding → Curse of Minor Combatant",
+        "bonusType": "Fortune",
+        "value": 2
+      },
+      {
+        "source": "[FS] The Long Shadow (3-piece tier ≥ 2)",
+        "bonusType": "Stacking",
+        "value": 5
       }
     ]
   },
   "rangedPower": {
-    "total": 89,
-    "appliedCount": 15,
+    "total": 293,
+    "appliedCount": 52,
     "dominatedCount": 0,
     "sources": [
       {
@@ -441,24 +1079,239 @@
         "source": "Legendary 4: Legendary Power",
         "bonusType": "Feat",
         "value": 6
+      },
+      {
+        "source": "[E] Inquisitive: Inquisitive: No Holds Barred",
+        "bonusType": "Enhancement",
+        "value": 5
+      },
+      {
+        "source": "[E] Inquisitive: Inquisitive: Master Inquisitive",
+        "bonusType": "Enhancement",
+        "value": 5
+      },
+      {
+        "source": "[A] Cloak: Legendary University Archer's Cloak → Topaz of Ranged Power",
+        "bonusType": "Enhancement",
+        "value": 8
+      },
+      {
+        "source": "[A] Bracers: Rocard, Champion's Cuffs → Topaz of Ranged Power",
+        "bonusType": "Enhancement",
+        "value": 12
+      },
+      {
+        "source": "[D] Shiradi Champion: Shiradi Champion: Fey Favor",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Shiradi Champion: Shiradi Champion: Vision",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Shiradi Champion: Shiradi Champion: Audience with the Queen",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Shiradi Champion: Shiradi Champion: Fey Countenance",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Fatesinger: Fatesinger: Fate Singer's Repertoire",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Fatesinger: Fatesinger: Intoxicating Presence",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Fatesinger: Fatesinger: Glitter of Fame",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Shadow Training",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Step Through Shadows",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: The Darkest Luck",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Cut to the Soul",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[S] Legendary Devil's Infernal Dance (3-piece tier ≥ 3)",
+        "bonusType": "Artifact",
+        "value": 15
+      },
+      {
+        "source": "[A] Bracers: Rocard, Champion's Cuffs → Lunar Gem of Ranged Power (Legendary)",
+        "bonusType": "Profane",
+        "value": 15
+      },
+      {
+        "source": "[A] Armor: Legendary University Spellshield's Reinforced Shirt → Curse of Major Archery",
+        "bonusType": "Fortune",
+        "value": 5
+      },
+      {
+        "source": "[F] Spines of the Manticore/The Wreath of Flame +6 Ranged Power",
+        "bonusType": "Stacking",
+        "value": 6
+      },
+      {
+        "source": "[F] Spines of the Manticore/The Wreath of Flame +6 Ranged Power (rare): Spines of the Manticore/The Wreath of Flame: +6 Ranged Power: Rare +4 Ranged Power",
+        "bonusType": "Stacking",
+        "value": 4
+      },
+      {
+        "source": "[F] Crackshot Negotiator: +3 Ranged Power",
+        "bonusType": "Stacking",
+        "value": 3
+      },
+      {
+        "source": "[F] Spines of the Manticore: +3 Ranged Power",
+        "bonusType": "Stacking",
+        "value": 3
+      },
+      {
+        "source": "[F] Spines of the Manticore: +3 Ranged Power (rare): Spines of the Manticore: Ranged Power: Rare +2 Ranged Power",
+        "bonusType": "Stacking",
+        "value": 2
+      },
+      {
+        "source": "[F] Wildhunter: +2 Deception (rare): Wildhunter: Deception: Ranged Power",
+        "bonusType": "Stacking",
+        "value": 2
+      },
+      {
+        "source": "[F] Wildhunter: +3 Ranged Power",
+        "bonusType": "Stacking",
+        "value": 3
+      },
+      {
+        "source": "[F] The Long Shadow: +3 Ranged Power",
+        "bonusType": "Stacking",
+        "value": 3
+      },
+      {
+        "source": "[F] The Long Shadow: +3 Ranged Power (rare): The Long Shadow: Ranged Power: Rare +2 Ranged Power",
+        "bonusType": "Stacking",
+        "value": 2
+      },
+      {
+        "source": "[FA] Spines of the Manticore/The Wreath of Flame +6 Ranged Power",
+        "bonusType": "Stacking",
+        "value": 6
+      },
+      {
+        "source": "[FA] Spines of the Manticore/The Wreath of Flame +6 Ranged Power (rare): Spines of the Manticore/The Wreath of Flame: +6 Ranged Power: Rare +4 Ranged Power",
+        "bonusType": "Stacking",
+        "value": 4
+      },
+      {
+        "source": "[FA] Crackshot Negotiator: +3 Ranged Power",
+        "bonusType": "Stacking",
+        "value": 3
+      },
+      {
+        "source": "[FA] Wildhunter: +3 Ranged Power",
+        "bonusType": "Stacking",
+        "value": 3
+      },
+      {
+        "source": "[FA] The Long Shadow: +3 Ranged Power",
+        "bonusType": "Stacking",
+        "value": 3
+      },
+      {
+        "source": "[FA] The Long Shadow: +3 Ranged Power (rare): The Long Shadow: Ranged Power: Rare +2 Ranged Power",
+        "bonusType": "Stacking",
+        "value": 2
+      },
+      {
+        "source": "[FS] Spines of the Manticore (4-piece tier ≥ 4)",
+        "bonusType": "Stacking",
+        "value": 10
+      },
+      {
+        "source": "[FS] Crackshot Negotiator (4-piece tier ≥ 3)",
+        "bonusType": "Stacking",
+        "value": 15
+      },
+      {
+        "source": "[FS] Wildhunter (4-piece tier ≥ 2)",
+        "bonusType": "Stacking",
+        "value": 5
+      },
+      {
+        "source": "[FS] The Long Shadow (3-piece tier ≥ 2)",
+        "bonusType": "Stacking",
+        "value": 5
       }
     ]
   },
   "doublestrike": {
-    "total": 2,
-    "appliedCount": 1,
+    "total": 37,
+    "appliedCount": 7,
     "dominatedCount": 0,
     "sources": [
       {
         "source": "Harbinger of Chaos",
         "bonusType": "Feat",
         "value": 2
+      },
+      {
+        "source": "[E] Eladrin: Eladrin: Major Spring Attunement",
+        "bonusType": "Enhancement",
+        "value": 2
+      },
+      {
+        "source": "[E] Eladrin: Eladrin: Skill",
+        "bonusType": "Enhancement",
+        "value": 3
+      },
+      {
+        "source": "[E] Battle Engineer: Battle Engineer: Infused Weapons I",
+        "bonusType": "Enhancement",
+        "value": 5
+      },
+      {
+        "source": "[E] Vistani Knife Fighter: Vistani: Quick Reflexes",
+        "bonusType": "Enhancement",
+        "value": 5
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Shadowcaster → Shadowstriker",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[S] Legendary Devil's Infernal Dance (3-piece tier ≥ 3)",
+        "bonusType": "Artifact",
+        "value": 15
       }
     ]
   },
   "doubleshot": {
-    "total": 12,
-    "appliedCount": 3,
+    "total": 128,
+    "appliedCount": 21,
     "dominatedCount": 0,
     "sources": [
       {
@@ -472,60 +1325,226 @@
         "value": 2
       },
       {
-        "source": "Watchful Eye: Shiradi Champion: Pierce Deception + Watchful Eye",
+        "source": "[E] Eladrin: Eladrin: Major Spring Attunement",
+        "bonusType": "Enhancement",
+        "value": 2
+      },
+      {
+        "source": "[E] Eladrin: Eladrin: Skill",
+        "bonusType": "Enhancement",
+        "value": 3
+      },
+      {
+        "source": "[E] Inquisitive: Inquisitive: Hit the Streets",
+        "bonusType": "Enhancement",
+        "value": 5
+      },
+      {
+        "source": "[E] Inquisitive: Inquisitive: No Holds Barred",
+        "bonusType": "Enhancement",
+        "value": 10
+      },
+      {
+        "source": "[E] Inquisitive: Inquisitive: Inquisitor's Path",
+        "bonusType": "Enhancement",
+        "value": 15
+      },
+      {
+        "source": "[E] Battle Engineer: Battle Engineer: Infused Weapons I",
+        "bonusType": "Enhancement",
+        "value": 5
+      },
+      {
+        "source": "[E] Vistani Knife Fighter: Vistani: Quick Reflexes",
+        "bonusType": "Enhancement",
+        "value": 5
+      },
+      {
+        "source": "[A] Ring2: Legendary Ring of Unnatural Accuracy → Legendary Arrowbound Topaz",
+        "bonusType": "Enhancement",
+        "value": 8
+      },
+      {
+        "source": "[G] Goggles: Legendary Goggles of the Archer (Doubleshot)",
+        "bonusType": "Enhancement",
+        "value": 9
+      },
+      {
+        "source": "[D] Shiradi Champion: Shiradi Champion: Fade or Presence → Phase Double",
         "bonusType": "Destiny",
-        "value": 0
+        "value": 6
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Shadowcaster → Shadowstriker",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "Shiradi Champion: Pierce Deception + Watchful Eye (2× sources)",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[G] Necklace: Dracolich's Eye (Doubleshot)",
+        "bonusType": "Profane",
+        "value": 3
+      },
+      {
+        "source": "[G] Cloak: Legendary University Archer's Cloak (Doubleshot)",
+        "bonusType": "Insightful",
+        "value": 5
+      },
+      {
+        "source": "[G] Ring2: Legendary Ring of Unnatural Accuracy (Doubleshot)",
+        "bonusType": "Quality",
+        "value": 3
+      },
+      {
+        "source": "[S] Legendary Devil's Infernal Dance (3-piece tier ≥ 3)",
+        "bonusType": "Artifact",
+        "value": 15
+      },
+      {
+        "source": "[FS] Crackshot Negotiator (4-piece tier ≥ 4)",
+        "bonusType": "Stacking",
+        "value": 5,
+        "target": "All"
+      },
+      {
+        "source": "[FS] Wildhunter (4-piece tier ≥ 4)",
+        "bonusType": "Stacking",
+        "value": 5
+      },
+      {
+        "source": "[Guild] Archery Range",
+        "bonusType": "Guild",
+        "value": 2
       }
     ]
   },
   "sneakAttackDice": {
-    "total": 6,
-    "appliedCount": 5,
+    "total": 16,
+    "appliedCount": 10,
     "dominatedCount": 0,
     "sources": [
-      {
-        "source": "Quicken Spell: Arcane Trickster: Sharp Magic",
-        "bonusType": "Enhancement",
-        "value": 0
-      },
-      {
-        "source": "Quicken Spell: Arcane Trickster: Sharp Magic",
-        "bonusType": "Enhancement",
-        "value": 0
-      },
-      {
-        "source": "Empower Healing Spell: Arcane Trickster: Sharp Magic",
-        "bonusType": "Enhancement",
-        "value": 0
-      },
-      {
-        "source": "Empower Healing Spell: Arcane Trickster: Sharp Magic",
-        "bonusType": "Enhancement",
-        "value": 0
-      },
       {
         "source": "Scion of the Ethereal Plane",
         "bonusType": "Feat",
         "value": 6
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Shadow Training",
+        "bonusType": "Destiny",
+        "value": 1
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Dance in the Dark",
+        "bonusType": "Destiny",
+        "value": 3
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Step Through Shadows",
+        "bonusType": "Destiny",
+        "value": 1
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: The Darkest Luck",
+        "bonusType": "Destiny",
+        "value": 1
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Cut to the Soul",
+        "bonusType": "Destiny",
+        "value": 1
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Bring Darkness",
+        "bonusType": "Destiny",
+        "value": 1
+      },
+      {
+        "source": "[A] Ring2: Legendary Ring of Unnatural Accuracy → Curse of Major Betrayal",
+        "bonusType": "Fortune",
+        "value": 2
+      },
+      {
+        "source": "Arcane Trickster: Sharp Magic (2× sources)",
+        "bonusType": "Enhancement",
+        "value": 0
+      },
+      {
+        "source": "Arcane Trickster: Sharp Magic (2× sources)",
+        "bonusType": "Enhancement",
+        "value": 0
       }
     ]
   },
   "imbueDice": {
-    "total": 2,
-    "appliedCount": 1,
+    "total": 18,
+    "appliedCount": 11,
     "dominatedCount": 0,
     "sources": [
       {
         "source": "Harbinger of Chaos",
         "bonusType": "Feat",
         "value": 2
+      },
+      {
+        "source": "[E] Inquisitive: Inquisitive: Improved Law",
+        "bonusType": "Enhancement",
+        "value": 1
+      },
+      {
+        "source": "[E] Inquisitive: Inquisitive: True Seeing",
+        "bonusType": "Enhancement",
+        "value": 1
+      },
+      {
+        "source": "[E] Inquisitive: Inquisitive: Greater Law",
+        "bonusType": "Enhancement",
+        "value": 1
+      },
+      {
+        "source": "[E] Inquisitive: Inquisitive: Undaunted",
+        "bonusType": "Enhancement",
+        "value": 1
+      },
+      {
+        "source": "[E] Inquisitive: Inquisitive: Inquisitor's Path → Jaded",
+        "bonusType": "Enhancement",
+        "value": 1
+      },
+      {
+        "source": "[E] Inquisitive: Inquisitive: Master Inquisitive",
+        "bonusType": "Enhancement",
+        "value": 1
+      },
+      {
+        "source": "[D] Shiradi Champion: Shiradi Champion: Crooked Touch → Flickering Fingers",
+        "bonusType": "Destiny",
+        "value": 3
+      },
+      {
+        "source": "[A] Trinket: Legendary Periapt of Charisma → Curse of Major Imbuement",
+        "bonusType": "Fortune",
+        "value": 2
+      },
+      {
+        "source": "[A] Goggles: Legendary Goggles of the Archer → Solar Gem of Imbuement (Legendary)",
+        "bonusType": "Artifact",
+        "value": 3
+      },
+      {
+        "source": "[FS] The Long Shadow (3-piece tier ≥ 3)",
+        "bonusType": "Stacking",
+        "value": 2
       }
     ]
   },
   "meleeSpeed": {
-    "total": -20,
-    "appliedCount": 2,
-    "dominatedCount": 0,
+    "total": 60,
+    "appliedCount": 7,
+    "dominatedCount": 8,
     "sources": [
       {
         "source": "Patience",
@@ -537,14 +1556,44 @@
         "source": "Patience",
         "bonusType": "Feat",
         "value": -10,
+        "target": "All"
+      },
+      {
+        "source": "[E] Inquisitive: Inquisitive: Inquisitor's Path",
+        "bonusType": "Enhancement",
+        "value": 15,
+        "target": "Light Crossbow"
+      },
+      {
+        "source": "[E] Inquisitive: Inquisitive: Inquisitor's Path",
+        "bonusType": "Enhancement",
+        "value": 15,
+        "target": "Heavy Crossbow"
+      },
+      {
+        "source": "[E] Inquisitive: Inquisitive: Inquisitor's Path",
+        "bonusType": "Enhancement",
+        "value": 15,
+        "target": "Great Crossbow"
+      },
+      {
+        "source": "[E] Vistani Knife Fighter: Vistani: Knife Juggler",
+        "bonusType": "Enhancement",
+        "value": 5,
+        "target": "Throwing Dagger"
+      },
+      {
+        "source": "[G] Gloves: Legendary Gloves of the Resilient (Speed)",
+        "bonusType": "Enhancement",
+        "value": 30,
         "target": "All"
       }
     ]
   },
   "rangedSpeed": {
-    "total": -20,
-    "appliedCount": 2,
-    "dominatedCount": 0,
+    "total": 60,
+    "appliedCount": 7,
+    "dominatedCount": 8,
     "sources": [
       {
         "source": "Patience",
@@ -557,14 +1606,65 @@
         "bonusType": "Feat",
         "value": -10,
         "target": "All"
+      },
+      {
+        "source": "[E] Inquisitive: Inquisitive: Inquisitor's Path",
+        "bonusType": "Enhancement",
+        "value": 15,
+        "target": "Light Crossbow"
+      },
+      {
+        "source": "[E] Inquisitive: Inquisitive: Inquisitor's Path",
+        "bonusType": "Enhancement",
+        "value": 15,
+        "target": "Heavy Crossbow"
+      },
+      {
+        "source": "[E] Inquisitive: Inquisitive: Inquisitor's Path",
+        "bonusType": "Enhancement",
+        "value": 15,
+        "target": "Great Crossbow"
+      },
+      {
+        "source": "[E] Vistani Knife Fighter: Vistani: Knife Juggler",
+        "bonusType": "Enhancement",
+        "value": 5,
+        "target": "Throwing Dagger"
+      },
+      {
+        "source": "[G] Gloves: Legendary Gloves of the Resilient (Speed)",
+        "bonusType": "Enhancement",
+        "value": 30,
+        "target": "All"
       }
     ]
   },
   "healingAmp": {
-    "total": 0,
-    "appliedCount": 0,
+    "total": 115,
+    "appliedCount": 4,
     "dominatedCount": 0,
-    "sources": []
+    "sources": [
+      {
+        "source": "[G] Belt: Legendary Waistwrap of Wild Wisdom (HealingAmplification)",
+        "bonusType": "Exceptional",
+        "value": 15
+      },
+      {
+        "source": "[A] Gloves: Legendary Gloves of the Resilient → Lunar Gem of Healing Amplification (Legendary)",
+        "bonusType": "Profane",
+        "value": 30
+      },
+      {
+        "source": "[A] Bracers: Rocard, Champion's Cuffs → Sapphire of Healing Amplification",
+        "bonusType": "Competence",
+        "value": 50
+      },
+      {
+        "source": "[Guild] Bath House",
+        "bonusType": "Guild",
+        "value": 20
+      }
+    ]
   },
   "negativeHealingAmp": {
     "total": 0,
@@ -579,57 +1679,183 @@
     "sources": []
   },
   "ac": {
-    "total": 10,
-    "appliedCount": 1,
+    "total": 18,
+    "appliedCount": 3,
     "dominatedCount": 0,
     "sources": [
       {
         "source": "Attack: Base AC",
         "bonusType": "Base",
         "value": 10
+      },
+      {
+        "source": "[E] War Soul: War Soul: Smite Foe",
+        "bonusType": "Enhancement",
+        "value": 2
+      },
+      {
+        "source": "[Guild] Armory",
+        "bonusType": "Guild",
+        "value": 6
       }
     ]
   },
   "dodge": {
-    "total": 0,
-    "appliedCount": 0,
-    "dominatedCount": 0,
-    "sources": []
-  },
-  "prr": {
-    "total": 0,
-    "appliedCount": 1,
+    "total": 23,
+    "appliedCount": 6,
     "dominatedCount": 0,
     "sources": [
       {
-        "source": "Harbinger of Chaos: Harbinger of Chaos / Scarred by Chaos",
+        "source": "Combat Archery",
+        "bonusType": "Feat",
+        "value": 2
+      },
+      {
+        "source": "[E] Eladrin: Eladrin: Minor Spring Attunement",
+        "bonusType": "Enhancement",
+        "value": 2
+      },
+      {
+        "source": "[E] Eladrin: Eladrin: Skill",
+        "bonusType": "Enhancement",
+        "value": 3
+      },
+      {
+        "source": "[E] Inquisitive: Inquisitive: Hit the Streets",
+        "bonusType": "Enhancement",
+        "value": 2
+      },
+      {
+        "source": "[A] Helmet: Legendary University Champion's Helm → Sapphire of Dodge",
+        "bonusType": "Enhancement",
+        "value": 14
+      },
+      {
+        "source": "[D] Shiradi Champion: Shiradi Champion: Feywild Attunement",
+        "bonusType": "Destiny",
+        "value": 0
+      }
+    ]
+  },
+  "prr": {
+    "total": 150,
+    "appliedCount": 12,
+    "dominatedCount": 0,
+    "sources": [
+      {
+        "source": "[E] Vistani Knife Fighter: Vistani: Mist Stalker I",
+        "bonusType": "Enhancement",
+        "value": 3
+      },
+      {
+        "source": "[E] Vistani Knife Fighter: Vistani: Mist Stalker II",
+        "bonusType": "Enhancement",
+        "value": 3
+      },
+      {
+        "source": "[A] Trinket: Legendary Periapt of Charisma → Sapphire of Defense",
+        "bonusType": "Enhancement",
+        "value": 36
+      },
+      {
+        "source": "[G] Gloves: Legendary Gloves of the Resilient (PhysicalSheltering)",
+        "bonusType": "Enhancement",
+        "value": 37
+      },
+      {
+        "source": "[A] Helmet: Legendary University Champion's Helm → Curse of Minor Sheltering",
+        "bonusType": "Fortune",
+        "value": 2
+      },
+      {
+        "source": "[A] Trinket: Legendary Periapt of Charisma → Solar Gem of Physical Resistance Rating (Legendary)",
+        "bonusType": "Artifact",
+        "value": 30
+      },
+      {
+        "source": "[A] Cloak: Legendary University Archer's Cloak → +3 PRR",
+        "bonusType": "Reaper",
+        "value": 3
+      },
+      {
+        "source": "[A] Boots: Legendary Greaves of Seasons' Warding → Lunar Gem of Physical Protection (Legendary)",
+        "bonusType": "Profane",
+        "value": 30
+      },
+      {
+        "source": "[F] Crackshot Negotiator: +1 Attack and Damage (rare): Crackshot Negotiator: +2 PRR",
+        "bonusType": "Stacking",
+        "value": 2
+      },
+      {
+        "source": "[F] Spines of the Manticore: +1 Attack and Damage (rare): Spines of the Manticore: Attack and Damage: Rare +2 PRR",
+        "bonusType": "Stacking",
+        "value": 2
+      },
+      {
+        "source": "[F] The Long Shadow: +1 Attack and Damage (rare): The Long Shadow: Attack and Damage: Rare +2 PRR",
+        "bonusType": "Stacking",
+        "value": 2
+      },
+      {
+        "source": "Harbinger of Chaos",
         "bonusType": "Destiny",
         "value": 0
       }
     ]
   },
   "mrr": {
-    "total": 0,
-    "appliedCount": 4,
+    "total": 121,
+    "appliedCount": 10,
     "dominatedCount": 0,
     "sources": [
       {
-        "source": "Quicken Spell: Magus of the Eclipse: Lunar Studies",
+        "source": "[E] Vistani Knife Fighter: Vistani: Mist Stalker I",
+        "bonusType": "Enhancement",
+        "value": 3
+      },
+      {
+        "source": "[E] Vistani Knife Fighter: Vistani: Mist Stalker II",
+        "bonusType": "Enhancement",
+        "value": 3
+      },
+      {
+        "source": "[A] Trinket: Legendary Periapt of Charisma → Sapphire of Defense",
+        "bonusType": "Enhancement",
+        "value": 36
+      },
+      {
+        "source": "[G] Armor: Legendary University Spellshield's Reinforced Shirt (MagicalSheltering)",
+        "bonusType": "Enhancement",
+        "value": 36
+      },
+      {
+        "source": "[G] Trinket: Legendary Periapt of Charisma (MagicalSheltering)",
+        "bonusType": "Quality",
+        "value": 9
+      },
+      {
+        "source": "[A] Necklace: Dracolich's Eye → Lunar Gem of Magical Protection (Legendary)",
+        "bonusType": "Profane",
+        "value": 30
+      },
+      {
+        "source": "[A] Necklace: Dracolich's Eye → Curse of Minor Warding",
+        "bonusType": "Fortune",
+        "value": 2
+      },
+      {
+        "source": "[F] Crackshot Negotiator: +2 Reflex Saves (rare): Crackshot Negotiator: +2 MRR",
+        "bonusType": "Stacking",
+        "value": 2
+      },
+      {
+        "source": "Magus of the Eclipse: Lunar Studies (2× sources)",
         "bonusType": "Destiny",
         "value": 0
       },
       {
-        "source": "Quicken Spell: Magus of the Eclipse: Lunar Studies",
-        "bonusType": "Destiny",
-        "value": 0
-      },
-      {
-        "source": "Empower Healing Spell: Magus of the Eclipse: Lunar Studies",
-        "bonusType": "Destiny",
-        "value": 0
-      },
-      {
-        "source": "Empower Healing Spell: Magus of the Eclipse: Lunar Studies",
+        "source": "Magus of the Eclipse: Lunar Studies (2× sources)",
         "bonusType": "Destiny",
         "value": 0
       }
@@ -637,26 +1863,16 @@
   },
   "spellResistance": {
     "total": 0,
-    "appliedCount": 4,
+    "appliedCount": 2,
     "dominatedCount": 0,
     "sources": [
       {
-        "source": "Quicken Spell: Magus of the Eclipse: Lunar Studies",
+        "source": "Magus of the Eclipse: Lunar Studies (2× sources)",
         "bonusType": "Destiny",
         "value": 0
       },
       {
-        "source": "Quicken Spell: Magus of the Eclipse: Lunar Studies",
-        "bonusType": "Destiny",
-        "value": 0
-      },
-      {
-        "source": "Empower Healing Spell: Magus of the Eclipse: Lunar Studies",
-        "bonusType": "Destiny",
-        "value": 0
-      },
-      {
-        "source": "Empower Healing Spell: Magus of the Eclipse: Lunar Studies",
+        "source": "Magus of the Eclipse: Lunar Studies (2× sources)",
         "bonusType": "Destiny",
         "value": 0
       }
@@ -723,112 +1939,267 @@
     ]
   },
   "spellPenetration": {
-    "total": 0,
-    "appliedCount": 0,
+    "total": 4,
+    "appliedCount": 2,
     "dominatedCount": 0,
-    "sources": []
+    "sources": [
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Grim Precision",
+        "bonusType": "Destiny",
+        "value": 3
+      },
+      {
+        "source": "[Guild] Arcane Sanctum",
+        "bonusType": "Guild",
+        "value": 1
+      }
+    ]
   },
   "spellDCs": {
     "Abjuration": {
-      "total": 8,
-      "appliedCount": 1,
-      "dominatedCount": 0,
+      "total": 39,
+      "appliedCount": 4,
+      "dominatedCount": 10,
       "sources": [
         {
-          "source": "casting stat mod (+8)",
+          "source": "casting stat mod (+34)",
           "bonusType": "(untyped)",
-          "value": 8
+          "value": 34
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Fey Favor: Shiradi Champion: Epic Spell DCs",
+          "bonusType": "Epic",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[G] Ring1: Legendary Ring of Mystic Charisma (SpellFocusMastery)",
+          "bonusType": "Insightful",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Archwizard",
+          "bonusType": "Guild",
+          "value": 1,
+          "target": "All"
         }
       ]
     },
     "Conjuration": {
-      "total": 8,
-      "appliedCount": 1,
-      "dominatedCount": 0,
+      "total": 39,
+      "appliedCount": 4,
+      "dominatedCount": 10,
       "sources": [
         {
-          "source": "casting stat mod (+8)",
+          "source": "casting stat mod (+34)",
           "bonusType": "(untyped)",
-          "value": 8
+          "value": 34
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Fey Favor: Shiradi Champion: Epic Spell DCs",
+          "bonusType": "Epic",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[G] Ring1: Legendary Ring of Mystic Charisma (SpellFocusMastery)",
+          "bonusType": "Insightful",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Archwizard",
+          "bonusType": "Guild",
+          "value": 1,
+          "target": "All"
         }
       ]
     },
     "Divination": {
-      "total": 8,
-      "appliedCount": 1,
-      "dominatedCount": 0,
+      "total": 39,
+      "appliedCount": 4,
+      "dominatedCount": 10,
       "sources": [
         {
-          "source": "casting stat mod (+8)",
+          "source": "casting stat mod (+34)",
           "bonusType": "(untyped)",
-          "value": 8
+          "value": 34
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Fey Favor: Shiradi Champion: Epic Spell DCs",
+          "bonusType": "Epic",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[G] Ring1: Legendary Ring of Mystic Charisma (SpellFocusMastery)",
+          "bonusType": "Insightful",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Archwizard",
+          "bonusType": "Guild",
+          "value": 1,
+          "target": "All"
         }
       ]
     },
     "Enchantment": {
-      "total": 8,
-      "appliedCount": 1,
-      "dominatedCount": 0,
+      "total": 39,
+      "appliedCount": 4,
+      "dominatedCount": 10,
       "sources": [
         {
-          "source": "casting stat mod (+8)",
+          "source": "casting stat mod (+34)",
           "bonusType": "(untyped)",
-          "value": 8
+          "value": 34
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Fey Favor: Shiradi Champion: Epic Spell DCs",
+          "bonusType": "Epic",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[G] Ring1: Legendary Ring of Mystic Charisma (SpellFocusMastery)",
+          "bonusType": "Insightful",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Archwizard",
+          "bonusType": "Guild",
+          "value": 1,
+          "target": "All"
         }
       ]
     },
     "Evocation": {
-      "total": 8,
-      "appliedCount": 1,
-      "dominatedCount": 0,
+      "total": 39,
+      "appliedCount": 4,
+      "dominatedCount": 10,
       "sources": [
         {
-          "source": "casting stat mod (+8)",
+          "source": "casting stat mod (+34)",
           "bonusType": "(untyped)",
-          "value": 8
+          "value": 34
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Fey Favor: Shiradi Champion: Epic Spell DCs",
+          "bonusType": "Epic",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[G] Ring1: Legendary Ring of Mystic Charisma (SpellFocusMastery)",
+          "bonusType": "Insightful",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Archwizard",
+          "bonusType": "Guild",
+          "value": 1,
+          "target": "All"
         }
       ]
     },
     "Illusion": {
-      "total": 8,
-      "appliedCount": 1,
-      "dominatedCount": 0,
+      "total": 39,
+      "appliedCount": 4,
+      "dominatedCount": 10,
       "sources": [
         {
-          "source": "casting stat mod (+8)",
+          "source": "casting stat mod (+34)",
           "bonusType": "(untyped)",
-          "value": 8
+          "value": 34
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Fey Favor: Shiradi Champion: Epic Spell DCs",
+          "bonusType": "Epic",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[G] Ring1: Legendary Ring of Mystic Charisma (SpellFocusMastery)",
+          "bonusType": "Insightful",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Archwizard",
+          "bonusType": "Guild",
+          "value": 1,
+          "target": "All"
         }
       ]
     },
     "Necromancy": {
-      "total": 8,
-      "appliedCount": 1,
-      "dominatedCount": 0,
+      "total": 39,
+      "appliedCount": 4,
+      "dominatedCount": 10,
       "sources": [
         {
-          "source": "casting stat mod (+8)",
+          "source": "casting stat mod (+34)",
           "bonusType": "(untyped)",
-          "value": 8
+          "value": 34
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Fey Favor: Shiradi Champion: Epic Spell DCs",
+          "bonusType": "Epic",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[G] Ring1: Legendary Ring of Mystic Charisma (SpellFocusMastery)",
+          "bonusType": "Insightful",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Archwizard",
+          "bonusType": "Guild",
+          "value": 1,
+          "target": "All"
         }
       ]
     },
     "Transmutation": {
-      "total": 8,
-      "appliedCount": 1,
-      "dominatedCount": 0,
+      "total": 39,
+      "appliedCount": 4,
+      "dominatedCount": 10,
       "sources": [
         {
-          "source": "casting stat mod (+8)",
+          "source": "casting stat mod (+34)",
           "bonusType": "(untyped)",
-          "value": 8
+          "value": 34
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Fey Favor: Shiradi Champion: Epic Spell DCs",
+          "bonusType": "Epic",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[G] Ring1: Legendary Ring of Mystic Charisma (SpellFocusMastery)",
+          "bonusType": "Insightful",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Archwizard",
+          "bonusType": "Guild",
+          "value": 1,
+          "target": "All"
         }
       ]
     }
   },
   "universalSpellPower": {
-    "total": 84,
-    "appliedCount": 14,
+    "total": 154,
+    "appliedCount": 27,
     "dominatedCount": 0,
     "sources": [
       {
@@ -900,12 +2271,77 @@
         "source": "Legendary 4: Legendary Power",
         "bonusType": "Feat",
         "value": 6
+      },
+      {
+        "source": "[D] Shiradi Champion: Shiradi Champion: Fey Favor",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Shiradi Champion: Shiradi Champion: Wild Magics",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Shiradi Champion: Shiradi Champion: Vision",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Shiradi Champion: Shiradi Champion: Audience with the Queen",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Shiradi Champion: Shiradi Champion: Fey Countenance",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Shiradi Champion: Shiradi Champion: Feywild Attunement",
+        "bonusType": "Destiny",
+        "value": 10
+      },
+      {
+        "source": "[D] Fatesinger: Fatesinger: Fate Singer's Repertoire",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Fatesinger: Fatesinger: Intoxicating Presence",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Fatesinger: Fatesinger: Glitter of Fame",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Shadow Training",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Step Through Shadows",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: The Darkest Luck",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Cut to the Soul",
+        "bonusType": "Destiny",
+        "value": 5
       }
     ]
   },
   "universalSpellCriticalChance": {
-    "total": 10,
-    "appliedCount": 2,
+    "total": 25,
+    "appliedCount": 5,
     "dominatedCount": 0,
     "sources": [
       {
@@ -915,6 +2351,21 @@
       },
       {
         "source": "Favored Soul 1: Magical Training",
+        "bonusType": "Feat",
+        "value": 5
+      },
+      {
+        "source": "[D] Shiradi Champion: Shiradi Champion: Fey Favor → Magical Training",
+        "bonusType": "Feat",
+        "value": 5
+      },
+      {
+        "source": "[D] Fatesinger: Fatesinger: Fate Singer's Repertoire → Magical Training",
+        "bonusType": "Feat",
+        "value": 5
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Shadow Training → Magical Training",
         "bonusType": "Feat",
         "value": 5
       }
@@ -928,188 +2379,410 @@
   },
   "spellPowers": {
     "Acid": {
-      "total": 84,
-      "appliedCount": 1,
+      "total": 169,
+      "appliedCount": 2,
       "dominatedCount": 0,
       "sources": [
         {
+          "source": "[Guild] Shrine of the Devourer I",
+          "bonusType": "Guild",
+          "value": 15,
+          "target": "Acid"
+        },
+        {
           "source": "Universal Spell Power",
           "bonusType": "(untyped)",
-          "value": 84,
+          "value": 154,
           "target": "Acid"
         }
       ]
     },
     "Chaos": {
-      "total": 84,
-      "appliedCount": 1,
+      "total": 194,
+      "appliedCount": 8,
       "dominatedCount": 0,
       "sources": [
         {
+          "source": "[E] War Soul: War Soul: Smite Foe",
+          "bonusType": "Enhancement",
+          "value": 5,
+          "target": "Chaos"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Fey Favor",
+          "bonusType": "Destiny",
+          "value": 5,
+          "target": "Chaos"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Wild Magics",
+          "bonusType": "Destiny",
+          "value": 5,
+          "target": "Chaos"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Vision",
+          "bonusType": "Destiny",
+          "value": 5,
+          "target": "Chaos"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Audience with the Queen",
+          "bonusType": "Destiny",
+          "value": 5,
+          "target": "Chaos"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Fey Countenance",
+          "bonusType": "Destiny",
+          "value": 5,
+          "target": "Chaos"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Feywild Attunement",
+          "bonusType": "Destiny",
+          "value": 10,
+          "target": "Chaos"
+        },
+        {
           "source": "Universal Spell Power",
           "bonusType": "(untyped)",
-          "value": 84,
+          "value": 154,
           "target": "Chaos"
         }
       ]
     },
     "Cold": {
-      "total": 84,
-      "appliedCount": 1,
+      "total": 169,
+      "appliedCount": 2,
       "dominatedCount": 0,
       "sources": [
         {
+          "source": "[Guild] Shrine of the Devourer I",
+          "bonusType": "Guild",
+          "value": 15,
+          "target": "Cold"
+        },
+        {
           "source": "Universal Spell Power",
           "bonusType": "(untyped)",
-          "value": 84,
+          "value": 154,
           "target": "Cold"
         }
       ]
     },
     "Electric": {
-      "total": 84,
-      "appliedCount": 1,
+      "total": 169,
+      "appliedCount": 2,
       "dominatedCount": 0,
       "sources": [
         {
+          "source": "[Guild] Stormreaver Memorial I",
+          "bonusType": "Guild",
+          "value": 15,
+          "target": "Electric"
+        },
+        {
           "source": "Universal Spell Power",
           "bonusType": "(untyped)",
-          "value": 84,
+          "value": 154,
           "target": "Electric"
         }
       ]
     },
     "Evil": {
-      "total": 84,
-      "appliedCount": 1,
+      "total": 159,
+      "appliedCount": 2,
       "dominatedCount": 0,
       "sources": [
         {
+          "source": "[E] War Soul: War Soul: Smite Foe",
+          "bonusType": "Enhancement",
+          "value": 5,
+          "target": "Evil"
+        },
+        {
           "source": "Universal Spell Power",
           "bonusType": "(untyped)",
-          "value": 84,
+          "value": 154,
           "target": "Evil"
         }
       ]
     },
     "Fire": {
-      "total": 84,
-      "appliedCount": 1,
+      "total": 174,
+      "appliedCount": 3,
       "dominatedCount": 0,
       "sources": [
         {
+          "source": "[E] War Soul: War Soul: Smite Foe",
+          "bonusType": "Enhancement",
+          "value": 5,
+          "target": "Fire"
+        },
+        {
+          "source": "[Guild] Sign of the Silver Flame I",
+          "bonusType": "Guild",
+          "value": 15,
+          "target": "Fire"
+        },
+        {
           "source": "Universal Spell Power",
           "bonusType": "(untyped)",
-          "value": 84,
+          "value": 154,
           "target": "Fire"
         }
       ]
     },
     "Force": {
-      "total": 84,
-      "appliedCount": 1,
+      "total": 209,
+      "appliedCount": 11,
       "dominatedCount": 0,
       "sources": [
         {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Fey Favor",
+          "bonusType": "Destiny",
+          "value": 5,
+          "target": "Force"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Wild Magics",
+          "bonusType": "Destiny",
+          "value": 5,
+          "target": "Force"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Vision",
+          "bonusType": "Destiny",
+          "value": 5,
+          "target": "Force"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Audience with the Queen",
+          "bonusType": "Destiny",
+          "value": 5,
+          "target": "Force"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Fey Countenance",
+          "bonusType": "Destiny",
+          "value": 5,
+          "target": "Force"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Feywild Attunement",
+          "bonusType": "Destiny",
+          "value": 10,
+          "target": "Force"
+        },
+        {
+          "source": "[D] Shadowdancer: Shadowdancer: Shadow Training",
+          "bonusType": "Destiny",
+          "value": 5,
+          "target": "Force"
+        },
+        {
+          "source": "[D] Shadowdancer: Shadowdancer: Step Through Shadows",
+          "bonusType": "Destiny",
+          "value": 5,
+          "target": "Force"
+        },
+        {
+          "source": "[D] Shadowdancer: Shadowdancer: The Darkest Luck",
+          "bonusType": "Destiny",
+          "value": 5,
+          "target": "Force"
+        },
+        {
+          "source": "[D] Shadowdancer: Shadowdancer: Cut to the Soul",
+          "bonusType": "Destiny",
+          "value": 5,
+          "target": "Force"
+        },
+        {
           "source": "Universal Spell Power",
           "bonusType": "(untyped)",
-          "value": 84,
+          "value": 154,
           "target": "Force"
         }
       ]
     },
     "Light/Alignment": {
-      "total": 84,
-      "appliedCount": 1,
+      "total": 174,
+      "appliedCount": 3,
       "dominatedCount": 0,
       "sources": [
         {
+          "source": "[E] War Soul: War Soul: Smite Foe",
+          "bonusType": "Enhancement",
+          "value": 5,
+          "target": "Light/Alignment"
+        },
+        {
+          "source": "[Guild] Sign of the Silver Flame I",
+          "bonusType": "Guild",
+          "value": 15,
+          "target": "Light/Alignment"
+        },
+        {
           "source": "Universal Spell Power",
           "bonusType": "(untyped)",
-          "value": 84,
+          "value": 154,
           "target": "Light/Alignment"
         }
       ]
     },
     "Negative": {
-      "total": 101,
-      "appliedCount": 2,
+      "total": 201,
+      "appliedCount": 3,
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "[Skill] Heal (total 17)",
+          "source": "[Guild] Crusader's Chapel",
+          "bonusType": "Guild",
+          "value": 15,
+          "target": "Negative"
+        },
+        {
+          "source": "[Skill] Heal (total 32)",
           "bonusType": "(untyped)",
-          "value": 17,
+          "value": 32,
           "target": "Negative"
         },
         {
           "source": "Universal Spell Power",
           "bonusType": "(untyped)",
-          "value": 84,
+          "value": 154,
           "target": "Negative"
         }
       ]
     },
     "Poison": {
-      "total": 84,
+      "total": 154,
       "appliedCount": 1,
       "dominatedCount": 0,
       "sources": [
         {
           "source": "Universal Spell Power",
           "bonusType": "(untyped)",
-          "value": 84,
+          "value": 154,
           "target": "Poison"
         }
       ]
     },
     "Positive": {
-      "total": 101,
-      "appliedCount": 2,
+      "total": 379,
+      "appliedCount": 8,
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "[Skill] Heal (total 17)",
+          "source": "[D] Fatesinger: Fatesinger: Fate Singer's Repertoire",
+          "bonusType": "Destiny",
+          "value": 5,
+          "target": "Positive"
+        },
+        {
+          "source": "[D] Fatesinger: Fatesinger: Pianissimo",
+          "bonusType": "Destiny",
+          "value": 10,
+          "target": "Positive"
+        },
+        {
+          "source": "[D] Fatesinger: Fatesinger: Intoxicating Presence",
+          "bonusType": "Destiny",
+          "value": 5,
+          "target": "Positive"
+        },
+        {
+          "source": "[D] Fatesinger: Fatesinger: Glitter of Fame",
+          "bonusType": "Destiny",
+          "value": 5,
+          "target": "Positive"
+        },
+        {
+          "source": "[A] MainHand: Light Crossbow of the Undying Age → Ruby of Positive Spell Power",
+          "bonusType": "Equipment",
+          "value": 153,
+          "target": "Positive"
+        },
+        {
+          "source": "[Guild] Crusader's Chapel",
+          "bonusType": "Guild",
+          "value": 15,
+          "target": "Positive"
+        },
+        {
+          "source": "[Skill] Heal (total 32)",
           "bonusType": "(untyped)",
-          "value": 17,
+          "value": 32,
           "target": "Positive"
         },
         {
           "source": "Universal Spell Power",
           "bonusType": "(untyped)",
-          "value": 84,
+          "value": 154,
           "target": "Positive"
         }
       ]
     },
     "Repair": {
-      "total": 103,
+      "total": 186,
       "appliedCount": 2,
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "[Skill] Repair (total 19)",
+          "source": "[Skill] Repair (total 32)",
           "bonusType": "(untyped)",
-          "value": 19,
+          "value": 32,
           "target": "Repair"
         },
         {
           "source": "Universal Spell Power",
           "bonusType": "(untyped)",
-          "value": 84,
+          "value": 154,
           "target": "Repair"
         }
       ]
     },
     "Sonic": {
-      "total": 84,
-      "appliedCount": 1,
+      "total": 199,
+      "appliedCount": 6,
       "dominatedCount": 0,
       "sources": [
         {
+          "source": "[D] Fatesinger: Fatesinger: Fate Singer's Repertoire",
+          "bonusType": "Destiny",
+          "value": 5,
+          "target": "Sonic"
+        },
+        {
+          "source": "[D] Fatesinger: Fatesinger: Intoxicating Presence",
+          "bonusType": "Destiny",
+          "value": 5,
+          "target": "Sonic"
+        },
+        {
+          "source": "[D] Fatesinger: Fatesinger: Glitter of Fame",
+          "bonusType": "Destiny",
+          "value": 5,
+          "target": "Sonic"
+        },
+        {
+          "source": "[D] Fatesinger: Fatesinger: Master the Acoustics",
+          "bonusType": "Destiny",
+          "value": 15,
+          "target": "Sonic"
+        },
+        {
+          "source": "[Guild] Stormreaver Memorial I",
+          "bonusType": "Guild",
+          "value": 15,
+          "target": "Sonic"
+        },
+        {
           "source": "Universal Spell Power",
           "bonusType": "(untyped)",
-          "value": 84,
+          "value": 154,
           "target": "Sonic"
         }
       ]
@@ -1117,170 +2790,170 @@
   },
   "spellCriticalChance": {
     "Acid": {
-      "total": 10,
+      "total": 25,
       "appliedCount": 1,
       "dominatedCount": 0,
       "sources": [
         {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 10,
+          "value": 25,
           "target": "Acid"
         }
       ]
     },
     "Chaos": {
-      "total": 10,
+      "total": 25,
       "appliedCount": 1,
       "dominatedCount": 0,
       "sources": [
         {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 10,
+          "value": 25,
           "target": "Chaos"
         }
       ]
     },
     "Cold": {
-      "total": 10,
+      "total": 25,
       "appliedCount": 1,
       "dominatedCount": 0,
       "sources": [
         {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 10,
+          "value": 25,
           "target": "Cold"
         }
       ]
     },
     "Electric": {
-      "total": 10,
+      "total": 25,
       "appliedCount": 1,
       "dominatedCount": 0,
       "sources": [
         {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 10,
+          "value": 25,
           "target": "Electric"
         }
       ]
     },
     "Evil": {
-      "total": 10,
+      "total": 25,
       "appliedCount": 1,
       "dominatedCount": 0,
       "sources": [
         {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 10,
+          "value": 25,
           "target": "Evil"
         }
       ]
     },
     "Fire": {
-      "total": 10,
+      "total": 25,
       "appliedCount": 1,
       "dominatedCount": 0,
       "sources": [
         {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 10,
+          "value": 25,
           "target": "Fire"
         }
       ]
     },
     "Force": {
-      "total": 10,
+      "total": 25,
       "appliedCount": 1,
       "dominatedCount": 0,
       "sources": [
         {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 10,
+          "value": 25,
           "target": "Force"
         }
       ]
     },
     "Light/Alignment": {
-      "total": 10,
+      "total": 25,
       "appliedCount": 1,
       "dominatedCount": 0,
       "sources": [
         {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 10,
+          "value": 25,
           "target": "Light/Alignment"
         }
       ]
     },
     "Negative": {
-      "total": 10,
+      "total": 25,
       "appliedCount": 1,
       "dominatedCount": 0,
       "sources": [
         {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 10,
+          "value": 25,
           "target": "Negative"
         }
       ]
     },
     "Poison": {
-      "total": 10,
+      "total": 25,
       "appliedCount": 1,
       "dominatedCount": 0,
       "sources": [
         {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 10,
+          "value": 25,
           "target": "Poison"
         }
       ]
     },
     "Positive": {
-      "total": 10,
+      "total": 25,
       "appliedCount": 1,
       "dominatedCount": 0,
       "sources": [
         {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 10,
+          "value": 25,
           "target": "Positive"
         }
       ]
     },
     "Repair": {
-      "total": 10,
+      "total": 25,
       "appliedCount": 1,
       "dominatedCount": 0,
       "sources": [
         {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 10,
+          "value": 25,
           "target": "Repair"
         }
       ]
     },
     "Sonic": {
-      "total": 10,
+      "total": 25,
       "appliedCount": 1,
       "dominatedCount": 0,
       "sources": [
         {
           "source": "Universal Spell Lore",
           "bonusType": "(untyped)",
-          "value": 10,
+          "value": 25,
           "target": "Sonic"
         }
       ]
@@ -1368,14 +3041,14 @@
   },
   "skills": {
     "balance": {
-      "total": 18,
-      "appliedCount": 12,
-      "dominatedCount": 0,
+      "total": 34,
+      "appliedCount": 15,
+      "dominatedCount": 1,
       "sources": [
         {
           "source": "Dexterity modifier",
           "bonusType": "(untyped)",
-          "value": 4
+          "value": 11
         },
         {
           "source": "Scion of the Ethereal Plane",
@@ -1442,18 +3115,36 @@
           "bonusType": "Feat",
           "value": 1,
           "target": "All"
+        },
+        {
+          "source": "[E] Vistani Knife Fighter: Vistani: Acrobatic",
+          "bonusType": "Enhancement",
+          "value": 3,
+          "target": "Balance"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Otto's Irresistible Dancehall",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Balance"
         }
       ]
     },
     "bluff": {
-      "total": 22,
-      "appliedCount": 12,
-      "dominatedCount": 0,
+      "total": 78,
+      "appliedCount": 17,
+      "dominatedCount": 1,
       "sources": [
         {
           "source": "Charisma modifier",
           "bonusType": "(untyped)",
-          "value": 8
+          "value": 34
         },
         {
           "source": "Scion of the Ethereal Plane",
@@ -1520,18 +3211,48 @@
           "bonusType": "Feat",
           "value": 1,
           "target": "All"
+        },
+        {
+          "source": "[E] Inquisitive: Inquisitive: Inquisitive",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "Bluff"
+        },
+        {
+          "source": "[E] Inquisitive: Inquisitive: Inquisitive Skills",
+          "bonusType": "Enhancement",
+          "value": 1,
+          "target": "Bluff"
+        },
+        {
+          "source": "[G] Bracers: Rocard, Champion's Cuffs (Improved Deception)",
+          "bonusType": "Enhancement",
+          "value": 22,
+          "target": "Bluff"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Throne Room",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Bluff"
         }
       ]
     },
     "concentration": {
-      "total": 22,
-      "appliedCount": 12,
-      "dominatedCount": 0,
+      "total": 55,
+      "appliedCount": 15,
+      "dominatedCount": 1,
       "sources": [
         {
           "source": "Constitution modifier",
           "bonusType": "(untyped)",
-          "value": 8
+          "value": 32
         },
         {
           "source": "Scion of the Ethereal Plane",
@@ -1598,18 +3319,36 @@
           "bonusType": "Feat",
           "value": 1,
           "target": "All"
+        },
+        {
+          "source": "[E] Battle Engineer: Battle Engineer: Field Engineer",
+          "bonusType": "Enhancement",
+          "value": 3,
+          "target": "Concentration"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Forbidden Library",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Concentration"
         }
       ]
     },
     "diplomacy": {
-      "total": 22,
-      "appliedCount": 12,
-      "dominatedCount": 0,
+      "total": 66,
+      "appliedCount": 19,
+      "dominatedCount": 1,
       "sources": [
         {
           "source": "Charisma modifier",
           "bonusType": "(untyped)",
-          "value": 8
+          "value": 34
         },
         {
           "source": "Scion of the Ethereal Plane",
@@ -1676,6 +3415,48 @@
           "bonusType": "Feat",
           "value": 1,
           "target": "All"
+        },
+        {
+          "source": "[E] Inquisitive: Inquisitive: Inquisitive",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "Diplomacy"
+        },
+        {
+          "source": "[E] Inquisitive: Inquisitive: Inquisitive Skills",
+          "bonusType": "Enhancement",
+          "value": 1,
+          "target": "Diplomacy"
+        },
+        {
+          "source": "[E] Inquisitive: Inquisitive: Hit the Streets",
+          "bonusType": "Enhancement",
+          "value": 0,
+          "target": "Diplomacy"
+        },
+        {
+          "source": "[E] Inquisitive: Inquisitive: Hit the Streets",
+          "bonusType": "Enhancement",
+          "value": 0,
+          "target": "Diplomacy"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[FS] Crackshot Negotiator (4-piece tier ≥ 2)",
+          "bonusType": "Stacking",
+          "value": 10,
+          "target": "Diplomacy"
+        },
+        {
+          "source": "[Guild] Throne Room",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Diplomacy"
         }
       ]
     },
@@ -1692,14 +3473,14 @@
       ]
     },
     "haggle": {
-      "total": 22,
-      "appliedCount": 12,
-      "dominatedCount": 0,
+      "total": 54,
+      "appliedCount": 14,
+      "dominatedCount": 1,
       "sources": [
         {
           "source": "Charisma modifier",
           "bonusType": "(untyped)",
-          "value": 8
+          "value": 34
         },
         {
           "source": "Scion of the Ethereal Plane",
@@ -1766,18 +3547,30 @@
           "bonusType": "Feat",
           "value": 1,
           "target": "All"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Throne Room",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Haggle"
         }
       ]
     },
     "heal": {
-      "total": 17,
-      "appliedCount": 12,
-      "dominatedCount": 0,
+      "total": 32,
+      "appliedCount": 14,
+      "dominatedCount": 1,
       "sources": [
         {
           "source": "Wisdom modifier",
           "bonusType": "(untyped)",
-          "value": 3
+          "value": 12
         },
         {
           "source": "Scion of the Ethereal Plane",
@@ -1844,18 +3637,30 @@
           "bonusType": "Feat",
           "value": 1,
           "target": "All"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Forbidden Library",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Heal"
         }
       ]
     },
     "hide": {
-      "total": 18,
-      "appliedCount": 12,
-      "dominatedCount": 0,
+      "total": 31,
+      "appliedCount": 14,
+      "dominatedCount": 1,
       "sources": [
         {
           "source": "Dexterity modifier",
           "bonusType": "(untyped)",
-          "value": 4
+          "value": 11
         },
         {
           "source": "Scion of the Ethereal Plane",
@@ -1922,18 +3727,30 @@
           "bonusType": "Feat",
           "value": 1,
           "target": "All"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Danger Room",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Hide"
         }
       ]
     },
     "intimidate": {
-      "total": 22,
-      "appliedCount": 12,
-      "dominatedCount": 0,
+      "total": 58,
+      "appliedCount": 17,
+      "dominatedCount": 1,
       "sources": [
         {
           "source": "Charisma modifier",
           "bonusType": "(untyped)",
-          "value": 8
+          "value": 34
         },
         {
           "source": "Scion of the Ethereal Plane",
@@ -2000,18 +3817,48 @@
           "bonusType": "Feat",
           "value": 1,
           "target": "All"
+        },
+        {
+          "source": "[E] Inquisitive: Inquisitive: Inquisitive",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "Intimidate"
+        },
+        {
+          "source": "[E] Inquisitive: Inquisitive: Inquisitive Skills",
+          "bonusType": "Enhancement",
+          "value": 1,
+          "target": "Intimidate"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[A] Bracers: Rocard, Champion's Cuffs → Curse of Anger's Heart",
+          "bonusType": "Fortune",
+          "value": 2,
+          "target": "Intimidate"
+        },
+        {
+          "source": "[Guild] Throne Room",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Intimidate"
         }
       ]
     },
     "jump": {
-      "total": 21,
-      "appliedCount": 12,
-      "dominatedCount": 0,
+      "total": 32,
+      "appliedCount": 15,
+      "dominatedCount": 1,
       "sources": [
         {
           "source": "Strength modifier",
           "bonusType": "(untyped)",
-          "value": 7
+          "value": 9
         },
         {
           "source": "Scion of the Ethereal Plane",
@@ -2078,18 +3925,36 @@
           "bonusType": "Feat",
           "value": 1,
           "target": "All"
+        },
+        {
+          "source": "[E] Vistani Knife Fighter: Vistani: Acrobatic",
+          "bonusType": "Enhancement",
+          "value": 3,
+          "target": "Jump"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Otto's Irresistible Dancehall",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Jump"
         }
       ]
     },
     "listen": {
-      "total": 17,
-      "appliedCount": 12,
-      "dominatedCount": 0,
+      "total": 34,
+      "appliedCount": 15,
+      "dominatedCount": 1,
       "sources": [
         {
           "source": "Wisdom modifier",
           "bonusType": "(untyped)",
-          "value": 3
+          "value": 12
         },
         {
           "source": "Scion of the Ethereal Plane",
@@ -2156,18 +4021,36 @@
           "bonusType": "Feat",
           "value": 1,
           "target": "All"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Fey Sight",
+          "bonusType": "Destiny",
+          "value": 2,
+          "target": "Listen"
+        },
+        {
+          "source": "[Guild] Throne Room",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Listen"
         }
       ]
     },
     "move_silently": {
-      "total": 18,
-      "appliedCount": 12,
-      "dominatedCount": 0,
+      "total": 31,
+      "appliedCount": 14,
+      "dominatedCount": 1,
       "sources": [
         {
           "source": "Dexterity modifier",
           "bonusType": "(untyped)",
-          "value": 4
+          "value": 11
         },
         {
           "source": "Scion of the Ethereal Plane",
@@ -2234,6 +4117,18 @@
           "bonusType": "Feat",
           "value": 1,
           "target": "All"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Otto's Irresistible Dancehall",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Move Silently"
         }
       ]
     },
@@ -2262,14 +4157,14 @@
       ]
     },
     "repair": {
-      "total": 19,
-      "appliedCount": 12,
-      "dominatedCount": 0,
+      "total": 32,
+      "appliedCount": 15,
+      "dominatedCount": 1,
       "sources": [
         {
           "source": "Intelligence modifier",
           "bonusType": "(untyped)",
-          "value": 5
+          "value": 11
         },
         {
           "source": "Scion of the Ethereal Plane",
@@ -2336,18 +4231,36 @@
           "bonusType": "Feat",
           "value": 1,
           "target": "All"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Forbidden Library",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Repair"
+        },
+        {
+          "source": "[PL] Past Life: Artificer",
+          "bonusType": "Stacking",
+          "value": 1,
+          "target": "Intelligence"
         }
       ]
     },
     "search": {
-      "total": 19,
-      "appliedCount": 12,
-      "dominatedCount": 0,
+      "total": 39,
+      "appliedCount": 18,
+      "dominatedCount": 1,
       "sources": [
         {
           "source": "Intelligence modifier",
           "bonusType": "(untyped)",
-          "value": 5
+          "value": 11
         },
         {
           "source": "Scion of the Ethereal Plane",
@@ -2414,6 +4327,42 @@
           "bonusType": "Feat",
           "value": 1,
           "target": "All"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Fey Sight",
+          "bonusType": "Destiny",
+          "value": 2,
+          "target": "Search"
+        },
+        {
+          "source": "[D] Shadowdancer: Shadowdancer: Technician",
+          "bonusType": "Destiny",
+          "value": 4,
+          "target": "Search"
+        },
+        {
+          "source": "[A] Gloves: Legendary Gloves of the Resilient → Curse of Minor Perception",
+          "bonusType": "Fortune",
+          "value": 1,
+          "target": "Search"
+        },
+        {
+          "source": "[Guild] Danger Room",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Search"
+        },
+        {
+          "source": "[PL] Past Life: Artificer",
+          "bonusType": "Stacking",
+          "value": 1,
+          "target": "Intelligence"
         }
       ]
     },
@@ -2430,14 +4379,14 @@
       ]
     },
     "spot": {
-      "total": 17,
-      "appliedCount": 12,
-      "dominatedCount": 0,
+      "total": 39,
+      "appliedCount": 17,
+      "dominatedCount": 1,
       "sources": [
         {
           "source": "Wisdom modifier",
           "bonusType": "(untyped)",
-          "value": 3
+          "value": 12
         },
         {
           "source": "Scion of the Ethereal Plane",
@@ -2504,18 +4453,48 @@
           "bonusType": "Feat",
           "value": 1,
           "target": "All"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Fey Sight",
+          "bonusType": "Destiny",
+          "value": 2,
+          "target": "Spot"
+        },
+        {
+          "source": "[D] Shadowdancer: Shadowdancer: Technician",
+          "bonusType": "Destiny",
+          "value": 4,
+          "target": "Spot"
+        },
+        {
+          "source": "[A] Gloves: Legendary Gloves of the Resilient → Curse of Minor Perception",
+          "bonusType": "Fortune",
+          "value": 1,
+          "target": "Spot"
+        },
+        {
+          "source": "[Guild] Danger Room",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Spot"
         }
       ]
     },
     "swim": {
-      "total": 21,
-      "appliedCount": 12,
-      "dominatedCount": 0,
+      "total": 29,
+      "appliedCount": 14,
+      "dominatedCount": 1,
       "sources": [
         {
           "source": "Strength modifier",
           "bonusType": "(untyped)",
-          "value": 7
+          "value": 9
         },
         {
           "source": "Scion of the Ethereal Plane",
@@ -2582,18 +4561,30 @@
           "bonusType": "Feat",
           "value": 1,
           "target": "All"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Otto's Irresistible Dancehall",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Swim"
         }
       ]
     },
     "tumble": {
-      "total": 18,
-      "appliedCount": 12,
-      "dominatedCount": 0,
+      "total": 34,
+      "appliedCount": 15,
+      "dominatedCount": 1,
       "sources": [
         {
           "source": "Dexterity modifier",
           "bonusType": "(untyped)",
-          "value": 4
+          "value": 11
         },
         {
           "source": "Scion of the Ethereal Plane",
@@ -2660,6 +4651,24 @@
           "bonusType": "Feat",
           "value": 1,
           "target": "All"
+        },
+        {
+          "source": "[E] Vistani Knife Fighter: Vistani: Acrobatic",
+          "bonusType": "Enhancement",
+          "value": 3,
+          "target": "Tumble"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Otto's Irresistible Dancehall",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Tumble"
         }
       ]
     },
@@ -2678,6 +4687,26 @@
   },
   "slas": [
     {
+      "name": "Dimension Door",
+      "castingClass": "Character",
+      "category": "enhancement",
+      "cost": 0,
+      "maxCasterLevel": 0,
+      "cooldown": 120,
+      "charges": 0,
+      "source": "[D] Shadowdancer: Shadowdancer: Step Through Shadows"
+    },
+    {
+      "name": "Hunt's End",
+      "castingClass": "Character",
+      "category": "enhancement",
+      "cost": 0,
+      "maxCasterLevel": 0,
+      "cooldown": 9,
+      "charges": 0,
+      "source": "[D] Shiradi Champion: Shiradi Champion: Beguile or Hunt's End → Hunt's End"
+    },
+    {
       "name": "Leap Of Faith",
       "castingClass": "Favored Soul",
       "category": "feat",
@@ -2686,6 +4715,26 @@
       "cooldown": 3,
       "charges": 0,
       "source": "Favored Soul 17: Leap Of Faith"
+    },
+    {
+      "name": "Shadowstrike (Ranged)",
+      "castingClass": "Character",
+      "category": "enhancement",
+      "cost": 0,
+      "maxCasterLevel": 0,
+      "cooldown": 8,
+      "charges": 0,
+      "source": "[D] Shadowdancer: Shadowdancer: Epic Strike → Shadowstrike (Ranged)"
+    },
+    {
+      "name": "The Pluck of a String",
+      "castingClass": "Character",
+      "category": "enhancement",
+      "cost": 0,
+      "maxCasterLevel": 0,
+      "cooldown": 5,
+      "charges": 0,
+      "source": "[D] Fatesinger: Fatesinger: Epic Strike → The Pluck of a String"
     },
     {
       "name": "Unleash Iron Defender",

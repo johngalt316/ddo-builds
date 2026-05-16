@@ -214,9 +214,16 @@ function walkAugments(
           // Override the amount table with the tier value.
           ? { ...eff, amount: [tierValue], amountType: 'Simple' as const }
           : eff;
+        // Augments are slotted INTO items but emit their bonuses as a
+        // separate source from the item's natural buffs. In DDO they
+        // stack with the host item's own Enhancement-typed buffs (e.g.
+        // a Legendary Arrowbound Topaz +8% Doubleshot stacks with the
+        // wearing item's natural +9% Doubleshot rather than being
+        // dominated by it). Therefore: do NOT tag as isApplyAsItemEffect.
+        // The augment's own <ApplyAsItemEffect/> flag (rare) is preserved
+        // if set on the source effect.
         out.push({
-          // Augments are equipped on items → treat as item effects.
-          effect: { ...base, isApplyAsItemEffect: true },
+          effect: base,
           source: `[A] ${item.slot}: ${item.name} → ${sel}`,
           rankCount: 1,
         });

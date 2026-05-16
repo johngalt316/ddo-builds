@@ -5,7 +5,7 @@
   ],
   "build": {
     "version": 1,
-    "name": "Imported Build",
+    "name": "Zentek",
     "raceId": "eladrin",
     "alignment": "CN",
     "classes": [
@@ -140,17 +140,689 @@
     "enhancementSets": [
       {
         "name": "Default",
-        "enhancements": [],
-        "destinyEnhancements": [],
-        "reaperEnhancements": [],
+        "enhancements": [
+          {
+            "treeId": "Eladrin",
+            "enhancements": [
+              {
+                "enhancementId": "EladrinCore1",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "EladrinCore2",
+                "selection": "+1 Charisma",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "EladrinCore3",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "EladrinCore4",
+                "selection": "+1 Charisma",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "EladrinFeyStep",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "EladrinStepThroughTheFade",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "EladrinMinorSpringAttunement",
+                "tier": 0,
+                "rank": 2
+              },
+              {
+                "enhancementId": "EladrinMajorSpringAttunement",
+                "tier": 0,
+                "rank": 2
+              },
+              {
+                "enhancementId": "EladrinSkill",
+                "tier": 0,
+                "rank": 1
+              }
+            ]
+          },
+          {
+            "treeId": "Angel of Vengeance",
+            "enhancements": []
+          },
+          {
+            "treeId": "Inquisitive",
+            "enhancements": [
+              {
+                "enhancementId": "InquisitiveCore1",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "InquisitiveDualShooter",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "InquisitiveEyeForAccuracy",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "InquisitiveLawOnYourSide",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "InquisitiveSkills",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "InquisitiveCore2",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "InquisitiveCrossbowAdept",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "InquisitiveObservation",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "InquisitiveImprovedLaw",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "InquisitiveCrossbowAdeptII",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "InquisitiveWhatFirst",
+                "selection": "Shoot First",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "InquisitiveImprovedObservation",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "InquisitiveCore3",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "InquisitiveAbilityI",
+                "selection": "Charisma",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "InquisitiveCore4",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "InquisitiveCrossbowAdeptIII",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "InquisitiveInquisitionStyle",
+                "selection": "Divine Inquisition",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "InquisitiveGreaterLaw",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "InquisitiveAbilityII",
+                "selection": "Charisma",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "InquisitiveCore5",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "InquisitiveNoHoldsBarred",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "InquisitiveImprovedUncannyDodge",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "InquisitiveInquisitorsPath",
+                "selection": "Jaded",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "InquisitiveDiplomaticImmunity",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "InquisitiveCore6",
+                "tier": 0,
+                "rank": 1
+              }
+            ]
+          },
+          {
+            "treeId": "Battle Engineer",
+            "enhancements": [
+              {
+                "enhancementId": "BECore1",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "BEFieldEngineer",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "BEThaumaturgicalConduits",
+                "tier": 0,
+                "rank": 2
+              },
+              {
+                "enhancementId": "BECausticShot",
+                "selection": "Caustic Shot",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "BECore2",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "BEShatterDefenses",
+                "selection": "Shatter Defenses (Crossbow)",
+                "tier": 0,
+                "rank": 3
+              }
+            ]
+          },
+          {
+            "treeId": "War Soul",
+            "enhancements": [
+              {
+                "enhancementId": "WarSoulCore1",
+                "selection": "Smite Foe (Ranged)",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "WSDivineMight",
+                "selection": "Divine Might",
+                "tier": 0,
+                "rank": 3
+              }
+            ]
+          },
+          {
+            "treeId": "Vistani Knife Fighter",
+            "enhancements": [
+              {
+                "enhancementId": "VistaniCore1",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "UndeadHunter",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "MistStalkerI",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "VistaniAcrobatic",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "VistaniCore2",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "MistStalkerII",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "VistaniCore3",
+                "tier": 0,
+                "rank": 1
+              }
+            ]
+          }
+        ],
+        "destinyEnhancements": [
+          {
+            "treeId": "Shiradi Champion",
+            "enhancements": [
+              {
+                "enhancementId": "U51ShiradiChampionCore1",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "U51ShiradiChampionPrism",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "U51ShiradiChampionWildMagics",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "U51ShiradiChampionGoodLuck",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "U51ShiradiChampionFeySight",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "U51ShiradiChampionStay",
+                "selection": "Stay Loud",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "U51ShiradiChampionFadeOrPresence",
+                "selection": "Phase Double",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "U51ShiradiChampionFriendOrFoe",
+                "selection": "Enemy Of My Own",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "U51ShiradiChampionCore2",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "U51ShiradiChampionDoubleRainbow",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "U51ShiradiChampionPierceDeception",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "U51ShiradiChampionBeguileOrHuntsEnd",
+                "selection": "Hunt's End",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "U51ShiradiChampionCore3",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "U51ShiradiChampionCore4",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "U51ShiradiChampionCrueltyOfTheHunt",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "U51ShiradiChampionTrack",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "U51ShiradiChampionQueensDiplomacy",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "U51ShiradiChampionCrookedTouch",
+                "selection": "Flickering Fingers",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "U51ShiradiChampionEpicMoment",
+                "selection": "Inexorable Advance",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "U51ShiradiChampionFeywildAttunement",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "U51ShiradiChampionLoreOfTheHunt",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "U51ShiradiChampionNerveVenom",
+                "tier": 0,
+                "rank": 1
+              }
+            ]
+          },
+          {
+            "treeId": "Fatesinger",
+            "enhancements": [
+              {
+                "enhancementId": "U51FatesingerCore1",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "U51FatesingerEpicStrike",
+                "selection": "The Pluck of a String",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "U51FatesingerHarmonicResonance",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "U51FatesingerDiscord",
+                "selection": "Arrow of Discord",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "U51FatesingerPianissimo",
+                "tier": 0,
+                "rank": 2
+              },
+              {
+                "enhancementId": "U51FatesingerCore2",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "U51FatesingerCore3",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "U51FatesingerMasterTheAcoustics",
+                "tier": 0,
+                "rank": 3
+              }
+            ]
+          },
+          {
+            "treeId": "Shadowdancer",
+            "enhancements": [
+              {
+                "enhancementId": "U51ShadowdancerCore1",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "U51ShadowdancerCoverOfDarkness",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "U51ShadowdancerTechnician",
+                "tier": 0,
+                "rank": 2
+              },
+              {
+                "enhancementId": "U51ShadowdancerDanceInTheDark",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "U51ShadowdancerCore2",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "U51ShadowdancerEpicStrike",
+                "selection": "Shadowstrike (Ranged)",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "U51ShadowdancerCore3",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "U51ShadowdancerGrimPrecision",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "U51ShadowdancerShadowcaster",
+                "selection": "Shadowstriker",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "U51ShadowdancerEpicStrikeUpgrade",
+                "selection": "Dark Imbuement",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "U51ShadowdancerCore4",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "U51ShadowdancerBringDarkness",
+                "tier": 0,
+                "rank": 1
+              }
+            ]
+          }
+        ],
+        "reaperEnhancements": [
+          {
+            "treeId": "Dire Thaumaturge",
+            "enhancements": [
+              {
+                "enhancementId": "DireCore1",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "DirePower",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "DireAbilityI",
+                "selection": "+1 Charisma",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "DireArcanaI",
+                "tier": 0,
+                "rank": 1
+              }
+            ]
+          },
+          {
+            "treeId": "Grim Barricade",
+            "enhancements": [
+              {
+                "enhancementId": "GrimCore1",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "GrimBulwarkShroudI",
+                "selection": "PRR",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "GrimReapersSaveI",
+                "selection": "Reflex Save",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "GrimReapersLuck",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "GrimAbilityI",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "GrimReapersEvasionI",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "GrimAbilityII",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "GrimCore2",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "GrimReapersEvasionII",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "GrimReapersEvasionIII",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "GrimAbilityIII",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "GrimCore3",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "GrimCore4",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "GrimReapersHeightenedEvasionI",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "GrimReapersSteadfastness",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "GrimReapersResistance",
+                "tier": 0,
+                "rank": 1
+              }
+            ]
+          },
+          {
+            "treeId": "Dread Adversary",
+            "enhancements": [
+              {
+                "enhancementId": "DreadAdversaryCore1",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "DAReapersStrike",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "DAReapersShotI",
+                "tier": 0,
+                "rank": 3
+              },
+              {
+                "enhancementId": "DreadAdversaryCore2",
+                "tier": 0,
+                "rank": 1
+              },
+              {
+                "enhancementId": "DAReapersShotII",
+                "tier": 0,
+                "rank": 1
+              }
+            ]
+          }
+        ],
         "selectedEnhancementTrees": [
           "Eladrin",
-          "Angel of Vengeance",
-          "Beacon of Hope",
-          "War Soul",
-          "Arcanotechnician",
+          "Inquisitive",
           "Battle Engineer",
-          "Renegade Mastermaker"
+          "War Soul",
+          "Vistani Knife Fighter",
+          "Falconry",
+          "Shiradi Champion",
+          "Fatesinger",
+          "Shadowdancer",
+          "Dire Thaumaturge",
+          "Dread Adversary",
+          "Grim Barricade"
         ],
         "treesManuallyOverridden": true
       }
@@ -159,13 +831,824 @@
     "gearSets": [
       {
         "name": "Standard",
-        "items": [],
+        "items": [
+          {
+            "slot": "Helmet",
+            "name": "Legendary University Champion's Helm",
+            "icon": "Helmet_2",
+            "description": "This helm was clearly used by some past adventurer, but that hasn't diminished\nits potential.",
+            "dropLocation": "Party 101, End chest",
+            "minLevel": 32,
+            "material": "Gem (material)",
+            "buffs": [
+              {
+                "type": "Deadly",
+                "value1": 11,
+                "bonusType": "Competence"
+              },
+              {
+                "type": "Accuracy",
+                "value1": 22,
+                "bonusType": "Competence"
+              },
+              {
+                "type": "ArmorPiercing",
+                "value1": 22,
+                "bonusType": "Enhancement"
+              },
+              {
+                "type": "Seeker",
+                "value1": 14,
+                "bonusType": "Enhancement"
+              }
+            ],
+            "augmentSlots": [
+              {
+                "slotType": "Lost Purpose",
+                "selectedAugment": "Legendary Devil's Infernal Dance"
+              },
+              {
+                "slotType": "Green",
+                "selectedAugment": "Sapphire of Dodge",
+                "selectedLevelIndex": 8
+              },
+              {
+                "slotType": "Colorless",
+                "selectedAugment": "Diamond of Insightful Constitution",
+                "selectedLevelIndex": 3
+              },
+              {
+                "slotType": "Mythic"
+              },
+              {
+                "slotType": "Reaper Helmet"
+              },
+              {
+                "slotType": "Deck Curse",
+                "selectedAugment": "Curse of Minor Sheltering"
+              }
+            ]
+          },
+          {
+            "slot": "Necklace",
+            "name": "Dracolich's Eye",
+            "icon": "Necklace_14c",
+            "description": "This magically preserved eye, on a long chain, lends its sight to its wearer.",
+            "dropLocation": "Threats Old and New, Raid Warded chest",
+            "minLevel": 33,
+            "material": "Gem (material)",
+            "buffs": [
+              {
+                "type": "RelentlessFury"
+              },
+              {
+                "type": "Doubleshot",
+                "value1": 3,
+                "bonusType": "Profane"
+              },
+              {
+                "type": "Deception",
+                "value1": 6,
+                "value2": 9,
+                "bonusType": "Insightful"
+              }
+            ],
+            "augmentSlots": [
+              {
+                "slotType": "Sealed in Undeath",
+                "selectedAugment": "Insightful Charisma +7"
+              },
+              {
+                "slotType": "Green",
+                "selectedAugment": "Sapphire of False Life",
+                "selectedLevelIndex": 7
+              },
+              {
+                "slotType": "Yellow",
+                "selectedAugment": "Ravil's Book of Legendary Recipes"
+              },
+              {
+                "slotType": "Moon",
+                "selectedAugment": "Lunar Gem of Magical Protection (Legendary)"
+              },
+              {
+                "slotType": "Mythic"
+              },
+              {
+                "slotType": "Reaper Necklace"
+              },
+              {
+                "slotType": "Deck Curse",
+                "selectedAugment": "Curse of Minor Warding"
+              }
+            ]
+          },
+          {
+            "slot": "Trinket",
+            "name": "Legendary Periapt of Charisma",
+            "icon": "Trinket_101",
+            "description": "A mark of charisma, recognizing the bearer's leadership while emboldening their\nconfidence.",
+            "dropLocation": "Voices of the Dead, end chest",
+            "minLevel": 33,
+            "material": "Leather",
+            "buffs": [
+              {
+                "type": "AbilityBonus",
+                "value1": 15,
+                "bonusType": "Enhancement",
+                "item": "Charisma",
+                "description1": "Charisma"
+              },
+              {
+                "type": "EnchantmentSave",
+                "value1": 12,
+                "bonusType": "Resistance"
+              },
+              {
+                "type": "MagicalSheltering",
+                "value1": 9,
+                "bonusType": "Quality"
+              },
+              {
+                "type": "WillSave",
+                "value1": 13,
+                "bonusType": "Resistance"
+              }
+            ],
+            "augmentSlots": [
+              {
+                "slotType": "Green",
+                "selectedAugment": "Sapphire of Defense",
+                "selectedLevelIndex": 8
+              },
+              {
+                "slotType": "Colorless",
+                "selectedAugment": "+2 Festive Charisma"
+              },
+              {
+                "slotType": "Sun",
+                "selectedAugment": "Solar Gem of Physical Resistance Rating (Legendary)"
+              },
+              {
+                "slotType": "Mythic"
+              },
+              {
+                "slotType": "Reaper Trinket"
+              },
+              {
+                "slotType": "Deck Curse",
+                "selectedAugment": "Curse of Major Imbuement"
+              }
+            ]
+          },
+          {
+            "slot": "Cloak",
+            "name": "Legendary University Archer's Cloak",
+            "icon": "Cloak_5",
+            "description": "Though it's a bit frayed from the winds and time, there's still possibility\nweaved into this cloak's threads.",
+            "dropLocation": "Enemy of My Enemy, End chest",
+            "minLevel": 32,
+            "material": "Cloth",
+            "buffs": [
+              {
+                "type": "Accuracy",
+                "value1": 5,
+                "bonusType": "Quality"
+              },
+              {
+                "type": "Deadly",
+                "value1": 3,
+                "bonusType": "Quality"
+              },
+              {
+                "type": "ArmorPiercing",
+                "value1": 10,
+                "bonusType": "Insightful"
+              },
+              {
+                "type": "Doubleshot",
+                "value1": 5,
+                "bonusType": "Insightful"
+              }
+            ],
+            "augmentSlots": [
+              {
+                "slotType": "Lost Purpose",
+                "selectedAugment": "Legendary Devil's Infernal Dance"
+              },
+              {
+                "slotType": "Green",
+                "selectedAugment": "Topaz of Ranged Power"
+              },
+              {
+                "slotType": "Colorless"
+              },
+              {
+                "slotType": "Mythic"
+              },
+              {
+                "slotType": "Reaper Cloak",
+                "selectedAugment": "+3 PRR"
+              },
+              {
+                "slotType": "Deck Curse",
+                "selectedAugment": "Curse of Minor Will"
+              }
+            ]
+          },
+          {
+            "slot": "Belt",
+            "name": "Legendary Waistwrap of Wild Wisdom",
+            "icon": "Belt_14c",
+            "description": "A light cloth waistwrap for those headed out into the woods.",
+            "dropLocation": "Death Hosts This Banquet, end chest",
+            "minLevel": 33,
+            "material": "Steel",
+            "buffs": [
+              {
+                "type": "AbilityBonus",
+                "value1": 6,
+                "bonusType": "Insightful",
+                "item": "Wisdom",
+                "description1": "Wisdom"
+              },
+              {
+                "type": "WillSave",
+                "value1": 3,
+                "bonusType": "Quality"
+              },
+              {
+                "type": "Profane Well Rounded",
+                "value1": 3,
+                "bonusType": "Profane"
+              },
+              {
+                "type": "HealingAmplification",
+                "value1": 15,
+                "bonusType": "Exceptional"
+              }
+            ],
+            "augmentSlots": [
+              {
+                "slotType": "Green"
+              },
+              {
+                "slotType": "Colorless"
+              },
+              {
+                "slotType": "Moon",
+                "selectedAugment": "Lunar Gem of Weapon Damage (Legendary)"
+              },
+              {
+                "slotType": "Mythic"
+              },
+              {
+                "slotType": "Reaper Belt"
+              },
+              {
+                "slotType": "Deck Curse",
+                "selectedAugment": "Curse of the Unbreakable"
+              }
+            ]
+          },
+          {
+            "slot": "Goggles",
+            "name": "Legendary Goggles of the Archer",
+            "icon": "Goggles_19",
+            "description": "TBD",
+            "dropLocation": "Book Burning, end chest",
+            "minLevel": 33,
+            "material": "Steel",
+            "buffs": [
+              {
+                "type": "Doubleshot",
+                "value1": 9,
+                "bonusType": "Enhancement"
+              },
+              {
+                "type": "Sight Beyond Sight"
+              },
+              {
+                "type": "Greater Marksmanship"
+              },
+              {
+                "type": "ArmorPiercing",
+                "value1": 11,
+                "bonusType": "Insightful"
+              }
+            ],
+            "augmentSlots": [
+              {
+                "slotType": "Green",
+                "selectedAugment": "Diamond of Constitution",
+                "selectedLevelIndex": 8
+              },
+              {
+                "slotType": "Colorless",
+                "selectedAugment": "+2 Festive Constitution"
+              },
+              {
+                "slotType": "Sun",
+                "selectedAugment": "Solar Gem of Imbuement (Legendary)"
+              },
+              {
+                "slotType": "Mythic"
+              },
+              {
+                "slotType": "Reaper Goggles"
+              },
+              {
+                "slotType": "Deck Curse",
+                "selectedAugment": "Curse of Major Constitution"
+              }
+            ]
+          },
+          {
+            "slot": "Gloves",
+            "name": "Legendary Gloves of the Resilient",
+            "icon": "Gloves_7k",
+            "description": "Light enough to not impede movement, but somehow sturdy enough to stop a blade,\nthese gloves have seen their share of conflict.",
+            "dropLocation": "The Safehold, end chest",
+            "minLevel": 33,
+            "material": "Leather",
+            "buffs": [
+              {
+                "type": "AbilityBonus",
+                "value1": 6,
+                "bonusType": "Insightful",
+                "item": "Constitution",
+                "description1": "Constitution"
+              },
+              {
+                "type": "FortitudeSave",
+                "value1": 3,
+                "bonusType": "Quality"
+              },
+              {
+                "type": "Speed",
+                "value1": 30,
+                "value2": 15,
+                "bonusType": "Enhancement"
+              },
+              {
+                "type": "PhysicalSheltering",
+                "value1": 37,
+                "bonusType": "Enhancement"
+              }
+            ],
+            "augmentSlots": [
+              {
+                "slotType": "Green",
+                "selectedAugment": "Legendary Demonheart Emerald"
+              },
+              {
+                "slotType": "Colorless"
+              },
+              {
+                "slotType": "Moon",
+                "selectedAugment": "Lunar Gem of Healing Amplification (Legendary)"
+              },
+              {
+                "slotType": "Mythic"
+              },
+              {
+                "slotType": "Reaper Gloves"
+              },
+              {
+                "slotType": "Deck Curse",
+                "selectedAugment": "Curse of Minor Perception"
+              }
+            ]
+          },
+          {
+            "slot": "Boots",
+            "name": "Legendary Greaves of Seasons' Warding",
+            "icon": "Boots_11d",
+            "description": "Made to withstand the harshness of any season, these aged boots show no wear.",
+            "dropLocation": "Portal to Below, end chest",
+            "minLevel": 33,
+            "material": "Leather",
+            "buffs": [
+              {
+                "type": "Absorption",
+                "value1": 37,
+                "bonusType": "Enhancement",
+                "item": "Fire",
+                "description1": "Fire"
+              },
+              {
+                "type": "Absorption",
+                "value1": 37,
+                "bonusType": "Enhancement",
+                "item": "Cold",
+                "description1": "Cold"
+              },
+              {
+                "type": "Absorption",
+                "value1": 37,
+                "bonusType": "Enhancement",
+                "item": "Electric",
+                "description1": "Electric"
+              },
+              {
+                "type": "Absorption",
+                "value1": 37,
+                "bonusType": "Enhancement",
+                "item": "Acid",
+                "description1": "Acid"
+              }
+            ],
+            "augmentSlots": [
+              {
+                "slotType": "Green",
+                "selectedAugment": "Draconic Soul Gem"
+              },
+              {
+                "slotType": "Colorless"
+              },
+              {
+                "slotType": "Moon",
+                "selectedAugment": "Lunar Gem of Physical Protection (Legendary)"
+              },
+              {
+                "slotType": "Mythic"
+              },
+              {
+                "slotType": "Reaper Boot"
+              },
+              {
+                "slotType": "Deck Curse",
+                "selectedAugment": "Curse of Minor Combatant"
+              }
+            ]
+          },
+          {
+            "slot": "Bracers",
+            "name": "Rocard, Champion's Cuffs",
+            "icon": "Bracers_5d",
+            "description": "TBD",
+            "dropLocation": "Den of Vipers, end chest",
+            "minLevel": 33,
+            "material": "Gem (material)",
+            "buffs": [
+              {
+                "type": "Improved Deception",
+                "value1": 22,
+                "bonusType": "Enhancement"
+              },
+              {
+                "type": "ArmorPiercing",
+                "value1": 11,
+                "bonusType": "Insightful"
+              },
+              {
+                "type": "Seeker",
+                "value1": 7,
+                "bonusType": "Insightful"
+              }
+            ],
+            "augmentSlots": [
+              {
+                "slotType": "Sealed in Gloom",
+                "selectedAugment": "Insightful Constitution +7"
+              },
+              {
+                "slotType": "Green",
+                "selectedAugment": "Legendary Moment to Legendary Moment"
+              },
+              {
+                "slotType": "Yellow",
+                "selectedAugment": "Topaz of Ranged Power",
+                "selectedLevelIndex": 5
+              },
+              {
+                "slotType": "Blue",
+                "selectedAugment": "Sapphire of Healing Amplification",
+                "selectedLevelIndex": 7
+              },
+              {
+                "slotType": "Moon",
+                "selectedAugment": "Lunar Gem of Ranged Power (Legendary)"
+              },
+              {
+                "slotType": "Mythic"
+              },
+              {
+                "slotType": "Reaper Bracers"
+              },
+              {
+                "slotType": "Deck Curse",
+                "selectedAugment": "Curse of Anger's Heart"
+              }
+            ]
+          },
+          {
+            "slot": "Armor",
+            "name": "Legendary University Spellshield's Reinforced Shirt",
+            "icon": "LightArmor_1b",
+            "description": "Arcane energies run through this shirt, protecting the wearer from a variety\nof magics.",
+            "dropLocation": "Enemy of My Enemy, End chest",
+            "minLevel": 32,
+            "material": "Leather",
+            "buffs": [
+              {
+                "type": "ArmorEnchantment",
+                "value1": 15,
+                "bonusType": "Armor Enhancement"
+              },
+              {
+                "type": "MagicalSheltering",
+                "value1": 36,
+                "bonusType": "Enhancement"
+              },
+              {
+                "type": "Fortification",
+                "value1": 153,
+                "bonusType": "Enhancement"
+              },
+              {
+                "type": "ReflexSave",
+                "value1": 6,
+                "bonusType": "Insightful"
+              },
+              {
+                "type": "SpellSave",
+                "value1": 11,
+                "bonusType": "Resistance"
+              }
+            ],
+            "augmentSlots": [
+              {
+                "slotType": "Lost Purpose",
+                "selectedAugment": "Legendary Devil's Infernal Dance"
+              },
+              {
+                "slotType": "Green",
+                "selectedAugment": "Sapphire of Armored Agility"
+              },
+              {
+                "slotType": "Colorless",
+                "selectedAugment": "Globe of True Imperial Blood"
+              },
+              {
+                "slotType": "Mythic"
+              },
+              {
+                "slotType": "Reaper Armor"
+              },
+              {
+                "slotType": "Deck Curse",
+                "selectedAugment": "Curse of Major Archery"
+              }
+            ]
+          },
+          {
+            "slot": "MainHand",
+            "name": "Light Crossbow of the Undying Age",
+            "icon": "LightCrossbow_1",
+            "description": "The ritual's power has imbued this weapon with an immortal fire and unholy purpose.",
+            "dropLocation": "Ritual Table, Turn in \nLegendary Light Crossbow of the Golden Age \n120 Barrier Fragments",
+            "minLevel": 33,
+            "material": "Steel",
+            "buffs": [
+              {
+                "type": "WeaponEnchantment",
+                "value1": 15,
+                "bonusType": "Weapon Enchantment"
+              },
+              {
+                "type": "Dripping with Magma"
+              },
+              {
+                "type": "3rd Degree Burns",
+                "value1": 3
+              },
+              {
+                "type": "Sovereign Vorpal",
+                "bonusType": "Enhancement",
+                "item": "All",
+                "description1": "All"
+              }
+            ],
+            "augmentSlots": [
+              {
+                "slotType": "Sealed in Fire",
+                "selectedAugment": "Legendary Dust"
+              },
+              {
+                "slotType": "Orange",
+                "selectedAugment": "Ruby of Positive Spell Power",
+                "selectedLevelIndex": 8
+              },
+              {
+                "slotType": "Purple",
+                "selectedAugment": "Deconstructor",
+                "selectedLevelIndex": 8
+              },
+              {
+                "slotType": "Mythic"
+              },
+              {
+                "slotType": "Reaper Weapon"
+              },
+              {
+                "slotType": "Deck Curse",
+                "selectedAugment": "Curse of Major Charisma"
+              }
+            ],
+            "weapon": "Light Crossbow",
+            "weaponDamage": 6.1,
+            "baseDice": {
+              "number": 1,
+              "sides": 8,
+              "bonus": 3
+            },
+            "criticalMultiplier": 2,
+            "criticalThreatRange": 2,
+            "attackModifier": "Dexterity"
+          },
+          {
+            "slot": "Quiver",
+            "name": "Quiver of Alacrity",
+            "icon": "Quiver_1",
+            "description": "Said to allow the user to draw arrows or bolts at a very fast rate, this large,\nthin quiver will hold 3 different types of arrow or bolt and can store each\ntype of up to 1500. Total capacity: 4500.",
+            "dropLocation": "Ascension Chamber, Raid Warded chest",
+            "minLevel": 1,
+            "material": "Category:No Material items",
+            "buffs": [
+              {
+                "type": "RangedAlacrity",
+                "value1": 10,
+                "bonusType": "Enhancement"
+              }
+            ],
+            "augmentSlots": [
+              {
+                "slotType": "Upgradeable Item (Black Abbot)"
+              }
+            ]
+          },
+          {
+            "slot": "Ring1",
+            "name": "Legendary Ring of Mystic Charisma",
+            "icon": "Ring_26a",
+            "description": "Once held by those chosen by the Blade Rites, this ring confers both Martial\nand Magical prowess.",
+            "dropLocation": "Ruins of Myth Drannor, red-named encounter chests",
+            "minLevel": 33,
+            "material": "Gem (material)",
+            "buffs": [
+              {
+                "type": "AbilityBonus",
+                "value1": 3,
+                "bonusType": "Quality",
+                "item": "Charisma",
+                "description1": "Charisma"
+              },
+              {
+                "type": "CombatMastery",
+                "value1": 6,
+                "bonusType": "Insightful"
+              },
+              {
+                "type": "Deception",
+                "value1": 3,
+                "value2": 4,
+                "bonusType": "Quality"
+              },
+              {
+                "type": "SpellFocusMastery",
+                "value1": 3,
+                "bonusType": "Insightful"
+              }
+            ],
+            "augmentSlots": [
+              {
+                "slotType": "Green"
+              },
+              {
+                "slotType": "Colorless"
+              },
+              {
+                "slotType": "Mythic"
+              },
+              {
+                "slotType": "Reaper Ring"
+              },
+              {
+                "slotType": "Deck Curse",
+                "selectedAugment": "Curse of the Merciless"
+              }
+            ]
+          },
+          {
+            "slot": "Ring2",
+            "name": "Legendary Ring of Unnatural Accuracy",
+            "icon": "Ring_16a",
+            "description": "Somehow, this band allows its bearer a level of precision and focus that would\nbe impossible for the average mind.",
+            "dropLocation": "Pilgrims' Peril, end chest",
+            "minLevel": 32,
+            "material": "Gem (material)",
+            "buffs": [
+              {
+                "type": "AbilityBonus",
+                "value1": 3,
+                "bonusType": "Quality",
+                "item": "Dexterity",
+                "description1": "Dexterity"
+              },
+              {
+                "type": "Doubleshot",
+                "value1": 3,
+                "bonusType": "Quality"
+              },
+              {
+                "type": "Greater Marksmanship"
+              },
+              {
+                "type": "DistantDiversion",
+                "value1": 22,
+                "bonusType": "Enhancement"
+              }
+            ],
+            "augmentSlots": [
+              {
+                "slotType": "Green",
+                "selectedAugment": "Legendary Arrowbound Topaz"
+              },
+              {
+                "slotType": "Colorless"
+              },
+              {
+                "slotType": "Mythic"
+              },
+              {
+                "slotType": "Reaper Ring"
+              },
+              {
+                "slotType": "Deck Curse",
+                "selectedAugment": "Curse of Major Betrayal"
+              }
+            ]
+          }
+        ],
+        "filigrees": [
+          {
+            "name": "Spines of the Manticore/The Wreath of Flame +6 Ranged Power",
+            "rare": true
+          },
+          {
+            "name": "Crackshot Negotiator: +3 Ranged Power"
+          },
+          {
+            "name": "Crackshot Negotiator: +1 Attack and Damage",
+            "rare": true
+          },
+          {
+            "name": "Crackshot Negotiator: +2 Reflex Saves",
+            "rare": true
+          },
+          {
+            "name": "Spines of the Manticore: +3 Ranged Power",
+            "rare": true
+          },
+          {
+            "name": "Spines of the Manticore: +1 Attack and Damage",
+            "rare": true
+          },
+          {
+            "name": "Wildhunter: +2 Deception",
+            "rare": true
+          },
+          {
+            "name": "Wildhunter: +3 Ranged Power"
+          },
+          {
+            "name": "The Long Shadow: +3 Ranged Power",
+            "rare": true
+          },
+          {
+            "name": "The Long Shadow: +1 Attack and Damage",
+            "rare": true
+          }
+        ],
         "artifactFiligrees": [
-          {},
-          {},
-          {},
-          {},
-          {},
+          {
+            "name": "Spines of the Manticore/The Wreath of Flame +6 Ranged Power",
+            "rare": true
+          },
+          {
+            "name": "Crackshot Negotiator: +3 Ranged Power"
+          },
+          {
+            "name": "Wildhunter: +3 Ranged Power"
+          },
+          {
+            "name": "Wildhunter: +2 Deception"
+          },
+          {
+            "name": "The Long Shadow: +3 Ranged Power",
+            "rare": true
+          },
           {},
           {},
           {},
@@ -176,11 +1659,12 @@
     ],
     "activeGearSet": "Standard",
     "activeStances": [
-      "Cloth Armor",
-      "Centered",
-      "Empty",
       "Eladrin",
-      "Chaotic"
+      "Chaotic",
+      "Light Armor",
+      "Ranged Combat",
+      "Light Crossbow",
+      "Favored Weapon"
     ],
     "levelClasses": [
       "artificer",
@@ -214,24 +1698,126 @@
     },
     "skillTomes": {},
     "levelUps": {
-      "4": "STR",
-      "8": "STR",
-      "12": "STR",
-      "16": "STR",
-      "20": "STR",
-      "24": "STR",
-      "28": "STR",
-      "32": "STR",
-      "36": "STR",
-      "40": "STR"
+      "4": "CHA",
+      "8": "CHA",
+      "12": "CHA",
+      "16": "CHA",
+      "20": "CHA",
+      "24": "CHA",
+      "28": "CHA",
+      "32": "CHA",
+      "36": "CHA",
+      "40": "CHA"
     },
     "specialFeats": [
       {
         "featId": "Past Life: Ranger",
         "type": "HeroicPastLife",
         "rank": 3
+      },
+      {
+        "featId": "Past Life: Arcane Sphere: Enchant Weapon",
+        "type": "EpicPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Primal Sphere: Doubleshot",
+        "type": "EpicPastLife",
+        "rank": 3
+      },
+      {
+        "featId": "Past Life: Artificer",
+        "type": "HeroicPastLife",
+        "rank": 1
+      },
+      {
+        "featId": "Inherent Fate Point",
+        "type": "Special",
+        "rank": 3
+      },
+      {
+        "featId": "Inherent Racial Action Point",
+        "type": "Special",
+        "rank": 3
+      },
+      {
+        "featId": "Inherent Universal Action Point",
+        "type": "Special",
+        "rank": 2
+      },
+      {
+        "featId": "Divine Crusader",
+        "type": "EpicDestinyTree",
+        "rank": 1
+      },
+      {
+        "featId": "Draconic Incarnation",
+        "type": "EpicDestinyTree",
+        "rank": 1
+      },
+      {
+        "featId": "Exalted Angel",
+        "type": "EpicDestinyTree",
+        "rank": 1
+      },
+      {
+        "featId": "Fatesinger",
+        "type": "EpicDestinyTree",
+        "rank": 1
+      },
+      {
+        "featId": "Fury of the Wild",
+        "type": "EpicDestinyTree",
+        "rank": 1
+      },
+      {
+        "featId": "Legendary Dreadnought",
+        "type": "EpicDestinyTree",
+        "rank": 1
+      },
+      {
+        "featId": "Machrotechnic",
+        "type": "EpicDestinyTree",
+        "rank": 1
+      },
+      {
+        "featId": "Magus of the Eclipse",
+        "type": "EpicDestinyTree",
+        "rank": 1
+      },
+      {
+        "featId": "Primal Avatar",
+        "type": "EpicDestinyTree",
+        "rank": 1
+      },
+      {
+        "featId": "Shadowdancer",
+        "type": "EpicDestinyTree",
+        "rank": 1
+      },
+      {
+        "featId": "Shiradi Champion",
+        "type": "EpicDestinyTree",
+        "rank": 1
+      },
+      {
+        "featId": "Unyielding Sentinel",
+        "type": "EpicDestinyTree",
+        "rank": 1
+      },
+      {
+        "featId": "Grandmaster of Flowers",
+        "type": "EpicDestinyTree",
+        "rank": 1
+      },
+      {
+        "featId": "Tome of Destiny",
+        "type": "Special",
+        "rank": 3
       }
     ],
-    "epicLevels": 14
+    "epicLevels": 14,
+    "guildLevel": 200,
+    "applyGuildBuffs": true
   }
 }
