@@ -186,10 +186,14 @@ export function AbilityScorePanel() {
                 value={sel}
                 onChange={e => setLevelUp(level, (e.target.value as Stat) || null)}
                 aria-label={`Level ${level} ability assignment`}
+                title={sel ? STATS.find(s => s.key === sel)?.label : 'Pick a stat'}
               >
                 <option value="">—</option>
                 {STATS.map(s => (
-                  <option key={s.key} value={s.key}>{s.label}</option>
+                  // 3-letter codes (STR / DEX / CON / …) keep the closed
+                  // dropdown narrow enough to fit each tile on phone widths.
+                  // Hover reveals the full ability name via the title attr.
+                  <option key={s.key} value={s.key}>{s.key}</option>
                 ))}
               </select>
             </label>

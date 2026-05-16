@@ -129,6 +129,7 @@
 .epicRow {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 0.5rem;
   margin-top: 0.75rem;
   padding-top: 0.75rem;
@@ -143,8 +144,21 @@
   margin-right: auto;
 }
 
+/* Hint text shrinks rather than pushing the row past the panel edge. On
+ * tight widths it wraps to a new line below the +/- counter (via the
+ * row's flex-wrap). */
 .epicHint {
-  flex: 0 0 auto;
+  flex: 1 1 auto;
+  min-width: 0;
   color: var(--color-text-muted);
   font-size: 0.7rem;
+  text-align: right;
+}
+
+@media (max-width: 480px) {
+  .epicRow { font-size: 0.8rem; }
+  /* Hide the descriptive hint on narrow phones — the label + counter
+   * carry the meaning. The hint is duplicated in the header pill
+   * ("Heroic 20 / 20 · Epic N · Total M") anyway. */
+  .epicHint { display: none; }
 }
