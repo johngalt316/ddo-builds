@@ -23,20 +23,21 @@
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "base + racial",
-          "bonusType": "(untyped)",
-          "value": 16
-        },
-        {
-          "source": "[E] Inquisitive: Inquisitive: Master Inquisitive",
-          "bonusType": "Enhancement",
-          "value": 2,
+          "source": "[A] Armor: Legendary University Spellshield's Reinforced Shirt → Globe of True Imperial Blood",
+          "bonusType": "Exceptional",
+          "value": 1,
           "target": "All"
         },
         {
           "source": "[D] Fatesinger: Fatesinger: Glitter of Fame",
           "bonusType": "Destiny",
           "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[E] Inquisitive: Inquisitive: Master Inquisitive",
+          "bonusType": "Enhancement",
+          "value": 2,
           "target": "All"
         },
         {
@@ -46,22 +47,21 @@
           "target": "All"
         },
         {
+          "source": "[Guild] Floating Rock Garden",
+          "bonusType": "Guild",
+          "value": 2,
+          "target": "Strength"
+        },
+        {
           "source": "[S] Legendary Devil's Infernal Dance (3-piece tier ≥ 3)",
           "bonusType": "Artifact",
           "value": 3,
           "target": "All"
         },
         {
-          "source": "[A] Armor: Legendary University Spellshield's Reinforced Shirt → Globe of True Imperial Blood",
-          "bonusType": "Exceptional",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[Guild] Floating Rock Garden",
-          "bonusType": "Guild",
-          "value": 2,
-          "target": "Strength"
+          "source": "base + racial",
+          "bonusType": "(untyped)",
+          "value": 16
         }
       ]
     },
@@ -71,20 +71,21 @@
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "base + racial",
-          "bonusType": "(untyped)",
-          "value": 18
-        },
-        {
-          "source": "[E] Inquisitive: Inquisitive: Master Inquisitive",
-          "bonusType": "Enhancement",
-          "value": 2,
+          "source": "[A] Armor: Legendary University Spellshield's Reinforced Shirt → Globe of True Imperial Blood",
+          "bonusType": "Exceptional",
+          "value": 1,
           "target": "All"
         },
         {
           "source": "[D] Fatesinger: Fatesinger: Glitter of Fame",
           "bonusType": "Destiny",
           "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[E] Inquisitive: Inquisitive: Master Inquisitive",
+          "bonusType": "Enhancement",
+          "value": 2,
           "target": "All"
         },
         {
@@ -100,22 +101,21 @@
           "target": "Dexterity"
         },
         {
+          "source": "[Guild] Paradoxical Puzzle Box",
+          "bonusType": "Guild",
+          "value": 2,
+          "target": "Dexterity"
+        },
+        {
           "source": "[S] Legendary Devil's Infernal Dance (3-piece tier ≥ 3)",
           "bonusType": "Artifact",
           "value": 3,
           "target": "All"
         },
         {
-          "source": "[A] Armor: Legendary University Spellshield's Reinforced Shirt → Globe of True Imperial Blood",
-          "bonusType": "Exceptional",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[Guild] Paradoxical Puzzle Box",
-          "bonusType": "Guild",
-          "value": 2,
-          "target": "Dexterity"
+          "source": "base + racial",
+          "bonusType": "(untyped)",
+          "value": 18
         }
       ]
     },
@@ -125,38 +125,9 @@
       "dominatedCount": 2,
       "sources": [
         {
-          "source": "base + racial",
-          "bonusType": "(untyped)",
-          "value": 24
-        },
-        {
-          "source": "[E] Inquisitive: Inquisitive: Master Inquisitive",
-          "bonusType": "Enhancement",
-          "value": 2,
-          "target": "All"
-        },
-        {
-          "source": "[A] Goggles: Legendary Goggles of the Archer → Diamond of Constitution",
-          "bonusType": "Enhancement",
-          "value": 14,
-          "target": "Constitution"
-        },
-        {
-          "source": "[D] Fatesinger: Fatesinger: Glitter of Fame",
-          "bonusType": "Destiny",
+          "source": "[A] Armor: Legendary University Spellshield's Reinforced Shirt → Globe of True Imperial Blood",
+          "bonusType": "Exceptional",
           "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[R] Grim Barricade: Reaper's Defense III",
-          "bonusType": "Reaper",
-          "value": 1,
-          "target": "Constitution"
-        },
-        {
-          "source": "[G] Belt: Legendary Waistwrap of Wild Wisdom (Profane Well Rounded)",
-          "bonusType": "Profane",
-          "value": 3,
           "target": "All"
         },
         {
@@ -164,12 +135,6 @@
           "bonusType": "Insightful",
           "value": 7,
           "target": "Constitution"
-        },
-        {
-          "source": "[S] Legendary Devil's Infernal Dance (3-piece tier ≥ 3)",
-          "bonusType": "Artifact",
-          "value": 3,
-          "target": "All"
         },
         {
           "source": "[A] Goggles: Legendary Goggles of the Archer → +2 Festive Constitution",
@@ -184,39 +149,21 @@
           "target": "Constitution"
         },
         {
-          "source": "[A] Armor: Legendary University Spellshield's Reinforced Shirt → Globe of True Imperial Blood",
-          "bonusType": "Exceptional",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[Guild] Old Sully's Grog Cellar",
-          "bonusType": "Guild",
-          "value": 2,
-          "target": "Constitution"
-        }
-      ]
-    },
-    "INT": {
-      "total": 36,
-      "appliedCount": 7,
-      "dominatedCount": 0,
-      "sources": [
-        {
-          "source": "base + racial",
-          "bonusType": "(untyped)",
-          "value": 24
-        },
-        {
-          "source": "[E] Inquisitive: Inquisitive: Master Inquisitive",
+          "source": "[A] Goggles: Legendary Goggles of the Archer → Diamond of Constitution",
           "bonusType": "Enhancement",
-          "value": 2,
-          "target": "All"
+          "value": 14,
+          "target": "Constitution"
         },
         {
           "source": "[D] Fatesinger: Fatesinger: Glitter of Fame",
           "bonusType": "Destiny",
           "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[E] Inquisitive: Inquisitive: Master Inquisitive",
+          "bonusType": "Enhancement",
+          "value": 2,
           "target": "All"
         },
         {
@@ -226,11 +173,35 @@
           "target": "All"
         },
         {
+          "source": "[Guild] Old Sully's Grog Cellar",
+          "bonusType": "Guild",
+          "value": 2,
+          "target": "Constitution"
+        },
+        {
+          "source": "[R] Grim Barricade: Reaper's Defense III",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "Constitution"
+        },
+        {
           "source": "[S] Legendary Devil's Infernal Dance (3-piece tier ≥ 3)",
           "bonusType": "Artifact",
           "value": 3,
           "target": "All"
         },
+        {
+          "source": "base + racial",
+          "bonusType": "(untyped)",
+          "value": 24
+        }
+      ]
+    },
+    "INT": {
+      "total": 36,
+      "appliedCount": 7,
+      "dominatedCount": 0,
+      "sources": [
         {
           "source": "[A] Armor: Legendary University Spellshield's Reinforced Shirt → Globe of True Imperial Blood",
           "bonusType": "Exceptional",
@@ -238,10 +209,39 @@
           "target": "All"
         },
         {
+          "source": "[D] Fatesinger: Fatesinger: Glitter of Fame",
+          "bonusType": "Destiny",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[E] Inquisitive: Inquisitive: Master Inquisitive",
+          "bonusType": "Enhancement",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[G] Belt: Legendary Waistwrap of Wild Wisdom (Profane Well Rounded)",
+          "bonusType": "Profane",
+          "value": 3,
+          "target": "All"
+        },
+        {
           "source": "[Guild] Paradoxical Puzzle Box",
           "bonusType": "Guild",
           "value": 2,
           "target": "Intelligence"
+        },
+        {
+          "source": "[S] Legendary Devil's Infernal Dance (3-piece tier ≥ 3)",
+          "bonusType": "Artifact",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "base + racial",
+          "bonusType": "(untyped)",
+          "value": 24
         }
       ]
     },
@@ -251,20 +251,21 @@
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "base + racial",
-          "bonusType": "(untyped)",
-          "value": 16
-        },
-        {
-          "source": "[E] Inquisitive: Inquisitive: Master Inquisitive",
-          "bonusType": "Enhancement",
-          "value": 2,
+          "source": "[A] Armor: Legendary University Spellshield's Reinforced Shirt → Globe of True Imperial Blood",
+          "bonusType": "Exceptional",
+          "value": 1,
           "target": "All"
         },
         {
           "source": "[D] Fatesinger: Fatesinger: Glitter of Fame",
           "bonusType": "Destiny",
           "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[E] Inquisitive: Inquisitive: Master Inquisitive",
+          "bonusType": "Enhancement",
+          "value": 2,
           "target": "All"
         },
         {
@@ -280,22 +281,21 @@
           "target": "All"
         },
         {
+          "source": "[Guild] Floating Rock Garden",
+          "bonusType": "Guild",
+          "value": 2,
+          "target": "Wisdom"
+        },
+        {
           "source": "[S] Legendary Devil's Infernal Dance (3-piece tier ≥ 3)",
           "bonusType": "Artifact",
           "value": 3,
           "target": "All"
         },
         {
-          "source": "[A] Armor: Legendary University Spellshield's Reinforced Shirt → Globe of True Imperial Blood",
-          "bonusType": "Exceptional",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[Guild] Floating Rock Garden",
-          "bonusType": "Guild",
-          "value": 2,
-          "target": "Wisdom"
+          "source": "base + racial",
+          "bonusType": "(untyped)",
+          "value": 16
         }
       ]
     },
@@ -305,9 +305,34 @@
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "base + racial",
-          "bonusType": "(untyped)",
-          "value": 34
+          "source": "[A] Armor: Legendary University Spellshield's Reinforced Shirt → Globe of True Imperial Blood",
+          "bonusType": "Exceptional",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[A] MainHand: Light Crossbow of the Undying Age → Curse of Major Charisma",
+          "bonusType": "Fortune",
+          "value": 2,
+          "target": "Charisma"
+        },
+        {
+          "source": "[A] Necklace: Dracolich's Eye → Insightful Charisma +7",
+          "bonusType": "Insightful",
+          "value": 7,
+          "target": "Charisma"
+        },
+        {
+          "source": "[A] Trinket: Legendary Periapt of Charisma → +2 Festive Charisma",
+          "bonusType": "Festive",
+          "value": 2,
+          "target": "Charisma"
+        },
+        {
+          "source": "[D] Fatesinger: Fatesinger: Glitter of Fame",
+          "bonusType": "Destiny",
+          "value": 1,
+          "target": "All"
         },
         {
           "source": "[E] Eladrin: Eladrin: Ability I → +1 Charisma",
@@ -346,18 +371,6 @@
           "target": "All"
         },
         {
-          "source": "[G] Trinket: Legendary Periapt of Charisma (AbilityBonus: Charisma)",
-          "bonusType": "Enhancement",
-          "value": 15,
-          "target": "Charisma"
-        },
-        {
-          "source": "[D] Fatesinger: Fatesinger: Glitter of Fame",
-          "bonusType": "Destiny",
-          "value": 1,
-          "target": "All"
-        },
-        {
           "source": "[G] Belt: Legendary Waistwrap of Wild Wisdom (Profane Well Rounded)",
           "bonusType": "Profane",
           "value": 3,
@@ -370,33 +383,9 @@
           "target": "Charisma"
         },
         {
-          "source": "[S] Legendary Devil's Infernal Dance (3-piece tier ≥ 3)",
-          "bonusType": "Artifact",
-          "value": 3,
-          "target": "All"
-        },
-        {
-          "source": "[A] Necklace: Dracolich's Eye → Insightful Charisma +7",
-          "bonusType": "Insightful",
-          "value": 7,
-          "target": "Charisma"
-        },
-        {
-          "source": "[A] Trinket: Legendary Periapt of Charisma → +2 Festive Charisma",
-          "bonusType": "Festive",
-          "value": 2,
-          "target": "Charisma"
-        },
-        {
-          "source": "[A] Armor: Legendary University Spellshield's Reinforced Shirt → Globe of True Imperial Blood",
-          "bonusType": "Exceptional",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[A] MainHand: Light Crossbow of the Undying Age → Curse of Major Charisma",
-          "bonusType": "Fortune",
-          "value": 2,
+          "source": "[G] Trinket: Legendary Periapt of Charisma (AbilityBonus: Charisma)",
+          "bonusType": "Enhancement",
+          "value": 15,
           "target": "Charisma"
         },
         {
@@ -404,6 +393,17 @@
           "bonusType": "Guild",
           "value": 2,
           "target": "Charisma"
+        },
+        {
+          "source": "[S] Legendary Devil's Infernal Dance (3-piece tier ≥ 3)",
+          "bonusType": "Artifact",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "base + racial",
+          "bonusType": "(untyped)",
+          "value": 34
         }
       ]
     }
@@ -414,67 +414,22 @@
     "dominatedCount": 0,
     "sources": [
       {
-        "source": "class hit dice",
-        "bonusType": "(untyped)",
-        "value": 300
+        "source": "[A] Necklace: Dracolich's Eye → Ravil's Book of Legendary Recipes",
+        "bonusType": "Vitality",
+        "value": 48
       },
       {
-        "source": "Stout of Heart: Stout of Heart: Favored Soul Levels",
-        "bonusType": "Feat",
-        "value": 64
-      },
-      {
-        "source": "Stout of Heart: Stout of Heart: Epic Levels",
-        "bonusType": "Feat",
-        "value": 0
-      },
-      {
-        "source": "Stout of Heart: Stout of Heart: Legendary Levels",
-        "bonusType": "Feat",
-        "value": 0
-      },
-      {
-        "source": "Improved Heroic Durability (Favored Soul 5)",
-        "bonusType": "Feat",
-        "value": 5
-      },
-      {
-        "source": "Improved Heroic Durability (Favored Soul 10)",
-        "bonusType": "Feat",
-        "value": 5
-      },
-      {
-        "source": "Improved Heroic Durability (Favored Soul 15)",
-        "bonusType": "Feat",
-        "value": 5
-      },
-      {
-        "source": "Heroic Durability",
-        "bonusType": "Feat",
-        "value": 30
-      },
-      {
-        "source": "[D] Shiradi Champion: Shiradi Champion: Fey Favor",
-        "bonusType": "Destiny",
-        "value": 15
-      },
-      {
-        "source": "[D] Shiradi Champion: Shiradi Champion: Vision",
-        "bonusType": "Destiny",
-        "value": 15
-      },
-      {
-        "source": "[D] Shiradi Champion: Shiradi Champion: Audience with the Queen",
-        "bonusType": "Destiny",
-        "value": 15
-      },
-      {
-        "source": "[D] Shiradi Champion: Shiradi Champion: Fey Countenance",
-        "bonusType": "Destiny",
-        "value": 15
+        "source": "[A] Necklace: Dracolich's Eye → Sapphire of False Life",
+        "bonusType": "Enhancement",
+        "value": 48
       },
       {
         "source": "[D] Fatesinger: Fatesinger: Fate Singer's Repertoire",
+        "bonusType": "Destiny",
+        "value": 15
+      },
+      {
+        "source": "[D] Fatesinger: Fatesinger: Glitter of Fame",
         "bonusType": "Destiny",
         "value": 15
       },
@@ -484,7 +439,7 @@
         "value": 15
       },
       {
-        "source": "[D] Fatesinger: Fatesinger: Glitter of Fame",
+        "source": "[D] Shadowdancer: Shadowdancer: Cut to the Soul",
         "bonusType": "Destiny",
         "value": 15
       },
@@ -504,34 +459,69 @@
         "value": 15
       },
       {
-        "source": "[D] Shadowdancer: Shadowdancer: Cut to the Soul",
+        "source": "[D] Shiradi Champion: Shiradi Champion: Audience with the Queen",
         "bonusType": "Destiny",
         "value": 15
       },
       {
-        "source": "Harbinger of Chaos",
+        "source": "[D] Shiradi Champion: Shiradi Champion: Fey Countenance",
+        "bonusType": "Destiny",
+        "value": 15
+      },
+      {
+        "source": "[D] Shiradi Champion: Shiradi Champion: Fey Favor",
+        "bonusType": "Destiny",
+        "value": 15
+      },
+      {
+        "source": "[D] Shiradi Champion: Shiradi Champion: Vision",
+        "bonusType": "Destiny",
+        "value": 15
+      },
+      {
+        "source": "[F] Harbinger of Chaos",
         "bonusType": "Destiny",
         "value": 0
       },
       {
-        "source": "[R] Grim Barricade: Reaper's Defense II",
-        "bonusType": "Reaper",
-        "value": 20
+        "source": "[F] Heroic Durability",
+        "bonusType": "Feat",
+        "value": 30
       },
       {
-        "source": "[R] Grim Barricade: Reaper's Defense IV",
-        "bonusType": "Reaper",
-        "value": 100
+        "source": "[F] Improved Heroic Durability (Favored Soul 10)",
+        "bonusType": "Feat",
+        "value": 5
       },
       {
-        "source": "[A] Necklace: Dracolich's Eye → Sapphire of False Life",
-        "bonusType": "Enhancement",
-        "value": 48
+        "source": "[F] Improved Heroic Durability (Favored Soul 15)",
+        "bonusType": "Feat",
+        "value": 5
       },
       {
-        "source": "[A] Necklace: Dracolich's Eye → Ravil's Book of Legendary Recipes",
-        "bonusType": "Vitality",
-        "value": 48
+        "source": "[F] Improved Heroic Durability (Favored Soul 5)",
+        "bonusType": "Feat",
+        "value": 5
+      },
+      {
+        "source": "[F] Stout of Heart: Stout of Heart: Epic Levels",
+        "bonusType": "Feat",
+        "value": 0
+      },
+      {
+        "source": "[F] Stout of Heart: Stout of Heart: Favored Soul Levels",
+        "bonusType": "Feat",
+        "value": 64
+      },
+      {
+        "source": "[F] Stout of Heart: Stout of Heart: Legendary Levels",
+        "bonusType": "Feat",
+        "value": 0
+      },
+      {
+        "source": "[F] Titan's Blood",
+        "bonusType": "Legendary",
+        "value": 10
       },
       {
         "source": "[Guild] Hag Apothecary",
@@ -544,6 +534,21 @@
         "value": 45
       },
       {
+        "source": "[R] Grim Barricade: Reaper's Defense II",
+        "bonusType": "Reaper",
+        "value": 20
+      },
+      {
+        "source": "[R] Grim Barricade: Reaper's Defense IV",
+        "bonusType": "Reaper",
+        "value": 100
+      },
+      {
+        "source": "class hit dice",
+        "bonusType": "(untyped)",
+        "value": 300
+      },
+      {
         "source": "Constitution mod (+26) × 34 levels",
         "bonusType": "Stacking",
         "value": 884
@@ -552,11 +557,6 @@
         "source": "Fate Points (×2 HP each, 44 fate points)",
         "bonusType": "Stacking",
         "value": 88
-      },
-      {
-        "source": "Titan's Blood",
-        "bonusType": "Legendary",
-        "value": 10
       }
     ]
   },
@@ -566,53 +566,6 @@
       "appliedCount": 14,
       "dominatedCount": 1,
       "sources": [
-        {
-          "source": "class save progression + ability mod",
-          "bonusType": "(untyped)",
-          "value": 18
-        },
-        {
-          "source": "Epic 2: Epic Saves",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 4: Epic Saves",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 6: Epic Saves",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 8: Epic Saves",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 10: Epic Saves",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[E] Inquisitive: Inquisitive: Undaunted",
-          "bonusType": "Enhancement",
-          "value": 3,
-          "target": "All"
-        },
-        {
-          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
-          "bonusType": "Luck",
-          "value": 3,
-          "target": "All"
-        },
         {
           "source": "[D] Fatesinger: Fatesinger: Glitter of Fame",
           "bonusType": "Destiny",
@@ -626,14 +579,44 @@
           "target": "All"
         },
         {
-          "source": "[R] Grim Barricade: Reaper's Defense II",
-          "bonusType": "Reaper",
+          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[E] Inquisitive: Inquisitive: Undaunted",
+          "bonusType": "Enhancement",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 10: Epic Saves",
+          "bonusType": "Feat",
           "value": 1,
           "target": "All"
         },
         {
-          "source": "[R] Grim Barricade: Reaper's Defense IV",
-          "bonusType": "Reaper",
+          "source": "[F] Epic 2: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 4: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 6: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 8: Epic Saves",
+          "bonusType": "Feat",
           "value": 1,
           "target": "All"
         },
@@ -648,6 +631,23 @@
           "bonusType": "Guild",
           "value": 3,
           "target": "Fortitude"
+        },
+        {
+          "source": "[R] Grim Barricade: Reaper's Defense II",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[R] Grim Barricade: Reaper's Defense IV",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "class save progression + ability mod",
+          "bonusType": "(untyped)",
+          "value": 18
         }
       ]
     },
@@ -657,38 +657,21 @@
       "dominatedCount": 1,
       "sources": [
         {
-          "source": "class save progression + ability mod",
-          "bonusType": "(untyped)",
-          "value": 15
-        },
-        {
-          "source": "Epic 2: Epic Saves",
-          "bonusType": "Feat",
+          "source": "[D] Fatesinger: Fatesinger: Glitter of Fame",
+          "bonusType": "Destiny",
           "value": 1,
           "target": "All"
         },
         {
-          "source": "Epic 4: Epic Saves",
-          "bonusType": "Feat",
-          "value": 1,
+          "source": "[D] Shadowdancer: Shadowdancer: Cover of Darkness",
+          "bonusType": "Resistance",
+          "value": 3,
           "target": "All"
         },
         {
-          "source": "Epic 6: Epic Saves",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 8: Epic Saves",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 10: Epic Saves",
-          "bonusType": "Feat",
-          "value": 1,
+          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
+          "bonusType": "Luck",
+          "value": 3,
           "target": "All"
         },
         {
@@ -710,22 +693,52 @@
           "target": "Reflex"
         },
         {
-          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
-          "bonusType": "Luck",
-          "value": 3,
-          "target": "All"
+          "source": "[F] Crackshot Negotiator: +2 Reflex Saves",
+          "bonusType": "Stacking",
+          "value": 2,
+          "target": "Reflex"
         },
         {
-          "source": "[D] Fatesinger: Fatesinger: Glitter of Fame",
-          "bonusType": "Destiny",
+          "source": "[F] Epic 10: Epic Saves",
+          "bonusType": "Feat",
           "value": 1,
           "target": "All"
         },
         {
-          "source": "[D] Shadowdancer: Shadowdancer: Cover of Darkness",
-          "bonusType": "Resistance",
-          "value": 3,
+          "source": "[F] Epic 2: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
           "target": "All"
+        },
+        {
+          "source": "[F] Epic 4: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 6: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 8: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[G] Armor: Legendary University Spellshield's Reinforced Shirt (ReflexSave)",
+          "bonusType": "Insightful",
+          "value": 6,
+          "target": "Reflex"
+        },
+        {
+          "source": "[Guild] Chronoscope",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Reflex"
         },
         {
           "source": "[R] Grim Barricade: Reaper's Defense II",
@@ -740,22 +753,9 @@
           "target": "All"
         },
         {
-          "source": "[G] Armor: Legendary University Spellshield's Reinforced Shirt (ReflexSave)",
-          "bonusType": "Insightful",
-          "value": 6,
-          "target": "Reflex"
-        },
-        {
-          "source": "[F] Crackshot Negotiator: +2 Reflex Saves",
-          "bonusType": "Stacking",
-          "value": 2,
-          "target": "Reflex"
-        },
-        {
-          "source": "[Guild] Chronoscope",
-          "bonusType": "Guild",
-          "value": 3,
-          "target": "Reflex"
+          "source": "class save progression + ability mod",
+          "bonusType": "(untyped)",
+          "value": 15
         }
       ]
     },
@@ -765,38 +765,21 @@
       "dominatedCount": 2,
       "sources": [
         {
-          "source": "class save progression + ability mod",
-          "bonusType": "(untyped)",
-          "value": 16
+          "source": "[A] Cloak: Legendary University Archer's Cloak → Curse of Minor Will",
+          "bonusType": "Fortune",
+          "value": 1,
+          "target": "Will"
         },
         {
-          "source": "Epic 2: Epic Saves",
-          "bonusType": "Feat",
+          "source": "[D] Fatesinger: Fatesinger: Glitter of Fame",
+          "bonusType": "Destiny",
           "value": 1,
           "target": "All"
         },
         {
-          "source": "Epic 4: Epic Saves",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 6: Epic Saves",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 8: Epic Saves",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 10: Epic Saves",
-          "bonusType": "Feat",
-          "value": 1,
+          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
+          "bonusType": "Luck",
+          "value": 3,
           "target": "All"
         },
         {
@@ -818,21 +801,51 @@
           "target": "Will"
         },
         {
-          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
-          "bonusType": "Luck",
-          "value": 3,
+          "source": "[F] Epic 10: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
           "target": "All"
         },
         {
-          "source": "[D] Fatesinger: Fatesinger: Glitter of Fame",
-          "bonusType": "Destiny",
+          "source": "[F] Epic 2: Epic Saves",
+          "bonusType": "Feat",
           "value": 1,
           "target": "All"
+        },
+        {
+          "source": "[F] Epic 4: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 6: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 8: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[G] Belt: Legendary Waistwrap of Wild Wisdom (WillSave)",
+          "bonusType": "Quality",
+          "value": 3,
+          "target": "Will"
         },
         {
           "source": "[G] Trinket: Legendary Periapt of Charisma (WillSave)",
           "bonusType": "Resistance",
           "value": 13,
+          "target": "Will"
+        },
+        {
+          "source": "[Guild] Grandmaster's Dojo",
+          "bonusType": "Guild",
+          "value": 2,
           "target": "Will"
         },
         {
@@ -848,22 +861,9 @@
           "target": "All"
         },
         {
-          "source": "[G] Belt: Legendary Waistwrap of Wild Wisdom (WillSave)",
-          "bonusType": "Quality",
-          "value": 3,
-          "target": "Will"
-        },
-        {
-          "source": "[A] Cloak: Legendary University Archer's Cloak → Curse of Minor Will",
-          "bonusType": "Fortune",
-          "value": 1,
-          "target": "Will"
-        },
-        {
-          "source": "[Guild] Grandmaster's Dojo",
-          "bonusType": "Guild",
-          "value": 2,
-          "target": "Will"
+          "source": "class save progression + ability mod",
+          "bonusType": "(untyped)",
+          "value": 16
         }
       ]
     }
@@ -874,82 +874,17 @@
     "dominatedCount": 0,
     "sources": [
       {
-        "source": "Scion of the Ethereal Plane",
-        "bonusType": "Feat",
-        "value": 5
-      },
-      {
-        "source": "Epic 1: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Epic 2: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Epic 3: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Epic 4: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Epic 5: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Epic 6: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Epic 7: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Epic 8: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Epic 9: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Epic 10: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Legendary 1: Legendary Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Legendary 2: Legendary Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Legendary 3: Legendary Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Legendary 4: Legendary Power",
-        "bonusType": "Feat",
-        "value": 6
+        "source": "[A] Boots: Legendary Greaves of Seasons' Warding → Curse of Minor Combatant",
+        "bonusType": "Fortune",
+        "value": 2
       },
       {
         "source": "[D] Fatesinger: Fatesinger: Fate Singer's Repertoire",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Fatesinger: Fatesinger: Glitter of Fame",
         "bonusType": "Destiny",
         "value": 5
       },
@@ -959,7 +894,7 @@
         "value": 5
       },
       {
-        "source": "[D] Fatesinger: Fatesinger: Glitter of Fame",
+        "source": "[D] Shadowdancer: Shadowdancer: Cut to the Soul",
         "bonusType": "Destiny",
         "value": 5
       },
@@ -979,24 +914,89 @@
         "value": 5
       },
       {
-        "source": "[D] Shadowdancer: Shadowdancer: Cut to the Soul",
-        "bonusType": "Destiny",
+        "source": "[F] Epic 1: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Epic 10: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Epic 2: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Epic 3: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Epic 4: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Epic 5: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Epic 6: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Epic 7: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Epic 8: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Epic 9: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Legendary 1: Legendary Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Legendary 2: Legendary Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Legendary 3: Legendary Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Legendary 4: Legendary Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Scion of the Ethereal Plane",
+        "bonusType": "Feat",
+        "value": 5
+      },
+      {
+        "source": "[FS] The Long Shadow (3-piece tier ≥ 2)",
+        "bonusType": "Stacking",
         "value": 5
       },
       {
         "source": "[S] Legendary Devil's Infernal Dance (3-piece tier ≥ 3)",
         "bonusType": "Artifact",
         "value": 15
-      },
-      {
-        "source": "[A] Boots: Legendary Greaves of Seasons' Warding → Curse of Minor Combatant",
-        "bonusType": "Fortune",
-        "value": 2
-      },
-      {
-        "source": "[FS] The Long Shadow (3-piece tier ≥ 2)",
-        "bonusType": "Stacking",
-        "value": 5
       }
     ]
   },
@@ -1006,89 +1006,14 @@
     "dominatedCount": 1,
     "sources": [
       {
-        "source": "Scion of the Ethereal Plane",
-        "bonusType": "Feat",
+        "source": "[A] Armor: Legendary University Spellshield's Reinforced Shirt → Curse of Major Archery",
+        "bonusType": "Fortune",
         "value": 5
       },
       {
-        "source": "Epic 1: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Epic 2: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Epic 3: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Epic 4: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Epic 5: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Epic 6: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Epic 7: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Epic 8: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Epic 9: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Epic 10: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Legendary 1: Legendary Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Legendary 2: Legendary Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Legendary 3: Legendary Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Legendary 4: Legendary Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "[E] Inquisitive: Inquisitive: No Holds Barred",
-        "bonusType": "Enhancement",
-        "value": 5
-      },
-      {
-        "source": "[E] Inquisitive: Inquisitive: Master Inquisitive",
-        "bonusType": "Enhancement",
-        "value": 5
+        "source": "[A] Bracers: Rocard, Champion's Cuffs → Lunar Gem of Ranged Power (Legendary)",
+        "bonusType": "Profane",
+        "value": 15
       },
       {
         "source": "[A] Bracers: Rocard, Champion's Cuffs → Topaz of Ranged Power",
@@ -1096,12 +1021,37 @@
         "value": 12
       },
       {
-        "source": "[D] Shiradi Champion: Shiradi Champion: Fey Favor",
+        "source": "[D] Fatesinger: Fatesinger: Fate Singer's Repertoire",
         "bonusType": "Destiny",
         "value": 5
       },
       {
-        "source": "[D] Shiradi Champion: Shiradi Champion: Vision",
+        "source": "[D] Fatesinger: Fatesinger: Glitter of Fame",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Fatesinger: Fatesinger: Intoxicating Presence",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Cut to the Soul",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Shadow Training",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Step Through Shadows",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: The Darkest Luck",
         "bonusType": "Destiny",
         "value": 5
       },
@@ -1116,54 +1066,114 @@
         "value": 5
       },
       {
-        "source": "[D] Fatesinger: Fatesinger: Fate Singer's Repertoire",
+        "source": "[D] Shiradi Champion: Shiradi Champion: Fey Favor",
         "bonusType": "Destiny",
         "value": 5
       },
       {
-        "source": "[D] Fatesinger: Fatesinger: Intoxicating Presence",
+        "source": "[D] Shiradi Champion: Shiradi Champion: Vision",
         "bonusType": "Destiny",
         "value": 5
       },
       {
-        "source": "[D] Fatesinger: Fatesinger: Glitter of Fame",
-        "bonusType": "Destiny",
+        "source": "[E] Inquisitive: Inquisitive: Master Inquisitive",
+        "bonusType": "Enhancement",
         "value": 5
       },
       {
-        "source": "[D] Shadowdancer: Shadowdancer: Shadow Training",
-        "bonusType": "Destiny",
+        "source": "[E] Inquisitive: Inquisitive: No Holds Barred",
+        "bonusType": "Enhancement",
         "value": 5
       },
       {
-        "source": "[D] Shadowdancer: Shadowdancer: Step Through Shadows",
-        "bonusType": "Destiny",
+        "source": "[F] Crackshot Negotiator: +3 Ranged Power",
+        "bonusType": "Stacking",
+        "value": 3
+      },
+      {
+        "source": "[F] Epic 1: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Epic 10: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Epic 2: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Epic 3: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Epic 4: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Epic 5: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Epic 6: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Epic 7: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Epic 8: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Epic 9: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Legendary 1: Legendary Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Legendary 2: Legendary Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Legendary 3: Legendary Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Legendary 4: Legendary Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Scion of the Ethereal Plane",
+        "bonusType": "Feat",
         "value": 5
       },
       {
-        "source": "[D] Shadowdancer: Shadowdancer: The Darkest Luck",
-        "bonusType": "Destiny",
-        "value": 5
+        "source": "[F] Spines of the Manticore: +3 Ranged Power",
+        "bonusType": "Stacking",
+        "value": 3
       },
       {
-        "source": "[D] Shadowdancer: Shadowdancer: Cut to the Soul",
-        "bonusType": "Destiny",
-        "value": 5
-      },
-      {
-        "source": "[S] Legendary Devil's Infernal Dance (3-piece tier ≥ 3)",
-        "bonusType": "Artifact",
-        "value": 15
-      },
-      {
-        "source": "[A] Bracers: Rocard, Champion's Cuffs → Lunar Gem of Ranged Power (Legendary)",
-        "bonusType": "Profane",
-        "value": 15
-      },
-      {
-        "source": "[A] Armor: Legendary University Spellshield's Reinforced Shirt → Curse of Major Archery",
-        "bonusType": "Fortune",
-        "value": 5
+        "source": "[F] Spines of the Manticore: +3 Ranged Power (rare): Spines of the Manticore: Ranged Power: Rare +2 Ranged Power",
+        "bonusType": "Stacking",
+        "value": 2
       },
       {
         "source": "[F] Spines of the Manticore/The Wreath of Flame +6 Ranged Power",
@@ -1176,17 +1186,12 @@
         "value": 4
       },
       {
-        "source": "[F] Crackshot Negotiator: +3 Ranged Power",
+        "source": "[F] The Long Shadow: +3 Ranged Power",
         "bonusType": "Stacking",
         "value": 3
       },
       {
-        "source": "[F] Spines of the Manticore: +3 Ranged Power",
-        "bonusType": "Stacking",
-        "value": 3
-      },
-      {
-        "source": "[F] Spines of the Manticore: +3 Ranged Power (rare): Spines of the Manticore: Ranged Power: Rare +2 Ranged Power",
+        "source": "[F] The Long Shadow: +3 Ranged Power (rare): The Long Shadow: Ranged Power: Rare +2 Ranged Power",
         "bonusType": "Stacking",
         "value": 2
       },
@@ -1201,14 +1206,9 @@
         "value": 3
       },
       {
-        "source": "[F] The Long Shadow: +3 Ranged Power",
+        "source": "[FA] Crackshot Negotiator: +3 Ranged Power",
         "bonusType": "Stacking",
         "value": 3
-      },
-      {
-        "source": "[F] The Long Shadow: +3 Ranged Power (rare): The Long Shadow: Ranged Power: Rare +2 Ranged Power",
-        "bonusType": "Stacking",
-        "value": 2
       },
       {
         "source": "[FA] Spines of the Manticore/The Wreath of Flame +6 Ranged Power",
@@ -1221,16 +1221,6 @@
         "value": 4
       },
       {
-        "source": "[FA] Crackshot Negotiator: +3 Ranged Power",
-        "bonusType": "Stacking",
-        "value": 3
-      },
-      {
-        "source": "[FA] Wildhunter: +3 Ranged Power",
-        "bonusType": "Stacking",
-        "value": 3
-      },
-      {
         "source": "[FA] The Long Shadow: +3 Ranged Power",
         "bonusType": "Stacking",
         "value": 3
@@ -1241,9 +1231,9 @@
         "value": 2
       },
       {
-        "source": "[FS] Spines of the Manticore (4-piece tier ≥ 4)",
+        "source": "[FA] Wildhunter: +3 Ranged Power",
         "bonusType": "Stacking",
-        "value": 10
+        "value": 3
       },
       {
         "source": "[FS] Crackshot Negotiator (4-piece tier ≥ 3)",
@@ -1251,14 +1241,24 @@
         "value": 15
       },
       {
-        "source": "[FS] Wildhunter (4-piece tier ≥ 2)",
+        "source": "[FS] Spines of the Manticore (4-piece tier ≥ 4)",
         "bonusType": "Stacking",
-        "value": 5
+        "value": 10
       },
       {
         "source": "[FS] The Long Shadow (3-piece tier ≥ 2)",
         "bonusType": "Stacking",
         "value": 5
+      },
+      {
+        "source": "[FS] Wildhunter (4-piece tier ≥ 2)",
+        "bonusType": "Stacking",
+        "value": 5
+      },
+      {
+        "source": "[S] Legendary Devil's Infernal Dance (3-piece tier ≥ 3)",
+        "bonusType": "Artifact",
+        "value": 15
       }
     ]
   },
@@ -1268,9 +1268,14 @@
     "dominatedCount": 0,
     "sources": [
       {
-        "source": "Harbinger of Chaos",
-        "bonusType": "Feat",
-        "value": 2
+        "source": "[D] Shadowdancer: Shadowdancer: Shadowcaster → Shadowstriker",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[E] Battle Engineer: Battle Engineer: Infused Weapons I",
+        "bonusType": "Enhancement",
+        "value": 5
       },
       {
         "source": "[E] Eladrin: Eladrin: Major Spring Attunement",
@@ -1283,19 +1288,14 @@
         "value": 3
       },
       {
-        "source": "[E] Battle Engineer: Battle Engineer: Infused Weapons I",
-        "bonusType": "Enhancement",
-        "value": 5
-      },
-      {
         "source": "[E] Vistani Knife Fighter: Vistani: Quick Reflexes",
         "bonusType": "Enhancement",
         "value": 5
       },
       {
-        "source": "[D] Shadowdancer: Shadowdancer: Shadowcaster → Shadowstriker",
-        "bonusType": "Destiny",
-        "value": 5
+        "source": "[F] Harbinger of Chaos",
+        "bonusType": "Feat",
+        "value": 2
       },
       {
         "source": "[S] Legendary Devil's Infernal Dance (3-piece tier ≥ 3)",
@@ -1310,14 +1310,24 @@
     "dominatedCount": 1,
     "sources": [
       {
-        "source": "Doubleshot",
-        "bonusType": "Feat",
-        "value": 10
+        "source": "[D] Shadowdancer: Shadowdancer: Shadowcaster → Shadowstriker",
+        "bonusType": "Destiny",
+        "value": 5
       },
       {
-        "source": "Harbinger of Chaos",
-        "bonusType": "Feat",
-        "value": 2
+        "source": "[D] Shiradi Champion: Pierce Deception + Watchful Eye",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Shiradi Champion: Shiradi Champion: Fade or Presence → Phase Double",
+        "bonusType": "Destiny",
+        "value": 6
+      },
+      {
+        "source": "[E] Battle Engineer: Battle Engineer: Infused Weapons I",
+        "bonusType": "Enhancement",
+        "value": 5
       },
       {
         "source": "[E] Eladrin: Eladrin: Major Spring Attunement",
@@ -1335,19 +1345,14 @@
         "value": 5
       },
       {
-        "source": "[E] Inquisitive: Inquisitive: No Holds Barred",
-        "bonusType": "Enhancement",
-        "value": 10
-      },
-      {
         "source": "[E] Inquisitive: Inquisitive: Inquisitor's Path",
         "bonusType": "Enhancement",
         "value": 15
       },
       {
-        "source": "[E] Battle Engineer: Battle Engineer: Infused Weapons I",
+        "source": "[E] Inquisitive: Inquisitive: No Holds Barred",
         "bonusType": "Enhancement",
-        "value": 5
+        "value": 10
       },
       {
         "source": "[E] Vistani Knife Fighter: Vistani: Quick Reflexes",
@@ -1355,49 +1360,14 @@
         "value": 5
       },
       {
-        "source": "[G] Goggles: Legendary Goggles of the Archer (Doubleshot)",
-        "bonusType": "Enhancement",
-        "value": 9
+        "source": "[F] Doubleshot",
+        "bonusType": "Feat",
+        "value": 10
       },
       {
-        "source": "[D] Shiradi Champion: Shiradi Champion: Fade or Presence → Phase Double",
-        "bonusType": "Destiny",
-        "value": 6
-      },
-      {
-        "source": "[D] Shadowdancer: Shadowdancer: Shadowcaster → Shadowstriker",
-        "bonusType": "Destiny",
-        "value": 5
-      },
-      {
-        "source": "Shiradi Champion: Pierce Deception + Watchful Eye (2× sources)",
-        "bonusType": "Destiny",
-        "value": 5
-      },
-      {
-        "source": "[G] Necklace: Dracolich's Eye (Doubleshot)",
-        "bonusType": "Profane",
-        "value": 3
-      },
-      {
-        "source": "[G] Cloak: Legendary University Archer's Cloak (Doubleshot)",
-        "bonusType": "Insightful",
-        "value": 5
-      },
-      {
-        "source": "[G] Ring2: Legendary Ring of Unnatural Accuracy (Doubleshot)",
-        "bonusType": "Quality",
-        "value": 3
-      },
-      {
-        "source": "[S] Legendary Devil's Infernal Dance (3-piece tier ≥ 3)",
-        "bonusType": "Artifact",
-        "value": 15
-      },
-      {
-        "source": "[PL] Past Life: Primal Sphere: Doubleshot ×3",
-        "bonusType": "Stacking",
-        "value": 9
+        "source": "[F] Harbinger of Chaos",
+        "bonusType": "Feat",
+        "value": 2
       },
       {
         "source": "[FS] Crackshot Negotiator (4-piece tier ≥ 4)",
@@ -1411,9 +1381,39 @@
         "value": 5
       },
       {
+        "source": "[G] Cloak: Legendary University Archer's Cloak (Doubleshot)",
+        "bonusType": "Insightful",
+        "value": 5
+      },
+      {
+        "source": "[G] Goggles: Legendary Goggles of the Archer (Doubleshot)",
+        "bonusType": "Enhancement",
+        "value": 9
+      },
+      {
+        "source": "[G] Necklace: Dracolich's Eye (Doubleshot)",
+        "bonusType": "Profane",
+        "value": 3
+      },
+      {
+        "source": "[G] Ring2: Legendary Ring of Unnatural Accuracy (Doubleshot)",
+        "bonusType": "Quality",
+        "value": 3
+      },
+      {
         "source": "[Guild] Archery Range",
         "bonusType": "Guild",
         "value": 2
+      },
+      {
+        "source": "[PL] Past Life: Primal Sphere: Doubleshot ×3",
+        "bonusType": "Stacking",
+        "value": 9
+      },
+      {
+        "source": "[S] Legendary Devil's Infernal Dance (3-piece tier ≥ 3)",
+        "bonusType": "Artifact",
+        "value": 15
       }
     ]
   },
@@ -1423,12 +1423,17 @@
     "dominatedCount": 0,
     "sources": [
       {
-        "source": "Scion of the Ethereal Plane",
-        "bonusType": "Feat",
-        "value": 6
+        "source": "[A] Ring2: Legendary Ring of Unnatural Accuracy → Curse of Major Betrayal",
+        "bonusType": "Fortune",
+        "value": 2
       },
       {
-        "source": "[D] Shadowdancer: Shadowdancer: Shadow Training",
+        "source": "[D] Shadowdancer: Shadowdancer: Bring Darkness",
+        "bonusType": "Destiny",
+        "value": 1
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Cut to the Soul",
         "bonusType": "Destiny",
         "value": 1
       },
@@ -1436,6 +1441,11 @@
         "source": "[D] Shadowdancer: Shadowdancer: Dance in the Dark",
         "bonusType": "Destiny",
         "value": 3
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Shadow Training",
+        "bonusType": "Destiny",
+        "value": 1
       },
       {
         "source": "[D] Shadowdancer: Shadowdancer: Step Through Shadows",
@@ -1448,29 +1458,19 @@
         "value": 1
       },
       {
-        "source": "[D] Shadowdancer: Shadowdancer: Cut to the Soul",
-        "bonusType": "Destiny",
-        "value": 1
-      },
-      {
-        "source": "[D] Shadowdancer: Shadowdancer: Bring Darkness",
-        "bonusType": "Destiny",
-        "value": 1
-      },
-      {
-        "source": "[A] Ring2: Legendary Ring of Unnatural Accuracy → Curse of Major Betrayal",
-        "bonusType": "Fortune",
-        "value": 2
-      },
-      {
-        "source": "Arcane Trickster: Sharp Magic (2× sources)",
+        "source": "[F] Arcane Trickster: Sharp Magic",
         "bonusType": "Enhancement",
         "value": 0
       },
       {
-        "source": "Arcane Trickster: Sharp Magic (2× sources)",
+        "source": "[F] Arcane Trickster: Sharp Magic",
         "bonusType": "Enhancement",
         "value": 0
+      },
+      {
+        "source": "[F] Scion of the Ethereal Plane",
+        "bonusType": "Feat",
+        "value": 6
       }
     ]
   },
@@ -1480,19 +1480,19 @@
     "dominatedCount": 0,
     "sources": [
       {
-        "source": "Harbinger of Chaos",
-        "bonusType": "Feat",
+        "source": "[A] Goggles: Legendary Goggles of the Archer → Solar Gem of Imbuement (Legendary)",
+        "bonusType": "Artifact",
+        "value": 3
+      },
+      {
+        "source": "[A] Trinket: Legendary Periapt of Charisma → Curse of Major Imbuement",
+        "bonusType": "Fortune",
         "value": 2
       },
       {
-        "source": "[E] Inquisitive: Inquisitive: Improved Law",
-        "bonusType": "Enhancement",
-        "value": 1
-      },
-      {
-        "source": "[E] Inquisitive: Inquisitive: True Seeing",
-        "bonusType": "Enhancement",
-        "value": 1
+        "source": "[D] Shiradi Champion: Shiradi Champion: Crooked Touch → Flickering Fingers",
+        "bonusType": "Destiny",
+        "value": 3
       },
       {
         "source": "[E] Inquisitive: Inquisitive: Greater Law",
@@ -1500,7 +1500,7 @@
         "value": 1
       },
       {
-        "source": "[E] Inquisitive: Inquisitive: Undaunted",
+        "source": "[E] Inquisitive: Inquisitive: Improved Law",
         "bonusType": "Enhancement",
         "value": 1
       },
@@ -1515,19 +1515,19 @@
         "value": 1
       },
       {
-        "source": "[D] Shiradi Champion: Shiradi Champion: Crooked Touch → Flickering Fingers",
-        "bonusType": "Destiny",
-        "value": 3
+        "source": "[E] Inquisitive: Inquisitive: True Seeing",
+        "bonusType": "Enhancement",
+        "value": 1
       },
       {
-        "source": "[A] Trinket: Legendary Periapt of Charisma → Curse of Major Imbuement",
-        "bonusType": "Fortune",
+        "source": "[E] Inquisitive: Inquisitive: Undaunted",
+        "bonusType": "Enhancement",
+        "value": 1
+      },
+      {
+        "source": "[F] Harbinger of Chaos",
+        "bonusType": "Feat",
         "value": 2
-      },
-      {
-        "source": "[A] Goggles: Legendary Goggles of the Archer → Solar Gem of Imbuement (Legendary)",
-        "bonusType": "Artifact",
-        "value": 3
       },
       {
         "source": "[FS] The Long Shadow (3-piece tier ≥ 3)",
@@ -1541,18 +1541,6 @@
     "appliedCount": 7,
     "dominatedCount": 8,
     "sources": [
-      {
-        "source": "Patience",
-        "bonusType": "Feat",
-        "value": -10,
-        "target": "All"
-      },
-      {
-        "source": "Patience",
-        "bonusType": "Feat",
-        "value": -10,
-        "target": "All"
-      },
       {
         "source": "[E] Inquisitive: Inquisitive: Inquisitor's Path",
         "bonusType": "Enhancement",
@@ -1576,6 +1564,18 @@
         "bonusType": "Enhancement",
         "value": 5,
         "target": "Throwing Dagger"
+      },
+      {
+        "source": "[F] Patience",
+        "bonusType": "Feat",
+        "value": -10,
+        "target": "All"
+      },
+      {
+        "source": "[F] Patience",
+        "bonusType": "Feat",
+        "value": -10,
+        "target": "All"
       },
       {
         "source": "[G] Gloves: Legendary Gloves of the Resilient (Speed)",
@@ -1591,18 +1591,6 @@
     "dominatedCount": 8,
     "sources": [
       {
-        "source": "Patience",
-        "bonusType": "Feat",
-        "value": -10,
-        "target": "All"
-      },
-      {
-        "source": "Patience",
-        "bonusType": "Feat",
-        "value": -10,
-        "target": "All"
-      },
-      {
         "source": "[E] Inquisitive: Inquisitive: Inquisitor's Path",
         "bonusType": "Enhancement",
         "value": 15,
@@ -1627,6 +1615,18 @@
         "target": "Throwing Dagger"
       },
       {
+        "source": "[F] Patience",
+        "bonusType": "Feat",
+        "value": -10,
+        "target": "All"
+      },
+      {
+        "source": "[F] Patience",
+        "bonusType": "Feat",
+        "value": -10,
+        "target": "All"
+      },
+      {
         "source": "[G] Gloves: Legendary Gloves of the Resilient (Speed)",
         "bonusType": "Enhancement",
         "value": 30,
@@ -1640,9 +1640,9 @@
     "dominatedCount": 0,
     "sources": [
       {
-        "source": "[G] Belt: Legendary Waistwrap of Wild Wisdom (HealingAmplification)",
-        "bonusType": "Exceptional",
-        "value": 15
+        "source": "[A] Bracers: Rocard, Champion's Cuffs → Sapphire of Healing Amplification",
+        "bonusType": "Competence",
+        "value": 50
       },
       {
         "source": "[A] Gloves: Legendary Gloves of the Resilient → Lunar Gem of Healing Amplification (Legendary)",
@@ -1650,9 +1650,9 @@
         "value": 30
       },
       {
-        "source": "[A] Bracers: Rocard, Champion's Cuffs → Sapphire of Healing Amplification",
-        "bonusType": "Competence",
-        "value": 50
+        "source": "[G] Belt: Legendary Waistwrap of Wild Wisdom (HealingAmplification)",
+        "bonusType": "Exceptional",
+        "value": 15
       },
       {
         "source": "[Guild] Bath House",
@@ -1679,14 +1679,14 @@
     "dominatedCount": 0,
     "sources": [
       {
-        "source": "Attack: Base AC",
-        "bonusType": "Base",
-        "value": 10
-      },
-      {
         "source": "[E] War Soul: War Soul: Smite Foe",
         "bonusType": "Enhancement",
         "value": 2
+      },
+      {
+        "source": "[F] Attack: Base AC",
+        "bonusType": "Base",
+        "value": 10
       },
       {
         "source": "[Guild] Armory",
@@ -1701,9 +1701,14 @@
     "dominatedCount": 0,
     "sources": [
       {
-        "source": "Combat Archery",
-        "bonusType": "Feat",
-        "value": 2
+        "source": "[A] Helmet: Legendary University Champion's Helm → Sapphire of Dodge",
+        "bonusType": "Enhancement",
+        "value": 14
+      },
+      {
+        "source": "[D] Shiradi Champion: Shiradi Champion: Feywild Attunement",
+        "bonusType": "Destiny",
+        "value": 0
       },
       {
         "source": "[E] Eladrin: Eladrin: Minor Spring Attunement",
@@ -1721,14 +1726,9 @@
         "value": 2
       },
       {
-        "source": "[A] Helmet: Legendary University Champion's Helm → Sapphire of Dodge",
-        "bonusType": "Enhancement",
-        "value": 14
-      },
-      {
-        "source": "[D] Shiradi Champion: Shiradi Champion: Feywild Attunement",
-        "bonusType": "Destiny",
-        "value": 0
+        "source": "[F] Combat Archery",
+        "bonusType": "Feat",
+        "value": 2
       }
     ]
   },
@@ -1738,19 +1738,14 @@
     "dominatedCount": 1,
     "sources": [
       {
-        "source": "[E] Vistani Knife Fighter: Vistani: Mist Stalker I",
-        "bonusType": "Enhancement",
-        "value": 3
+        "source": "[A] Boots: Legendary Greaves of Seasons' Warding → Lunar Gem of Physical Protection (Legendary)",
+        "bonusType": "Profane",
+        "value": 30
       },
       {
-        "source": "[E] Vistani Knife Fighter: Vistani: Mist Stalker II",
-        "bonusType": "Enhancement",
+        "source": "[A] Cloak: Legendary University Archer's Cloak → +3 PRR",
+        "bonusType": "Reaper",
         "value": 3
-      },
-      {
-        "source": "[G] Gloves: Legendary Gloves of the Resilient (PhysicalSheltering)",
-        "bonusType": "Enhancement",
-        "value": 37
       },
       {
         "source": "[A] Helmet: Legendary University Champion's Helm → Curse of Minor Sheltering",
@@ -1763,19 +1758,24 @@
         "value": 30
       },
       {
-        "source": "[A] Cloak: Legendary University Archer's Cloak → +3 PRR",
-        "bonusType": "Reaper",
+        "source": "[E] Vistani Knife Fighter: Vistani: Mist Stalker I",
+        "bonusType": "Enhancement",
         "value": 3
       },
       {
-        "source": "[A] Boots: Legendary Greaves of Seasons' Warding → Lunar Gem of Physical Protection (Legendary)",
-        "bonusType": "Profane",
-        "value": 30
+        "source": "[E] Vistani Knife Fighter: Vistani: Mist Stalker II",
+        "bonusType": "Enhancement",
+        "value": 3
       },
       {
         "source": "[F] Crackshot Negotiator: +1 Attack and Damage (rare): Crackshot Negotiator: +2 PRR",
         "bonusType": "Stacking",
         "value": 2
+      },
+      {
+        "source": "[F] Harbinger of Chaos",
+        "bonusType": "Destiny",
+        "value": 0
       },
       {
         "source": "[F] Spines of the Manticore: +1 Attack and Damage (rare): Spines of the Manticore: Attack and Damage: Rare +2 PRR",
@@ -1788,9 +1788,9 @@
         "value": 2
       },
       {
-        "source": "Harbinger of Chaos",
-        "bonusType": "Destiny",
-        "value": 0
+        "source": "[G] Gloves: Legendary Gloves of the Resilient (PhysicalSheltering)",
+        "bonusType": "Enhancement",
+        "value": 37
       }
     ]
   },
@@ -1799,6 +1799,16 @@
     "appliedCount": 9,
     "dominatedCount": 1,
     "sources": [
+      {
+        "source": "[A] Necklace: Dracolich's Eye → Curse of Minor Warding",
+        "bonusType": "Fortune",
+        "value": 2
+      },
+      {
+        "source": "[A] Necklace: Dracolich's Eye → Lunar Gem of Magical Protection (Legendary)",
+        "bonusType": "Profane",
+        "value": 30
+      },
       {
         "source": "[E] Vistani Knife Fighter: Vistani: Mist Stalker I",
         "bonusType": "Enhancement",
@@ -1810,6 +1820,21 @@
         "value": 3
       },
       {
+        "source": "[F] Crackshot Negotiator: +2 Reflex Saves (rare): Crackshot Negotiator: +2 MRR",
+        "bonusType": "Stacking",
+        "value": 2
+      },
+      {
+        "source": "[F] Magus of the Eclipse: Lunar Studies",
+        "bonusType": "Destiny",
+        "value": 0
+      },
+      {
+        "source": "[F] Magus of the Eclipse: Lunar Studies",
+        "bonusType": "Destiny",
+        "value": 0
+      },
+      {
         "source": "[G] Armor: Legendary University Spellshield's Reinforced Shirt (MagicalSheltering)",
         "bonusType": "Enhancement",
         "value": 36
@@ -1818,31 +1843,6 @@
         "source": "[G] Trinket: Legendary Periapt of Charisma (MagicalSheltering)",
         "bonusType": "Quality",
         "value": 9
-      },
-      {
-        "source": "[A] Necklace: Dracolich's Eye → Lunar Gem of Magical Protection (Legendary)",
-        "bonusType": "Profane",
-        "value": 30
-      },
-      {
-        "source": "[A] Necklace: Dracolich's Eye → Curse of Minor Warding",
-        "bonusType": "Fortune",
-        "value": 2
-      },
-      {
-        "source": "[F] Crackshot Negotiator: +2 Reflex Saves (rare): Crackshot Negotiator: +2 MRR",
-        "bonusType": "Stacking",
-        "value": 2
-      },
-      {
-        "source": "Magus of the Eclipse: Lunar Studies (2× sources)",
-        "bonusType": "Destiny",
-        "value": 0
-      },
-      {
-        "source": "Magus of the Eclipse: Lunar Studies (2× sources)",
-        "bonusType": "Destiny",
-        "value": 0
       }
     ]
   },
@@ -1852,12 +1852,12 @@
     "dominatedCount": 0,
     "sources": [
       {
-        "source": "Magus of the Eclipse: Lunar Studies (2× sources)",
+        "source": "[F] Magus of the Eclipse: Lunar Studies",
         "bonusType": "Destiny",
         "value": 0
       },
       {
-        "source": "Magus of the Eclipse: Lunar Studies (2× sources)",
+        "source": "[F] Magus of the Eclipse: Lunar Studies",
         "bonusType": "Destiny",
         "value": 0
       }
@@ -1875,51 +1875,51 @@
     "dominatedCount": 0,
     "sources": [
       {
+        "source": "[F] Epic 10: Epic Knowledge: Epic Knowledge: Favored Soul",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Favored Soul"
+      },
+      {
+        "source": "[F] Epic 2: Epic Knowledge: Epic Knowledge: Favored Soul",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Favored Soul"
+      },
+      {
+        "source": "[F] Epic 4: Epic Knowledge: Epic Knowledge: Favored Soul",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Favored Soul"
+      },
+      {
+        "source": "[F] Epic 6: Epic Knowledge: Epic Knowledge: Favored Soul",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Favored Soul"
+      },
+      {
+        "source": "[F] Epic 8: Epic Knowledge: Epic Knowledge: Favored Soul",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Favored Soul"
+      },
+      {
+        "source": "[F] Legendary 2: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Favored Soul"
+      },
+      {
+        "source": "[F] Legendary 4: Legendary Knowledge",
+        "bonusType": "Feat",
+        "value": 1,
+        "target": "Favored Soul"
+      },
+      {
         "source": "Favored Soul class level (17)",
         "bonusType": "(untyped)",
         "value": 17
-      },
-      {
-        "source": "Epic 2: Epic Knowledge: Epic Knowledge: Favored Soul",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Favored Soul"
-      },
-      {
-        "source": "Epic 4: Epic Knowledge: Epic Knowledge: Favored Soul",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Favored Soul"
-      },
-      {
-        "source": "Epic 6: Epic Knowledge: Epic Knowledge: Favored Soul",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Favored Soul"
-      },
-      {
-        "source": "Epic 8: Epic Knowledge: Epic Knowledge: Favored Soul",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Favored Soul"
-      },
-      {
-        "source": "Epic 10: Epic Knowledge: Epic Knowledge: Favored Soul",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Favored Soul"
-      },
-      {
-        "source": "Legendary 2: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Favored Soul"
-      },
-      {
-        "source": "Legendary 4: Legendary Knowledge",
-        "bonusType": "Feat",
-        "value": 1,
-        "target": "Favored Soul"
       }
     ]
   },
@@ -1947,11 +1947,6 @@
       "dominatedCount": 10,
       "sources": [
         {
-          "source": "casting stat mod (+35)",
-          "bonusType": "(untyped)",
-          "value": 35
-        },
-        {
           "source": "[D] Shiradi Champion: Shiradi Champion: Fey Favor: Shiradi Champion: Epic Spell DCs",
           "bonusType": "Epic",
           "value": 1,
@@ -1968,6 +1963,11 @@
           "bonusType": "Guild",
           "value": 1,
           "target": "All"
+        },
+        {
+          "source": "casting stat mod (+35)",
+          "bonusType": "(untyped)",
+          "value": 35
         }
       ]
     },
@@ -1977,11 +1977,6 @@
       "dominatedCount": 10,
       "sources": [
         {
-          "source": "casting stat mod (+35)",
-          "bonusType": "(untyped)",
-          "value": 35
-        },
-        {
           "source": "[D] Shiradi Champion: Shiradi Champion: Fey Favor: Shiradi Champion: Epic Spell DCs",
           "bonusType": "Epic",
           "value": 1,
@@ -1998,6 +1993,11 @@
           "bonusType": "Guild",
           "value": 1,
           "target": "All"
+        },
+        {
+          "source": "casting stat mod (+35)",
+          "bonusType": "(untyped)",
+          "value": 35
         }
       ]
     },
@@ -2007,11 +2007,6 @@
       "dominatedCount": 10,
       "sources": [
         {
-          "source": "casting stat mod (+35)",
-          "bonusType": "(untyped)",
-          "value": 35
-        },
-        {
           "source": "[D] Shiradi Champion: Shiradi Champion: Fey Favor: Shiradi Champion: Epic Spell DCs",
           "bonusType": "Epic",
           "value": 1,
@@ -2028,6 +2023,11 @@
           "bonusType": "Guild",
           "value": 1,
           "target": "All"
+        },
+        {
+          "source": "casting stat mod (+35)",
+          "bonusType": "(untyped)",
+          "value": 35
         }
       ]
     },
@@ -2037,11 +2037,6 @@
       "dominatedCount": 10,
       "sources": [
         {
-          "source": "casting stat mod (+35)",
-          "bonusType": "(untyped)",
-          "value": 35
-        },
-        {
           "source": "[D] Shiradi Champion: Shiradi Champion: Fey Favor: Shiradi Champion: Epic Spell DCs",
           "bonusType": "Epic",
           "value": 1,
@@ -2058,6 +2053,11 @@
           "bonusType": "Guild",
           "value": 1,
           "target": "All"
+        },
+        {
+          "source": "casting stat mod (+35)",
+          "bonusType": "(untyped)",
+          "value": 35
         }
       ]
     },
@@ -2067,11 +2067,6 @@
       "dominatedCount": 10,
       "sources": [
         {
-          "source": "casting stat mod (+35)",
-          "bonusType": "(untyped)",
-          "value": 35
-        },
-        {
           "source": "[D] Shiradi Champion: Shiradi Champion: Fey Favor: Shiradi Champion: Epic Spell DCs",
           "bonusType": "Epic",
           "value": 1,
@@ -2088,6 +2083,11 @@
           "bonusType": "Guild",
           "value": 1,
           "target": "All"
+        },
+        {
+          "source": "casting stat mod (+35)",
+          "bonusType": "(untyped)",
+          "value": 35
         }
       ]
     },
@@ -2097,11 +2097,6 @@
       "dominatedCount": 10,
       "sources": [
         {
-          "source": "casting stat mod (+35)",
-          "bonusType": "(untyped)",
-          "value": 35
-        },
-        {
           "source": "[D] Shiradi Champion: Shiradi Champion: Fey Favor: Shiradi Champion: Epic Spell DCs",
           "bonusType": "Epic",
           "value": 1,
@@ -2118,6 +2113,11 @@
           "bonusType": "Guild",
           "value": 1,
           "target": "All"
+        },
+        {
+          "source": "casting stat mod (+35)",
+          "bonusType": "(untyped)",
+          "value": 35
         }
       ]
     },
@@ -2127,11 +2127,6 @@
       "dominatedCount": 10,
       "sources": [
         {
-          "source": "casting stat mod (+35)",
-          "bonusType": "(untyped)",
-          "value": 35
-        },
-        {
           "source": "[D] Shiradi Champion: Shiradi Champion: Fey Favor: Shiradi Champion: Epic Spell DCs",
           "bonusType": "Epic",
           "value": 1,
@@ -2148,6 +2143,11 @@
           "bonusType": "Guild",
           "value": 1,
           "target": "All"
+        },
+        {
+          "source": "casting stat mod (+35)",
+          "bonusType": "(untyped)",
+          "value": 35
         }
       ]
     },
@@ -2157,11 +2157,6 @@
       "dominatedCount": 10,
       "sources": [
         {
-          "source": "casting stat mod (+35)",
-          "bonusType": "(untyped)",
-          "value": 35
-        },
-        {
           "source": "[D] Shiradi Champion: Shiradi Champion: Fey Favor: Shiradi Champion: Epic Spell DCs",
           "bonusType": "Epic",
           "value": 1,
@@ -2178,6 +2173,11 @@
           "bonusType": "Guild",
           "value": 1,
           "target": "All"
+        },
+        {
+          "source": "casting stat mod (+35)",
+          "bonusType": "(untyped)",
+          "value": 35
         }
       ]
     }
@@ -2188,107 +2188,12 @@
     "dominatedCount": 0,
     "sources": [
       {
-        "source": "Epic 1: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Epic 2: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Epic 3: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Epic 4: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Epic 5: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Epic 6: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Epic 7: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Epic 8: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Epic 9: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Epic 10: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Legendary 1: Legendary Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Legendary 2: Legendary Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Legendary 3: Legendary Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Legendary 4: Legendary Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "[D] Shiradi Champion: Shiradi Champion: Fey Favor",
-        "bonusType": "Destiny",
-        "value": 5
-      },
-      {
-        "source": "[D] Shiradi Champion: Shiradi Champion: Wild Magics",
-        "bonusType": "Destiny",
-        "value": 5
-      },
-      {
-        "source": "[D] Shiradi Champion: Shiradi Champion: Vision",
-        "bonusType": "Destiny",
-        "value": 5
-      },
-      {
-        "source": "[D] Shiradi Champion: Shiradi Champion: Audience with the Queen",
-        "bonusType": "Destiny",
-        "value": 5
-      },
-      {
-        "source": "[D] Shiradi Champion: Shiradi Champion: Fey Countenance",
-        "bonusType": "Destiny",
-        "value": 5
-      },
-      {
-        "source": "[D] Shiradi Champion: Shiradi Champion: Feywild Attunement",
-        "bonusType": "Destiny",
-        "value": 10
-      },
-      {
         "source": "[D] Fatesinger: Fatesinger: Fate Singer's Repertoire",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Fatesinger: Fatesinger: Glitter of Fame",
         "bonusType": "Destiny",
         "value": 5
       },
@@ -2298,7 +2203,7 @@
         "value": 5
       },
       {
-        "source": "[D] Fatesinger: Fatesinger: Glitter of Fame",
+        "source": "[D] Shadowdancer: Shadowdancer: Cut to the Soul",
         "bonusType": "Destiny",
         "value": 5
       },
@@ -2318,9 +2223,104 @@
         "value": 5
       },
       {
-        "source": "[D] Shadowdancer: Shadowdancer: Cut to the Soul",
+        "source": "[D] Shiradi Champion: Shiradi Champion: Audience with the Queen",
         "bonusType": "Destiny",
         "value": 5
+      },
+      {
+        "source": "[D] Shiradi Champion: Shiradi Champion: Fey Countenance",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Shiradi Champion: Shiradi Champion: Fey Favor",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Shiradi Champion: Shiradi Champion: Feywild Attunement",
+        "bonusType": "Destiny",
+        "value": 10
+      },
+      {
+        "source": "[D] Shiradi Champion: Shiradi Champion: Vision",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Shiradi Champion: Shiradi Champion: Wild Magics",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[F] Epic 1: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Epic 10: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Epic 2: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Epic 3: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Epic 4: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Epic 5: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Epic 6: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Epic 7: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Epic 8: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Epic 9: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Legendary 1: Legendary Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Legendary 2: Legendary Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Legendary 3: Legendary Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Legendary 4: Legendary Power",
+        "bonusType": "Feat",
+        "value": 6
       }
     ]
   },
@@ -2330,12 +2330,12 @@
     "dominatedCount": 0,
     "sources": [
       {
-        "source": "Artificer 1: Magical Training",
+        "source": "[D] Fatesinger: Fatesinger: Fate Singer's Repertoire → Magical Training",
         "bonusType": "Feat",
         "value": 5
       },
       {
-        "source": "Favored Soul 1: Magical Training",
+        "source": "[D] Shadowdancer: Shadowdancer: Shadow Training → Magical Training",
         "bonusType": "Feat",
         "value": 5
       },
@@ -2345,12 +2345,12 @@
         "value": 5
       },
       {
-        "source": "[D] Fatesinger: Fatesinger: Fate Singer's Repertoire → Magical Training",
+        "source": "[F] Artificer 1: Magical Training",
         "bonusType": "Feat",
         "value": 5
       },
       {
-        "source": "[D] Shadowdancer: Shadowdancer: Shadow Training → Magical Training",
+        "source": "[F] Favored Soul 1: Magical Training",
         "bonusType": "Feat",
         "value": 5
       }
@@ -2388,30 +2388,6 @@
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "[E] War Soul: War Soul: Smite Foe",
-          "bonusType": "Enhancement",
-          "value": 5,
-          "target": "Chaos"
-        },
-        {
-          "source": "[D] Shiradi Champion: Shiradi Champion: Fey Favor",
-          "bonusType": "Destiny",
-          "value": 5,
-          "target": "Chaos"
-        },
-        {
-          "source": "[D] Shiradi Champion: Shiradi Champion: Wild Magics",
-          "bonusType": "Destiny",
-          "value": 5,
-          "target": "Chaos"
-        },
-        {
-          "source": "[D] Shiradi Champion: Shiradi Champion: Vision",
-          "bonusType": "Destiny",
-          "value": 5,
-          "target": "Chaos"
-        },
-        {
           "source": "[D] Shiradi Champion: Shiradi Champion: Audience with the Queen",
           "bonusType": "Destiny",
           "value": 5,
@@ -2424,9 +2400,33 @@
           "target": "Chaos"
         },
         {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Fey Favor",
+          "bonusType": "Destiny",
+          "value": 5,
+          "target": "Chaos"
+        },
+        {
           "source": "[D] Shiradi Champion: Shiradi Champion: Feywild Attunement",
           "bonusType": "Destiny",
           "value": 10,
+          "target": "Chaos"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Vision",
+          "bonusType": "Destiny",
+          "value": 5,
+          "target": "Chaos"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Wild Magics",
+          "bonusType": "Destiny",
+          "value": 5,
+          "target": "Chaos"
+        },
+        {
+          "source": "[E] War Soul: War Soul: Smite Foe",
+          "bonusType": "Enhancement",
+          "value": 5,
           "target": "Chaos"
         },
         {
@@ -2525,39 +2525,9 @@
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "[D] Shiradi Champion: Shiradi Champion: Fey Favor",
+          "source": "[D] Shadowdancer: Shadowdancer: Cut to the Soul",
           "bonusType": "Destiny",
           "value": 5,
-          "target": "Force"
-        },
-        {
-          "source": "[D] Shiradi Champion: Shiradi Champion: Wild Magics",
-          "bonusType": "Destiny",
-          "value": 5,
-          "target": "Force"
-        },
-        {
-          "source": "[D] Shiradi Champion: Shiradi Champion: Vision",
-          "bonusType": "Destiny",
-          "value": 5,
-          "target": "Force"
-        },
-        {
-          "source": "[D] Shiradi Champion: Shiradi Champion: Audience with the Queen",
-          "bonusType": "Destiny",
-          "value": 5,
-          "target": "Force"
-        },
-        {
-          "source": "[D] Shiradi Champion: Shiradi Champion: Fey Countenance",
-          "bonusType": "Destiny",
-          "value": 5,
-          "target": "Force"
-        },
-        {
-          "source": "[D] Shiradi Champion: Shiradi Champion: Feywild Attunement",
-          "bonusType": "Destiny",
-          "value": 10,
           "target": "Force"
         },
         {
@@ -2579,7 +2549,37 @@
           "target": "Force"
         },
         {
-          "source": "[D] Shadowdancer: Shadowdancer: Cut to the Soul",
+          "source": "[D] Shiradi Champion: Shiradi Champion: Audience with the Queen",
+          "bonusType": "Destiny",
+          "value": 5,
+          "target": "Force"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Fey Countenance",
+          "bonusType": "Destiny",
+          "value": 5,
+          "target": "Force"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Fey Favor",
+          "bonusType": "Destiny",
+          "value": 5,
+          "target": "Force"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Feywild Attunement",
+          "bonusType": "Destiny",
+          "value": 10,
+          "target": "Force"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Vision",
+          "bonusType": "Destiny",
+          "value": 5,
+          "target": "Force"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Wild Magics",
           "bonusType": "Destiny",
           "value": 5,
           "target": "Force"
@@ -2661,19 +2661,13 @@
       "dominatedCount": 0,
       "sources": [
         {
+          "source": "[A] MainHand: Light Crossbow of the Undying Age → Ruby of Positive Spell Power",
+          "bonusType": "Equipment",
+          "value": 153,
+          "target": "Positive"
+        },
+        {
           "source": "[D] Fatesinger: Fatesinger: Fate Singer's Repertoire",
-          "bonusType": "Destiny",
-          "value": 5,
-          "target": "Positive"
-        },
-        {
-          "source": "[D] Fatesinger: Fatesinger: Pianissimo",
-          "bonusType": "Destiny",
-          "value": 10,
-          "target": "Positive"
-        },
-        {
-          "source": "[D] Fatesinger: Fatesinger: Intoxicating Presence",
           "bonusType": "Destiny",
           "value": 5,
           "target": "Positive"
@@ -2685,9 +2679,15 @@
           "target": "Positive"
         },
         {
-          "source": "[A] MainHand: Light Crossbow of the Undying Age → Ruby of Positive Spell Power",
-          "bonusType": "Equipment",
-          "value": 153,
+          "source": "[D] Fatesinger: Fatesinger: Intoxicating Presence",
+          "bonusType": "Destiny",
+          "value": 5,
+          "target": "Positive"
+        },
+        {
+          "source": "[D] Fatesinger: Fatesinger: Pianissimo",
+          "bonusType": "Destiny",
+          "value": 10,
           "target": "Positive"
         },
         {
@@ -2741,13 +2741,13 @@
           "target": "Sonic"
         },
         {
-          "source": "[D] Fatesinger: Fatesinger: Intoxicating Presence",
+          "source": "[D] Fatesinger: Fatesinger: Glitter of Fame",
           "bonusType": "Destiny",
           "value": 5,
           "target": "Sonic"
         },
         {
-          "source": "[D] Fatesinger: Fatesinger: Glitter of Fame",
+          "source": "[D] Fatesinger: Fatesinger: Intoxicating Presence",
           "bonusType": "Destiny",
           "value": 5,
           "target": "Sonic"
@@ -3031,74 +3031,9 @@
       "dominatedCount": 1,
       "sources": [
         {
-          "source": "Dexterity modifier",
-          "bonusType": "(untyped)",
-          "value": 11
-        },
-        {
-          "source": "Scion of the Ethereal Plane",
-          "bonusType": "Feat",
-          "value": 4,
-          "target": "All"
-        },
-        {
-          "source": "Epic 1: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 2: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 3: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 4: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 5: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 6: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 7: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 8: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 9: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 10: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
+          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
+          "bonusType": "Luck",
+          "value": 3,
           "target": "All"
         },
         {
@@ -3108,9 +3043,69 @@
           "target": "Balance"
         },
         {
-          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
-          "bonusType": "Luck",
-          "value": 3,
+          "source": "[F] Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Scion of the Ethereal Plane",
+          "bonusType": "Feat",
+          "value": 4,
           "target": "All"
         },
         {
@@ -3118,6 +3113,11 @@
           "bonusType": "Guild",
           "value": 3,
           "target": "Balance"
+        },
+        {
+          "source": "Dexterity modifier",
+          "bonusType": "(untyped)",
+          "value": 11
         }
       ]
     },
@@ -3127,74 +3127,9 @@
       "dominatedCount": 1,
       "sources": [
         {
-          "source": "Charisma modifier",
-          "bonusType": "(untyped)",
-          "value": 35
-        },
-        {
-          "source": "Scion of the Ethereal Plane",
-          "bonusType": "Feat",
-          "value": 4,
-          "target": "All"
-        },
-        {
-          "source": "Epic 1: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 2: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 3: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 4: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 5: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 6: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 7: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 8: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 9: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 10: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
+          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
+          "bonusType": "Luck",
+          "value": 3,
           "target": "All"
         },
         {
@@ -3210,22 +3145,87 @@
           "target": "Bluff"
         },
         {
+          "source": "[F] Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Scion of the Ethereal Plane",
+          "bonusType": "Feat",
+          "value": 4,
+          "target": "All"
+        },
+        {
           "source": "[G] Bracers: Rocard, Champion's Cuffs (Improved Deception)",
           "bonusType": "Enhancement",
           "value": 22,
           "target": "Bluff"
         },
         {
-          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
-          "bonusType": "Luck",
-          "value": 3,
-          "target": "All"
-        },
-        {
           "source": "[Guild] Throne Room",
           "bonusType": "Guild",
           "value": 3,
           "target": "Bluff"
+        },
+        {
+          "source": "Charisma modifier",
+          "bonusType": "(untyped)",
+          "value": 35
         }
       ]
     },
@@ -3235,74 +3235,9 @@
       "dominatedCount": 1,
       "sources": [
         {
-          "source": "Constitution modifier",
-          "bonusType": "(untyped)",
-          "value": 26
-        },
-        {
-          "source": "Scion of the Ethereal Plane",
-          "bonusType": "Feat",
-          "value": 4,
-          "target": "All"
-        },
-        {
-          "source": "Epic 1: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 2: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 3: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 4: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 5: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 6: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 7: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 8: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 9: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 10: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
+          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
+          "bonusType": "Luck",
+          "value": 3,
           "target": "All"
         },
         {
@@ -3312,9 +3247,69 @@
           "target": "Concentration"
         },
         {
-          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
-          "bonusType": "Luck",
-          "value": 3,
+          "source": "[F] Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Scion of the Ethereal Plane",
+          "bonusType": "Feat",
+          "value": 4,
           "target": "All"
         },
         {
@@ -3322,6 +3317,11 @@
           "bonusType": "Guild",
           "value": 3,
           "target": "Concentration"
+        },
+        {
+          "source": "Constitution modifier",
+          "bonusType": "(untyped)",
+          "value": 26
         }
       ]
     },
@@ -3331,75 +3331,22 @@
       "dominatedCount": 1,
       "sources": [
         {
-          "source": "Charisma modifier",
-          "bonusType": "(untyped)",
-          "value": 35
-        },
-        {
-          "source": "Scion of the Ethereal Plane",
-          "bonusType": "Feat",
-          "value": 4,
+          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
+          "bonusType": "Luck",
+          "value": 3,
           "target": "All"
         },
         {
-          "source": "Epic 1: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
+          "source": "[E] Inquisitive: Inquisitive: Hit the Streets",
+          "bonusType": "Enhancement",
+          "value": 0,
+          "target": "Diplomacy"
         },
         {
-          "source": "Epic 2: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 3: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 4: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 5: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 6: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 7: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 8: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 9: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 10: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
+          "source": "[E] Inquisitive: Inquisitive: Hit the Streets",
+          "bonusType": "Enhancement",
+          "value": 0,
+          "target": "Diplomacy"
         },
         {
           "source": "[E] Inquisitive: Inquisitive: Inquisitive",
@@ -3414,21 +3361,69 @@
           "target": "Diplomacy"
         },
         {
-          "source": "[E] Inquisitive: Inquisitive: Hit the Streets",
-          "bonusType": "Enhancement",
-          "value": 0,
-          "target": "Diplomacy"
+          "source": "[F] Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
         },
         {
-          "source": "[E] Inquisitive: Inquisitive: Hit the Streets",
-          "bonusType": "Enhancement",
-          "value": 0,
-          "target": "Diplomacy"
+          "source": "[F] Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
         },
         {
-          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
-          "bonusType": "Luck",
-          "value": 3,
+          "source": "[F] Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Scion of the Ethereal Plane",
+          "bonusType": "Feat",
+          "value": 4,
           "target": "All"
         },
         {
@@ -3442,6 +3437,11 @@
           "bonusType": "Guild",
           "value": 3,
           "target": "Diplomacy"
+        },
+        {
+          "source": "Charisma modifier",
+          "bonusType": "(untyped)",
+          "value": 35
         }
       ]
     },
@@ -3463,80 +3463,75 @@
       "dominatedCount": 1,
       "sources": [
         {
-          "source": "Charisma modifier",
-          "bonusType": "(untyped)",
-          "value": 35
-        },
-        {
-          "source": "Scion of the Ethereal Plane",
-          "bonusType": "Feat",
-          "value": 4,
-          "target": "All"
-        },
-        {
-          "source": "Epic 1: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 2: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 3: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 4: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 5: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 6: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 7: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 8: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 9: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 10: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
           "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
           "bonusType": "Luck",
           "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Scion of the Ethereal Plane",
+          "bonusType": "Feat",
+          "value": 4,
           "target": "All"
         },
         {
@@ -3544,6 +3539,11 @@
           "bonusType": "Guild",
           "value": 3,
           "target": "Haggle"
+        },
+        {
+          "source": "Charisma modifier",
+          "bonusType": "(untyped)",
+          "value": 35
         }
       ]
     },
@@ -3553,80 +3553,75 @@
       "dominatedCount": 1,
       "sources": [
         {
-          "source": "Wisdom modifier",
-          "bonusType": "(untyped)",
-          "value": 12
-        },
-        {
-          "source": "Scion of the Ethereal Plane",
-          "bonusType": "Feat",
-          "value": 4,
-          "target": "All"
-        },
-        {
-          "source": "Epic 1: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 2: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 3: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 4: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 5: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 6: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 7: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 8: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 9: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 10: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
           "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
           "bonusType": "Luck",
           "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Scion of the Ethereal Plane",
+          "bonusType": "Feat",
+          "value": 4,
           "target": "All"
         },
         {
@@ -3634,6 +3629,11 @@
           "bonusType": "Guild",
           "value": 3,
           "target": "Heal"
+        },
+        {
+          "source": "Wisdom modifier",
+          "bonusType": "(untyped)",
+          "value": 12
         }
       ]
     },
@@ -3643,80 +3643,75 @@
       "dominatedCount": 1,
       "sources": [
         {
-          "source": "Dexterity modifier",
-          "bonusType": "(untyped)",
-          "value": 11
-        },
-        {
-          "source": "Scion of the Ethereal Plane",
-          "bonusType": "Feat",
-          "value": 4,
-          "target": "All"
-        },
-        {
-          "source": "Epic 1: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 2: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 3: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 4: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 5: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 6: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 7: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 8: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 9: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 10: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
           "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
           "bonusType": "Luck",
           "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Scion of the Ethereal Plane",
+          "bonusType": "Feat",
+          "value": 4,
           "target": "All"
         },
         {
@@ -3724,6 +3719,11 @@
           "bonusType": "Guild",
           "value": 3,
           "target": "Hide"
+        },
+        {
+          "source": "Dexterity modifier",
+          "bonusType": "(untyped)",
+          "value": 11
         }
       ]
     },
@@ -3733,74 +3733,15 @@
       "dominatedCount": 1,
       "sources": [
         {
-          "source": "Charisma modifier",
-          "bonusType": "(untyped)",
-          "value": 35
+          "source": "[A] Bracers: Rocard, Champion's Cuffs → Curse of Anger's Heart",
+          "bonusType": "Fortune",
+          "value": 2,
+          "target": "Intimidate"
         },
         {
-          "source": "Scion of the Ethereal Plane",
-          "bonusType": "Feat",
-          "value": 4,
-          "target": "All"
-        },
-        {
-          "source": "Epic 1: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 2: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 3: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 4: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 5: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 6: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 7: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 8: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 9: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 10: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
+          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
+          "bonusType": "Luck",
+          "value": 3,
           "target": "All"
         },
         {
@@ -3816,22 +3757,81 @@
           "target": "Intimidate"
         },
         {
-          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
-          "bonusType": "Luck",
-          "value": 3,
+          "source": "[F] Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
           "target": "All"
         },
         {
-          "source": "[A] Bracers: Rocard, Champion's Cuffs → Curse of Anger's Heart",
-          "bonusType": "Fortune",
-          "value": 2,
-          "target": "Intimidate"
+          "source": "[F] Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Scion of the Ethereal Plane",
+          "bonusType": "Feat",
+          "value": 4,
+          "target": "All"
         },
         {
           "source": "[Guild] Throne Room",
           "bonusType": "Guild",
           "value": 3,
           "target": "Intimidate"
+        },
+        {
+          "source": "Charisma modifier",
+          "bonusType": "(untyped)",
+          "value": 35
         }
       ]
     },
@@ -3841,74 +3841,9 @@
       "dominatedCount": 1,
       "sources": [
         {
-          "source": "Strength modifier",
-          "bonusType": "(untyped)",
-          "value": 9
-        },
-        {
-          "source": "Scion of the Ethereal Plane",
-          "bonusType": "Feat",
-          "value": 4,
-          "target": "All"
-        },
-        {
-          "source": "Epic 1: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 2: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 3: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 4: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 5: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 6: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 7: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 8: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 9: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 10: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
+          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
+          "bonusType": "Luck",
+          "value": 3,
           "target": "All"
         },
         {
@@ -3918,9 +3853,69 @@
           "target": "Jump"
         },
         {
-          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
-          "bonusType": "Luck",
-          "value": 3,
+          "source": "[F] Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Scion of the Ethereal Plane",
+          "bonusType": "Feat",
+          "value": 4,
           "target": "All"
         },
         {
@@ -3928,6 +3923,11 @@
           "bonusType": "Guild",
           "value": 3,
           "target": "Jump"
+        },
+        {
+          "source": "Strength modifier",
+          "bonusType": "(untyped)",
+          "value": 9
         }
       ]
     },
@@ -3937,75 +3937,10 @@
       "dominatedCount": 1,
       "sources": [
         {
-          "source": "Wisdom modifier",
-          "bonusType": "(untyped)",
-          "value": 12
-        },
-        {
-          "source": "Scion of the Ethereal Plane",
-          "bonusType": "Feat",
-          "value": 4,
-          "target": "All"
-        },
-        {
-          "source": "Epic 1: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 2: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 3: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 4: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 5: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 6: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 7: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 8: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 9: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 10: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
+          "source": "[D] Shiradi Champion: Shiradi Champion: Fey Sight",
+          "bonusType": "Destiny",
+          "value": 2,
+          "target": "Listen"
         },
         {
           "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
@@ -4014,16 +3949,81 @@
           "target": "All"
         },
         {
-          "source": "[D] Shiradi Champion: Shiradi Champion: Fey Sight",
-          "bonusType": "Destiny",
-          "value": 2,
-          "target": "Listen"
+          "source": "[F] Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Scion of the Ethereal Plane",
+          "bonusType": "Feat",
+          "value": 4,
+          "target": "All"
         },
         {
           "source": "[Guild] Throne Room",
           "bonusType": "Guild",
           "value": 3,
           "target": "Listen"
+        },
+        {
+          "source": "Wisdom modifier",
+          "bonusType": "(untyped)",
+          "value": 12
         }
       ]
     },
@@ -4033,80 +4033,75 @@
       "dominatedCount": 1,
       "sources": [
         {
-          "source": "Dexterity modifier",
-          "bonusType": "(untyped)",
-          "value": 11
-        },
-        {
-          "source": "Scion of the Ethereal Plane",
-          "bonusType": "Feat",
-          "value": 4,
-          "target": "All"
-        },
-        {
-          "source": "Epic 1: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 2: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 3: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 4: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 5: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 6: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 7: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 8: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 9: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 10: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
           "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
           "bonusType": "Luck",
           "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Scion of the Ethereal Plane",
+          "bonusType": "Feat",
+          "value": 4,
           "target": "All"
         },
         {
@@ -4114,6 +4109,11 @@
           "bonusType": "Guild",
           "value": 3,
           "target": "Move Silently"
+        },
+        {
+          "source": "Dexterity modifier",
+          "bonusType": "(untyped)",
+          "value": 11
         }
       ]
     },
@@ -4147,80 +4147,75 @@
       "dominatedCount": 1,
       "sources": [
         {
-          "source": "Intelligence modifier",
-          "bonusType": "(untyped)",
-          "value": 13
-        },
-        {
-          "source": "Scion of the Ethereal Plane",
-          "bonusType": "Feat",
-          "value": 4,
-          "target": "All"
-        },
-        {
-          "source": "Epic 1: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 2: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 3: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 4: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 5: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 6: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 7: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 8: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 9: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 10: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
           "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
           "bonusType": "Luck",
           "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Scion of the Ethereal Plane",
+          "bonusType": "Feat",
+          "value": 4,
           "target": "All"
         },
         {
@@ -4234,6 +4229,11 @@
           "bonusType": "Stacking",
           "value": 1,
           "target": "Intelligence"
+        },
+        {
+          "source": "Intelligence modifier",
+          "bonusType": "(untyped)",
+          "value": 13
         }
       ]
     },
@@ -4243,86 +4243,9 @@
       "dominatedCount": 1,
       "sources": [
         {
-          "source": "Intelligence modifier",
-          "bonusType": "(untyped)",
-          "value": 13
-        },
-        {
-          "source": "Scion of the Ethereal Plane",
-          "bonusType": "Feat",
-          "value": 4,
-          "target": "All"
-        },
-        {
-          "source": "Epic 1: Epic Skills",
-          "bonusType": "Feat",
+          "source": "[A] Gloves: Legendary Gloves of the Resilient → Curse of Minor Perception",
+          "bonusType": "Fortune",
           "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 2: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 3: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 4: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 5: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 6: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 7: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 8: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 9: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 10: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
-          "bonusType": "Luck",
-          "value": 3,
-          "target": "All"
-        },
-        {
-          "source": "[D] Shiradi Champion: Shiradi Champion: Fey Sight",
-          "bonusType": "Destiny",
-          "value": 2,
           "target": "Search"
         },
         {
@@ -4332,10 +4255,82 @@
           "target": "Search"
         },
         {
-          "source": "[A] Gloves: Legendary Gloves of the Resilient → Curse of Minor Perception",
-          "bonusType": "Fortune",
-          "value": 1,
+          "source": "[D] Shiradi Champion: Shiradi Champion: Fey Sight",
+          "bonusType": "Destiny",
+          "value": 2,
           "target": "Search"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Scion of the Ethereal Plane",
+          "bonusType": "Feat",
+          "value": 4,
+          "target": "All"
         },
         {
           "source": "[Guild] Danger Room",
@@ -4348,6 +4343,11 @@
           "bonusType": "Stacking",
           "value": 1,
           "target": "Intelligence"
+        },
+        {
+          "source": "Intelligence modifier",
+          "bonusType": "(untyped)",
+          "value": 13
         }
       ]
     },
@@ -4369,86 +4369,9 @@
       "dominatedCount": 1,
       "sources": [
         {
-          "source": "Wisdom modifier",
-          "bonusType": "(untyped)",
-          "value": 12
-        },
-        {
-          "source": "Scion of the Ethereal Plane",
-          "bonusType": "Feat",
-          "value": 4,
-          "target": "All"
-        },
-        {
-          "source": "Epic 1: Epic Skills",
-          "bonusType": "Feat",
+          "source": "[A] Gloves: Legendary Gloves of the Resilient → Curse of Minor Perception",
+          "bonusType": "Fortune",
           "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 2: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 3: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 4: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 5: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 6: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 7: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 8: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 9: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 10: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
-          "bonusType": "Luck",
-          "value": 3,
-          "target": "All"
-        },
-        {
-          "source": "[D] Shiradi Champion: Shiradi Champion: Fey Sight",
-          "bonusType": "Destiny",
-          "value": 2,
           "target": "Spot"
         },
         {
@@ -4458,16 +4381,93 @@
           "target": "Spot"
         },
         {
-          "source": "[A] Gloves: Legendary Gloves of the Resilient → Curse of Minor Perception",
-          "bonusType": "Fortune",
-          "value": 1,
+          "source": "[D] Shiradi Champion: Shiradi Champion: Fey Sight",
+          "bonusType": "Destiny",
+          "value": 2,
           "target": "Spot"
+        },
+        {
+          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
+          "bonusType": "Luck",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Scion of the Ethereal Plane",
+          "bonusType": "Feat",
+          "value": 4,
+          "target": "All"
         },
         {
           "source": "[Guild] Danger Room",
           "bonusType": "Guild",
           "value": 3,
           "target": "Spot"
+        },
+        {
+          "source": "Wisdom modifier",
+          "bonusType": "(untyped)",
+          "value": 12
         }
       ]
     },
@@ -4477,80 +4477,75 @@
       "dominatedCount": 1,
       "sources": [
         {
-          "source": "Strength modifier",
-          "bonusType": "(untyped)",
-          "value": 9
-        },
-        {
-          "source": "Scion of the Ethereal Plane",
-          "bonusType": "Feat",
-          "value": 4,
-          "target": "All"
-        },
-        {
-          "source": "Epic 1: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 2: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 3: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 4: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 5: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 6: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 7: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 8: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 9: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 10: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
           "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
           "bonusType": "Luck",
           "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Scion of the Ethereal Plane",
+          "bonusType": "Feat",
+          "value": 4,
           "target": "All"
         },
         {
@@ -4558,6 +4553,11 @@
           "bonusType": "Guild",
           "value": 3,
           "target": "Swim"
+        },
+        {
+          "source": "Strength modifier",
+          "bonusType": "(untyped)",
+          "value": 9
         }
       ]
     },
@@ -4567,74 +4567,9 @@
       "dominatedCount": 1,
       "sources": [
         {
-          "source": "Dexterity modifier",
-          "bonusType": "(untyped)",
-          "value": 11
-        },
-        {
-          "source": "Scion of the Ethereal Plane",
-          "bonusType": "Feat",
-          "value": 4,
-          "target": "All"
-        },
-        {
-          "source": "Epic 1: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 2: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 3: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 4: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 5: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 6: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 7: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 8: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 9: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 10: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
+          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
+          "bonusType": "Luck",
+          "value": 3,
           "target": "All"
         },
         {
@@ -4644,9 +4579,69 @@
           "target": "Tumble"
         },
         {
-          "source": "[D] Shiradi Champion: Shiradi Champion: Good Luck",
-          "bonusType": "Luck",
-          "value": 3,
+          "source": "[F] Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Scion of the Ethereal Plane",
+          "bonusType": "Feat",
+          "value": 4,
           "target": "All"
         },
         {
@@ -4654,6 +4649,11 @@
           "bonusType": "Guild",
           "value": 3,
           "target": "Tumble"
+        },
+        {
+          "source": "Dexterity modifier",
+          "bonusType": "(untyped)",
+          "value": 11
         }
       ]
     },
@@ -4694,12 +4694,12 @@
     {
       "name": "Leap Of Faith",
       "castingClass": "Favored Soul",
-      "category": "feat",
+      "category": "gear",
       "cost": 10,
       "maxCasterLevel": 0,
       "cooldown": 3,
       "charges": 0,
-      "source": "Favored Soul 17: Leap Of Faith"
+      "source": "[F] Favored Soul 17: Leap Of Faith"
     },
     {
       "name": "Shadowstrike (Ranged)",
@@ -4724,22 +4724,22 @@
     {
       "name": "Unleash Iron Defender",
       "castingClass": "Artificer",
-      "category": "feat",
+      "category": "gear",
       "cost": 0,
       "maxCasterLevel": 0,
       "cooldown": 0,
       "charges": 0,
-      "source": "Artificer 1: Unleash Iron Defender"
+      "source": "[F] Artificer 1: Unleash Iron Defender"
     },
     {
       "name": "Unyielding Sovereignty",
       "castingClass": "Character",
-      "category": "feat",
+      "category": "gear",
       "cost": 0,
       "maxCasterLevel": 0,
       "cooldown": 0,
       "charges": 0,
-      "source": "Unyielding Sovereignty"
+      "source": "[F] Unyielding Sovereignty"
     }
   ]
 }

@@ -460,12 +460,29 @@ export function runEngine(input: RunEngineInput): EngineResult {
   // Zero-valued groups still emit so the breakdown reflects partial setups
   // (1 of 2 sources contributing → 0% value, useful for "almost there"
   // diagnostics). Groups with target items fan out (one bonus per item).
+  //
+  // Label strategy: in DDO terms a stack-source group is ONE bonus (the
+  // combined effect of all the contributing pieces). Use the displayName
+  // verbatim, with a source-type prefix lifted from the highest-priority
+  // contributor (destiny > reaper > heroic enhancement > feat > other) so
+  // the breakdown row's left margin still shows where the bonus comes from.
+  const prefixPriority = ['[D]', '[R]', '[E]', '[F]', '[PL]', '[A]', '[G]', '[S]', '[FS]', '[B]', '[Guild]'];
+  const pickPrefix = (sources: string[]): string => {
+    for (const p of prefixPriority) {
+      if (sources.some(s => s.startsWith(p + ' '))) return p;
+    }
+    return '';
+  };
   for (const g of stackGroups.values()) {
     const idx = Math.min(Math.max(0, g.count - 1), Math.max(0, g.amount.length - 1));
     const value = g.amount[idx] ?? 0;
-    const label = g.sources.length === 1
-      ? g.sources[0]!
-      : `${g.displayName} (${g.count}× sources)`;
+    let label: string;
+    if (g.sources.length === 1) {
+      label = g.sources[0]!;
+    } else {
+      const prefix = pickPrefix(g.sources);
+      label = prefix ? `${prefix} ${g.displayName}` : g.displayName;
+    }
     for (const t of g.types) {
       for (const item of g.items) {
         allBonuses.push({

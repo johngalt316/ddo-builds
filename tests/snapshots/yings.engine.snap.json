@@ -23,38 +23,27 @@
       "dominatedCount": 4,
       "sources": [
         {
-          "source": "base + racial",
-          "bonusType": "(untyped)",
-          "value": 17
-        },
-        {
-          "source": "Aasimar: Fallen Bond",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "Strength"
-        },
-        {
-          "source": "Completionist",
-          "bonusType": "Feat",
-          "value": 2,
-          "target": "All"
-        },
-        {
-          "source": "Ocean Stance: Strength Penalty (4× sources)",
-          "bonusType": "Feat",
-          "value": -2,
-          "target": "Strength"
-        },
-        {
           "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Globe of True Imperial Blood",
           "bonusType": "Exceptional",
           "value": 1,
           "target": "All"
         },
         {
-          "source": "[PL] Past Life: Half-Orc ×3",
-          "bonusType": "Stacking",
+          "source": "[F] Aasimar: Fallen Bond",
+          "bonusType": "Feat",
           "value": 1,
+          "target": "Strength"
+        },
+        {
+          "source": "[F] Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[F] Ocean Stance: Strength Penalty",
+          "bonusType": "Feat",
+          "value": -2,
           "target": "Strength"
         },
         {
@@ -74,6 +63,17 @@
           "bonusType": "Guild",
           "value": 2,
           "target": "Strength"
+        },
+        {
+          "source": "[PL] Past Life: Half-Orc ×3",
+          "bonusType": "Stacking",
+          "value": 1,
+          "target": "Strength"
+        },
+        {
+          "source": "base + racial",
+          "bonusType": "(untyped)",
+          "value": 17
         }
       ]
     },
@@ -83,44 +83,27 @@
       "dominatedCount": 2,
       "sources": [
         {
-          "source": "base + racial",
-          "bonusType": "(untyped)",
-          "value": 22
+          "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Globe of True Imperial Blood",
+          "bonusType": "Exceptional",
+          "value": 1,
+          "target": "All"
         },
         {
-          "source": "Completionist",
+          "source": "[D] Fury of the Wild: Fury of the Wild: Fury Selector → Spirit of the Beast",
+          "bonusType": "Penalty",
+          "value": 0,
+          "target": "Dexterity"
+        },
+        {
+          "source": "[F] Completionist",
           "bonusType": "Feat",
           "value": 2,
           "target": "All"
         },
         {
-          "source": "[R] Dread Adversary: Reaper's Strength or Dexterity I → +1 Dexterity",
-          "bonusType": "Reaper",
-          "value": 1,
-          "target": "Dexterity"
-        },
-        {
-          "source": "[R] Dread Adversary: Reaper's Strength or Dexterity II → +1 Dexterity",
-          "bonusType": "Reaper",
-          "value": 1,
-          "target": "Dexterity"
-        },
-        {
-          "source": "[R] Dread Adversary: Reaper's Offense III → +1 Dexterity",
-          "bonusType": "Reaper",
-          "value": 1,
-          "target": "Dexterity"
-        },
-        {
-          "source": "[R] Dread Adversary: Reaper's Strength or Dexterity III → +1 Dexterity",
-          "bonusType": "Reaper",
-          "value": 1,
-          "target": "Dexterity"
-        },
-        {
-          "source": "[R] Dread Adversary: Reaper's Strength or Dexterity IV → +1 Dexterity",
-          "bonusType": "Reaper",
-          "value": 1,
+          "source": "[G] Cloak: Legendary Dread Stalker's Cloak (AbilityBonus: Dexterity)",
+          "bonusType": "Enhancement",
+          "value": 14,
           "target": "Dexterity"
         },
         {
@@ -130,21 +113,15 @@
           "target": "Dexterity"
         },
         {
-          "source": "[G] Cloak: Legendary Dread Stalker's Cloak (AbilityBonus: Dexterity)",
-          "bonusType": "Enhancement",
-          "value": 14,
-          "target": "Dexterity"
-        },
-        {
-          "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Globe of True Imperial Blood",
-          "bonusType": "Exceptional",
-          "value": 1,
-          "target": "All"
-        },
-        {
           "source": "[Guild] Paradoxical Puzzle Box",
           "bonusType": "Guild",
           "value": 2,
+          "target": "Dexterity"
+        },
+        {
+          "source": "[PL] Past Life: Eladrin ×3",
+          "bonusType": "Stacking",
+          "value": 1,
           "target": "Dexterity"
         },
         {
@@ -172,16 +149,39 @@
           "target": "Dexterity"
         },
         {
-          "source": "[PL] Past Life: Eladrin ×3",
-          "bonusType": "Stacking",
+          "source": "[R] Dread Adversary: Reaper's Offense III → +1 Dexterity",
+          "bonusType": "Reaper",
           "value": 1,
           "target": "Dexterity"
         },
         {
-          "source": "[D] Fury of the Wild: Fury of the Wild: Fury Selector → Spirit of the Beast",
-          "bonusType": "Penalty",
-          "value": 0,
+          "source": "[R] Dread Adversary: Reaper's Strength or Dexterity I → +1 Dexterity",
+          "bonusType": "Reaper",
+          "value": 1,
           "target": "Dexterity"
+        },
+        {
+          "source": "[R] Dread Adversary: Reaper's Strength or Dexterity II → +1 Dexterity",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "Dexterity"
+        },
+        {
+          "source": "[R] Dread Adversary: Reaper's Strength or Dexterity III → +1 Dexterity",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "Dexterity"
+        },
+        {
+          "source": "[R] Dread Adversary: Reaper's Strength or Dexterity IV → +1 Dexterity",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "Dexterity"
+        },
+        {
+          "source": "base + racial",
+          "bonusType": "(untyped)",
+          "value": 22
         }
       ]
     },
@@ -190,59 +190,6 @@
       "appliedCount": 14,
       "dominatedCount": 3,
       "sources": [
-        {
-          "source": "base + racial",
-          "bonusType": "(untyped)",
-          "value": 25
-        },
-        {
-          "source": "Completionist",
-          "bonusType": "Feat",
-          "value": 2,
-          "target": "All"
-        },
-        {
-          "source": "[R] Grim Barricade: Reaper's Constitution I",
-          "bonusType": "Reaper",
-          "value": 1,
-          "target": "Constitution"
-        },
-        {
-          "source": "[R] Grim Barricade: Reaper's Constitution II",
-          "bonusType": "Reaper",
-          "value": 1,
-          "target": "Constitution"
-        },
-        {
-          "source": "[R] Grim Barricade: Reaper's Defense III",
-          "bonusType": "Reaper",
-          "value": 1,
-          "target": "Constitution"
-        },
-        {
-          "source": "[R] Grim Barricade: Reaper's Constitution III",
-          "bonusType": "Reaper",
-          "value": 1,
-          "target": "Constitution"
-        },
-        {
-          "source": "[R] Grim Barricade: Reaper's Constitution V",
-          "bonusType": "Reaper",
-          "value": 1,
-          "target": "Constitution"
-        },
-        {
-          "source": "[G] Ring1: Legendary Ring of Mystic Constitution (AbilityBonus: Constitution)",
-          "bonusType": "Quality",
-          "value": 3,
-          "target": "Constitution"
-        },
-        {
-          "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Globe of True Imperial Blood",
-          "bonusType": "Exceptional",
-          "value": 1,
-          "target": "All"
-        },
         {
           "source": "[A] Cloak: Legendary Dread Stalker's Cloak → Diamond of Insightful Constitution",
           "bonusType": "Insightful",
@@ -253,6 +200,24 @@
           "source": "[A] Gloves: Gauntlets of the Stormreaver → Diamond of Constitution",
           "bonusType": "Enhancement",
           "value": 14,
+          "target": "Constitution"
+        },
+        {
+          "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Globe of True Imperial Blood",
+          "bonusType": "Exceptional",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[G] Ring1: Legendary Ring of Mystic Constitution (AbilityBonus: Constitution)",
+          "bonusType": "Quality",
+          "value": 3,
           "target": "Constitution"
         },
         {
@@ -272,6 +237,41 @@
           "bonusType": "Stacking",
           "value": 1,
           "target": "Constitution"
+        },
+        {
+          "source": "[R] Grim Barricade: Reaper's Constitution I",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "Constitution"
+        },
+        {
+          "source": "[R] Grim Barricade: Reaper's Constitution II",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "Constitution"
+        },
+        {
+          "source": "[R] Grim Barricade: Reaper's Constitution III",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "Constitution"
+        },
+        {
+          "source": "[R] Grim Barricade: Reaper's Constitution V",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "Constitution"
+        },
+        {
+          "source": "[R] Grim Barricade: Reaper's Defense III",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "Constitution"
+        },
+        {
+          "source": "base + racial",
+          "bonusType": "(untyped)",
+          "value": 25
         }
       ]
     },
@@ -281,20 +281,15 @@
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "base + racial",
-          "bonusType": "(untyped)",
-          "value": 16
-        },
-        {
-          "source": "Completionist",
-          "bonusType": "Feat",
-          "value": 2,
-          "target": "All"
-        },
-        {
           "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Globe of True Imperial Blood",
           "bonusType": "Exceptional",
           "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Completionist",
+          "bonusType": "Feat",
+          "value": 2,
           "target": "All"
         },
         {
@@ -314,6 +309,11 @@
           "bonusType": "Stacking",
           "value": 1,
           "target": "Intelligence"
+        },
+        {
+          "source": "base + racial",
+          "bonusType": "(untyped)",
+          "value": 16
         }
       ]
     },
@@ -323,21 +323,34 @@
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "base + racial",
-          "bonusType": "(untyped)",
-          "value": 36
-        },
-        {
-          "source": "Completionist",
-          "bonusType": "Feat",
+          "source": "[A] Armor: Dinosaur Bone Outfit → +2 Festive Wisdom",
+          "bonusType": "Festive",
           "value": 2,
-          "target": "All"
+          "target": "Wisdom"
         },
         {
-          "source": "Ocean Stance: Wisdom (4× sources)",
-          "bonusType": "Feat",
+          "source": "[A] Belt: Ophael's Cincture → Insightful Wisdom +7",
+          "bonusType": "Insightful",
+          "value": 7,
+          "target": "Wisdom"
+        },
+        {
+          "source": "[A] Belt: Ophael's Cincture → Lunar Gem of Wisdom (Legendary)",
+          "bonusType": "Profane",
           "value": 4,
           "target": "Wisdom"
+        },
+        {
+          "source": "[A] Bracers: Bracers of the Battlerager → Wisdom +15",
+          "bonusType": "Enhancement",
+          "value": 15,
+          "target": "Wisdom"
+        },
+        {
+          "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Globe of True Imperial Blood",
+          "bonusType": "Exceptional",
+          "value": 1,
+          "target": "All"
         },
         {
           "source": "[E] Aasimar: Aasimar: Ability I → +1 Wisdom",
@@ -382,75 +395,21 @@
           "target": "Wisdom"
         },
         {
-          "source": "[A] Bracers: Bracers of the Battlerager → Wisdom +15",
-          "bonusType": "Enhancement",
-          "value": 15,
-          "target": "Wisdom"
+          "source": "[F] Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
         },
         {
-          "source": "[R] Dire Thaumaturge: Reapers's Ability I → +1 Wisdom",
-          "bonusType": "Reaper",
-          "value": 1,
-          "target": "Wisdom"
-        },
-        {
-          "source": "[R] Dire Thaumaturge: Reaper's Ability II → +1 Wisdom",
-          "bonusType": "Reaper",
-          "value": 1,
-          "target": "Wisdom"
-        },
-        {
-          "source": "[R] Dire Thaumaturge: Reaper's Arcanum III → +1 Wisdom",
-          "bonusType": "Reaper",
-          "value": 1,
-          "target": "Wisdom"
-        },
-        {
-          "source": "[R] Dire Thaumaturge: Reaper's Ability III → +1 Wisdom",
-          "bonusType": "Reaper",
-          "value": 1,
-          "target": "Wisdom"
-        },
-        {
-          "source": "[R] Dire Thaumaturge: Reaper's Ability V → +1 Wisdom",
-          "bonusType": "Reaper",
-          "value": 1,
+          "source": "[F] Ocean Stance: Wisdom",
+          "bonusType": "Feat",
+          "value": 4,
           "target": "Wisdom"
         },
         {
           "source": "[G] Trinket: Legendary Fragment of a Flayed Mind (AbilityBonus: Wisdom)",
           "bonusType": "Quality",
           "value": 3,
-          "target": "Wisdom"
-        },
-        {
-          "source": "[S] Visions of the Future (3-piece tier ≥ 3)",
-          "bonusType": "Artifact",
-          "value": 3,
-          "target": "Wisdom"
-        },
-        {
-          "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Globe of True Imperial Blood",
-          "bonusType": "Exceptional",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[A] Belt: Ophael's Cincture → Insightful Wisdom +7",
-          "bonusType": "Insightful",
-          "value": 7,
-          "target": "Wisdom"
-        },
-        {
-          "source": "[A] Belt: Ophael's Cincture → Lunar Gem of Wisdom (Legendary)",
-          "bonusType": "Profane",
-          "value": 4,
-          "target": "Wisdom"
-        },
-        {
-          "source": "[A] Armor: Dinosaur Bone Outfit → +2 Festive Wisdom",
-          "bonusType": "Festive",
-          "value": 2,
           "target": "Wisdom"
         },
         {
@@ -470,6 +429,47 @@
           "bonusType": "Stacking",
           "value": 1,
           "target": "Wisdom"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Ability II → +1 Wisdom",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "Wisdom"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Ability III → +1 Wisdom",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "Wisdom"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Ability V → +1 Wisdom",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "Wisdom"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Arcanum III → +1 Wisdom",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "Wisdom"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reapers's Ability I → +1 Wisdom",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "Wisdom"
+        },
+        {
+          "source": "[S] Visions of the Future (3-piece tier ≥ 3)",
+          "bonusType": "Artifact",
+          "value": 3,
+          "target": "Wisdom"
+        },
+        {
+          "source": "base + racial",
+          "bonusType": "(untyped)",
+          "value": 36
         }
       ]
     },
@@ -479,20 +479,15 @@
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "base + racial",
-          "bonusType": "(untyped)",
-          "value": 16
-        },
-        {
-          "source": "Completionist",
-          "bonusType": "Feat",
-          "value": 2,
-          "target": "All"
-        },
-        {
           "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Globe of True Imperial Blood",
           "bonusType": "Exceptional",
           "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Completionist",
+          "bonusType": "Feat",
+          "value": 2,
           "target": "All"
         },
         {
@@ -518,6 +513,11 @@
           "bonusType": "Stacking",
           "value": 1,
           "target": "Charisma"
+        },
+        {
+          "source": "base + racial",
+          "bonusType": "(untyped)",
+          "value": 16
         }
       ]
     }
@@ -528,59 +528,19 @@
     "dominatedCount": 0,
     "sources": [
       {
-        "source": "class hit dice",
-        "bonusType": "(untyped)",
-        "value": 300
-      },
-      {
-        "source": "Two Weapon Fighting",
-        "bonusType": "Feat",
-        "value": 1
-      },
-      {
-        "source": "Improved Two Weapon Fighting",
-        "bonusType": "Feat",
-        "value": 1
-      },
-      {
-        "source": "Greater Two Weapon Fighting",
-        "bonusType": "Feat",
-        "value": 1
-      },
-      {
-        "source": "Improved Heroic Durability (Monk 5)",
-        "bonusType": "Feat",
-        "value": 5
-      },
-      {
-        "source": "Improved Heroic Durability (Monk 10)",
-        "bonusType": "Feat",
-        "value": 5
-      },
-      {
-        "source": "Improved Heroic Durability (Monk 15)",
-        "bonusType": "Feat",
-        "value": 5
-      },
-      {
-        "source": "Heroic Durability",
-        "bonusType": "Feat",
-        "value": 30
-      },
-      {
-        "source": "[E] Henshin Mystic: Henshin Mystic: Conditioning",
-        "bonusType": "Enhancement",
-        "value": 5
-      },
-      {
-        "source": "[E] Harper Agent: Harper Agent: Traveller's Toughness",
-        "bonusType": "Enhancement",
-        "value": 5
-      },
-      {
         "source": "[A] Ring1: Legendary Ring of Mystic Constitution → Sapphire of False Life",
         "bonusType": "Enhancement",
         "value": 54
+      },
+      {
+        "source": "[A] Trinket: Legendary Fragment of a Flayed Mind → Ravil's Book of Legendary Recipes",
+        "bonusType": "Vitality",
+        "value": 48
+      },
+      {
+        "source": "[D] Fury of the Wild: Fury of the Wild: Be the Whirlwind",
+        "bonusType": "Destiny",
+        "value": 25
       },
       {
         "source": "[D] Fury of the Wild: Fury of the Wild: Die Hard",
@@ -598,9 +558,29 @@
         "value": 25
       },
       {
-        "source": "[D] Fury of the Wild: Fury of the Wild: Be the Whirlwind",
+        "source": "[D] Legendary Dreadnought: Legendary Dreadnought: Fearless",
         "bonusType": "Destiny",
         "value": 25
+      },
+      {
+        "source": "[D] Legendary Dreadnought: Legendary Dreadnought: Thick Skinned",
+        "bonusType": "Destiny",
+        "value": 25
+      },
+      {
+        "source": "[D] Legendary Dreadnought: Legendary Dreadnought: Unparalleled Accuracy",
+        "bonusType": "Destiny",
+        "value": 25
+      },
+      {
+        "source": "[D] Legendary Dreadnought: Legendary Dreadnought: Weaponmaster",
+        "bonusType": "Destiny",
+        "value": 25
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Cut to the Soul",
+        "bonusType": "Destiny",
+        "value": 15
       },
       {
         "source": "[D] Shadowdancer: Shadowdancer: Shadow Training",
@@ -618,49 +598,59 @@
         "value": 15
       },
       {
-        "source": "[D] Shadowdancer: Shadowdancer: Cut to the Soul",
-        "bonusType": "Destiny",
-        "value": 15
+        "source": "[E] Harper Agent: Harper Agent: Traveller's Toughness",
+        "bonusType": "Enhancement",
+        "value": 5
       },
       {
-        "source": "[D] Legendary Dreadnought: Legendary Dreadnought: Fearless",
-        "bonusType": "Destiny",
+        "source": "[E] Henshin Mystic: Henshin Mystic: Conditioning",
+        "bonusType": "Enhancement",
+        "value": 5
+      },
+      {
+        "source": "[E] Shintao: Shintao: Shintao Mastery",
+        "bonusType": "Competence",
         "value": 25
       },
       {
-        "source": "[D] Legendary Dreadnought: Legendary Dreadnought: Weaponmaster",
-        "bonusType": "Destiny",
-        "value": 25
+        "source": "[F] Greater Two Weapon Fighting",
+        "bonusType": "Feat",
+        "value": 1
       },
       {
-        "source": "[D] Legendary Dreadnought: Legendary Dreadnought: Thick Skinned",
-        "bonusType": "Destiny",
-        "value": 25
+        "source": "[F] Heroic Durability",
+        "bonusType": "Feat",
+        "value": 30
       },
       {
-        "source": "[D] Legendary Dreadnought: Legendary Dreadnought: Unparalleled Accuracy",
-        "bonusType": "Destiny",
-        "value": 25
+        "source": "[F] Improved Heroic Durability (Monk 10)",
+        "bonusType": "Feat",
+        "value": 5
       },
       {
-        "source": "[R] Grim Barricade: Reaper's Defense I",
-        "bonusType": "Reaper",
+        "source": "[F] Improved Heroic Durability (Monk 15)",
+        "bonusType": "Feat",
+        "value": 5
+      },
+      {
+        "source": "[F] Improved Heroic Durability (Monk 5)",
+        "bonusType": "Feat",
+        "value": 5
+      },
+      {
+        "source": "[F] Improved Two Weapon Fighting",
+        "bonusType": "Feat",
+        "value": 1
+      },
+      {
+        "source": "[F] Titan's Blood",
+        "bonusType": "Legendary",
         "value": 10
       },
       {
-        "source": "[R] Grim Barricade: Reaper's Defense II",
-        "bonusType": "Reaper",
-        "value": 20
-      },
-      {
-        "source": "[R] Grim Barricade: Reaper's Defense IV",
-        "bonusType": "Reaper",
-        "value": 100
-      },
-      {
-        "source": "[A] Trinket: Legendary Fragment of a Flayed Mind → Ravil's Book of Legendary Recipes",
-        "bonusType": "Vitality",
-        "value": 48
+        "source": "[F] Two Weapon Fighting",
+        "bonusType": "Feat",
+        "value": 1
       },
       {
         "source": "[Guild] Hag Apothecary",
@@ -671,21 +661,6 @@
         "source": "[PL] Past Life: Barbarian ×3",
         "bonusType": "Stacking",
         "value": 30
-      },
-      {
-        "source": "Constitution mod (+24) × 34 levels",
-        "bonusType": "Stacking",
-        "value": 816
-      },
-      {
-        "source": "Combat Style (3 style feats × 25% of class HP)",
-        "bonusType": "Stacking",
-        "value": 172
-      },
-      {
-        "source": "Fate Points (×2 HP each, 60 fate points)",
-        "bonusType": "Stacking",
-        "value": 120
       },
       {
         "source": "[PL] Past Life: Primal Sphere: Ancient Power ×3",
@@ -708,14 +683,39 @@
         "value": 45
       },
       {
-        "source": "Titan's Blood",
-        "bonusType": "Legendary",
+        "source": "[R] Grim Barricade: Reaper's Defense I",
+        "bonusType": "Reaper",
         "value": 10
       },
       {
-        "source": "[E] Shintao: Shintao: Shintao Mastery",
-        "bonusType": "Competence",
-        "value": 25
+        "source": "[R] Grim Barricade: Reaper's Defense II",
+        "bonusType": "Reaper",
+        "value": 20
+      },
+      {
+        "source": "[R] Grim Barricade: Reaper's Defense IV",
+        "bonusType": "Reaper",
+        "value": 100
+      },
+      {
+        "source": "class hit dice",
+        "bonusType": "(untyped)",
+        "value": 300
+      },
+      {
+        "source": "Combat Style (3 style feats × 25% of class HP)",
+        "bonusType": "Stacking",
+        "value": 172
+      },
+      {
+        "source": "Constitution mod (+24) × 34 levels",
+        "bonusType": "Stacking",
+        "value": 816
+      },
+      {
+        "source": "Fate Points (×2 HP each, 60 fate points)",
+        "bonusType": "Stacking",
+        "value": 120
       }
     ]
   },
@@ -726,50 +726,15 @@
       "dominatedCount": 2,
       "sources": [
         {
-          "source": "class save progression + ability mod",
-          "bonusType": "(untyped)",
-          "value": 19
+          "source": "[A] Belt: Ophael's Cincture → Sapphire of Resistance",
+          "bonusType": "Resistance",
+          "value": 11,
+          "target": "All"
         },
         {
-          "source": "Scion of Arborea",
-          "bonusType": "Feat",
+          "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
           "value": 4,
-          "target": "Fortitude"
-        },
-        {
-          "source": "Epic 2: Epic Saves",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 4: Epic Saves",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 6: Epic Saves",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 8: Epic Saves",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 10: Epic Saves",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Ocean Stance: Saves (4× sources)",
-          "bonusType": "Feat",
-          "value": 5,
           "target": "All"
         },
         {
@@ -779,13 +744,13 @@
           "target": "Fortitude"
         },
         {
-          "source": "[E] Shintao: Shintao: Protection from Tainted Creatures",
+          "source": "[E] Shintao: Shintao: Argent Fist",
           "bonusType": "Enhancement",
           "value": 1,
           "target": "All"
         },
         {
-          "source": "[E] Shintao: Shintao: Argent Fist",
+          "source": "[E] Shintao: Shintao: Protection from Tainted Creatures",
           "bonusType": "Enhancement",
           "value": 1,
           "target": "All"
@@ -797,10 +762,64 @@
           "target": "All"
         },
         {
-          "source": "[A] Belt: Ophael's Cincture → Sapphire of Resistance",
-          "bonusType": "Resistance",
-          "value": 11,
+          "source": "[F] Epic 10: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
           "target": "All"
+        },
+        {
+          "source": "[F] Epic 2: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 4: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 6: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 8: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Ocean Stance: Saves",
+          "bonusType": "Feat",
+          "value": 5,
+          "target": "All"
+        },
+        {
+          "source": "[F] Scion of Arborea",
+          "bonusType": "Feat",
+          "value": 4,
+          "target": "Fortitude"
+        },
+        {
+          "source": "[G] Helmet: Legendary Dread Stalker's Skullcap (ParryingNumber)",
+          "bonusType": "Insightful",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Game Hunter",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Fortitude"
+        },
+        {
+          "source": "[PL] Past Life: Aasimar Scourge ×3",
+          "bonusType": "Stacking",
+          "value": 3,
+          "target": "Fortitude"
         },
         {
           "source": "[R] Grim Barricade: Reaper's Defense II",
@@ -815,28 +834,9 @@
           "target": "All"
         },
         {
-          "source": "[G] Helmet: Legendary Dread Stalker's Skullcap (ParryingNumber)",
-          "bonusType": "Insightful",
-          "value": 6,
-          "target": "All"
-        },
-        {
-          "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Sapphire of Greater Heroism",
-          "bonusType": "Morale",
-          "value": 4,
-          "target": "All"
-        },
-        {
-          "source": "[Guild] Game Hunter",
-          "bonusType": "Guild",
-          "value": 3,
-          "target": "Fortitude"
-        },
-        {
-          "source": "[PL] Past Life: Aasimar Scourge ×3",
-          "bonusType": "Stacking",
-          "value": 3,
-          "target": "Fortitude"
+          "source": "class save progression + ability mod",
+          "bonusType": "(untyped)",
+          "value": 19
         }
       ]
     },
@@ -846,51 +846,28 @@
       "dominatedCount": 2,
       "sources": [
         {
-          "source": "class save progression + ability mod",
-          "bonusType": "(untyped)",
-          "value": 18
+          "source": "[A] Belt: Ophael's Cincture → Sapphire of Resistance",
+          "bonusType": "Resistance",
+          "value": 11,
+          "target": "All"
         },
         {
-          "source": "Aasimar: Fallen Bond",
-          "bonusType": "Feat",
-          "value": 1,
+          "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
+          "target": "All"
+        },
+        {
+          "source": "[D] Shadowdancer: Shadowdancer: Lithe",
+          "bonusType": "Destiny",
+          "value": 2,
           "target": "Reflex"
         },
         {
-          "source": "Epic 2: Epic Saves",
-          "bonusType": "Feat",
+          "source": "[D] Shadowdancer: Shadowdancer: Stealthy",
+          "bonusType": "Destiny",
           "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 4: Epic Saves",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 6: Epic Saves",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 8: Epic Saves",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 10: Epic Saves",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Ocean Stance: Saves (4× sources)",
-          "bonusType": "Feat",
-          "value": 5,
-          "target": "All"
+          "target": "Reflex"
         },
         {
           "source": "[E] Aasimar: Aasimar: True Resilience → Fallen",
@@ -899,13 +876,13 @@
           "target": "Reflex"
         },
         {
-          "source": "[E] Shintao: Shintao: Protection from Tainted Creatures",
+          "source": "[E] Shintao: Shintao: Argent Fist",
           "bonusType": "Enhancement",
           "value": 1,
           "target": "All"
         },
         {
-          "source": "[E] Shintao: Shintao: Argent Fist",
+          "source": "[E] Shintao: Shintao: Protection from Tainted Creatures",
           "bonusType": "Enhancement",
           "value": 1,
           "target": "All"
@@ -917,26 +894,62 @@
           "target": "All"
         },
         {
-          "source": "[D] Shadowdancer: Shadowdancer: Stealthy",
-          "bonusType": "Destiny",
+          "source": "[F] Aasimar: Fallen Bond",
+          "bonusType": "Feat",
           "value": 1,
           "target": "Reflex"
         },
         {
-          "source": "[D] Shadowdancer: Shadowdancer: Lithe",
-          "bonusType": "Destiny",
-          "value": 2,
-          "target": "Reflex"
-        },
-        {
-          "source": "[A] Belt: Ophael's Cincture → Sapphire of Resistance",
-          "bonusType": "Resistance",
-          "value": 11,
+          "source": "[F] Epic 10: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
           "target": "All"
         },
         {
-          "source": "[R] Grim Barricade: Reaper's Reflex/Fortitude/Will I → Reflex Save",
-          "bonusType": "Reaper",
+          "source": "[F] Epic 2: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 4: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 6: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 8: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Ocean Stance: Saves",
+          "bonusType": "Feat",
+          "value": 5,
+          "target": "All"
+        },
+        {
+          "source": "[G] Helmet: Legendary Dread Stalker's Skullcap (ParryingNumber)",
+          "bonusType": "Insightful",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Chronoscope",
+          "bonusType": "Guild",
+          "value": 3,
+          "target": "Reflex"
+        },
+        {
+          "source": "[PL] Past Life: Tiefling Scoundrel ×3",
+          "bonusType": "Stacking",
           "value": 3,
           "target": "Reflex"
         },
@@ -945,6 +958,18 @@
           "bonusType": "Reaper",
           "value": 1,
           "target": "All"
+        },
+        {
+          "source": "[R] Grim Barricade: Reaper's Defense IV",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[R] Grim Barricade: Reaper's Reflex/Fortitude/Will I → Reflex Save",
+          "bonusType": "Reaper",
+          "value": 3,
+          "target": "Reflex"
         },
         {
           "source": "[R] Grim Barricade: Reaper's Reflex/Fortitude/Will II → Reflex Save",
@@ -959,40 +984,15 @@
           "target": "Reflex"
         },
         {
-          "source": "[R] Grim Barricade: Reaper's Defense IV",
-          "bonusType": "Reaper",
-          "value": 1,
-          "target": "All"
-        },
-        {
           "source": "[R] Grim Barricade: Reaper's Reflex/Fortitude/Will V → Reflex Save",
           "bonusType": "Reaper",
           "value": 3,
           "target": "Reflex"
         },
         {
-          "source": "[G] Helmet: Legendary Dread Stalker's Skullcap (ParryingNumber)",
-          "bonusType": "Insightful",
-          "value": 6,
-          "target": "All"
-        },
-        {
-          "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Sapphire of Greater Heroism",
-          "bonusType": "Morale",
-          "value": 4,
-          "target": "All"
-        },
-        {
-          "source": "[Guild] Chronoscope",
-          "bonusType": "Guild",
-          "value": 3,
-          "target": "Reflex"
-        },
-        {
-          "source": "[PL] Past Life: Tiefling Scoundrel ×3",
-          "bonusType": "Stacking",
-          "value": 3,
-          "target": "Reflex"
+          "source": "class save progression + ability mod",
+          "bonusType": "(untyped)",
+          "value": 18
         }
       ]
     },
@@ -1002,54 +1002,25 @@
       "dominatedCount": 2,
       "sources": [
         {
-          "source": "class save progression + ability mod",
-          "bonusType": "(untyped)",
-          "value": 25
-        },
-        {
-          "source": "Epic 2: Epic Saves",
-          "bonusType": "Feat",
-          "value": 1,
+          "source": "[A] Belt: Ophael's Cincture → Sapphire of Resistance",
+          "bonusType": "Resistance",
+          "value": 11,
           "target": "All"
         },
         {
-          "source": "Epic 4: Epic Saves",
-          "bonusType": "Feat",
-          "value": 1,
+          "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
           "target": "All"
         },
         {
-          "source": "Epic 6: Epic Saves",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 8: Epic Saves",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 10: Epic Saves",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Ocean Stance: Saves (4× sources)",
-          "bonusType": "Feat",
-          "value": 5,
-          "target": "All"
-        },
-        {
-          "source": "[E] Shintao: Shintao: Protection from Tainted Creatures",
+          "source": "[E] Shintao: Shintao: Argent Fist",
           "bonusType": "Enhancement",
           "value": 1,
           "target": "All"
         },
         {
-          "source": "[E] Shintao: Shintao: Argent Fist",
+          "source": "[E] Shintao: Shintao: Protection from Tainted Creatures",
           "bonusType": "Enhancement",
           "value": 1,
           "target": "All"
@@ -1061,10 +1032,58 @@
           "target": "All"
         },
         {
-          "source": "[A] Belt: Ophael's Cincture → Sapphire of Resistance",
-          "bonusType": "Resistance",
-          "value": 11,
+          "source": "[F] Epic 10: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
           "target": "All"
+        },
+        {
+          "source": "[F] Epic 2: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 4: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 6: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 8: Epic Saves",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Ocean Stance: Saves",
+          "bonusType": "Feat",
+          "value": 5,
+          "target": "All"
+        },
+        {
+          "source": "[G] Helmet: Legendary Dread Stalker's Skullcap (ParryingNumber)",
+          "bonusType": "Insightful",
+          "value": 6,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Grandmaster's Dojo",
+          "bonusType": "Guild",
+          "value": 2,
+          "target": "Will"
+        },
+        {
+          "source": "[PL] Past Life: Razorclaw Shifter ×3",
+          "bonusType": "Stacking",
+          "value": 3,
+          "target": "Will"
         },
         {
           "source": "[R] Grim Barricade: Reaper's Defense II",
@@ -1079,28 +1098,9 @@
           "target": "All"
         },
         {
-          "source": "[G] Helmet: Legendary Dread Stalker's Skullcap (ParryingNumber)",
-          "bonusType": "Insightful",
-          "value": 6,
-          "target": "All"
-        },
-        {
-          "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Sapphire of Greater Heroism",
-          "bonusType": "Morale",
-          "value": 4,
-          "target": "All"
-        },
-        {
-          "source": "[Guild] Grandmaster's Dojo",
-          "bonusType": "Guild",
-          "value": 2,
-          "target": "Will"
-        },
-        {
-          "source": "[PL] Past Life: Razorclaw Shifter ×3",
-          "bonusType": "Stacking",
-          "value": 3,
-          "target": "Will"
+          "source": "class save progression + ability mod",
+          "bonusType": "(untyped)",
+          "value": 25
         }
       ]
     }
@@ -1111,165 +1111,19 @@
     "dominatedCount": 0,
     "sources": [
       {
-        "source": "Scion of Arborea",
-        "bonusType": "Feat",
-        "value": 20
-      },
-      {
-        "source": "Monk 1: Unarmed Strike",
-        "bonusType": "Feat",
-        "value": 5
-      },
-      {
-        "source": "Monk 4: Unarmed Strike",
-        "bonusType": "Feat",
-        "value": 5
-      },
-      {
-        "source": "Monk 8: Unarmed Strike",
-        "bonusType": "Feat",
-        "value": 5
-      },
-      {
-        "source": "Monk 12: Unarmed Strike",
-        "bonusType": "Feat",
-        "value": 5
-      },
-      {
-        "source": "Monk 16: Unarmed Strike",
-        "bonusType": "Feat",
-        "value": 5
-      },
-      {
-        "source": "Monk 20: Unarmed Strike",
-        "bonusType": "Feat",
-        "value": 5
-      },
-      {
-        "source": "Epic 1: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Epic 2: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Epic 3: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Epic 4: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Epic 5: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Epic 6: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Epic 7: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Epic 8: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Epic 9: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Epic 10: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Legendary 1: Legendary Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Legendary 2: Legendary Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Legendary 3: Legendary Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Legendary 4: Legendary Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "[E] Aasimar: Aasimar: Ascendant Bond → Fallen",
-        "bonusType": "Determination",
-        "value": 10
-      },
-      {
-        "source": "[E] Henshin Mystic: Henshin Mystic: Riddle of Fire",
-        "bonusType": "Enhancement",
-        "value": 3
-      },
-      {
-        "source": "[E] Henshin Mystic: Henshin Mystic: Ki Bolt",
-        "bonusType": "Enhancement",
-        "value": 3
-      },
-      {
-        "source": "[E] Henshin Mystic: Henshin Mystic: Cauldron of Flame",
-        "bonusType": "Enhancement",
-        "value": 3
-      },
-      {
-        "source": "[E] Henshin Mystic: Henshin Mystic: Incinerating Wave",
-        "bonusType": "Enhancement",
-        "value": 3
-      },
-      {
-        "source": "[E] Henshin Mystic: Henshin Mystic: Improved Cauldron",
-        "bonusType": "Enhancement",
-        "value": 3
-      },
-      {
-        "source": "[E] Shintao: Shintao: Touch the Void Dragon",
-        "bonusType": "Enhancement",
-        "value": 5
-      },
-      {
-        "source": "[E] Shintao: Shintao: To Seek Perfection",
-        "bonusType": "Enhancement",
-        "value": 15
-      },
-      {
-        "source": "[E] Shintao: Shintao: To Seek Perfection: To Seek Perfection + Meditation of War",
-        "bonusType": "Enhancement",
-        "value": 10
-      },
-      {
         "source": "[A] Goggles: Legendary Goggles of the Berserker → Topaz of Melee Power",
         "bonusType": "Enhancement",
         "value": 10
       },
       {
-        "source": "[E] Henshin Mystic: Henshin Mystic: Focus",
-        "bonusType": "Exceptional",
-        "value": 5,
-        "target": "All"
+        "source": "[A] Necklace: Legendary Pendant of Crippling Strikes → Lunar Gem of Melee Power (Legendary)",
+        "bonusType": "Profane",
+        "value": 15
+      },
+      {
+        "source": "[D] Fury of the Wild: Fury of the Wild: Be the Whirlwind",
+        "bonusType": "Destiny",
+        "value": 5
       },
       {
         "source": "[D] Fury of the Wild: Fury of the Wild: Die Hard",
@@ -1287,7 +1141,27 @@
         "value": 5
       },
       {
-        "source": "[D] Fury of the Wild: Fury of the Wild: Be the Whirlwind",
+        "source": "[D] Legendary Dreadnought: Legendary Dreadnought: Fearless",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Legendary Dreadnought: Legendary Dreadnought: Thick Skinned",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Legendary Dreadnought: Legendary Dreadnought: Unparalleled Accuracy",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Legendary Dreadnought: Legendary Dreadnought: Weaponmaster",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Cut to the Soul",
         "bonusType": "Destiny",
         "value": 5
       },
@@ -1307,29 +1181,280 @@
         "value": 5
       },
       {
-        "source": "[D] Shadowdancer: Shadowdancer: Cut to the Soul",
-        "bonusType": "Destiny",
+        "source": "[E] Aasimar: Aasimar: Ascendant Bond → Fallen",
+        "bonusType": "Determination",
+        "value": 10
+      },
+      {
+        "source": "[E] Henshin Mystic: Henshin Mystic: Cauldron of Flame",
+        "bonusType": "Enhancement",
+        "value": 3
+      },
+      {
+        "source": "[E] Henshin Mystic: Henshin Mystic: Focus",
+        "bonusType": "Exceptional",
+        "value": 5,
+        "target": "All"
+      },
+      {
+        "source": "[E] Henshin Mystic: Henshin Mystic: Improved Cauldron",
+        "bonusType": "Enhancement",
+        "value": 3
+      },
+      {
+        "source": "[E] Henshin Mystic: Henshin Mystic: Incinerating Wave",
+        "bonusType": "Enhancement",
+        "value": 3
+      },
+      {
+        "source": "[E] Henshin Mystic: Henshin Mystic: Ki Bolt",
+        "bonusType": "Enhancement",
+        "value": 3
+      },
+      {
+        "source": "[E] Henshin Mystic: Henshin Mystic: Riddle of Fire",
+        "bonusType": "Enhancement",
+        "value": 3
+      },
+      {
+        "source": "[E] Shintao: Shintao: To Seek Perfection",
+        "bonusType": "Enhancement",
+        "value": 15
+      },
+      {
+        "source": "[E] Shintao: Shintao: To Seek Perfection: To Seek Perfection + Meditation of War",
+        "bonusType": "Enhancement",
+        "value": 10
+      },
+      {
+        "source": "[E] Shintao: Shintao: Touch the Void Dragon",
+        "bonusType": "Enhancement",
         "value": 5
       },
       {
-        "source": "[D] Legendary Dreadnought: Legendary Dreadnought: Fearless",
-        "bonusType": "Destiny",
+        "source": "[F] Dreadbringer: +1 Tactics DC (rare): Dreadbringer: Tactics DC: Melee Power",
+        "bonusType": "Stacking",
+        "value": 2
+      },
+      {
+        "source": "[F] Dreadbringer: +3 Melee Power",
+        "bonusType": "Stacking",
+        "value": 3
+      },
+      {
+        "source": "[F] Dreadbringer: +3 Melee Power (rare): Dreadbringer: Melee Power: Melee Power",
+        "bonusType": "Stacking",
+        "value": 2
+      },
+      {
+        "source": "[F] Epic 1: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Epic 10: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Epic 2: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Epic 3: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Epic 4: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Epic 5: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Epic 6: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Epic 7: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Epic 8: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Epic 9: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Legendary 1: Legendary Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Legendary 2: Legendary Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Legendary 3: Legendary Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Legendary 4: Legendary Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Monk 1: Unarmed Strike",
+        "bonusType": "Feat",
         "value": 5
       },
       {
-        "source": "[D] Legendary Dreadnought: Legendary Dreadnought: Weaponmaster",
-        "bonusType": "Destiny",
+        "source": "[F] Monk 12: Unarmed Strike",
+        "bonusType": "Feat",
         "value": 5
       },
       {
-        "source": "[D] Legendary Dreadnought: Legendary Dreadnought: Thick Skinned",
-        "bonusType": "Destiny",
+        "source": "[F] Monk 16: Unarmed Strike",
+        "bonusType": "Feat",
         "value": 5
       },
       {
-        "source": "[D] Legendary Dreadnought: Legendary Dreadnought: Unparalleled Accuracy",
-        "bonusType": "Destiny",
+        "source": "[F] Monk 20: Unarmed Strike",
+        "bonusType": "Feat",
         "value": 5
+      },
+      {
+        "source": "[F] Monk 4: Unarmed Strike",
+        "bonusType": "Feat",
+        "value": 5
+      },
+      {
+        "source": "[F] Monk 8: Unarmed Strike",
+        "bonusType": "Feat",
+        "value": 5
+      },
+      {
+        "source": "[F] Scion of Arborea",
+        "bonusType": "Feat",
+        "value": 20
+      },
+      {
+        "source": "[F] Shattered Device: +3 Melee Power",
+        "bonusType": "Stacking",
+        "value": 3
+      },
+      {
+        "source": "[F] Shattered Device: +3 Melee Power (rare): Shattered Device: Melee Power: Rare +2 Melee Power",
+        "bonusType": "Stacking",
+        "value": 2
+      },
+      {
+        "source": "[F] Sucker Punch/One Against Many +2 Strength (rare): Sucker Punch/One Against Many: +2 Strength: Rare +4 Melee Power",
+        "bonusType": "Stacking",
+        "value": 4
+      },
+      {
+        "source": "[F] The Long Shadow: +3 Melee Power",
+        "bonusType": "Stacking",
+        "value": 3
+      },
+      {
+        "source": "[F] The Long Shadow: +3 Melee Power (rare): The Long Shadow: Melee Power: Rare +2 Melee Power",
+        "bonusType": "Stacking",
+        "value": 2
+      },
+      {
+        "source": "[F] Treachery: +3 Melee Power",
+        "bonusType": "Stacking",
+        "value": 3
+      },
+      {
+        "source": "[F] Treachery: +3 Melee Power (rare): Treachery: Melee Power: Rare +2 Melee Power",
+        "bonusType": "Stacking",
+        "value": 2
+      },
+      {
+        "source": "[FA] Dreadbringer: +1 Tactics DC (rare): Dreadbringer: Tactics DC: Melee Power",
+        "bonusType": "Stacking",
+        "value": 2
+      },
+      {
+        "source": "[FA] Dreadbringer: +3 Melee Power",
+        "bonusType": "Stacking",
+        "value": 3
+      },
+      {
+        "source": "[FA] Dreadbringer: +3 Melee Power (rare): Dreadbringer: Melee Power: Melee Power",
+        "bonusType": "Stacking",
+        "value": 2
+      },
+      {
+        "source": "[FA] Sucker Punch/One Against Many +2 Strength (rare): Sucker Punch/One Against Many: +2 Strength: Rare +4 Melee Power",
+        "bonusType": "Stacking",
+        "value": 4
+      },
+      {
+        "source": "[FA] The Long Shadow: +3 Melee Power",
+        "bonusType": "Stacking",
+        "value": 3
+      },
+      {
+        "source": "[FA] The Long Shadow: +3 Melee Power (rare): The Long Shadow: Melee Power: Rare +2 Melee Power",
+        "bonusType": "Stacking",
+        "value": 2
+      },
+      {
+        "source": "[FA] Treachery: +3 Melee Power",
+        "bonusType": "Stacking",
+        "value": 3
+      },
+      {
+        "source": "[FA] Treachery: +3 Melee Power (rare): Treachery: Melee Power: Rare +2 Melee Power",
+        "bonusType": "Stacking",
+        "value": 2
+      },
+      {
+        "source": "[FS] Dreadbringer (4-piece tier ≥ 2)",
+        "bonusType": "Stacking",
+        "value": 5
+      },
+      {
+        "source": "[FS] Dreadbringer (4-piece tier ≥ 4)",
+        "bonusType": "Stacking",
+        "value": 10
+      },
+      {
+        "source": "[FS] Sucker Punch (2-piece tier ≥ 2)",
+        "bonusType": "Stacking",
+        "value": 5
+      },
+      {
+        "source": "[FS] The Long Shadow (2-piece tier ≥ 2)",
+        "bonusType": "Stacking",
+        "value": 5
+      },
+      {
+        "source": "[FS] Treachery (4-piece tier ≥ 2)",
+        "bonusType": "Stacking",
+        "value": 5
+      },
+      {
+        "source": "[PL] Inherent Melee Power ×4",
+        "bonusType": "Inherent",
+        "value": 4
       },
       {
         "source": "[R] Dread Adversary: Reaper's Blade I",
@@ -1352,14 +1477,14 @@
         "value": 3
       },
       {
-        "source": "[R] Dread Adversary: Reaper's Offense V",
-        "bonusType": "Reaper",
-        "value": 1
-      },
-      {
         "source": "[R] Dread Adversary: Reaper's Blade V",
         "bonusType": "Reaper",
         "value": 3
+      },
+      {
+        "source": "[R] Dread Adversary: Reaper's Offense V",
+        "bonusType": "Reaper",
+        "value": 1
       },
       {
         "source": "[R] Dread Adversary: Reaper's Offense VI",
@@ -1370,131 +1495,6 @@
         "source": "[S] Dread Stalker (3-piece tier ≥ 3)",
         "bonusType": "Artifact",
         "value": 15
-      },
-      {
-        "source": "[A] Necklace: Legendary Pendant of Crippling Strikes → Lunar Gem of Melee Power (Legendary)",
-        "bonusType": "Profane",
-        "value": 15
-      },
-      {
-        "source": "[F] Sucker Punch/One Against Many +2 Strength (rare): Sucker Punch/One Against Many: +2 Strength: Rare +4 Melee Power",
-        "bonusType": "Stacking",
-        "value": 4
-      },
-      {
-        "source": "[F] Dreadbringer: +3 Melee Power",
-        "bonusType": "Stacking",
-        "value": 3
-      },
-      {
-        "source": "[F] Dreadbringer: +3 Melee Power (rare): Dreadbringer: Melee Power: Melee Power",
-        "bonusType": "Stacking",
-        "value": 2
-      },
-      {
-        "source": "[F] Dreadbringer: +1 Tactics DC (rare): Dreadbringer: Tactics DC: Melee Power",
-        "bonusType": "Stacking",
-        "value": 2
-      },
-      {
-        "source": "[F] The Long Shadow: +3 Melee Power",
-        "bonusType": "Stacking",
-        "value": 3
-      },
-      {
-        "source": "[F] The Long Shadow: +3 Melee Power (rare): The Long Shadow: Melee Power: Rare +2 Melee Power",
-        "bonusType": "Stacking",
-        "value": 2
-      },
-      {
-        "source": "[F] Shattered Device: +3 Melee Power",
-        "bonusType": "Stacking",
-        "value": 3
-      },
-      {
-        "source": "[F] Shattered Device: +3 Melee Power (rare): Shattered Device: Melee Power: Rare +2 Melee Power",
-        "bonusType": "Stacking",
-        "value": 2
-      },
-      {
-        "source": "[F] Treachery: +3 Melee Power",
-        "bonusType": "Stacking",
-        "value": 3
-      },
-      {
-        "source": "[F] Treachery: +3 Melee Power (rare): Treachery: Melee Power: Rare +2 Melee Power",
-        "bonusType": "Stacking",
-        "value": 2
-      },
-      {
-        "source": "[FA] Treachery: +3 Melee Power",
-        "bonusType": "Stacking",
-        "value": 3
-      },
-      {
-        "source": "[FA] Treachery: +3 Melee Power (rare): Treachery: Melee Power: Rare +2 Melee Power",
-        "bonusType": "Stacking",
-        "value": 2
-      },
-      {
-        "source": "[FA] The Long Shadow: +3 Melee Power",
-        "bonusType": "Stacking",
-        "value": 3
-      },
-      {
-        "source": "[FA] The Long Shadow: +3 Melee Power (rare): The Long Shadow: Melee Power: Rare +2 Melee Power",
-        "bonusType": "Stacking",
-        "value": 2
-      },
-      {
-        "source": "[FA] Sucker Punch/One Against Many +2 Strength (rare): Sucker Punch/One Against Many: +2 Strength: Rare +4 Melee Power",
-        "bonusType": "Stacking",
-        "value": 4
-      },
-      {
-        "source": "[FA] Dreadbringer: +3 Melee Power",
-        "bonusType": "Stacking",
-        "value": 3
-      },
-      {
-        "source": "[FA] Dreadbringer: +3 Melee Power (rare): Dreadbringer: Melee Power: Melee Power",
-        "bonusType": "Stacking",
-        "value": 2
-      },
-      {
-        "source": "[FA] Dreadbringer: +1 Tactics DC (rare): Dreadbringer: Tactics DC: Melee Power",
-        "bonusType": "Stacking",
-        "value": 2
-      },
-      {
-        "source": "[FS] Sucker Punch (2-piece tier ≥ 2)",
-        "bonusType": "Stacking",
-        "value": 5
-      },
-      {
-        "source": "[FS] Dreadbringer (4-piece tier ≥ 2)",
-        "bonusType": "Stacking",
-        "value": 5
-      },
-      {
-        "source": "[FS] Dreadbringer (4-piece tier ≥ 4)",
-        "bonusType": "Stacking",
-        "value": 10
-      },
-      {
-        "source": "[FS] The Long Shadow (2-piece tier ≥ 2)",
-        "bonusType": "Stacking",
-        "value": 5
-      },
-      {
-        "source": "[FS] Treachery (4-piece tier ≥ 2)",
-        "bonusType": "Stacking",
-        "value": 5
-      },
-      {
-        "source": "[PL] Inherent Melee Power ×4",
-        "bonusType": "Inherent",
-        "value": 4
       }
     ]
   },
@@ -1504,95 +1504,9 @@
     "dominatedCount": 0,
     "sources": [
       {
-        "source": "Scion of Arborea",
-        "bonusType": "Feat",
-        "value": 20
-      },
-      {
-        "source": "Epic 1: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Epic 2: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Epic 3: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Epic 4: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Epic 5: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Epic 6: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Epic 7: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Epic 8: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Epic 9: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Epic 10: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Legendary 1: Legendary Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Legendary 2: Legendary Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Legendary 3: Legendary Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Legendary 4: Legendary Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "[E] Aasimar: Aasimar: Ascendant Bond → Fallen",
-        "bonusType": "Determination",
-        "value": 10
-      },
-      {
-        "source": "[E] Henshin Mystic: Henshin Mystic: Focus",
-        "bonusType": "Exceptional",
-        "value": 5,
-        "target": "All"
-      },
-      {
-        "source": "[E] Shintao: Shintao: To Seek Perfection: To Seek Perfection + Meditation of War",
-        "bonusType": "Enhancement",
-        "value": 10
+        "source": "[D] Fury of the Wild: Fury of the Wild: Be the Whirlwind",
+        "bonusType": "Destiny",
+        "value": 5
       },
       {
         "source": "[D] Fury of the Wild: Fury of the Wild: Die Hard",
@@ -1610,7 +1524,27 @@
         "value": 5
       },
       {
-        "source": "[D] Fury of the Wild: Fury of the Wild: Be the Whirlwind",
+        "source": "[D] Legendary Dreadnought: Legendary Dreadnought: Fearless",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Legendary Dreadnought: Legendary Dreadnought: Thick Skinned",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Legendary Dreadnought: Legendary Dreadnought: Unparalleled Accuracy",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Legendary Dreadnought: Legendary Dreadnought: Weaponmaster",
+        "bonusType": "Destiny",
+        "value": 5
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Cut to the Soul",
         "bonusType": "Destiny",
         "value": 5
       },
@@ -1630,69 +1564,95 @@
         "value": 5
       },
       {
-        "source": "[D] Shadowdancer: Shadowdancer: Cut to the Soul",
-        "bonusType": "Destiny",
-        "value": 5
+        "source": "[E] Aasimar: Aasimar: Ascendant Bond → Fallen",
+        "bonusType": "Determination",
+        "value": 10
       },
       {
-        "source": "[D] Legendary Dreadnought: Legendary Dreadnought: Fearless",
-        "bonusType": "Destiny",
-        "value": 5
+        "source": "[E] Henshin Mystic: Henshin Mystic: Focus",
+        "bonusType": "Exceptional",
+        "value": 5,
+        "target": "All"
       },
       {
-        "source": "[D] Legendary Dreadnought: Legendary Dreadnought: Weaponmaster",
-        "bonusType": "Destiny",
-        "value": 5
+        "source": "[E] Shintao: Shintao: To Seek Perfection: To Seek Perfection + Meditation of War",
+        "bonusType": "Enhancement",
+        "value": 10
       },
       {
-        "source": "[D] Legendary Dreadnought: Legendary Dreadnought: Thick Skinned",
-        "bonusType": "Destiny",
-        "value": 5
+        "source": "[F] Epic 1: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
       },
       {
-        "source": "[D] Legendary Dreadnought: Legendary Dreadnought: Unparalleled Accuracy",
-        "bonusType": "Destiny",
-        "value": 5
+        "source": "[F] Epic 10: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
       },
       {
-        "source": "[R] Dread Adversary: Reaper's Shot I",
-        "bonusType": "Reaper",
-        "value": 3
+        "source": "[F] Epic 2: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
       },
       {
-        "source": "[R] Dread Adversary: Reaper's Shot II",
-        "bonusType": "Reaper",
-        "value": 3
+        "source": "[F] Epic 3: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
       },
       {
-        "source": "[R] Dread Adversary: Reaper's Shot III",
-        "bonusType": "Reaper",
-        "value": 3
+        "source": "[F] Epic 4: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
       },
       {
-        "source": "[R] Dread Adversary: Reaper's Shot IV",
-        "bonusType": "Reaper",
-        "value": 3
+        "source": "[F] Epic 5: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
       },
       {
-        "source": "[R] Dread Adversary: Reaper's Offense V",
-        "bonusType": "Reaper",
-        "value": 1
+        "source": "[F] Epic 6: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
       },
       {
-        "source": "[R] Dread Adversary: Reaper's Shot V",
-        "bonusType": "Reaper",
-        "value": 3
+        "source": "[F] Epic 7: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
       },
       {
-        "source": "[R] Dread Adversary: Reaper's Offense VI",
-        "bonusType": "Reaper",
-        "value": 2
+        "source": "[F] Epic 8: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
       },
       {
-        "source": "[S] Dread Stalker (3-piece tier ≥ 3)",
-        "bonusType": "Artifact",
-        "value": 15
+        "source": "[F] Epic 9: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Legendary 1: Legendary Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Legendary 2: Legendary Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Legendary 3: Legendary Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Legendary 4: Legendary Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Scion of Arborea",
+        "bonusType": "Feat",
+        "value": 20
       },
       {
         "source": "[FS] Dreadbringer (4-piece tier ≥ 2)",
@@ -1718,6 +1678,46 @@
         "source": "[PL] Inherent Ranged Power ×4",
         "bonusType": "Inherent",
         "value": 4
+      },
+      {
+        "source": "[R] Dread Adversary: Reaper's Offense V",
+        "bonusType": "Reaper",
+        "value": 1
+      },
+      {
+        "source": "[R] Dread Adversary: Reaper's Offense VI",
+        "bonusType": "Reaper",
+        "value": 2
+      },
+      {
+        "source": "[R] Dread Adversary: Reaper's Shot I",
+        "bonusType": "Reaper",
+        "value": 3
+      },
+      {
+        "source": "[R] Dread Adversary: Reaper's Shot II",
+        "bonusType": "Reaper",
+        "value": 3
+      },
+      {
+        "source": "[R] Dread Adversary: Reaper's Shot III",
+        "bonusType": "Reaper",
+        "value": 3
+      },
+      {
+        "source": "[R] Dread Adversary: Reaper's Shot IV",
+        "bonusType": "Reaper",
+        "value": 3
+      },
+      {
+        "source": "[R] Dread Adversary: Reaper's Shot V",
+        "bonusType": "Reaper",
+        "value": 3
+      },
+      {
+        "source": "[S] Dread Stalker (3-piece tier ≥ 3)",
+        "bonusType": "Artifact",
+        "value": 15
       }
     ]
   },
@@ -1727,8 +1727,23 @@
     "dominatedCount": 0,
     "sources": [
       {
-        "source": "Doublestrike",
-        "bonusType": "Feat",
+        "source": "[A] Belt: Ophael's Cincture → Legendary Swordcrossed Topaz",
+        "bonusType": "Enhancement",
+        "value": 15
+      },
+      {
+        "source": "[D] Fury of the Wild: Fury of the Wild: Wilder Weapons → Wilder Weapons - Doublestrike",
+        "bonusType": "Destiny",
+        "value": 4
+      },
+      {
+        "source": "[D] Legendary Dreadnought: Legendary Dreadnought: Strike Twice",
+        "bonusType": "Destiny",
+        "value": 6
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Shadowcaster → Shadowstriker",
+        "bonusType": "Destiny",
         "value": 5
       },
       {
@@ -1737,29 +1752,19 @@
         "value": 3
       },
       {
-        "source": "[A] Belt: Ophael's Cincture → Legendary Swordcrossed Topaz",
-        "bonusType": "Enhancement",
-        "value": 15
-      },
-      {
         "source": "[E] Shintao: Shintao: Quick Strike",
         "bonusType": "Morale",
         "value": 25
       },
       {
-        "source": "[D] Fury of the Wild: Fury of the Wild: Wilder Weapons → Wilder Weapons - Doublestrike",
-        "bonusType": "Destiny",
-        "value": 4
-      },
-      {
-        "source": "[D] Shadowdancer: Shadowdancer: Shadowcaster → Shadowstriker",
-        "bonusType": "Destiny",
+        "source": "[F] Doublestrike",
+        "bonusType": "Feat",
         "value": 5
       },
       {
-        "source": "[D] Legendary Dreadnought: Legendary Dreadnought: Strike Twice",
-        "bonusType": "Destiny",
-        "value": 6
+        "source": "[FS] Shattered Device (3-piece tier ≥ 3)",
+        "bonusType": "Stacking",
+        "value": 3
       },
       {
         "source": "[G] Ring2: The Autumn Equinox (Doublestrike)",
@@ -1767,19 +1772,14 @@
         "value": 8
       },
       {
-        "source": "[S] Dread Stalker (3-piece tier ≥ 3)",
-        "bonusType": "Artifact",
-        "value": 15
-      },
-      {
         "source": "[PL] Past Life: Aasimar Scourge ×3",
         "bonusType": "Stacking",
         "value": 6
       },
       {
-        "source": "[FS] Shattered Device (3-piece tier ≥ 3)",
-        "bonusType": "Stacking",
-        "value": 3
+        "source": "[S] Dread Stalker (3-piece tier ≥ 3)",
+        "bonusType": "Artifact",
+        "value": 15
       }
     ]
   },
@@ -1789,24 +1789,14 @@
     "dominatedCount": 0,
     "sources": [
       {
-        "source": "[D] Shadowdancer: Shadowdancer: Shadowcaster → Shadowstriker",
-        "bonusType": "Destiny",
-        "value": 5
-      },
-      {
         "source": "[D] Legendary Dreadnought: Legendary Dreadnought: Strike Twice",
         "bonusType": "Destiny",
         "value": 6
       },
       {
-        "source": "[G] Ring2: The Autumn Equinox (Doubleshot)",
-        "bonusType": "Insightful",
+        "source": "[D] Shadowdancer: Shadowdancer: Shadowcaster → Shadowstriker",
+        "bonusType": "Destiny",
         "value": 5
-      },
-      {
-        "source": "[S] Dread Stalker (3-piece tier ≥ 3)",
-        "bonusType": "Artifact",
-        "value": 15
       },
       {
         "source": "[FS] Shattered Device (3-piece tier ≥ 3)",
@@ -1814,9 +1804,19 @@
         "value": 3
       },
       {
+        "source": "[G] Ring2: The Autumn Equinox (Doubleshot)",
+        "bonusType": "Insightful",
+        "value": 5
+      },
+      {
         "source": "[Guild] Archery Range",
         "bonusType": "Guild",
         "value": 2
+      },
+      {
+        "source": "[S] Dread Stalker (3-piece tier ≥ 3)",
+        "bonusType": "Artifact",
+        "value": 15
       }
     ]
   },
@@ -1826,12 +1826,17 @@
     "dominatedCount": 0,
     "sources": [
       {
-        "source": "[E] Ninja Spy: Ninja Spy: Sneak Attack Training I",
-        "bonusType": "Enhancement",
+        "source": "[A] Armor: Dinosaur Bone Outfit → Goldfang",
+        "bonusType": "Profane",
+        "value": 2
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Bring Darkness",
+        "bonusType": "Destiny",
         "value": 1
       },
       {
-        "source": "[D] Shadowdancer: Shadowdancer: Shadow Training",
+        "source": "[D] Shadowdancer: Shadowdancer: Cut to the Soul",
         "bonusType": "Destiny",
         "value": 1
       },
@@ -1839,6 +1844,11 @@
         "source": "[D] Shadowdancer: Shadowdancer: Dance in the Dark",
         "bonusType": "Destiny",
         "value": 3
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Shadow Training",
+        "bonusType": "Destiny",
+        "value": 1
       },
       {
         "source": "[D] Shadowdancer: Shadowdancer: Step Through Shadows",
@@ -1851,29 +1861,19 @@
         "value": 1
       },
       {
-        "source": "[D] Shadowdancer: Shadowdancer: Cut to the Soul",
-        "bonusType": "Destiny",
+        "source": "[E] Ninja Spy: Ninja Spy: Sneak Attack Training I",
+        "bonusType": "Enhancement",
         "value": 1
       },
       {
-        "source": "[D] Shadowdancer: Shadowdancer: Bring Darkness",
-        "bonusType": "Destiny",
+        "source": "[FS] Treachery (4-piece tier ≥ 3)",
+        "bonusType": "Stacking",
         "value": 1
       },
       {
         "source": "[S] Dread Stalker (3-piece tier ≥ 3)",
         "bonusType": "Artifact",
         "value": 3
-      },
-      {
-        "source": "[A] Armor: Dinosaur Bone Outfit → Goldfang",
-        "bonusType": "Profane",
-        "value": 2
-      },
-      {
-        "source": "[FS] Treachery (4-piece tier ≥ 3)",
-        "bonusType": "Stacking",
-        "value": 1
       }
     ]
   },
@@ -1883,27 +1883,17 @@
     "dominatedCount": 0,
     "sources": [
       {
-        "source": "Scion of Arborea",
+        "source": "[A] Bracers: Bracers of the Battlerager → Emerald of Arcane Empowerment",
         "bonusType": "Enhancement",
         "value": 1
       },
       {
-        "source": "[E] Henshin Mystic: Henshin Mystic: Riddle of Fire",
-        "bonusType": "Enhancement",
-        "value": 1
-      },
-      {
-        "source": "[E] Henshin Mystic: Henshin Mystic: Ki Bolt",
-        "bonusType": "Enhancement",
+        "source": "[D] Legendary Dreadnought: Legendary Dreadnought: Esoteric Touch",
+        "bonusType": "Destiny",
         "value": 1
       },
       {
         "source": "[E] Henshin Mystic: Henshin Mystic: Cauldron of Flame",
-        "bonusType": "Enhancement",
-        "value": 1
-      },
-      {
-        "source": "[E] Henshin Mystic: Henshin Mystic: Incinerating Wave",
         "bonusType": "Enhancement",
         "value": 1
       },
@@ -1913,18 +1903,28 @@
         "value": 1
       },
       {
-        "source": "[A] Bracers: Bracers of the Battlerager → Emerald of Arcane Empowerment",
+        "source": "[E] Henshin Mystic: Henshin Mystic: Incinerating Wave",
         "bonusType": "Enhancement",
         "value": 1
       },
       {
-        "source": "Embodiment of Law",
+        "source": "[E] Henshin Mystic: Henshin Mystic: Ki Bolt",
+        "bonusType": "Enhancement",
+        "value": 1
+      },
+      {
+        "source": "[E] Henshin Mystic: Henshin Mystic: Riddle of Fire",
+        "bonusType": "Enhancement",
+        "value": 1
+      },
+      {
+        "source": "[F] Embodiment of Law",
         "bonusType": "Feat",
         "value": 2
       },
       {
-        "source": "[D] Legendary Dreadnought: Legendary Dreadnought: Esoteric Touch",
-        "bonusType": "Destiny",
+        "source": "[F] Scion of Arborea",
+        "bonusType": "Enhancement",
         "value": 1
       },
       {
@@ -1940,16 +1940,16 @@
     "dominatedCount": 8,
     "sources": [
       {
-        "source": "[E] Henshin Mystic: Henshin Mystic: Exemplar",
-        "bonusType": "Enchantment",
-        "value": 5,
-        "target": "Quarterstaff"
-      },
-      {
         "source": "[A] Bracers: Bracers of the Battlerager → Topaz of Swiftness",
         "bonusType": "Enhancement",
         "value": 30,
         "target": "All"
+      },
+      {
+        "source": "[E] Henshin Mystic: Henshin Mystic: Exemplar",
+        "bonusType": "Enchantment",
+        "value": 5,
+        "target": "Quarterstaff"
       }
     ]
   },
@@ -1959,16 +1959,16 @@
     "dominatedCount": 8,
     "sources": [
       {
-        "source": "[E] Henshin Mystic: Henshin Mystic: Exemplar",
-        "bonusType": "Enchantment",
-        "value": 5,
-        "target": "Quarterstaff"
-      },
-      {
         "source": "[A] Bracers: Bracers of the Battlerager → Topaz of Swiftness",
         "bonusType": "Enhancement",
         "value": 30,
         "target": "All"
+      },
+      {
+        "source": "[E] Henshin Mystic: Henshin Mystic: Exemplar",
+        "bonusType": "Enchantment",
+        "value": 5,
+        "target": "Quarterstaff"
       }
     ]
   },
@@ -1993,12 +1993,12 @@
         "value": 20
       },
       {
-        "source": "[E] Shintao: Shintao: Bastion of Purity",
+        "source": "[E] Shintao: Shintao: Argent Fist",
         "bonusType": "Enhancement",
         "value": 10
       },
       {
-        "source": "[E] Shintao: Shintao: Protection from Tainted Creatures",
+        "source": "[E] Shintao: Shintao: Bastion of Purity",
         "bonusType": "Enhancement",
         "value": 10
       },
@@ -2008,12 +2008,7 @@
         "value": 10
       },
       {
-        "source": "[E] Shintao: Shintao: Argent Fist",
-        "bonusType": "Enhancement",
-        "value": 10
-      },
-      {
-        "source": "[E] Shintao: Shintao: Touch the Void Dragon",
+        "source": "[E] Shintao: Shintao: Protection from Tainted Creatures",
         "bonusType": "Enhancement",
         "value": 10
       },
@@ -2023,14 +2018,14 @@
         "value": 10
       },
       {
+        "source": "[E] Shintao: Shintao: Touch the Void Dragon",
+        "bonusType": "Enhancement",
+        "value": 10
+      },
+      {
         "source": "[Guild] Bath House",
         "bonusType": "Guild",
         "value": 20
-      },
-      {
-        "source": "[PL] Past Life: Paladin ×3",
-        "bonusType": "Stacking",
-        "value": 30
       },
       {
         "source": "[PL] Past Life: Divine Sphere: Ancient Blessings ×3",
@@ -2041,6 +2036,11 @@
         "source": "[PL] Past Life: Paladin - Sacred Fist ×3",
         "bonusType": "Stacking",
         "value": 15
+      },
+      {
+        "source": "[PL] Past Life: Paladin ×3",
+        "bonusType": "Stacking",
+        "value": 30
       }
     ]
   },
@@ -2055,12 +2055,12 @@
         "value": 57
       },
       {
-        "source": "[PL] Past Life: Divine Sphere: Ancient Blessings ×3",
+        "source": "[PL] Past Life: Cleric - Dark Apostate ×3",
         "bonusType": "Stacking",
         "value": 15
       },
       {
-        "source": "[PL] Past Life: Cleric - Dark Apostate ×3",
+        "source": "[PL] Past Life: Divine Sphere: Ancient Blessings ×3",
         "bonusType": "Stacking",
         "value": 15
       }
@@ -2084,22 +2084,17 @@
     "dominatedCount": 0,
     "sources": [
       {
-        "source": "Monk 1: AC Bonus (Monk)",
-        "bonusType": "Feat",
-        "value": 12
+        "source": "[D] Shadowdancer: Shadowdancer: Lithe",
+        "bonusType": "Destiny",
+        "value": 2
       },
       {
-        "source": "Attack: Base AC",
-        "bonusType": "Base",
-        "value": 10
-      },
-      {
-        "source": "[E] Shintao: Shintao: Protection from Tainted Creatures",
+        "source": "[E] Shintao: Shintao: Argent Fist",
         "bonusType": "Enhancement",
         "value": 1
       },
       {
-        "source": "[E] Shintao: Shintao: Argent Fist",
+        "source": "[E] Shintao: Shintao: Protection from Tainted Creatures",
         "bonusType": "Enhancement",
         "value": 1
       },
@@ -2109,9 +2104,19 @@
         "value": 1
       },
       {
-        "source": "[D] Shadowdancer: Shadowdancer: Lithe",
-        "bonusType": "Destiny",
-        "value": 2
+        "source": "[F] Attack: Base AC",
+        "bonusType": "Base",
+        "value": 10
+      },
+      {
+        "source": "[F] Monk 1: AC Bonus (Monk)",
+        "bonusType": "Feat",
+        "value": 12
+      },
+      {
+        "source": "[G] Gloves: Gauntlets of the Stormreaver (Protection)",
+        "bonusType": "Deflection",
+        "value": 11
       },
       {
         "source": "[G] Helmet: Legendary Dread Stalker's Skullcap (ParryingNumber)",
@@ -2122,11 +2127,6 @@
         "source": "[G] Helmet: Legendary Dread Stalker's Skullcap (Shield)",
         "bonusType": "Shield",
         "value": 14
-      },
-      {
-        "source": "[G] Gloves: Gauntlets of the Stormreaver (Protection)",
-        "bonusType": "Deflection",
-        "value": 11
       },
       {
         "source": "[Guild] Armory",
@@ -2166,29 +2166,9 @@
     "dominatedCount": 0,
     "sources": [
       {
-        "source": "Dodge",
-        "bonusType": "Feat",
-        "value": 3
-      },
-      {
-        "source": "Mobility",
-        "bonusType": "Feat",
-        "value": 2
-      },
-      {
-        "source": "Monk 1: Flurry of Blows",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Monk 1: Flurry of Blows",
-        "bonusType": "Feat",
-        "value": 0
-      },
-      {
-        "source": "Ocean Stance: Dodge (4× sources)",
-        "bonusType": "Feat",
-        "value": 12
+        "source": "[A] Ring2: The Autumn Equinox → Sapphire of Dodge",
+        "bonusType": "Enhancement",
+        "value": 14
       },
       {
         "source": "[E] Ninja Spy: Ninja Spy: Acrobatic",
@@ -2196,9 +2176,39 @@
         "value": 1
       },
       {
-        "source": "[A] Ring2: The Autumn Equinox → Sapphire of Dodge",
-        "bonusType": "Enhancement",
-        "value": 14
+        "source": "[F] Dodge",
+        "bonusType": "Feat",
+        "value": 3
+      },
+      {
+        "source": "[F] Mobility",
+        "bonusType": "Feat",
+        "value": 2
+      },
+      {
+        "source": "[F] Monk 1: Flurry of Blows",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Monk 1: Flurry of Blows",
+        "bonusType": "Feat",
+        "value": 0
+      },
+      {
+        "source": "[F] Ocean Stance: Dodge",
+        "bonusType": "Feat",
+        "value": 12
+      },
+      {
+        "source": "[PL] Past Life: Shadar-Kai ×3",
+        "bonusType": "Stacking",
+        "value": 3
+      },
+      {
+        "source": "[R] Grim Barricade: Reaper's Defense V",
+        "bonusType": "Reaper",
+        "value": 1
       },
       {
         "source": "[R] Grim Barricade: Reaper's Evasion I",
@@ -2214,16 +2224,6 @@
         "source": "[R] Grim Barricade: Reaper's Evasion III",
         "bonusType": "Reaper",
         "value": 3
-      },
-      {
-        "source": "[R] Grim Barricade: Reaper's Defense V",
-        "bonusType": "Reaper",
-        "value": 1
-      },
-      {
-        "source": "[PL] Past Life: Shadar-Kai ×3",
-        "bonusType": "Stacking",
-        "value": 3
       }
     ]
   },
@@ -2233,27 +2233,32 @@
     "dominatedCount": 0,
     "sources": [
       {
-        "source": "Embodiment of Law",
-        "bonusType": "Feat",
-        "value": 3
+        "source": "[A] Armor: Dinosaur Bone Outfit → Claw: +35 Physical Resistance Rating",
+        "bonusType": "Enhancement",
+        "value": 35
       },
       {
-        "source": "[E] Henshin Mystic: Henshin Mystic: Riddle of Fire",
-        "bonusType": "Enhancement",
-        "value": 3
+        "source": "[A] Bracers: Bracers of the Battlerager → Lunar Gem of Physical Protection (Legendary)",
+        "bonusType": "Profane",
+        "value": 30
       },
       {
-        "source": "[E] Henshin Mystic: Henshin Mystic: Ki Bolt",
+        "source": "[A] Goggles: Legendary Goggles of the Berserker → Solar Gem of Physical Resistance Rating (Legendary)",
+        "bonusType": "Artifact",
+        "value": 30
+      },
+      {
+        "source": "[D] Fury of the Wild: Fury of the Wild: Enduring",
         "bonusType": "Enhancement",
-        "value": 3
+        "value": 6
+      },
+      {
+        "source": "[D] Legendary Dreadnought: Legendary Dreadnought: Thick Skinned",
+        "bonusType": "Destiny",
+        "value": 15
       },
       {
         "source": "[E] Henshin Mystic: Henshin Mystic: Cauldron of Flame",
-        "bonusType": "Enhancement",
-        "value": 3
-      },
-      {
-        "source": "[E] Henshin Mystic: Henshin Mystic: Incinerating Wave",
         "bonusType": "Enhancement",
         "value": 3
       },
@@ -2263,24 +2268,84 @@
         "value": 3
       },
       {
+        "source": "[E] Henshin Mystic: Henshin Mystic: Incinerating Wave",
+        "bonusType": "Enhancement",
+        "value": 3
+      },
+      {
+        "source": "[E] Henshin Mystic: Henshin Mystic: Ki Bolt",
+        "bonusType": "Enhancement",
+        "value": 3
+      },
+      {
+        "source": "[E] Henshin Mystic: Henshin Mystic: Riddle of Fire",
+        "bonusType": "Enhancement",
+        "value": 3
+      },
+      {
         "source": "[E] Shintao: Shintao: Iron Skin",
         "bonusType": "Enhancement",
         "value": 20
       },
       {
-        "source": "[D] Fury of the Wild: Fury of the Wild: Enduring",
-        "bonusType": "Enhancement",
-        "value": 6
+        "source": "[F] Embodiment of Law",
+        "bonusType": "Feat",
+        "value": 3
       },
       {
-        "source": "[A] Armor: Dinosaur Bone Outfit → Claw: +35 Physical Resistance Rating",
-        "bonusType": "Enhancement",
-        "value": 35
+        "source": "[F] Shattered Device: +1 Attack and Damage (rare): Shattered Device: Attack and Damage : Rare +2 PRR",
+        "bonusType": "Stacking",
+        "value": 2
       },
       {
-        "source": "[D] Legendary Dreadnought: Legendary Dreadnought: Thick Skinned",
-        "bonusType": "Destiny",
-        "value": 15
+        "source": "[F] Shattered Device: +5% Armor Piercing (rare): Shattered Device: Armor Piercing : Rare +2 PRR",
+        "bonusType": "Stacking",
+        "value": 2
+      },
+      {
+        "source": "[F] Treachery: +2 Critical Attack and Damage (rare): Treachery: Critical Attack and Damage: Rare +2 PRR",
+        "bonusType": "Stacking",
+        "value": 2
+      },
+      {
+        "source": "[F] Treachery: +50% Threat Reduction (rare): Treachery: Threat Reduction: Rare +2 PRR",
+        "bonusType": "Stacking",
+        "value": 2
+      },
+      {
+        "source": "[G] Gloves: Gauntlets of the Stormreaver (Sheltering)",
+        "bonusType": "Insightful",
+        "value": 17
+      },
+      {
+        "source": "[PL] Inherent Physical Resistance ×4",
+        "bonusType": "Inherent",
+        "value": 4
+      },
+      {
+        "source": "[PL] Past Life: Divine Sphere: Ancient Blessings ×3",
+        "bonusType": "Stacking",
+        "value": 9
+      },
+      {
+        "source": "[PL] Past Life: Divine Sphere: Block Energy ×3",
+        "bonusType": "Stacking",
+        "value": 9
+      },
+      {
+        "source": "[PL] Past Life: Divine Sphere: Brace ×3",
+        "bonusType": "Stacking",
+        "value": 9
+      },
+      {
+        "source": "[PL] Past Life: Divine Sphere: Power Over Life and Death ×3",
+        "bonusType": "Stacking",
+        "value": 9
+      },
+      {
+        "source": "[PL] Past Life: Purple Dragon Knight ×3",
+        "bonusType": "Stacking",
+        "value": 9
       },
       {
         "source": "[R] Grim Barricade: Reaper's Bulwark/Shroud I → PRR",
@@ -2316,71 +2381,6 @@
         "source": "[R] Grim Barricade: Reaper's Defense VI",
         "bonusType": "Reaper",
         "value": 2
-      },
-      {
-        "source": "[G] Gloves: Gauntlets of the Stormreaver (Sheltering)",
-        "bonusType": "Insightful",
-        "value": 17
-      },
-      {
-        "source": "[A] Goggles: Legendary Goggles of the Berserker → Solar Gem of Physical Resistance Rating (Legendary)",
-        "bonusType": "Artifact",
-        "value": 30
-      },
-      {
-        "source": "[A] Bracers: Bracers of the Battlerager → Lunar Gem of Physical Protection (Legendary)",
-        "bonusType": "Profane",
-        "value": 30
-      },
-      {
-        "source": "[PL] Past Life: Purple Dragon Knight ×3",
-        "bonusType": "Stacking",
-        "value": 9
-      },
-      {
-        "source": "[PL] Past Life: Divine Sphere: Ancient Blessings ×3",
-        "bonusType": "Stacking",
-        "value": 9
-      },
-      {
-        "source": "[PL] Past Life: Divine Sphere: Block Energy ×3",
-        "bonusType": "Stacking",
-        "value": 9
-      },
-      {
-        "source": "[PL] Past Life: Divine Sphere: Brace ×3",
-        "bonusType": "Stacking",
-        "value": 9
-      },
-      {
-        "source": "[PL] Past Life: Divine Sphere: Power Over Life and Death ×3",
-        "bonusType": "Stacking",
-        "value": 9
-      },
-      {
-        "source": "[F] Shattered Device: +5% Armor Piercing (rare): Shattered Device: Armor Piercing : Rare +2 PRR",
-        "bonusType": "Stacking",
-        "value": 2
-      },
-      {
-        "source": "[F] Shattered Device: +1 Attack and Damage (rare): Shattered Device: Attack and Damage : Rare +2 PRR",
-        "bonusType": "Stacking",
-        "value": 2
-      },
-      {
-        "source": "[F] Treachery: +2 Critical Attack and Damage (rare): Treachery: Critical Attack and Damage: Rare +2 PRR",
-        "bonusType": "Stacking",
-        "value": 2
-      },
-      {
-        "source": "[F] Treachery: +50% Threat Reduction (rare): Treachery: Threat Reduction: Rare +2 PRR",
-        "bonusType": "Stacking",
-        "value": 2
-      },
-      {
-        "source": "[PL] Inherent Physical Resistance ×4",
-        "bonusType": "Inherent",
-        "value": 4
       }
     ]
   },
@@ -2390,24 +2390,14 @@
     "dominatedCount": 0,
     "sources": [
       {
-        "source": "Embodiment of Law",
-        "bonusType": "Feat",
-        "value": 3
-      },
-      {
         "source": "[E] Henshin Mystic: Henshin Mystic: Mantra of Soul",
         "bonusType": "Enhancement",
         "value": 20
       },
       {
-        "source": "[R] Grim Barricade: Reaper's Defense V",
-        "bonusType": "Reaper",
-        "value": 1
-      },
-      {
-        "source": "[R] Grim Barricade: Reaper's Defense VI",
-        "bonusType": "Reaper",
-        "value": 2
+        "source": "[F] Embodiment of Law",
+        "bonusType": "Feat",
+        "value": 3
       },
       {
         "source": "[G] Gloves: Gauntlets of the Stormreaver (Sheltering)",
@@ -2415,9 +2405,9 @@
         "value": 17
       },
       {
-        "source": "[PL] Past Life: Warlock ×3",
-        "bonusType": "Stacking",
-        "value": 9
+        "source": "[PL] Inherent Magical Resistance ×4",
+        "bonusType": "Inherent",
+        "value": 4
       },
       {
         "source": "[PL] Past Life: Deep Gnome ×3",
@@ -2430,9 +2420,19 @@
         "value": 3
       },
       {
-        "source": "[PL] Inherent Magical Resistance ×4",
-        "bonusType": "Inherent",
-        "value": 4
+        "source": "[PL] Past Life: Warlock ×3",
+        "bonusType": "Stacking",
+        "value": 9
+      },
+      {
+        "source": "[R] Grim Barricade: Reaper's Defense V",
+        "bonusType": "Reaper",
+        "value": 1
+      },
+      {
+        "source": "[R] Grim Barricade: Reaper's Defense VI",
+        "bonusType": "Reaper",
+        "value": 2
       }
     ]
   },
@@ -2442,7 +2442,7 @@
     "dominatedCount": 0,
     "sources": [
       {
-        "source": "Monk 13: Diamond Soul",
+        "source": "[F] Monk 13: Diamond Soul",
         "bonusType": "Feat",
         "value": 29
       }
@@ -2477,6 +2477,21 @@
         "value": 3
       },
       {
+        "source": "[Guild] Arcane Sanctum",
+        "bonusType": "Guild",
+        "value": 1
+      },
+      {
+        "source": "[PL] Past Life: Favored Soul ×3",
+        "bonusType": "Stacking",
+        "value": 3
+      },
+      {
+        "source": "[PL] Past Life: Wizard ×3",
+        "bonusType": "Stacking",
+        "value": 6
+      },
+      {
         "source": "[R] Dire Thaumaturge: Reaper's Deep Magic I",
         "bonusType": "Reaper",
         "value": 1,
@@ -2505,21 +2520,6 @@
         "bonusType": "Reaper",
         "value": 1,
         "target": "All"
-      },
-      {
-        "source": "[Guild] Arcane Sanctum",
-        "bonusType": "Guild",
-        "value": 1
-      },
-      {
-        "source": "[PL] Past Life: Favored Soul ×3",
-        "bonusType": "Stacking",
-        "value": 3
-      },
-      {
-        "source": "[PL] Past Life: Wizard ×3",
-        "bonusType": "Stacking",
-        "value": 6
       }
     ]
   },
@@ -2536,6 +2536,18 @@
           "target": "All"
         },
         {
+          "source": "[G] Ring1: Legendary Ring of Mystic Constitution (SpellFocusMastery)",
+          "bonusType": "Insightful",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Archwizard",
+          "bonusType": "Guild",
+          "value": 1,
+          "target": "All"
+        },
+        {
           "source": "[R] Dire Thaumaturge: Reaper's Focus I",
           "bonusType": "Reaper",
           "value": 1,
@@ -2556,18 +2568,6 @@
         {
           "source": "[R] Dire Thaumaturge: Reaper's Focus V",
           "bonusType": "Reaper",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[G] Ring1: Legendary Ring of Mystic Constitution (SpellFocusMastery)",
-          "bonusType": "Insightful",
-          "value": 3,
-          "target": "All"
-        },
-        {
-          "source": "[Guild] Archwizard",
-          "bonusType": "Guild",
           "value": 1,
           "target": "All"
         }
@@ -2581,30 +2581,6 @@
         {
           "source": "[D] Shadowdancer: Shadowdancer: Shadow Training: Shadowdancer: Epic Spell DCs",
           "bonusType": "Epic",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[R] Dire Thaumaturge: Reaper's Focus I",
-          "bonusType": "Reaper",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[R] Dire Thaumaturge: Reaper's Focus II",
-          "bonusType": "Reaper",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[R] Dire Thaumaturge: Reaper's Focus III",
-          "bonusType": "Reaper",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[R] Dire Thaumaturge: Reaper's Focus V",
-          "bonusType": "Reaper",
           "value": 1,
           "target": "All"
         },
@@ -2625,19 +2601,6 @@
           "bonusType": "Stacking",
           "value": 3,
           "target": "Conjuration"
-        }
-      ]
-    },
-    "Divination": {
-      "total": 9,
-      "appliedCount": 7,
-      "dominatedCount": 3,
-      "sources": [
-        {
-          "source": "[D] Shadowdancer: Shadowdancer: Shadow Training: Shadowdancer: Epic Spell DCs",
-          "bonusType": "Epic",
-          "value": 1,
-          "target": "All"
         },
         {
           "source": "[R] Dire Thaumaturge: Reaper's Focus I",
@@ -2662,6 +2625,19 @@
           "bonusType": "Reaper",
           "value": 1,
           "target": "All"
+        }
+      ]
+    },
+    "Divination": {
+      "total": 9,
+      "appliedCount": 7,
+      "dominatedCount": 3,
+      "sources": [
+        {
+          "source": "[D] Shadowdancer: Shadowdancer: Shadow Training: Shadowdancer: Epic Spell DCs",
+          "bonusType": "Epic",
+          "value": 1,
+          "target": "All"
         },
         {
           "source": "[G] Ring1: Legendary Ring of Mystic Constitution (SpellFocusMastery)",
@@ -2672,6 +2648,30 @@
         {
           "source": "[Guild] Archwizard",
           "bonusType": "Guild",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Focus I",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Focus II",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Focus III",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Focus V",
+          "bonusType": "Reaper",
           "value": 1,
           "target": "All"
         }
@@ -2689,6 +2689,18 @@
           "target": "All"
         },
         {
+          "source": "[G] Ring1: Legendary Ring of Mystic Constitution (SpellFocusMastery)",
+          "bonusType": "Insightful",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Archwizard",
+          "bonusType": "Guild",
+          "value": 1,
+          "target": "All"
+        },
+        {
           "source": "[R] Dire Thaumaturge: Reaper's Focus I",
           "bonusType": "Reaper",
           "value": 1,
@@ -2709,18 +2721,6 @@
         {
           "source": "[R] Dire Thaumaturge: Reaper's Focus V",
           "bonusType": "Reaper",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[G] Ring1: Legendary Ring of Mystic Constitution (SpellFocusMastery)",
-          "bonusType": "Insightful",
-          "value": 3,
-          "target": "All"
-        },
-        {
-          "source": "[Guild] Archwizard",
-          "bonusType": "Guild",
           "value": 1,
           "target": "All"
         }
@@ -2734,30 +2734,6 @@
         {
           "source": "[D] Shadowdancer: Shadowdancer: Shadow Training: Shadowdancer: Epic Spell DCs",
           "bonusType": "Epic",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[R] Dire Thaumaturge: Reaper's Focus I",
-          "bonusType": "Reaper",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[R] Dire Thaumaturge: Reaper's Focus II",
-          "bonusType": "Reaper",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[R] Dire Thaumaturge: Reaper's Focus III",
-          "bonusType": "Reaper",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[R] Dire Thaumaturge: Reaper's Focus V",
-          "bonusType": "Reaper",
           "value": 1,
           "target": "All"
         },
@@ -2778,19 +2754,6 @@
           "bonusType": "Stacking",
           "value": 3,
           "target": "Evocation"
-        }
-      ]
-    },
-    "Illusion": {
-      "total": 9,
-      "appliedCount": 7,
-      "dominatedCount": 3,
-      "sources": [
-        {
-          "source": "[D] Shadowdancer: Shadowdancer: Shadow Training: Shadowdancer: Epic Spell DCs",
-          "bonusType": "Epic",
-          "value": 1,
-          "target": "All"
         },
         {
           "source": "[R] Dire Thaumaturge: Reaper's Focus I",
@@ -2815,6 +2778,19 @@
           "bonusType": "Reaper",
           "value": 1,
           "target": "All"
+        }
+      ]
+    },
+    "Illusion": {
+      "total": 9,
+      "appliedCount": 7,
+      "dominatedCount": 3,
+      "sources": [
+        {
+          "source": "[D] Shadowdancer: Shadowdancer: Shadow Training: Shadowdancer: Epic Spell DCs",
+          "bonusType": "Epic",
+          "value": 1,
+          "target": "All"
         },
         {
           "source": "[G] Ring1: Legendary Ring of Mystic Constitution (SpellFocusMastery)",
@@ -2825,6 +2801,30 @@
         {
           "source": "[Guild] Archwizard",
           "bonusType": "Guild",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Focus I",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Focus II",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Focus III",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Focus V",
+          "bonusType": "Reaper",
           "value": 1,
           "target": "All"
         }
@@ -2842,6 +2842,18 @@
           "target": "All"
         },
         {
+          "source": "[G] Ring1: Legendary Ring of Mystic Constitution (SpellFocusMastery)",
+          "bonusType": "Insightful",
+          "value": 3,
+          "target": "All"
+        },
+        {
+          "source": "[Guild] Archwizard",
+          "bonusType": "Guild",
+          "value": 1,
+          "target": "All"
+        },
+        {
           "source": "[R] Dire Thaumaturge: Reaper's Focus I",
           "bonusType": "Reaper",
           "value": 1,
@@ -2862,18 +2874,6 @@
         {
           "source": "[R] Dire Thaumaturge: Reaper's Focus V",
           "bonusType": "Reaper",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[G] Ring1: Legendary Ring of Mystic Constitution (SpellFocusMastery)",
-          "bonusType": "Insightful",
-          "value": 3,
-          "target": "All"
-        },
-        {
-          "source": "[Guild] Archwizard",
-          "bonusType": "Guild",
           "value": 1,
           "target": "All"
         }
@@ -2887,30 +2887,6 @@
         {
           "source": "[D] Shadowdancer: Shadowdancer: Shadow Training: Shadowdancer: Epic Spell DCs",
           "bonusType": "Epic",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[R] Dire Thaumaturge: Reaper's Focus I",
-          "bonusType": "Reaper",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[R] Dire Thaumaturge: Reaper's Focus II",
-          "bonusType": "Reaper",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[R] Dire Thaumaturge: Reaper's Focus III",
-          "bonusType": "Reaper",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "[R] Dire Thaumaturge: Reaper's Focus V",
-          "bonusType": "Reaper",
           "value": 1,
           "target": "All"
         },
@@ -2931,6 +2907,30 @@
           "bonusType": "Stacking",
           "value": 3,
           "target": "Transmutation"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Focus I",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Focus II",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Focus III",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[R] Dire Thaumaturge: Reaper's Focus V",
+          "bonusType": "Reaper",
+          "value": 1,
+          "target": "All"
         }
       ]
     }
@@ -2941,87 +2941,7 @@
     "dominatedCount": 0,
     "sources": [
       {
-        "source": "Scion of Arborea",
-        "bonusType": "Feat",
-        "value": 20
-      },
-      {
-        "source": "Epic 1: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Epic 2: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Epic 3: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Epic 4: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Epic 5: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Epic 6: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Epic 7: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Epic 8: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Epic 9: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Epic 10: Epic Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Legendary 1: Legendary Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Legendary 2: Legendary Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Legendary 3: Legendary Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "Legendary 4: Legendary Power",
-        "bonusType": "Feat",
-        "value": 6
-      },
-      {
-        "source": "[E] Harper Agent: Harper Agent: Agent of Good I",
-        "bonusType": "Enhancement",
-        "value": 1
-      },
-      {
-        "source": "[D] Shadowdancer: Shadowdancer: Shadow Training",
+        "source": "[D] Shadowdancer: Shadowdancer: Cut to the Soul",
         "bonusType": "Destiny",
         "value": 5
       },
@@ -3029,6 +2949,11 @@
         "source": "[D] Shadowdancer: Shadowdancer: Lithe",
         "bonusType": "Destiny",
         "value": 0
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Shadow Training",
+        "bonusType": "Destiny",
+        "value": 5
       },
       {
         "source": "[D] Shadowdancer: Shadowdancer: Step Through Shadows",
@@ -3041,9 +2966,99 @@
         "value": 5
       },
       {
-        "source": "[D] Shadowdancer: Shadowdancer: Cut to the Soul",
-        "bonusType": "Destiny",
-        "value": 5
+        "source": "[E] Harper Agent: Harper Agent: Agent of Good I",
+        "bonusType": "Enhancement",
+        "value": 1
+      },
+      {
+        "source": "[F] Epic 1: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Epic 10: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Epic 2: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Epic 3: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Epic 4: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Epic 5: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Epic 6: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Epic 7: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Epic 8: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Epic 9: Epic Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Legendary 1: Legendary Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Legendary 2: Legendary Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Legendary 3: Legendary Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Legendary 4: Legendary Power",
+        "bonusType": "Feat",
+        "value": 6
+      },
+      {
+        "source": "[F] Scion of Arborea",
+        "bonusType": "Feat",
+        "value": 20
+      },
+      {
+        "source": "[PL] Inherent Spell Power ×4",
+        "bonusType": "Inherent",
+        "value": 4
+      },
+      {
+        "source": "[PL] Past Life: Eladrin Chaosmancer ×3",
+        "bonusType": "Stacking",
+        "value": 9
+      },
+      {
+        "source": "[PL] Past Life: Sorcerer - Wild Mage ×3",
+        "bonusType": "Stacking",
+        "value": 9
       },
       {
         "source": "[R] Dire Thaumaturge: Reaper's Arcana I",
@@ -3066,34 +3081,19 @@
         "value": 6
       },
       {
-        "source": "[R] Dire Thaumaturge: Reaper's Arcanum V",
-        "bonusType": "Reaper",
-        "value": 2
-      },
-      {
         "source": "[R] Dire Thaumaturge: Reaper's Arcana V",
         "bonusType": "Reaper",
         "value": 6
       },
       {
+        "source": "[R] Dire Thaumaturge: Reaper's Arcanum V",
+        "bonusType": "Reaper",
+        "value": 2
+      },
+      {
         "source": "[R] Dire Thaumaturge: Reaper's Arcanum VI",
         "bonusType": "Reaper",
         "value": 4
-      },
-      {
-        "source": "[PL] Inherent Spell Power ×4",
-        "bonusType": "Inherent",
-        "value": 4
-      },
-      {
-        "source": "[PL] Past Life: Eladrin Chaosmancer ×3",
-        "bonusType": "Stacking",
-        "value": 9
-      },
-      {
-        "source": "[PL] Past Life: Sorcerer - Wild Mage ×3",
-        "bonusType": "Stacking",
-        "value": 9
       }
     ]
   },
@@ -3103,12 +3103,12 @@
     "dominatedCount": 0,
     "sources": [
       {
-        "source": "Monk 1: Magical Training",
+        "source": "[D] Shadowdancer: Shadowdancer: Shadow Training → Magical Training",
         "bonusType": "Feat",
         "value": 5
       },
       {
-        "source": "[D] Shadowdancer: Shadowdancer: Shadow Training → Magical Training",
+        "source": "[F] Monk 1: Magical Training",
         "bonusType": "Feat",
         "value": 5
       }
@@ -3283,19 +3283,7 @@
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "Scion of Arborea",
-          "bonusType": "Feat",
-          "value": 20,
-          "target": "Force"
-        },
-        {
-          "source": "[E] Henshin Mystic: Henshin Mystic: Focus",
-          "bonusType": "Exceptional",
-          "value": 10,
-          "target": "All"
-        },
-        {
-          "source": "[D] Shadowdancer: Shadowdancer: Shadow Training",
+          "source": "[D] Shadowdancer: Shadowdancer: Cut to the Soul",
           "bonusType": "Destiny",
           "value": 5,
           "target": "Force"
@@ -3304,6 +3292,12 @@
           "source": "[D] Shadowdancer: Shadowdancer: Lithe",
           "bonusType": "Destiny",
           "value": 0,
+          "target": "Force"
+        },
+        {
+          "source": "[D] Shadowdancer: Shadowdancer: Shadow Training",
+          "bonusType": "Destiny",
+          "value": 5,
           "target": "Force"
         },
         {
@@ -3319,9 +3313,15 @@
           "target": "Force"
         },
         {
-          "source": "[D] Shadowdancer: Shadowdancer: Cut to the Soul",
-          "bonusType": "Destiny",
-          "value": 5,
+          "source": "[E] Henshin Mystic: Henshin Mystic: Focus",
+          "bonusType": "Exceptional",
+          "value": 10,
+          "target": "All"
+        },
+        {
+          "source": "[F] Scion of Arborea",
+          "bonusType": "Feat",
+          "value": 20,
           "target": "Force"
         },
         {
@@ -3431,13 +3431,13 @@
           "target": "All"
         },
         {
-          "source": "[E] Shintao: Shintao: Bastion of Purity",
+          "source": "[E] Shintao: Shintao: Argent Fist",
           "bonusType": "Enhancement",
           "value": 10,
           "target": "Positive"
         },
         {
-          "source": "[E] Shintao: Shintao: Protection from Tainted Creatures",
+          "source": "[E] Shintao: Shintao: Bastion of Purity",
           "bonusType": "Enhancement",
           "value": 10,
           "target": "Positive"
@@ -3449,19 +3449,19 @@
           "target": "Positive"
         },
         {
-          "source": "[E] Shintao: Shintao: Argent Fist",
-          "bonusType": "Enhancement",
-          "value": 10,
-          "target": "Positive"
-        },
-        {
-          "source": "[E] Shintao: Shintao: Touch the Void Dragon",
+          "source": "[E] Shintao: Shintao: Protection from Tainted Creatures",
           "bonusType": "Enhancement",
           "value": 10,
           "target": "Positive"
         },
         {
           "source": "[E] Shintao: Shintao: To Seek Perfection",
+          "bonusType": "Enhancement",
+          "value": 10,
+          "target": "Positive"
+        },
+        {
+          "source": "[E] Shintao: Shintao: Touch the Void Dragon",
           "bonusType": "Enhancement",
           "value": 10,
           "target": "Positive"
@@ -3813,79 +3813,9 @@
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "Ranks (21)",
-          "bonusType": "(untyped)",
-          "value": 21
-        },
-        {
-          "source": "Dexterity modifier",
-          "bonusType": "(untyped)",
-          "value": 23
-        },
-        {
-          "source": "Epic 1: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 2: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 3: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 4: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 5: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 6: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 7: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 8: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 9: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 10: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Completionist",
-          "bonusType": "Feat",
-          "value": 2,
+          "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
           "target": "All"
         },
         {
@@ -3895,9 +3825,69 @@
           "target": "Balance"
         },
         {
-          "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Sapphire of Greater Heroism",
-          "bonusType": "Morale",
-          "value": 4,
+          "source": "[F] Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
           "target": "All"
         },
         {
@@ -3911,6 +3901,16 @@
           "bonusType": "Stacking",
           "value": 1,
           "target": "Balance"
+        },
+        {
+          "source": "Dexterity modifier",
+          "bonusType": "(untyped)",
+          "value": 23
+        },
+        {
+          "source": "Ranks (21)",
+          "bonusType": "(untyped)",
+          "value": 21
         }
       ]
     },
@@ -3920,80 +3920,75 @@
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "Charisma modifier",
-          "bonusType": "(untyped)",
-          "value": 7
-        },
-        {
-          "source": "Epic 1: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
+          "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
           "target": "All"
         },
         {
-          "source": "Epic 2: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 3: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 4: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 5: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 6: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 7: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 8: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 9: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 10: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Completionist",
+          "source": "[F] Completionist",
           "bonusType": "Feat",
           "value": 2,
           "target": "All"
         },
         {
-          "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Sapphire of Greater Heroism",
-          "bonusType": "Morale",
-          "value": 4,
+          "source": "[F] Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
           "target": "All"
         },
         {
@@ -4001,6 +3996,11 @@
           "bonusType": "Guild",
           "value": 3,
           "target": "Bluff"
+        },
+        {
+          "source": "Charisma modifier",
+          "bonusType": "(untyped)",
+          "value": 7
         }
       ]
     },
@@ -4010,85 +4010,9 @@
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "Ranks (23)",
-          "bonusType": "(untyped)",
-          "value": 23
-        },
-        {
-          "source": "Constitution modifier",
-          "bonusType": "(untyped)",
-          "value": 24
-        },
-        {
-          "source": "Past Life: Disciple of the Fist",
-          "bonusType": "Feat",
-          "value": 2,
-          "target": "Concentration"
-        },
-        {
-          "source": "Epic 1: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 2: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 3: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 4: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 5: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 6: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 7: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 8: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 9: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 10: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Completionist",
-          "bonusType": "Feat",
-          "value": 2,
+          "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
           "target": "All"
         },
         {
@@ -4098,22 +4022,98 @@
           "target": "Concentration"
         },
         {
+          "source": "[F] Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Past Life: Disciple of the Fist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "Concentration"
+        },
+        {
           "source": "[G] Trinket: Legendary Fragment of a Flayed Mind (SkillBonus: Concentration)",
           "bonusType": "Competence",
           "value": 21,
           "target": "Concentration"
         },
         {
-          "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Sapphire of Greater Heroism",
-          "bonusType": "Morale",
-          "value": 4,
-          "target": "All"
-        },
-        {
           "source": "[Guild] Forbidden Library",
           "bonusType": "Guild",
           "value": 3,
           "target": "Concentration"
+        },
+        {
+          "source": "Constitution modifier",
+          "bonusType": "(untyped)",
+          "value": 24
+        },
+        {
+          "source": "Ranks (23)",
+          "bonusType": "(untyped)",
+          "value": 23
         }
       ]
     },
@@ -4123,80 +4123,75 @@
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "Charisma modifier",
-          "bonusType": "(untyped)",
-          "value": 7
-        },
-        {
-          "source": "Epic 1: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
+          "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
           "target": "All"
         },
         {
-          "source": "Epic 2: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 3: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 4: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 5: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 6: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 7: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 8: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 9: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 10: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Completionist",
+          "source": "[F] Completionist",
           "bonusType": "Feat",
           "value": 2,
           "target": "All"
         },
         {
-          "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Sapphire of Greater Heroism",
-          "bonusType": "Morale",
-          "value": 4,
+          "source": "[F] Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
           "target": "All"
         },
         {
@@ -4210,6 +4205,11 @@
           "bonusType": "Stacking",
           "value": 1,
           "target": "Diplomacy"
+        },
+        {
+          "source": "Charisma modifier",
+          "bonusType": "(untyped)",
+          "value": 7
         }
       ]
     },
@@ -4231,80 +4231,75 @@
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "Charisma modifier",
-          "bonusType": "(untyped)",
-          "value": 7
-        },
-        {
-          "source": "Epic 1: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
+          "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
           "target": "All"
         },
         {
-          "source": "Epic 2: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 3: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 4: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 5: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 6: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 7: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 8: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 9: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 10: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Completionist",
+          "source": "[F] Completionist",
           "bonusType": "Feat",
           "value": 2,
           "target": "All"
         },
         {
-          "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Sapphire of Greater Heroism",
-          "bonusType": "Morale",
-          "value": 4,
+          "source": "[F] Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
           "target": "All"
         },
         {
@@ -4318,6 +4313,11 @@
           "bonusType": "Stacking",
           "value": 1,
           "target": "Haggle"
+        },
+        {
+          "source": "Charisma modifier",
+          "bonusType": "(untyped)",
+          "value": 7
         }
       ]
     },
@@ -4327,74 +4327,9 @@
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "Wisdom modifier",
-          "bonusType": "(untyped)",
-          "value": 43
-        },
-        {
-          "source": "Epic 1: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 2: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 3: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 4: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 5: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 6: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 7: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 8: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 9: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 10: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Completionist",
-          "bonusType": "Feat",
-          "value": 2,
+          "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
           "target": "All"
         },
         {
@@ -4404,9 +4339,69 @@
           "target": "Heal"
         },
         {
-          "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Sapphire of Greater Heroism",
-          "bonusType": "Morale",
-          "value": 4,
+          "source": "[F] Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
           "target": "All"
         },
         {
@@ -4420,6 +4415,11 @@
           "bonusType": "Stacking",
           "value": 1,
           "target": "Heal"
+        },
+        {
+          "source": "Wisdom modifier",
+          "bonusType": "(untyped)",
+          "value": 43
         }
       ]
     },
@@ -4429,74 +4429,9 @@
       "dominatedCount": 1,
       "sources": [
         {
-          "source": "Dexterity modifier",
-          "bonusType": "(untyped)",
-          "value": 23
-        },
-        {
-          "source": "Epic 1: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 2: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 3: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 4: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 5: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 6: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 7: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 8: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 9: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 10: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Completionist",
-          "bonusType": "Feat",
-          "value": 2,
+          "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
           "target": "All"
         },
         {
@@ -4506,22 +4441,87 @@
           "target": "Hide"
         },
         {
+          "source": "[F] Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
           "source": "[G] Cloak: Legendary Dread Stalker's Cloak (Ghostly)",
           "bonusType": "Enhancement",
           "value": 5,
           "target": "Hide"
         },
         {
-          "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Sapphire of Greater Heroism",
-          "bonusType": "Morale",
-          "value": 4,
-          "target": "All"
-        },
-        {
           "source": "[Guild] Danger Room",
           "bonusType": "Guild",
           "value": 3,
           "target": "Hide"
+        },
+        {
+          "source": "Dexterity modifier",
+          "bonusType": "(untyped)",
+          "value": 23
         }
       ]
     },
@@ -4531,74 +4531,9 @@
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "Charisma modifier",
-          "bonusType": "(untyped)",
-          "value": 7
-        },
-        {
-          "source": "Epic 1: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 2: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 3: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 4: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 5: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 6: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 7: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 8: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 9: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 10: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Completionist",
-          "bonusType": "Feat",
-          "value": 2,
+          "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
           "target": "All"
         },
         {
@@ -4608,9 +4543,69 @@
           "target": "Intimidate"
         },
         {
-          "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Sapphire of Greater Heroism",
-          "bonusType": "Morale",
-          "value": 4,
+          "source": "[F] Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
           "target": "All"
         },
         {
@@ -4624,6 +4619,11 @@
           "bonusType": "Stacking",
           "value": 1,
           "target": "Intimidate"
+        },
+        {
+          "source": "Charisma modifier",
+          "bonusType": "(untyped)",
+          "value": 7
         }
       ]
     },
@@ -4633,74 +4633,9 @@
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "Strength modifier",
-          "bonusType": "(untyped)",
-          "value": 8
-        },
-        {
-          "source": "Epic 1: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 2: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 3: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 4: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 5: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 6: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 7: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 8: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 9: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 10: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Completionist",
-          "bonusType": "Feat",
-          "value": 2,
+          "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
           "target": "All"
         },
         {
@@ -4710,9 +4645,69 @@
           "target": "Jump"
         },
         {
-          "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Sapphire of Greater Heroism",
-          "bonusType": "Morale",
-          "value": 4,
+          "source": "[F] Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
           "target": "All"
         },
         {
@@ -4720,6 +4715,11 @@
           "bonusType": "Guild",
           "value": 3,
           "target": "Jump"
+        },
+        {
+          "source": "Strength modifier",
+          "bonusType": "(untyped)",
+          "value": 8
         }
       ]
     },
@@ -4729,74 +4729,9 @@
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "Wisdom modifier",
-          "bonusType": "(untyped)",
-          "value": 43
-        },
-        {
-          "source": "Epic 1: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 2: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 3: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 4: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 5: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 6: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 7: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 8: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 9: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 10: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Completionist",
-          "bonusType": "Feat",
-          "value": 2,
+          "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
           "target": "All"
         },
         {
@@ -4806,9 +4741,69 @@
           "target": "Listen"
         },
         {
-          "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Sapphire of Greater Heroism",
-          "bonusType": "Morale",
-          "value": 4,
+          "source": "[F] Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
           "target": "All"
         },
         {
@@ -4822,6 +4817,11 @@
           "bonusType": "Stacking",
           "value": 1,
           "target": "Listen"
+        },
+        {
+          "source": "Wisdom modifier",
+          "bonusType": "(untyped)",
+          "value": 43
         }
       ]
     },
@@ -4831,74 +4831,9 @@
       "dominatedCount": 1,
       "sources": [
         {
-          "source": "Dexterity modifier",
-          "bonusType": "(untyped)",
-          "value": 23
-        },
-        {
-          "source": "Epic 1: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 2: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 3: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 4: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 5: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 6: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 7: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 8: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 9: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 10: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Completionist",
-          "bonusType": "Feat",
-          "value": 2,
+          "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
           "target": "All"
         },
         {
@@ -4908,16 +4843,76 @@
           "target": "Move Silently"
         },
         {
+          "source": "[F] Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
           "source": "[G] Cloak: Legendary Dread Stalker's Cloak (Ghostly)",
           "bonusType": "Enhancement",
           "value": 5,
           "target": "Move Silently"
-        },
-        {
-          "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Sapphire of Greater Heroism",
-          "bonusType": "Morale",
-          "value": 4,
-          "target": "All"
         },
         {
           "source": "[Guild] Otto's Irresistible Dancehall",
@@ -4930,6 +4925,11 @@
           "bonusType": "Stacking",
           "value": 1,
           "target": "Move Silently"
+        },
+        {
+          "source": "Dexterity modifier",
+          "bonusType": "(untyped)",
+          "value": 23
         }
       ]
     },
@@ -4963,80 +4963,75 @@
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "Intelligence modifier",
-          "bonusType": "(untyped)",
-          "value": 6
-        },
-        {
-          "source": "Epic 1: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
+          "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
           "target": "All"
         },
         {
-          "source": "Epic 2: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 3: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 4: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 5: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 6: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 7: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 8: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 9: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 10: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Completionist",
+          "source": "[F] Completionist",
           "bonusType": "Feat",
           "value": 2,
           "target": "All"
         },
         {
-          "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Sapphire of Greater Heroism",
-          "bonusType": "Morale",
-          "value": 4,
+          "source": "[F] Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
           "target": "All"
         },
         {
@@ -5046,16 +5041,21 @@
           "target": "Repair"
         },
         {
+          "source": "[PL] Past Life: Artificer ×3",
+          "bonusType": "Stacking",
+          "value": 3,
+          "target": "Intelligence"
+        },
+        {
           "source": "[PL] Past Life: Warforged ×3",
           "bonusType": "Stacking",
           "value": 1,
           "target": "Repair"
         },
         {
-          "source": "[PL] Past Life: Artificer ×3",
-          "bonusType": "Stacking",
-          "value": 3,
-          "target": "Intelligence"
+          "source": "Intelligence modifier",
+          "bonusType": "(untyped)",
+          "value": 6
         }
       ]
     },
@@ -5065,85 +5065,75 @@
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "Ranks (11)",
-          "bonusType": "(untyped)",
-          "value": 11
-        },
-        {
-          "source": "Intelligence modifier",
-          "bonusType": "(untyped)",
-          "value": 6
-        },
-        {
-          "source": "Epic 1: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
+          "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
           "target": "All"
         },
         {
-          "source": "Epic 2: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 3: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 4: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 5: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 6: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 7: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 8: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 9: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 10: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Completionist",
+          "source": "[F] Completionist",
           "bonusType": "Feat",
           "value": 2,
           "target": "All"
         },
         {
-          "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Sapphire of Greater Heroism",
-          "bonusType": "Morale",
-          "value": 4,
+          "source": "[F] Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
           "target": "All"
         },
         {
@@ -5153,16 +5143,26 @@
           "target": "Search"
         },
         {
+          "source": "[PL] Past Life: Artificer ×3",
+          "bonusType": "Stacking",
+          "value": 3,
+          "target": "Intelligence"
+        },
+        {
           "source": "[PL] Past Life: Drow ×3",
           "bonusType": "Stacking",
           "value": 1,
           "target": "Search"
         },
         {
-          "source": "[PL] Past Life: Artificer ×3",
-          "bonusType": "Stacking",
-          "value": 3,
-          "target": "Intelligence"
+          "source": "Intelligence modifier",
+          "bonusType": "(untyped)",
+          "value": 6
+        },
+        {
+          "source": "Ranks (11)",
+          "bonusType": "(untyped)",
+          "value": 11
         }
       ]
     },
@@ -5184,80 +5184,75 @@
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "Wisdom modifier",
-          "bonusType": "(untyped)",
-          "value": 43
-        },
-        {
-          "source": "Epic 1: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
+          "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
           "target": "All"
         },
         {
-          "source": "Epic 2: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 3: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 4: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 5: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 6: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 7: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 8: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 9: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 10: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Completionist",
+          "source": "[F] Completionist",
           "bonusType": "Feat",
           "value": 2,
           "target": "All"
         },
         {
-          "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Sapphire of Greater Heroism",
-          "bonusType": "Morale",
-          "value": 4,
+          "source": "[F] Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
           "target": "All"
         },
         {
@@ -5277,6 +5272,11 @@
           "bonusType": "Stacking",
           "value": 1,
           "target": "Spot"
+        },
+        {
+          "source": "Wisdom modifier",
+          "bonusType": "(untyped)",
+          "value": 43
         }
       ]
     },
@@ -5286,80 +5286,75 @@
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "Strength modifier",
-          "bonusType": "(untyped)",
-          "value": 8
-        },
-        {
-          "source": "Epic 1: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
+          "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
           "target": "All"
         },
         {
-          "source": "Epic 2: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 3: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 4: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 5: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 6: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 7: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 8: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 9: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 10: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Completionist",
+          "source": "[F] Completionist",
           "bonusType": "Feat",
           "value": 2,
           "target": "All"
         },
         {
-          "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Sapphire of Greater Heroism",
-          "bonusType": "Morale",
-          "value": 4,
+          "source": "[F] Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
           "target": "All"
         },
         {
@@ -5367,6 +5362,11 @@
           "bonusType": "Guild",
           "value": 3,
           "target": "Swim"
+        },
+        {
+          "source": "Strength modifier",
+          "bonusType": "(untyped)",
+          "value": 8
         }
       ]
     },
@@ -5376,79 +5376,9 @@
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "Ranks (20)",
-          "bonusType": "(untyped)",
-          "value": 20
-        },
-        {
-          "source": "Dexterity modifier",
-          "bonusType": "(untyped)",
-          "value": 23
-        },
-        {
-          "source": "Epic 1: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 2: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 3: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 4: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 5: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 6: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 7: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 8: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 9: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 10: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Completionist",
-          "bonusType": "Feat",
-          "value": 2,
+          "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
           "target": "All"
         },
         {
@@ -5458,9 +5388,69 @@
           "target": "Tumble"
         },
         {
-          "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Sapphire of Greater Heroism",
-          "bonusType": "Morale",
-          "value": 4,
+          "source": "[F] Completionist",
+          "bonusType": "Feat",
+          "value": 2,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
           "target": "All"
         },
         {
@@ -5474,6 +5464,16 @@
           "bonusType": "Stacking",
           "value": 1,
           "target": "Tumble"
+        },
+        {
+          "source": "Dexterity modifier",
+          "bonusType": "(untyped)",
+          "value": 23
+        },
+        {
+          "source": "Ranks (20)",
+          "bonusType": "(untyped)",
+          "value": 20
         }
       ]
     },
@@ -5483,85 +5483,75 @@
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "Ranks (11)",
-          "bonusType": "(untyped)",
-          "value": 11
-        },
-        {
-          "source": "Charisma modifier",
-          "bonusType": "(untyped)",
-          "value": 7
-        },
-        {
-          "source": "Epic 1: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
+          "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Sapphire of Greater Heroism",
+          "bonusType": "Morale",
+          "value": 4,
           "target": "All"
         },
         {
-          "source": "Epic 2: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 3: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 4: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 5: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 6: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 7: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 8: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 9: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Epic 10: Epic Skills",
-          "bonusType": "Feat",
-          "value": 1,
-          "target": "All"
-        },
-        {
-          "source": "Completionist",
+          "source": "[F] Completionist",
           "bonusType": "Feat",
           "value": 2,
           "target": "All"
         },
         {
-          "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → Sapphire of Greater Heroism",
-          "bonusType": "Morale",
-          "value": 4,
+          "source": "[F] Epic 1: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 10: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 2: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 3: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 4: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 5: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 6: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 7: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 8: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
+          "target": "All"
+        },
+        {
+          "source": "[F] Epic 9: Epic Skills",
+          "bonusType": "Feat",
+          "value": 1,
           "target": "All"
         },
         {
@@ -5581,6 +5571,16 @@
           "bonusType": "Stacking",
           "value": 1,
           "target": "Use Magic Device"
+        },
+        {
+          "source": "Charisma modifier",
+          "bonusType": "(untyped)",
+          "value": 7
+        },
+        {
+          "source": "Ranks (11)",
+          "bonusType": "(untyped)",
+          "value": 11
         }
       ]
     }
@@ -5589,12 +5589,12 @@
     {
       "name": "Abundant Step",
       "castingClass": "Character",
-      "category": "feat",
+      "category": "gear",
       "cost": 10,
       "maxCasterLevel": 0,
       "cooldown": 3,
       "charges": 0,
-      "source": "Monk 12: Abundant Step"
+      "source": "[F] Monk 12: Abundant Step"
     },
     {
       "name": "Dimension Door",
@@ -5619,12 +5619,12 @@
     {
       "name": "Evasive Trance",
       "castingClass": "Character",
-      "category": "feat",
+      "category": "gear",
       "cost": 0,
       "maxCasterLevel": 0,
       "cooldown": 0,
       "charges": 0,
-      "source": "Past Life: Disciple of the Fist"
+      "source": "[F] Past Life: Disciple of the Fist"
     },
     {
       "name": "Quick Cutter",
@@ -5639,12 +5639,12 @@
     {
       "name": "Shadow Walk",
       "castingClass": "Character",
-      "category": "feat",
+      "category": "gear",
       "cost": 10,
       "maxCasterLevel": 0,
       "cooldown": 10,
       "charges": 0,
-      "source": "Monk 19: Empty Body"
+      "source": "[F] Monk 19: Empty Body"
     },
     {
       "name": "Shadowstrike (Melee)",

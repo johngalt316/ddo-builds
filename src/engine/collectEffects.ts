@@ -511,7 +511,7 @@ export function collectEffects(input: CollectInputs): {
       continue;
     }
     for (const eff of data.effects) {
-      out.push({ effect: eff, source: data.name, rankCount: 1 });
+      out.push({ effect: eff, source: `[F] ${data.name}`, rankCount: 1 });
     }
   }
 
@@ -532,7 +532,7 @@ export function collectEffects(input: CollectInputs): {
         for (const eff of data.effects) {
           out.push({
             effect: eff,
-            source: `${cdata.name} ${grant.level}: ${data.name}`,
+            source: `[F] ${cdata.name} ${grant.level}: ${data.name}`,
             rankCount: 1,
           });
         }
@@ -568,7 +568,7 @@ export function collectEffects(input: CollectInputs): {
           for (const eff of data.effects) {
             out.push({
               effect: eff,
-              source: `${cdata.name} ${grant.level}: ${data.name}`,
+              source: `[F] ${cdata.name} ${grant.level}: ${data.name}`,
               rankCount: 1,
             });
           }
@@ -592,7 +592,7 @@ export function collectEffects(input: CollectInputs): {
           for (const eff of ihd.effects) {
             out.push({
               effect: eff,
-              source: `Improved Heroic Durability (${cdata.name} ${milestone})`,
+              source: `[F] Improved Heroic Durability (${cdata.name} ${milestone})`,
               rankCount: 1,
             });
           }
@@ -628,7 +628,7 @@ export function collectEffects(input: CollectInputs): {
     for (const eff of f.effects) {
       out.push({
         effect: { ...eff, requirements: mergeAARequirements(eff.requirements, f.automaticAcquisition) },
-        source: f.name,
+        source: `[F] ${f.name}`,
         rankCount: 1,
       });
     }

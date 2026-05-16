@@ -12,8 +12,8 @@
       "maxCasterLevel": 19,
       "maxTargetCap": 6,
       "casterLevelUsed": 26,
-      "dpc": 34631,
-      "standaloneDPS": 8657.75
+      "dpc": 44090.65,
+      "standaloneDPS": 11022.66
     },
     {
       "id": "Arcane Trickster::Force Missiles",
@@ -26,8 +26,8 @@
       "maxCasterLevel": 20,
       "maxTargetCap": 1,
       "casterLevelUsed": 27,
-      "dpc": 60040.36,
-      "standaloneDPS": 15010.09
+      "dpc": 76787.75,
+      "standaloneDPS": 19196.94
     },
     {
       "id": "Arcane Trickster::Frost Lance",
@@ -40,8 +40,8 @@
       "maxCasterLevel": 11,
       "maxTargetCap": 1,
       "casterLevelUsed": 18,
-      "dpc": 31611.66,
-      "standaloneDPS": 7902.91
+      "dpc": 40378.64,
+      "standaloneDPS": 10094.66
     },
     {
       "id": "Arcane Trickster::Magic Missile",
@@ -54,8 +54,8 @@
       "maxCasterLevel": 20,
       "maxTargetCap": 1,
       "casterLevelUsed": 27,
-      "dpc": 65683.85,
-      "standaloneDPS": 32841.92
+      "dpc": 84057.53,
+      "standaloneDPS": 42028.76
     },
     {
       "id": "Arcane Trickster::Scorching Ray",
@@ -68,8 +68,8 @@
       "maxCasterLevel": 11,
       "maxTargetCap": 1,
       "casterLevelUsed": 18,
-      "dpc": 51091.08,
-      "standaloneDPS": 25545.54
+      "dpc": 65455.81,
+      "standaloneDPS": 32727.91
     },
     {
       "id": "clickie::Arcane Trickster::ATArmsOfTheTrickster",
@@ -82,8 +82,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 27,
-      "dpc": 30226.7,
-      "standaloneDPS": 1007.56
+      "dpc": 38443.37,
+      "standaloneDPS": 1281.45
     },
     {
       "id": "clickie::Arcane Trickster::ATEyePoke",
@@ -96,8 +96,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 27,
-      "dpc": 30226.7,
-      "standaloneDPS": 3022.67
+      "dpc": 38443.37,
+      "standaloneDPS": 3844.34
     },
     {
       "id": "clickie::Arcane Trickster::ATHelpingHand",
@@ -110,8 +110,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 27,
-      "dpc": 30226.7,
-      "standaloneDPS": 503.78
+      "dpc": 38443.37,
+      "standaloneDPS": 640.72
     },
     {
       "id": "clickie::Arcane Trickster::ATMageHandSlap",
@@ -124,8 +124,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 27,
-      "dpc": 30226.7,
-      "standaloneDPS": 3022.67
+      "dpc": 38443.37,
+      "standaloneDPS": 3844.34
     },
     {
       "id": "clickie::Bladeforged::BladeforgedPowerOfTheForge",
@@ -138,8 +138,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 27,
-      "dpc": 30226.7,
-      "standaloneDPS": 1007.56
+      "dpc": 38443.37,
+      "standaloneDPS": 1281.45
     },
     {
       "id": "clickie::Dire Thaumaturge::DireEfficiency",
@@ -152,8 +152,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 27,
-      "dpc": 30226.7,
-      "standaloneDPS": 503.78
+      "dpc": 38443.37,
+      "standaloneDPS": 640.72
     },
     {
       "id": "clickie::Dire Thaumaturge::DirePotency",
@@ -166,8 +166,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 27,
-      "dpc": 30226.7,
-      "standaloneDPS": 503.78
+      "dpc": 38443.37,
+      "standaloneDPS": 640.72
     },
     {
       "id": "clickie::Dire Thaumaturge::DirePower",
@@ -180,8 +180,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 27,
-      "dpc": 30226.7,
-      "standaloneDPS": 503.78
+      "dpc": 38443.37,
+      "standaloneDPS": 640.72
     },
     {
       "id": "clickie::Dread Adversary::DAReapersDeadlyStrikes",
@@ -194,8 +194,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 27,
-      "dpc": 30226.7,
-      "standaloneDPS": 503.78
+      "dpc": 38443.37,
+      "standaloneDPS": 640.72
     },
     {
       "id": "clickie::Dread Adversary::DAReapersImbuement",
@@ -208,8 +208,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 27,
-      "dpc": 30226.7,
-      "standaloneDPS": 503.78
+      "dpc": 38443.37,
+      "standaloneDPS": 640.72
     },
     {
       "id": "clickie::Dread Adversary::DAReapersStrike",
@@ -222,8 +222,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 27,
-      "dpc": 30226.7,
-      "standaloneDPS": 503.78
+      "dpc": 38443.37,
+      "standaloneDPS": 640.72
     },
     {
       "id": "clickie::Falconry::FalconActionBoostSprint",
@@ -236,8 +236,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 27,
-      "dpc": 30226.7,
-      "standaloneDPS": 1007.56
+      "dpc": 38443.37,
+      "standaloneDPS": 1281.45
     },
     {
       "id": "clickie::Grim Barricade::GrimReapersLuck",
@@ -250,8 +250,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 27,
-      "dpc": 30226.7,
-      "standaloneDPS": 503.78
+      "dpc": 38443.37,
+      "standaloneDPS": 640.72
     },
     {
       "id": "clickie::Grim Barricade::GrimReapersResistance",
@@ -264,8 +264,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 27,
-      "dpc": 30226.7,
-      "standaloneDPS": 503.78
+      "dpc": 38443.37,
+      "standaloneDPS": 640.72
     },
     {
       "id": "clickie::Grim Barricade::GrimReapersSteadfastness",
@@ -278,8 +278,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 27,
-      "dpc": 30226.7,
-      "standaloneDPS": 503.78
+      "dpc": 38443.37,
+      "standaloneDPS": 640.72
     },
     {
       "id": "clickie::Machrotechnic::MachroHammerTime",
@@ -292,8 +292,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 27,
-      "dpc": 30226.7,
-      "standaloneDPS": 2015.11
+      "dpc": 38443.37,
+      "standaloneDPS": 2562.89
     },
     {
       "id": "clickie::Mechanic::MechCore2",
@@ -306,8 +306,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 27,
-      "dpc": 30226.7,
-      "standaloneDPS": 1007.56
+      "dpc": 38443.37,
+      "standaloneDPS": 1281.45
     },
     {
       "id": "clickie::Mechanic::MechLegShot",
@@ -320,8 +320,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 27,
-      "dpc": 30226.7,
-      "standaloneDPS": 5037.78
+      "dpc": 38443.37,
+      "standaloneDPS": 6407.23
     },
     {
       "id": "clickie::Mechanic::MechOozeFlask",
@@ -334,8 +334,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 27,
-      "dpc": 30226.7,
-      "standaloneDPS": 2518.89
+      "dpc": 38443.37,
+      "standaloneDPS": 3203.61
     },
     {
       "id": "clickie::Mechanic::MechThunderstone",
@@ -348,11 +348,11 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 27,
-      "dpc": 30226.7,
-      "standaloneDPS": 2518.89
+      "dpc": 38443.37,
+      "standaloneDPS": 3203.61
     },
     {
-      "id": "sla::Arcane Initiate::Past Life: Arcane Initiate",
+      "id": "sla::Arcane Initiate::[F] Past Life: Arcane Initiate",
       "name": "Arcane Initiate",
       "source": "sla",
       "school": "Evocation",
@@ -362,8 +362,8 @@
       "maxCasterLevel": 20,
       "maxTargetCap": 1,
       "casterLevelUsed": 27,
-      "dpc": 107820.45,
-      "standaloneDPS": 53910.22
+      "dpc": 138221.71,
+      "standaloneDPS": 69110.86
     },
     {
       "id": "sla::Magic Missile::[E] Arcane Trickster: Arcane Trickster: Stolen Spell I → Stolen Spell - Magic Missile",
@@ -376,8 +376,8 @@
       "maxCasterLevel": 20,
       "maxTargetCap": 1,
       "casterLevelUsed": 27,
-      "dpc": 65683.85,
-      "standaloneDPS": 16420.96
+      "dpc": 84057.53,
+      "standaloneDPS": 21014.38
     },
     {
       "id": "sla::Nightmare Lance::[D] Shadowdancer: Shadowdancer: Epic Strike → Nightmare Lance",
@@ -390,8 +390,8 @@
       "maxCasterLevel": 30,
       "maxTargetCap": 100,
       "casterLevelUsed": 27,
-      "dpc": 39524.66,
-      "standaloneDPS": 4940.58
+      "dpc": 50365.41,
+      "standaloneDPS": 6295.68
     },
     {
       "id": "sla::Reconstruct::[E] Bladeforged: Bladeforged: Communion of Scribing",
@@ -404,8 +404,8 @@
       "maxCasterLevel": 15,
       "maxTargetCap": 1,
       "casterLevelUsed": 22,
-      "dpc": 30453.76,
-      "standaloneDPS": 5075.63
+      "dpc": 38757.65,
+      "standaloneDPS": 6459.61
     },
     {
       "id": "sla::Soundburst::[E] Arcane Trickster: Arcane Trickster: Stolen Spell II → Stolen Spell - Sound Burst",
@@ -418,8 +418,8 @@
       "maxCasterLevel": 20,
       "maxTargetCap": 100,
       "casterLevelUsed": 27,
-      "dpc": 31998.39,
-      "standaloneDPS": 1599.92
+      "dpc": 41027.76,
+      "standaloneDPS": 2051.39
     },
     {
       "id": "utility::Wellspring of Power",
@@ -432,8 +432,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 27,
-      "dpc": 30226.7,
-      "standaloneDPS": 167.93
+      "dpc": 38443.37,
+      "standaloneDPS": 213.57
     }
   ],
   "melee": {

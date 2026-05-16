@@ -153,9 +153,16 @@ export function stackBonuses(bonuses: Bonus[], rules: StackingRules): BreakdownR
   const flatSubtotal = flatResult.total;
   const pctResult = stackGroup(pct, v => Math.round(flatSubtotal * v / 100));
 
+  // Sort contributors alphabetically by source. Stable ordering makes the
+  // breakdown UI scannable and snapshot diffs deterministic. Case-insensitive
+  // and prefix-aware ([F] / [E] / [D] / …) since prefixes are part of the
+  // source string itself.
+  const contributors = [...flatResult.contributors, ...pctResult.contributors]
+    .sort((a, b) => a.source.localeCompare(b.source, undefined, { sensitivity: 'base' }));
+
   return {
     total: flatResult.total + pctResult.total,
-    contributors: [...flatResult.contributors, ...pctResult.contributors],
+    contributors,
   };
 }
 
