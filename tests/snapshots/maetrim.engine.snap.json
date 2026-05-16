@@ -14,8 +14,8 @@
       "Slider": 1
     },
     "requirementsFailedCount": 172,
-    "totalSourcedEffects": 1163,
-    "totalAppliedBonuses": 1301
+    "totalSourcedEffects": 1170,
+    "totalAppliedBonuses": 1310
   },
   "abilityScores": {
     "STR": {
@@ -259,8 +259,8 @@
       ]
     },
     "CON": {
-      "total": 71,
-      "appliedCount": 18,
+      "total": 74,
+      "appliedCount": 19,
       "dominatedCount": 0,
       "sources": [
         {
@@ -315,6 +315,12 @@
           "bonusType": "Profane",
           "value": 3,
           "target": "All"
+        },
+        {
+          "source": "[S] Wild Fortitude (3-piece tier ≥ 3)",
+          "bonusType": "Artifact",
+          "value": 3,
+          "target": "Constitution"
         },
         {
           "source": "[A] Helmet: Legendary Dread Stalker's Skullcap → +2 Festive Constitution",
@@ -680,7 +686,7 @@
     }
   },
   "hitPoints": {
-    "total": 3704,
+    "total": 3802,
     "appliedCount": 39,
     "dominatedCount": 0,
     "sources": [
@@ -830,9 +836,9 @@
         "value": 30
       },
       {
-        "source": "Constitution mod (+30) × 34 levels",
+        "source": "Constitution mod (+32) × 34 levels",
         "bonusType": "Stacking",
-        "value": 1020
+        "value": 1088
       },
       {
         "source": "Combat Style (4 style feats × 25% of class HP)",
@@ -1394,8 +1400,8 @@
     }
   },
   "meleePower": {
-    "total": 297,
-    "appliedCount": 58,
+    "total": 312,
+    "appliedCount": 59,
     "dominatedCount": 0,
     "sources": [
       {
@@ -1624,6 +1630,11 @@
         "value": 5
       },
       {
+        "source": "[S] Dread Stalker (3-piece tier ≥ 3)",
+        "bonusType": "Artifact",
+        "value": 15
+      },
+      {
         "source": "[A] Cloak: Dinosaur Bone Cloak → Mythic Power Boost",
         "bonusType": "Mythic",
         "value": 1
@@ -1691,8 +1702,8 @@
     ]
   },
   "rangedPower": {
-    "total": 183,
-    "appliedCount": 37,
+    "total": 198,
+    "appliedCount": 38,
     "dominatedCount": 0,
     "sources": [
       {
@@ -1861,6 +1872,11 @@
         "value": 5
       },
       {
+        "source": "[S] Dread Stalker (3-piece tier ≥ 3)",
+        "bonusType": "Artifact",
+        "value": 15
+      },
+      {
         "source": "[A] Cloak: Dinosaur Bone Cloak → Mythic Power Boost",
         "bonusType": "Mythic",
         "value": 1
@@ -1883,8 +1899,8 @@
     ]
   },
   "doublestrike": {
-    "total": 86,
-    "appliedCount": 11,
+    "total": 101,
+    "appliedCount": 12,
     "dominatedCount": 0,
     "sources": [
       {
@@ -1923,6 +1939,11 @@
         "value": 8
       },
       {
+        "source": "[S] Dread Stalker (3-piece tier ≥ 3)",
+        "bonusType": "Artifact",
+        "value": 15
+      },
+      {
         "source": "[A] Trinket: Legendary Heartshard → Melancholic Doublestrike (Legendary)",
         "bonusType": "Enhancement",
         "value": 17
@@ -1945,8 +1966,8 @@
     ]
   },
   "doubleshot": {
-    "total": 28,
-    "appliedCount": 8,
+    "total": 43,
+    "appliedCount": 9,
     "dominatedCount": 0,
     "sources": [
       {
@@ -1980,6 +2001,11 @@
         "value": 5
       },
       {
+        "source": "[S] Dread Stalker (3-piece tier ≥ 3)",
+        "bonusType": "Artifact",
+        "value": 15
+      },
+      {
         "source": "[FS] Celerity (3-piece tier ≥ 2)",
         "bonusType": "Stacking",
         "value": 2
@@ -1992,8 +2018,8 @@
     ]
   },
   "sneakAttackDice": {
-    "total": 11,
-    "appliedCount": 8,
+    "total": 14,
+    "appliedCount": 9,
     "dominatedCount": 0,
     "sources": [
       {
@@ -2025,6 +2051,11 @@
         "source": "[D] Shadowdancer: Shadowdancer: Bring Darkness",
         "bonusType": "Destiny",
         "value": 1
+      },
+      {
+        "source": "[S] Dread Stalker (3-piece tier ≥ 3)",
+        "bonusType": "Artifact",
+        "value": 3
       },
       {
         "source": "[A] Armor: Dinosaur Bone Outfit → Goldfang",
@@ -2444,8 +2475,8 @@
     ]
   },
   "prr": {
-    "total": 208,
-    "appliedCount": 32,
+    "total": 238,
+    "appliedCount": 33,
     "dominatedCount": 0,
     "sources": [
       {
@@ -2542,6 +2573,11 @@
         "source": "[A] Armor: Dinosaur Bone Outfit → +5% Reaper Bonus to AC and +3 PRR",
         "bonusType": "Reaper",
         "value": 3
+      },
+      {
+        "source": "[S] Tough Shield (3-piece tier ≥ 3)",
+        "bonusType": "Artifact",
+        "value": 30
       },
       {
         "source": "[A] Necklace: Legendary Black Dynamo → Lunar Gem of Physical Protection (Legendary)",
@@ -4000,7 +4036,7 @@
       ]
     },
     "concentration": {
-      "total": 105,
+      "total": 107,
       "appliedCount": 21,
       "dominatedCount": 0,
       "sources": [
@@ -4012,7 +4048,7 @@
         {
           "source": "Constitution modifier",
           "bonusType": "(untyped)",
-          "value": 30
+          "value": 32
         },
         {
           "source": "Skill tome",

@@ -339,9 +339,9 @@
     }
   ],
   "melee": {
-    "avgPerHit": 1212.96,
+    "avgPerHit": 1258.79,
     "avgBaseDamage": 179.73,
-    "avgScaledDamage": 713.51,
+    "avgScaledDamage": 740.47,
     "critThreatFaces": 4,
     "critChance": 0.2,
     "critMultOnAll": 3,
@@ -349,15 +349,15 @@
     "totalW": 13.35,
     "damageStat": "WIS",
     "damageStatMod": 46,
-    "meleePower": 297,
-    "doublestrike": 86,
+    "meleePower": 312,
+    "doublestrike": 101,
     "mhAttacksPerMin": 126.5,
     "ohAttacksPerMin": 126.5,
-    "effectiveMHPerMin": 235.29,
-    "effectiveOHPerMin": 235.29,
-    "totalEffectivePerMin": 470.58,
-    "mhDPS": 4756.64,
-    "ohDPS": 4756.64,
-    "totalAutoDPS": 9513.28
+    "effectiveMHPerMin": 254.26,
+    "effectiveOHPerMin": 254.26,
+    "totalEffectivePerMin": 508.53,
+    "mhDPS": 5334.45,
+    "ohDPS": 5334.45,
+    "totalAutoDPS": 10668.91
   }
 }

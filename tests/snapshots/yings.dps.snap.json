@@ -12,8 +12,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 34,
-      "dpc": 941.72,
-      "standaloneDPS": 15.7
+      "dpc": 1116.67,
+      "standaloneDPS": 18.61
     },
     {
       "id": "clickie::Dire Thaumaturge::DirePotency",
@@ -26,8 +26,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 34,
-      "dpc": 941.72,
-      "standaloneDPS": 15.7
+      "dpc": 1116.67,
+      "standaloneDPS": 18.61
     },
     {
       "id": "clickie::Dire Thaumaturge::DirePower",
@@ -40,8 +40,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 34,
-      "dpc": 941.72,
-      "standaloneDPS": 15.7
+      "dpc": 1116.67,
+      "standaloneDPS": 18.61
     },
     {
       "id": "clickie::Dread Adversary::DAReapersDeadlyStrikes",
@@ -54,8 +54,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 34,
-      "dpc": 941.72,
-      "standaloneDPS": 15.7
+      "dpc": 1116.67,
+      "standaloneDPS": 18.61
     },
     {
       "id": "clickie::Dread Adversary::DAReapersImbuement",
@@ -68,8 +68,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 34,
-      "dpc": 941.72,
-      "standaloneDPS": 15.7
+      "dpc": 1116.67,
+      "standaloneDPS": 18.61
     },
     {
       "id": "clickie::Dread Adversary::DAReapersStrike",
@@ -82,8 +82,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 34,
-      "dpc": 941.72,
-      "standaloneDPS": 15.7
+      "dpc": 1116.67,
+      "standaloneDPS": 18.61
     },
     {
       "id": "clickie::Fury of the Wild::U51FuryOfTheWildPrimalScream",
@@ -96,8 +96,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 34,
-      "dpc": 941.72,
-      "standaloneDPS": 31.39
+      "dpc": 1116.67,
+      "standaloneDPS": 37.22
     },
     {
       "id": "clickie::Grim Barricade::GrimReapersLuck",
@@ -110,8 +110,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 34,
-      "dpc": 941.72,
-      "standaloneDPS": 15.7
+      "dpc": 1116.67,
+      "standaloneDPS": 18.61
     },
     {
       "id": "clickie::Grim Barricade::GrimReapersResistance",
@@ -124,8 +124,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 34,
-      "dpc": 941.72,
-      "standaloneDPS": 15.7
+      "dpc": 1116.67,
+      "standaloneDPS": 18.61
     },
     {
       "id": "clickie::Grim Barricade::GrimReapersSteadfastness",
@@ -138,8 +138,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 34,
-      "dpc": 941.72,
-      "standaloneDPS": 15.7
+      "dpc": 1116.67,
+      "standaloneDPS": 18.61
     },
     {
       "id": "clickie::Henshin Mystic::HMClearYourMind",
@@ -152,8 +152,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 34,
-      "dpc": 941.72,
-      "standaloneDPS": 47.09
+      "dpc": 1116.67,
+      "standaloneDPS": 55.83
     },
     {
       "id": "clickie::Henshin Mystic::HMCore2",
@@ -166,8 +166,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 34,
-      "dpc": 941.72,
-      "standaloneDPS": 313.91
+      "dpc": 1116.67,
+      "standaloneDPS": 372.22
     },
     {
       "id": "clickie::Henshin Mystic::HMCore3",
@@ -180,8 +180,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 34,
-      "dpc": 941.72,
-      "standaloneDPS": 15.7
+      "dpc": 1116.67,
+      "standaloneDPS": 18.61
     },
     {
       "id": "clickie::Henshin Mystic::HMCore4",
@@ -194,8 +194,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 34,
-      "dpc": 941.72,
-      "standaloneDPS": 104.64
+      "dpc": 1116.67,
+      "standaloneDPS": 124.07
     },
     {
       "id": "clickie::Henshin Mystic::HMElementalKiStrikes",
@@ -208,8 +208,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 34,
-      "dpc": 941.72,
-      "standaloneDPS": 313.91
+      "dpc": 1116.67,
+      "standaloneDPS": 372.22
     },
     {
       "id": "clickie::Henshin Mystic::HMMysticKata",
@@ -222,8 +222,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 34,
-      "dpc": 941.72,
-      "standaloneDPS": 104.64
+      "dpc": 1116.67,
+      "standaloneDPS": 124.07
     },
     {
       "id": "clickie::Henshin Mystic::HMPorousSoul",
@@ -236,8 +236,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 34,
-      "dpc": 941.72,
-      "standaloneDPS": 156.95
+      "dpc": 1116.67,
+      "standaloneDPS": 186.11
     },
     {
       "id": "clickie::Legendary Dreadnought::U51LegendaryDreadnoughtActionHero",
@@ -250,8 +250,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 34,
-      "dpc": 941.72,
-      "standaloneDPS": 3.14
+      "dpc": 1116.67,
+      "standaloneDPS": 3.72
     },
     {
       "id": "clickie::Legendary Dreadnought::U51LegendaryDreadnoughtLegendaryRally",
@@ -264,8 +264,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 34,
-      "dpc": 941.72,
-      "standaloneDPS": 31.39
+      "dpc": 1116.67,
+      "standaloneDPS": 37.22
     },
     {
       "id": "clickie::Ninja Spy::NSActionBoost",
@@ -278,8 +278,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 34,
-      "dpc": 941.72,
-      "standaloneDPS": 31.39
+      "dpc": 1116.67,
+      "standaloneDPS": 37.22
     },
     {
       "id": "clickie::Shintao::ShintaoCore5",
@@ -292,8 +292,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 34,
-      "dpc": 941.72,
-      "standaloneDPS": 5.23
+      "dpc": 1116.67,
+      "standaloneDPS": 6.2
     },
     {
       "id": "clickie::Shintao::ShintaoHandOfHarm",
@@ -306,8 +306,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 34,
-      "dpc": 941.72,
-      "standaloneDPS": 104.64
+      "dpc": 1116.67,
+      "standaloneDPS": 124.07
     },
     {
       "id": "clickie::Shintao::ShintaoJadeStrike",
@@ -320,8 +320,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 34,
-      "dpc": 941.72,
-      "standaloneDPS": 62.78
+      "dpc": 1116.67,
+      "standaloneDPS": 74.44
     },
     {
       "id": "clickie::Shintao::ShintaoKukanDo",
@@ -334,8 +334,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 34,
-      "dpc": 941.72,
-      "standaloneDPS": 62.78
+      "dpc": 1116.67,
+      "standaloneDPS": 74.44
     },
     {
       "id": "clickie::Shintao::ShintaoQuickStrike",
@@ -348,8 +348,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 34,
-      "dpc": 941.72,
-      "standaloneDPS": 78.48
+      "dpc": 1116.67,
+      "standaloneDPS": 93.06
     },
     {
       "id": "clickie::Shintao::ShintaoTombOfJade",
@@ -362,8 +362,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 34,
-      "dpc": 941.72,
-      "standaloneDPS": 15.7
+      "dpc": 1116.67,
+      "standaloneDPS": 18.61
     },
     {
       "id": "sla::Quick Cutter::[D] Fury of the Wild: Fury of the Wild: Strength or Swiftness → Quick Cutter",
@@ -376,30 +376,30 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 5,
       "casterLevelUsed": 34,
-      "dpc": 941.72,
-      "standaloneDPS": 117.72
+      "dpc": 1116.67,
+      "standaloneDPS": 139.58
     }
   ],
   "melee": {
-    "avgPerHit": 1326.82,
-    "avgBaseDamage": 167.73,
-    "avgScaledDamage": 817.76,
+    "avgPerHit": 1392.01,
+    "avgBaseDamage": 170.73,
+    "avgScaledDamage": 858.51,
     "critThreatFaces": 4,
     "critChance": 0.2,
     "critMultOnAll": 3,
     "critMultOn1920": 5,
     "totalW": 13.35,
     "damageStat": "WIS",
-    "damageStatMod": 43,
-    "meleePower": 378,
-    "doublestrike": 80,
+    "damageStatMod": 45,
+    "meleePower": 393,
+    "doublestrike": 95,
     "mhAttacksPerMin": 126.5,
     "ohAttacksPerMin": 126.5,
-    "effectiveMHPerMin": 227.7,
-    "effectiveOHPerMin": 227.7,
-    "totalEffectivePerMin": 455.4,
-    "mhDPS": 5035.27,
-    "ohDPS": 5035.27,
-    "totalAutoDPS": 10070.53
+    "effectiveMHPerMin": 246.67,
+    "effectiveOHPerMin": 246.67,
+    "totalEffectivePerMin": 493.35,
+    "mhDPS": 5722.91,
+    "ohDPS": 5722.91,
+    "totalAutoDPS": 11445.82
   }
 }

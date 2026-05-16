@@ -443,6 +443,7 @@ export function parseAugmentsXml(xml: string): DDOAugmentData[] {
     const slotTypes = elements(aug, ':scope > Type').map(t => t.textContent?.trim() ?? '').filter(Boolean);
     const levels = spaceSeparatedNumbers(text(aug, 'Levels'));
     const levelValues = spaceSeparatedNumbers(text(aug, 'LevelValue'));
+    const setBonus = text(aug, 'SetBonus');
     return {
       name: text(aug, 'Name'),
       description: text(aug, 'Description'),
@@ -452,6 +453,7 @@ export function parseAugmentsXml(xml: string): DDOAugmentData[] {
       levels,
       levelValues,
       effects: parseEffectsIn(aug),
+      ...(setBonus && { setBonus }),
     };
   }).filter(a => a.name);
 }

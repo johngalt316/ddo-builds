@@ -197,6 +197,11 @@ export interface DDOAugmentData {
   levels: number[];
   levelValues: number[];
   effects: DDOEffect[];
+  /** Some augments don't emit effects themselves — instead they add a set-bonus
+   *  tag to the wearing item (e.g. Lost Purpose's "Devil's Infernal Dance"
+   *  augment makes the item count toward the Infernal Dance set). When set,
+   *  the engine adds 1 to the named set's piece count for the wearing item. */
+  setBonus?: string;
 }
 
 // ── BonusType (stacking rules) ────────────────────────────────────────────

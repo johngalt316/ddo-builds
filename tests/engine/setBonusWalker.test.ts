@@ -15,13 +15,14 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import {
   parseClassXml, parseRaceXml, parseFeatsXml, parseBonusTypesXml,
-  parseEnhancementTreeXml, parseSetBonusesXml,
+  parseEnhancementTreeXml, parseSetBonusesXml, parseAugmentsXml,
 } from '@/utils/ddoXmlParser';
 import { collectEffects } from '@/engine/collectEffects';
 import { DEFAULT_BUILD } from '@/types/build';
 import type { Build, GearItem } from '@/types/build';
 import type {
   DDOClassData, DDORaceData, DDOFeatData, EnhancementTreeData, ItemBuffCatalog,
+  DDOAugmentData,
 } from '@/types/ddoData';
 
 const DATA = resolve(__dirname, '../../public/data');
@@ -59,7 +60,15 @@ function loadGameData() {
   const idx = readJson<{ name: string; setBonus?: string }[]>('items/index.json');
   for (const i of idx) if (i.setBonus) itemSetIndex[i.name] = i.setBonus;
 
-  return { classes, races, feats, bonusTypes, enhancementTrees, itemBuffs, setBonuses, itemSetIndex, augments: [], filigrees: [], filigreeSetBonuses: [], selfPartyBuffs: [] };
+  // Load all augments so the augment-granted set-bonus test below has the
+  // real Lost Purpose catalog to draw from.
+  const augmentFiles = readJson<string[]>('augments.json');
+  const augments: DDOAugmentData[] = [];
+  for (const f of augmentFiles) {
+    augments.push(...parseAugmentsXml(readData(`Augments/${f}`)));
+  }
+
+  return { classes, races, feats, bonusTypes, enhancementTrees, itemBuffs, setBonuses, itemSetIndex, augments, filigrees: [], filigreeSetBonuses: [], selfPartyBuffs: [] };
 }
 
 const gameData = loadGameData();
@@ -146,5 +155,76 @@ describe('set-bonus walker', () => {
     }
     // Either way, the set name should NOT be in unmatchedSets.
     expect(r.unmatchedSets).not.toContain('Forbidden Knowledge');
+  });
+
+  // Lost Purpose augments grant set bonuses to their host item rather than
+  // emitting effects directly. Without engine-side support the Infernal Dance
+  // / Armaments of the Archons / Wild Fortitude sets never fire even when
+  // the player has 3 augments slotted across 3 items.
+  describe('augment-granted set bonuses', () => {
+    const augName = "Legendary Devil's Infernal Dance";
+    const setName = "Legendary Devil's Infernal Dance";
+
+    it('reference data: the Lost Purpose augment has setBonus=set name', () => {
+      const aug = gameData.augments.find(a => a.name === augName);
+      expect(aug).toBeDefined();
+      expect(aug!.setBonus).toBe(setName);
+    });
+
+    it('3 items each carrying the augment fire the 3-piece tier', () => {
+      const mkItemWithAug = (slot: GearItem['slot'], name: string): GearItem => ({
+        slot, name, icon: '', buffs: [],
+        augmentSlots: [{
+          slotType: 'Lost Purpose',
+          selectedAugment: augName,
+        }],
+      });
+      const build = buildWith([
+        mkItemWithAug('Trinket',  'Item A'),
+        mkItemWithAug('Necklace', 'Item B'),
+        mkItemWithAug('Ring1',    'Item C'),
+      ]);
+      const r = collectEffects({ build, ...gameData });
+      const setEffects = r.effects.filter(e => e.source.includes(setName));
+      // The set has 4 buff tiers all at 3 pieces — so all 4 fire here.
+      expect(setEffects.length).toBeGreaterThanOrEqual(4);
+      // Spot-check the Artifact-typed Doublestrike +15 buff is present.
+      expect(setEffects.some(
+        e => e.effect.types.includes('Doublestrike')
+          && e.effect.bonus === 'Artifact'
+          && e.effect.amount?.[0] === 15,
+      )).toBe(true);
+    });
+
+    it('2 items with the augment do NOT fire the 3-piece tier', () => {
+      const mkItemWithAug = (slot: GearItem['slot'], name: string): GearItem => ({
+        slot, name, icon: '', buffs: [],
+        augmentSlots: [{ slotType: 'Lost Purpose', selectedAugment: augName }],
+      });
+      const build = buildWith([
+        mkItemWithAug('Trinket',  'Item A'),
+        mkItemWithAug('Necklace', 'Item B'),
+      ]);
+      const r = collectEffects({ build, ...gameData });
+      const setEffects = r.effects.filter(e => e.source.includes(setName));
+      expect(setEffects).toHaveLength(0);
+    });
+
+    it('two augments on the same item count as ONE tick toward the set', () => {
+      // DDO rule: each equipped item contributes 1 tick per set name regardless
+      // of how many slots / augments claim that set. Without per-item dedup
+      // the engine would over-count and fire the tier from a single item.
+      const item: GearItem = {
+        slot: 'Trinket', name: 'Item A', icon: '', buffs: [],
+        augmentSlots: [
+          { slotType: 'Lost Purpose',  selectedAugment: augName },
+          { slotType: 'Lost Purpose ', selectedAugment: augName }, // second slot
+        ],
+      };
+      const build = buildWith([item]);
+      const r = collectEffects({ build, ...gameData });
+      const setEffects = r.effects.filter(e => e.source.includes(setName));
+      expect(setEffects).toHaveLength(0);   // 1 tick, well below 3-piece tier
+    });
   });
 });

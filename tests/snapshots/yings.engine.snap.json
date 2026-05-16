@@ -13,8 +13,8 @@
       "SliderValue": 3
     },
     "requirementsFailedCount": 108,
-    "totalSourcedEffects": 1113,
-    "totalAppliedBonuses": 1324
+    "totalSourcedEffects": 1119,
+    "totalAppliedBonuses": 1332
   },
   "abilityScores": {
     "STR": {
@@ -336,8 +336,8 @@
       ]
     },
     "WIS": {
-      "total": 97,
-      "appliedCount": 27,
+      "total": 100,
+      "appliedCount": 28,
       "dominatedCount": 0,
       "sources": [
         {
@@ -456,6 +456,12 @@
         {
           "source": "[G] Trinket: Legendary Fragment of a Flayed Mind (AbilityBonus: Wisdom)",
           "bonusType": "Quality",
+          "value": 3,
+          "target": "Wisdom"
+        },
+        {
+          "source": "[S] Visions of the Future (3-piece tier ≥ 3)",
+          "bonusType": "Artifact",
           "value": 3,
           "target": "Wisdom"
         },
@@ -1190,8 +1196,8 @@
     }
   },
   "meleePower": {
-    "total": 378,
-    "appliedCount": 76,
+    "total": 393,
+    "appliedCount": 77,
     "dominatedCount": 0,
     "sources": [
       {
@@ -1451,6 +1457,11 @@
         "value": 2
       },
       {
+        "source": "[S] Dread Stalker (3-piece tier ≥ 3)",
+        "bonusType": "Artifact",
+        "value": 15
+      },
+      {
         "source": "[A] Necklace: Legendary Pendant of Crippling Strikes → Lunar Gem of Melee Power (Legendary)",
         "bonusType": "Profane",
         "value": 15
@@ -1578,8 +1589,8 @@
     ]
   },
   "rangedPower": {
-    "total": 236,
-    "appliedCount": 42,
+    "total": 251,
+    "appliedCount": 43,
     "dominatedCount": 0,
     "sources": [
       {
@@ -1769,6 +1780,11 @@
         "value": 2
       },
       {
+        "source": "[S] Dread Stalker (3-piece tier ≥ 3)",
+        "bonusType": "Artifact",
+        "value": 15
+      },
+      {
         "source": "[FS] Dreadbringer (4-piece tier ≥ 2)",
         "bonusType": "Stacking",
         "value": 5
@@ -1796,8 +1812,8 @@
     ]
   },
   "doublestrike": {
-    "total": 80,
-    "appliedCount": 10,
+    "total": 95,
+    "appliedCount": 11,
     "dominatedCount": 0,
     "sources": [
       {
@@ -1841,6 +1857,11 @@
         "value": 8
       },
       {
+        "source": "[S] Dread Stalker (3-piece tier ≥ 3)",
+        "bonusType": "Artifact",
+        "value": 15
+      },
+      {
         "source": "[PL] Past Life: Aasimar Scourge ×3",
         "bonusType": "Stacking",
         "value": 6
@@ -1853,8 +1874,8 @@
     ]
   },
   "doubleshot": {
-    "total": 21,
-    "appliedCount": 5,
+    "total": 36,
+    "appliedCount": 6,
     "dominatedCount": 0,
     "sources": [
       {
@@ -1873,6 +1894,11 @@
         "value": 5
       },
       {
+        "source": "[S] Dread Stalker (3-piece tier ≥ 3)",
+        "bonusType": "Artifact",
+        "value": 15
+      },
+      {
         "source": "[FS] Shattered Device (3-piece tier ≥ 3)",
         "bonusType": "Stacking",
         "value": 3
@@ -1885,8 +1911,8 @@
     ]
   },
   "sneakAttackDice": {
-    "total": 12,
-    "appliedCount": 9,
+    "total": 15,
+    "appliedCount": 10,
     "dominatedCount": 0,
     "sources": [
       {
@@ -1925,6 +1951,11 @@
         "value": 1
       },
       {
+        "source": "[S] Dread Stalker (3-piece tier ≥ 3)",
+        "bonusType": "Artifact",
+        "value": 3
+      },
+      {
         "source": "[A] Armor: Dinosaur Bone Outfit → Goldfang",
         "bonusType": "Profane",
         "value": 2
@@ -1937,8 +1968,8 @@
     ]
   },
   "imbueDice": {
-    "total": 10,
-    "appliedCount": 9,
+    "total": 13,
+    "appliedCount": 10,
     "dominatedCount": 0,
     "sources": [
       {
@@ -1985,6 +2016,11 @@
         "source": "[D] Legendary Dreadnought: Legendary Dreadnought: Esoteric Touch",
         "bonusType": "Destiny",
         "value": 1
+      },
+      {
+        "source": "[S] Imbued Infusion (3-piece tier ≥ 3)",
+        "bonusType": "Artifact",
+        "value": 3
       }
     ]
   },
@@ -3427,7 +3463,7 @@
       ]
     },
     "Negative": {
-      "total": 287,
+      "total": 289,
       "appliedCount": 5,
       "dominatedCount": 0,
       "sources": [
@@ -3450,9 +3486,9 @@
           "target": "Negative"
         },
         {
-          "source": "[Skill] Heal (total 64)",
+          "source": "[Skill] Heal (total 66)",
           "bonusType": "(untyped)",
-          "value": 64,
+          "value": 66,
           "target": "Negative"
         },
         {
@@ -3489,7 +3525,7 @@
       ]
     },
     "Positive": {
-      "total": 356,
+      "total": 358,
       "appliedCount": 12,
       "dominatedCount": 0,
       "sources": [
@@ -3554,9 +3590,9 @@
           "target": "Positive"
         },
         {
-          "source": "[Skill] Heal (total 64)",
+          "source": "[Skill] Heal (total 66)",
           "bonusType": "(untyped)",
-          "value": 64,
+          "value": 66,
           "target": "Positive"
         },
         {
@@ -4391,14 +4427,14 @@
       ]
     },
     "heal": {
-      "total": 64,
+      "total": 66,
       "appliedCount": 16,
       "dominatedCount": 0,
       "sources": [
         {
           "source": "Wisdom modifier",
           "bonusType": "(untyped)",
-          "value": 43
+          "value": 45
         },
         {
           "source": "Epic 1: Epic Skills",
@@ -4793,14 +4829,14 @@
       ]
     },
     "listen": {
-      "total": 63,
+      "total": 65,
       "appliedCount": 16,
       "dominatedCount": 0,
       "sources": [
         {
           "source": "Wisdom modifier",
           "bonusType": "(untyped)",
-          "value": 43
+          "value": 45
         },
         {
           "source": "Epic 1: Epic Skills",
@@ -5248,14 +5284,14 @@
       ]
     },
     "spot": {
-      "total": 64,
+      "total": 66,
       "appliedCount": 16,
       "dominatedCount": 0,
       "sources": [
         {
           "source": "Wisdom modifier",
           "bonusType": "(untyped)",
-          "value": 43
+          "value": 45
         },
         {
           "source": "Epic 1: Epic Skills",

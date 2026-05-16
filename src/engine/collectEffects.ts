@@ -304,16 +304,35 @@ function walkSetBonuses(
   build: Build,
   setBonuses: DDOSetBonusData[],
   itemSetIndex: Record<string, string>,
+  augments: DDOAugmentData[],
   unmatchedSets: Set<string>,
 ): SourcedEffect[] {
   const items = pickActiveGearSet(build);
 
-  // Count pieces per set name.
+  // Some augments grant a set-bonus tag to their host item (Lost Purpose's
+  // Devil's Infernal Dance, Armaments of the Archons, etc.). Build a quick
+  // lookup so we can read each augment's setBonus by name.
+  const augSetByName = new Map<string, string>();
+  for (const a of augments) {
+    if (a.setBonus) augSetByName.set(a.name, a.setBonus);
+  }
+
+  // Count pieces per set name. Each equipped item contributes at most ONE
+  // tick per distinct set (matches the in-game rule — slotting two of the
+  // same set augment on one item doesn't double-count).
   const counts = new Map<string, number>();
   for (const item of items) {
-    const setName = item.setBonus ?? itemSetIndex[item.name];
-    if (!setName) continue;
-    counts.set(setName, (counts.get(setName) ?? 0) + 1);
+    const setsOnItem = new Set<string>();
+    const direct = item.setBonus ?? itemSetIndex[item.name];
+    if (direct) setsOnItem.add(direct);
+    for (const slot of item.augmentSlots ?? []) {
+      if (!slot.selectedAugment) continue;
+      const sb = augSetByName.get(slot.selectedAugment);
+      if (sb) setsOnItem.add(sb);
+    }
+    for (const setName of setsOnItem) {
+      counts.set(setName, (counts.get(setName) ?? 0) + 1);
+    }
   }
 
   // Index set bonuses by name for lookup.
@@ -635,7 +654,7 @@ export function collectEffects(input: CollectInputs): {
   out.push(...walkActiveGear(build, itemBuffs, unmatchedItemBuffs));
 
   // ── 6. Set bonuses (count pieces, fire matching tiers) ────────────
-  out.push(...walkSetBonuses(build, setBonuses, itemSetIndex, unmatchedSets));
+  out.push(...walkSetBonuses(build, setBonuses, itemSetIndex, augments, unmatchedSets));
 
   // ── 6b. Augments equipped in item augment slots ───────────────────
   out.push(...walkAugments(build, augments, unmatchedAugments));
