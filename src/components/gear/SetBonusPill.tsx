@@ -15,8 +15,6 @@ interface Props {
   name: string;
   /** How many pieces are equipped of this set. */
   count: number;
-  /** The next tier requirement (for the pill body), or undefined when maxed/unknown. */
-  nextTier?: number;
   /** Style variant — derived in the parent from activeTier > 0 / knownInCatalog. */
   variant: 'active' | 'pending' | 'unknown';
   /** Tier ladder; empty when the set name isn't in the catalog. */
@@ -25,7 +23,7 @@ interface Props {
   unknownNote?: string;
 }
 
-export function SetBonusPill({ name, count, nextTier, variant, buffs, unknownNote }: Props) {
+export function SetBonusPill({ name, count, variant, buffs, unknownNote }: Props) {
   const ref = useRef<HTMLSpanElement>(null);
   const showTimer = useRef<number | null>(null);
   const [anchor, setAnchor] = useState<AnchorRect | null>(null);
@@ -53,6 +51,13 @@ export function SetBonusPill({ name, count, nextTier, variant, buffs, unknownNot
     variant === 'pending' ? styles.pillPending :
                             styles.pillUnknown;
 
+  // Denominator = the highest tier in the set (max equippedCount across
+  // all buff tiers). Display "3/3" when at max, "3/5" when partway, no
+  // slash when the set isn't in the catalog.
+  const maxTier = buffs.length > 0
+    ? Math.max(...buffs.map(b => b.equippedCount))
+    : undefined;
+
   return (
     <>
       <span
@@ -61,7 +66,7 @@ export function SetBonusPill({ name, count, nextTier, variant, buffs, unknownNot
         onMouseEnter={handleEnter}
         onMouseLeave={handleLeave}
       >
-        {name} {count}{nextTier !== undefined ? `/${nextTier}` : ''}
+        {name} {count}{maxTier !== undefined ? `/${maxTier}` : ''}
       </span>
       {anchor && createPortal(
         <SetBonusTooltip

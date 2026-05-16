@@ -47,3 +47,34 @@ describe('parseDDOBuildFile snapshots', () => {
     );
   });
 });
+
+describe('parseDDOBuildFile — metamagic promotion', () => {
+  // DDOBuilderV2 stores active metamagics inside <ActiveStances>. Our build
+  // state separates them into `activeMetamagics` so the DPS pane can apply
+  // per-cast SP surcharges + damage modifiers. The parser must promote any
+  // known metamagic name out of activeStances into activeMetamagics.
+
+  it('promotes Quicken Spell and Empower Healing Spell from activeStances', () => {
+    const result = parseFixture('zentek.DDOBuild');
+    expect(result?.build.activeMetamagics).toContain('Quicken Spell');
+    expect(result?.build.activeMetamagics).toContain('Empower Healing Spell');
+  });
+
+  it('leaves true stances (Light Armor, Favored Weapon, etc.) in activeStances', () => {
+    const result = parseFixture('zentek.DDOBuild');
+    expect(result?.build.activeStances).toContain('Light Armor');
+    expect(result?.build.activeStances).toContain('Favored Weapon');
+    expect(result?.build.activeStances).toContain('Ranged Combat');
+  });
+
+  it('only promotes recognized metamagic names — true stances stay out', () => {
+    // Metamagic-promoted entries should not duplicate generic stance names.
+    const result = parseFixture('zentek.DDOBuild');
+    const metamagics = result?.build.activeMetamagics ?? [];
+    // Sanity: nothing in activeMetamagics should look like a stance.
+    expect(metamagics).not.toContain('Light Armor');
+    expect(metamagics).not.toContain('Ranged Combat');
+    expect(metamagics).not.toContain('Favored Weapon');
+    expect(metamagics).not.toContain('Eladrin');
+  });
+});

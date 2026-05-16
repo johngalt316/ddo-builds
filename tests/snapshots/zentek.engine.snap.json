@@ -12,9 +12,9 @@
       "Slider": 2,
       "SliderValue": 3
     },
-    "requirementsFailedCount": 58,
+    "requirementsFailedCount": 50,
     "totalSourcedEffects": 817,
-    "totalAppliedBonuses": 1061
+    "totalAppliedBonuses": 1069
   },
   "abilityScores": {
     "STR": {
@@ -120,14 +120,14 @@
       ]
     },
     "CON": {
-      "total": 75,
+      "total": 73,
       "appliedCount": 14,
       "dominatedCount": 0,
       "sources": [
         {
           "source": "base + racial",
           "bonusType": "(untyped)",
-          "value": 26
+          "value": 24
         },
         {
           "source": "[E] Inquisitive: Inquisitive: Master Inquisitive",
@@ -210,14 +210,14 @@
       ]
     },
     "INT": {
-      "total": 32,
+      "total": 36,
       "appliedCount": 7,
       "dominatedCount": 0,
       "sources": [
         {
           "source": "base + racial",
           "bonusType": "(untyped)",
-          "value": 20
+          "value": 24
         },
         {
           "source": "[E] Inquisitive: Inquisitive: Master Inquisitive",
@@ -312,8 +312,8 @@
       ]
     },
     "CHA": {
-      "total": 79,
-      "appliedCount": 16,
+      "total": 80,
+      "appliedCount": 17,
       "dominatedCount": 0,
       "sources": [
         {
@@ -329,6 +329,12 @@
         },
         {
           "source": "[E] Eladrin: Eladrin: Ability II → +1 Charisma",
+          "bonusType": "Enhancement",
+          "value": 1,
+          "target": "Charisma"
+        },
+        {
+          "source": "[E] Eladrin: Eladrin: Major Spring Attunement",
           "bonusType": "Enhancement",
           "value": 1,
           "target": "Charisma"
@@ -415,7 +421,7 @@
     }
   },
   "hitPoints": {
-    "total": 2234,
+    "total": 2197,
     "appliedCount": 29,
     "dominatedCount": 0,
     "sources": [
@@ -550,9 +556,9 @@
         "value": 45
       },
       {
-        "source": "Constitution mod (+32) × 34 levels",
+        "source": "Constitution mod (+31) × 34 levels",
         "bonusType": "Stacking",
-        "value": 1088
+        "value": 1054
       },
       {
         "source": "Fate Points (×2 HP each, 44 fate points)",
@@ -568,14 +574,14 @@
   },
   "saves": {
     "Fortitude": {
-      "total": 42,
+      "total": 41,
       "appliedCount": 14,
       "dominatedCount": 1,
       "sources": [
         {
           "source": "class save progression + ability mod",
           "bonusType": "(untyped)",
-          "value": 19
+          "value": 18
         },
         {
           "source": "Epic 2: Epic Saves",
@@ -658,8 +664,8 @@
       ]
     },
     "Reflex": {
-      "total": 44,
-      "appliedCount": 16,
+      "total": 46,
+      "appliedCount": 17,
       "dominatedCount": 1,
       "sources": [
         {
@@ -696,6 +702,12 @@
           "bonusType": "Feat",
           "value": 1,
           "target": "All"
+        },
+        {
+          "source": "[E] Eladrin: Eladrin: Minor Spring Attunement",
+          "bonusType": "Enhancement",
+          "value": 2,
+          "target": "Reflex"
         },
         {
           "source": "[E] Inquisitive: Inquisitive: Undaunted",
@@ -1310,8 +1322,8 @@
     ]
   },
   "doubleshot": {
-    "total": 128,
-    "appliedCount": 21,
+    "total": 137,
+    "appliedCount": 22,
     "dominatedCount": 0,
     "sources": [
       {
@@ -1403,6 +1415,11 @@
         "source": "[S] Legendary Devil's Infernal Dance (3-piece tier ≥ 3)",
         "bonusType": "Artifact",
         "value": 15
+      },
+      {
+        "source": "[PL] Past Life: Primal Sphere: Doubleshot ×3",
+        "bonusType": "Stacking",
+        "value": 9
       },
       {
         "source": "[FS] Crackshot Negotiator (4-piece tier ≥ 4)",
@@ -1957,14 +1974,14 @@
   },
   "spellDCs": {
     "Abjuration": {
-      "total": 39,
+      "total": 40,
       "appliedCount": 4,
       "dominatedCount": 10,
       "sources": [
         {
-          "source": "casting stat mod (+34)",
+          "source": "casting stat mod (+35)",
           "bonusType": "(untyped)",
-          "value": 34
+          "value": 35
         },
         {
           "source": "[D] Shiradi Champion: Shiradi Champion: Fey Favor: Shiradi Champion: Epic Spell DCs",
@@ -1987,14 +2004,14 @@
       ]
     },
     "Conjuration": {
-      "total": 39,
+      "total": 40,
       "appliedCount": 4,
       "dominatedCount": 10,
       "sources": [
         {
-          "source": "casting stat mod (+34)",
+          "source": "casting stat mod (+35)",
           "bonusType": "(untyped)",
-          "value": 34
+          "value": 35
         },
         {
           "source": "[D] Shiradi Champion: Shiradi Champion: Fey Favor: Shiradi Champion: Epic Spell DCs",
@@ -2017,14 +2034,14 @@
       ]
     },
     "Divination": {
-      "total": 39,
+      "total": 40,
       "appliedCount": 4,
       "dominatedCount": 10,
       "sources": [
         {
-          "source": "casting stat mod (+34)",
+          "source": "casting stat mod (+35)",
           "bonusType": "(untyped)",
-          "value": 34
+          "value": 35
         },
         {
           "source": "[D] Shiradi Champion: Shiradi Champion: Fey Favor: Shiradi Champion: Epic Spell DCs",
@@ -2047,14 +2064,14 @@
       ]
     },
     "Enchantment": {
-      "total": 39,
+      "total": 40,
       "appliedCount": 4,
       "dominatedCount": 10,
       "sources": [
         {
-          "source": "casting stat mod (+34)",
+          "source": "casting stat mod (+35)",
           "bonusType": "(untyped)",
-          "value": 34
+          "value": 35
         },
         {
           "source": "[D] Shiradi Champion: Shiradi Champion: Fey Favor: Shiradi Champion: Epic Spell DCs",
@@ -2077,14 +2094,14 @@
       ]
     },
     "Evocation": {
-      "total": 39,
+      "total": 40,
       "appliedCount": 4,
       "dominatedCount": 10,
       "sources": [
         {
-          "source": "casting stat mod (+34)",
+          "source": "casting stat mod (+35)",
           "bonusType": "(untyped)",
-          "value": 34
+          "value": 35
         },
         {
           "source": "[D] Shiradi Champion: Shiradi Champion: Fey Favor: Shiradi Champion: Epic Spell DCs",
@@ -2107,14 +2124,14 @@
       ]
     },
     "Illusion": {
-      "total": 39,
+      "total": 40,
       "appliedCount": 4,
       "dominatedCount": 10,
       "sources": [
         {
-          "source": "casting stat mod (+34)",
+          "source": "casting stat mod (+35)",
           "bonusType": "(untyped)",
-          "value": 34
+          "value": 35
         },
         {
           "source": "[D] Shiradi Champion: Shiradi Champion: Fey Favor: Shiradi Champion: Epic Spell DCs",
@@ -2137,14 +2154,14 @@
       ]
     },
     "Necromancy": {
-      "total": 39,
+      "total": 40,
       "appliedCount": 4,
       "dominatedCount": 10,
       "sources": [
         {
-          "source": "casting stat mod (+34)",
+          "source": "casting stat mod (+35)",
           "bonusType": "(untyped)",
-          "value": 34
+          "value": 35
         },
         {
           "source": "[D] Shiradi Champion: Shiradi Champion: Fey Favor: Shiradi Champion: Epic Spell DCs",
@@ -2167,14 +2184,14 @@
       ]
     },
     "Transmutation": {
-      "total": 39,
+      "total": 40,
       "appliedCount": 4,
       "dominatedCount": 10,
       "sources": [
         {
-          "source": "casting stat mod (+34)",
+          "source": "casting stat mod (+35)",
           "bonusType": "(untyped)",
-          "value": 34
+          "value": 35
         },
         {
           "source": "[D] Shiradi Champion: Shiradi Champion: Fey Favor: Shiradi Champion: Epic Spell DCs",
@@ -2726,14 +2743,14 @@
       ]
     },
     "Repair": {
-      "total": 186,
+      "total": 188,
       "appliedCount": 2,
       "dominatedCount": 0,
       "sources": [
         {
-          "source": "[Skill] Repair (total 32)",
+          "source": "[Skill] Repair (total 34)",
           "bonusType": "(untyped)",
-          "value": 32,
+          "value": 34,
           "target": "Repair"
         },
         {
@@ -3137,14 +3154,14 @@
       ]
     },
     "bluff": {
-      "total": 78,
+      "total": 79,
       "appliedCount": 17,
       "dominatedCount": 1,
       "sources": [
         {
           "source": "Charisma modifier",
           "bonusType": "(untyped)",
-          "value": 34
+          "value": 35
         },
         {
           "source": "Scion of the Ethereal Plane",
@@ -3245,14 +3262,14 @@
       ]
     },
     "concentration": {
-      "total": 55,
+      "total": 54,
       "appliedCount": 15,
       "dominatedCount": 1,
       "sources": [
         {
           "source": "Constitution modifier",
           "bonusType": "(untyped)",
-          "value": 32
+          "value": 31
         },
         {
           "source": "Scion of the Ethereal Plane",
@@ -3341,14 +3358,14 @@
       ]
     },
     "diplomacy": {
-      "total": 66,
+      "total": 67,
       "appliedCount": 19,
       "dominatedCount": 1,
       "sources": [
         {
           "source": "Charisma modifier",
           "bonusType": "(untyped)",
-          "value": 34
+          "value": 35
         },
         {
           "source": "Scion of the Ethereal Plane",
@@ -3473,14 +3490,14 @@
       ]
     },
     "haggle": {
-      "total": 54,
+      "total": 55,
       "appliedCount": 14,
       "dominatedCount": 1,
       "sources": [
         {
           "source": "Charisma modifier",
           "bonusType": "(untyped)",
-          "value": 34
+          "value": 35
         },
         {
           "source": "Scion of the Ethereal Plane",
@@ -3743,14 +3760,14 @@
       ]
     },
     "intimidate": {
-      "total": 58,
+      "total": 59,
       "appliedCount": 17,
       "dominatedCount": 1,
       "sources": [
         {
           "source": "Charisma modifier",
           "bonusType": "(untyped)",
-          "value": 34
+          "value": 35
         },
         {
           "source": "Scion of the Ethereal Plane",
@@ -4157,14 +4174,14 @@
       ]
     },
     "repair": {
-      "total": 32,
+      "total": 34,
       "appliedCount": 15,
       "dominatedCount": 1,
       "sources": [
         {
           "source": "Intelligence modifier",
           "bonusType": "(untyped)",
-          "value": 11
+          "value": 13
         },
         {
           "source": "Scion of the Ethereal Plane",
@@ -4253,14 +4270,14 @@
       ]
     },
     "search": {
-      "total": 39,
+      "total": 41,
       "appliedCount": 18,
       "dominatedCount": 1,
       "sources": [
         {
           "source": "Intelligence modifier",
           "bonusType": "(untyped)",
-          "value": 11
+          "value": 13
         },
         {
           "source": "Scion of the Ethereal Plane",

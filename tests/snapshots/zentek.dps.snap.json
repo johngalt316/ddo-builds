@@ -12,7 +12,7 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 24,
-      "dpc": 1756.23,
+      "dpc": 1756.28,
       "standaloneDPS": 292.71
     },
     {
@@ -26,7 +26,7 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 24,
-      "dpc": 1756.23,
+      "dpc": 1756.28,
       "standaloneDPS": 58.54
     },
     {
@@ -40,7 +40,7 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 24,
-      "dpc": 1756.23,
+      "dpc": 1756.28,
       "standaloneDPS": 29.27
     },
     {
@@ -54,7 +54,7 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 24,
-      "dpc": 1756.23,
+      "dpc": 1756.28,
       "standaloneDPS": 29.27
     },
     {
@@ -68,8 +68,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 24,
-      "dpc": 1756.23,
-      "standaloneDPS": 117.08
+      "dpc": 1756.28,
+      "standaloneDPS": 117.09
     },
     {
       "id": "clickie::Grim Barricade::GrimReapersLuck",
@@ -82,7 +82,7 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 24,
-      "dpc": 1756.23,
+      "dpc": 1756.28,
       "standaloneDPS": 29.27
     },
     {
@@ -96,7 +96,7 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 24,
-      "dpc": 1756.23,
+      "dpc": 1756.28,
       "standaloneDPS": 29.27
     },
     {
@@ -110,7 +110,7 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 24,
-      "dpc": 1756.23,
+      "dpc": 1756.28,
       "standaloneDPS": 29.27
     },
     {
@@ -124,7 +124,7 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 24,
-      "dpc": 1756.23,
+      "dpc": 1756.28,
       "standaloneDPS": 58.54
     },
     {
@@ -138,7 +138,7 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 24,
-      "dpc": 1756.23,
+      "dpc": 1756.28,
       "standaloneDPS": 292.71
     },
     {
@@ -152,8 +152,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 24,
-      "dpc": 1756.23,
-      "standaloneDPS": 146.35
+      "dpc": 1756.28,
+      "standaloneDPS": 146.36
     },
     {
       "id": "clickie::War Soul::WSDivineMight",
@@ -166,7 +166,7 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 24,
-      "dpc": 1756.23,
+      "dpc": 1756.28,
       "standaloneDPS": 87.81
     },
     {
@@ -180,14 +180,14 @@
       "maxCasterLevel": 30,
       "maxTargetCap": 1,
       "casterLevelUsed": 24,
-      "dpc": 2940.27,
-      "standaloneDPS": 588.05
+      "dpc": 2940.32,
+      "standaloneDPS": 588.06
     }
   ],
   "melee": {
-    "avgPerHit": 1541.61,
-    "avgBaseDamage": 221.83,
-    "avgScaledDamage": 545.69,
+    "avgPerHit": 1654.53,
+    "avgBaseDamage": 238.83,
+    "avgScaledDamage": 587.51,
     "critThreatFaces": 5,
     "critChance": 0.25,
     "critMultOnAll": 7,
@@ -202,8 +202,8 @@
     "effectiveMHPerMin": 157.55,
     "effectiveOHPerMin": 27.26,
     "totalEffectivePerMin": 184.8,
-    "mhDPS": 4048.02,
-    "ohDPS": 700.28,
-    "totalAutoDPS": 4748.29
+    "mhDPS": 4344.51,
+    "ohDPS": 751.57,
+    "totalAutoDPS": 5096.08
   }
 }

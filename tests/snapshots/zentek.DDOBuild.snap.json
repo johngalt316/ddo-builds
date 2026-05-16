@@ -21,8 +21,8 @@
     "abilityScores": {
       "STR": 8,
       "DEX": 8,
-      "CON": 18,
-      "INT": 12,
+      "CON": 16,
+      "INT": 16,
       "WIS": 8,
       "CHA": 18
     },
@@ -1664,7 +1664,22 @@
       "Light Armor",
       "Ranged Combat",
       "Light Crossbow",
-      "Favored Weapon"
+      "Favored Weapon",
+      "Precision",
+      "Dual Shooter",
+      "Spring Affinity",
+      "Archer's Focus",
+      "Empower Healing Spell",
+      "Enchant Weapon",
+      "Doubleshot",
+      "Law on your side",
+      "Divine Might",
+      "Shiradi Destiny Mantle",
+      "Quicken Spell"
+    ],
+    "activeMetamagics": [
+      "Empower Healing Spell",
+      "Quicken Spell"
     ],
     "levelClasses": [
       "artificer",

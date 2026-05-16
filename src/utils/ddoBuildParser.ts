@@ -518,6 +518,21 @@ export function parseDDOBuildFile(xmlText: string, options?: ParseOptions): DDOB
     }
   }
 
+  // DDOBuilderV2 stores active metamagics inside <ActiveStances> (they're
+  // toggleable like stances are). Our build state separates metamagics into
+  // their own `activeMetamagics` field — used by the DPS pane to apply
+  // per-cast SP surcharges + damage modifiers. Promote any stance whose
+  // name matches a known metamagic so a freshly-imported build's
+  // Quicken / Empower Healing toggles flow into the cost calc instead of
+  // staying inert on the stance list.
+  const METAMAGIC_NAMES = new Set([
+    'Empower Spell', 'Empower Healing Spell', 'Maximize Spell',
+    'Quicken Spell', 'Intensify Spell', 'Embolden Spell',
+    'Enlarge Spell', 'Extend Spell', 'Accelerate Spell',
+    'Heighten Spell', 'Eschew Materials',
+  ]);
+  const activeMetamagics = activeStances.filter(s => METAMAGIC_NAMES.has(s));
+
   // Extract the selected enhancement tree names. The .DDOBuild file lists
   // them in three separate blocks — heroic / destiny / reaper — but our
   // build state stores all in one shared list (downstream tabs filter by
@@ -577,6 +592,7 @@ export function parseDDOBuildFile(xmlText: string, options?: ParseOptions): DDOB
       gearSets,
       activeGearSet,
       activeStances,
+      ...(activeMetamagics.length > 0 && { activeMetamagics }),
       levelClasses,
       abilityTomes,
       skillTomes,

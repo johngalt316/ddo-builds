@@ -15,6 +15,7 @@ import { initialDebuffState, type DebuffState } from '@/engine/dps/debuffs';
 import { ManageDebuffsDialog } from './DebuffsPanel';
 import { MagicRotationEditor } from './editors/MagicRotationEditor';
 import { MeleeEditor } from './editors/MeleeEditor';
+import { RangedEditor } from './editors/RangedEditor';
 import {
   EMPTY_STEPS,
   DIFFICULTY_LABELS,
@@ -136,7 +137,7 @@ export function DPSCalculatorPanel() {
           >
             <option value="magic">Magic</option>
             <option value="melee">Melee</option>
-            <option value="ranged">Ranged (coming soon)</option>
+            <option value="ranged">Ranged</option>
           </select>
         </label>
 
@@ -232,9 +233,19 @@ export function DPSCalculatorPanel() {
           setSimDuration={setSimDuration}
         />
       ) : (
-        <div className={styles.timelinePlaceholder}>
-          Ranged rotations land in a future phase.
-        </div>
+        <RangedEditor
+          difficulty={difficulty}
+          targetCount={targetCount}
+          setTargetCount={setTargetCount}
+          debuffState={debuffState}
+          onManageDebuffs={() => setDebuffsOpen(true)}
+          compareSetName={compareSetName}
+          setCompareSetName={setCompareSetName}
+          compareBuild={compareBuild}
+          compareBreakdowns={compareBreakdowns}
+          simDuration={simDuration}
+          setSimDuration={setSimDuration}
+        />
       )}
 
       {/* ManageDebuffsDialog lives here — shared across all editors */}

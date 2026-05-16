@@ -246,14 +246,14 @@
           <AvailableSpend>36</AvailableSpend>
           <StrSpend>0</StrSpend>
           <DexSpend>0</DexSpend>
-          <ConSpend>10</ConSpend>
-          <IntSpend>4</IntSpend>
+          <ConSpend>8</ConSpend>
+          <IntSpend>8</IntSpend>
           <WisSpend>0</WisSpend>
           <ChaSpend>10</ChaSpend>
         </AbilitySpend>
         <LevelTraining>
           <Class>Artificer</Class>
-          <SkillPointsAvailable>20</SkillPointsAvailable>
+          <SkillPointsAvailable>28</SkillPointsAvailable>
           <SkillPointsSpent>0</SkillPointsSpent>
           <TrainedFeat>
             <FeatName>Point Blank Shot</FeatName>
@@ -263,12 +263,12 @@
         </LevelTraining>
         <LevelTraining>
           <Class>Artificer</Class>
-          <SkillPointsAvailable>6</SkillPointsAvailable>
+          <SkillPointsAvailable>8</SkillPointsAvailable>
           <SkillPointsSpent>0</SkillPointsSpent>
         </LevelTraining>
         <LevelTraining>
           <Class>Artificer</Class>
-          <SkillPointsAvailable>6</SkillPointsAvailable>
+          <SkillPointsAvailable>8</SkillPointsAvailable>
           <SkillPointsSpent>0</SkillPointsSpent>
           <TrainedFeat>
             <FeatName>Rapid Shot</FeatName>
@@ -278,7 +278,7 @@
         </LevelTraining>
         <LevelTraining>
           <Class>Favored Soul</Class>
-          <SkillPointsAvailable>4</SkillPointsAvailable>
+          <SkillPointsAvailable>6</SkillPointsAvailable>
           <SkillPointsSpent>0</SkillPointsSpent>
           <TrainedFeat>
             <FeatName>Follower of the Sovereign Host</FeatName>
@@ -288,7 +288,7 @@
         </LevelTraining>
         <LevelTraining>
           <Class>Favored Soul</Class>
-          <SkillPointsAvailable>4</SkillPointsAvailable>
+          <SkillPointsAvailable>6</SkillPointsAvailable>
           <SkillPointsSpent>0</SkillPointsSpent>
           <TrainedFeat>
             <FeatName>Grace of Battle</FeatName>
@@ -298,7 +298,7 @@
         </LevelTraining>
         <LevelTraining>
           <Class>Favored Soul</Class>
-          <SkillPointsAvailable>4</SkillPointsAvailable>
+          <SkillPointsAvailable>6</SkillPointsAvailable>
           <SkillPointsSpent>0</SkillPointsSpent>
           <TrainedFeat>
             <FeatName>Child of Faith</FeatName>
@@ -313,12 +313,12 @@
         </LevelTraining>
         <LevelTraining>
           <Class>Favored Soul</Class>
-          <SkillPointsAvailable>5</SkillPointsAvailable>
+          <SkillPointsAvailable>7</SkillPointsAvailable>
           <SkillPointsSpent>0</SkillPointsSpent>
         </LevelTraining>
         <LevelTraining>
           <Class>Favored Soul</Class>
-          <SkillPointsAvailable>5</SkillPointsAvailable>
+          <SkillPointsAvailable>7</SkillPointsAvailable>
           <SkillPointsSpent>0</SkillPointsSpent>
           <TrainedFeat>
             <FeatName>Energy Absorption: Fire</FeatName>
@@ -328,7 +328,7 @@
         </LevelTraining>
         <LevelTraining>
           <Class>Favored Soul</Class>
-          <SkillPointsAvailable>5</SkillPointsAvailable>
+          <SkillPointsAvailable>7</SkillPointsAvailable>
           <SkillPointsSpent>0</SkillPointsSpent>
           <TrainedFeat>
             <FeatName>Precision</FeatName>
@@ -343,7 +343,7 @@
         </LevelTraining>
         <LevelTraining>
           <Class>Favored Soul</Class>
-          <SkillPointsAvailable>5</SkillPointsAvailable>
+          <SkillPointsAvailable>7</SkillPointsAvailable>
           <SkillPointsSpent>0</SkillPointsSpent>
           <TrainedFeat>
             <FeatName>Stout of Heart</FeatName>
@@ -353,12 +353,12 @@
         </LevelTraining>
         <LevelTraining>
           <Class>Favored Soul</Class>
-          <SkillPointsAvailable>5</SkillPointsAvailable>
+          <SkillPointsAvailable>7</SkillPointsAvailable>
           <SkillPointsSpent>0</SkillPointsSpent>
         </LevelTraining>
         <LevelTraining>
           <Class>Favored Soul</Class>
-          <SkillPointsAvailable>5</SkillPointsAvailable>
+          <SkillPointsAvailable>7</SkillPointsAvailable>
           <SkillPointsSpent>0</SkillPointsSpent>
           <TrainedFeat>
             <FeatName>Improved Critical: Ranged Weapons</FeatName>
@@ -368,7 +368,7 @@
         </LevelTraining>
         <LevelTraining>
           <Class>Favored Soul</Class>
-          <SkillPointsAvailable>5</SkillPointsAvailable>
+          <SkillPointsAvailable>7</SkillPointsAvailable>
           <SkillPointsSpent>0</SkillPointsSpent>
           <TrainedFeat>
             <FeatName>Energy Absorption: Cold</FeatName>
@@ -378,12 +378,12 @@
         </LevelTraining>
         <LevelTraining>
           <Class>Favored Soul</Class>
-          <SkillPointsAvailable>5</SkillPointsAvailable>
+          <SkillPointsAvailable>7</SkillPointsAvailable>
           <SkillPointsSpent>0</SkillPointsSpent>
         </LevelTraining>
         <LevelTraining>
           <Class>Favored Soul</Class>
-          <SkillPointsAvailable>6</SkillPointsAvailable>
+          <SkillPointsAvailable>8</SkillPointsAvailable>
           <SkillPointsSpent>0</SkillPointsSpent>
           <TrainedFeat>
             <FeatName>Quicken Spell</FeatName>
@@ -398,17 +398,17 @@
         </LevelTraining>
         <LevelTraining>
           <Class>Favored Soul</Class>
-          <SkillPointsAvailable>6</SkillPointsAvailable>
+          <SkillPointsAvailable>8</SkillPointsAvailable>
           <SkillPointsSpent>0</SkillPointsSpent>
         </LevelTraining>
         <LevelTraining>
           <Class>Favored Soul</Class>
-          <SkillPointsAvailable>6</SkillPointsAvailable>
+          <SkillPointsAvailable>8</SkillPointsAvailable>
           <SkillPointsSpent>0</SkillPointsSpent>
         </LevelTraining>
         <LevelTraining>
           <Class>Favored Soul</Class>
-          <SkillPointsAvailable>6</SkillPointsAvailable>
+          <SkillPointsAvailable>8</SkillPointsAvailable>
           <SkillPointsSpent>0</SkillPointsSpent>
           <TrainedFeat>
             <FeatName>Empower Healing Spell</FeatName>
@@ -423,12 +423,12 @@
         </LevelTraining>
         <LevelTraining>
           <Class>Favored Soul</Class>
-          <SkillPointsAvailable>6</SkillPointsAvailable>
+          <SkillPointsAvailable>8</SkillPointsAvailable>
           <SkillPointsSpent>0</SkillPointsSpent>
         </LevelTraining>
         <LevelTraining>
           <Class>Favored Soul</Class>
-          <SkillPointsAvailable>6</SkillPointsAvailable>
+          <SkillPointsAvailable>8</SkillPointsAvailable>
           <SkillPointsSpent>0</SkillPointsSpent>
         </LevelTraining>
         <LevelTraining>
@@ -563,6 +563,17 @@
           <Stances>Ranged Combat</Stances>
           <Stances>Light Crossbow</Stances>
           <Stances>Favored Weapon</Stances>
+          <Stances>Precision</Stances>
+          <Stances>Dual Shooter</Stances>
+          <Stances>Spring Affinity</Stances>
+          <Stances>Archer's Focus</Stances>
+          <Stances>Empower Healing Spell</Stances>
+          <Stances>Enchant Weapon</Stances>
+          <Stances>Doubleshot</Stances>
+          <Stances>Law on your side</Stances>
+          <Stances>Divine Might</Stances>
+          <Stances>Shiradi Destiny Mantle</Stances>
+          <Stances>Quicken Spell</Stances>
         </ActiveStances>
         <Destiny_SelectedTrees>
           <TreeName>Shiradi Champion</TreeName>
@@ -2017,11 +2028,11 @@ be impossible for the average mind.</Description>
             <Name/>
           </ArtifactFiligree>
           <SnapshotStrength>28</SnapshotStrength>
-          <SnapshotIntelligence>32</SnapshotIntelligence>
+          <SnapshotIntelligence>36</SnapshotIntelligence>
           <SnapshotWisdom>34</SnapshotWisdom>
           <SnapshotDexterity>33</SnapshotDexterity>
-          <SnapshotConstitution>64</SnapshotConstitution>
-          <SnapshotCharisma>79</SnapshotCharisma>
+          <SnapshotConstitution>62</SnapshotConstitution>
+          <SnapshotCharisma>81</SnapshotCharisma>
         </EquippedGear>
         <FavorFeats/>
         <Notes/>

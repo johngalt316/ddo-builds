@@ -45,6 +45,7 @@ export function GearSection() {
   const unequipItem        = useBuildStore(s => s.unequipItem);
   const setBonuses         = useGameDataStore(s => s.setBonuses);
   const itemSetIndex       = useGameDataStore(s => s.itemSetIndex);
+  const augments           = useGameDataStore(s => s.augments);
   const [open, setOpen]    = useState(true);
   const [activeSetIdx, setActiveSetIdx] = useState(0);
   // Track which slot is selected for the details panel. We resolve to the
@@ -76,15 +77,30 @@ export function GearSection() {
   const viewingSet     = sets[activeSetIdx];
   const isViewingActive = viewingSet?.name === build.activeGearSet;
 
-  // Surface active set bonuses for the viewing set. For each item, prefer
-  // its inline `setBonus` field; fall back to the items-index lookup.
+  // Surface active set bonuses for the viewing set. Mirrors the engine's
+  // walkSetBonuses logic: count each item's distinct set memberships once,
+  // combining item-tagged sets (item.setBonus / itemSetIndex fallback) with
+  // augment-granted sets (Lost Purpose augments etc. — `augment.setBonus`).
+  // Two augments granting the same set on one item count as 1 tick.
   const activeSetBonuses = useMemo(() => {
     const items = viewingSet?.items ?? [];
+    const augSetByName = new Map<string, string>();
+    for (const a of augments) {
+      if (a.setBonus) augSetByName.set(a.name, a.setBonus);
+    }
     const counts = new Map<string, number>();
     for (const it of items) {
-      const setName = it.setBonus ?? itemSetIndex[it.name];
-      if (!setName) continue;
-      counts.set(setName, (counts.get(setName) ?? 0) + 1);
+      const setsOnItem = new Set<string>();
+      const direct = it.setBonus ?? itemSetIndex[it.name];
+      if (direct) setsOnItem.add(direct);
+      for (const slot of it.augmentSlots ?? []) {
+        if (!slot.selectedAugment) continue;
+        const sb = augSetByName.get(slot.selectedAugment);
+        if (sb) setsOnItem.add(sb);
+      }
+      for (const setName of setsOnItem) {
+        counts.set(setName, (counts.get(setName) ?? 0) + 1);
+      }
     }
     if (counts.size === 0) return [];
     const sbIdx = new Map(setBonuses.map(sb => [sb.type, sb]));
@@ -99,7 +115,7 @@ export function GearSection() {
         buffs: sb?.buffs ?? [],
       };
     }).sort((a, b) => b.count - a.count);
-  }, [viewingSet, itemSetIndex, setBonuses]);
+  }, [viewingSet, itemSetIndex, setBonuses, augments]);
 
   function handleNewSet() {
     const proposed = `Set ${sets.length + 1}`;
@@ -229,7 +245,6 @@ export function GearSection() {
                       key={sb.name}
                       name={sb.name}
                       count={sb.count}
-                      nextTier={sb.nextTier}
                       variant={sb.activeTier > 0
                         ? 'active'
                         : sb.knownInCatalog ? 'pending' : 'unknown'}
@@ -625,7 +640,6 @@ function FiligreePanel({
                 key={sb.name}
                 name={sb.name}
                 count={sb.count}
-                nextTier={sb.nextTier}
                 variant={sb.activeTier > 0
                   ? 'active'
                   : sb.knownInCatalog ? 'pending' : 'unknown'}

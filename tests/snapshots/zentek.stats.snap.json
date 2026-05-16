@@ -5,23 +5,23 @@
   "effectiveScores": {
     "STR": 8,
     "DEX": 8,
-    "CON": 18,
-    "INT": 12,
+    "CON": 16,
+    "INT": 16,
     "WIS": 8,
     "CHA": 18
   },
   "modifiers": {
     "STR": -1,
     "DEX": -1,
-    "CON": 4,
-    "INT": 1,
+    "CON": 3,
+    "INT": 3,
     "WIS": -1,
     "CHA": 4
   },
   "bab": 14,
-  "hitPoints": 436,
+  "hitPoints": 402,
   "saves": {
-    "fortitude": 15,
+    "fortitude": 14,
     "reflex": 10,
     "will": 12
   },
@@ -41,9 +41,9 @@
       "maxRanks": 11
     },
     "concentration": {
-      "total": 4,
+      "total": 3,
       "ranks": 0,
-      "abilityMod": 4,
+      "abilityMod": 3,
       "isClassSkill": true,
       "maxRanks": 23
     },
@@ -55,9 +55,9 @@
       "maxRanks": 23
     },
     "disable_device": {
-      "total": 1,
+      "total": 3,
       "ranks": 0,
-      "abilityMod": 1,
+      "abilityMod": 3,
       "isClassSkill": true,
       "maxRanks": 23
     },
@@ -125,23 +125,23 @@
       "maxRanks": 11
     },
     "repair": {
-      "total": 1,
+      "total": 3,
       "ranks": 0,
-      "abilityMod": 1,
+      "abilityMod": 3,
       "isClassSkill": true,
       "maxRanks": 23
     },
     "search": {
-      "total": 1,
+      "total": 3,
       "ranks": 0,
-      "abilityMod": 1,
+      "abilityMod": 3,
       "isClassSkill": true,
       "maxRanks": 23
     },
     "spellcraft": {
-      "total": 1,
+      "total": 3,
       "ranks": 0,
-      "abilityMod": 1,
+      "abilityMod": 3,
       "isClassSkill": true,
       "maxRanks": 23
     },

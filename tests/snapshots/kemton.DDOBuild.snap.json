@@ -2068,6 +2068,12 @@
       "Rune Arm",
       "Great Crossbow"
     ],
+    "activeMetamagics": [
+      "Maximize Spell",
+      "Empower Spell",
+      "Quicken Spell",
+      "Intensify Spell"
+    ],
     "levelClasses": [
       "arcane_trickster",
       "arcane_trickster",
