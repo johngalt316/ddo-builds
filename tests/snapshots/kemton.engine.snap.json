@@ -13,8 +13,8 @@
       "Slider": 3
     },
     "requirementsFailedCount": 99,
-    "totalSourcedEffects": 1092,
-    "totalAppliedBonuses": 1288
+    "totalSourcedEffects": 1093,
+    "totalAppliedBonuses": 1290
   },
   "abilityScores": {
     "STR": {
@@ -1297,14 +1297,19 @@
     ]
   },
   "doublestrike": {
-    "total": 35,
-    "appliedCount": 8,
+    "total": 37,
+    "appliedCount": 9,
     "dominatedCount": 0,
     "sources": [
       {
         "source": "[A] Ring1: The Autumn Equinox → Legendary Swordcrossed Topaz",
         "bonusType": "Enhancement",
         "value": 15
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Epic Strike Upgrade I → Dark Imbuement",
+        "bonusType": "Destiny",
+        "value": 2
       },
       {
         "source": "[E] Arcane Trickster: Arcane Trickster: Master of Trickery",
@@ -1344,10 +1349,15 @@
     ]
   },
   "doubleshot": {
-    "total": 19,
-    "appliedCount": 9,
+    "total": 21,
+    "appliedCount": 10,
     "dominatedCount": 0,
     "sources": [
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Epic Strike Upgrade I → Dark Imbuement",
+        "bonusType": "Destiny",
+        "value": 2
+      },
       {
         "source": "[D] Shiradi Champion: Shiradi Champion: Pierce Deception",
         "bonusType": "Destiny",

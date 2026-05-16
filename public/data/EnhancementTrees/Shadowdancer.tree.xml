@@ -1165,9 +1165,24 @@ with Alternate Forms bonuses such as from Wraith form.</Description>
 spells with Evil energies for 10 seconds. You deal 1d6 per Sneak Attack Dice in
 Untyped damage on hit (scaling with Melee or Ranged Power), and on a vorpal
 strike, your attacks blind enemies with no save. This blind lasts 5 seconds and
-can only apply to each monster once per 60 seconds.</Description>
+can only apply to each monster once per 60 seconds.
+
+Hidden: also adds +2% Doublestrike and Doubleshot (matches the Meld into
+Darkness selection — undocumented in DDOBuilderV2 but present in-game).</Description>
           <Icon>DarkImbuement</Icon>
           <CostPerRank size="1">2</CostPerRank>
+          <!-- ddo-builds patch (see docs/DATA_PATCHES.md): Dark Imbuement
+               grants an undocumented +2% Doublestrike and Doubleshot in-game,
+               same as the sibling "Meld into Darkness" selection. The wiki
+               page for Shadowdancer notes this; upstream DDOBuilderV2 XML
+               only models the bonus on Meld into Darkness. -->
+          <Effect>
+            <Type>Doublestrike</Type>
+            <Type>Doubleshot</Type>
+            <Bonus>Destiny</Bonus>
+            <AType>Simple</AType>
+            <Amount size="1">2</Amount>
+          </Effect>
         </EnhancementSelection>
         <EnhancementSelection>
           <Name>Meld into Darkness</Name>

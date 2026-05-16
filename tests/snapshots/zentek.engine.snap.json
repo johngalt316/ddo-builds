@@ -13,8 +13,8 @@
       "SliderValue": 3
     },
     "requirementsFailedCount": 50,
-    "totalSourcedEffects": 817,
-    "totalAppliedBonuses": 1069
+    "totalSourcedEffects": 818,
+    "totalAppliedBonuses": 1071
   },
   "abilityScores": {
     "STR": {
@@ -1263,10 +1263,15 @@
     ]
   },
   "doublestrike": {
-    "total": 37,
-    "appliedCount": 7,
+    "total": 39,
+    "appliedCount": 8,
     "dominatedCount": 0,
     "sources": [
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Epic Strike Upgrade I → Dark Imbuement",
+        "bonusType": "Destiny",
+        "value": 2
+      },
       {
         "source": "[D] Shadowdancer: Shadowdancer: Shadowcaster → Shadowstriker",
         "bonusType": "Destiny",
@@ -1305,10 +1310,15 @@
     ]
   },
   "doubleshot": {
-    "total": 129,
-    "appliedCount": 21,
+    "total": 131,
+    "appliedCount": 22,
     "dominatedCount": 1,
     "sources": [
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Epic Strike Upgrade I → Dark Imbuement",
+        "bonusType": "Destiny",
+        "value": 2
+      },
       {
         "source": "[D] Shadowdancer: Shadowdancer: Shadowcaster → Shadowstriker",
         "bonusType": "Destiny",

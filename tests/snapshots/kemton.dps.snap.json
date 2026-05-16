@@ -448,14 +448,14 @@
     "damageStat": "DEX",
     "damageStatMod": 15,
     "meleePower": 153,
-    "doublestrike": 35,
+    "doublestrike": 37,
     "mhAttacksPerMin": 103.5,
     "ohAttacksPerMin": 0,
-    "effectiveMHPerMin": 139.73,
+    "effectiveMHPerMin": 141.79,
     "effectiveOHPerMin": 0,
-    "totalEffectivePerMin": 139.73,
-    "mhDPS": 1122.49,
+    "totalEffectivePerMin": 141.79,
+    "mhDPS": 1139.12,
     "ohDPS": 0,
-    "totalAutoDPS": 1122.49
+    "totalAutoDPS": 1139.12
   }
 }

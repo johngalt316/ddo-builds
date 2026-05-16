@@ -13,8 +13,8 @@
       "SliderValue": 3
     },
     "requirementsFailedCount": 108,
-    "totalSourcedEffects": 1119,
-    "totalAppliedBonuses": 1280
+    "totalSourcedEffects": 1120,
+    "totalAppliedBonuses": 1282
   },
   "abilityScores": {
     "STR": {
@@ -1722,8 +1722,8 @@
     ]
   },
   "doublestrike": {
-    "total": 95,
-    "appliedCount": 11,
+    "total": 97,
+    "appliedCount": 12,
     "dominatedCount": 0,
     "sources": [
       {
@@ -1740,6 +1740,11 @@
         "source": "[D] Legendary Dreadnought: Legendary Dreadnought: Strike Twice",
         "bonusType": "Destiny",
         "value": 6
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Epic Strike Upgrade I → Dark Imbuement",
+        "bonusType": "Destiny",
+        "value": 2
       },
       {
         "source": "[D] Shadowdancer: Shadowdancer: Shadowcaster → Shadowstriker",
@@ -1784,14 +1789,19 @@
     ]
   },
   "doubleshot": {
-    "total": 36,
-    "appliedCount": 6,
+    "total": 38,
+    "appliedCount": 7,
     "dominatedCount": 0,
     "sources": [
       {
         "source": "[D] Legendary Dreadnought: Legendary Dreadnought: Strike Twice",
         "bonusType": "Destiny",
         "value": 6
+      },
+      {
+        "source": "[D] Shadowdancer: Shadowdancer: Epic Strike Upgrade I → Dark Imbuement",
+        "bonusType": "Destiny",
+        "value": 2
       },
       {
         "source": "[D] Shadowdancer: Shadowdancer: Shadowcaster → Shadowstriker",
