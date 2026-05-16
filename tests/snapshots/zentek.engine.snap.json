@@ -120,9 +120,9 @@
       ]
     },
     "CON": {
-      "total": 73,
-      "appliedCount": 14,
-      "dominatedCount": 0,
+      "total": 62,
+      "appliedCount": 12,
+      "dominatedCount": 2,
       "sources": [
         {
           "source": "base + racial",
@@ -160,21 +160,9 @@
           "target": "All"
         },
         {
-          "source": "[A] Helmet: Legendary University Champion's Helm → Diamond of Insightful Constitution",
-          "bonusType": "Insightful",
-          "value": 5,
-          "target": "Constitution"
-        },
-        {
           "source": "[A] Bracers: Rocard, Champion's Cuffs → Insightful Constitution +7",
           "bonusType": "Insightful",
           "value": 7,
-          "target": "Constitution"
-        },
-        {
-          "source": "[G] Gloves: Legendary Gloves of the Resilient (AbilityBonus: Constitution)",
-          "bonusType": "Insightful",
-          "value": 6,
           "target": "Constitution"
         },
         {
@@ -421,7 +409,7 @@
     }
   },
   "hitPoints": {
-    "total": 2197,
+    "total": 2010,
     "appliedCount": 29,
     "dominatedCount": 0,
     "sources": [
@@ -556,9 +544,9 @@
         "value": 45
       },
       {
-        "source": "Constitution mod (+31) × 34 levels",
+        "source": "Constitution mod (+26) × 34 levels",
         "bonusType": "Stacking",
-        "value": 1054
+        "value": 884
       },
       {
         "source": "Fate Points (×2 HP each, 44 fate points)",
@@ -1013,9 +1001,9 @@
     ]
   },
   "rangedPower": {
-    "total": 293,
-    "appliedCount": 52,
-    "dominatedCount": 0,
+    "total": 285,
+    "appliedCount": 51,
+    "dominatedCount": 1,
     "sources": [
       {
         "source": "Scion of the Ethereal Plane",
@@ -1101,11 +1089,6 @@
         "source": "[E] Inquisitive: Inquisitive: Master Inquisitive",
         "bonusType": "Enhancement",
         "value": 5
-      },
-      {
-        "source": "[A] Cloak: Legendary University Archer's Cloak → Topaz of Ranged Power",
-        "bonusType": "Enhancement",
-        "value": 8
       },
       {
         "source": "[A] Bracers: Rocard, Champion's Cuffs → Topaz of Ranged Power",
@@ -1322,9 +1305,9 @@
     ]
   },
   "doubleshot": {
-    "total": 137,
-    "appliedCount": 22,
-    "dominatedCount": 0,
+    "total": 129,
+    "appliedCount": 21,
+    "dominatedCount": 1,
     "sources": [
       {
         "source": "Doubleshot",
@@ -1370,11 +1353,6 @@
         "source": "[E] Vistani Knife Fighter: Vistani: Quick Reflexes",
         "bonusType": "Enhancement",
         "value": 5
-      },
-      {
-        "source": "[A] Ring2: Legendary Ring of Unnatural Accuracy → Legendary Arrowbound Topaz",
-        "bonusType": "Enhancement",
-        "value": 8
       },
       {
         "source": "[G] Goggles: Legendary Goggles of the Archer (Doubleshot)",
@@ -1755,9 +1733,9 @@
     ]
   },
   "prr": {
-    "total": 150,
-    "appliedCount": 12,
-    "dominatedCount": 0,
+    "total": 114,
+    "appliedCount": 11,
+    "dominatedCount": 1,
     "sources": [
       {
         "source": "[E] Vistani Knife Fighter: Vistani: Mist Stalker I",
@@ -1768,11 +1746,6 @@
         "source": "[E] Vistani Knife Fighter: Vistani: Mist Stalker II",
         "bonusType": "Enhancement",
         "value": 3
-      },
-      {
-        "source": "[A] Trinket: Legendary Periapt of Charisma → Sapphire of Defense",
-        "bonusType": "Enhancement",
-        "value": 36
       },
       {
         "source": "[G] Gloves: Legendary Gloves of the Resilient (PhysicalSheltering)",
@@ -1822,9 +1795,9 @@
     ]
   },
   "mrr": {
-    "total": 121,
-    "appliedCount": 10,
-    "dominatedCount": 0,
+    "total": 85,
+    "appliedCount": 9,
+    "dominatedCount": 1,
     "sources": [
       {
         "source": "[E] Vistani Knife Fighter: Vistani: Mist Stalker I",
@@ -1835,11 +1808,6 @@
         "source": "[E] Vistani Knife Fighter: Vistani: Mist Stalker II",
         "bonusType": "Enhancement",
         "value": 3
-      },
-      {
-        "source": "[A] Trinket: Legendary Periapt of Charisma → Sapphire of Defense",
-        "bonusType": "Enhancement",
-        "value": 36
       },
       {
         "source": "[G] Armor: Legendary University Spellshield's Reinforced Shirt (MagicalSheltering)",
@@ -3262,14 +3230,14 @@
       ]
     },
     "concentration": {
-      "total": 54,
+      "total": 49,
       "appliedCount": 15,
       "dominatedCount": 1,
       "sources": [
         {
           "source": "Constitution modifier",
           "bonusType": "(untyped)",
-          "value": 31
+          "value": 26
         },
         {
           "source": "Scion of the Ethereal Plane",

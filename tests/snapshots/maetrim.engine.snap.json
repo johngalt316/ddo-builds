@@ -421,9 +421,9 @@
       ]
     },
     "WIS": {
-      "total": 100,
-      "appliedCount": 26,
-      "dominatedCount": 0,
+      "total": 98,
+      "appliedCount": 24,
+      "dominatedCount": 2,
       "sources": [
         {
           "source": "base + racial",
@@ -524,18 +524,6 @@
           "source": "[A] Belt: Legendary Waistwrap of Wild Wisdom → Curse of Major Wisdom",
           "bonusType": "Fortune",
           "value": 2,
-          "target": "Wisdom"
-        },
-        {
-          "source": "[A] Gloves: Legendary Blood-Stained Doctor's Gloves → Curse of Minor Wisdom",
-          "bonusType": "Fortune",
-          "value": 1,
-          "target": "Wisdom"
-        },
-        {
-          "source": "[A] Bracers: The Wicked Spines → Curse of Minor Wisdom",
-          "bonusType": "Fortune",
-          "value": 1,
           "target": "Wisdom"
         },
         {
@@ -865,9 +853,9 @@
   },
   "saves": {
     "Fortitude": {
-      "total": 91,
-      "appliedCount": 25,
-      "dominatedCount": 1,
+      "total": 88,
+      "appliedCount": 24,
+      "dominatedCount": 2,
       "sources": [
         {
           "source": "class save progression + ability mod",
@@ -959,12 +947,6 @@
           "target": "All"
         },
         {
-          "source": "[D] Shadowdancer: Shadowdancer: Cover of Darkness",
-          "bonusType": "Resistance",
-          "value": 3,
-          "target": "All"
-        },
-        {
           "source": "[R] Grim Barricade: Reaper's Defense II",
           "bonusType": "Reaper",
           "value": 1,
@@ -1021,9 +1003,9 @@
       ]
     },
     "Reflex": {
-      "total": 96,
-      "appliedCount": 27,
-      "dominatedCount": 1,
+      "total": 93,
+      "appliedCount": 26,
+      "dominatedCount": 2,
       "sources": [
         {
           "source": "class save progression + ability mod",
@@ -1133,12 +1115,6 @@
           "target": "All"
         },
         {
-          "source": "[D] Shadowdancer: Shadowdancer: Cover of Darkness",
-          "bonusType": "Resistance",
-          "value": 3,
-          "target": "All"
-        },
-        {
           "source": "[R] Grim Barricade: Reaper's Defense II",
           "bonusType": "Reaper",
           "value": 1,
@@ -1189,9 +1165,9 @@
       ]
     },
     "Will": {
-      "total": 95,
-      "appliedCount": 24,
-      "dominatedCount": 1,
+      "total": 92,
+      "appliedCount": 23,
+      "dominatedCount": 2,
       "sources": [
         {
           "source": "class save progression + ability mod",
@@ -1274,12 +1250,6 @@
           "source": "[A] Cloak: Dinosaur Bone Cloak → Horn: +12 Resistance",
           "bonusType": "Resistance",
           "value": 11,
-          "target": "All"
-        },
-        {
-          "source": "[D] Shadowdancer: Shadowdancer: Cover of Darkness",
-          "bonusType": "Resistance",
-          "value": 3,
           "target": "All"
         },
         {
@@ -3258,7 +3228,7 @@
       ]
     },
     "Negative": {
-      "total": 259,
+      "total": 258,
       "appliedCount": 4,
       "dominatedCount": 0,
       "sources": [
@@ -3275,9 +3245,9 @@
           "target": "Negative"
         },
         {
-          "source": "[Skill] Heal (total 99)",
+          "source": "[Skill] Heal (total 98)",
           "bonusType": "(untyped)",
-          "value": 99,
+          "value": 98,
           "target": "Negative"
         },
         {
@@ -3308,7 +3278,7 @@
       ]
     },
     "Positive": {
-      "total": 348,
+      "total": 347,
       "appliedCount": 12,
       "dominatedCount": 0,
       "sources": [
@@ -3373,9 +3343,9 @@
           "target": "Positive"
         },
         {
-          "source": "[Skill] Heal (total 99)",
+          "source": "[Skill] Heal (total 98)",
           "bonusType": "(untyped)",
-          "value": 99,
+          "value": 98,
           "target": "Positive"
         },
         {
@@ -4355,14 +4325,14 @@
       ]
     },
     "heal": {
-      "total": 99,
+      "total": 98,
       "appliedCount": 22,
       "dominatedCount": 0,
       "sources": [
         {
           "source": "Wisdom modifier",
           "bonusType": "(untyped)",
-          "value": 45
+          "value": 44
         },
         {
           "source": "Skill tome",
@@ -4919,14 +4889,14 @@
       ]
     },
     "listen": {
-      "total": 100,
+      "total": 99,
       "appliedCount": 22,
       "dominatedCount": 0,
       "sources": [
         {
           "source": "Wisdom modifier",
           "bonusType": "(untyped)",
-          "value": 45
+          "value": 44
         },
         {
           "source": "Skill tome",
@@ -5619,7 +5589,7 @@
       ]
     },
     "spot": {
-      "total": 124,
+      "total": 123,
       "appliedCount": 24,
       "dominatedCount": 0,
       "sources": [
@@ -5631,7 +5601,7 @@
         {
           "source": "Wisdom modifier",
           "bonusType": "(untyped)",
-          "value": 45
+          "value": 44
         },
         {
           "source": "Skill tome",

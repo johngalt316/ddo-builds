@@ -721,9 +721,9 @@
   },
   "saves": {
     "Fortitude": {
-      "total": 69,
-      "appliedCount": 20,
-      "dominatedCount": 1,
+      "total": 66,
+      "appliedCount": 19,
+      "dominatedCount": 2,
       "sources": [
         {
           "source": "class save progression + ability mod",
@@ -803,12 +803,6 @@
           "target": "All"
         },
         {
-          "source": "[D] Shadowdancer: Shadowdancer: Cover of Darkness",
-          "bonusType": "Resistance",
-          "value": 3,
-          "target": "All"
-        },
-        {
           "source": "[R] Grim Barricade: Reaper's Defense II",
           "bonusType": "Reaper",
           "value": 1,
@@ -847,9 +841,9 @@
       ]
     },
     "Reflex": {
-      "total": 80,
-      "appliedCount": 26,
-      "dominatedCount": 1,
+      "total": 77,
+      "appliedCount": 25,
+      "dominatedCount": 2,
       "sources": [
         {
           "source": "class save progression + ability mod",
@@ -941,12 +935,6 @@
           "target": "All"
         },
         {
-          "source": "[D] Shadowdancer: Shadowdancer: Cover of Darkness",
-          "bonusType": "Resistance",
-          "value": 3,
-          "target": "All"
-        },
-        {
           "source": "[R] Grim Barricade: Reaper's Reflex/Fortitude/Will I → Reflex Save",
           "bonusType": "Reaper",
           "value": 3,
@@ -1009,9 +997,9 @@
       ]
     },
     "Will": {
-      "total": 69,
-      "appliedCount": 18,
-      "dominatedCount": 1,
+      "total": 66,
+      "appliedCount": 17,
+      "dominatedCount": 2,
       "sources": [
         {
           "source": "class save progression + ability mod",
@@ -1076,12 +1064,6 @@
           "source": "[A] Belt: Ophael's Cincture → Sapphire of Resistance",
           "bonusType": "Resistance",
           "value": 11,
-          "target": "All"
-        },
-        {
-          "source": "[D] Shadowdancer: Shadowdancer: Cover of Darkness",
-          "bonusType": "Resistance",
-          "value": 3,
           "target": "All"
         },
         {

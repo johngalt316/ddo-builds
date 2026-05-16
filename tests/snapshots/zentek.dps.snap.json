@@ -12,8 +12,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 24,
-      "dpc": 1756.28,
-      "standaloneDPS": 292.71
+      "dpc": 1742.23,
+      "standaloneDPS": 290.37
     },
     {
       "id": "clickie::Battle Engineer::BEShatterDefenses",
@@ -26,8 +26,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 24,
-      "dpc": 1756.28,
-      "standaloneDPS": 58.54
+      "dpc": 1742.23,
+      "standaloneDPS": 58.07
     },
     {
       "id": "clickie::Dire Thaumaturge::DirePower",
@@ -40,8 +40,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 24,
-      "dpc": 1756.28,
-      "standaloneDPS": 29.27
+      "dpc": 1742.23,
+      "standaloneDPS": 29.04
     },
     {
       "id": "clickie::Dread Adversary::DAReapersStrike",
@@ -54,8 +54,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 24,
-      "dpc": 1756.28,
-      "standaloneDPS": 29.27
+      "dpc": 1742.23,
+      "standaloneDPS": 29.04
     },
     {
       "id": "clickie::Fatesinger::U51FatesingerDiscord",
@@ -68,8 +68,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 24,
-      "dpc": 1756.28,
-      "standaloneDPS": 117.09
+      "dpc": 1742.23,
+      "standaloneDPS": 116.15
     },
     {
       "id": "clickie::Grim Barricade::GrimReapersLuck",
@@ -82,8 +82,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 24,
-      "dpc": 1756.28,
-      "standaloneDPS": 29.27
+      "dpc": 1742.23,
+      "standaloneDPS": 29.04
     },
     {
       "id": "clickie::Grim Barricade::GrimReapersResistance",
@@ -96,8 +96,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 24,
-      "dpc": 1756.28,
-      "standaloneDPS": 29.27
+      "dpc": 1742.23,
+      "standaloneDPS": 29.04
     },
     {
       "id": "clickie::Grim Barricade::GrimReapersSteadfastness",
@@ -110,8 +110,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 24,
-      "dpc": 1756.28,
-      "standaloneDPS": 29.27
+      "dpc": 1742.23,
+      "standaloneDPS": 29.04
     },
     {
       "id": "clickie::Inquisitive::InquisitiveNoHoldsBarred",
@@ -124,8 +124,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 24,
-      "dpc": 1756.28,
-      "standaloneDPS": 58.54
+      "dpc": 1742.23,
+      "standaloneDPS": 58.07
     },
     {
       "id": "clickie::Inquisitive::InquisitiveWhatFirst",
@@ -138,8 +138,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 24,
-      "dpc": 1756.28,
-      "standaloneDPS": 292.71
+      "dpc": 1742.23,
+      "standaloneDPS": 290.37
     },
     {
       "id": "clickie::War Soul::WarSoulCore1",
@@ -152,8 +152,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 24,
-      "dpc": 1756.28,
-      "standaloneDPS": 146.36
+      "dpc": 1742.23,
+      "standaloneDPS": 145.19
     },
     {
       "id": "clickie::War Soul::WSDivineMight",
@@ -166,8 +166,8 @@
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 24,
-      "dpc": 1756.28,
-      "standaloneDPS": 87.81
+      "dpc": 1742.23,
+      "standaloneDPS": 87.11
     },
     {
       "id": "sla::The Pluck of a String::[D] Fatesinger: Fatesinger: Epic Strike → The Pluck of a String",
@@ -180,8 +180,8 @@
       "maxCasterLevel": 30,
       "maxTargetCap": 1,
       "casterLevelUsed": 24,
-      "dpc": 2940.32,
-      "standaloneDPS": 588.06
+      "dpc": 2926.27,
+      "standaloneDPS": 585.25
     }
   ],
   "melee": {

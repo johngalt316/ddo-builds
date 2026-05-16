@@ -214,16 +214,12 @@ function walkAugments(
           // Override the amount table with the tier value.
           ? { ...eff, amount: [tierValue], amountType: 'Simple' as const }
           : eff;
-        // Augments are slotted INTO items but emit their bonuses as a
-        // separate source from the item's natural buffs. In DDO they
-        // stack with the host item's own Enhancement-typed buffs (e.g.
-        // a Legendary Arrowbound Topaz +8% Doubleshot stacks with the
-        // wearing item's natural +9% Doubleshot rather than being
-        // dominated by it). Therefore: do NOT tag as isApplyAsItemEffect.
-        // The augment's own <ApplyAsItemEffect/> flag (rare) is preserved
-        // if set on the source effect.
+        // Augments are slotted INTO items and follow the same Highest-Only
+        // stacking rules as their host item's natural buffs. Three sources
+        // of Insightful Con (one helm augment, one bracer augment, one
+        // glove natural buff) should resolve to just the highest, not sum.
         out.push({
-          effect: base,
+          effect: { ...base, isApplyAsItemEffect: true },
           source: `[A] ${item.slot}: ${item.name} → ${sel}`,
           rankCount: 1,
         });

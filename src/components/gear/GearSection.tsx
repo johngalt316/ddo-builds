@@ -425,6 +425,18 @@ function GearDetails({
   onEditAugment: (augmentSlotIdx: number) => void;
 }) {
   const itemBuffs = useGameDataStore(s => s.itemBuffs);
+  const augments  = useGameDataStore(s => s.augments);
+  const setBonuses = useGameDataStore(s => s.setBonuses);
+  const augmentByName = useMemo(() => {
+    const m = new Map<string, typeof augments[number]>();
+    for (const a of augments) m.set(a.name, a);
+    return m;
+  }, [augments]);
+  const setBonusByName = useMemo(() => {
+    const m = new Map<string, typeof setBonuses[number]>();
+    for (const s of setBonuses) m.set(s.type, s);
+    return m;
+  }, [setBonuses]);
   return (
     <div className={styles.details}>
       <div className={styles.detailsHeader}>
@@ -456,15 +468,40 @@ function GearDetails({
                 : editable
                   ? styles.augmentSlotEditable
                   : styles.augmentSlotEmpty;
+
+              // Build a useful tooltip. For set-granting augments (Lost
+              // Purpose etc.) show the set's tier breakdown so the user
+              // can see what they actually get from this augment.
+              let titleText: string;
+              if (!filled) {
+                titleText = editable
+                  ? `Click to add a ${aug.slotType} augment`
+                  : `Empty ${aug.slotType} slot`;
+              } else {
+                const augData = augmentByName.get(aug.selectedAugment!);
+                const lines = [`${aug.slotType} — ${aug.selectedAugment}`];
+                if (augData?.description) lines.push('', augData.description);
+                if (augData?.setBonus) {
+                  const sb = setBonusByName.get(augData.setBonus);
+                  if (sb && sb.buffs.length > 0) {
+                    lines.push('', `Set tiers — ${augData.setBonus}:`);
+                    for (const b of [...sb.buffs].sort((a, z) => a.equippedCount - z.equippedCount)) {
+                      const body = (b.description?.trim()) || '(no description)';
+                      lines.push(`  ${b.equippedCount} pc — ${body}`);
+                    }
+                  }
+                }
+                if (editable) lines.push('', `Click to change ${aug.slotType} augment`);
+                titleText = lines.join('\n');
+              }
+
               return (
                 <button
                   key={i}
                   className={className}
                   onClick={() => editable && onEditAugment(i)}
                   disabled={!editable}
-                  title={editable
-                    ? (filled ? `Click to change ${aug.slotType} augment` : `Click to add a ${aug.slotType} augment`)
-                    : (filled ? aug.selectedAugment : `Empty ${aug.slotType} slot`)}
+                  title={titleText}
                 >
                   <span className={styles.augmentSlotType}>{aug.slotType}</span>
                   <span className={styles.augmentSlotValue}>
