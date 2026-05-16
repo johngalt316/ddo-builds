@@ -75,22 +75,25 @@ function loadMinGameData() {
   };
 }
 
+// Parse the full game data + the fixture once — both are read-only and
+// shared across tests. Doing the work in beforeEach causes CI hook
+// timeouts (parsing every XML file takes 10s+ on slower runners).
+const sharedGameData = loadMinGameData();
+const sharedFixtureXml = readFileSync(resolve(FIXTURES, 'zentek.DDOBuild'), 'utf8');
+const sharedBuild = (() => {
+  const r = parseDDOBuildFile(sharedFixtureXml);
+  if (!r) throw new Error('zentek fixture failed to parse');
+  return r.build;
+})();
+
 describe('GearSection — augment-granted set bonus visibility', () => {
   beforeEach(() => {
     cleanup();
-    // Inject loaded game data into the store BEFORE render, so the
-    // useMemo for activeSetBonuses sees the real augment catalog.
-    const data = loadMinGameData();
     useGameDataStore.setState({
       status: 'ready',
-      ...data,
+      ...sharedGameData,
     } as never);
-
-    // Load the zentek fixture into the build store.
-    const xml = readFileSync(resolve(FIXTURES, 'zentek.DDOBuild'), 'utf8');
-    const result = parseDDOBuildFile(xml);
-    if (!result) throw new Error('zentek fixture failed to parse');
-    useBuildStore.setState({ build: result.build });
+    useBuildStore.setState({ build: sharedBuild });
   });
 
   it('renders the Legendary Devil\'s Infernal Dance pill for zentek\'s 3 Lost Purpose augments', () => {
