@@ -212,7 +212,15 @@ export function meleeDPS(
     ? weapon.critThreatBase * 2
     : weapon.critThreatBase;
   const totalFaces     = rangeAfterIC + stats.critRangeBonus;
-  const critChance     = totalFaces / 20;
+  // A natural 1 always misses (in-game rule), so 1/20 rolls deal zero
+  // damage regardless of how wide the crit threat range is. The
+  // effective number of crit faces caps at 19 — even Hunt's End-style
+  // "+20 crit range" still loses face 1 to the auto-miss. critChance
+  // is reported as the actual per-attack crit probability after that
+  // clamp, while the displayed `critThreatFaces` keeps the unclamped
+  // threat range size so the tooltip can still say "+20 crit faces".
+  const effCritFaces   = Math.min(19, totalFaces);
+  const critChance     = effCritFaces / 20;
 
   // ── Split crit multipliers ──────────────────────────────────────
   // Bonuses from OC / Pulverizer / Blunt Trauma only apply on 19-20
@@ -221,14 +229,16 @@ export function meleeDPS(
   const multOn1920  = multOnAll + stats.critMult1920Bonus;
 
   // Faces that roll 19-20 vs all other crit faces.
-  const faces1920   = Math.min(2, totalFaces);
-  const facesOther  = Math.max(0, totalFaces - 2);
+  const faces1920   = Math.min(2, effCritFaces);
+  const facesOther  = Math.max(0, effCritFaces - 2);
 
   // Weighted average per hit across all outcomes:
-  //   non-crit:  scaled damage only
+  //   face 1:    auto-miss (0 damage) — 1/20
+  //   non-crit:  scaled damage only — (19 - effCritFaces)/20
   //   crit ≤18:  (scaled + seeker) × multOnAll
   //   crit 19-20: (scaled + seeker) × multOn1920
-  const avgPerHit = (1 - critChance) * scaled
+  const nonCritHits = 19 - effCritFaces;
+  const avgPerHit = (nonCritHits / 20) * scaled
     + (facesOther / 20) * (scaled + stats.seeker) * multOnAll
     + (faces1920  / 20) * (scaled + stats.seeker) * multOn1920;
 
@@ -526,16 +536,17 @@ function meleeAbilityAvgPerHit(
   extraCritFaces: number,
   extraCritMult: number,
 ): number {
-  // Cap at 20 so +100 crit range (Legendary Rally) maps to 100% crit, not
-  // 520%. Of the 20 d20 faces, 2 are always 19-20 (higher-mult tier).
-  const cappedFaces = Math.min(20, result.critThreatFaces + extraCritFaces);
-  const critChance  = cappedFaces / 20;
+  // Cap at 19 (not 20) so face 1 always misses — +100 crit range
+  // (Legendary Rally) maps to 95% crit, not 100%. Of the 19 non-1
+  // faces, 2 are always 19-20 (higher-mult tier).
+  const cappedFaces = Math.min(19, result.critThreatFaces + extraCritFaces);
   const faces1920   = Math.min(2, cappedFaces);
   const facesOther  = Math.max(0, cappedFaces - 2);
   const s = result.avgScaledDamage;
   const multAll  = result.critMultOnAll  + extraCritMult;
   const mult1920 = result.critMultOn1920 + extraCritMult;
-  const avgPerHit = (1 - critChance) * s
+  const nonCritHits = 19 - cappedFaces;
+  const avgPerHit = (nonCritHits / 20) * s
     + (facesOther / 20) * (s + result.seeker) * multAll
     + (faces1920  / 20) * (s + result.seeker) * mult1920;
   return avgPerHit * scalar;
@@ -626,15 +637,18 @@ export function shieldBashDPS(
   const scaled     = avgBase * (1 + stats.meleePower / 100) * (1 + stats.physDamagePct / 100);
 
   // ── Shield crit profile ───────────────────────────────────────────
+  // Face 1 auto-misses; effective crit faces cap at 19, leaving 19 hit-
+  // attempt faces total (see meleeDPS for the same model).
   const rangeAfterIC   = stats.hasImprovedCritical ? shield.critThreatBase * 2 : shield.critThreatBase;
-  const cappedFaces    = Math.min(20, rangeAfterIC + extraCritFaces);
+  const cappedFaces    = Math.min(19, rangeAfterIC + extraCritFaces);
   const critChance     = cappedFaces / 20;
   const faces1920      = Math.min(2, cappedFaces);
   const facesOther     = Math.max(0, cappedFaces - 2);
   const multOnAll      = shield.critMultiplier + stats.critMultBonus;
   const multOn1920     = multOnAll + stats.critMult1920Bonus;
 
-  const avgPerBash = (1 - critChance) * scaled
+  const nonCritHits = 19 - cappedFaces;
+  const avgPerBash = (nonCritHits / 20) * scaled
     + (facesOther / 20) * (scaled + stats.seeker) * multOnAll
     + (faces1920  / 20) * (scaled + stats.seeker) * multOn1920;
 

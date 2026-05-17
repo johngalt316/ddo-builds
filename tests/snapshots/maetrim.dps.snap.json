@@ -339,7 +339,7 @@
     }
   ],
   "melee": {
-    "avgPerHit": 1237.78,
+    "avgPerHit": 1201.38,
     "avgBaseDamage": 176.73,
     "avgScaledDamage": 728.11,
     "critThreatFaces": 4,
@@ -356,8 +356,8 @@
     "effectiveMHPerMin": 254.26,
     "effectiveOHPerMin": 254.26,
     "totalEffectivePerMin": 508.53,
-    "mhDPS": 5245.41,
-    "ohDPS": 5245.41,
-    "totalAutoDPS": 10490.82
+    "mhDPS": 5091.13,
+    "ohDPS": 5091.13,
+    "totalAutoDPS": 10182.27
   }
 }

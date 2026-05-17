@@ -202,16 +202,21 @@ export function rangedDPS(
 
   // Crit threat range + multipliers (same model as melee — IC doubles
   // the base, flat bonuses add on top; 19-20 carve-out for OC family).
+  // Natural 1 always misses, so the effective number of crit faces
+  // caps at 19 (face 1 can't be a crit even on +20-faces abilities
+  // like Hunt's End), and 1/20 rolls always deal 0 damage.
   const rangeAfterIC   = stats.hasImprovedCritical
     ? weapon.critThreatBase * 2
     : weapon.critThreatBase;
   const totalFaces     = rangeAfterIC + stats.critRangeBonus;
-  const critChance     = totalFaces / 20;
+  const effCritFaces   = Math.min(19, totalFaces);
+  const critChance     = effCritFaces / 20;
   const multOnAll      = weapon.critMultiplier + stats.critMultBonus;
   const multOn1920     = multOnAll + stats.critMult1920Bonus;
-  const faces1920      = Math.min(2, totalFaces);
-  const facesOther     = Math.max(0, totalFaces - 2);
-  const avgPerHit = (1 - critChance) * scaled
+  const faces1920      = Math.min(2, effCritFaces);
+  const facesOther     = Math.max(0, effCritFaces - 2);
+  const nonCritHits    = 19 - effCritFaces;
+  const avgPerHit = (nonCritHits / 20) * scaled
     + (facesOther / 20) * (scaled + stats.seeker) * multOnAll
     + (faces1920  / 20) * (scaled + stats.seeker) * multOn1920;
 
@@ -431,14 +436,16 @@ function rangedAbilityAvgPerHit(
   extraCritFaces: number,
   extraCritMult: number,
 ): number {
-  const cappedFaces = Math.min(20, result.critThreatFaces + extraCritFaces);
-  const critChance  = cappedFaces / 20;
+  // Cap at 19 — natural 1 always auto-misses regardless of how wide the
+  // threat range is. See rangedDPS for the same model.
+  const cappedFaces = Math.min(19, result.critThreatFaces + extraCritFaces);
   const faces1920   = Math.min(2, cappedFaces);
   const facesOther  = Math.max(0, cappedFaces - 2);
   const s = result.avgScaledDamage;
   const multAll  = result.critMultOnAll  + extraCritMult;
   const mult1920 = result.critMultOn1920 + extraCritMult;
-  const avgPerHit = (1 - critChance) * s
+  const nonCritHits = 19 - cappedFaces;
+  const avgPerHit = (nonCritHits / 20) * s
     + (facesOther / 20) * (s + result.seeker) * multAll
     + (faces1920  / 20) * (s + result.seeker) * mult1920;
   return avgPerHit * scalar;
@@ -537,20 +544,26 @@ export function rangedAbilityTooltipLines(
   const scaledWithScalar = scaled * baseScalar;
   lines.push(`Scaled/hit: ${fmt(scaledWithScalar, 1)}  [${mults.join(' · ')}]`);
 
-  // 3. Crit profile (with ability bonuses)
+  // 3. Crit profile (with ability bonuses).
+  // Natural 1 always misses, so effective crit faces cap at 19 even
+  // when raw threat range tops out at 20+ (Hunt's End, Legendary Rally,
+  // etc.). The displayed crit range is the "raw" threat span; the
+  // chance line subtracts the auto-miss when present.
   const extraCritFaces = wa.critRangeBonus ?? 0;
+  const rawFaces   = Math.min(20, result.critThreatFaces + extraCritFaces);
+  const effFaces   = Math.min(19, result.critThreatFaces + extraCritFaces);
   const extraCritMult  = wa.critMultBonus  ?? 0;
-  const totalFaces = Math.min(20, result.critThreatFaces + extraCritFaces);
   const multAll    = result.critMultOnAll  + extraCritMult;
   const mult1920   = result.critMultOn1920 + extraCritMult;
-  const loBound    = 21 - totalFaces;
-  const facesOther = Math.max(0, totalFaces - 2);
+  const loBound    = 21 - rawFaces;
+  const facesOther = Math.max(0, effFaces - 2);
   const critStr = result.critMult1920Bonus > 0 || extraCritMult > 0
     ? facesOther > 0
       ? `(${loBound}-18)×${multAll}, (19-20)×${mult1920}`
       : `(19-20)×${mult1920}`
     : `(${loBound}-20)×${multAll}`;
-  const critParts: string[] = [`${totalFaces}/20 = ${fmt(totalFaces * 5, 0)}%`];
+  const autoMissNote = rawFaces >= 20 ? ' (face 1 auto-miss)' : '';
+  const critParts: string[] = [`${effFaces}/20 = ${fmt(effFaces * 5, 0)}%${autoMissNote}`];
   if (extraCritFaces) critParts.push(`+${extraCritFaces} faces`);
   if (extraCritMult)  critParts.push(`+${extraCritMult} mult`);
   if (stats.seeker)   critParts.push(`+${stats.seeker} seeker`);
@@ -560,7 +573,7 @@ export function rangedAbilityTooltipLines(
   const avgPerHit = (extraCritFaces === 0 && extraCritMult === 0)
     ? result.avgPerHit * baseScalar
     : rangedAbilityAvgPerHit(result, baseScalar, extraCritFaces, extraCritMult);
-  lines.push(`Avg/hit: ${fmt(avgPerHit, 1)}  (crit-weighted)`);
+  lines.push(`Avg/attack: ${fmt(avgPerHit, 1)}  (crit-weighted; 5% face-1 auto-miss baked in)`);
 
   // 5. Effective shots
   const ds = Math.max(0, stats.doubleshot) / 100;
