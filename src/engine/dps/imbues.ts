@@ -62,6 +62,8 @@ const KNOWN_DAMAGE_TYPES = new Set([
   // Used by Inquisitive's Law on Your Side, Paladin's Holy Strike,
   // Divine Crusader's Aligned Damage, etc.
   'Law', 'Good',
+  // Bleeding damage from Dark Hunter Bleed the Weak.
+  'Bleeding',
 ]);
 
 /** Parse an Imbue Toggle description into a structured rider.
@@ -104,7 +106,7 @@ export function parseImbueRider(source: string, description: string): ImbueRider
   // 2. Damage type — first known type word AFTER the dice expression
   //    and BEFORE "damage". "Electrical" normalizes to "Electric".
   const afterDice = analysisText.slice(diceMatch.index! + diceMatch[0].length);
-  const typeMatch = afterDice.match(/\b(Acid|Chaos|Cold|Electrical|Electric|Evil|Fire|Force|Good|Law|Light|Negative|Poison|Positive|Repair|Sonic|Bane|Untyped|Bludgeoning|Piercing|Slashing)\b/i);
+  const typeMatch = afterDice.match(/\b(Acid|Bleeding|Chaos|Cold|Electrical|Electric|Evil|Fire|Force|Good|Law|Light|Negative|Poison|Positive|Repair|Sonic|Bane|Untyped|Bludgeoning|Piercing|Slashing)\b/i);
   if (!typeMatch) return null;
   let damageType = typeMatch[1]!;
   if (damageType.toLowerCase() === 'electrical') damageType = 'Electric';
@@ -113,13 +115,18 @@ export function parseImbueRider(source: string, description: string): ImbueRider
     if (t.toLowerCase() === damageType.toLowerCase()) { damageType = t; break; }
   }
 
-  // 3. Per-Imbue-Dice or per-character-level multiplier — read from the
-  //    analysed clause so we don't pick up "per Imbue Dice" from a
-  //    different (bonus-vs-X) clause that doesn't apply.
-  let diceMultiplier: ImbueRider['diceMultiplier'] = 'flat';
-  if (/per\s+Imbue\s+Di(?:e|ce)/i.test(analysisText)) {
-    diceMultiplier = 'imbueDie';
-  } else if (/per\s+(?:Character\s+)?Level/i.test(analysisText)) {
+  // 3. Per-die multiplier.
+  //    Per the Update 57+ Imbue system rules (ddowiki.com/page/Imbue):
+  //    every damage imbue benefits from imbue dice. A character has
+  //    1 base imbue die + bonus dice from enhancements / feats / items,
+  //    so total dice = 1 + engine.imbueDice.total. We default to
+  //    'imbueDie' for that reason; the "per Imbue Die/Dice" prose in
+  //    the description is now redundant (always true) but historically
+  //    present for AA-style imbues.
+  //    'charLevel' overrides 'imbueDie' when present — a few imbues /
+  //    mantles scale with character level rather than imbue dice.
+  let diceMultiplier: ImbueRider['diceMultiplier'] = 'imbueDie';
+  if (/per\s+(?:Character\s+)?Level/i.test(analysisText)) {
     diceMultiplier = 'charLevel';
   }
 
@@ -171,7 +178,9 @@ export function imbueAvgPerHit(
   const avgPerInstance = rider.diceNum * (rider.diceSides + 1) / 2 + rider.diceBonus;
   let instances = 1;
   if (rider.diceMultiplier === 'imbueDie') {
-    instances = Math.max(1, engine.imbueDice.total);
+    // Per DDO: total imbue dice = 1 base + bonus from sources. The
+    // engine's `imbueDice.total` is the BONUS count, so we add 1.
+    instances = 1 + Math.max(0, engine.imbueDice.total);
   } else if (rider.diceMultiplier === 'charLevel') {
     instances = Math.max(1, totalCharLevel);
   }

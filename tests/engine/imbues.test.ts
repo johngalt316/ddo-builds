@@ -3,24 +3,38 @@ import { describe, it, expect } from 'vitest';
 import { parseImbueRider } from '@/engine/dps/imbues';
 
 describe('parseImbueRider', () => {
+  // Per ddowiki.com/page/Imbue (Update 57+): all damage imbues benefit
+  // from imbue dice. Total dice per hit = 1 base + bonus from sources.
+  // The parser defaults `diceMultiplier` to 'imbueDie' for that reason.
+
   it('parses standard 1d6 element-specific SP imbue', () => {
     const r = parseImbueRider('BE: Thundershock', 'Imbue Toggle: Your weapons hum with Electricity, dealing an extra 1d6 Electric damage on each hit, scaling with Electric Spell Power.');
-    expect(r).toMatchObject({ diceNum: 1, diceSides: 6, diceBonus: 0, damageType: 'Electric', scalingPct: 100, scalingStat: 'sp' });
+    expect(r).toMatchObject({ diceNum: 1, diceSides: 6, diceBonus: 0, damageType: 'Electric', diceMultiplier: 'imbueDie', scalingPct: 100, scalingStat: 'sp' });
   });
 
   it('parses AA 1d8 75% Spell Power imbue', () => {
     const r = parseImbueRider('AA: Flaming Arrows', 'Imbue Toggle: Your arrows gain the Flaming, dealing 1d8 fire damage on hit, scaling with 75% of your Spell Power.');
-    expect(r).toMatchObject({ diceNum: 1, diceSides: 8, damageType: 'Fire', scalingPct: 75, scalingStat: 'universal_sp' });
+    expect(r).toMatchObject({ diceNum: 1, diceSides: 8, damageType: 'Fire', diceMultiplier: 'imbueDie', scalingPct: 75, scalingStat: 'universal_sp' });
   });
 
   it('parses higher-of-MP/RP imbue', () => {
     const r = parseImbueRider('NS: Sting', 'Imbue Toggle: ... you deal an additional 1d6 Poison damage on hit scaling with 100% of the higher of Melee or Ranged power...');
-    expect(r).toMatchObject({ diceNum: 1, diceSides: 6, damageType: 'Poison', scalingPct: 100, scalingStat: 'higher_mr_p' });
+    expect(r).toMatchObject({ diceNum: 1, diceSides: 6, damageType: 'Poison', diceMultiplier: 'imbueDie', scalingPct: 100, scalingStat: 'higher_mr_p' });
   });
 
   it('parses per-Imbue-Die rank-bracket dice', () => {
     const r = parseImbueRider('Drow: Poison', 'On hit: 1d[4/6/8] poison damage per Imbue Dice scaling with Melee or Ranged power.');
     expect(r).toMatchObject({ diceNum: 1, diceSides: 8, damageType: 'Poison', diceMultiplier: 'imbueDie', scalingStat: 'higher_mr_p' });
+  });
+
+  it('parses Bleed the Weak (Dark Hunter)', () => {
+    const r = parseImbueRider('Bleed the Weak',
+      'Imbue Toggle: Your melee and ranged attacks deal 1d8 Bleeding damage. Against enemies under 50% HP, this damage is increased to 1d10 Bleeding damage. Against enemies under 25% HP, this damage is increased to 1d12 Bleeding damage. This damage scales with the higher of Melee or Ranged Power.',
+    );
+    expect(r).toMatchObject({
+      diceNum: 1, diceSides: 8, damageType: 'Bleeding',
+      diceMultiplier: 'imbueDie', scalingPct: 100, scalingStat: 'higher_mr_p',
+    });
   });
 
   it('returns null for non-damage imbue (Aligned Arrows)', () => {
@@ -30,20 +44,21 @@ describe('parseImbueRider', () => {
 
   it('parses 1d6 fire with Melee Power scaling', () => {
     const r = parseImbueRider('HM: Lighting Candle', 'Imbue Toggle: While you are centered, you enhance your attacks with Ki flame. dealing +1d6 Fire damage on hit, ... scale with Melee Power.');
-    expect(r).toMatchObject({ diceNum: 1, diceSides: 6, damageType: 'Fire', scalingPct: 100, scalingStat: 'mp' });
+    expect(r).toMatchObject({ diceNum: 1, diceSides: 6, damageType: 'Fire', diceMultiplier: 'imbueDie', scalingPct: 100, scalingStat: 'mp' });
   });
 
   it('parses Inquisitive Law on your Side — picks the "all other creatures" default clause', () => {
-    // Conditional imbue: 1d10 per Imbue Die vs chaotic, 1d6 flat for
-    // all others. Per-DPS general case uses the "all other creatures"
-    // clause since fights aren't 100% chaotic targets.
+    // Conditional imbue: 1d10 per Imbue Die vs chaotic, 1d6 vs others.
+    // Per-DPS general case uses the "all other creatures" clause since
+    // fights aren't 100% chaotic targets. Both clauses are per-imbue-die
+    // (the wiki rule for all damage imbues post Update 57).
     const r = parseImbueRider('Law on your side',
       'Imbue Toggle: Your Light and Heavy (non-repeating) Crossbow attacks deal 1d10 Law damage per Imbue Dice on hit to Chaotic creatures and 1d6 Law damage on hit to all other creatures, scaling with 200% Ranged Power.',
     );
     expect(r).toMatchObject({
       diceNum: 1, diceSides: 6, diceBonus: 0,
       damageType: 'Law',
-      diceMultiplier: 'flat',
+      diceMultiplier: 'imbueDie',
       scalingPct: 200, scalingStat: 'rp',
     });
   });
