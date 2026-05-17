@@ -20,7 +20,7 @@ import { physicalDamageMultiplier } from '@/engine/dps/difficulty';
 import {
   rangedWeaponInfoFromGearItem, rangedBuildStatsFromEngine, rangedDPS,
   rangedAbilityDamagePerActivation, rangedCategoryFromName,
-  rangedBaseAPM, DUAL_SHOOTER_APM,
+  rangedBaseAPM, DUAL_SHOOTER_APM, rangedAbilityTooltipLines,
 } from '@/engine/dps/rangedCalc';
 import type { Stat } from '@/types/build';
 import { critRangeBonusForWeapon } from '@/engine/dps/meleeCalc';
@@ -226,14 +226,18 @@ export function RangedEditor({
         critRangeBonus, critMultBonus, dsBuffPct, dsBuffDuration,
       );
       const cycleTime = Math.max(a.cooldown, a.castTime, 1e-3);
+      const tooltipLines = weaponInfo
+        ? rangedAbilityTooltipLines(weaponInfo, buildStats, result, a.weaponAttack, cycleTime)
+        : undefined;
       m.set(a.id, {
         damage: { total: dmg, casterLevel: 0, byComponent: [] },
         cycleTime,
         dps: dmg / cycleTime,
+        tooltipLines,
       });
     }
     return m;
-  }, [allAbilities, result, buildStats]);
+  }, [allAbilities, result, buildStats, weaponInfo]);
 
   // Sort active abilities by DPC descending for the palette display.
   const sortedActiveRangedAbilities = useMemo(

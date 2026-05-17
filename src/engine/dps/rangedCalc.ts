@@ -477,3 +477,114 @@ export function rangedAbilityDamagePerActivation(
 
   return hitDamage + buffDamage;
 }
+
+/**
+ * Build a per-line breakdown of how DPC was computed for a ranged
+ * weapon-attack ability. Each entry is one row of derivation; consumers
+ * (palette tooltip, timeline block tooltip) render them verbatim.
+ *
+ * The order follows the per-cast formula:
+ *   1. weapon base damage line (dice + stat + flat + enchant)
+ *   2. ranged-power / physical-damage multipliers
+ *   3. ability scalar (the +N% damage rider)
+ *   4. crit profile (incorporating ability crit-range / crit-mult riders)
+ *   5. average per-hit
+ *   6. effective shots (mhHits × (1 + DS))
+ *   7. transient alacrity buff (when present)
+ *   8. cycle-time + DPS total
+ *
+ * Values are formatted with `fmt` so big numbers render readably.
+ */
+export function rangedAbilityTooltipLines(
+  weapon: RangedWeaponInfo,
+  stats: RangedBuildStats,
+  result: RangedDPSResult,
+  wa: {
+    mhHits: number;
+    scalar: number;
+    critRangeBonus?: number;
+    critMultBonus?: number;
+    dsBuffPct?: number;
+    dsBuffDuration?: number;
+  },
+  cycleTime: number,
+): string[] {
+  const fmt = (n: number, digits = 1) =>
+    n.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: digits });
+
+  const lines: string[] = [];
+
+  // 1. Base weapon damage components
+  const avgDice  = wa.scalar > 0
+    ? weapon.diceNum * (weapon.wScalar + stats.wBonus) * (weapon.diceSides + 1) / 2
+    : weapon.diceNum * (weapon.wScalar + stats.wBonus) * (weapon.diceSides + 1) / 2;
+  const baseParts: string[] = [];
+  baseParts.push(`${fmt(avgDice, 2)} dice (${weapon.diceNum}d${weapon.diceSides} × ${fmt(weapon.wScalar + stats.wBonus, 2)}W)`);
+  if (weapon.diceBonus)   baseParts.push(`+${weapon.diceBonus} dice bonus`);
+  if (stats.statMod)      baseParts.push(`+${stats.statMod} ${stats.damageStat}`);
+  if (weapon.enchantBonus) baseParts.push(`+${weapon.enchantBonus} enchant`);
+  if (stats.flatDmgBonus)  baseParts.push(`+${stats.flatDmgBonus} flat`);
+  const baseSum = avgDice + weapon.diceBonus + stats.statMod + weapon.enchantBonus + stats.flatDmgBonus;
+  lines.push(`Base/hit: ${fmt(baseSum, 1)}  [${baseParts.join(' · ')}]`);
+
+  // 2. Multipliers
+  const scaled = result.avgScaledDamage;
+  const mults: string[] = [];
+  mults.push(`×${fmt(1 + stats.rangedPower / 100, 2)} RP(${stats.rangedPower})`);
+  if (stats.physDamagePct) mults.push(`×${fmt(1 + stats.physDamagePct / 100, 2)} phys(${stats.physDamagePct}%)`);
+  const baseScalar = wa.scalar;
+  if (baseScalar !== 1) mults.push(`×${fmt(baseScalar, 2)} ability scalar (+${Math.round((baseScalar - 1) * 100)}%)`);
+  const scaledWithScalar = scaled * baseScalar;
+  lines.push(`Scaled/hit: ${fmt(scaledWithScalar, 1)}  [${mults.join(' · ')}]`);
+
+  // 3. Crit profile (with ability bonuses)
+  const extraCritFaces = wa.critRangeBonus ?? 0;
+  const extraCritMult  = wa.critMultBonus  ?? 0;
+  const totalFaces = Math.min(20, result.critThreatFaces + extraCritFaces);
+  const multAll    = result.critMultOnAll  + extraCritMult;
+  const mult1920   = result.critMultOn1920 + extraCritMult;
+  const loBound    = 21 - totalFaces;
+  const facesOther = Math.max(0, totalFaces - 2);
+  const critStr = result.critMult1920Bonus > 0 || extraCritMult > 0
+    ? facesOther > 0
+      ? `(${loBound}-18)×${multAll}, (19-20)×${mult1920}`
+      : `(19-20)×${mult1920}`
+    : `(${loBound}-20)×${multAll}`;
+  const critParts: string[] = [`${totalFaces}/20 = ${fmt(totalFaces * 5, 0)}%`];
+  if (extraCritFaces) critParts.push(`+${extraCritFaces} faces`);
+  if (extraCritMult)  critParts.push(`+${extraCritMult} mult`);
+  if (stats.seeker)   critParts.push(`+${stats.seeker} seeker`);
+  lines.push(`Crit: ${critStr}  [${critParts.join(' · ')}]`);
+
+  // 4. Per-hit avg (with crit profile applied)
+  const avgPerHit = (extraCritFaces === 0 && extraCritMult === 0)
+    ? result.avgPerHit * baseScalar
+    : rangedAbilityAvgPerHit(result, baseScalar, extraCritFaces, extraCritMult);
+  lines.push(`Avg/hit: ${fmt(avgPerHit, 1)}  (crit-weighted)`);
+
+  // 5. Effective shots
+  const ds = Math.max(0, stats.doubleshot) / 100;
+  const effShots = wa.mhHits * (1 + ds);
+  lines.push(`Hits: ${wa.mhHits} × (1 + ${fmt(stats.doubleshot, 0)}% DS) = ${fmt(effShots, 2)}`);
+
+  // 6. Transient alacrity buff
+  const dsBuffPct = wa.dsBuffPct ?? 0;
+  const dsBuffDur = wa.dsBuffDuration ?? 0;
+  if (dsBuffPct > 0 && dsBuffDur > 0) {
+    const extraAPM = (dsBuffPct / 100) * result.apm;
+    const extraShots = (extraAPM / 60) * dsBuffDur;
+    lines.push(`Alacrity buff: +${dsBuffPct}% for ${dsBuffDur}s → ${fmt(extraShots, 2)} extra shots`);
+  }
+
+  // 7. Cycle + DPS
+  const hitDamage  = effShots * avgPerHit;
+  const buffDamage = dsBuffPct > 0 && dsBuffDur > 0
+    ? ((dsBuffPct / 100) * result.apm / 60) * result.avgPerHit * dsBuffDur
+    : 0;
+  const total = hitDamage + buffDamage;
+  lines.push(`DPC: ${fmt(effShots, 2)} × ${fmt(avgPerHit, 1)}${buffDamage > 0 ? ` + ${fmt(buffDamage, 1)} buff` : ''} = ${fmt(total, 0)}`);
+  if (cycleTime > 0) {
+    lines.push(`Cycle: ${fmt(cycleTime, 1)}s → DPS ${fmt(total / cycleTime, 0)}`);
+  }
+  return lines;
+}

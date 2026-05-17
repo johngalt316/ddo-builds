@@ -322,6 +322,10 @@ export interface AbilityDamageInfo {
   cycleTime: number;
   /** Damage per second when spammed standalone: `damage.total / cycleTime`. */
   dps: number;
+  /** Optional per-ability calculation breakdown. Each line is one row of
+   *  derivation (base dice, scalars, stat mods, crit profile, etc.) shown
+   *  in the palette / timeline tooltip below the DPC/DPS totals. */
+  tooltipLines?: string[];
 }
 
 /** No-debuff baseline (multiplier = 1.0 across the board). */

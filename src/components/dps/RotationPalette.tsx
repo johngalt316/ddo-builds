@@ -132,6 +132,12 @@ export function RotationPalette({
                       parts.push(`  • ${c.component.label}: ${fmt(c.damagePerTrigger)} dpc · ${fmt(compDps)} dps`);
                     }
                   }
+                  // Per-ability calculation breakdown (weapon-attack abilities
+                  // surface a multi-line derivation; spell abilities surface
+                  // their by-component list above).
+                  if (info.tooltipLines?.length) {
+                    parts.push('', '— Calculation —', ...info.tooltipLines);
+                  }
                 }
                 parts.push('', 'Click to add to rotation · drag to reorder priority');
                 return parts.join('\n');

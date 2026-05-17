@@ -245,12 +245,16 @@ export function MeleeCombinedTimeline({
                   const origIdx   = stepIndexByKey.get(r.step.key) ?? -1;
                   const isGhost   = rep > 0;
                   const info      = damageByAbility?.get(r.ability.id);
-                  const tooltip   = [
+                  const tooltipParts = [
                     r.ability.displayName,
                     `t = ${offsetSec.toFixed(2)}s  (${r.ability.cooldown}s CD)`,
                     info ? `DPC ~${fmt(info.damage.total)}  DPS ~${fmt(info.dps)}` : '',
-                    !isGhost ? 'Drag to reorder · × to remove' : '(repeat)',
-                  ].filter(Boolean).join('\n');
+                  ];
+                  if (info?.tooltipLines?.length) {
+                    tooltipParts.push('', '— Calculation —', ...info.tooltipLines);
+                  }
+                  tooltipParts.push(!isGhost ? 'Drag to reorder · × to remove' : '(repeat)');
+                  const tooltip = tooltipParts.filter(Boolean).join('\n');
 
                   return (
                     <div
