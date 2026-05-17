@@ -468,11 +468,21 @@ export function rangedAbilityDamagePerActivation(
    *  Modeled as extra auto-attack APM over the buff window. */
   alacrityBuffPct      = 0,
   alacrityBuffDuration = 0,
+  /** When true and the build is in Dual Shooter mode, the ability also
+   *  fires from the OH (100% chance per DDO rules). Most ranged
+   *  abilities are MH-only — Pluck of a String and Shoot First are the
+   *  current opt-ins. Outside of Dual Shooter mode this flag has no
+   *  effect (regular ranged builds have no OH at all). */
+  usesOffHand = false,
 ): number {
   const perHit = (extraCritFaces === 0 && extraCritMult === 0)
     ? rangedResult.avgPerHit * scalar
     : rangedAbilityAvgPerHit(rangedResult, scalar, extraCritFaces, extraCritMult);
-  const hitDamage = rangedAbilityEffectiveShots(mhHits, stats) * perHit;
+  const mhEffShots = rangedAbilityEffectiveShots(mhHits, stats);
+  const ohEffShots = (usesOffHand && stats.dualShooter)
+    ? mhEffShots * (stats.offHandChance / 100)
+    : 0;
+  const hitDamage = (mhEffShots + ohEffShots) * perHit;
 
   // Transient alacrity buff: extra APM during the buff window adds
   // (extraAPM / 60) × buff-duration extra shots, each averaging perHit.
@@ -513,6 +523,7 @@ export function rangedAbilityTooltipLines(
     critMultBonus?: number;
     dsBuffPct?: number;
     dsBuffDuration?: number;
+    usesOffHand?: boolean;
   },
   cycleTime: number,
 ): string[] {
@@ -575,10 +586,20 @@ export function rangedAbilityTooltipLines(
     : rangedAbilityAvgPerHit(result, baseScalar, extraCritFaces, extraCritMult);
   lines.push(`Avg/attack: ${fmt(avgPerHit, 1)}  (crit-weighted; 5% face-1 auto-miss baked in)`);
 
-  // 5. Effective shots
+  // 5. Effective shots — MH always fires; OH only when the ability is
+  //    opt-in for OH and Dual Shooter is active (OH chance is 100% in
+  //    that mode, set up by rangedBuildStatsFromEngine).
   const ds = Math.max(0, stats.doubleshot) / 100;
-  const effShots = wa.mhHits * (1 + ds);
-  lines.push(`Hits: ${wa.mhHits} × (1 + ${fmt(stats.doubleshot, 0)}% DS) = ${fmt(effShots, 2)}`);
+  const mhEffShots = wa.mhHits * (1 + ds);
+  const ohActive = (wa.usesOffHand ?? false) && stats.dualShooter;
+  const ohEffShots = ohActive ? mhEffShots * (stats.offHandChance / 100) : 0;
+  const totalEffShots = mhEffShots + ohEffShots;
+  lines.push(`MH hits: ${wa.mhHits} × (1 + ${fmt(stats.doubleshot, 0)}% DS) = ${fmt(mhEffShots, 2)}`);
+  if (ohActive) {
+    lines.push(`OH hits: ${fmt(mhEffShots, 2)} × ${fmt(stats.offHandChance, 0)}% OH = ${fmt(ohEffShots, 2)}  (Dual Shooter, ability uses OH)`);
+  } else if (wa.usesOffHand) {
+    lines.push(`OH hits: 0  (ability uses OH, but Dual Shooter inactive)`);
+  }
 
   // 6. Transient alacrity buff
   const dsBuffPct = wa.dsBuffPct ?? 0;
@@ -590,12 +611,12 @@ export function rangedAbilityTooltipLines(
   }
 
   // 7. Cycle + DPS
-  const hitDamage  = effShots * avgPerHit;
+  const hitDamage  = totalEffShots * avgPerHit;
   const buffDamage = dsBuffPct > 0 && dsBuffDur > 0
     ? ((dsBuffPct / 100) * result.apm / 60) * result.avgPerHit * dsBuffDur
     : 0;
   const total = hitDamage + buffDamage;
-  lines.push(`DPC: ${fmt(effShots, 2)} × ${fmt(avgPerHit, 1)}${buffDamage > 0 ? ` + ${fmt(buffDamage, 1)} buff` : ''} = ${fmt(total, 0)}`);
+  lines.push(`DPC: ${fmt(totalEffShots, 2)} × ${fmt(avgPerHit, 1)}${buffDamage > 0 ? ` + ${fmt(buffDamage, 1)} buff` : ''} = ${fmt(total, 0)}`);
   if (cycleTime > 0) {
     lines.push(`Cycle: ${fmt(cycleTime, 1)}s → DPS ${fmt(total / cycleTime, 0)}`);
   }

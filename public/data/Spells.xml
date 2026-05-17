@@ -16960,11 +16960,14 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
     </SpellDamage>
     <!-- ddo-builds patch: weapon-attack portion (+30% damage, +4 crit range).
          The 2d10/CL Sonic damage above is separate from the weapon-strike
-         damage; both apply together per the in-game description. -->
+         damage; both apply together per the in-game description.
+         <UsesOffHand/> flag: this attack also fires from the OH when Dual
+         Shooter is active (in-game observation). -->
     <WeaponAttack>
       <Hits>1</Hits>
       <Scalar>1.3</Scalar>
       <CritRangeBonus>4</CritRangeBonus>
+      <UsesOffHand/>
     </WeaponAttack>
     <Cooldown>5</Cooldown>
   </Spell>

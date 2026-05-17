@@ -595,18 +595,20 @@ export function parseSpellsXml(xml: string): DDOSpellData[] {
     if (spell.querySelector(':scope > PlaceholderDamage')) out.placeholderDamage = true;
     const waEl = spell.querySelector(':scope > WeaponAttack');
     if (waEl) {
-      const mhHits = parseInt(text(waEl as Element, 'Hits') || '1', 10);
-      const scalar = parseFloat(text(waEl as Element, 'Scalar') || '1');
-      const crRaw  = text(waEl as Element, 'CritRangeBonus');
-      const cmRaw  = text(waEl as Element, 'CritMultBonus');
-      const dsRaw  = text(waEl as Element, 'DSBuffPct');
-      const ddRaw  = text(waEl as Element, 'DSBuffDuration');
+      const mhHits   = parseInt(text(waEl as Element, 'Hits') || '1', 10);
+      const scalar   = parseFloat(text(waEl as Element, 'Scalar') || '1');
+      const crRaw    = text(waEl as Element, 'CritRangeBonus');
+      const cmRaw    = text(waEl as Element, 'CritMultBonus');
+      const dsRaw    = text(waEl as Element, 'DSBuffPct');
+      const ddRaw    = text(waEl as Element, 'DSBuffDuration');
+      const ohFlag   = (waEl as Element).querySelector(':scope > UsesOffHand');
       if (mhHits > 0 && scalar > 0) out.weaponAttack = {
         mhHits, scalar,
-        ...(crRaw ? { critRangeBonus: parseInt(crRaw, 10) } : {}),
-        ...(cmRaw ? { critMultBonus:  parseInt(cmRaw, 10) } : {}),
-        ...(dsRaw ? { dsBuffPct:      parseInt(dsRaw, 10) } : {}),
-        ...(ddRaw ? { dsBuffDuration: parseInt(ddRaw, 10) } : {}),
+        ...(crRaw  ? { critRangeBonus: parseInt(crRaw, 10) } : {}),
+        ...(cmRaw  ? { critMultBonus:  parseInt(cmRaw, 10) } : {}),
+        ...(dsRaw  ? { dsBuffPct:      parseInt(dsRaw, 10) } : {}),
+        ...(ddRaw  ? { dsBuffDuration: parseInt(ddRaw, 10) } : {}),
+        ...(ohFlag ? { usesOffHand:    true              } : {}),
       };
     }
     spells.push(out);
@@ -631,13 +633,15 @@ function parseWeaponAttack(el: Element): EnhancementItemData['weaponAttack'] {
   const cmRaw  = text(wa as Element, 'CritMultBonus');
   const dsRaw  = text(wa as Element, 'DSBuffPct');
   const ddRaw  = text(wa as Element, 'DSBuffDuration');
+  const ohFlag = (wa as Element).querySelector(':scope > UsesOffHand');
   return {
     mhHits,
     scalar,
-    ...(crRaw ? { critRangeBonus:  parseInt(crRaw, 10)  } : {}),
-    ...(cmRaw ? { critMultBonus:   parseInt(cmRaw, 10)  } : {}),
-    ...(dsRaw ? { dsBuffPct:       parseInt(dsRaw, 10)  } : {}),
-    ...(ddRaw ? { dsBuffDuration:  parseInt(ddRaw, 10)  } : {}),
+    ...(crRaw  ? { critRangeBonus:  parseInt(crRaw, 10)  } : {}),
+    ...(cmRaw  ? { critMultBonus:   parseInt(cmRaw, 10)  } : {}),
+    ...(dsRaw  ? { dsBuffPct:       parseInt(dsRaw, 10)  } : {}),
+    ...(ddRaw  ? { dsBuffDuration:  parseInt(ddRaw, 10)  } : {}),
+    ...(ohFlag ? { usesOffHand:     true                 } : {}),
   };
 }
 

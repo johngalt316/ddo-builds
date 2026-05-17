@@ -217,6 +217,7 @@ export function RangedEditor({
         mhHits, scalar,
         critRangeBonus = 0, critMultBonus = 0,
         dsBuffPct = 0, dsBuffDuration = 0,
+        usesOffHand = false,
       } = a.weaponAttack;
       // Reuse ds-buff slots for alacrity-buff parameters since ranged
       // abilities like Rapid Shot grant attack-speed (not extra projectiles)
@@ -224,6 +225,7 @@ export function RangedEditor({
       const dmg = rangedAbilityDamagePerActivation(
         mhHits, scalar, result, buildStats,
         critRangeBonus, critMultBonus, dsBuffPct, dsBuffDuration,
+        usesOffHand,
       );
       const cycleTime = Math.max(a.cooldown, a.castTime, 1e-3);
       const tooltipLines = weaponInfo

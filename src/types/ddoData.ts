@@ -422,6 +422,12 @@ export interface DDOSpellData {
     dsBuffPct?: number;
     /** Duration of the DS buff in seconds. */
     dsBuffDuration?: number;
+    /** True when this ability fires from BOTH the MH AND the OH when the
+     *  build is dual-wielding (melee TWF) or dual-shooting (Inquisitive).
+     *  Most abilities are MH-only — this is opt-in. Examples: Pluck of a
+     *  String, Shoot First. For ranged, only triggers when Dual Shooter
+     *  is active. */
+    usesOffHand?: boolean;
   };
 }
 
@@ -526,6 +532,12 @@ export interface EnhancementSelectionData {
     dsBuffPct?: number;
     /** Duration of the DS buff in seconds. */
     dsBuffDuration?: number;
+    /** True when this ability fires from BOTH the MH AND the OH when the
+     *  build is dual-wielding (melee TWF) or dual-shooting (Inquisitive).
+     *  Most abilities are MH-only — this is opt-in. Examples: Pluck of a
+     *  String, Shoot First. For ranged, only triggers when Dual Shooter
+     *  is active. */
+    usesOffHand?: boolean;
   };
   /** Temporary alacrity bonus from an activated ability's FollowOn block
    *  (e.g. Haste Boost: +[10/20/30]% for 20s). Per-rank arrays parallel to
@@ -589,6 +601,12 @@ export interface EnhancementItemData {
     dsBuffPct?: number;
     /** Duration of the DS buff in seconds. */
     dsBuffDuration?: number;
+    /** True when this ability fires from BOTH the MH AND the OH when the
+     *  build is dual-wielding (melee TWF) or dual-shooting (Inquisitive).
+     *  Most abilities are MH-only — this is opt-in. Examples: Pluck of a
+     *  String, Shoot First. For ranged, only triggers when Dual Shooter
+     *  is active. */
+    usesOffHand?: boolean;
   };
   /** Temporary alacrity bonus from an activated ability's FollowOn block.
    *  For selector-based items the data lives on the selection, not here. */

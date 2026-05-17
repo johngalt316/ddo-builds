@@ -656,8 +656,10 @@ Ranged Power.</Description>
                <Icon>WhatFirst</Icon>
                <CostPerRank size="1">2</CostPerRank>
                <Clickie/>
-               <!-- ddo-builds patch: +40% damage; Shot Wound DoT unmodeled. -->
-               <WeaponAttack><Hits>1</Hits><Scalar>1.4</Scalar></WeaponAttack>
+               <!-- ddo-builds patch: +40% damage; Shot Wound DoT unmodeled.
+                    <UsesOffHand/>: also fires from the OH when Dual Shooter
+                    is active (in-game observation). -->
+               <WeaponAttack><Hits>1</Hits><Scalar>1.4</Scalar><UsesOffHand/></WeaponAttack>
             </EnhancementSelection>
          </Selector>
          <Cooldown>6</Cooldown>

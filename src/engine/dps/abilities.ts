@@ -119,6 +119,8 @@ export interface MagicAbility {
     critMultBonus?: number;
     dsBuffPct?: number;
     dsBuffDuration?: number;
+    /** Ability also fires from OH when dual-wielding / dual-shooting. */
+    usesOffHand?: boolean;
   };
   /** Which rotation type this ability belongs to. Used by the palette
    *  and ManageRotation dialog to filter the visible set by attack mode.
