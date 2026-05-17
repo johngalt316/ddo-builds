@@ -16960,6 +16960,29 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
     </SpellDamage>
     <Cooldown>5</Cooldown>
   </Spell>
+  <!-- ddo-builds patch: Clickie SLA wiring (Hunt's End).
+       Shiradi Champion T5 selector "Beguile or Hunt's End" grants a
+       SpellLikeAbility named "Hunt's End", but DDOBuilderV2 doesn't ship
+       a matching <Spell> entry — the SLA pipeline drops it. Modeled as a
+       1-hit ranged WeaponAttack: +250% damage (scalar 3.5), +20 crit range.
+       See docs/DATA_PATCHES.md "Clickie SLA wiring". -->
+  <Spell>
+    <Name>Hunt's End</Name>
+    <Description>Ranged Attack: End the hunt with a single, decisive shot. Deals +250% damage and +20 Critical Threat Range.
+
+Cooldown: 9 seconds.</Description>
+    <Icon>BeguileOrHuntsEnd</Icon>
+    <School>Conjuration</School>
+    <MaxCasterLevel>0</MaxCasterLevel>
+    <MaxTargetCap>1</MaxTargetCap>
+    <PlaceholderDamage/>
+    <WeaponAttack>
+      <Hits>1</Hits>
+      <Scalar>3.5</Scalar>
+      <CritRangeBonus>20</CritRangeBonus>
+    </WeaponAttack>
+    <Cooldown>9</Cooldown>
+  </Spell>
   <!-- ddo-builds patch: Epic Strike spell wiring (was missing or stub).
        See docs/DATA_PATCHES.md "Epic Strike spells". -->
   <Spell>

@@ -1,5 +1,5 @@
 {
-  "abilityCount": 13,
+  "abilityCount": 14,
   "abilities": [
     {
       "id": "clickie::Battle Engineer::BECausticShot",
@@ -120,7 +120,7 @@
       "school": "",
       "cost": 0,
       "cooldown": 30,
-      "castTime": 1,
+      "castTime": 0.5,
       "maxCasterLevel": 0,
       "maxTargetCap": 1,
       "casterLevelUsed": 24,
@@ -168,6 +168,20 @@
       "casterLevelUsed": 24,
       "dpc": 1742.23,
       "standaloneDPS": 87.11
+    },
+    {
+      "id": "sla::Hunt's End::[D] Shiradi Champion: Shiradi Champion: Beguile or Hunt's End → Hunt's End",
+      "name": "Hunt's End",
+      "source": "sla",
+      "school": "Conjuration",
+      "cost": 0,
+      "cooldown": 9,
+      "castTime": 1,
+      "maxCasterLevel": 0,
+      "maxTargetCap": 1,
+      "casterLevelUsed": 24,
+      "dpc": 1742.23,
+      "standaloneDPS": 193.58
     },
     {
       "id": "sla::The Pluck of a String::[D] Fatesinger: Fatesinger: Epic Strike → The Pluck of a String",

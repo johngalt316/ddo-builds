@@ -145,6 +145,10 @@ export function inferAttackMode(description: string): Exclude<AttackMode, 'boost
   if (/\bmelee attack:/i.test(description))  return 'melee';
   if (/\bcleave attack:/i.test(description)) return 'melee';  // Quick Cutter, whirlwind strikes
   if (/\branged attack:/i.test(description)) return 'ranged';
+  // Inquisitive "Shoot First" and similar abilities write "Bow or Crossbow Attack:",
+  // "Bow Attack:", "Crossbow Attack:", etc. Treat any of those weapon-keyword
+  // attack markers as ranged. Allow "or"/"and"/"&" linking between weapon names.
+  if (/\b(?:bow|crossbow|thrown|shuriken)(?:\s+(?:or|and|&|,)\s+(?:bow|crossbow|thrown|shuriken))?\s+attack:/i.test(description)) return 'ranged';
   return 'magic';
 }
 
@@ -671,6 +675,15 @@ function collectClickieAbilities(
         if (!classified) continue;
         category          = classified.category;
         placeholderDamage = classified.placeholderDamage;
+      }
+      // Defense-in-depth: action-boost / reaper-boost charge users are
+      // boost abilities by definition. The upstream XML occasionally
+      // mis-tags them (e.g. Inquisitive: No Holds Barred carries
+      // `<Category>cc</Category>` even though it's a self-buff that uses
+      // an action boost charge). Override so they land in the Boost tab.
+      if (item.usesActionBoostCharge || item.usesReaperCharge) {
+        category = 'boost';
+        placeholderDamage = false;
       }
 
       // If a selector option is active, reclassify from the option's description
