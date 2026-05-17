@@ -656,6 +656,8 @@ Ranged Power.</Description>
                <Icon>WhatFirst</Icon>
                <CostPerRank size="1">2</CostPerRank>
                <Clickie/>
+               <!-- ddo-builds patch: +40% damage; Shot Wound DoT unmodeled. -->
+               <WeaponAttack><Hits>1</Hits><Scalar>1.4</Scalar></WeaponAttack>
             </EnhancementSelection>
          </Selector>
          <Cooldown>6</Cooldown>

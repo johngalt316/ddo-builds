@@ -620,6 +620,8 @@ Cooldown: 15 seconds</Description>
           <Icon>Discord</Icon>
           <CostPerRank size="1">2</CostPerRank>
           <Clickie />
+          <!-- ddo-builds patch: see docs/DATA_PATCHES.md "Ranged clickie damage". -->
+          <WeaponAttack><Hits>1</Hits><Scalar>1.2</Scalar><CritRangeBonus>2</CritRangeBonus></WeaponAttack>
         </EnhancementSelection>
         <EnhancementSelection>
           <Name>Blade of Discord</Name>
@@ -633,6 +635,8 @@ Cooldown: 15 seconds</Description>
           <Icon>Discord</Icon>
           <CostPerRank size="1">2</CostPerRank>
           <Clickie />
+          <!-- ddo-builds patch: see docs/DATA_PATCHES.md "Ranged clickie damage". -->
+          <WeaponAttack><Hits>1</Hits><Scalar>1.3</Scalar><CritRangeBonus>2</CritRangeBonus></WeaponAttack>
         </EnhancementSelection>
         <EnhancementSelection>
           <Name>Echoes of Discord</Name>

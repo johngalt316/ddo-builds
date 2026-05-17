@@ -16934,7 +16934,7 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
        See docs/DATA_PATCHES.md "Epic Strike spells". -->
   <Spell>
     <Name>The Pluck of a String</Name>
-    <Description>Epic Strike: Ranged attack: your weapon sings, causing an additional 2d10 Sonic damage per character level (scales with 200% Ranged Power).
+    <Description>Epic Strike: Ranged attack: your weapon sings, causing an additional 2d10 Sonic damage per character level (scales with 200% Ranged Power). Per the Fatesinger enhancement, this hits for +30% weapon damage with a +4 critical threat range.
 
 Every Epic Strike shares a cooldown with every other Epic Strike. Using this
 ability will put every Epic Strike onto this ability's cooldown.</Description>
@@ -16958,6 +16958,14 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
       <Damage>Sonic</Damage>
       <SpellPower>Sonic</SpellPower>
     </SpellDamage>
+    <!-- ddo-builds patch: weapon-attack portion (+30% damage, +4 crit range).
+         The 2d10/CL Sonic damage above is separate from the weapon-strike
+         damage; both apply together per the in-game description. -->
+    <WeaponAttack>
+      <Hits>1</Hits>
+      <Scalar>1.3</Scalar>
+      <CritRangeBonus>4</CritRangeBonus>
+    </WeaponAttack>
     <Cooldown>5</Cooldown>
   </Spell>
   <!-- ddo-builds patch: Clickie SLA wiring (Hunt's End).
@@ -16987,7 +16995,7 @@ Cooldown: 9 seconds.</Description>
        See docs/DATA_PATCHES.md "Epic Strike spells". -->
   <Spell>
     <Name>The Sword Sings</Name>
-    <Description>Epic Strike: Melee attack: your weapon sings, causing an additional 2d10 Sonic damage per character level (scales with 200% Melee Power).
+    <Description>Epic Strike: Melee attack: your weapon sings, causing an additional 2d10 Sonic damage per character level (scales with 200% Melee Power). Per the Fatesinger enhancement, this hits for +50% weapon damage with a +4 critical threat range.
 
 Every Epic Strike shares a cooldown with every other Epic Strike. Using this
 ability will put every Epic Strike onto this ability's cooldown.</Description>
@@ -17011,6 +17019,12 @@ ability will put every Epic Strike onto this ability's cooldown.</Description>
       <Damage>Sonic</Damage>
       <SpellPower>Sonic</SpellPower>
     </SpellDamage>
+    <!-- ddo-builds patch: weapon-attack portion (+50% damage, +4 crit range). -->
+    <WeaponAttack>
+      <Hits>1</Hits>
+      <Scalar>1.5</Scalar>
+      <CritRangeBonus>4</CritRangeBonus>
+    </WeaponAttack>
     <Cooldown>4</Cooldown>
   </Spell>
   <!-- ddo-builds patch: Epic Strike spell wiring (was missing or stub).
