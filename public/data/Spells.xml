@@ -16991,6 +16991,7 @@ Cooldown: 9 seconds.</Description>
       <Hits>1</Hits>
       <Scalar>3.5</Scalar>
       <CritRangeBonus>20</CritRangeBonus>
+      <UsesOffHand/>
     </WeaponAttack>
     <Cooldown>9</Cooldown>
   </Spell>

@@ -874,8 +874,10 @@ Damage scales with 200% Ranged Power.</Description>
           <Icon>BECausticShot</Icon>
           <CostPerRank size="1">1</CostPerRank>
           <Clickie />
-          <!-- ddo-builds patch: max-rank scalar; extra acid/rust dice unmodeled. -->
-          <WeaponAttack><Hits>1</Hits><Scalar>1.3</Scalar></WeaponAttack>
+          <!-- ddo-builds patch: max-rank scalar; extra acid/rust dice unmodeled.
+               UsesOffHand: also fires from OH when Dual Shooter is active
+               (ranged) / TWF (melee). -->
+          <WeaponAttack><Hits>1</Hits><Scalar>1.3</Scalar><UsesOffHand/></WeaponAttack>
         </EnhancementSelection>
         <EnhancementSelection>
           <Name>Caustic Strike</Name>
@@ -887,8 +889,9 @@ Damage scales with 200% Melee Power.</Description>
           <Icon>BECausticStrike</Icon>
           <CostPerRank size="1">1</CostPerRank>
           <Clickie />
-          <!-- ddo-builds patch: max-rank scalar; extra acid/rust dice unmodeled. -->
-          <WeaponAttack><Hits>1</Hits><Scalar>1.3</Scalar></WeaponAttack>
+          <!-- ddo-builds patch: max-rank scalar; extra acid/rust dice unmodeled.
+               UsesOffHand: also fires from OH when TWF. -->
+          <WeaponAttack><Hits>1</Hits><Scalar>1.3</Scalar><UsesOffHand/></WeaponAttack>
         </EnhancementSelection>
       </Selector>
          <Cooldown>6</Cooldown>
@@ -1117,8 +1120,9 @@ This ability shares a cooldown with sunder.</Description>
           <Icon>BEShatterDefensesCrossbow</Icon>
           <CostPerRank size="1">1</CostPerRank>
           <Clickie />
-          <!-- ddo-builds patch: max-rank scalar (+50% damage). -->
-          <WeaponAttack><Hits>1</Hits><Scalar>1.5</Scalar></WeaponAttack>
+          <!-- ddo-builds patch: max-rank scalar (+50% damage).
+               UsesOffHand: also fires from OH when Dual Shooter / TWF. -->
+          <WeaponAttack><Hits>1</Hits><Scalar>1.5</Scalar><UsesOffHand/></WeaponAttack>
           <DC>
             <Name>Battle Engineer: Shatter Defenses (Crossbow)</Name>
             <Description>AOE Tactical Ranges Crossbow Attack: On Hit: Reduce the target's Armor Class by 5
@@ -1149,8 +1153,9 @@ This ability shares a cooldown with sunder.</Description>
           <Icon>BEShatterDefensesMelee</Icon>
           <CostPerRank size="1">1</CostPerRank>
           <Clickie />
-          <!-- ddo-builds patch: max-rank scalar (+50% damage). -->
-          <WeaponAttack><Hits>1</Hits><Scalar>1.5</Scalar></WeaponAttack>
+          <!-- ddo-builds patch: max-rank scalar (+50% damage).
+               UsesOffHand: also fires from OH when Dual Shooter / TWF. -->
+          <WeaponAttack><Hits>1</Hits><Scalar>1.5</Scalar><UsesOffHand/></WeaponAttack>
           <DC>
             <Name>Battle Engineer: Shatter Defenses (Melee)</Name>
             <Description>Tactical Melee Attack: On Hit: Reduce the target's Armor Class by 5 and lowers
