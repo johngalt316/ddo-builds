@@ -420,7 +420,95 @@ const STATIC_PROC_CATALOG: StaticProcEntry[] = [
     useGenericVuln: true, useMRR: true,
     category: 'rider',
   },
+
+  // ── Standard weapon enchantments (per-hit damage riders) ─────────────
+  // Most DDO weapons carry one of these as a `<Buff>` in ItemBuffs.xml.
+  // Naming convention: "Foo" = tier 1 (1d6), "Foo 2" / "Foo II" = 2d6,
+  // and so on. The descriptions all read "deals an additional NdN <type>
+  // damage on each hit", so they're modeled as plain per-hit dice with
+  // no extra scaling profile. Generic vuln + MRR debuffs apply.
+  //
+  // Tagged 'rider' so they surface in the Active Damage Riders panel
+  // alongside Imbues and the Mythic DoT family.
+
+  // ── Base named (single-tier) enchantments ────────────────────────────
+  {  id: 'acidic-base',         label: 'Acidic',         source: { kind: 'item-buff', name: 'Acidic'      }, diceCount: 1, diceSides: 6, damageType: 'Acid',            useGenericVuln: true, useMRR: true, category: 'rider' },
+  {  id: 'flaming',              label: 'Flaming',        source: { kind: 'item-buff', name: 'Flaming'     }, diceCount: 1, diceSides: 6, damageType: 'Fire',            useGenericVuln: true, useMRR: true, category: 'rider' },
+  {  id: 'frost',                label: 'Frost',          source: { kind: 'item-buff', name: 'Frost'       }, diceCount: 1, diceSides: 6, damageType: 'Cold',            useGenericVuln: true, useMRR: true, category: 'rider' },
+  {  id: 'shock',                label: 'Shock',          source: { kind: 'item-buff', name: 'Shock'       }, diceCount: 1, diceSides: 6, damageType: 'Electric',        useGenericVuln: true, useMRR: true, category: 'rider' },
+  {  id: 'thundering',           label: 'Thundering',     source: { kind: 'item-buff', name: 'Thundering'  }, diceCount: 1, diceSides: 6, damageType: 'Sonic',           useGenericVuln: true, useMRR: true, category: 'rider' },
+
+  // Higher-power base variants (single tier each, distinct in-game names).
+  {  id: 'blazing',              label: 'Blazing',        source: { kind: 'item-buff', name: 'Blazing'        }, diceCount: 2, diceSides: 6, damageType: 'Fire',     useGenericVuln: true, useMRR: true, category: 'rider' },
+  {  id: 'conflagrating',        label: 'Conflagrating',  source: { kind: 'item-buff', name: 'Conflagrating'  }, diceCount: 3, diceSides: 6, damageType: 'Fire',     useGenericVuln: true, useMRR: true, category: 'rider' },
+  {  id: 'boreal',               label: 'Boreal',         source: { kind: 'item-buff', name: 'Boreal'         }, diceCount: 2, diceSides: 6, damageType: 'Cold',     useGenericVuln: true, useMRR: true, category: 'rider' },
+  {  id: 'electrifying',         label: 'Electrifying',   source: { kind: 'item-buff', name: 'Electrifying'   }, diceCount: 3, diceSides: 6, damageType: 'Electric', useGenericVuln: true, useMRR: true, category: 'rider' },
+  {  id: 'coruscating-base',     label: 'Coruscating',    source: { kind: 'item-buff', name: 'Coruscating'    }, diceCount: 2, diceSides: 6, damageType: 'Light/Alignment', useGenericVuln: true, useMRR: true, category: 'rider' },
+  {  id: 'brilliance',           label: 'Brilliance',     source: { kind: 'item-buff', name: 'Brilliance'     }, diceCount: 1, diceSides: 6, damageType: 'Light/Alignment', useGenericVuln: true, useMRR: true, category: 'rider' },
+  {  id: 'cosmic',               label: 'Cosmic',         source: { kind: 'item-buff', name: 'Cosmic'         }, diceCount: 3, diceSides: 6, damageType: 'Force',           useGenericVuln: true, useMRR: true, category: 'rider' },
+
+  // Alignment enchantments — 2d6 base, fires vs opposite-aligned enemies
+  // (in practice the dominant case in DDO endgame).
+  {  id: 'holy',                 label: 'Holy',           source: { kind: 'item-buff', name: 'Holy'      }, diceCount: 2, diceSides: 6, damageType: 'Light/Alignment', useGenericVuln: true, useMRR: true, category: 'rider' },
+  {  id: 'unholy',               label: 'Unholy',         source: { kind: 'item-buff', name: 'Unholy'    }, diceCount: 2, diceSides: 6, damageType: 'Evil',            useGenericVuln: true, useMRR: true, category: 'rider' },
+  {  id: 'anarchic-base',        label: 'Anarchic',       source: { kind: 'item-buff', name: 'Anarchic'  }, diceCount: 2, diceSides: 6, damageType: 'Chaos',           useGenericVuln: true, useMRR: true, category: 'rider' },
+
+  // Burst variants — base 1d6 per hit + crit-only bonus dice. Crit
+  // bonus depends on weapon crit multiplier (1d10 ×2 / 2d10 ×3 / 3d10
+  // ×4) — currently unmodeled, only the per-hit 1d6 is captured.
+  {  id: 'acid-burst',           label: 'Acid Burst',     source: { kind: 'item-buff', name: 'Acid Burst'      }, diceCount: 1, diceSides: 6, damageType: 'Acid',            useGenericVuln: true, useMRR: true, category: 'rider' },
+  {  id: 'flaming-burst',        label: 'Flaming Burst',  source: { kind: 'item-buff', name: 'Flaming Burst'   }, diceCount: 1, diceSides: 6, damageType: 'Fire',            useGenericVuln: true, useMRR: true, category: 'rider' },
+  {  id: 'icy-burst',            label: 'Icy Burst',      source: { kind: 'item-buff', name: 'Icy Burst'       }, diceCount: 1, diceSides: 6, damageType: 'Cold',            useGenericVuln: true, useMRR: true, category: 'rider' },
+  {  id: 'shocking-burst',       label: 'Shocking Burst', source: { kind: 'item-buff', name: 'Shocking Burst'  }, diceCount: 1, diceSides: 6, damageType: 'Electric',        useGenericVuln: true, useMRR: true, category: 'rider' },
+  {  id: 'sonic-burst',          label: 'Sonic Burst',    source: { kind: 'item-buff', name: 'Sonic Burst'     }, diceCount: 1, diceSides: 6, damageType: 'Sonic',           useGenericVuln: true, useMRR: true, category: 'rider' },
+  {  id: 'holy-burst',           label: 'Holy Burst',     source: { kind: 'item-buff', name: 'Holy Burst'      }, diceCount: 2, diceSides: 6, damageType: 'Light/Alignment', useGenericVuln: true, useMRR: true, category: 'rider' },
+
+  // ── Tiered enchantment families (Acidic N, Anarchic N, etc.) ─────────
+  // Generated below — see TIERED_RIDER_FAMILIES.
 ];
+
+// Tier-N weapon enchantments — for each family, generate one entry per
+// tier with the matching dice count. Most descriptions follow the form
+// "deals an additional Nd6 <type> damage on each hit" exactly, scaled
+// by tier.
+interface TieredRiderFamily {
+  prefix: string;                                       // 'Acidic', 'Chilling', etc.
+  damageType: SpellDamageType;
+  tiers: number[];                                      // [2, 3, 4, 5, 6, 7]
+  /** Item-buff name format. Defaults to `${prefix} ${tier}` (matches
+   *  ItemBuffs.xml convention like "Acidic 2"). */
+  nameFmt?: (prefix: string, tier: number) => string;
+}
+
+const TIERED_RIDER_FAMILIES: TieredRiderFamily[] = [
+  { prefix: 'Acidic',        damageType: 'Acid',            tiers: [2, 3, 4, 5, 6, 7] },
+  { prefix: 'Anarchic',      damageType: 'Chaos',           tiers: [2, 3, 4, 5, 6, 7] },
+  { prefix: 'Chilling',      damageType: 'Cold',            tiers: [2, 3, 4, 5, 6, 7, 8] },
+  { prefix: 'Coruscating',   damageType: 'Light/Alignment', tiers: [2, 3, 4, 5, 6, 7] },
+  { prefix: 'Electrifying',  damageType: 'Electric',        tiers: [1, 2, 3, 4, 5, 6] },
+  { prefix: 'Searing',       damageType: 'Fire',            tiers: [2, 3, 4, 5, 6, 7] },
+  { prefix: 'Sonic',         damageType: 'Sonic',           tiers: [2, 3, 4, 5, 6, 7] },
+  { prefix: 'Unholy',        damageType: 'Evil',            tiers: [2, 3, 4, 5, 6, 7] },
+];
+
+function expandTier(f: TieredRiderFamily): StaticProcEntry[] {
+  return f.tiers.map(t => {
+    const name = f.nameFmt ? f.nameFmt(f.prefix, t) : `${f.prefix} ${t}`;
+    return {
+      id: `${f.prefix.toLowerCase().replace(/\s+/g, '-')}-${t}`,
+      label: name,
+      source: { kind: 'item-buff' as const, name },
+      diceCount: t,
+      diceSides: 6,
+      damageType: f.damageType,
+      useGenericVuln: true,
+      useMRR: true,
+      category: 'rider' as const,
+    };
+  });
+}
+
+STATIC_PROC_CATALOG.push(...TIERED_RIDER_FAMILIES.flatMap(expandTier));
 
 // ── Dynamic procs (build-derived dice / qty) ─────────────────────────────
 
