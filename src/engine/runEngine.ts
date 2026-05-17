@@ -13,6 +13,7 @@ import type {
 import { applyRacialBonuses, applyAbilityTomes, applyLevelUps, calculateBAB, classHitPoints, calculateSaves } from '@/engine';
 import { ddoClassDataToEngineClass, ddoRaceDataToRace } from '@/utils/classAdapter';
 import { collectEffects, buildBuildContext, collectAvailableStances, type AvailableStance } from './collectEffects';
+import { weaponInGroup } from './weaponGroups';
 import { evaluateEffect, passesRequirements } from './evaluateEffect';
 import { buildStackingRules, type Bonus, type BreakdownResult, type StackingRules } from './bonusStacking';
 import {
@@ -310,6 +311,34 @@ export function runEngine(input: RunEngineInput): EngineResult {
   const mainHandWeapon = activeGearSet?.items.find(i => i.slot === 'MainHand')?.weapon ?? '';
   const offHandWeapon  = activeGearSet?.items.find(i => i.slot === 'OffHand')?.weapon  ?? '';
 
+  // Auto-stance pass — some stances aren't user-toggled; they activate
+  // automatically based on what weapon is wielded. The engine doesn't
+  // see "I'm wielding a Longbow → activate FavoredWeapon stance" from
+  // the build state, so we synthesize those stances here before ctx is
+  // built. Effects gated on `<Stance>FavoredWeapon</Stance>` (Grace of
+  // Battle, Knowledge of Battle, Beloved of the Divine, etc.) then pass
+  // their requirement check.
+  //
+  // The check uses `weaponInGroup` which already knows the static weapon
+  // → group map plus the dynamic groups built above (deity feats add
+  // their weapon to "Favored Weapon"; Inquisitive Divine Inquisition
+  // adds crossbows; Warforged Spear of the Mournlands; etc.).
+  const autoStances = new Set<string>();
+  function checkAutoStance(stance: string, group: string) {
+    if (mainHandWeapon && weaponInGroup(mainHandWeapon, group, dynamicWeaponGroups)) {
+      autoStances.add(stance);
+      return;
+    }
+    if (offHandWeapon && weaponInGroup(offHandWeapon, group, dynamicWeaponGroups)) {
+      autoStances.add(stance);
+    }
+  }
+  checkAutoStance('FavoredWeapon', 'Favored Weapon');
+  // "Ranged Combat" — fires whenever a ranged weapon is equipped. The
+  // Mechanic tree's "Improved Detection" sneak-attack-die effect gates
+  // on this stance, as do several other ranged riders.
+  checkAutoStance('Ranged Combat', 'Ranged');
+
   const ctx = buildBuildContext({
     build, classes,
     effectiveScores: effectiveScores as unknown as Record<string, number>,
@@ -318,6 +347,7 @@ export function runEngine(input: RunEngineInput): EngineResult {
     mainHandWeapon,
     offHandWeapon,
     dynamicWeaponGroups,
+    autoStances,
   });
 
   const allBonuses: Bonus[] = [];

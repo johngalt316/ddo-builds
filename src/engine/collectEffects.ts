@@ -933,6 +933,12 @@ export function buildBuildContext(input: {
   /** Dynamic weapon groups from AddGroupWeapon effects (Kensei Focus Weapon
    *  etc.). Defaults to empty map. */
   dynamicWeaponGroups?: ReadonlyMap<string, ReadonlySet<string>>;
+  /** Stances that activate automatically from build context (currently:
+   *  weapon-derived — wielding a favored weapon activates "FavoredWeapon",
+   *  wielding a ranged weapon activates "Ranged Combat"). Merged into
+   *  the final active-stance set alongside the user's manually-toggled
+   *  stances. */
+  autoStances?: ReadonlySet<string>;
 }): import('./evaluateEffect').BuildContext {
   const { build, classes, effectiveScores, bab, grantedFeats } = input;
   const classIdx = indexClasses(classes);
@@ -977,7 +983,10 @@ export function buildBuildContext(input: {
     abilityScores: effectiveScores,
     bab,
     apSpentInTree,
-    activeStances: new Set(build.activeStances ?? []),
+    activeStances: new Set([
+      ...(build.activeStances ?? []),
+      ...(input.autoStances ?? []),
+    ]),
     skillRanks,
     mainHandWeapon: input.mainHandWeapon ?? '',
     offHandWeapon:  input.offHandWeapon  ?? '',

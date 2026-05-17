@@ -12,9 +12,9 @@
       "Slider": 2,
       "SliderValue": 3
     },
-    "requirementsFailedCount": 50,
+    "requirementsFailedCount": 48,
     "totalSourcedEffects": 818,
-    "totalAppliedBonuses": 1071
+    "totalAppliedBonuses": 1097
   },
   "abilityScores": {
     "STR": {
