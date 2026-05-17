@@ -58,6 +58,10 @@ const KNOWN_DAMAGE_TYPES = new Set([
   'Acid', 'Chaos', 'Cold', 'Electric', 'Evil', 'Fire', 'Force',
   'Light', 'Negative', 'Poison', 'Positive', 'Repair', 'Sonic',
   'Bane', 'Untyped', 'Bludgeoning', 'Piercing', 'Slashing',
+  // Alignment-damage types — distinct in DDO from Light/Alignment.
+  // Used by Inquisitive's Law on Your Side, Paladin's Holy Strike,
+  // Divine Crusader's Aligned Damage, etc.
+  'Law', 'Good',
 ]);
 
 /** Parse an Imbue Toggle description into a structured rider.
@@ -67,9 +71,29 @@ const KNOWN_DAMAGE_TYPES = new Set([
 export function parseImbueRider(source: string, description: string): ImbueRider | null {
   if (!description) return null;
 
+  // Some imbues describe two conditional dice clauses, e.g.
+  // "1d10 Law damage per Imbue Dice on hit to Chaotic creatures and
+  //  1d6 Law damage on hit to all other creatures". The first clause
+  // is the bonus-vs-subset case, the second is the general case. For
+  // DPS modeling we use the general case (most fights aren't 100%
+  // chaotic targets); the bonus-vs-X case is unmodeled. When the
+  // sentinel phrase "to all other (creatures|enemies)" is present,
+  // slice from the most recent " and " before it so the parser sees
+  // only the default-case prose. Description is multi-line in XML so
+  // we work with raw indexOf — line breaks don't affect substring math.
+  let analysisText = description;
+  const allOtherIdx = description.search(/\bto\s+all\s+other\s+(?:creatures|enemies)\b/i);
+  if (allOtherIdx >= 0) {
+    const before = description.slice(0, allOtherIdx);
+    const lastAnd = before.lastIndexOf(' and ');
+    if (lastAnd >= 0) {
+      analysisText = description.slice(lastAnd + ' and '.length);
+    }
+  }
+
   // 1. Dice expression: "XdY" or "Xd[a/b/c]" (per-rank bracket — use the
   //    highest rank) with optional "+Z" bonus.
-  const diceMatch = description.match(/(\d+)d(?:\[(\d+(?:\/\d+)+)\]|(\d+))(?:\s*\+\s*(\d+))?/);
+  const diceMatch = analysisText.match(/(\d+)d(?:\[(\d+(?:\/\d+)+)\]|(\d+))(?:\s*\+\s*(\d+))?/);
   if (!diceMatch) return null;
   const diceNum   = parseInt(diceMatch[1]!, 10);
   const diceSides = diceMatch[2]
@@ -79,8 +103,8 @@ export function parseImbueRider(source: string, description: string): ImbueRider
 
   // 2. Damage type — first known type word AFTER the dice expression
   //    and BEFORE "damage". "Electrical" normalizes to "Electric".
-  const afterDice = description.slice(diceMatch.index! + diceMatch[0].length);
-  const typeMatch = afterDice.match(/\b(Acid|Chaos|Cold|Electrical|Electric|Evil|Fire|Force|Light|Negative|Poison|Positive|Repair|Sonic|Bane|Untyped|Bludgeoning|Piercing|Slashing)\b/i);
+  const afterDice = analysisText.slice(diceMatch.index! + diceMatch[0].length);
+  const typeMatch = afterDice.match(/\b(Acid|Chaos|Cold|Electrical|Electric|Evil|Fire|Force|Good|Law|Light|Negative|Poison|Positive|Repair|Sonic|Bane|Untyped|Bludgeoning|Piercing|Slashing)\b/i);
   if (!typeMatch) return null;
   let damageType = typeMatch[1]!;
   if (damageType.toLowerCase() === 'electrical') damageType = 'Electric';
@@ -89,19 +113,26 @@ export function parseImbueRider(source: string, description: string): ImbueRider
     if (t.toLowerCase() === damageType.toLowerCase()) { damageType = t; break; }
   }
 
-  // 3. Per-Imbue-Dice or per-character-level multiplier.
+  // 3. Per-Imbue-Dice or per-character-level multiplier — read from the
+  //    analysed clause so we don't pick up "per Imbue Dice" from a
+  //    different (bonus-vs-X) clause that doesn't apply.
   let diceMultiplier: ImbueRider['diceMultiplier'] = 'flat';
-  if (/per\s+Imbue\s+Di(?:e|ce)/i.test(description)) {
+  if (/per\s+Imbue\s+Di(?:e|ce)/i.test(analysisText)) {
     diceMultiplier = 'imbueDie';
-  } else if (/per\s+(?:Character\s+)?Level/i.test(description)) {
+  } else if (/per\s+(?:Character\s+)?Level/i.test(analysisText)) {
     diceMultiplier = 'charLevel';
   }
 
   // 4. Power scaling clause. Default 100% Spell Power when not stated.
+  //    Same scaling applies regardless of which clause fired, so we
+  //    read this off the full description (not the per-clause subset).
   let scalingPct: number = 100;
   let scalingStat: ImbueScalingStat = 'sp';
-  // Match "scaling with [PCT% of] [the higher of] STAT (and/or STAT)? Power"
-  const scaleMatch = description.match(/scal\w+\s+with\s+(?:(\d+)%\s+of\s+(?:your\s+)?)?(?:the\s+higher\s+of\s+(?:your\s+)?)?([\w\s/]+?)\s+Power/i);
+  // Match "scaling with [PCT%] [of [your]] [the higher of [your]] STAT (and/or STAT)? Power".
+  // "of" is optional — some prose reads "200% Ranged Power", others read
+  // "75% of your Spell Power". The pct + optional "of/of your" both
+  // collapse into the same outcome.
+  const scaleMatch = description.match(/scal\w+\s+with\s+(?:(\d+)%\s+(?:of\s+)?(?:your\s+)?)?(?:the\s+higher\s+of\s+(?:your\s+)?)?([\w\s/]+?)\s+Power/i);
   if (scaleMatch) {
     if (scaleMatch[1]) scalingPct = parseInt(scaleMatch[1], 10);
     const text = scaleMatch[2]!.toLowerCase();

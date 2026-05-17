@@ -32,4 +32,19 @@ describe('parseImbueRider', () => {
     const r = parseImbueRider('HM: Lighting Candle', 'Imbue Toggle: While you are centered, you enhance your attacks with Ki flame. dealing +1d6 Fire damage on hit, ... scale with Melee Power.');
     expect(r).toMatchObject({ diceNum: 1, diceSides: 6, damageType: 'Fire', scalingPct: 100, scalingStat: 'mp' });
   });
+
+  it('parses Inquisitive Law on your Side — picks the "all other creatures" default clause', () => {
+    // Conditional imbue: 1d10 per Imbue Die vs chaotic, 1d6 flat for
+    // all others. Per-DPS general case uses the "all other creatures"
+    // clause since fights aren't 100% chaotic targets.
+    const r = parseImbueRider('Law on your side',
+      'Imbue Toggle: Your Light and Heavy (non-repeating) Crossbow attacks deal 1d10 Law damage per Imbue Dice on hit to Chaotic creatures and 1d6 Law damage on hit to all other creatures, scaling with 200% Ranged Power.',
+    );
+    expect(r).toMatchObject({
+      diceNum: 1, diceSides: 6, diceBonus: 0,
+      damageType: 'Law',
+      diceMultiplier: 'flat',
+      scalingPct: 200, scalingStat: 'rp',
+    });
+  });
 });
