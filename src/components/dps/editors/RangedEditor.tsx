@@ -31,6 +31,7 @@ import { RotationPalette } from '../RotationPalette';
 import { ManageActiveDialog } from '../ManageActiveDialog';
 import { DebuffsSummary } from '../DebuffsPanel';
 import { ActiveProcsList } from '../ActiveProcsList';
+import { ActiveRidersList } from '../ActiveRidersList';
 import { BuffsList } from '../BuffsList';
 import { TargetRow, SimDurationPicker } from './widgets';
 import { EMPTY_STEPS, type SharedEditorProps } from './shared';
@@ -418,6 +419,8 @@ export function RangedEditor({
         sneakAttackDice={engine.sneakAttackDice.total}
         breakdown={null}
       />
+
+      <ActiveRidersList engine={engine} totalCharLevel={totalCharLevel} />
 
       <DebuffsSummary state={debuffState} build={build} onManage={onManageDebuffs} />
 

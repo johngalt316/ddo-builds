@@ -24,6 +24,7 @@
 import type { EngineResult } from '@/engine/runEngine';
 import type { AvailableStance } from '@/engine/collectEffects';
 import type { Build } from '@/types/build';
+import { getActiveEnhancementSet } from '@/types/build';
 
 /** Which Power stat scales this rider. */
 export type ImbueScalingStat =
@@ -214,22 +215,162 @@ export function totalImbueAvgPerHit(
   return riders.reduce((sum, r) => sum + imbueAvgPerHit(r, engine, totalCharLevel), 0);
 }
 
+// ── Post-parse overrides ────────────────────────────────────────────────
+//
+// Some imbues' final dice / damage type can't be derived from the stance
+// description alone — they depend on which selection the player picked
+// on a separate enhancement (Inquisitor's Path: Jaded upgrades Law on
+// Your Side to 1d10; Soul of the Black Dragon makes Dragon Lord's
+// Draconic Arms deal Acid damage; etc.). The override table lists these
+// build-dependent patches; `applyImbueOverrides` looks up the active
+// selection and rewrites the rider accordingly.
+
+interface ImbueOverride {
+  /** Internal name of the enhancement that must be trained. */
+  enhancementId: string;
+  /** Required selection (when the enhancement has a selector). Omit to
+   *  match the enhancement regardless of selection. */
+  selection?: string;
+  /** Pattern matched against the rider's `source` (stance name). String
+   *  is matched as exact; RegExp tested. */
+  imbueName: string | RegExp;
+  /** Replace the dice expression (sides / num / bonus). */
+  dice?: { num: number; sides: number; bonus?: number };
+  /** Replace the damage type. */
+  damageType?: string;
+}
+
+const IMBUE_OVERRIDES: readonly ImbueOverride[] = [
+  // Inquisitor's Path: Jaded — upgrades Law on Your Side's general-case
+  // dice from 1d6 to 1d10 (damage type stays Law).
+  {
+    enhancementId: 'InquisitiveInquisitorsPath',
+    selection: 'Jaded',
+    imbueName: 'Law on your side',
+    dice: { num: 1, sides: 10 },
+  },
+  // Inquisitor's Path: Vigilante — upgrades to 1d10 Chaos (removes the
+  // chaotic-only condition and swaps damage type).
+  {
+    enhancementId: 'InquisitiveInquisitorsPath',
+    selection: 'Vigilante',
+    imbueName: 'Law on your side',
+    dice: { num: 1, sides: 10 },
+    damageType: 'Chaos',
+  },
+  // Dragon Lord: Draconic Soul selection sets the Draconic Arms imbue
+  // damage type. The stance description says "in the element of your
+  // Draconic Soul" without a concrete type, so the standard parser
+  // returns null; we hand-craft the rider in `collectActiveImbueRiders`
+  // when this enhancement is trained, then route it through the
+  // override table for the type swap below.
+  { enhancementId: 'DragonLordCore1', selection: 'Soul of the Black Dragon',
+    imbueName: /^Soul of the Dragon/i, damageType: 'Acid'    },
+  { enhancementId: 'DragonLordCore1', selection: 'Soul of the Blue Dragon',
+    imbueName: /^Soul of the Dragon/i, damageType: 'Electric' },
+  { enhancementId: 'DragonLordCore1', selection: 'Soul of the Green Dragon',
+    imbueName: /^Soul of the Dragon/i, damageType: 'Poison'  },
+  { enhancementId: 'DragonLordCore1', selection: 'Soul of the Red Dragon',
+    imbueName: /^Soul of the Dragon/i, damageType: 'Fire'    },
+  { enhancementId: 'DragonLordCore1', selection: 'Soul of the White Dragon',
+    imbueName: /^Soul of the Dragon/i, damageType: 'Cold'    },
+];
+
+/** Pull every enhancement training across heroic / destiny / reaper
+ *  spends into a single (enhId, selection) pair list — for matching
+ *  override entries. */
+function activeEnhancementSelections(build: Build): { enhancementId: string; selection: string }[] {
+  const set = getActiveEnhancementSet(build);
+  const out: { enhancementId: string; selection: string }[] = [];
+  for (const tspend of [...set.enhancements, ...set.destinyEnhancements, ...set.reaperEnhancements]) {
+    for (const e of tspend.enhancements) {
+      if (e.rank <= 0) continue;
+      out.push({ enhancementId: e.enhancementId, selection: e.selection ?? '' });
+    }
+  }
+  return out;
+}
+
+/** Apply build-dependent overrides to a rider in-place. Returns the
+ *  (possibly modified) rider. */
+function applyImbueOverrides(
+  rider: ImbueRider,
+  selections: ReadonlyArray<{ enhancementId: string; selection: string }>,
+): ImbueRider {
+  for (const o of IMBUE_OVERRIDES) {
+    const matchesName = typeof o.imbueName === 'string'
+      ? o.imbueName === rider.source
+      : o.imbueName.test(rider.source);
+    if (!matchesName) continue;
+    const trained = selections.some(s =>
+      s.enhancementId === o.enhancementId
+        && (o.selection === undefined || s.selection === o.selection));
+    if (!trained) continue;
+    if (o.dice) {
+      rider = {
+        ...rider,
+        diceNum: o.dice.num,
+        diceSides: o.dice.sides,
+        diceBonus: o.dice.bonus ?? 0,
+      };
+    }
+    if (o.damageType) {
+      rider = { ...rider, damageType: o.damageType };
+    }
+  }
+  return rider;
+}
+
+/** Synthesize an ImbueRider for Dragon Lord's "Soul of the Dragon"
+ *  imbue toggle. The standard parser can't read it (no concrete damage
+ *  type in the description); we look up Core1's dragon selection on
+ *  the build and apply the corresponding element via the override
+ *  table. Returns null when the enhancement isn't trained or the
+ *  selection isn't recognized. */
+function synthesizeDragonLordImbue(
+  stanceName: string,
+  selections: ReadonlyArray<{ enhancementId: string; selection: string }>,
+): ImbueRider | null {
+  const sel = selections.find(s => s.enhancementId === 'DragonLordCore1');
+  if (!sel?.selection) return null;
+  const rider: ImbueRider = {
+    source: stanceName,
+    diceNum: 1, diceSides: 6, diceBonus: 0,
+    diceMultiplier: 'imbueDie',
+    // Placeholder type — applyImbueOverrides will replace it based on
+    // the active Soul of the X Dragon selection.
+    damageType: 'Untyped',
+    scalingPct: 200,
+    scalingStat: 'higher_mr_p',
+  };
+  return rider;
+}
+
 /** Pull active imbue toggles off the build + available-stance catalog
  *  and parse each one's description into a structured ImbueRider.
  *  Skips defensive-only imbues (Aligned/Metalline/Morphic Arrows — DR
  *  bypass without a damage clause) since their descriptions don't match
- *  the dice + scaling grammar. */
+ *  the dice + scaling grammar. Applies build-dependent overrides
+ *  (Jaded/Vigilante upgrades, Dragon Lord soul-element binding). */
 export function collectActiveImbueRiders(
   build: Build,
   available: readonly AvailableStance[],
 ): ImbueRider[] {
   const activeSet = new Set(build.activeStances ?? []);
+  const selections = activeEnhancementSelections(build);
   const out: ImbueRider[] = [];
   for (const stance of available) {
     if (stance.data.group !== 'Imbue') continue;
     if (!activeSet.has(stance.data.name)) continue;
-    const rider = parseImbueRider(stance.data.name, stance.data.description);
-    if (rider) out.push(rider);
+    let rider = parseImbueRider(stance.data.name, stance.data.description);
+    // Soul of the Dragon's description has no concrete damage type; the
+    // standard parser returns null. Synthesize a rider when the user
+    // has the imbue active + a Draconic Soul selection.
+    if (!rider && /^Soul of the Dragon/i.test(stance.data.name)) {
+      rider = synthesizeDragonLordImbue(stance.data.name, selections);
+    }
+    if (!rider) continue;
+    out.push(applyImbueOverrides(rider, selections));
   }
   return out;
 }

@@ -63,3 +63,8 @@ describe('parseImbueRider', () => {
     });
   });
 });
+
+describe('collectActiveImbueRiders — build-dependent overrides', () => {
+  it.todo('zentek with Inquisitor\'s Path: Jaded upgrades Law on your Side to 1d10 Law');
+  it.todo('Dragon Lord: Soul of the Black Dragon synthesizes Acid rider for Draconic Arms');
+});

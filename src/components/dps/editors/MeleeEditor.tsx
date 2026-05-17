@@ -28,6 +28,7 @@ import { RotationPalette } from '../RotationPalette';
 import { ManageActiveDialog } from '../ManageActiveDialog';
 import { DebuffsSummary } from '../DebuffsPanel';
 import { ActiveProcsList } from '../ActiveProcsList';
+import { ActiveRidersList } from '../ActiveRidersList';
 import { BuffsList } from '../BuffsList';
 import { TargetRow, SimDurationPicker } from './widgets';
 import { EMPTY_STEPS, type SharedEditorProps } from './shared';
@@ -43,6 +44,12 @@ export function MeleeEditor({
 }: MeleeEditorProps) {
   const build   = useBuildStore(s => s.build);
   const engine  = useBreakdowns();
+
+  // Total character level for imbue riders that scale "per Character Level".
+  const totalCharLevel = useMemo(
+    () => build.classes.reduce((s, c) => s + c.levels, 0) + (build.epicLevels ?? 0),
+    [build.classes, build.epicLevels],
+  );
 
   // Debuffs — state lives in parent; apply physical-damage multiplier here.
   const debuffs = useMemo(
@@ -474,6 +481,9 @@ export function MeleeEditor({
         sneakAttackDice={engine.sneakAttackDice.total}
         breakdown={null}
       />
+
+      {/* Active damage riders (imbue toggles etc. — per-hit elemental adds) */}
+      <ActiveRidersList engine={engine} totalCharLevel={totalCharLevel} />
 
       {/* Debuffs */}
       <DebuffsSummary state={debuffState} build={build} onManage={onManageDebuffs} />
