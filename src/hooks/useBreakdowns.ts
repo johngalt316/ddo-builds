@@ -30,23 +30,6 @@ export function useBreakdowns(): EngineResult | null {
 }
 
 /**
- * Engine output for the active build, with the "Reaper" stance synthesized
- * in when `difficulty >= 1` (any Reaper tier R1-R10). Used by the DPS
- * editors so their stat panels reflect Reaper-conditional enhancement
- * bonuses (DireCore1's +50 SP "in Reaper", GrimCore1's HP per AP, etc.)
- * while keeping the Build editor's main Breakdowns tab on the non-reaper
- * baseline. Pass 0 for Elite (no adjustment).
- */
-export function useReaperAdjustedBreakdowns(difficulty: number): EngineResult | null {
-  const build = useBuildStore(s => s.build);
-  const adjusted = useMemo(
-    () => withReaperStance(build, difficulty >= 1),
-    [build, difficulty],
-  );
-  return useBreakdownsForBuild(adjusted);
-}
-
-/**
  * Same as `useBreakdowns()` but lets the caller pass an arbitrary
  * Build snapshot — used by the DPS comparison view to evaluate a
  * non-active enhancement set without mutating the store.

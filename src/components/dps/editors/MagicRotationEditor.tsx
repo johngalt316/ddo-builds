@@ -5,7 +5,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useBuildStore } from '@/store/buildStore';
 import { useGameDataStore } from '@/store/gameDataStore';
-import { useReaperAdjustedBreakdowns } from '@/hooks/useBreakdowns';
+import { useBreakdowns } from '@/hooks/useBreakdowns';
 import { getMagicAbilities, type MagicAbility } from '@/engine/dps/abilities';
 import type { RotationStep } from '@/engine/dps/rotation';
 import {
@@ -61,7 +61,7 @@ export function MagicRotationEditor({
   const enhancementTrees = useGameDataStore(s => s.enhancementTrees);
   const augments         = useGameDataStore(s => s.augments);
   const metamagics       = useGameDataStore(s => s.metamagics);
-  const breakdowns  = useReaperAdjustedBreakdowns(difficulty);
+  const breakdowns  = useBreakdowns();
   // Build's spell cooldown reduction (sum of all sources, percent).
   const cooldownReductionPct = breakdowns?.spellCooldownReduction.total ?? 0;
   // SLAs come and go with build state — feed them into the catalog so

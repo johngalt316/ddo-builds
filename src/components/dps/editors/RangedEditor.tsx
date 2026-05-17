@@ -8,7 +8,7 @@
 
 import { useMemo, useState } from 'react';
 import { useBuildStore } from '@/store/buildStore';
-import { useReaperAdjustedBreakdowns } from '@/hooks/useBreakdowns';
+import { useBreakdowns } from '@/hooks/useBreakdowns';
 import { physicalDamageMultiplier } from '@/engine/dps/difficulty';
 import { aggregateDebuffs } from '@/engine/dps/debuffs';
 import {
@@ -26,7 +26,7 @@ export function RangedEditor({
   compareSetName, compareBreakdowns,
 }: SharedEditorProps) {
   const build  = useBuildStore(s => s.build);
-  const engine = useReaperAdjustedBreakdowns(difficulty);
+  const engine = useBreakdowns();
 
   // Debuffs aggregated but not yet folded into the MVP auto-DPS math.
   const debuffs = useMemo(

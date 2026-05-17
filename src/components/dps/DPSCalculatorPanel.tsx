@@ -7,7 +7,7 @@
 
 import { useEffect, useMemo, useState } from 'react';
 import { useBuildStore } from '@/store/buildStore';
-import { useBreakdownsForBuild, withReaperStance } from '@/hooks/useBreakdowns';
+import { useBreakdownsForBuild } from '@/hooks/useBreakdowns';
 import type { Build } from '@/types/build';
 import { getActiveEnhancementSet } from '@/types/build';
 import type { RotationStep } from '@/engine/dps/rotation';
@@ -87,6 +87,28 @@ export function DPSCalculatorPanel() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [classFingerprint, build.activeEnhancementSet]);
 
+  // Auto-toggle the "Reaper" stance based on the difficulty slider so all
+  // useBreakdowns() consumers (Build Editor breakdowns tab, stats summary,
+  // etc.) see reaper-gated enhancement bonuses (DireCore1 +50 SP,
+  // GrimCore1 +10 HP, etc.) when the user picks R1+ on the slider.
+  // Sync direction is one-way: slider drives stance. If the user wants
+  // to keep Reaper bonuses on while showing the Elite slider, they can
+  // toggle the stance manually after — the slider only re-applies when
+  // the value crosses the Elite ↔ Reaper boundary.
+  const setStances = useBuildStore(s => s.setStances);
+  const currentStances = build.activeStances ?? [];
+  const reaperInStances = currentStances.includes('Reaper');
+  const sliderWantsReaper = difficulty >= 1;
+  useEffect(() => {
+    if (sliderWantsReaper === reaperInStances) return;
+    if (sliderWantsReaper) {
+      setStances([...currentStances, 'Reaper']);
+    } else {
+      setStances(currentStances.filter(s => s !== 'Reaper'));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sliderWantsReaper, reaperInStances]);
+
   // ── Magic rotation state ────────────────────────────────────────────
   const dpsRotation     = useBuildStore(s => s.build.dpsRotation);
   const setDpsRotation  = useBuildStore(s => s.setDpsRotation);
@@ -110,18 +132,9 @@ export function DPSCalculatorPanel() {
 
   const [compareSetName, setCompareSetName] = useState<string | null>(null);
   const compareBuild = useMemo<typeof build>(() => {
-    // Match what useReaperAdjustedBreakdowns does for the primary build:
-    // when in Reaper difficulty, synthesize the Reaper stance so the
-    // compare set's breakdowns are also computed with reaper-gated
-    // bonuses firing (otherwise the delta vs. the primary build would
-    // double-count the gating).
-    const inReaper = difficulty >= 1;
-    let b = (!compareSetName || compareSetName === build.activeEnhancementSet)
-      ? build
-      : { ...build, activeEnhancementSet: compareSetName };
-    b = withReaperStance(b, inReaper);
-    return b;
-  }, [build, compareSetName, difficulty]);
+    if (!compareSetName || compareSetName === build.activeEnhancementSet) return build;
+    return { ...build, activeEnhancementSet: compareSetName };
+  }, [build, compareSetName]);
   const compareBreakdowns = useBreakdownsForBuild(compareBuild);
 
   function handleGenerate() {
