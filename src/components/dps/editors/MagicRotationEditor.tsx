@@ -307,16 +307,16 @@ export function MagicRotationEditor({
   }, [steps, abilityById, rotationCycleSeconds, reaperEfficiency]);
 
   // First-time / unset Active = top-N highest-DPC damaging abilities,
-  // SEEDED ONCE on build load and then persisted to `activeAbilityIds`.
-  // After the seed lands the list is whatever the user has configured —
-  // it doesn't re-rank when gear / metamagics / enhancements change,
-  // since auto-resorting a list the user is actively editing causes
-  // jarring glitches. The user can re-trigger the seed via the "Top 10"
-  // button in the Manage dialog.
+  // SEEDED ONCE per attack-mode tab and then persisted via the shared
+  // `seededAttackModes` flag. After the seed lands the list is whatever
+  // the user has configured — it doesn't re-rank when gear / metamagics
+  // / enhancements change, since auto-resorting a list the user is
+  // actively editing causes jarring glitches. The user can re-trigger
+  // the seed via the "Top 10" button in the Manage dialog.
   const DEFAULT_ACTIVE_LIMIT = 10;
   const computeTopByDPC = (): string[] =>
     abilities
-      .filter(a => a.category === 'damage')
+      .filter(a => a.category === 'damage' && a.attackMode === 'magic')
       .map(a => {
         const info = damageByAbility.get(a.id);
         const dps  = info?.dps           ?? 0;
@@ -327,12 +327,24 @@ export function MagicRotationEditor({
       .slice(0, DEFAULT_ACTIVE_LIMIT)
       .map(({ a }) => a.id);
 
+  const isMagicSeeded = useBuildStore(s =>
+    (s.build.dpsRotation?.seededAttackModes ?? []).includes('magic'));
+  const setDpsRotationStore = useBuildStore(s => s.setDpsRotation);
   useEffect(() => {
-    if (activeAbilityIds !== undefined) return;             // already configured
+    if (isMagicSeeded) return;
     if (abilities.length === 0) return;                     // catalog still loading
-    setActiveAbilityIds(computeTopByDPC());
+    const top = computeTopByDPC();
+    if (top.length === 0) return;
+    const existing = activeAbilityIds ?? [];
+    const seen = new Set(existing);
+    const merged = [...existing, ...top.filter(id => !seen.has(id))];
+    const prevModes = useBuildStore.getState().build.dpsRotation?.seededAttackModes ?? [];
+    setDpsRotationStore({
+      activeAbilityIds: merged,
+      seededAttackModes: [...prevModes, 'magic'],
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [activeAbilityIds, abilities, damageByAbility]);
+  }, [isMagicSeeded, abilities, damageByAbility]);
 
   const activeAbilities = useMemo(() => {
     if (activeAbilityIds === undefined) return [];          // pre-seed render

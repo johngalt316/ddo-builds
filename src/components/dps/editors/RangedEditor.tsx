@@ -221,6 +221,43 @@ export function RangedEditor({
     [activeRangedAbilities, damageByAbility],
   );
 
+  // ── First-time auto-seed ──────────────────────────────────────────────
+  // Like MagicRotationEditor, the first time the user opens this tab for
+  // a given build, seed the active list with the top-N ranged damage
+  // abilities by DPC. We APPEND (not replace) so any magic/melee seeds
+  // already present keep their entries. Gated on the per-mode flag in
+  // `seededAttackModes` so removing a ranged ability doesn't trigger a
+  // re-seed on the next render.
+  const DEFAULT_RANGED_LIMIT = 10;
+  const computeTopRangedByDPC = (): string[] =>
+    rangedAbilities
+      .filter(a => a.category === 'damage' && a.attackMode === 'ranged')
+      .map(a => {
+        const info = damageByAbility.get(a.id);
+        return { a, dpc: info?.damage.total ?? 0, dps: info?.dps ?? 0 };
+      })
+      .sort((x, y) => y.dpc - x.dpc || y.dps - x.dps || x.a.name.localeCompare(y.a.name))
+      .slice(0, DEFAULT_RANGED_LIMIT)
+      .map(({ a }) => a.id);
+
+  const isRangedSeeded = (dpsRotation?.seededAttackModes ?? []).includes('ranged');
+  useEffect(() => {
+    if (isRangedSeeded) return;
+    if (rangedAbilities.length === 0) return;
+    if (!result || !buildStats) return;                   // damage info not ready
+    const top = computeTopRangedByDPC();
+    if (top.length === 0) return;
+    const existing = activeAbilityIds ?? [];
+    const seen = new Set(existing);
+    const merged = [...existing, ...top.filter(id => !seen.has(id))];
+    const prevModes = dpsRotation?.seededAttackModes ?? [];
+    setDpsRotation({
+      activeAbilityIds: merged,
+      seededAttackModes: [...prevModes, 'ranged'],
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isRangedSeeded, rangedAbilities, damageByAbility, result, buildStats]);
+
   // Compare result for the same weapon against the comparison enhancement set.
   const compareResult = useMemo(() => {
     if (!compareSetName || !compareBreakdowns || compareSetName === build.activeEnhancementSet) return null;

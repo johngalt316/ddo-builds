@@ -255,6 +255,42 @@ export function MeleeEditor({
     [activeMeleeAbilities, damageByAbility],
   );
 
+  // ── First-time auto-seed ──────────────────────────────────────────────
+  // Same pattern as RangedEditor / MagicRotationEditor — append top-N
+  // melee damage abilities by DPC the first time this editor is opened.
+  // Gated on `dpsRotation.seededAttackModes.includes('melee')` so each
+  // tab seeds exactly once per build and the user can remove abilities
+  // without them re-appearing.
+  const DEFAULT_MELEE_LIMIT = 10;
+  const computeTopMeleeByDPC = (): string[] =>
+    meleeAbilities
+      .filter(a => a.category === 'damage' && a.attackMode === 'melee')
+      .map(a => {
+        const info = damageByAbility.get(a.id);
+        return { a, dpc: info?.damage.total ?? 0, dps: info?.dps ?? 0 };
+      })
+      .sort((x, y) => y.dpc - x.dpc || y.dps - x.dps || x.a.name.localeCompare(y.a.name))
+      .slice(0, DEFAULT_MELEE_LIMIT)
+      .map(({ a }) => a.id);
+
+  const isMeleeSeeded = (dpsRotation?.seededAttackModes ?? []).includes('melee');
+  useEffect(() => {
+    if (isMeleeSeeded) return;
+    if (meleeAbilities.length === 0) return;
+    if (!result || !buildStats) return;
+    const top = computeTopMeleeByDPC();
+    if (top.length === 0) return;
+    const existing = activeAbilityIds ?? [];
+    const seen = new Set(existing);
+    const merged = [...existing, ...top.filter(id => !seen.has(id))];
+    const prevModes = dpsRotation?.seededAttackModes ?? [];
+    setDpsRotation({
+      activeAbilityIds: merged,
+      seededAttackModes: [...prevModes, 'melee'],
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isMeleeSeeded, meleeAbilities, damageByAbility, result, buildStats]);
+
   // Compare result for the same weapon against a different enhancement set.
   const compareResult = useMemo(() => {
     if (!compareSetName || !compareBreakdowns || compareSetName === build.activeEnhancementSet) return null;

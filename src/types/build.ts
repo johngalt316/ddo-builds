@@ -263,6 +263,12 @@ export interface DpsRotationState {
   /** Ordered subset of trained damaging spells the user marked active.
    *  `undefined` means "first-time use, default to catalog order". */
   activeAbilityIds?: string[];
+  /** Attack-mode editors that have already auto-seeded their top-N
+   *  damage abilities into `activeAbilityIds`. Each editor (magic /
+   *  melee / ranged) appends its own seed exactly once per build so
+   *  re-opening a tab doesn't fight a previous seed and the user can
+   *  remove abilities without them re-appearing. */
+  seededAttackModes?: ('magic' | 'melee' | 'ranged')[];
   /** When true, the optimizer is the authority on rotation order
    *  (drag/reorder disabled in the timeline). */
   auto?: boolean;
