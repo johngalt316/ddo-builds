@@ -7,7 +7,7 @@
 
 import { useEffect, useMemo, useState } from 'react';
 import { useBuildStore } from '@/store/buildStore';
-import { useBreakdownsForBuild } from '@/hooks/useBreakdowns';
+import { useBreakdownsForBuild, withReaperStance } from '@/hooks/useBreakdowns';
 import type { Build } from '@/types/build';
 import { getActiveEnhancementSet } from '@/types/build';
 import type { RotationStep } from '@/engine/dps/rotation';
@@ -110,9 +110,18 @@ export function DPSCalculatorPanel() {
 
   const [compareSetName, setCompareSetName] = useState<string | null>(null);
   const compareBuild = useMemo<typeof build>(() => {
-    if (!compareSetName || compareSetName === build.activeEnhancementSet) return build;
-    return { ...build, activeEnhancementSet: compareSetName };
-  }, [build, compareSetName]);
+    // Match what useReaperAdjustedBreakdowns does for the primary build:
+    // when in Reaper difficulty, synthesize the Reaper stance so the
+    // compare set's breakdowns are also computed with reaper-gated
+    // bonuses firing (otherwise the delta vs. the primary build would
+    // double-count the gating).
+    const inReaper = difficulty >= 1;
+    let b = (!compareSetName || compareSetName === build.activeEnhancementSet)
+      ? build
+      : { ...build, activeEnhancementSet: compareSetName };
+    b = withReaperStance(b, inReaper);
+    return b;
+  }, [build, compareSetName, difficulty]);
   const compareBreakdowns = useBreakdownsForBuild(compareBuild);
 
   function handleGenerate() {
@@ -177,6 +186,15 @@ export function DPSCalculatorPanel() {
         <label className={styles.field}>
           <span className={styles.fieldLabel}>
             Difficulty <span className={styles.fieldValue}>{DIFFICULTY_LABELS[difficulty]}</span>
+            {difficulty >= 1 && (
+              <span
+                className={styles.fieldValue}
+                style={{ marginLeft: '0.4rem', color: 'var(--color-reaper, #ff7066)' }}
+                title="Reaper-conditional enhancement bonuses (DireCore1 +50 SP, GrimCore1 +10 HP, etc.) are firing for this calculation"
+              >
+                · Reaper stance
+              </span>
+            )}
           </span>
           <input
             type="range"

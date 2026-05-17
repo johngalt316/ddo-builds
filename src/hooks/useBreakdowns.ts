@@ -4,6 +4,19 @@ import { useGameDataStore } from '@/store/gameDataStore';
 import { runEngine, type EngineResult } from '@/engine/runEngine';
 import type { Build } from '@/types/build';
 
+/** Reaper-tree enhancement effects gated with `<Stance>Reaper</Stance>`
+ *  only fire when the player is actually in Reaper Difficulty. The DPS
+ *  panel's difficulty slider drives this dynamically: when the user
+ *  picks R1-R10, treat "Reaper" as an active stance for engine
+ *  evaluation so the gated bonuses surface in breakdowns alongside the
+ *  always-on Reaper-tree effects. */
+export function withReaperStance(build: Build, inReaper: boolean): Build {
+  if (!inReaper) return build;
+  const stances = build.activeStances ?? [];
+  if (stances.includes('Reaper')) return build;
+  return { ...build, activeStances: [...stances, 'Reaper'] };
+}
+
 /**
  * Runs the Phase-2 engine over the current build state and returns
  * per-stat BreakdownResults plus diagnostics.
@@ -14,6 +27,23 @@ import type { Build } from '@/types/build';
 export function useBreakdowns(): EngineResult | null {
   const build = useBuildStore(s => s.build);
   return useBreakdownsForBuild(build);
+}
+
+/**
+ * Engine output for the active build, with the "Reaper" stance synthesized
+ * in when `difficulty >= 1` (any Reaper tier R1-R10). Used by the DPS
+ * editors so their stat panels reflect Reaper-conditional enhancement
+ * bonuses (DireCore1's +50 SP "in Reaper", GrimCore1's HP per AP, etc.)
+ * while keeping the Build editor's main Breakdowns tab on the non-reaper
+ * baseline. Pass 0 for Elite (no adjustment).
+ */
+export function useReaperAdjustedBreakdowns(difficulty: number): EngineResult | null {
+  const build = useBuildStore(s => s.build);
+  const adjusted = useMemo(
+    () => withReaperStance(build, difficulty >= 1),
+    [build, difficulty],
+  );
+  return useBreakdownsForBuild(adjusted);
 }
 
 /**

@@ -4,7 +4,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useBuildStore } from '@/store/buildStore';
 import { useGameDataStore } from '@/store/gameDataStore';
-import { useBreakdowns } from '@/hooks/useBreakdowns';
+import { useReaperAdjustedBreakdowns } from '@/hooks/useBreakdowns';
 import { getMagicAbilities, type MagicAbility } from '@/engine/dps/abilities';
 import type { RotationStep } from '@/engine/dps/rotation';
 import {
@@ -41,7 +41,7 @@ export function MeleeEditor({
   simDuration, setSimDuration,
 }: MeleeEditorProps) {
   const build   = useBuildStore(s => s.build);
-  const engine  = useBreakdowns();
+  const engine  = useReaperAdjustedBreakdowns(difficulty);
 
   // Debuffs — state lives in parent; apply physical-damage multiplier here.
   const debuffs = useMemo(
