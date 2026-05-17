@@ -278,44 +278,61 @@ export function RangedEditor({
 
   return (
     <div className={styles.editor}>
-      {/* Single weapon stat panel (ranged is always one weapon — no off-hand). */}
-      <div className={styles.weaponStatPanels} style={{ gridTemplateColumns: '1fr' }}>
-        <div className={styles.weaponStatPanel}>
-          <span className={styles.weaponStatPanelHeader}>
-            {mainHandItem?.icon && (
-              <img
-                src={`/assets/images/ItemImages/${mainHandItem.icon}.png`}
-                alt=""
-                style={{ width: 16, height: 16, objectFit: 'contain', marginRight: 4, verticalAlign: 'middle', flexShrink: 0 }}
-                onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
-              />
-            )}
-            Main Hand ({categoryLabel})
-          </span>
-          <span className={styles.weaponStatPanelName}>{weaponInfo.name}</span>
-
-          <div className={styles.weaponStatRow}>
-            <span className={styles.weaponStatRowLabel}>Base</span>
-            <span className={styles.weaponStatRowValue}>{baseStr}</span>
-            <span className={styles.weaponStatRowMuted}>
-              {`${result.damageStat}(+${result.damageStatMod}) +${enchant} enchant +${result.flatDmgBonus} flat`}
+      {/* Weapon stat panel(s). Single MH for normal ranged; MH+OH when
+       *  Inquisitive's Dual Shooter stance flips the build into the
+       *  "dual hand crossbows" mode. Both panels show the same weapon
+       *  stats; the OH copy notes its dependence on the MH crossbow. */}
+      {(() => {
+        const renderPanel = (label: string, extra?: React.ReactNode) => (
+          <div className={styles.weaponStatPanel}>
+            <span className={styles.weaponStatPanelHeader}>
+              {mainHandItem?.icon && (
+                <img
+                  src={`/assets/images/ItemImages/${mainHandItem.icon}.png`}
+                  alt=""
+                  style={{ width: 16, height: 16, objectFit: 'contain', marginRight: 4, verticalAlign: 'middle', flexShrink: 0 }}
+                  onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                />
+              )}
+              {label} ({categoryLabel})
             </span>
-          </div>
+            <span className={styles.weaponStatPanelName}>
+              {weaponInfo.name}
+              {extra}
+            </span>
 
-          <div className={styles.weaponStatRow}>
-            <span className={styles.weaponStatRowLabel}>Crit Range</span>
-            <span className={styles.weaponStatRowValue}>{critStr}</span>
-            {result.seeker > 0 && (
-              <span className={styles.weaponStatRowMuted}>Seeker +{result.seeker}</span>
+            <div className={styles.weaponStatRow}>
+              <span className={styles.weaponStatRowLabel}>Base</span>
+              <span className={styles.weaponStatRowValue}>{baseStr}</span>
+              <span className={styles.weaponStatRowMuted}>
+                {`${result.damageStat}(+${result.damageStatMod}) +${enchant} enchant +${result.flatDmgBonus} flat`}
+              </span>
+            </div>
+
+            <div className={styles.weaponStatRow}>
+              <span className={styles.weaponStatRowLabel}>Crit Range</span>
+              <span className={styles.weaponStatRowValue}>{critStr}</span>
+              {result.seeker > 0 && (
+                <span className={styles.weaponStatRowMuted}>Seeker +{result.seeker}</span>
+              )}
+            </div>
+
+            <div className={styles.weaponStatRow}>
+              <span className={styles.weaponStatRowLabel}>To-Hit</span>
+              <span className={styles.weaponStatRowMuted}>TODO</span>
+            </div>
+          </div>
+        );
+        const showOH = result.dualShooter;
+        return (
+          <div className={styles.weaponStatPanels} style={showOH ? undefined : { gridTemplateColumns: '1fr' }}>
+            {renderPanel('Main Hand')}
+            {showOH && renderPanel('Off Hand',
+              <span className={styles.weaponStatRowMuted}> (Dual Shooter — same crossbow)</span>,
             )}
           </div>
-
-          <div className={styles.weaponStatRow}>
-            <span className={styles.weaponStatRowLabel}>To-Hit</span>
-            <span className={styles.weaponStatRowMuted}>TODO</span>
-          </div>
-        </div>
-      </div>
+        );
+      })()}
 
       <TargetRow targetCount={targetCount} setTargetCount={setTargetCount} prr={0} mrr={0} />
 
@@ -387,6 +404,17 @@ export function RangedEditor({
             <span className={styles.meleeStatChip} title="% chance of an additional projectile per shot">
               Doubleshot {pct(buildStats.doubleshot)}
             </span>
+            {result.dualShooter && (
+              <span
+                className={styles.meleeStatChip}
+                title={
+                  'Inquisitive Dual Shooter: each shot triggers an off-hand crossbow shot at this chance. '
+                  + 'Scales with TWF feats (TWF 40% / ITWF 60% / GTWF 80%) plus any +Off-Hand-Attack bonuses.'
+                }
+              >
+                Dual Shooter OH {pct(result.offHandChance)}
+              </span>
+            )}
             <span className={styles.meleeStatChip}
               title={`Crit: ${21 - result.critThreatFaces}-20 = ${pct(result.critChance * 100)}, ×${result.critMultOnAll}${result.critMult1920Bonus > 0 ? ` / ×${result.critMultOn1920} on 19-20` : ''}`}>
               Crit {pct(result.critChance * 100)}
@@ -398,14 +426,18 @@ export function RangedEditor({
         )}
       </div>
 
-      {/* Reuse the unified attack + ability timeline.  No off-hand for
-       *  ranged — pass ohAPM=0 and relabel the MH track as "Shots". */}
+      {/* Reuse the unified attack + ability timeline. For normal ranged
+       *  there's no off-hand — pass ohAPM=0 and relabel the MH track as
+       *  "Shots". For Inquisitive Dual Shooter, treat the MH crossbow as
+       *  both hands: MH fires at full rate, OH fires at offHandChance%
+       *  of the MH cadence. */}
       <MeleeCombinedTimeline
         mhAPM={result.apm}
-        ohAPM={0}
+        ohAPM={result.dualShooter ? result.ohAttacksPerMin : 0}
         mhBaseAPM={result.apmNoBoost}
-        mhLabel="Shots"
-        ohLabel=""
+        ohBaseAPM={result.dualShooter ? result.ohBaseAPM : undefined}
+        mhLabel={result.dualShooter ? 'MH' : 'Shots'}
+        ohLabel={result.dualShooter ? 'OH' : ''}
         playheadTime={simRunning || simTime > 0 ? simTime : undefined}
         windowSeconds={simDuration}
         steps={rangedSteps}
@@ -469,11 +501,16 @@ export function RangedEditor({
           (s, a) => s + (damageByAbility.get(a.id)?.dps ?? 0), 0,
         );
         const totalDPS = result.totalAutoDPS + abilityDPS;
+        const autoSources: { label: string; dps: number; color: string }[] = result.dualShooter
+          ? [
+              { label: 'MH Auto-shot', dps: result.mhDPS, color: '#c9a227' },
+              { label: 'OH Auto-shot', dps: result.ohDPS, color: '#a07820' },
+            ]
+          : [{ label: 'Auto-shot', dps: result.totalAutoDPS, color: '#c9a227' }];
         const sources: { label: string; dps: number; color: string }[] = [
-          { label: 'Auto-shot', dps: result.totalAutoDPS, color: '#c9a227' },
+          ...autoSources,
           ...rotationAbilities
-            .map(a => ({ label: a.name, dps: damageByAbility.get(a.id)?.dps ?? 0, color: '#7ab87a' }))
-            .filter(s => s.dps > 0),
+            .map(a => ({ label: a.name, dps: damageByAbility.get(a.id)?.dps ?? 0, color: '#7ab87a' })),
         ].filter(s => s.dps > 0);
 
         if (totalDPS <= 0) return null;

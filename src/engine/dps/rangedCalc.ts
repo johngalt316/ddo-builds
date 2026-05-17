@@ -28,7 +28,11 @@ import type { EngineResult } from '@/engine/runEngine';
 import { abilityModifier } from '@/engine';
 import { stackBonuses } from '@/engine/bonusStacking';
 import type { Stat } from '@/types/build';
-import { critRangeBonusForWeapon, weaponClassBonusesForWeapon, detectImprovedCritical } from './meleeCalc';
+import {
+  critRangeBonusForWeapon, weaponClassBonusesForWeapon, detectImprovedCritical,
+  detectTWFStyle, detectPerfectTWF, twfOffHandChancePct,
+  type TWFStyle,
+} from './meleeCalc';
 
 export type RangedCategory = 'bow' | 'crossbow' | 'repeating-crossbow' | 'thrown';
 
@@ -69,6 +73,22 @@ export interface RangedBuildStats {
   flatDmgBonus: number;
   /** Percentage physical damage bonus (Primal Force +2% etc.). */
   physDamagePct: number;
+  /** Inquisitive's "Dual Shooter" stance active AND a non-repeating
+   *  crossbow equipped — the build effectively dual-wields hand
+   *  crossbows. Each ranged attack triggers an OH-equivalent shot at
+   *  `offHandChance%` (mirrors melee TWF). When false, off-hand fields
+   *  are ignored and the calc runs single-weapon. */
+  dualShooter: boolean;
+  /** Detected TWF feat tier — drives OH attack chance when dualShooter
+   *  is active. Standard pattern: none=0, TWF=40, ITWF=60, GTWF=80. */
+  twfStyle: TWFStyle;
+  /** Perfect Two Weapon Fighting bumps OH's per-shot doublestrike
+   *  fraction (analogous to melee). Only meaningful with dualShooter. */
+  hasPerfectTWF: boolean;
+  /** Full OH attack chance (twfStyle base + any engine.offHandChance
+   *  bonuses), clamped to 0-100. Source of truth for the OH attack
+   *  rate when dualShooter is active. */
+  offHandChance: number;
 }
 
 export interface RangedDPSResult {
@@ -90,17 +110,35 @@ export interface RangedDPSResult {
   damageStatMod: number;
   /** Base APM at zero alacrity (informational). */
   baseAPM: number;
-  /** APM after passive alacrity + Doubleshot, no action-boost. Drives the
-   *  timeline visualization. */
+  /** Passive-alacrity-only APM (no action-boost). Drives the timeline
+   *  visualization so boost windows show denser bars. */
   apmNoBoost: number;
-  /** Final APM after action-boost alacrity. */
+  /** Final per-hand APM after action-boost alacrity. With Dual Shooter
+   *  active this is the MH (and OH = `apm × offHandChance/100`); without
+   *  it, this is the only attack rate (OH fields are 0). */
   apm: number;
+  /** Effective MH shots/min after Doubleshot. */
   effectivePerMin: number;
+  /** MH-only auto-DPS contribution (= avgPerHit × effectivePerMin / 60). */
+  mhDPS: number;
+  /** OH attack rate; 0 when Dual Shooter is inactive. */
+  ohAttacksPerMin: number;
+  /** Passive-alacrity OH APM (for timeline boost-window rendering). */
+  ohBaseAPM: number;
+  /** Effective OH shots/min after Doubleshot; 0 when Dual Shooter inactive. */
+  ohEffectivePerMin: number;
+  /** OH-only auto-DPS contribution; 0 when Dual Shooter inactive. */
+  ohDPS: number;
+  /** MH + OH auto-DPS combined. */
   totalAutoDPS: number;
   rangedPower: number;
   doubleshot: number;
   rangedAlacrity: number;
   actionBoostAlacrity: number;
+  /** Whether the Dual Shooter MH+OH model was applied. */
+  dualShooter: boolean;
+  /** Resolved OH attack chance % (informational; 0 when not dual-shooting). */
+  offHandChance: number;
 }
 
 // ── Weapon category classification ──────────────────────────────────────
@@ -184,11 +222,25 @@ export function rangedDPS(
   const apm           = apmNoBoost * (1 + boostAlacrity / 100);
 
   // Doubleshot: % chance of an additional projectile per shot. Adds 1×ds
-  // to effective hit count per APM tick.
+  // to effective hit count per APM tick. With Dual Shooter, both hands
+  // proc Doubleshot independently — same per-side multiplier applied to
+  // each.
   const ds            = Math.max(0, stats.doubleshot) / 100;
-  const effective     = apm * (1 + ds);
+  const mhEffective   = apm * (1 + ds);
+  const mhDPS         = mhEffective * avgPerHit / 60;
 
-  const totalAutoDPS  = effective * avgPerHit / 60;
+  // Dual Shooter MH+OH model (Inquisitive enhancement): when active, the
+  // build dual-wields hand crossbows — each MH shot triggers an OH-side
+  // shot at `offHandChance%`. OH attacks use the same per-hit damage
+  // profile (same weapon stats), and proc Doubleshot independently.
+  const dualShooter   = stats.dualShooter;
+  const ohFrac        = dualShooter ? Math.min(1.0, Math.max(0, stats.offHandChance) / 100) : 0;
+  const ohAPM         = apm * ohFrac;
+  const ohBaseAPM     = apmNoBoost * ohFrac;
+  const ohEffective   = ohAPM * (1 + ds);
+  const ohDPS         = ohEffective * avgPerHit / 60;
+
+  const totalAutoDPS  = mhDPS + ohDPS;
 
   return {
     avgBaseDamage:        avgBase,
@@ -210,12 +262,19 @@ export function rangedDPS(
     baseAPM,
     apmNoBoost,
     apm,
-    effectivePerMin:      effective,
+    effectivePerMin:      mhEffective,
+    mhDPS,
+    ohAttacksPerMin:      ohAPM,
+    ohBaseAPM,
+    ohEffectivePerMin:    ohEffective,
+    ohDPS,
     totalAutoDPS,
     rangedPower:          stats.rangedPower,
     doubleshot:           stats.doubleshot,
     rangedAlacrity:       alacrity,
     actionBoostAlacrity:  boostAlacrity,
+    dualShooter,
+    offHandChance:        dualShooter ? Math.min(100, Math.max(0, stats.offHandChance)) : 0,
   };
 }
 
@@ -280,6 +339,28 @@ export function rangedBuildStatsFromEngine(
 
   const alacrity = alacrityOverride ?? engine.rangedSpeed.total;
 
+  // Inquisitive "Dual Shooter" stance — when active AND the player wields
+  // a non-repeating light/heavy/great crossbow, the build is treated as
+  // dual-wielding hand crossbows. Each ranged attack triggers an
+  // OH-equivalent shot at TWF-feat-derived chance + any engine.offHandChance
+  // bonuses.
+  const isDualShooterCrossbow = (
+    weaponInfo.category === 'crossbow' &&
+    !/repeating/i.test(weaponInfo.weaponType)
+  );
+  const dualShooterActive = isDualShooterCrossbow
+    && (build.activeStances ?? []).includes('Dual Shooter');
+  const twfStyle  = detectTWFStyle(build);
+  const twfBaseOh = twfOffHandChancePct(twfStyle);
+  // OH chance: TWF feat base + any +OH ranged bonuses from the engine.
+  // (Most one-handed melee builds get a 20% baseline via gear / feats;
+  //  ranged dual-shooter without TWF feats gets nothing extra, matching
+  //  DDOBuilderV2's strict-XML behavior. Users with TWF feats trained
+  //  see 40/60/80% as expected.)
+  const offHandChance = dualShooterActive
+    ? Math.min(100, twfBaseOh + engine.offHandChance.total)
+    : 0;
+
   return {
     statMod,
     damageStat,
@@ -295,6 +376,10 @@ export function rangedBuildStatsFromEngine(
     flatDmgBonus:        engine.weaponFlatDamage.total + klass.flatDamage + klass.enchantment,
     physDamagePct:       engine.weaponDamagePct.total,
     actionBoostAlacrity: Math.max(0, actionBoostAlacrity),
+    dualShooter:         dualShooterActive,
+    twfStyle,
+    hasPerfectTWF:       detectPerfectTWF(build),
+    offHandChance,
   };
 }
 
