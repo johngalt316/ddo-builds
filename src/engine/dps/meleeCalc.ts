@@ -46,6 +46,9 @@ export interface MeleeBuildStats {
    *  rotation (e.g. Haste Boost uptime × 30%).  Multiplies with passive
    *  alacrity — not subject to the 15% passive cap. */
   actionBoostAlacrity: number; // %, no cap (multiplicative)
+  /** Pre-alacrity base APM. Default seeds from `meleeBaseAPM(category)`;
+   *  the editor's Base APM slider may replace this with a tuned value. */
+  baseAPM: number;
   seeker: number;
   hasImprovedCritical: boolean;
   /** Flat faces added to threat range after IC doubling. */
@@ -234,7 +237,7 @@ export function meleeDPS(
   // Action Boost alacrity multiplies on top — no shared cap.
   const alacrity      = Math.min(Math.max(0, stats.meleeAlacrity), 15);
   const boostAlacrity = Math.max(0, stats.actionBoostAlacrity ?? 0);
-  const baseAPM       = meleeBaseAPM(weapon.category);
+  const baseAPM       = stats.baseAPM > 0 ? stats.baseAPM : meleeBaseAPM(weapon.category);
   // mhNoBoostAPM: the passive-only rate used by the timeline for burst visualization.
   const mhNoBoostAPM  = baseAPM * (1 + alacrity / 100);
   const mhAPM         = mhNoBoostAPM * (1 + boostAlacrity / 100);
@@ -412,6 +415,12 @@ export function buildStatsFromEngine(
   weaponInfo: MeleeWeaponInfo,
   alacrityOverride?: number,
   actionBoostAlacrity = 0,
+  /** Optional manual stat pick from the editor's damage-stat dropdown.
+   *  When 'auto' (default), the function picks the highest-mod stat. */
+  damageStatOverride: Stat | 'auto' = 'auto',
+  /** Optional Base APM override from the editor's slider. Undefined =
+   *  `meleeBaseAPM(weapon.category)` default. */
+  baseAPMOverride?: number,
 ): MeleeBuildStats {
   // ── Effective damage stat ─────────────────────────────────────────
   // Weapon_DamageAbility bonuses replace the weapon's own damage stat.
@@ -421,17 +430,24 @@ export function buildStatsFromEngine(
     strength: 'STR', dexterity: 'DEX', constitution: 'CON',
     intelligence: 'INT', wisdom: 'WIS', charisma: 'CHA',
   };
-  let damageStat: Stat = weaponInfo.attackStat === 'Dexterity' ? 'DEX' : 'STR';
-  let bestMod = abilityModifier(engine.abilityScores[damageStat].total);
-  for (const b of engine.allBonuses) {
-    if (b.effectType !== 'Weapon_DamageAbility') continue;
-    const tgt = (b.target ?? '').toLowerCase();
-    const candidate = STAT_MAP[tgt] as Stat | undefined;
-    if (!candidate) continue;
-    const mod = abilityModifier(engine.abilityScores[candidate].total);
-    if (mod > bestMod) { bestMod = mod; damageStat = candidate; }
+  let damageStat: Stat;
+  let statMod: number;
+  if (damageStatOverride !== 'auto') {
+    damageStat = damageStatOverride;
+    statMod    = abilityModifier(engine.abilityScores[damageStat].total);
+  } else {
+    damageStat = weaponInfo.attackStat === 'Dexterity' ? 'DEX' : 'STR';
+    let bestMod = abilityModifier(engine.abilityScores[damageStat].total);
+    for (const b of engine.allBonuses) {
+      if (b.effectType !== 'Weapon_DamageAbility') continue;
+      const tgt = (b.target ?? '').toLowerCase();
+      const candidate = STAT_MAP[tgt] as Stat | undefined;
+      if (!candidate) continue;
+      const mod = abilityModifier(engine.abilityScores[candidate].total);
+      if (mod > bestMod) { bestMod = mod; damageStat = candidate; }
+    }
+    statMod = bestMod;
   }
-  const statMod = bestMod;
 
   const twfStyle = detectTWFStyle(build);
   const ohBonus  = weaponInfo.category === 'two-handed' ? 0 : engine.offHandChance.total;
@@ -443,12 +459,17 @@ export function buildStatsFromEngine(
   // engine/weaponGroups.ts.
   const klass = weaponClassBonusesForWeapon(engine, weaponInfo.weaponType);
 
+  const baseAPM = baseAPMOverride !== undefined && baseAPMOverride > 0
+    ? baseAPMOverride
+    : meleeBaseAPM(weaponInfo.category);
+
   return {
     statMod,
     damageStat,
     meleePower:          engine.meleePower.total,
     doublestrike:        engine.doublestrike.total,
     meleeAlacrity:       alacrity,
+    baseAPM,
     seeker:              engine.seeker.total + klass.critDamageRider,
     hasImprovedCritical: detectImprovedCritical(build),
     critRangeBonus:      critRangeBonusForWeapon(engine, weaponInfo.weaponType) + klass.critRange,

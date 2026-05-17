@@ -269,6 +269,15 @@ export interface DpsRotationState {
    *  re-opening a tab doesn't fight a previous seed and the user can
    *  remove abilities without them re-appearing. */
   seededAttackModes?: ('magic' | 'melee' | 'ranged')[];
+  /** Per-editor Base APM override. Undefined = auto-pick from weapon
+   *  category (and Dual Shooter cadence). */
+  meleeBaseAPM?: number;
+  rangedBaseAPM?: number;
+  /** Per-editor damage-stat override. Undefined = engine auto-pick
+   *  (highest-mod stat among DEX/STR plus Weapon_DamageAbility swap
+   *  candidates). 'auto' is treated the same as undefined. */
+  meleeDamageStat?: 'STR' | 'DEX' | 'CON' | 'INT' | 'WIS' | 'CHA' | 'auto';
+  rangedDamageStat?: 'STR' | 'DEX' | 'CON' | 'INT' | 'WIS' | 'CHA' | 'auto';
   /** When true, the optimizer is the authority on rotation order
    *  (drag/reorder disabled in the timeline). */
   auto?: boolean;

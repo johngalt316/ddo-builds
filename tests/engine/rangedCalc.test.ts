@@ -52,11 +52,13 @@ function stats(over: Partial<RangedBuildStats> = {}): RangedBuildStats {
 }
 
 describe('rangedCategoryFromName', () => {
-  it('classifies the four ranged categories from common names', () => {
+  it('classifies the five ranged categories from common names', () => {
     expect(rangedCategoryFromName('Longbow')).toBe('bow');
     expect(rangedCategoryFromName('Shortbow')).toBe('bow');
     expect(rangedCategoryFromName('Heavy Crossbow')).toBe('crossbow');
-    expect(rangedCategoryFromName('Great Crossbow')).toBe('crossbow');
+    expect(rangedCategoryFromName('Light Crossbow')).toBe('crossbow');
+    expect(rangedCategoryFromName('Great Crossbow')).toBe('great-crossbow');
+    expect(rangedCategoryFromName('Greatbow')).toBe('bow');
     expect(rangedCategoryFromName('Repeating Light Crossbow')).toBe('repeating-crossbow');
     expect(rangedCategoryFromName('Repeating Heavy Crossbow')).toBe('repeating-crossbow');
     expect(rangedCategoryFromName('Throwing Axe')).toBe('thrown');

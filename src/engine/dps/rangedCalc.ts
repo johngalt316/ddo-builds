@@ -30,11 +30,9 @@ import { stackBonuses } from '@/engine/bonusStacking';
 import type { Stat } from '@/types/build';
 import {
   critRangeBonusForWeapon, weaponClassBonusesForWeapon, detectImprovedCritical,
-  detectTWFStyle, detectPerfectTWF, twfOffHandChancePct,
-  type TWFStyle,
 } from './meleeCalc';
 
-export type RangedCategory = 'bow' | 'crossbow' | 'repeating-crossbow' | 'thrown';
+export type RangedCategory = 'bow' | 'crossbow' | 'great-crossbow' | 'repeating-crossbow' | 'thrown';
 
 export interface RangedWeaponInfo {
   name: string;
@@ -64,6 +62,11 @@ export interface RangedBuildStats {
   /** Time-averaged Action Boost alacrity from rotation boosts (Haste
    *  Boost, Action Boost: Speed). Multiplies with passive, no cap. */
   actionBoostAlacrity: number;
+  /** Pre-alacrity base APM for the active weapon. Defaults from
+   *  `rangedBaseAPM(category)`, with the Dual Shooter override applied
+   *  when its stance is active. The Ranged editor's Base APM slider
+   *  may replace this with a user-tuned value. */
+  baseAPM: number;
   seeker: number;
   hasImprovedCritical: boolean;
   critRangeBonus: number;
@@ -75,19 +78,11 @@ export interface RangedBuildStats {
   physDamagePct: number;
   /** Inquisitive's "Dual Shooter" stance active AND a non-repeating
    *  crossbow equipped — the build effectively dual-wields hand
-   *  crossbows. Each ranged attack triggers an OH-equivalent shot at
-   *  `offHandChance%` (mirrors melee TWF). When false, off-hand fields
-   *  are ignored and the calc runs single-weapon. */
+   *  crossbows. Per in-game behavior, each MH shot ALWAYS triggers an
+   *  OH-equivalent shot (`offHandChance = 100`); the cadence is set
+   *  by `DUAL_SHOOTER_APM` rather than the crossbow's normal rate. */
   dualShooter: boolean;
-  /** Detected TWF feat tier — drives OH attack chance when dualShooter
-   *  is active. Standard pattern: none=0, TWF=40, ITWF=60, GTWF=80. */
-  twfStyle: TWFStyle;
-  /** Perfect Two Weapon Fighting bumps OH's per-shot doublestrike
-   *  fraction (analogous to melee). Only meaningful with dualShooter. */
-  hasPerfectTWF: boolean;
-  /** Full OH attack chance (twfStyle base + any engine.offHandChance
-   *  bonuses), clamped to 0-100. Source of truth for the OH attack
-   *  rate when dualShooter is active. */
+  /** OH attack chance, 0-100. 100 whenever `dualShooter` is true. */
   offHandChance: number;
 }
 
@@ -144,6 +139,7 @@ export interface RangedDPSResult {
 // ── Weapon category classification ──────────────────────────────────────
 
 const BOW_KEYWORDS = ['longbow', 'shortbow', 'great bow', 'greatbow'];
+const GREAT_CROSSBOW_KEYWORDS = ['great crossbow', 'greatcrossbow'];
 const REPEATING_KEYWORDS = ['repeating'];
 const CROSSBOW_KEYWORDS = ['crossbow'];
 const THROWN_KEYWORDS = [
@@ -154,6 +150,7 @@ const THROWN_KEYWORDS = [
 export function rangedCategoryFromName(weaponName: string): RangedCategory | null {
   const lower = weaponName.toLowerCase();
   if (REPEATING_KEYWORDS.some(k => lower.includes(k))) return 'repeating-crossbow';
+  if (GREAT_CROSSBOW_KEYWORDS.some(k => lower.includes(k))) return 'great-crossbow';
   if (BOW_KEYWORDS.some(k => lower.includes(k))) return 'bow';
   if (CROSSBOW_KEYWORDS.some(k => lower.includes(k))) return 'crossbow';
   if (THROWN_KEYWORDS.some(k => lower.includes(k))) return 'thrown';
@@ -162,23 +159,27 @@ export function rangedCategoryFromName(weaponName: string): RangedCategory | nul
 
 // ── Attack rates ────────────────────────────────────────────────────────
 //
-// Baseline APM at BAB 20+ for each ranged category. Numbers reflect the
-// post-U62 ranged speed normalization; sourced from in-game testing.
+// Baseline APM at BAB 20+ for each ranged category. Updated to reflect
+// in-game measured fire rates rather than older approximations:
 //
-//   Bow: ~80 APM (a bit faster than 1H melee due to Rapid Shot scaling
-//                 typically baked in for end-game builds)
-//   Crossbow: ~75 APM (slower reload than bows)
-//   Repeating: ~110 APM (3-bolt burst smoothed)
-//   Thrown: ~90 APM
+//   Bow:                50 APM
+//   Light/Heavy Crossbow: 50 APM
+//   Great Crossbow:     30 APM
+//   Repeating Crossbow: 30 APM (3-bolt burst smoothed to per-bolt cadence)
+//   Thrown:             90 APM (no measurement override — kept)
 //
-// These are reasonable starting numbers; if real measurements diverge
-// just edit this table.
+// Special case: Inquisitive "Dual Shooter" stance overrides the MH cadence
+// to 45 APM regardless of crossbow size (the dual-hand-crossbow animation
+// has its own fire rate). See `rangedBuildStatsFromEngine` for the override.
+
+export const DUAL_SHOOTER_APM = 45;
 
 export function rangedBaseAPM(category: RangedCategory): number {
   switch (category) {
-    case 'bow':                return 80;
-    case 'crossbow':           return 75;
-    case 'repeating-crossbow': return 110;
+    case 'bow':                return 50;
+    case 'crossbow':           return 50;
+    case 'great-crossbow':     return 30;
+    case 'repeating-crossbow': return 30;
     case 'thrown':             return 90;
   }
 }
@@ -215,9 +216,12 @@ export function rangedDPS(
     + (faces1920  / 20) * (scaled + stats.seeker) * multOn1920;
 
   // Attack rates — passive alacrity capped at 15%, action-boost on top.
+  // `stats.baseAPM` is pre-resolved by the build-stats builder so the
+  // editor's Base APM slider + Dual Shooter cadence override flow
+  // through here without rangedDPS needing to know about either.
   const alacrity      = Math.min(Math.max(0, stats.rangedAlacrity), 15);
   const boostAlacrity = Math.max(0, stats.actionBoostAlacrity);
-  const baseAPM       = rangedBaseAPM(weapon.category);
+  const baseAPM       = stats.baseAPM > 0 ? stats.baseAPM : rangedBaseAPM(weapon.category);
   const apmNoBoost    = baseAPM * (1 + alacrity / 100);
   const apm           = apmNoBoost * (1 + boostAlacrity / 100);
 
@@ -314,23 +318,42 @@ export function rangedBuildStatsFromEngine(
   weaponInfo: RangedWeaponInfo,
   alacrityOverride?: number,
   actionBoostAlacrity = 0,
+  /** Optional manual stat pick from the editor's damage-stat dropdown.
+   *  When 'auto' (default), the function picks the highest-mod stat
+   *  among DEX/STR plus any Weapon_DamageAbility-emitted candidates. */
+  damageStatOverride: Stat | 'auto' = 'auto',
+  /** Optional Base APM override from the editor's slider. When undefined,
+   *  the function picks `rangedBaseAPM(category)` with the Dual Shooter
+   *  cadence applied when the stance is active. */
+  baseAPMOverride?: number,
 ): RangedBuildStats {
   // Effective damage stat — Weapon_DamageAbility can swap DEX → INT etc.
   const STAT_MAP: Record<string, Stat> = {
     strength: 'STR', dexterity: 'DEX', constitution: 'CON',
     intelligence: 'INT', wisdom: 'WIS', charisma: 'CHA',
   };
-  let damageStat: Stat = weaponInfo.attackStat === 'Strength' ? 'STR' : 'DEX';
-  let bestMod = abilityModifier(engine.abilityScores[damageStat].total);
-  for (const b of engine.allBonuses) {
-    if (b.effectType !== 'Weapon_DamageAbility') continue;
-    const tgt = (b.target ?? '').toLowerCase();
-    const candidate = STAT_MAP[tgt] as Stat | undefined;
-    if (!candidate) continue;
-    const mod = abilityModifier(engine.abilityScores[candidate].total);
-    if (mod > bestMod) { bestMod = mod; damageStat = candidate; }
+  let damageStat: Stat;
+  let statMod: number;
+  if (damageStatOverride !== 'auto') {
+    // Editor user picked a specific stat — honor it verbatim. Useful
+    // when the engine can't see a stat-swap path (e.g. a deity-favored
+    // weapon list that doesn't include the equipped crossbow), or to
+    // sanity-check a what-if scenario.
+    damageStat = damageStatOverride;
+    statMod    = abilityModifier(engine.abilityScores[damageStat].total);
+  } else {
+    damageStat = weaponInfo.attackStat === 'Strength' ? 'STR' : 'DEX';
+    let bestMod = abilityModifier(engine.abilityScores[damageStat].total);
+    for (const b of engine.allBonuses) {
+      if (b.effectType !== 'Weapon_DamageAbility') continue;
+      const tgt = (b.target ?? '').toLowerCase();
+      const candidate = STAT_MAP[tgt] as Stat | undefined;
+      if (!candidate) continue;
+      const mod = abilityModifier(engine.abilityScores[candidate].total);
+      if (mod > bestMod) { bestMod = mod; damageStat = candidate; }
+    }
+    statMod = bestMod;
   }
-  const statMod = bestMod;
 
   // Class-restricted weapon bonuses (e.g. Arcane Archer's bow-only crit
   // range bumps). Shared helper from meleeCalc since the routing logic
@@ -340,26 +363,22 @@ export function rangedBuildStatsFromEngine(
   const alacrity = alacrityOverride ?? engine.rangedSpeed.total;
 
   // Inquisitive "Dual Shooter" stance — when active AND the player wields
-  // a non-repeating light/heavy/great crossbow, the build is treated as
-  // dual-wielding hand crossbows. Each ranged attack triggers an
-  // OH-equivalent shot at TWF-feat-derived chance + any engine.offHandChance
-  // bonuses.
-  const isDualShooterCrossbow = (
-    weaponInfo.category === 'crossbow' &&
-    !/repeating/i.test(weaponInfo.weaponType)
-  );
+  // a non-repeating light/heavy crossbow (NOT great crossbows), the
+  // build is treated as dual-wielding hand crossbows. Per in-game
+  // observation, this is NOT TWF-derived: each MH shot ALWAYS triggers
+  // an OH shot (100% chance), and the cadence is fixed at
+  // DUAL_SHOOTER_APM regardless of the crossbow's normal fire rate.
+  const isDualShooterCrossbow = weaponInfo.category === 'crossbow';
   const dualShooterActive = isDualShooterCrossbow
     && (build.activeStances ?? []).includes('Dual Shooter');
-  const twfStyle  = detectTWFStyle(build);
-  const twfBaseOh = twfOffHandChancePct(twfStyle);
-  // OH chance: TWF feat base + any +OH ranged bonuses from the engine.
-  // (Most one-handed melee builds get a 20% baseline via gear / feats;
-  //  ranged dual-shooter without TWF feats gets nothing extra, matching
-  //  DDOBuilderV2's strict-XML behavior. Users with TWF feats trained
-  //  see 40/60/80% as expected.)
-  const offHandChance = dualShooterActive
-    ? Math.min(100, twfBaseOh + engine.offHandChance.total)
-    : 0;
+  const offHandChance = dualShooterActive ? 100 : 0;
+
+  const computedBaseAPM = dualShooterActive
+    ? DUAL_SHOOTER_APM
+    : rangedBaseAPM(weaponInfo.category);
+  const baseAPM = baseAPMOverride !== undefined && baseAPMOverride > 0
+    ? baseAPMOverride
+    : computedBaseAPM;
 
   return {
     statMod,
@@ -367,6 +386,7 @@ export function rangedBuildStatsFromEngine(
     rangedPower:         engine.rangedPower.total,
     doubleshot:          engine.doubleshot.total,
     rangedAlacrity:      alacrity,
+    baseAPM,
     seeker:              engine.seeker.total + klass.critDamageRider,
     hasImprovedCritical: detectImprovedCritical(build),
     critRangeBonus:      critRangeBonusForWeapon(engine, weaponInfo.weaponType) + klass.critRange,
@@ -377,8 +397,6 @@ export function rangedBuildStatsFromEngine(
     physDamagePct:       engine.weaponDamagePct.total,
     actionBoostAlacrity: Math.max(0, actionBoostAlacrity),
     dualShooter:         dualShooterActive,
-    twfStyle,
-    hasPerfectTWF:       detectPerfectTWF(build),
     offHandChance,
   };
 }

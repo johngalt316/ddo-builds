@@ -20,7 +20,9 @@ import { physicalDamageMultiplier } from '@/engine/dps/difficulty';
 import {
   rangedWeaponInfoFromGearItem, rangedBuildStatsFromEngine, rangedDPS,
   rangedAbilityDamagePerActivation, rangedCategoryFromName,
+  rangedBaseAPM, DUAL_SHOOTER_APM,
 } from '@/engine/dps/rangedCalc';
+import type { Stat } from '@/types/build';
 import { critRangeBonusForWeapon } from '@/engine/dps/meleeCalc';
 import { fmt } from '@/utils/formatNumbers';
 import { MeleeCombinedTimeline } from '../MeleeCombinedTimeline';
@@ -174,10 +176,30 @@ export function RangedEditor({
     [rotationAbilities],
   );
 
+  // Persisted user overrides for Base APM and Damage Stat. Both fall
+  // back to engine-side defaults when unset.
+  const baseAPMOverride   = dpsRotation?.rangedBaseAPM;
+  const damageStatChoice  = dpsRotation?.rangedDamageStat ?? 'auto';
+  // What the auto-pick would resolve to — used as the slider's starting
+  // value and the "reset to auto" target. Dual Shooter overrides the
+  // crossbow's normal cadence with DUAL_SHOOTER_APM (45).
+  const autoBaseAPM = useMemo(() => {
+    if (!weaponInfo) return 0;
+    const ds = weaponInfo.category === 'crossbow'
+      && (build.activeStances ?? []).includes('Dual Shooter');
+    return ds ? DUAL_SHOOTER_APM : rangedBaseAPM(weaponInfo.category);
+  }, [weaponInfo, build.activeStances]);
+  const effectiveBaseAPM = baseAPMOverride ?? autoBaseAPM;
+
   const buildStats = useMemo(() => {
     if (!engine || !weaponInfo) return null;
-    return rangedBuildStatsFromEngine(build, engine, weaponInfo, effectiveAlacrity, avgBoostAlacrity);
-  }, [engine, build, weaponInfo, effectiveAlacrity, avgBoostAlacrity]);
+    return rangedBuildStatsFromEngine(
+      build, engine, weaponInfo,
+      effectiveAlacrity, avgBoostAlacrity,
+      damageStatChoice,
+      baseAPMOverride,
+    );
+  }, [engine, build, weaponInfo, effectiveAlacrity, avgBoostAlacrity, damageStatChoice, baseAPMOverride]);
 
   const result = useMemo(
     () => weaponInfo && buildStats ? rangedDPS(weaponInfo, buildStats) : null,
@@ -430,6 +452,53 @@ export function RangedEditor({
             />
             <span className={styles.sliderTicks}><span>0%</span><span>15%</span></span>
           </label>
+          {/* Base APM slider — pre-alacrity weapon cadence. Default seeds
+           *  from weapon category (or DUAL_SHOOTER_APM when active);
+           *  double-click the label to revert to auto. */}
+          <label className={styles.field}>
+            <span className={styles.fieldLabel}
+              onDoubleClick={() => setDpsRotation({ rangedBaseAPM: undefined })}
+              title="Pre-alacrity attacks-per-minute. Double-click label to revert to auto."
+              style={{ cursor: baseAPMOverride !== undefined ? 'pointer' : 'default' }}
+            >
+              Base APM <span className={styles.fieldValue}>
+                {effectiveBaseAPM}{baseAPMOverride === undefined ? ' (auto)' : ''}
+              </span>
+            </span>
+            <input
+              type="range" className={styles.slider}
+              min={10} max={150} step={1}
+              value={effectiveBaseAPM}
+              onChange={e => setDpsRotation({ rangedBaseAPM: Number(e.target.value) })}
+            />
+            <span className={styles.sliderTicks}><span>10</span><span>150</span></span>
+          </label>
+          {/* Damage stat override. "Auto" runs the engine's auto-pick;
+           *  the explicit stats let the user force CHA / WIS / etc. when
+           *  a stat-swap source exists in-game that the engine can't see
+           *  (e.g. deity-favored weapon mismatches). */}
+          <label className={styles.field}>
+            <span className={styles.fieldLabel}
+              title="Override the engine's auto-detected damage stat. Useful when a stat-swap source (Grace of Battle, Knowledge of Battle, etc.) applies in-game but the engine can't see it."
+            >
+              Damage Stat <span className={styles.fieldValue}>
+                {damageStatChoice === 'auto' ? `${result.damageStat} (auto)` : damageStatChoice}
+              </span>
+            </span>
+            <select
+              className={styles.select}
+              value={damageStatChoice}
+              onChange={e => setDpsRotation({ rangedDamageStat: e.target.value as Stat | 'auto' })}
+            >
+              <option value="auto">Auto</option>
+              <option value="STR">STR</option>
+              <option value="DEX">DEX</option>
+              <option value="CON">CON</option>
+              <option value="INT">INT</option>
+              <option value="WIS">WIS</option>
+              <option value="CHA">CHA</option>
+            </select>
+          </label>
         </div>
         {buildStats && result && (
           <div className={styles.meleeStatRow}>
@@ -445,11 +514,12 @@ export function RangedEditor({
               <span
                 className={styles.meleeStatChip}
                 title={
-                  'Inquisitive Dual Shooter: each shot triggers an off-hand crossbow shot at this chance. '
-                  + 'Scales with TWF feats (TWF 40% / ITWF 60% / GTWF 80%) plus any +Off-Hand-Attack bonuses.'
+                  'Inquisitive Dual Shooter: each MH shot always triggers an off-hand crossbow shot '
+                  + '(100% OH). The dual-hand-crossbow animation fires at a fixed cadence '
+                  + `(default ${DUAL_SHOOTER_APM} APM) regardless of the crossbow's normal rate.`
                 }
               >
-                Dual Shooter OH {pct(result.offHandChance)}
+                Dual Shooter
               </span>
             )}
             <span className={styles.meleeStatChip}

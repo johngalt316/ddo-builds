@@ -18,9 +18,10 @@ import { physicalDamageMultiplier } from '@/engine/dps/difficulty';
 import {
   weaponInfoFromGearItem, buildStatsFromEngine, meleeDPS,
   meleeAbilityDamagePerActivation, critRangeBonusForWeapon,
-  isShieldType, shieldBashDPS,
+  isShieldType, shieldBashDPS, meleeBaseAPM,
   type MeleeWeaponInfo, type ShieldBashResult, type TWFStyle,
 } from '@/engine/dps/meleeCalc';
+import type { Stat } from '@/types/build';
 import { fmt } from '@/utils/formatNumbers';
 import { MeleeCombinedTimeline } from '../MeleeCombinedTimeline';
 import { RotationPalette } from '../RotationPalette';
@@ -198,9 +199,22 @@ export function MeleeEditor({
     [rotationAbilities],
   );
 
+  const baseAPMOverride   = dpsRotation?.meleeBaseAPM;
+  const damageStatChoice  = dpsRotation?.meleeDamageStat ?? 'auto';
+  const autoBaseAPM = useMemo(
+    () => weaponInfo ? meleeBaseAPM(weaponInfo.category) : 0,
+    [weaponInfo],
+  );
+  const effectiveBaseAPM = baseAPMOverride ?? autoBaseAPM;
+
   const buildStats = useMemo(() => {
     if (!engine || !weaponInfo) return null;
-    const base = buildStatsFromEngine(build, engine, weaponInfo, effectiveAlacrity, avgBoostAlacrity);
+    const base = buildStatsFromEngine(
+      build, engine, weaponInfo,
+      effectiveAlacrity, avgBoostAlacrity,
+      damageStatChoice,
+      baseAPMOverride,
+    );
     if (twfOverride !== null) {
       const ohBonus = twfOverride === 'gtwf' ? 80
                     : twfOverride === 'itwf' ? 60
@@ -209,7 +223,7 @@ export function MeleeEditor({
       return { ...base, twfStyle: twfOverride, offHandChance: Math.min(100, ohBonus) };
     }
     return base;
-  }, [engine, build, weaponInfo, effectiveAlacrity, twfOverride, avgBoostAlacrity]);
+  }, [engine, build, weaponInfo, effectiveAlacrity, twfOverride, avgBoostAlacrity, damageStatChoice, baseAPMOverride]);
 
   const result = useMemo(
     () => weaponInfo && buildStats ? meleeDPS(weaponInfo, buildStats) : null,
@@ -526,6 +540,52 @@ export function MeleeEditor({
               <option value="twf">TWF</option>
               <option value="itwf">ITWF</option>
               <option value="gtwf">GTWF</option>
+            </select>
+          </label>
+          {/* Base APM slider — pre-alacrity weapon cadence; double-click
+           *  the label to revert to auto. */}
+          <label className={styles.field}>
+            <span className={styles.fieldLabel}
+              onDoubleClick={() => setDpsRotation({ meleeBaseAPM: undefined })}
+              title="Pre-alacrity attacks-per-minute. Double-click label to revert to auto."
+              style={{ cursor: baseAPMOverride !== undefined ? 'pointer' : 'default' }}
+            >
+              Base APM <span className={styles.fieldValue}>
+                {effectiveBaseAPM}{baseAPMOverride === undefined ? ' (auto)' : ''}
+              </span>
+            </span>
+            <input
+              type="range" className={styles.slider}
+              min={10} max={150} step={1}
+              value={effectiveBaseAPM}
+              onChange={e => setDpsRotation({ meleeBaseAPM: Number(e.target.value) })}
+            />
+            <span className={styles.sliderTicks}><span>10</span><span>150</span></span>
+          </label>
+          {/* Damage stat override — lets the user force CHA/WIS/etc. when
+           *  a stat-swap source (Grace of Battle, Knowledge of Battle,
+           *  Sacred Fist, etc.) applies in-game but the engine can't
+           *  see it (deity favored weapon list mismatch). */}
+          <label className={styles.field} style={{ minWidth: '7rem' }}>
+            <span className={styles.fieldLabel}
+              title="Override the engine's auto-detected damage stat."
+            >
+              Damage Stat <span className={styles.fieldValue}>
+                {damageStatChoice === 'auto' && result ? `${result.damageStat} (auto)` : damageStatChoice}
+              </span>
+            </span>
+            <select
+              className={styles.select}
+              value={damageStatChoice}
+              onChange={e => setDpsRotation({ meleeDamageStat: e.target.value as Stat | 'auto' })}
+            >
+              <option value="auto">Auto</option>
+              <option value="STR">STR</option>
+              <option value="DEX">DEX</option>
+              <option value="CON">CON</option>
+              <option value="INT">INT</option>
+              <option value="WIS">WIS</option>
+              <option value="CHA">CHA</option>
             </select>
           </label>
         </div>
