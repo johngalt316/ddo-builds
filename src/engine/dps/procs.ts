@@ -58,6 +58,16 @@ export interface Proc {
   id: string;
   /** Display name in the breakdown UI. */
   label: string;
+  /** UI bucket for which active-effect panel renders the proc.
+   *  • 'proc'  (default) — spellcast / chance-based trigger; rendered
+   *    in ActiveProcsList. Example: Magical Ambush, Revel in Blood.
+   *  • 'rider' — per-hit damage rider sourced from an item buff or
+   *    augment that fires every weapon hit (or on a "high chance"
+   *    that the player treats as effectively per-hit). Rendered in
+   *    ActiveRidersList alongside imbue toggles. Examples: Dripping
+   *    with Magma, Bitter Frostbite, Alchemical Attunements,
+   *    Woeful X family. */
+  category?: 'proc' | 'rider';
   /** True if the build qualifies for this proc. */
   isActive: (build: Build, engine: EngineResult) => boolean;
   /** Expand into damage components given the active rotation. */
@@ -129,6 +139,11 @@ interface StaticProcEntry {
    *  upstream XML carries no `<Effect>` block and whose dice / rate
    *  haven't been confirmed against the AT DPS reference spreadsheet. */
   placeholderDamage?: boolean;
+  /** UI bucket — see Proc.category. Defaults to 'proc'. Item-buff
+   *  damage-on-hit entries (the Mythic DoT family, Alchemical
+   *  Attunements, Woeful augments, etc.) set this to 'rider' so the
+   *  ActiveRidersList renders them alongside imbue toggles. */
+  category?: 'proc' | 'rider';
 }
 
 function entryToProc(entry: StaticProcEntry): Proc {
@@ -142,6 +157,7 @@ function entryToProc(entry: StaticProcEntry): Proc {
   return {
     id: entry.id,
     label: entry.label,
+    category: entry.category,
     isActive: predicate,
     toComponents: () => [{
       label: entry.label,
@@ -174,6 +190,9 @@ const STATIC_PROC_CATALOG: StaticProcEntry[] = [
   // All of these share the wording "Your attacks and offensive spells
   // have a high chance to deal very strong <element> damage over time"
   // and use the same dice template per the AT DPS reference spreadsheet.
+  // Tagged 'rider' since they fire on weapon hits (effectively per-swing)
+  // and the user thinks of them as on-hit damage adds — rendered in the
+  // Active Damage Riders panel alongside imbue toggles.
   {
     id: 'dripping-with-magma',
     label: 'Dripping with Magma',
@@ -181,6 +200,7 @@ const STATIC_PROC_CATALOG: StaticProcEntry[] = [
     diceCount: 50, diceSides: 20,
     damageType: 'Fire',
     useGenericVuln: true, useMRR: true,
+    category: 'rider',
   },
   {
     id: 'bitter-frostbite',
@@ -189,6 +209,7 @@ const STATIC_PROC_CATALOG: StaticProcEntry[] = [
     diceCount: 50, diceSides: 20,
     damageType: 'Cold',
     useGenericVuln: true, useMRR: true,
+    category: 'rider',
   },
   {
     id: 'grip-of-venom',
@@ -197,6 +218,7 @@ const STATIC_PROC_CATALOG: StaticProcEntry[] = [
     diceCount: 50, diceSides: 20,
     damageType: 'Poison',
     useGenericVuln: true, useMRR: true,
+    category: 'rider',
   },
   {
     id: 'lightning-lash',
@@ -205,6 +227,7 @@ const STATIC_PROC_CATALOG: StaticProcEntry[] = [
     diceCount: 50, diceSides: 20,
     damageType: 'Electric',
     useGenericVuln: true, useMRR: true,
+    category: 'rider',
   },
   {
     // Carried by alchemical Earth Attunement gear (e.g. Bound Elemental
@@ -218,6 +241,7 @@ const STATIC_PROC_CATALOG: StaticProcEntry[] = [
     diceCount: 50, diceSides: 10,
     damageType: 'Acid',
     useGenericVuln: true, useMRR: true,
+    category: 'rider',
   },
 
   // ── Lamordia "Woeful X" augment family (50d20 of the element) ────────
@@ -231,6 +255,7 @@ const STATIC_PROC_CATALOG: StaticProcEntry[] = [
     diceCount: 50, diceSides: 20,
     damageType: 'Fire',
     useGenericVuln: true, useMRR: true,
+    category: 'rider',
   },
   {
     id: 'woeful-frostbite',
@@ -239,6 +264,7 @@ const STATIC_PROC_CATALOG: StaticProcEntry[] = [
     diceCount: 50, diceSides: 20,
     damageType: 'Cold',
     useGenericVuln: true, useMRR: true,
+    category: 'rider',
   },
   {
     id: 'woeful-lightning',
@@ -247,6 +273,7 @@ const STATIC_PROC_CATALOG: StaticProcEntry[] = [
     diceCount: 50, diceSides: 20,
     damageType: 'Electric',
     useGenericVuln: true, useMRR: true,
+    category: 'rider',
   },
   {
     id: 'woeful-acidburn',
@@ -255,6 +282,7 @@ const STATIC_PROC_CATALOG: StaticProcEntry[] = [
     diceCount: 50, diceSides: 20,
     damageType: 'Acid',
     useGenericVuln: true, useMRR: true,
+    category: 'rider',
   },
   {
     id: 'woeful-venom',
@@ -263,6 +291,7 @@ const STATIC_PROC_CATALOG: StaticProcEntry[] = [
     diceCount: 50, diceSides: 20,
     damageType: 'Poison',
     useGenericVuln: true, useMRR: true,
+    category: 'rider',
   },
   {
     id: 'woeful-energy',
@@ -271,6 +300,7 @@ const STATIC_PROC_CATALOG: StaticProcEntry[] = [
     diceCount: 50, diceSides: 20,
     damageType: 'Force',
     useGenericVuln: true, useMRR: true,
+    category: 'rider',
   },
   {
     // Spreadsheet calls this "Rupturing Echoes"; in our data the augment
@@ -281,6 +311,7 @@ const STATIC_PROC_CATALOG: StaticProcEntry[] = [
     diceCount: 50, diceSides: 20,
     damageType: 'Sonic',
     useGenericVuln: true, useSonicVuln: true, useMRR: true,
+    category: 'rider',
   },
 
   // ── Other modeled procs ──────────────────────────────────────────────
@@ -325,6 +356,7 @@ const STATIC_PROC_CATALOG: StaticProcEntry[] = [
     diceCount: 0, diceSides: 0, damageType: 'Electric',
     placeholderDamage: true,
     useGenericVuln: true, useMRR: true,
+    category: 'rider',
   },
   {
     id: 'alchemical-fire-attunement',
@@ -333,6 +365,7 @@ const STATIC_PROC_CATALOG: StaticProcEntry[] = [
     diceCount: 0, diceSides: 0, damageType: 'Fire',
     placeholderDamage: true,
     useGenericVuln: true, useMRR: true,
+    category: 'rider',
   },
   {
     id: 'alchemical-water-attunement',
@@ -341,6 +374,7 @@ const STATIC_PROC_CATALOG: StaticProcEntry[] = [
     diceCount: 0, diceSides: 0, damageType: 'Cold',
     placeholderDamage: true,
     useGenericVuln: true, useMRR: true,
+    category: 'rider',
   },
   {
     id: 'legendary-vile-grip',
@@ -349,6 +383,7 @@ const STATIC_PROC_CATALOG: StaticProcEntry[] = [
     diceCount: 0, diceSides: 0, damageType: 'Evil',
     placeholderDamage: true,
     useGenericVuln: true, useMRR: true,
+    category: 'rider',
   },
   {
     id: 'legendary-steam',
@@ -360,6 +395,7 @@ const STATIC_PROC_CATALOG: StaticProcEntry[] = [
     diceCount: 0, diceSides: 0, damageType: 'Force',
     placeholderDamage: true,
     useGenericVuln: true, useMRR: true,
+    category: 'rider',
   },
   {
     id: 'legendary-radiance',
@@ -368,6 +404,7 @@ const STATIC_PROC_CATALOG: StaticProcEntry[] = [
     diceCount: 0, diceSides: 0, damageType: 'Light/Alignment',
     placeholderDamage: true,
     useGenericVuln: true, useMRR: true,
+    category: 'rider',
   },
   {
     // Debuff-flavored proc (1d3 negative levels, 30s CD). Won't
@@ -381,6 +418,7 @@ const STATIC_PROC_CATALOG: StaticProcEntry[] = [
     diceCount: 0, diceSides: 0, damageType: 'Negative',
     placeholderDamage: true,
     useGenericVuln: true, useMRR: true,
+    category: 'rider',
   },
 ];
 

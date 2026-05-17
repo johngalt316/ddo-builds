@@ -235,6 +235,10 @@ export function ActiveProcsList({ build, engine, sneakAttackDice, breakdown }: P
   const active = useMemo(() => {
     if (!engine) return [];
     return PROC_CATALOG
+      // Rider-category procs (Dripping with Magma + Mythic family,
+      // Alchemical Attunements, Woeful augments) render in the Active
+      // Damage Riders panel instead — don't double-list them here.
+      .filter(p => p.category !== 'rider')
       .filter(p => p.isActive(build, engine))
       .map(p => ({
         proc: p,

@@ -482,8 +482,14 @@ export function MeleeEditor({
         breakdown={null}
       />
 
-      {/* Active damage riders (imbue toggles etc. — per-hit elemental adds) */}
-      <ActiveRidersList engine={engine} totalCharLevel={totalCharLevel} />
+      {/* Active damage riders (imbue toggles + item-buff DoT procs like
+       *  Dripping with Magma — per-hit elemental adds, stacks by name). */}
+      <ActiveRidersList
+        build={build}
+        engine={engine}
+        totalCharLevel={totalCharLevel}
+        sneakAttackDice={engine.sneakAttackDice.total}
+      />
 
       {/* Debuffs */}
       <DebuffsSummary state={debuffState} build={build} onManage={onManageDebuffs} />

@@ -420,7 +420,12 @@ export function RangedEditor({
         breakdown={null}
       />
 
-      <ActiveRidersList engine={engine} totalCharLevel={totalCharLevel} />
+      <ActiveRidersList
+        build={build}
+        engine={engine}
+        totalCharLevel={totalCharLevel}
+        sneakAttackDice={engine.sneakAttackDice.total}
+      />
 
       <DebuffsSummary state={debuffState} build={build} onManage={onManageDebuffs} />
 
