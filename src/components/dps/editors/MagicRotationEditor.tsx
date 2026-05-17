@@ -80,12 +80,20 @@ export function MagicRotationEditor({
     [breakdowns, metamagics],
   );
 
-  const abilities = useMemo(
+  // Filter to magic-side abilities only — weapon-attack SLAs (Manyshot,
+  // Cleave, Quick Cutter, etc.) and ranged-tagged abilities have their
+  // own editors. Boost-class buffs apply to any rotation, so keep them.
+  // Mirrors MeleeEditor's `a.attackMode === 'melee' || 'boost'` pattern.
+  const allAbilities = useMemo(
     () => getMagicAbilities(
       build, spells, classes, slas, enhancementTrees, augments,
       breakdowns ?? undefined, metamagics, spCostReductions,
     ),
     [build, spells, classes, slas, enhancementTrees, augments, breakdowns, metamagics, spCostReductions],
+  );
+  const abilities = useMemo(
+    () => allAbilities.filter(a => a.attackMode === 'magic' || a.attackMode === 'boost'),
+    [allAbilities],
   );
   const abilityById = useMemo(() => {
     const m = new Map<string, MagicAbility>();

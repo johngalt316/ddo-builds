@@ -302,3 +302,75 @@ export function rangedBuildStatsFromEngine(
 // without needing to also import stackBonuses; keeps the surface area
 // tight for the editor.
 export { stackBonuses };
+
+// ── Per-ability helpers (parity with meleeAbilityDamagePerActivation) ──
+
+/**
+ * Effective shots-per-activation multiplier for a ranged ability. Each
+ * activation fires `mhHits` base projectiles; Doubleshot grants an
+ * additional projectile per shot with `doubleshot%` probability. No
+ * off-hand for ranged.
+ */
+export function rangedAbilityEffectiveShots(mhHits: number, stats: RangedBuildStats): number {
+  const ds = Math.max(0, stats.doubleshot) / 100;
+  return mhHits * (1 + ds);
+}
+
+/**
+ * Per-hit average damage for a ranged ability that modifies the weapon's
+ * crit threat range. Mirrors `meleeAbilityAvgPerHit` — scales by the
+ * ability's W multiplier (`scalar`) and re-weights the crit profile with
+ * the ability's bonus faces / multiplier.
+ */
+function rangedAbilityAvgPerHit(
+  result: RangedDPSResult,
+  scalar: number,
+  extraCritFaces: number,
+  extraCritMult: number,
+): number {
+  const cappedFaces = Math.min(20, result.critThreatFaces + extraCritFaces);
+  const critChance  = cappedFaces / 20;
+  const faces1920   = Math.min(2, cappedFaces);
+  const facesOther  = Math.max(0, cappedFaces - 2);
+  const s = result.avgScaledDamage;
+  const multAll  = result.critMultOnAll  + extraCritMult;
+  const mult1920 = result.critMultOn1920 + extraCritMult;
+  const avgPerHit = (1 - critChance) * s
+    + (facesOther / 20) * (s + result.seeker) * multAll
+    + (faces1920  / 20) * (s + result.seeker) * mult1920;
+  return avgPerHit * scalar;
+}
+
+/**
+ * Per-activation damage for a ranged weapon-attack ability (Manyshot,
+ * Hunt's End, etc.). Hits × per-hit damage × (1 + Doubleshot), with
+ * optional crit-range / crit-mult riders and a transient buff-uptime
+ * window mirroring the melee helper.
+ */
+export function rangedAbilityDamagePerActivation(
+  mhHits: number,
+  scalar: number,
+  rangedResult: RangedDPSResult,
+  stats: RangedBuildStats,
+  extraCritFaces = 0,
+  extraCritMult  = 0,
+  /** Some abilities (e.g. Rapid Shot) grant a temporary alacrity buff.
+   *  Modeled as extra auto-attack APM over the buff window. */
+  alacrityBuffPct      = 0,
+  alacrityBuffDuration = 0,
+): number {
+  const perHit = (extraCritFaces === 0 && extraCritMult === 0)
+    ? rangedResult.avgPerHit * scalar
+    : rangedAbilityAvgPerHit(rangedResult, scalar, extraCritFaces, extraCritMult);
+  const hitDamage = rangedAbilityEffectiveShots(mhHits, stats) * perHit;
+
+  // Transient alacrity buff: extra APM during the buff window adds
+  // (extraAPM / 60) × buff-duration extra shots, each averaging perHit.
+  let buffDamage = 0;
+  if (alacrityBuffPct > 0 && alacrityBuffDuration > 0) {
+    const extraAPM = (alacrityBuffPct / 100) * rangedResult.apm;
+    buffDamage = (extraAPM / 60) * rangedResult.avgPerHit * alacrityBuffDuration;
+  }
+
+  return hitDamage + buffDamage;
+}

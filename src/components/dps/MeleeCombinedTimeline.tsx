@@ -33,6 +33,11 @@ interface Props {
    *  generation so boost windows show denser bars. Falls back to mhAPM. */
   mhBaseAPM?: number;
   ohBaseAPM?: number;
+  /** Labels for the two attack tracks. Defaults to "MH" / "OH" for melee;
+   *  the ranged editor passes "Shots" / "" so the header reads
+   *  "X/min Shots" rather than "X/min MH". */
+  mhLabel?: string;
+  ohLabel?: string;
   playheadTime?: number;
   /** Minimum window to show in seconds (defaults to 60). */
   windowSeconds?: number;
@@ -66,7 +71,8 @@ function buildAttacks(baseAPM: number, windowSec: number, boostWindows: BoostWin
 import { fmtAdaptive as fmt } from '@/utils/formatNumbers';
 
 export function MeleeCombinedTimeline({
-  mhAPM, ohAPM, mhBaseAPM, ohBaseAPM, playheadTime, windowSeconds = 60,
+  mhAPM, ohAPM, mhBaseAPM, ohBaseAPM, mhLabel = 'MH', ohLabel = 'OH',
+  playheadTime, windowSeconds = 60,
   steps = [], abilityById = new Map(),
   auto = false, onAutoChange, onRemoveStep, onReorderStep, onClearSteps,
   damageByAbility,
@@ -154,8 +160,8 @@ export function MeleeCombinedTimeline({
       <div className={styles.header}>
         <span className={styles.label}>
           Auto-attacks
-          {mhAPM > 0 && <span className={styles.rate}> · {Math.round(mhAPM)}/min MH</span>}
-          {ohAPM > 0 && <span className={styles.rateOH}> · {Math.round(ohAPM)}/min OH</span>}
+          {mhAPM > 0 && <span className={styles.rate}> · {Math.round(mhAPM)}/min{mhLabel ? ' ' + mhLabel : ''}</span>}
+          {ohAPM > 0 && <span className={styles.rateOH}> · {Math.round(ohAPM)}/min{ohLabel ? ' ' + ohLabel : ''}</span>}
           {resolved.length > 0 && cycleSeconds > 0 && (
             <span className={styles.cycleNote}> · {cycleSeconds.toFixed(1)}s cycle</span>
           )}
