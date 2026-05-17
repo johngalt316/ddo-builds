@@ -30,6 +30,7 @@ into a gear set. Mutates the parsed `GearBuff[]` in place.
 | Item | Symptom | Override | Why | Upstream |
 |---|---|---|---|---|
 | Driftwood (off-hand Rune Arm) | `Impulse` Quality reads as `+36` from the data. | Force Quality Impulse to `+31`. | In-game tooltip / character sheet shows `+31`. | — |
+| Legendary Goggles of the Archer | Upstream `.item` data lists `Doubleshot` (`bonusType: Enhancement`) at `+9`; in-game tooltip + verified character sheet show `+10`. | Bumped JSON catalog (`public/data/items/by-slot/Goggles.json`) value1 9 → 10. Same fix mirrored in `ITEM_BUFF_PATCHES` so re-importing a `.DDOBuild` with the goggles re-applies the override if the JSON catalog is regenerated from upstream. | User-verified against zentek's live character; in-game Doubleshot was 1 higher than the engine produced after Dark Imbuement was added. | — |
 
 ---
 

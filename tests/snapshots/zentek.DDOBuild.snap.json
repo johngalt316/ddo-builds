@@ -1122,7 +1122,7 @@
             "buffs": [
               {
                 "type": "Doubleshot",
-                "value1": 9,
+                "value1": 10,
                 "bonusType": "Enhancement"
               },
               {

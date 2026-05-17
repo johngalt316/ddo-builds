@@ -101,6 +101,18 @@ const ITEM_BUFF_PATCHES: Record<string, (buffs: GearBuff[]) => void> = {
       }
     }
   },
+  // Legendary Goggles of the Archer: upstream lists Doubleshot Enhancement
+  // at +9, but in-game it's +10. The JSON catalog
+  // (public/data/items/by-slot/Goggles.json) is already patched; this is
+  // defense-in-depth in case the catalog gets regenerated from upstream
+  // via `npm run import-items` before the upstream bug is fixed.
+  'Legendary Goggles of the Archer': buffs => {
+    for (const b of buffs) {
+      if (b.type === 'Doubleshot' && b.bonusType === 'Enhancement' && b.value1 === 9) {
+        b.value1 = 10;
+      }
+    }
+  },
 };
 
 function applyItemBuffPatches(itemName: string, buffs: GearBuff[]): void {

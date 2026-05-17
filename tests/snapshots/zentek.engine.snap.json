@@ -1310,7 +1310,7 @@
     ]
   },
   "doubleshot": {
-    "total": 131,
+    "total": 132,
     "appliedCount": 22,
     "dominatedCount": 1,
     "sources": [
@@ -1398,7 +1398,7 @@
       {
         "source": "[G] Goggles: Legendary Goggles of the Archer (Doubleshot)",
         "bonusType": "Enhancement",
-        "value": 9
+        "value": 10
       },
       {
         "source": "[G] Necklace: Dracolich's Eye (Doubleshot)",
