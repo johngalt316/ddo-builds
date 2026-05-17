@@ -14,6 +14,7 @@ import { applyRacialBonuses, applyAbilityTomes, applyLevelUps, calculateBAB, cla
 import { ddoClassDataToEngineClass, ddoRaceDataToRace } from '@/utils/classAdapter';
 import { collectEffects, buildBuildContext, collectAvailableStances, type AvailableStance } from './collectEffects';
 import { weaponInGroup } from './weaponGroups';
+import { collectActiveImbueRiders, type ImbueRider } from './dps/imbues';
 import { evaluateEffect, passesRequirements } from './evaluateEffect';
 import { buildStackingRules, type Bonus, type BreakdownResult, type StackingRules } from './bonusStacking';
 import {
@@ -173,6 +174,12 @@ export interface EngineResult {
   /** Toggleable stances + mantles available to the build. The UI uses this
    *  to render the Stances/Mantles tab. */
   availableStances: AvailableStance[];
+  /** Active imbue toggles parsed into per-hit damage riders. Each entry
+   *  corresponds to an `<Group>Imbue</Group>` stance the user has on AND
+   *  whose description matches the standard "+XdY [type] damage on hit,
+   *  scaling with [pct%] [Power]" grammar. Consumed by the melee + ranged
+   *  DPS calculators to add per-hit elemental damage. */
+  imbueRiders: ImbueRider[];
   /** Raw bonus pool collected during evaluation — used by consumers
    *  that need a direct read on EffectType totals not bucketed into a
    *  top-level breakdown (e.g. `MetamagicCostEmpower`, `SpellPointCostPercent`). */
@@ -801,6 +808,10 @@ export function runEngine(input: RunEngineInput): EngineResult {
     SPELL_DAMAGE_TYPES.map(t => [t, breakdownSpellCriticalDamage(t, allBonuses, rules)] as const),
   ) as Record<SpellDamageType, BreakdownResult>;
 
+  const availableStances = collectAvailableStances({
+    build, feats, classes, enhancementTrees,
+  });
+
   const result: EngineResult = {
     abilityScores,
     hitPoints: breakdownHitPoints(seedHp, allBonuses, rules),
@@ -853,9 +864,8 @@ export function runEngine(input: RunEngineInput): EngineResult {
     skills,
     spellPowers, spellCriticalChance, spellCriticalDamage,
     slas,
-    availableStances: collectAvailableStances({
-      build, feats, classes, enhancementTrees,
-    }),
+    availableStances,
+    imbueRiders: collectActiveImbueRiders(build, availableStances),
     // Raw bonus pool — exposed for domain-specific consumers (spell SP
     // cost, fate-point bonus, etc.) that route effect types we don't
     // bucket into a top-level breakdown.

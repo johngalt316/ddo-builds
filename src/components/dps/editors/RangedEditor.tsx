@@ -22,6 +22,7 @@ import {
   rangedAbilityDamagePerActivation, rangedCategoryFromName,
   rangedBaseAPM, DUAL_SHOOTER_APM, rangedAbilityTooltipLines,
 } from '@/engine/dps/rangedCalc';
+import { imbueAvgPerHit as imbueRawPerHit } from '@/engine/dps/imbues';
 import type { Stat } from '@/types/build';
 import { critRangeBonusForWeapon } from '@/engine/dps/meleeCalc';
 import { fmt } from '@/utils/formatNumbers';
@@ -201,10 +202,18 @@ export function RangedEditor({
     );
   }, [engine, build, weaponInfo, effectiveAlacrity, avgBoostAlacrity, damageStatChoice, baseAPMOverride]);
 
-  const result = useMemo(
-    () => weaponInfo && buildStats ? rangedDPS(weaponInfo, buildStats) : null,
-    [weaponInfo, buildStats],
+  // Total character level for imbue riders that say "per Character Level".
+  const totalCharLevel = useMemo(
+    () => build.classes.reduce((s, c) => s + c.levels, 0) + (build.epicLevels ?? 0),
+    [build.classes, build.epicLevels],
   );
+
+  const result = useMemo(() => {
+    if (!weaponInfo || !buildStats || !engine) return null;
+    const riders = engine.imbueRiders;
+    const evaluator = (r: typeof riders[number]) => imbueRawPerHit(r, engine, totalCharLevel);
+    return rangedDPS(weaponInfo, buildStats, riders, evaluator);
+  }, [weaponInfo, buildStats, engine, totalCharLevel]);
 
   // Per-ability damage info — derived from ALL ranged abilities (so the
   // sort below doesn't create a circular dep on its own output).

@@ -31,6 +31,7 @@ import type { Stat } from '@/types/build';
 import {
   critRangeBonusForWeapon, weaponClassBonusesForWeapon, detectImprovedCritical,
 } from './meleeCalc';
+import type { ImbueRider } from './imbues';
 
 export type RangedCategory = 'bow' | 'crossbow' | 'great-crossbow' | 'repeating-crossbow' | 'thrown';
 
@@ -89,7 +90,24 @@ export interface RangedBuildStats {
 export interface RangedDPSResult {
   avgBaseDamage: number;
   avgScaledDamage: number;
+  /** Total crit-weighted average per attack (weapon + imbue). Drives
+   *  auto-attack DPS. */
   avgPerHit: number;
+  /** Weapon-only portion of avgPerHit (excludes imbue riders). Ability
+   *  damage uses this × ability scalar so the +N% damage rider doesn't
+   *  multiply imbue contributions (per DDO rules). */
+  weaponAvgPerHit: number;
+  /** Imbue-rider portion of avgPerHit (sum of all active imbue toggles,
+   *  crit-weighted, scaled by their per-rider Power stat). Added flat
+   *  on top of every weapon hit — does NOT participate in ability
+   *  scalars. */
+  imbueAvgPerHit: number;
+  /** Pre-crit raw imbue damage per hit (sum across riders, after Power
+   *  scaling). Surfaced so ability calcs with extended crit profiles
+   *  can re-crit-weight the imbue portion. */
+  imbueRawPerHit: number;
+  /** Active imbue riders the calc used. Surfaced for tooltip lines. */
+  imbueRiders: readonly ImbueRider[];
   critThreatFaces: number;
   critChance: number;
   critMultOnAll: number;
@@ -193,6 +211,13 @@ export function rangedAttacksPerMin(category: RangedCategory, alacrityPct: numbe
 export function rangedDPS(
   weapon: RangedWeaponInfo,
   stats: RangedBuildStats,
+  /** Active imbue riders + a function to evaluate each one's raw
+   *  pre-crit average damage against the build context. Riders are an
+   *  opaque array (the rangedCalc doesn't know how to read engine stats
+   *  to compute power scaling — that's the caller's job). When omitted
+   *  the calc behaves as before with no imbue contribution. */
+  imbueRiders: readonly ImbueRider[] = [],
+  imbueRawPerRider: (rider: ImbueRider) => number = () => 0,
 ): RangedDPSResult {
   // Per-hit damage (mirrors meleeDPS).
   const totalW   = weapon.wScalar + stats.wBonus;
@@ -216,9 +241,20 @@ export function rangedDPS(
   const faces1920      = Math.min(2, effCritFaces);
   const facesOther     = Math.max(0, effCritFaces - 2);
   const nonCritHits    = 19 - effCritFaces;
-  const avgPerHit = (nonCritHits / 20) * scaled
+  // Weapon damage — crit-weighted with seeker rider on the crit faces.
+  const weaponAvgPerHit = (nonCritHits / 20) * scaled
     + (facesOther / 20) * (scaled + stats.seeker) * multOnAll
     + (faces1920  / 20) * (scaled + stats.seeker) * multOn1920;
+  // Imbue damage — per-hit flat add that crits with the weapon, but
+  // does NOT pick up seeker (seeker is a weapon-damage rider only) and
+  // does NOT pick up the ability scalar (handled at the per-ability
+  // damage site). Each rider contributes raw avg-per-instance, scaled
+  // by its own Power stat via the caller-supplied evaluator.
+  const imbueRawPerHit = imbueRiders.reduce((sum, r) => sum + imbueRawPerRider(r), 0);
+  const imbueAvgPerHit = (nonCritHits / 20) * imbueRawPerHit
+    + (facesOther / 20) * imbueRawPerHit * multOnAll
+    + (faces1920  / 20) * imbueRawPerHit * multOn1920;
+  const avgPerHit = weaponAvgPerHit + imbueAvgPerHit;
 
   // Attack rates — passive alacrity capped at 15%, action-boost on top.
   // `stats.baseAPM` is pre-resolved by the build-stats builder so the
@@ -255,6 +291,10 @@ export function rangedDPS(
     avgBaseDamage:        avgBase,
     avgScaledDamage:      scaled,
     avgPerHit,
+    weaponAvgPerHit,
+    imbueAvgPerHit,
+    imbueRawPerHit,
+    imbueRiders,
     critThreatFaces:      totalFaces,
     critChance,
     critMultOnAll:        multOnAll,
@@ -445,10 +485,19 @@ function rangedAbilityAvgPerHit(
   const multAll  = result.critMultOnAll  + extraCritMult;
   const mult1920 = result.critMultOn1920 + extraCritMult;
   const nonCritHits = 19 - cappedFaces;
-  const avgPerHit = (nonCritHits / 20) * s
+  // Recompute the weapon portion with the ability's extended crit
+  // profile, then apply the ability scalar. Seeker rides on crit faces.
+  const weaponAvgPerHit = (nonCritHits / 20) * s
     + (facesOther / 20) * (s + result.seeker) * multAll
     + (faces1920  / 20) * (s + result.seeker) * mult1920;
-  return avgPerHit * scalar;
+  // Re-crit-weight the imbue portion (no seeker, no scalar) using the
+  // same extended profile so abilities that bump crit range / mult
+  // also boost imbue damage on the crit faces.
+  const imbueRaw = result.imbueRawPerHit;
+  const imbueAvg = (nonCritHits / 20) * imbueRaw
+    + (facesOther / 20) * imbueRaw * multAll
+    + (faces1920  / 20) * imbueRaw * mult1920;
+  return weaponAvgPerHit * scalar + imbueAvg;
 }
 
 /**
@@ -475,8 +524,11 @@ export function rangedAbilityDamagePerActivation(
    *  effect (regular ranged builds have no OH at all). */
   usesOffHand = false,
 ): number {
+  // Weapon portion scales with the ability scalar; imbue portion does
+  // NOT (per DDO rules — the +N% damage rider on Hand of Harm etc.
+  // multiplies the weapon hit, not the elemental imbue).
   const perHit = (extraCritFaces === 0 && extraCritMult === 0)
-    ? rangedResult.avgPerHit * scalar
+    ? rangedResult.weaponAvgPerHit * scalar + rangedResult.imbueAvgPerHit
     : rangedAbilityAvgPerHit(rangedResult, scalar, extraCritFaces, extraCritMult);
   const mhEffShots = rangedAbilityEffectiveShots(mhHits, stats);
   const ohEffShots = (usesOffHand && stats.dualShooter)
@@ -585,6 +637,17 @@ export function rangedAbilityTooltipLines(
     ? result.avgPerHit * baseScalar
     : rangedAbilityAvgPerHit(result, baseScalar, extraCritFaces, extraCritMult);
   lines.push(`Avg/attack: ${fmt(avgPerHit, 1)}  (crit-weighted; 5% face-1 auto-miss baked in)`);
+
+  // Imbue riders — list each active rider's per-hit contribution so the
+  // user can audit which imbue toggles are firing.
+  if (result.imbueRiders.length > 0 && result.imbueAvgPerHit > 0) {
+    lines.push(`Imbues (+${fmt(result.imbueAvgPerHit, 1)}/hit, crit-weighted):`);
+    for (const r of result.imbueRiders) {
+      const avgDicePerInstance = r.diceNum * (r.diceSides + 1) / 2 + r.diceBonus;
+      const mult = r.diceMultiplier === 'imbueDie' ? ' × imbue dice' : r.diceMultiplier === 'charLevel' ? ' × CL' : '';
+      lines.push(`  · ${r.source}: ${r.diceNum}d${r.diceSides}${r.diceBonus ? `+${r.diceBonus}` : ''}${mult} ${r.damageType} (avg ${fmt(avgDicePerInstance, 1)}, scales ${r.scalingPct}% ${r.scalingStat})`);
+    }
+  }
 
   // 5. Effective shots — MH always fires; OH only when the ability is
   //    opt-in for OH and Dual Shooter is active (OH chance is 100% in
