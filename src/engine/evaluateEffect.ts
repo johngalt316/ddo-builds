@@ -264,8 +264,16 @@ function valueFor(effect: DDOEffect, ctx: BuildContext, rankCount: number): numb
     case 'BAB':
       return ctx.bab;
     case 'APCount': {
-      const ap = ctx.apSpentInTree.get((effect.items[0] ?? '').toLowerCase()) ?? 0;
-      return amount[Math.max(0, ap - 1)];
+      // Per-AP-spent-in-tree multiplier. Convention across every DDO
+      // tree we've seen: `<Amount size="1">N</Amount>` is the per-AP
+      // increment, total = N × ap-spent-in-tree. The tree name lives
+      // in `<StackSource>` for reaper / archmage / radiant servant
+      // entries and in `<Item>` for the older sorcerer savant family,
+      // so we check both.
+      const tree = effect.stackSource ?? effect.items[0] ?? '';
+      const ap = ctx.apSpentInTree.get(tree.toLowerCase()) ?? 0;
+      if (ap === 0) return 0;
+      return (amount[0] ?? 0) * ap;
     }
     default:
       return undefined;

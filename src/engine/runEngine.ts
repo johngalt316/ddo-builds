@@ -814,7 +814,7 @@ export function runEngine(input: RunEngineInput): EngineResult {
 
   const result: EngineResult = {
     abilityScores,
-    hitPoints: breakdownHitPoints(seedHp, allBonuses, rules),
+    hitPoints: breakdownHitPoints(seedHp, allBonuses, rules, ctx.activeStances.has('Reaper')),
     saves: {
       Fortitude: breakdownSave('Fortitude', seedSaves.fortitude, allBonuses, rules),
       Reflex:    breakdownSave('Reflex',    seedSaves.reflex,    allBonuses, rules),

@@ -56,18 +56,28 @@ function withSeed(bonuses: Bonus[], seed: number, seedSource: string): Bonus[] {
 // breakdown total as a 'False Life' source row; we approximate that by
 // merging the two effect buckets here.
 //
-// `HitpointsReaper` is intentionally OMITTED — it's the per-AP HP gain that
-// only applies in Reaper Difficulty (DDOBuilderV2 wraps it in a Stance: Reaper
-// gate and routes through Breakdown_ReaperHitpoints). We don't model Reaper
-// stance yet, so excluding the type entirely is the correct non-reaper view.
-const HP_TYPES = ['Hitpoints', 'HitpointsStyleBonus', 'FalseLife'];
+// `HitpointsReaper` is the per-AP HP gain from each reaper-tree first
+// core ("+N HP per ability you take in this tree"). Its Reaper-only
+// semantics are baked into the type name rather than an explicit
+// <Stance>Reaper</Stance> requirement on the effect, so we gate it
+// here at HP aggregation time: include the bonuses only when the
+// caller signals the build is in Reaper difficulty.
+const HP_TYPES_ALWAYS = ['Hitpoints', 'HitpointsStyleBonus', 'FalseLife'];
+const HP_TYPES_REAPER = ['HitpointsReaper'];
 
 export function breakdownHitPoints(
   seed: number,
   bonuses: Bonus[],
   rules: StackingRules,
+  /** True when the Reaper stance is active (DPS panel's difficulty
+   *  slider is on R1+, auto-toggling the stance). When true, the
+   *  per-AP HP from each reaper-tree first core stacks into HP. */
+  inReaper: boolean = false,
 ): BreakdownResult {
-  const relevant = bonuses.filter(b => b.effectType !== undefined && HP_TYPES.includes(b.effectType));
+  const allowedTypes = inReaper
+    ? [...HP_TYPES_ALWAYS, ...HP_TYPES_REAPER]
+    : HP_TYPES_ALWAYS;
+  const relevant = bonuses.filter(b => b.effectType !== undefined && allowedTypes.includes(b.effectType));
   return stackBonuses(withSeed(relevant, seed, 'class hit dice'), rules);
 }
 

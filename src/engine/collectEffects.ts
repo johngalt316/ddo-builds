@@ -960,9 +960,15 @@ export function buildBuildContext(input: {
   }
 
   const apSpentInTree = new Map<string, number>();
-  for (const tree of getActiveEnhancementSet(build).enhancements) {
-    const ap = tree.enhancements.reduce((s, e) => s + e.rank, 0);
-    apSpentInTree.set(tree.treeId.toLowerCase(), ap);
+  {
+    const set = getActiveEnhancementSet(build);
+    // Heroic, destiny, AND reaper trees all contribute to AP-spent
+    // lookups. APCount effects can reference any tree (Archmage =
+    // heroic, Earth Savant = heroic, Dire Thaumaturge = reaper, etc.).
+    for (const tspend of [...set.enhancements, ...set.destinyEnhancements, ...set.reaperEnhancements]) {
+      const ap = tspend.enhancements.reduce((s, e) => s + e.rank, 0);
+      apSpentInTree.set(tspend.treeId.toLowerCase(), ap);
+    }
   }
 
   const skillRanks = new Map<string, number>();

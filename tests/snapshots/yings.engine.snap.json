@@ -523,8 +523,8 @@
     }
   },
   "hitPoints": {
-    "total": 2954,
-    "appliedCount": 38,
+    "total": 4109,
+    "appliedCount": 41,
     "dominatedCount": 0,
     "sources": [
       {
@@ -683,9 +683,24 @@
         "value": 45
       },
       {
+        "source": "[R] Dire Thaumaturge: Reaper's Arcanum I: Dire Thaumaturge: HP per action point",
+        "bonusType": "Reaper",
+        "value": 176
+      },
+      {
+        "source": "[R] Dread Adversary: Reaper's Offense I: Dread Adversary: HP per action point",
+        "bonusType": "Reaper",
+        "value": 216
+      },
+      {
         "source": "[R] Grim Barricade: Reaper's Defense I",
         "bonusType": "Reaper",
         "value": 10
+      },
+      {
+        "source": "[R] Grim Barricade: Reaper's Defense I: Grim Barricade: HP per action point",
+        "bonusType": "Reaper",
+        "value": 464
       },
       {
         "source": "[R] Grim Barricade: Reaper's Defense II",
