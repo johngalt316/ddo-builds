@@ -26,6 +26,7 @@ import { RotationTimeline } from '../RotationTimeline';
 import { ManageActiveDialog } from '../ManageActiveDialog';
 import { DebuffsSummary } from '../DebuffsPanel';
 import { ActiveProcsList } from '../ActiveProcsList';
+import { ActiveRidersList } from '../ActiveRidersList';
 import { BuffsList } from '../BuffsList';
 import { RotationChart, type DamageEvent } from '../RotationChart';
 import { DamageSourceSummary } from '../DamageSourceSummary';
@@ -432,6 +433,12 @@ export function MagicRotationEditor({
         engine={breakdowns}
         sneakAttackDice={breakdowns?.sneakAttackDice.total ?? 0}
         breakdown={rotationBreakdown}
+      />
+      <ActiveRidersList
+        build={build}
+        engine={breakdowns}
+        totalCharLevel={build.classes.reduce((s, c) => s + c.levels, 0) + (build.epicLevels ?? 0)}
+        sneakAttackDice={breakdowns?.sneakAttackDice.total ?? 0}
       />
       <DebuffsSummary state={debuffState} build={build} onManage={onManageDebuffs} />
       <RotationPalette
