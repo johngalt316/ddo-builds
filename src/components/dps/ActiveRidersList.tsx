@@ -20,6 +20,8 @@ import type { EngineResult } from '@/engine/runEngine';
 import type { ImbueRider } from '@/engine/dps/imbues';
 import { imbueAvgPerHit } from '@/engine/dps/imbues';
 import { PROC_CATALOG, computeMetamagicSP, type Proc } from '@/engine/dps/procs';
+import { resolveScaleInputs } from '@/engine/dps/calculator';
+import { scaleMult } from '@/engine/dps/damage';
 import { useTooltip } from '@/hooks/useTooltip';
 import { fmt } from '@/utils/formatNumbers';
 import styles from './ActiveProcsList.module.css';
@@ -73,29 +75,60 @@ function imbueRow(
   };
 }
 
-/** Build a tooltip + per-hit average for a rider-category proc. */
+/** Build a tooltip + per-hit average for a rider-category proc. The
+ *  chip's "per hit" number matches the rotation breakdown's damage
+ *  per trigger — raw dice avg × scaleMult(spell power, crit chance,
+ *  crit mult bonus) for the proc's scale profile. Previously the chip
+ *  showed only the raw avg (525 for Dripping with Magma) while the
+ *  rotation tooltip showed the scaled value (6,828) — those should
+ *  match. */
 function procRow(proc: Proc, build: Build, engine: EngineResult, sneakAttackDice: number): RiderRow | null {
   const ctx = { sneakAttackDice, metamagicSP: computeMetamagicSP(build.activeMetamagics) };
   const components = proc.toComponents(build, engine, ctx, [{ name: '*', casterLevel: engine.casterLevel.total }]);
   if (components.length === 0) return null;
   const c = components[0]!;
   const placeholder = c.placeholderDamage === true;
-  const avg = placeholder ? 0 : c.avgDicePerHit;
-  const lines = [
+  const rawAvg = placeholder ? 0 : c.qtyPerTrigger * c.avgDicePerHit;
+  // Per-trigger scaled damage — applies the proc's scaleProfile (proc
+  // / spell / sneak) to look up SP/crit, then computes the same
+  // multiplier the rotation breakdown uses. For placeholders the
+  // damage is 0 and scaling isn't meaningful.
+  let scaledAvg = rawAvg;
+  let sp = 0, critChance = 0, critMultBonus = 0;
+  if (!placeholder) {
+    const scale = resolveScaleInputs(c, engine, ctx);
+    scaledAvg = rawAvg * scaleMult(scale);
+    sp = scale.spellPower;
+    critChance = scale.critChance;
+    critMultBonus = scale.critMultBonus;
+  }
+  const lines: string[] = [
     proc.label,
     '',
     `Source: Item buff / augment`,
     `Damage type: ${c.damageType}`,
-    `Avg dice per trigger: ${placeholder ? 'TODO — not yet modeled' : fmt(avg, 1)}`,
-    '',
-    placeholder
-      ? `Source is recognized but per-hit dice / proc rate isn't confirmed yet.\nContributes 0 to total damage until the values are filled in.`
-      : `Fires per weapon hit (high-chance procs are modeled as effectively per-hit). Contribution to per-hit average is pre-debuff.`,
   ];
+  if (placeholder) {
+    lines.push(
+      `Status: TODO — per-hit dice / proc rate not yet modeled`,
+      '',
+      'Source is recognized but contributes 0 until dice are confirmed.',
+    );
+  } else {
+    lines.push(
+      `Raw avg per trigger: ${fmt(rawAvg, 0)}  (${c.qtyPerTrigger} × ${fmt(c.avgDicePerHit, 0)} dice avg)`,
+      `Scale: SP ${fmt(sp, 0)}, crit ${fmt(critChance * 100, 1)}%, crit-mult bonus +${fmt(critMultBonus, 1)}`,
+      `  × scaleMult = (1 + SP/100) × (1 + crit × (cm + 2)) = ${fmt(scaleMult({ spellPower: sp, critChance, critMultBonus }), 2)}`,
+      `Damage per trigger (pre-debuff): ${fmt(scaledAvg, 0)}`,
+      '',
+      `Fires per cast / per weapon hit per the source description. The`,
+      `number here matches the rotation breakdown's "damage per trigger".`,
+    );
+  }
   return {
     label: proc.label,
     damageType: c.damageType,
-    avgPerHit: avg,
+    avgPerHit: scaledAvg,
     tooltip: lines.join('\n'),
     placeholder,
   };
