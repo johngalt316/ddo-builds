@@ -73,6 +73,10 @@ function detectRotationType(build: Build): RotationType {
 }
 
 export function DPSCalculatorPanel() {
+  // Default-collapsed so the DPS panel doesn't dominate the build editor
+  // at first glance. User can expand by clicking the header. Per-session
+  // only — no persistence, so each page load starts collapsed.
+  const [collapsed, setCollapsed] = useState(true);
   const [rotationType, setRotationType] = useState<RotationType>('magic');
   const [difficulty, setDifficulty]     = useState<DifficultyIndex>(0);
   const [targetCount, setTargetCount]   = useState<number>(1);
@@ -143,11 +147,37 @@ export function DPSCalculatorPanel() {
 
   return (
     <section className={styles.panel}>
-      <header className={styles.header}>
+      <header
+        className={styles.header}
+        onClick={() => setCollapsed(c => !c)}
+        onKeyDown={e => {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setCollapsed(c => !c); }
+        }}
+        role="button"
+        tabIndex={0}
+        aria-expanded={!collapsed}
+        aria-label={`${collapsed ? 'Expand' : 'Collapse'} DPS Calculator`}
+        style={{
+          cursor: 'pointer',
+          marginBottom: collapsed ? 0 : undefined,
+          userSelect: 'none',
+        }}
+      >
+        <span
+          aria-hidden="true"
+          style={{
+            display: 'inline-block',
+            width: '0.85rem',
+            color: 'var(--color-gold)',
+            transform: collapsed ? 'none' : 'rotate(90deg)',
+            transition: 'transform 0.12s ease',
+          }}
+        >▸</span>
         <h2 className={styles.title}>DPS Calculator</h2>
         <span className={styles.tag}>Work in Progress</span>
       </header>
 
+      {!collapsed && (<>
       {/* Controls */}
       <div className={styles.controls}>
         <label className={styles.field}>
@@ -287,6 +317,7 @@ export function DPSCalculatorPanel() {
         onChange={setDebuffState}
         onClose={() => setDebuffsOpen(false)}
       />
+      </>)}
 
     </section>
   );
