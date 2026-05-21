@@ -182,31 +182,36 @@ function Row({ label, result, overrideKey, editMode = false }: RowProps) {
   const dominated = result.contributors.filter(c => !c.applied);
   const isOverridden = result.override !== undefined;
   const engineTotal = result.override?.engineTotal ?? result.total;
+  // In edit mode the inline editor replaces the count column (which is
+  // supplementary). Keeps the row compact on narrow viewports.
+  const editing = editMode && !!overrideKey;
 
   return (
     <div className={styles.row}>
       <button
-        className={styles.rowHeader}
+        className={editing ? `${styles.rowHeader} ${styles.rowHeaderEditing}` : styles.rowHeader}
         onClick={() => setOpen(o => !o)}
         aria-expanded={open}
       >
         <span className={open ? styles.chevronOpen : styles.chevron}>▸</span>
         <span className={styles.label}>{label}</span>
-        {editMode && overrideKey ? (
+        {editing ? (
           <OverrideEditor
-            overrideKey={overrideKey}
+            overrideKey={overrideKey!}
             value={isOverridden ? result.total : undefined}
             engineTotal={engineTotal}
           />
         ) : (
-          <span className={isOverridden ? styles.totalOverridden : styles.total}>
-            {result.total}
-            {isOverridden && <span className={styles.totalOverriddenTag}>OVR</span>}
-          </span>
+          <>
+            <span className={isOverridden ? styles.totalOverridden : styles.total}>
+              {result.total}
+              {isOverridden && <span className={styles.totalOverriddenTag}>OVR</span>}
+            </span>
+            <span className={styles.count}>
+              {applied.length} applied{dominated.length ? ` · ${dominated.length} dominated` : ''}
+            </span>
+          </>
         )}
-        <span className={styles.count}>
-          {applied.length} applied{dominated.length ? ` · ${dominated.length} dominated` : ''}
-        </span>
       </button>
       {open && (
         <div className={styles.body}>
@@ -243,21 +248,29 @@ function CombinedSpellRow({
   const [open, setOpen] = useState(false);
 
   // Render a sub-breakdown with optional override editor wiring.
+  // In edit mode the inline current-value is hidden — the editor takes
+  // its place so the user isn't fighting layout space between two
+  // representations of the same number.
   function renderSubBreakdown(title: string, result: BreakdownResult, key?: string) {
     const isOverridden = result.override !== undefined;
     const engineTotal = result.override?.engineTotal ?? result.total;
+    const editing = editMode && !!key;
     return (
       <div className={styles.subBreakdown}>
         <h4 className={styles.subHeading}>
           {title}
-          {' '}
-          <span className={isOverridden ? styles.totalOverridden : styles.total}>
-            {result.total}
-            {isOverridden && <span className={styles.totalOverriddenTag}>OVR</span>}
-          </span>
-          {editMode && key && (
+          {!editing && (
+            <>
+              {' '}
+              <span className={isOverridden ? styles.totalOverridden : styles.total}>
+                {result.total}
+                {isOverridden && <span className={styles.totalOverriddenTag}>OVR</span>}
+              </span>
+            </>
+          )}
+          {editing && (
             <span style={{ marginLeft: '0.6rem' }}>
-              <OverrideEditor overrideKey={key} value={isOverridden ? result.total : undefined} engineTotal={engineTotal} />
+              <OverrideEditor overrideKey={key!} value={isOverridden ? result.total : undefined} engineTotal={engineTotal} />
             </span>
           )}
         </h4>
