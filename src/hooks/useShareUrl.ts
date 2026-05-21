@@ -32,12 +32,40 @@ export function useShareUrl() {
   }, []);
 
   const copyShareUrl = useCallback(async (build: Build): Promise<boolean> => {
+    // iOS Safari quirk: navigator.clipboard.writeText() refuses to fire
+    // when there's been any async await between the user gesture (click)
+    // and the clipboard call. We do an encode + POST /api/share roundtrip
+    // before we have the URL, which breaks that gesture chain.
+    //
+    // The workaround that does still preserve gesture context is
+    // ClipboardItem with a Promise body — Safari accepts it because the
+    // *promise* was created synchronously inside the click handler. Use
+    // that path when available, fall back to the plain writeText path
+    // (Firefox / older browsers that don't implement ClipboardItem).
+    const ClipboardItemCtor = (window as unknown as { ClipboardItem?: typeof ClipboardItem }).ClipboardItem;
+    const hasAsyncClipboard = typeof ClipboardItemCtor === 'function'
+      && typeof navigator.clipboard?.write === 'function';
+
     try {
+      if (hasAsyncClipboard) {
+        const blob = getShareUrl(build).then(url => new Blob([url], { type: 'text/plain' }));
+        await navigator.clipboard.write([new ClipboardItemCtor({ 'text/plain': blob })]);
+        return true;
+      }
       const url = await getShareUrl(build);
       await navigator.clipboard.writeText(url);
       return true;
     } catch {
-      return false;
+      // Last-ditch fallback: surface the URL via a prompt so the user
+      // can copy manually. Better than a silent no-op when the browser
+      // blocks both clipboard paths.
+      try {
+        const url = await getShareUrl(build);
+        window.prompt('Copy this share URL (clipboard access was blocked):', url);
+        return false;
+      } catch {
+        return false;
+      }
     }
   }, [getShareUrl]);
 
