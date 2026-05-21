@@ -241,6 +241,18 @@ export interface Build {
    * Sparse — missing keys mean "no rotation configured yet".
    */
   dpsRotation?: DpsRotationState;
+  /**
+   * Manual overrides on engine-computed breakdown totals, keyed by
+   * stat slug (see runEngine's OVERRIDE_ACCESSORS). When set, the engine
+   * replaces the computed total with the override value AND stamps the
+   * resulting BreakdownResult with `override.engineTotal` so the UI can
+   * still surface the original calculation. Useful for spot-checking
+   * theorycraft scenarios or working around effects the engine doesn't
+   * model yet. Persisted on the Build so share-link URLs carry the
+   * overrides — both the sender and recipient see the same numbers.
+   * Example: { "meleePower": 250, "doublestrike": 100, "abilityScore.STR": 60 }
+   */
+  statOverrides?: Record<string, number>;
 }
 
 /**

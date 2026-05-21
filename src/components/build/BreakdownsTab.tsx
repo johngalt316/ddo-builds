@@ -1,4 +1,5 @@
 import { useState, type ReactNode } from 'react';
+import { useBuildStore } from '@/store/buildStore';
 import { useBreakdowns } from '@/hooks/useBreakdowns';
 import { StancesPicker } from './StancesPicker';
 import type { BreakdownResult } from '@/engine/bonusStacking';
@@ -33,11 +34,83 @@ function Section({ title, children, defaultOpen = true }: SectionProps) {
   );
 }
 
+// ── Override editor (inline) ───────────────────────────────────────────
+
+interface OverrideEditorProps {
+  overrideKey: string;
+  /** Current override value when one is set; otherwise the engine total
+   *  is shown as the input placeholder so the user can tweak from it. */
+  value: number | undefined;
+  engineTotal: number;
+}
+
+function OverrideEditor({ overrideKey, value, engineTotal }: OverrideEditorProps) {
+  const setStatOverride = useBuildStore(s => s.setStatOverride);
+  // Local input state so we can show in-progress edits before they
+  // commit. Commit on blur or Enter to avoid thrashing the engine on
+  // every keystroke.
+  const [draft, setDraft] = useState<string>(() =>
+    value !== undefined ? String(value) : '');
+
+  // Keep draft in sync if the underlying override changes (e.g. cleared
+  // from elsewhere, restored from share-URL load).
+  const drafts = value !== undefined ? String(value) : '';
+  if (drafts !== draft && document.activeElement?.tagName !== 'INPUT') {
+    // Only sync when the editor isn't focused — don't yank the input
+    // out from under an active typist.
+    setDraft(drafts);
+  }
+
+  function commit() {
+    const trimmed = draft.trim();
+    if (trimmed === '') {
+      setStatOverride(overrideKey, undefined);
+      return;
+    }
+    const parsed = Number(trimmed);
+    if (!Number.isFinite(parsed)) return;
+    setStatOverride(overrideKey, parsed);
+  }
+
+  return (
+    <span
+      className={styles.overrideEditor}
+      onClick={e => e.stopPropagation()}  // don't toggle row expansion when clicking the editor
+    >
+      <input
+        type="number"
+        className={styles.overrideInput}
+        value={draft}
+        placeholder={String(engineTotal)}
+        onChange={e => setDraft(e.target.value)}
+        onBlur={commit}
+        onKeyDown={e => { if (e.key === 'Enter') (e.target as HTMLInputElement).blur(); }}
+        aria-label={`Override value for ${overrideKey}`}
+      />
+      <button
+        type="button"
+        className={styles.overrideClear}
+        onClick={() => { setDraft(''); setStatOverride(overrideKey, undefined); }}
+        disabled={value === undefined}
+        title="Clear override (revert to engine value)"
+      >
+        ✕
+      </button>
+    </span>
+  );
+}
+
 // ── Single breakdown row ────────────────────────────────────────────────
 
 interface RowProps {
   label: string;
   result: BreakdownResult;
+  /** When set, the user can override this row's total via the inline
+   *  editor (visible only when `editMode` is also true). Active
+   *  overrides still display the "overridden" indicator regardless of
+   *  edit mode. */
+  overrideKey?: string;
+  editMode?: boolean;
 }
 
 function fmtValue(c: { value: number; isPercent?: boolean }, flatSubtotal: number): string {
@@ -103,10 +176,12 @@ function ContributorTables({ result }: { result: BreakdownResult }) {
   );
 }
 
-function Row({ label, result }: RowProps) {
+function Row({ label, result, overrideKey, editMode = false }: RowProps) {
   const [open, setOpen] = useState(false);
   const applied = result.contributors.filter(c => c.applied);
   const dominated = result.contributors.filter(c => !c.applied);
+  const isOverridden = result.override !== undefined;
+  const engineTotal = result.override?.engineTotal ?? result.total;
 
   return (
     <div className={styles.row}>
@@ -117,13 +192,30 @@ function Row({ label, result }: RowProps) {
       >
         <span className={open ? styles.chevronOpen : styles.chevron}>▸</span>
         <span className={styles.label}>{label}</span>
-        <span className={styles.total}>{result.total}</span>
+        {editMode && overrideKey ? (
+          <OverrideEditor
+            overrideKey={overrideKey}
+            value={isOverridden ? result.total : undefined}
+            engineTotal={engineTotal}
+          />
+        ) : (
+          <span className={isOverridden ? styles.totalOverridden : styles.total}>
+            {result.total}
+            {isOverridden && <span className={styles.totalOverriddenTag}>OVR</span>}
+          </span>
+        )}
         <span className={styles.count}>
           {applied.length} applied{dominated.length ? ` · ${dominated.length} dominated` : ''}
         </span>
       </button>
       {open && (
         <div className={styles.body}>
+          {isOverridden && (
+            <div className={styles.overrideEngineHint}>
+              <strong>Override active</strong> — engine calculation would yield <strong>{engineTotal}</strong>.
+              {' '}Clear the override (✕ next to the input in edit mode) to restore the engine value.
+            </div>
+          )}
           <ContributorTables result={result} />
         </div>
       )}
@@ -138,10 +230,46 @@ interface CombinedSpellRowProps {
   power: BreakdownResult;
   critChance: BreakdownResult;
   critDamage: BreakdownResult;
+  /** Override key bases. The three sub-stats get suffixes:
+   *  `<base>.<element>` for spellPower, spellCriticalChance, spellCriticalDamage.
+   *  Pass undefined when override editing isn't applicable (universal pane). */
+  overrideKeyBase?: { power: string; critChance: string; critDamage: string };
+  editMode?: boolean;
 }
 
-function CombinedSpellRow({ element, power, critChance, critDamage }: CombinedSpellRowProps) {
+function CombinedSpellRow({
+  element, power, critChance, critDamage, overrideKeyBase, editMode = false,
+}: CombinedSpellRowProps) {
   const [open, setOpen] = useState(false);
+
+  // Render a sub-breakdown with optional override editor wiring.
+  function renderSubBreakdown(title: string, result: BreakdownResult, key?: string) {
+    const isOverridden = result.override !== undefined;
+    const engineTotal = result.override?.engineTotal ?? result.total;
+    return (
+      <div className={styles.subBreakdown}>
+        <h4 className={styles.subHeading}>
+          {title}
+          {' '}
+          <span className={isOverridden ? styles.totalOverridden : styles.total}>
+            {result.total}
+            {isOverridden && <span className={styles.totalOverriddenTag}>OVR</span>}
+          </span>
+          {editMode && key && (
+            <span style={{ marginLeft: '0.6rem' }}>
+              <OverrideEditor overrideKey={key} value={isOverridden ? result.total : undefined} engineTotal={engineTotal} />
+            </span>
+          )}
+        </h4>
+        {isOverridden && (
+          <div className={styles.overrideEngineHint}>
+            <strong>Override active</strong> — engine would compute <strong>{engineTotal}</strong>.
+          </div>
+        )}
+        <ContributorTables result={result} />
+      </div>
+    );
+  }
 
   return (
     <div className={styles.row}>
@@ -153,27 +281,18 @@ function CombinedSpellRow({ element, power, critChance, critDamage }: CombinedSp
         <span className={open ? styles.chevronOpen : styles.chevron}>▸</span>
         <span className={styles.label}>{element} Spell Power</span>
         <span className={styles.combinedTotals}>
-          <span className={styles.total}>{power.total}</span>
+          <span className={power.override ? styles.totalOverridden : styles.total}>{power.total}</span>
           <span className={styles.combinedSep}>/</span>
-          <span className={styles.combinedTotal}>{critChance.total}% Crit</span>
+          <span className={critChance.override ? styles.totalOverridden : styles.combinedTotal}>{critChance.total}% Crit</span>
           <span className={styles.combinedSep}>/</span>
-          <span className={styles.combinedTotal}>{critDamage.total}% Crit Dmg</span>
+          <span className={critDamage.override ? styles.totalOverridden : styles.combinedTotal}>{critDamage.total}% Crit Dmg</span>
         </span>
       </button>
       {open && (
         <div className={styles.body}>
-          <div className={styles.subBreakdown}>
-            <h4 className={styles.subHeading}>Spell Power</h4>
-            <ContributorTables result={power} />
-          </div>
-          <div className={styles.subBreakdown}>
-            <h4 className={styles.subHeading}>Critical Chance</h4>
-            <ContributorTables result={critChance} />
-          </div>
-          <div className={styles.subBreakdown}>
-            <h4 className={styles.subHeading}>Critical Damage</h4>
-            <ContributorTables result={critDamage} />
-          </div>
+          {renderSubBreakdown('Spell Power',     power,      overrideKeyBase ? `${overrideKeyBase.power}` : undefined)}
+          {renderSubBreakdown('Critical Chance', critChance, overrideKeyBase ? `${overrideKeyBase.critChance}` : undefined)}
+          {renderSubBreakdown('Critical Damage', critDamage, overrideKeyBase ? `${overrideKeyBase.critDamage}` : undefined)}
         </div>
       )}
     </div>
@@ -184,6 +303,20 @@ function CombinedSpellRow({ element, power, critChance, critDamage }: CombinedSp
 
 export function BreakdownsTab() {
   const r = useBreakdowns();
+  // Edit-mode is local UI state (not persisted) — the user toggles it
+  // when they want to spot-check or override values, then turns it off
+  // to read the breakdowns normally. The overrides themselves persist
+  // on `build.statOverrides` and survive page reloads + share links.
+  const [editMode, setEditMode] = useState(false);
+  const overrides = useBuildStore(s => s.build.statOverrides);
+  const setStatOverride = useBuildStore(s => s.setStatOverride);
+  const overrideCount = overrides ? Object.keys(overrides).length : 0;
+  function clearAllOverrides() {
+    if (!overrides) return;
+    for (const key of Object.keys(overrides)) {
+      setStatOverride(key, undefined);
+    }
+  }
 
   if (!r) {
     return <div className={styles.loading}>Loading game data…</div>;
@@ -220,55 +353,91 @@ export function BreakdownsTab() {
 
       <StancesPicker />
 
+      {/* Override-edit toggle. When ON, every row's total becomes an
+          editable number input. Overrides themselves persist on the
+          build (and through share-link URLs) regardless of this flag. */}
+      <label className={editMode ? `${styles.editToggle} ${styles.editToggleActive}` : styles.editToggle}>
+        <input
+          type="checkbox"
+          checked={editMode}
+          onChange={e => setEditMode(e.target.checked)}
+        />
+        <span>Allow manual overrides</span>
+        <span className={styles.editHint}>
+          {editMode
+            ? `Edit any total inline; values persist + ride along on share links. ${overrideCount} active.`
+            : overrideCount > 0
+              ? `${overrideCount} active override${overrideCount === 1 ? '' : 's'} — toggle on to edit.`
+              : 'Hand-edit any breakdown total to spot-check theorycraft scenarios.'}
+        </span>
+        {overrideCount > 0 && (
+          <button
+            type="button"
+            onClick={e => { e.preventDefault(); clearAllOverrides(); }}
+            className={styles.overrideClear}
+            style={{ marginLeft: 'auto' }}
+            title="Clear every active override"
+          >
+            Clear all ({overrideCount})
+          </button>
+        )}
+      </label>
+
       <Section title="General">
-        <Row label="Hit Points"   result={hitPoints} />
-        <Row label="Spell Points" result={spellPoints} />
+        <Row label="Hit Points"   result={hitPoints}   overrideKey="hitPoints"   editMode={editMode} />
+        <Row label="Spell Points" result={spellPoints} overrideKey="spellPoints" editMode={editMode} />
       </Section>
 
       <Section title="Ability Scores">
         {(['STR','DEX','CON','INT','WIS','CHA'] as const).map(s => (
-          <Row key={s} label={s} result={abilityScores[s]} />
+          <Row key={s} label={s} result={abilityScores[s]} overrideKey={`abilityScore.${s}`} editMode={editMode} />
         ))}
       </Section>
 
       <Section title="Defenses">
-        <Row label="Fortitude"             result={saves.Fortitude} />
-        <Row label="Reflex"                result={saves.Reflex} />
-        <Row label="Will"                  result={saves.Will} />
-        <Row label="Armor Class"           result={ac} />
-        <Row label="Dodge"                 result={dodge} />
-        <Row label="Physical Sheltering (PRR)" result={prr} />
-        <Row label="Magical Sheltering (MRR)"  result={mrr} />
-        <Row label="Spell Resistance"      result={spellResistance} />
-        <Row label="Healing Amp (Positive)" result={healingAmp} />
-        <Row label="Healing Amp (Negative)" result={negativeHealingAmp} />
-        <Row label="Healing Amp (Repair)"   result={repairAmp} />
+        <Row label="Fortitude"                 result={saves.Fortitude}    overrideKey="save.Fortitude"      editMode={editMode} />
+        <Row label="Reflex"                    result={saves.Reflex}       overrideKey="save.Reflex"         editMode={editMode} />
+        <Row label="Will"                      result={saves.Will}         overrideKey="save.Will"           editMode={editMode} />
+        <Row label="Armor Class"               result={ac}                 overrideKey="ac"                  editMode={editMode} />
+        <Row label="Dodge"                     result={dodge}              overrideKey="dodge"               editMode={editMode} />
+        <Row label="Physical Sheltering (PRR)" result={prr}                overrideKey="prr"                 editMode={editMode} />
+        <Row label="Magical Sheltering (MRR)"  result={mrr}                overrideKey="mrr"                 editMode={editMode} />
+        <Row label="Spell Resistance"          result={spellResistance}    overrideKey="spellResistance"     editMode={editMode} />
+        <Row label="Healing Amp (Positive)"    result={healingAmp}         overrideKey="healingAmp"          editMode={editMode} />
+        <Row label="Healing Amp (Negative)"    result={negativeHealingAmp} overrideKey="negativeHealingAmp"  editMode={editMode} />
+        <Row label="Healing Amp (Repair)"      result={repairAmp}          overrideKey="repairAmp"           editMode={editMode} />
       </Section>
 
       <Section title="Melee Combat">
-        <Row label="Melee Power"      result={meleePower} />
-        <Row label="Doublestrike"     result={doublestrike} />
-        <Row label="Sneak Attack Dice" result={sneakAttackDice} />
-        <Row label="Imbue Dice"       result={imbueDice} />
-        <Row label="Melee Combat Speed" result={meleeSpeed} />
+        <Row label="Melee Power"        result={meleePower}      overrideKey="meleePower"      editMode={editMode} />
+        <Row label="Doublestrike"       result={doublestrike}    overrideKey="doublestrike"    editMode={editMode} />
+        <Row label="Sneak Attack Dice"  result={sneakAttackDice} overrideKey="sneakAttackDice" editMode={editMode} />
+        <Row label="Imbue Dice"         result={imbueDice}       overrideKey="imbueDice"       editMode={editMode} />
+        <Row label="Melee Combat Speed" result={meleeSpeed}      overrideKey="meleeSpeed"      editMode={editMode} />
       </Section>
 
       <Section title="Ranged Combat">
-        <Row label="Ranged Power"     result={rangedPower} />
-        <Row label="Doubleshot"       result={doubleshot} />
-        <Row label="Sneak Attack Dice" result={sneakAttackDice} />
-        <Row label="Imbue Dice"       result={imbueDice} />
-        <Row label="Ranged Combat Speed" result={rangedSpeed} />
+        <Row label="Ranged Power"        result={rangedPower}     overrideKey="rangedPower"     editMode={editMode} />
+        <Row label="Doubleshot"          result={doubleshot}      overrideKey="doubleshot"      editMode={editMode} />
+        <Row label="Sneak Attack Dice"   result={sneakAttackDice} overrideKey="sneakAttackDice" editMode={editMode} />
+        <Row label="Imbue Dice"          result={imbueDice}       overrideKey="imbueDice"       editMode={editMode} />
+        <Row label="Ranged Combat Speed" result={rangedSpeed}     overrideKey="rangedSpeed"     editMode={editMode} />
       </Section>
 
       <Section title="Spellcasting">
-        <Row label="Caster Level"        result={casterLevel} />
-        <Row label="Spell Penetration"   result={spellPenetration} />
-        <Row label="Arcane Spell Failure" result={arcaneSpellFailure} />
-        <Row label="Sneak Attack Dice"   result={sneakAttackDice} />
-        <Row label="Imbue Dice"          result={imbueDice} />
+        <Row label="Caster Level"         result={casterLevel}       overrideKey="casterLevel"        editMode={editMode} />
+        <Row label="Spell Penetration"    result={spellPenetration}  overrideKey="spellPenetration"   editMode={editMode} />
+        <Row label="Arcane Spell Failure" result={arcaneSpellFailure} overrideKey="arcaneSpellFailure" editMode={editMode} />
+        <Row label="Sneak Attack Dice"    result={sneakAttackDice}   overrideKey="sneakAttackDice"    editMode={editMode} />
+        <Row label="Imbue Dice"           result={imbueDice}         overrideKey="imbueDice"          editMode={editMode} />
         {SPELL_SCHOOLS.map(school => (
-          <Row key={school} label={`${school} DC`} result={spellDCs[school]} />
+          <Row
+            key={school}
+            label={`${school} DC`}
+            result={spellDCs[school]}
+            overrideKey={`spellDC.${school}`}
+            editMode={editMode}
+          />
         ))}
       </Section>
 
@@ -276,7 +445,15 @@ export function BreakdownsTab() {
         {ALL_SKILLS.map(skill => {
           const r = skills[skill.id];
           if (!r) return null;
-          return <Row key={skill.id} label={skill.name} result={r} />;
+          return (
+            <Row
+              key={skill.id}
+              label={skill.name}
+              result={r}
+              overrideKey={`skill.${skill.id}`}
+              editMode={editMode}
+            />
+          );
         })}
       </Section>
 
@@ -288,6 +465,12 @@ export function BreakdownsTab() {
             power={spellPowers[t]}
             critChance={spellCriticalChance[t]}
             critDamage={spellCriticalDamage[t]}
+            overrideKeyBase={{
+              power:      `spellPower.${t}`,
+              critChance: `spellCriticalChance.${t}`,
+              critDamage: `spellCriticalDamage.${t}`,
+            }}
+            editMode={editMode}
           />
         ))}
         <CombinedSpellRow
@@ -295,6 +478,12 @@ export function BreakdownsTab() {
           power={universalSpellPower}
           critChance={universalSpellCriticalChance}
           critDamage={universalSpellCriticalDamage}
+          overrideKeyBase={{
+            power:      'universalSpellPower',
+            critChance: 'universalSpellCriticalChance',
+            critDamage: 'universalSpellCriticalDamage',
+          }}
+          editMode={editMode}
         />
       </Section>
 

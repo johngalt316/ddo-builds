@@ -58,6 +58,11 @@ export interface AppliedBonus extends Bonus {
 export interface BreakdownResult {
   total: number;
   contributors: AppliedBonus[];
+  /** Set when `total` has been replaced by a manual override from
+   *  `build.statOverrides`. The original engine-computed total is kept
+   *  in `engineTotal` so the UI can still show what the calculation
+   *  would have produced. Absent when no override is active. */
+  override?: { engineTotal: number };
 }
 
 /** lowercased bonusType → 'highest' | 'always'. Missing entries default to 'always'. */

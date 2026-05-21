@@ -94,10 +94,98 @@
   font-weight: 700;
   color: var(--color-gold);
 }
+/* Total when an override is active — replaces the engine number with the
+   manual value. Tinted differently from the gold total so the user knows
+   the displayed number isn't the calculation's natural output. */
+.totalOverridden {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  color: #f4a8d4;
+}
+.totalOverriddenTag {
+  margin-left: 0.35rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #f4a8d4;
+}
 .count {
   font-size: 0.72rem;
   color: var(--color-text-muted);
 }
+
+/* Edit-mode toggle row at the top of the tab. */
+.editToggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  margin: 0 0 0.85rem;
+  background: rgba(244, 168, 212, 0.06);
+  border: 1px solid rgba(244, 168, 212, 0.35);
+  border-radius: 4px;
+  font-size: 0.82rem;
+  color: var(--color-text);
+  cursor: pointer;
+}
+.editToggleActive {
+  background: rgba(244, 168, 212, 0.14);
+  border-color: rgba(244, 168, 212, 0.7);
+}
+.editToggle input {
+  margin: 0;
+  cursor: pointer;
+}
+.editHint {
+  margin-left: 0.5rem;
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+}
+
+/* Inline override editor on each row. */
+.overrideEditor {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+}
+.overrideInput {
+  width: 5rem;
+  padding: 0.15rem 0.4rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  text-align: right;
+  background: rgba(244, 168, 212, 0.08);
+  border: 1px solid rgba(244, 168, 212, 0.5);
+  border-radius: 3px;
+  color: var(--color-text);
+  font: inherit;
+  font-size: 0.85rem;
+}
+.overrideInput:focus {
+  outline: none;
+  border-color: rgba(244, 168, 212, 0.9);
+  background: rgba(244, 168, 212, 0.15);
+}
+.overrideClear {
+  padding: 0.1rem 0.4rem;
+  font-size: 0.72rem;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: 3px;
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+.overrideClear:hover { color: var(--color-gold); border-color: var(--color-gold); }
+.overrideClear:disabled { opacity: 0.35; cursor: not-allowed; }
+
+.overrideEngineHint {
+  margin-top: 0.4rem;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+.overrideEngineHint strong { color: #f4a8d4; }
 
 .rowHeaderCombined {
   display: grid;

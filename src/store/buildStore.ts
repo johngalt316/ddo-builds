@@ -106,6 +106,12 @@ interface BuildState {
   // round-trips through share URLs. Pass a partial — fields you don't
   // pass keep their previous value (or stay undefined).
   setDpsRotation: (next: Partial<DpsRotationState>) => void;
+  // Set or clear a per-stat override on the breakdowns. Pass `undefined`
+  // to clear. Override key matches the slug used by runEngine's
+  // OVERRIDE_ACCESSORS table (e.g. 'meleePower', 'abilityScore.STR',
+  // 'spellPower.Fire'). Round-trips through share URLs since it's
+  // stored on the Build.
+  setStatOverride: (key: string, value: number | undefined) => void;
 }
 
 /** Tree-shape used by the AP-cost helpers — only the items we need are
@@ -643,6 +649,31 @@ export const useBuildStore = create<BuildState>((set, get) => ({
     set(s => {
       const merged: DpsRotationState = { ...(s.build.dpsRotation ?? {}), ...next };
       return { build: { ...s.build, dpsRotation: merged } };
+    }),
+
+  setStatOverride: (key, value) =>
+    set(s => {
+      const current = s.build.statOverrides ?? {};
+      // Treat NaN / undefined as a clear. Drop the entry so the encoded
+      // build doesn't carry empty keys around.
+      if (value === undefined || Number.isNaN(value)) {
+        if (!(key in current)) return s;
+        const next = { ...current };
+        delete next[key];
+        const empty = Object.keys(next).length === 0;
+        return {
+          build: {
+            ...s.build,
+            statOverrides: empty ? undefined : next,
+          },
+        };
+      }
+      return {
+        build: {
+          ...s.build,
+          statOverrides: { ...current, [key]: value },
+        },
+      };
     }),
 
   setTotalLevels: (totalLevel) =>

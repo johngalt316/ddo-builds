@@ -888,5 +888,88 @@ export function runEngine(input: RunEngineInput): EngineResult {
     },
   };
 
+  // ── Apply manual stat overrides ────────────────────────────────────
+  // Walk `build.statOverrides` and replace the computed total of any
+  // breakdown the user has overridden. The original engine-computed
+  // total is preserved on `breakdown.override.engineTotal` so the UI
+  // can show both numbers.
+  applyStatOverrides(result, build.statOverrides ?? {});
+
   return result;
+}
+
+/** Resolve an override key like 'abilityScore.STR' / 'spellPower.Fire' /
+ *  'meleePower' against the engine result and return the BreakdownResult
+ *  it points at, or null if the key is unknown. */
+function resolveOverrideTarget(r: EngineResult, key: string): BreakdownResult | null {
+  // Composite keys: 'namespace.member' (e.g. 'spellPower.Fire',
+  // 'abilityScore.STR', 'spellDC.Evocation', 'skill.spot').
+  const dot = key.indexOf('.');
+  if (dot > 0) {
+    const ns = key.slice(0, dot);
+    const member = key.slice(dot + 1);
+    switch (ns) {
+      case 'abilityScore':           return r.abilityScores[member as 'STR'] ?? null;
+      case 'save':                   return r.saves[member as 'Fortitude'] ?? null;
+      case 'spellPower':             return r.spellPowers[member as keyof typeof r.spellPowers] ?? null;
+      case 'spellCriticalChance':    return r.spellCriticalChance[member as keyof typeof r.spellCriticalChance] ?? null;
+      case 'spellCriticalDamage':    return r.spellCriticalDamage[member as keyof typeof r.spellCriticalDamage] ?? null;
+      case 'spellDC':                return r.spellDCs[member as keyof typeof r.spellDCs] ?? null;
+      case 'skill':                  return r.skills[member] ?? null;
+    }
+    return null;
+  }
+  // Flat keys — one per top-level BreakdownResult on the engine result.
+  switch (key) {
+    case 'hitPoints':                     return r.hitPoints;
+    case 'spellPoints':                   return r.spellPoints;
+    case 'meleePower':                    return r.meleePower;
+    case 'rangedPower':                   return r.rangedPower;
+    case 'doublestrike':                  return r.doublestrike;
+    case 'doubleshot':                    return r.doubleshot;
+    case 'sneakAttackDice':               return r.sneakAttackDice;
+    case 'imbueDice':                     return r.imbueDice;
+    case 'offHandChance':                 return r.offHandChance;
+    case 'meleeSpeed':                    return r.meleeSpeed;
+    case 'rangedSpeed':                   return r.rangedSpeed;
+    case 'healingAmp':                    return r.healingAmp;
+    case 'negativeHealingAmp':            return r.negativeHealingAmp;
+    case 'repairAmp':                     return r.repairAmp;
+    case 'ac':                            return r.ac;
+    case 'dodge':                         return r.dodge;
+    case 'prr':                           return r.prr;
+    case 'mrr':                           return r.mrr;
+    case 'spellResistance':               return r.spellResistance;
+    case 'arcaneSpellFailure':            return r.arcaneSpellFailure;
+    case 'spellPenetration':              return r.spellPenetration;
+    case 'casterLevel':                   return r.casterLevel;
+    case 'spellCooldownReduction':        return r.spellCooldownReduction;
+    case 'universalSpellPower':           return r.universalSpellPower;
+    case 'universalSpellCriticalChance':  return r.universalSpellCriticalChance;
+    case 'universalSpellCriticalDamage':  return r.universalSpellCriticalDamage;
+    case 'shieldBashRate':                return r.shieldBashRate;
+    case 'weaponBaseDamage':              return r.weaponBaseDamage;
+    case 'weaponFlatDamage':              return r.weaponFlatDamage;
+    case 'weaponDamagePct':               return r.weaponDamagePct;
+    case 'weaponCritRange':               return r.weaponCritRange;
+    case 'weaponCritMult':                return r.weaponCritMult;
+    case 'weaponCritMult1920':            return r.weaponCritMult1920;
+    case 'seeker':                        return r.seeker;
+  }
+  return null;
+}
+
+/** Mutate the breakdowns that have an active override. Mutation (rather
+ *  than rebuilding) is deliberate — the result object holds 100+
+ *  BreakdownResult references that downstream code keeps; updating them
+ *  in place keeps every consumer in sync. */
+function applyStatOverrides(r: EngineResult, overrides: Readonly<Record<string, number>>): void {
+  for (const [key, value] of Object.entries(overrides)) {
+    if (typeof value !== 'number' || Number.isNaN(value)) continue;
+    const target = resolveOverrideTarget(r, key);
+    if (!target) continue;
+    if (target.total === value) continue;
+    target.override = { engineTotal: target.total };
+    target.total = value;
+  }
 }
